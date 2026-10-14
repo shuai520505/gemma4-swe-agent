@@ -13,7 +13,7 @@
    | 官方比赛数据 | `gemma-4-developer-agent`，含 tasks、snapshots、wheels、graphs、embeddings、HARNESS_README 和 sample_submission |
    | 官方依赖数据集 | `metric/gemma-4-developer-agent-wheelhouse` |
    | 指定模型 | `google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2` |
-   | 自己的 V0 包 | 将本仓库根目录 `submission.zip` 上传为自己的数据集，然后挂载 |
+   | 自己的 V0 包 | 将本仓库根目录 `submission.zip` 复制为 `submission.bundle`（字节不变），上传为自己的私有数据集，然后挂载。Kaggle 数据集会自动解包 `.zip`，因此 CLI 上传使用 `.bundle`；Notebook 同时支持这两个文件名 |
 
 4. 选择能加载 31B 的 GPU 环境，优先与官方 4×L4 配置一致；关闭 Internet。Notebook 从文件签名自动发现新/旧挂载布局和 ZIP 数据集名称，无需改 slug。遇到重复挂载时移除重复项，或设置 `INPUT_PATHS`。GPU 不可用或内存不足会直接报告，不切换模型。
 5. 保持 `RUN_MODE='single'`、`TASK_INSTANCE_ID=None`。逐个执行单元 1–6。默认选官方任务列表第一题；需要复现指定公开题时填其 instance_id。单元 2 会保存官方 README 和 sample YAML，执行前阅读它们，核对规则。所有 Agent 工具都来自官方注册表；V0 无 LoRA、子 Agent、图检索演示或自定义工具。

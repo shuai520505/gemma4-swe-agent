@@ -44,7 +44,7 @@ def discover_inputs(root, overrides=None):
         [p.parent for p in root.rglob('config.json')
          if MODEL_NAME in p.parts and any(p.parent.glob('*.safetensors'))], '31B model')
     archive = Path(overrides['zip']) if overrides.get('zip') else one_path(
-        [p for p in root.rglob('submission.zip')
+        [p for name in ('submission.zip', 'submission.bundle') for p in root.rglob(name)
          if not any(p.is_relative_to(excluded) for excluded in (data, wheels, model))], 'V0 submission.zip')
     for path in (data, wheels, model, archive):
         if not path.exists() or not path.resolve().is_relative_to(root.resolve()):
