@@ -1,37 +1,72 @@
-# Kaggle Notebook 集成
+# Kaggle 官方环境首次单题实测
 
-## 官方来源
+当前目标是保存一道**真实公开任务**的 Gemma 4 推理与 Phase 2 验证证据。当前仓库尚无此类真实结果；本地测试不提供修复分数。
 
-- [比赛](https://www.kaggle.com/competitions/gemma-4-developer-agent)
-- [规则](https://www.kaggle.com/competitions/gemma-4-developer-agent/rules)
-- [Getting Started](https://www.kaggle.com/code/ryanholbrook/getting-started-gemma-4-developer-agent)，本实现读取版本 3。
-- 官方依赖数据集：`metric/gemma-4-developer-agent-wheelhouse`。
-- 比赛数据：`/kaggle/input/competitions/gemma-4-developer-agent`；包含 `tasks.jsonl`、`snapshots`、`graphs`、`embeddings`、`wheels` 和 `sample_submission`。
-- 模型：`/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2`。
+## Kaggle 操作步骤
 
-Notebook 代码已按 Python 语法解析检查，但尚未在 Kaggle 执行。官方比赛数据需要账户权限、身份验证与规则接受；这些操作必须由参赛者本人完成。
+1. 在自己的 Kaggle 账号登录并加入[比赛](https://www.kaggle.com/competitions/gemma-4-developer-agent)，完成所需身份验证，阅读/接受[规则](https://www.kaggle.com/competitions/gemma-4-developer-agent/rules)。比赛下载 API 的 **401 是账号授权问题**。本 Notebook 不调用该 API，也不会寻找数据副本或绕过授权。
+2. 导入 PR #1 的 `notebooks/v0_official.ipynb`，或 fork [官方 Getting Started](https://www.kaggle.com/code/ryanholbrook/getting-started-gemma-4-developer-agent)。本 Notebook 接口核对版本为官方 v3，使用其官方 wheelhouse 安装方式和 Evaluator。
+3. 用 Kaggle **Add Input** 挂载四项输入：
 
-## 操作步骤
+   | 输入 | 选择 |
+   | --- | --- |
+   | 官方比赛数据 | `gemma-4-developer-agent`，含 tasks、snapshots、wheels、graphs、embeddings、HARNESS_README 和 sample_submission |
+   | 官方依赖数据集 | `metric/gemma-4-developer-agent-wheelhouse` |
+   | 指定模型 | `google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2` |
+   | 自己的 V0 包 | 将本仓库根目录 `submission.zip` 上传为自己的数据集，然后挂载 |
 
-1. 登录 Kaggle，阅读并接受完整比赛规则，检查账号身份验证和 GPU 配额。下载/阅读 `HARNESS_README.md` 和完整 `sample_submission`，核对目前的工具与 YAML 合约。当前云环境未能下载这两项；不要把本文视为规则已审核的证明。
-2. 在本仓库运行 `scripts/setup.sh` 与 `scripts/build_zip.sh`。将生成的 `submission.zip` 上传为自己的 Notebook 数据集，例：`v0-coding-agent`。
-3. 将 `notebooks/v0_official.ipynb` 导入 Kaggle，或 fork 官方 Getting Started Notebook 并按此集成版本修改。附加比赛数据、官方 wheelhouse 和指定 31B 模型。将 ZIP_PATH 调整为自己数据集的实际路径。
-4. 使用适合 31B 模型的 GPU 环境；官方 Notebook 自动按可见 GPU 数量选 tensor parallel 1/2/4。GPU 内存不足是运行阻塞，不能偷偷改成另一模型。Internet 关闭；依赖由官方 wheelhouse 离线安装。不要使用本仓库 CPU 开发环境的 Transformers 版本启动 Gemma 4。
-5. 按顺序运行：环境初始化→解压自己的 V0 包→读取官方 README/sample→图数据检查→启动 vLLM→官方编译器验证→一个公开任务的 Phase 1 推理和 Phase 2 验证→官方打包检查。
-6. 确认声明模型恰好是 31B、`adapter_map` 为空、没有子 Agent。vLLM 必须使用 `tool_call_parser='gemma4'`、`reasoning_parser='gemma4'`、`enable_auto_tool_choice=True`。模型注册由 `server_instance.create_model_registry` 完成；不调用远程模型。
-7. 检查真实结果中的 `resolved`、`test_exit_code`、`tool_calls`、`duration_seconds`、`patch_chars`，并查看 Harness 轨迹，确认按流程执行和调用了 `submit_patch()`。保存 `/kaggle/working/v0_public_results.json`、Harness results 和 vLLM 日志。仅有非空 patch 或成功启动不足以证明任务通过。
-8. 从 Notebook 输出下载新生成的 `submission.zip`。只有规则合规、真实评测完成后才提交比赛。公开任务结果并非排行榜分数。不要提交 Notebook 中用于观察 patch 的 CSV 代替 ZIP。
+4. 选择能加载 31B 的 GPU 环境，优先与官方 4×L4 配置一致；关闭 Internet。Notebook 从文件签名自动发现新/旧挂载布局和 ZIP 数据集名称，无需改 slug。遇到重复挂载时移除重复项，或设置 `INPUT_PATHS`。GPU 不可用或内存不足会直接报告，不切换模型。
+5. 保持 `RUN_MODE='single'`、`TASK_INSTANCE_ID=None`。逐个执行单元 1–6。默认选官方任务列表第一题；需要复现指定公开题时填其 instance_id。单元 2 会保存官方 README 和 sample YAML，执行前阅读它们，核对规则。所有 Agent 工具都来自官方注册表；V0 无 LoRA、子 Agent、图检索演示或自定义工具。
+6. 等待本地 vLLM 启动和编译，随后运行真实 `Evaluator.evaluate_task`。它依次执行 Gemma Phase 1 与官方 Phase 2。运行期间查看 Notebook 输出、`live_status.json` 和官方 `harness/logs`。不把服务成功启动或编译通过当作任务修复成功。
+7. 完成或失败后，从 Notebook **Output** 下载 `/kaggle/working/v0_runs/<run-id>.zip`。同时保留 Kaggle 的完整执行日志。核对下面的证据。如果中断在模型启动/安装阶段，下载该阶段产生的 Diagnostics ZIP。若直接关闭整个内核，已落盘文件仍可检查，但无法保证最终 ZIP 创建。
+8. 首次目标仅在有真实模型调用、成功的显式 `submit_patch()`、非空 Patch 和 Phase 2 实际测试输出时记为 `first_task_goal_completed=true`。修复是否成功仍以官方 `resolved` 和验证输出判断；两阶段执行完成可以是 `resolved=false`。不要将其转换为排行榜成绩。
 
-## 最小工具与流程
+无需将 GitHub 仓库或开发脚本作为额外 Kaggle 输入；辅助控制代码已嵌入 Notebook。更改辅助函数后，开发者运行 `python scripts/build_kaggle_notebook.py` 生成 Notebook。
 
-工具名直接来自官方 `swegemma.tools.create_tools`：`get_status`、`run_command`、`read_file`、`edit_file`、`write_file`、`submit_patch`。未使用可选图检索工具。
+## 证据文件与异常诊断
 
-`run_command(command=...)` 支持定位、测试和 Git Diff；`edit_file(filepath, old_string, new_string, allow_multiple=False)` 定点替换。最终 `submit_patch()` 无参数，捕获工作树相对 baseline 的 diff。测试失败不能伪报成功。Harness 会过滤受保护测试文件，应修复实现而非改动受保护测试。
+每次执行建立新的 UTC run-id 目录，不覆盖上次证据。
 
-`eval_config.yaml` 使用官方 Notebook 的默认 300 秒命令/验证超时、100 次工具调用、60 分钟任务预算。正式限制仍由比赛 Harness 控制，不能用本地配置绕过。
+| 文件 | 内容/用途 |
+| --- | --- |
+| `manifest.json`、`packages.json` | 实际挂载路径、ZIP SHA-256、预算、官方依赖版本、指定模型 |
+| `gpu.txt`、`vllm_config.json`、`served_models.json` | GPU、实际服务配置与本地 `/v1/models` 返回；不包含 API key |
+| `installation.log`、`vllm.log`、`harness.log` | 离线安装、模型加载和 Harness 异常 |
+| `harness/logs/<instance-id>.log` | Harness 原生边运行边落盘的 ADK 输出与工具记录 |
+| `tasks/001/live_status.json` | 周期保存阶段、模型调用次数、工具调用次数和提交状态 |
+| `tasks/001/agent.patch`、`last_submitted.patch` | 最终 Patch；被取消时保留当时已经提交的 Patch |
+| `tasks/001/trace.json`、`trace_legacy.json` | 官方 SessionTrace 的 ATIF 与原始事件格式 |
+| `tasks/001/model_events.jsonl`、`tool_events.jsonl` | 从原生 Trace 提取的模型输出/usage/提示词事件，及工具参数/返回值 |
+| `tasks/001/phase2.log`、`result.json` | 验证 stdout/stderr、退出码、resolved、错误、显式提交证据 |
+| `exception.json`、`run_status.json`、`budget_stop.json` | 阶段、异常与堆栈、完成状态、预算停止后未运行的题目 |
 
-## 开发依赖与正式依赖的区别
+`model_events.jsonl` 保存的是官方 ADK Trace 事件，不是原始 HTTP 逐次请求抓包；`total_llm_calls` 直接取 Harness 计数。日志不导出环境变量或凭据，不打印/传入 gold patch。vLLM 临时日志在停止服务前复制；启动失败时保存官方异常附带的 captured output。
 
-`scripts/setup.sh` 从官方数据集下载五个已核对 SHA-256 的 wheel，并安装可通过 `pip check` 的 CPU 开发依赖。SHA-256 是此次官方 HTTPS 下载的固定摘要，不是声称官方发布了签名清单。上游内容变化时脚本会拒绝安装，需要重新审核来源。
+先检查 `exception.json.stage`：
 
-开发环境的 CPU Torch 和 Transformers 4.57.6 用于接口测试与依赖一致性，不支持在这里验证 Gemma 4 推理。Kaggle 集成 Notebook 保留官方离线 wheelhouse 安装流程，使用其 Transformers 5.13.1 及 GPU 运行依赖。不要混用两套环境。
+- `inputs`：挂载缺失/重复、比赛权限、错误模型或 ZIP 内容。通过账号授权与 Add Input 解决。
+- `gpu_or_installation`：GPU、离线 wheel 或二进制依赖错误。检查 `gpu.txt` 与 `installation.log`，不要安装非官方替代工具。
+- `harness_preflight`：官方 API 版本、任务快照、YAML/工具不匹配。官方包升级时停止并重新核对，不猜测接口。
+- `vllm_startup_or_compile`：检查 `vllm_startup_failure.log`/`vllm.log`，常见原因是 OOM、CUDA、模型路径或解析器。仍使用指定 31B。
+- `evaluation`：进一步查看任务目录异常、原生日志和 Phase 2 输出。空测试规格、快照/依赖安装失败、模型/工具错误、超时与修复失败要分别记录。没有 Phase 2 输出不能按退出码默认值判定通过。
+
+## 预算与 12 小时批量配置
+
+官方 `max_time_minutes=60` 是 **Phase 1 Agent 会话预算**；安装、模型启动、快照/环境准备和 Phase 2 都还有开销。直接按 12×60 分钟安排 12 题不成立。`verification_timeout_seconds=300` 只限制 Phase 2 的测试命令，不限制全部准备过程。
+
+| 模式 | Phase 1/题 | 工具次数 | 单命令 | Phase 2 测试 | 外层墙钟/题 | 最多题数 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 首次单题 `single` | 60 分钟 | 100 | 300 秒 | 300 秒 | 75 分钟 | 1 |
+| 后续批量 `batch` | 8 分钟 | 60 | 120 秒 | 300 秒 | 12 分钟 | 50，串行 |
+
+先完成单题，再选择 batch。50×12+安装/模型启动预留45+打包退出预留15=660分钟，规划为 **11小时**，低于12小时。安装实际时间可能超过预留；因此 Notebook 从安装前计时，到705分钟软截止不再接纳一个放不下的完整任务，记录未执行任务并留15分钟退出。
+
+外层超时包含任务环境准备、Phase 1 和 Phase 2；超时则保存异常、原生日志及已提交 Patch，取消当前评测。同步子进程/线程可能延迟响应取消，这不是硬实时保证；必要时在 Kaggle 停止运行，平台的12小时限制仍是最终硬上限。不能声称一定完成50题。每题结束立即保存，第一次缺失核心证据时停止批量扩大并先诊断。
+
+该 profile 仅用于公开本地实测，不修改上传 ZIP 的60分钟默认配置，也不改变官方评分预算。
+
+## 已验证与尚未验证
+
+本地：官方沙箱编译、工具集成、路径发现、证据保存、取消诊断、预算控制与 Notebook 可执行语法检查。Fixture/模拟返回值测试仅验证控制逻辑，不算真实任务结果。
+
+尚未执行：Kaggle GPU 上的31B加载、Gemma模型调用、至少一道真实公开任务与Phase 2。当前 Codex 机器无 Kaggle 授权凭据、无 GPU/权重；需要参赛者在其授权账号运行本 Notebook 并保存上述证据。当前没有任何修复分数。
