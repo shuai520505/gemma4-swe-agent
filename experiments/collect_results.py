@@ -23,6 +23,20 @@ def collect(directory):
         raise ValueError('Actual plan differs from preregistration')
     records = json.loads((run / 'comparison_records.json').read_text())
     summary = summarize(records, registered['schedule'])
+    treatments = []
+    for row in records:
+        trace = run / 'runs' / Path(row['run_directory']).name / 'trace_legacy.json'
+        check = dict(order=row['order'], arm=row['arm'], trace_present=trace.exists(),
+                     prompt_matches=None, observed_models=[])
+        if trace.exists():
+            entries = json.loads(trace.read_text(encoding='utf-8'))['entries']
+            expected_prompt = (ROOT / 'candidates' / row['arm'] / 'submission/prompts/system.md').read_text(encoding='utf-8')
+            prompts = [e.get('content', '') for e in entries if e['type'] == 'system_instruction']
+            check['prompt_matches'] = expected_prompt in prompts
+            check['observed_models'] = sorted({e['model'] for e in entries if e.get('model')})
+            check['required_model_only'] = bool(check['observed_models']) and all(
+                'gemma-4-31b-it-qat-w4a16-ct' in m and m.endswith('/2') for m in check['observed_models'])
+        treatments.append(check)
     archive = run.with_suffix('.zip')
     with zipfile.ZipFile(archive) as z:
         if z.testzip() is not None:
@@ -41,6 +55,9 @@ def collect(directory):
         evidence_zip_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),
         plan_sha256=hashlib.sha256((run / 'registered_plan.json').read_bytes()).hexdigest(),
         original_v0_files_unchanged=verify_frozen(), competition_score=None)
+    report['treatment_checks'] = treatments
+    report['treatment_integrity_confirmed'] = bool(treatments) and all(
+        c.get('prompt_matches') is True and c.get('required_model_only') is True for c in treatments)
     target = ROOT / 'experiments/results/pilot-01'
     write_new(target / 'raw_comparison_records.json', (run / 'comparison_records.json').read_bytes())
     write_new(target / 'result_audit.json', (json.dumps(report, indent=2) + '\n').encode())
