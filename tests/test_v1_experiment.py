@@ -54,8 +54,12 @@ class ComparisonTests(unittest.TestCase):
             self.assertEqual(p.read_bytes(), b'one')
 
     def test_payload_contains_only_two_agents_and_plan(self):
-        source = ROOT / 'artifacts/v1-pilot/input/submission.bundle'
         with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / 'submission.bundle'
+            files = {f'{a}/{n}': (ROOT / 'candidates' / a / 'submission' / n).read_bytes()
+                     for a in ('v0', 'v1') for n in ('agent.yaml', 'eval_config.yaml', 'prompts/system.md')}
+            files['experiment.json'] = (ROOT / 'experiments/preregistered.json').read_bytes()
+            source.write_bytes(archive_bytes(files))
             plan = unpack_experiment(source, Path(tmp) / 'arms')
             self.assertEqual(len(plan['schedule']), 8)
             self.assertNotIn('fastapi_15661', [r['instance_id'] for r in plan['schedule']])
@@ -73,7 +77,16 @@ class ComparisonTests(unittest.TestCase):
     def test_generated_notebook_is_synced_and_v0_is_intact(self):
         expected = json.loads((ROOT / 'experiments/v1_pilot.ipynb').read_text())
         self.assertEqual(expected, build())
-        self.assertGreater(verify_frozen(), 30)
+        with zipfile.ZipFile(ROOT / 'candidates/v0/submission.zip') as z:
+            for name in z.namelist():
+                self.assertEqual(z.read(name).decode().replace('\r\n', '\n'),
+                    (ROOT / 'candidates/v0/submission' / name).read_text())
+
+    def test_original_local_evidence_is_immutable_when_present(self):
+        manifest = json.loads((ROOT / 'experiments/v0_frozen.json').read_text())
+        if not all((ROOT / n).exists() for n in manifest['files']):
+            self.skipTest('Private V0 evidence is not present on this machine')
+        self.assertEqual(verify_frozen(), len(manifest['files']))
 
 
 if __name__ == '__main__':
