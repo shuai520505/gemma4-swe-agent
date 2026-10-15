@@ -1,6 +1,6 @@
 # Kaggle 官方环境首次单题实测
 
-当前目标是保存一道**真实公开任务**的 Gemma 4 推理与 Phase 2 验证证据。当前仓库尚无此类真实结果；本地测试不提供修复分数。
+已保存一道**真实公开任务**的 Gemma 4 推理、Patch 与 Phase 2 验证调用证据，见[实际结果](REAL_RUN_RESULT.md)。本次 `resolved=false`，验证在收集测试时失败；本地开发测试不提供修复分数。
 
 ## Kaggle 操作步骤
 
@@ -19,7 +19,7 @@
 5. 保持 `RUN_MODE='single'`、`TASK_INSTANCE_ID=None`。逐个执行单元 1–6。默认选官方任务列表第一题；需要复现指定公开题时填其 instance_id。单元 2 会保存官方 README 和 sample YAML，执行前阅读它们，核对规则。所有 Agent 工具都来自官方注册表；V0 无 LoRA、子 Agent、图检索演示或自定义工具。
 6. 等待本地 vLLM 启动和编译，随后运行真实 `Evaluator.evaluate_task`。它依次执行 Gemma Phase 1 与官方 Phase 2。运行期间查看 Notebook 输出、`live_status.json` 和官方 `harness/logs`。不把服务成功启动或编译通过当作任务修复成功。
 7. 完成或失败后，从 Notebook **Output** 下载 `/kaggle/working/v0_runs/<run-id>.zip`。同时保留 Kaggle 的完整执行日志。核对下面的证据。如果中断在模型启动/安装阶段，下载该阶段产生的 Diagnostics ZIP。若直接关闭整个内核，已落盘文件仍可检查，但无法保证最终 ZIP 创建。
-8. 首次目标仅在有真实模型调用、成功的显式 `submit_patch()`、非空 Patch 和 Phase 2 实际测试输出时记为 `first_task_goal_completed=true`。修复是否成功仍以官方 `resolved` 和验证输出判断；两阶段执行完成可以是 `resolved=false`。不要将其转换为排行榜成绩。
+8. 首次目标仅在有真实模型调用、成功的显式 `submit_patch()`、非空 Patch 和 Phase 2 验证命令输出时记为 `first_task_goal_completed=true`。该标记及原始 `phase2_tests_ran` 字段仅代表验证调用证据；pytest 收集失败也会产生输出，必须进一步核对测试正文是否执行。修复是否成功仍以官方 `resolved` 和验证输出判断；两阶段调用完成可以是 `resolved=false`。不要将其转换为排行榜成绩。
 
 无需将 GitHub 仓库或开发脚本作为额外 Kaggle 输入；辅助控制代码已嵌入 Notebook。更改辅助函数后，开发者运行 `python scripts/build_kaggle_notebook.py` 生成 Notebook。
 
@@ -69,4 +69,4 @@
 
 本地：官方沙箱编译、工具集成、路径发现、证据保存、取消诊断、预算控制与 Notebook 可执行语法检查。Fixture/模拟返回值测试仅验证控制逻辑，不算真实任务结果。
 
-尚未执行：Kaggle GPU 上的31B加载、Gemma模型调用、至少一道真实公开任务与Phase 2。当前 Codex 机器无 Kaggle 授权凭据、无 GPU/权重；需要参赛者在其授权账号运行本 Notebook 并保存上述证据。当前没有任何修复分数。
+已实际执行：Kaggle 4×L4 上的指定31B加载、26次Gemma调用、一道真实公开任务的显式提交与Phase 2验证调用。原始日志和Patch已下载；本次验证在测试收集阶段失败，`resolved=false`，没有测试通过或排行榜分数。完整证据路径与哈希见[真实结果记录](REAL_RUN_RESULT.md)。

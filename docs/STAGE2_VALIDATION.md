@@ -1,5 +1,17 @@
 # 第二阶段实际执行记录
 
+## 本机授权 Kaggle 实测结果（2026-10-15，北京时间）
+
+此前的授权与 GPU 阻塞已经解除。使用本机 Kaggle CLI 2.2.2，在私有 Notebook 第2版中完成了指定 `gemma-4-31b-it-qat-w4a16-ct` v2 的真实公开任务 `fastapi_15661`：26次模型调用、24次工具调用、成功显式 `submit_patch`、4108字符 Patch、官方 Phase 2 验证调用。
+
+官方结果为 **`resolved=false`、`test_exit_code=2`**。pytest 因 `ModuleNotFoundError: scripts.prepare_release` 在测试收集阶段中断，测试正文未执行，不能称为测试通过。原始控制器的 `first_task_goal_completed=true` 表示完成推理/提交/验证调用证据收集；`phase2_tests_ran=true` 仅检测到验证命令输出，不代表测试正文已运行。审计文件明确补充了这一区别，不修改原始结果。
+
+完整日志、Trace、原始 Patch 和 ZIP 已保存于本地 `artifacts/kaggle-single/output-v2`；PR 保留结果审计与 SHA-256 清单。详见 [真实结果记录](REAL_RUN_RESULT.md) 和 [结果审计](validation/local-kaggle/result-audit.json)。没有提交排行榜成绩，没有使用 Codex 代替 Gemma 生成该 Patch。
+
+以下保留此前云端开发与接口验证的历史记录；其中“未执行”及“阻塞”描述均为当时状态。
+
+## 此前云端开发记录
+
 日期：2026-10-14。目标：一道真实公开任务的指定 Gemma 4 推理与 Phase 2。
 
 ## 检出与接口复核

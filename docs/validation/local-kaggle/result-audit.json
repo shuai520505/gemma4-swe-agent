@@ -1,0 +1,129 @@
+{
+  "run_id": "20261014T161032_870715Z",
+  "kernel": "wudangdexiaodoashi/gemma4-v0-single-public",
+  "kernel_version": 2,
+  "kernel_status": "COMPLETE",
+  "model": "gemma-4-31b-it-qat-w4a16-ct",
+  "model_version": 2,
+  "gpu_count": 4,
+  "gpu_model": "NVIDIA L4",
+  "task": {
+    "instance_id": "fastapi_15661",
+    "repo": "fastapi/fastapi",
+    "base_commit": "ee22a4b8ca46dcce26c8c183afc4992a888d8be2",
+    "public_test_spec_present": true
+  },
+  "official_result": {
+    "instance_id": "fastapi_15661",
+    "repo": "fastapi/fastapi",
+    "resolved": false,
+    "error": null,
+    "test_exit_code": 2,
+    "phase2_tests_ran": true,
+    "total_llm_calls": 26,
+    "tool_calls": 24,
+    "duration_seconds": 434.587440412,
+    "patch_chars": 4108,
+    "explicit_submit_patch_success": true,
+    "model_events_present": true,
+    "first_task_goal_completed": true,
+    "competition_score": null
+  },
+  "phase2_audit": {
+    "verification_command_invoked": true,
+    "pytest_collection_failed": true,
+    "test_bodies_executed": false,
+    "tests_passed": false,
+    "failure_type": "ModuleNotFoundError",
+    "missing_module": "scripts.prepare_release",
+    "note": "Raw phase2_tests_ran=true records the verifier command invocation; pytest aborted during collection, so it does not prove any test body ran."
+  },
+  "patch_equals_explicit_submission": true,
+  "evidence_zip": "artifacts/kaggle-single/output-v2/v0_runs/20261014T161032_870715Z.zip",
+  "evidence_zip_sha256": "b3b6c333eb3a628444798da424923ae3db35ffeaf2c4349a28a75063ec148ba4",
+  "artifact_index": {
+    "tasks/001/agent.patch": {
+      "bytes": 4113,
+      "sha256": "ead024df0c4cf45ecbbf95d625fd7df4b54bcc0204d9d24fc30fc8f490e8cffd"
+    },
+    "tasks/001/last_submitted.patch": {
+      "bytes": 4113,
+      "sha256": "ead024df0c4cf45ecbbf95d625fd7df4b54bcc0204d9d24fc30fc8f490e8cffd"
+    },
+    "tasks/001/phase2.log": {
+      "bytes": 1051,
+      "sha256": "b92cef172b508c58414373bff7413a4652e661c3287866786614896219b6816c"
+    },
+    "tasks/001/result.json": {
+      "bytes": 399,
+      "sha256": "2e6eff20e97912525723f81d00ef51cd3e0c87d2d633a04037a306b838465f77"
+    },
+    "tasks/001/trace.json": {
+      "bytes": 142019,
+      "sha256": "68fa181a359c4e4df308646c5906f71d4be87c33fe7d4ce6d8b9132e22896a78"
+    },
+    "tasks/001/trace_legacy.json": {
+      "bytes": 133393,
+      "sha256": "2c0f5b79e79a2cf3b8636ebe31883efc4aa5f4e653d8444d513e9d58ef620583"
+    },
+    "tasks/001/model_events.jsonl": {
+      "bytes": 48799,
+      "sha256": "4065d1e7701c2a75355c3c62e299bafd8956c2e75db44f3b2d2cd68c9ef9bf38"
+    },
+    "tasks/001/tool_events.jsonl": {
+      "bytes": 78648,
+      "sha256": "875a94e90448b5713e34d06419bc2b18429790d188b81c0b3cbb72949e1c9003"
+    },
+    "gpu.txt": {
+      "bytes": 96,
+      "sha256": "3d92056b8484fc67336310f2d5c7d37d583fcaee09cc48b31bab292fdc05f679"
+    },
+    "packages.json": {
+      "bytes": 237,
+      "sha256": "01eeca547bc200f6f2f2a301e69be7194c4d9a9ea2ec23e938f2c7eb2e18b25a"
+    },
+    "manifest.json": {
+      "bytes": 826,
+      "sha256": "de22eb5208eaf1dc0edfea75a8d89cb56d692a6dd6b0a6ac3902c38f91bee5c0"
+    },
+    "served_models.json": {
+      "bytes": 833,
+      "sha256": "61128f4914e0b5c0da1667c0d0989ad780a92e472832d049c45858eb85bb0fc8"
+    },
+    "vllm.log": {
+      "bytes": 45803,
+      "sha256": "23105bd50c958200a589df2216de89c68466e512f0cf6a7327fed55377921495"
+    },
+    "installation.log": {
+      "bytes": 7207,
+      "sha256": "203ace5a98e6c5fe1ab30526c87a7cb423d9f1bd4b58fee4ee189d3bfcc7a411"
+    },
+    "harness/logs/fastapi_15661.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "run_status.json": {
+      "bytes": 130,
+      "sha256": "05c2859b0ad018011f3ef42db199fdf54a073f5282ab809b4af63c2a2b7ac0fc"
+    }
+  },
+  "original_directory_zip_sha256": "50cc615dd5c457a4233ee6e01bd752e6999490f835d6484b84eacf388c5a43b9",
+  "submission_sha256": "c9b22eececf11aa65089f1f35ddc629c2ea5824d7d7fc7dfa6a9fcfc006b1c1a",
+  "competition_submission_made": false,
+  "competition_score": null,
+  "trace_event_counts": {
+    "system_instruction": 1,
+    "task_prompt": 1,
+    "thinking": 26,
+    "tool_call": 25,
+    "tool_response": 25,
+    "final": 1
+  },
+  "trace_tool_call_counts": {
+    "run_command": 11,
+    "read_file": 12,
+    "write_file": 1,
+    "submit_patch": 1
+  },
+  "tool_count_note": "Official result reports 24 budgeted tool calls. Native Trace contains 25 tool_call events, including one submit_patch, which HARNESS_README documents as free (count_tool_call=False). Both values are retained."
+}
