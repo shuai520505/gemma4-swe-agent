@@ -1,0 +1,148 @@
+{
+  "run_id": "20261015T023210_856117Z",
+  "status": {
+    "completed": false,
+    "execution_failure": "Outer timeout; remaining runs withheld to prevent cross-run interference",
+    "observed_runs": 3,
+    "planned_runs": 8,
+    "unrun": [
+      {
+        "index": 4,
+        "arm": "v0",
+        "instance_id": "rich_4006",
+        "category": "Unicode termination/algorithm",
+        "repo": "Textualize/rich",
+        "base_commit": "27701029082052c6541031b6f139097230253900",
+        "problem_sha256": "28fae6196b2c67989d1ad751a3376902c8f4cc40de5731bf588a9cd21ad42357"
+      },
+      {
+        "index": 5,
+        "arm": "v0",
+        "instance_id": "fastapi_15589",
+        "category": "request validation",
+        "repo": "fastapi/fastapi",
+        "base_commit": "22b02e26f9e8c7e32bd8266e2b0ebe8bb3a0db2b",
+        "problem_sha256": "229336ed7ae9e210946df9c37beec9e46e35dd0d890541ee5693a40290f7ac2a"
+      },
+      {
+        "index": 6,
+        "arm": "v1",
+        "instance_id": "fastapi_15589",
+        "category": "request validation",
+        "repo": "fastapi/fastapi",
+        "base_commit": "22b02e26f9e8c7e32bd8266e2b0ebe8bb3a0db2b",
+        "problem_sha256": "229336ed7ae9e210946df9c37beec9e46e35dd0d890541ee5693a40290f7ac2a"
+      },
+      {
+        "index": 7,
+        "arm": "v1",
+        "instance_id": "requests_7315",
+        "category": "URL normalization",
+        "repo": "psf/requests",
+        "base_commit": "6360477c52303c9445b45fa8744b02d05a2f0905",
+        "problem_sha256": "468a069409bce40c07c19a1ab9a781955c3e68bb47274265ae73975ecb95ad67"
+      },
+      {
+        "index": 8,
+        "arm": "v0",
+        "instance_id": "requests_7315",
+        "category": "URL normalization",
+        "repo": "psf/requests",
+        "base_commit": "6360477c52303c9445b45fa8744b02d05a2f0905",
+        "problem_sha256": "468a069409bce40c07c19a1ab9a781955c3e68bb47274265ae73975ecb95ad67"
+      }
+    ],
+    "competition_score": null
+  },
+  "summary": {
+    "planned_runs": 8,
+    "observed_runs": 3,
+    "complete": false,
+    "competition_score": null,
+    "arms": {
+      "v0": {
+        "planned": 4,
+        "observed": 1,
+        "resolved": 0,
+        "resolution_rate": null,
+        "patch_validity_rate": null,
+        "collection_failure_rate_all_planned": null,
+        "collection_failure_rate_invoked": null,
+        "phase2_invoked": 0,
+        "timeouts": 0,
+        "errors": 0,
+        "mean_llm_calls": 38,
+        "mean_tool_calls": 38,
+        "mean_duration_seconds": 351.48071474000005,
+        "mean_observed_total_tokens": 341512,
+        "token_observed_runs": 1,
+        "official_error_runs": 1
+      },
+      "v1": {
+        "planned": 4,
+        "observed": 2,
+        "resolved": 0,
+        "resolution_rate": null,
+        "patch_validity_rate": null,
+        "collection_failure_rate_all_planned": null,
+        "collection_failure_rate_invoked": 0.0,
+        "phase2_invoked": 1,
+        "timeouts": 1,
+        "errors": 1,
+        "mean_llm_calls": 36.5,
+        "mean_tool_calls": 34.5,
+        "mean_duration_seconds": 560.8984408079999,
+        "mean_observed_total_tokens": 517411,
+        "token_observed_runs": 1,
+        "official_error_runs": 0
+      }
+    },
+    "paired": {
+      "n": 1,
+      "v1_only_resolved": 0,
+      "v0_only_resolved": 0
+    }
+  },
+  "kernel": "wudangdexiaodoashi/gemma4-v1-paired-pilot",
+  "kernel_version": 1,
+  "local_original_evidence_directory": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-swe-agent\\artifacts\\v1-pilot\\output-v1\\v1_pilot\\20261015T023210_856117Z",
+  "evidence_zip_sha256": "2955f7b744063de219101b9070219a16909e0f6a102be1a723524cdf6bcb0b48",
+  "plan_sha256": "6aa2a1db589ff2c822f7bf11b15047092d6b8ecdf8dd22b0f6bff60ff3316e71",
+  "original_v0_files_unchanged": 39,
+  "competition_score": null,
+  "treatment_checks": [
+    {
+      "order": 1,
+      "arm": "v0",
+      "trace_present": true,
+      "prompt_matches": true,
+      "observed_models": [
+        "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2"
+      ],
+      "required_model_only": true
+    },
+    {
+      "order": 2,
+      "arm": "v1",
+      "trace_present": true,
+      "prompt_matches": true,
+      "observed_models": [
+        "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2"
+      ],
+      "required_model_only": true
+    },
+    {
+      "order": 3,
+      "arm": "v1",
+      "trace_present": false,
+      "prompt_matches": null,
+      "observed_models": []
+    }
+  ],
+  "prompt_normalization": "Universal newlines and outer whitespace only; raw input hashes are checked separately",
+  "treatment_integrity_confirmed": false,
+  "completed_trace_treatment_checks_passed": true,
+  "missing_trace_orders": [
+    3
+  ]
+}

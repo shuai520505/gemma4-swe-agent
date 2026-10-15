@@ -21,3 +21,7 @@ PYTHON_BIN=/workspace/venvs/gemma4/bin/python bash scripts/build_zip.sh
 CPU 云环境仅用于开发、打包和接口验证。正式推理使用 Kaggle 官方 wheelhouse、模型权重和 Evaluator；不使用 Codex 替代 Gemma。
 
 Kaggle 单题实测：导入 Notebook，挂载官方比赛数据、官方 wheelhouse、指定31B模型和 submission.bundle（submission.zip 的原样副本，避免数据集自动解包）。默认自动发现路径并跑一题，输出完整证据ZIP；详细操作与12小时批量预算见集成说明。
+
+已完成首轮逐事件[失败审计](FAILURE_ANALYSIS.md)，并保留不可修改的V0，新增[通用V1候选与设计](V1_DESIGN.md)及[候选ZIP](candidates/v1/submission.zip)。V1只修改提示词，模型、六工具和单Agent保持一致。
+
+2026-10-15已在Kaggle实际执行[预注册配对pilot](experiments/PLAN.md)：计划8次，记录3次后因外层超时停止，剩余5次未执行。唯一完整配对的V0/V1均未解决；V1进入Phase2，98 passed / 1 failed。完整成功率尚不可计算，暂不替换V0；[真实结果](experiments/RESULTS.md)与[本轮审计](experiments/PILOT_01_AUDIT.md)说明上下文溢出、环境接口遗漏及超时证据缺口。所有V0原始文件保持不变。
