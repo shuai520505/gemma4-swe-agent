@@ -1,6 +1,6 @@
 # Harness V2：预算准入、进程隔离与持久证据
 
-基线提交 `6b8a0ba`；初始Harness版本 `2.0.0`、开发实验ID `harness-v2-infra-dev-01`；GPU发现共享依赖污染后新增 `2.0.1` / `harness-v2-infra-dev-02`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
+基线提交 `6b8a0ba`；初始Harness版本 `2.0.0` / `harness-v2-infra-dev-01`，随后为 `2.0.1` / `harness-v2-infra-dev-02`；进一步确认观测子类改变官方setup分支后新增 `2.0.2` / `harness-v2-infra-dev-03`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
 
 本阶段只修改本地实验基础设施。`harness_v2/` 不进入 Agent submission；仍使用指定官方 Gemma 4 31B v2、六个工具、单Agent。没有 Prompt 优化、LoRA 或多Agent。
 
@@ -58,6 +58,8 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 
 2.0.0的真实GPU开发运行显示，进程/目录清理不能证明宿主Python依赖未变：ensurepip失败的官方venv回退路径可能把裸pip命令解析到宿主入口。2.0.1在每个官方沙箱创建后、安装前核验sys.prefix并写入只位于该venv/bin内的pip及pytest启动脚本，统一通过沙箱Python的`-m`调用，记录sandbox_python_admission。没有修改工具或官方wheel；共享只读包仍可继承，不能宣称操作系统级隔离。安全回归在可丢弃父venv内验证版本替换与下一沙箱导入，细节和证据边界见 `harness_v2/RESULTS.md`。
 
+2.0.1的第二次GPU进一步确认，官方0.2.11通过type(manager).__name__区分subprocess和Docker。原观测子类名称DurableManager误入了Docker editable安装和依赖安装分支，导致额外setup命令及准备截止。2.0.2使用继承原生管理器的SubprocessManager类，并保留DurableManager导入别名，恢复官方字面类名约定。真实官方API回归要求两个setup函数保持原生直接返回，且管理器仍为原生类型的实例；不改官方wheel或针对某仓库跳过流程。这同时恢复验证器的原生JUnit报告检查分支。该兼容点依赖已锁定的官方版本，升级前必须重跑API回归。
+
 持久化位置如下：
 
 - `events.jsonl`：阶段、活动、命令哈希/类型/退出码、预算准入和计数，逐条flush+fsync；同阶段的进度更新不重置截止。
@@ -87,6 +89,8 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 
 只在预定数据齐全且没有unknown/not_run时提供完整成功率。观测均值必须给出样本数与截断情况，不把缺失计数记成0；开发smoke不输出版本优劣或修复率结论。新正式实验见 `harness_v2/FORMAL_EXPERIMENT_DRAFT.md`，通过基础设施门禁后另行注册。
 
+2.0.2额外明确patch_checkpoint_bytes，0字节不等于有效修改；agent_boundary_trace与最终native_trace分别标记。硬截止前已有完整Agent边界Trace时，不因最终TaskResult尚未生成而误报全部Trace丢失。上下文计数/越界异常归入context_admission阶段，仍保留先前错误之后实际完成的测试判定优先级。
+
 ## 验证门禁和当前状态
 
 26项本地CPU回归已通过，覆盖输入15360/15361、核心Issue保留、计数服务失效、压缩输出默认值、Agent/Verifier/外层超时、已有Patch无最终结果、父进程提前退出、清理延迟、配对拆批、完整比较分母和原始哈希不变。脚本化结果明确标注CPU fixture，不是Gemma修复。
@@ -96,3 +100,5 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 官方CPU r07 / Notebook v4已经31项全通过、0跳过；r06暴露的编译器复制客户端问题已通过保留单任务内guard/journal绑定解决，并经真实编译器回归确认。GPU开发smoke按新注册配置执行，正式GPU对照仍禁止。最终真实状态以 `harness_v2/VALIDATION.md` 为准；必须具备官方CPU通过日志、最小GPU基础设施结果和冻结候选核验，才可讨论正式实验。
 
 r07真实GPU探针及第一题Phase 2完成，第二题在导入阶段失败，整批门禁未通过。2.0.1重新走CPU→GPU流程；禁止以旧CPU通过记录为已改动的核心运行时放行。后续生成器也补齐官方INSTALL/SERVER失败分支所需的ZIP别名，并经注入异常的本机测试验证。
+
+r10已通过35项官方CPU检查并执行GPU，但第二题因上述观测子类错误在Verifier准备截止，完整边界Trace得以保留。2.0.2/r11重新执行本版本官方CPU门禁，随后才可再做开发GPU验证；最终准入结论以 `harness_v2/VALIDATION.md` 为准，不能将前一修订的通过自动传给新核心源码。

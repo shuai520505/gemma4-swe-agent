@@ -26,4 +26,4 @@ Kaggle 单题实测：导入 Notebook，挂载官方比赛数据、官方 wheelh
 
 2026-10-15已在Kaggle实际执行[预注册配对pilot](experiments/PLAN.md)：计划8次，记录3次后因外层超时停止，剩余5次未执行。唯一完整配对的V0/V1均未解决；V1进入Phase2，98 passed / 1 failed。完整成功率尚不可计算，暂不替换V0；[真实结果](experiments/RESULTS.md)与[本轮审计](experiments/PILOT_01_AUDIT.md)说明上下文溢出、环境接口遗漏及超时证据缺口。所有V0原始文件保持不变。
 
-Harness V2 单独实现上下文准入、分阶段截止、进程隔离及持续证据保存，冻结V0/V1与Pilot 01：[设计与预算](HARNESS_V2_DESIGN.md)、[真实验证记录](harness_v2/VALIDATION.md)、[正式配对实验草案](harness_v2/FORMAL_EXPERIMENT_DRAFT.md)。CPU门禁已通过；GPU开发任务及正式实验准入以验证记录中的实际证据为准。
+Harness V2 单独实现上下文准入、分阶段截止、进程隔离及持续证据保存，冻结V0/V1与Pilot 01：[设计与预算](HARNESS_V2_DESIGN.md)、[运行步骤](harness_v2/RUNBOOK.md)、[真实验证记录](harness_v2/VALIDATION.md)、[GPU结果与归因](harness_v2/RESULTS.md)、[正式配对实验草案](harness_v2/FORMAL_EXPERIMENT_DRAFT.md)。CPU门禁已通过；GPU开发任务及正式实验准入以验证记录中的实际证据为准。

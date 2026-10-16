@@ -24,6 +24,8 @@ def normalize(raw, *, started, stage=None):
         collection=bool(re.search(r'ERROR collecting|errors? during collection',output,re.I))
         return dict(status='failed',failure_stage='test_collection' if collection else 'verification',
                     reason='collection_failure' if collection else 'nonzero_test_exit')
+    if re.search(r'ContextBudgetExceeded|ContextCountingError|ContextWindowExceeded|maximum context|context window',error,re.I):
+        return dict(status='unknown',failure_stage='context_admission',reason='context_budget_or_counting_error')
     if re.search(r'timed?\s*out|timeout|time budget', error, re.I):
         return dict(status='unknown',failure_stage='agent',reason='timeout')
     return dict(status='unknown',failure_stage=stage,reason='no_confirmed_verdict')

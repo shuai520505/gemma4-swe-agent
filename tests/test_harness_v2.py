@@ -128,6 +128,9 @@ class OutcomeTests(unittest.TestCase):
             self.assertEqual(m.normalize(raw, started=True)['status'], 'unknown')
         self.assertEqual(m.normalize(dict(resolved=False,test_exit_code=1,
             error_message='Evaluation error: setup failed'),started=True)['status'],'unknown')
+        for error in ('ContextBudgetExceeded','ContextCountingError','ContextWindowExceededError'):
+            r=m.normalize(dict(resolved=False,test_exit_code=-1,error_message=error),started=True,stage='cleanup')
+            self.assertEqual(r['failure_stage'],'context_admission')
 
     def test_resolved_and_collection_failure_preserve_official_values(self):
         m = component(self, 'outcomes')
@@ -205,6 +208,11 @@ class BudgetAndEvidenceTests(unittest.TestCase):
 
 
 class SupervisorTests(unittest.TestCase):
+    def test_empty_checkpoint_is_not_mistaken_for_nonempty_patch(self):
+        r,p=self.run_worker('empty')
+        self.assertTrue(r['evidence']['patch_checkpoint'])
+        self.assertEqual(r['evidence']['patch_checkpoint_bytes'],0)
+
     def test_bootstrap_failure_is_unknown_in_preparation_stage(self):
         m=component(self,'supervisor')
         with tempfile.TemporaryDirectory() as tmp:
@@ -249,6 +257,7 @@ class SupervisorTests(unittest.TestCase):
         self.assertEqual(r['failure_stage'],'verification')
         self.assertTrue((p/'latest.patch').exists())
         self.assertTrue((p/'adk_events.jsonl').exists())
+        self.assertTrue(r['evidence']['agent_boundary_trace'])
 
     def test_cleanup_delay_blocks_next_run_without_erasing_native_result(self):
         r,p=self.run_worker('cleanup',stage_caps={'cleanup':.1})

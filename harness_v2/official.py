@@ -7,7 +7,7 @@ from adk_eval_core.tracing import SessionTrace
 from google.adk.models.lite_llm import LiteLLMClient
 from swegemma.context import SwegemmaContext
 from swegemma.evaluate import Evaluator
-from swegemma.sandbox.subprocess import SubprocessManager
+from swegemma.sandbox.subprocess import SubprocessManager as OrganizerSubprocessManager
 from swegemma.harness.verification import strip_protected_files_from_patch
 
 from .evidence import atomic_bytes,atomic_json
@@ -74,7 +74,12 @@ class DurableContext(SwegemmaContext):
                                  patch_submitted=self.patch_submitted))
 
 
-class DurableManager(SubprocessManager):
+class SubprocessManager(OrganizerSubprocessManager):
+    """Keep the pinned organizer's literal subprocess dispatch name.
+
+    container_setup and verification use type(manager).__name__, not isinstance.
+    A differently named observer silently enables Docker-only package setup.
+    """
     def __init__(self,*,journal,**kwargs):
         self.journal=journal
         self.agent_id=None
@@ -133,6 +138,9 @@ class DurableManager(SubprocessManager):
         super().stop(sandbox_id)
         self.journal.append(dict(kind='sandbox_stopped',sandbox_id=sandbox_id))
         self.journal.stage(prior)
+
+
+DurableManager=SubprocessManager
 
 
 class DurableEvaluator(Evaluator):

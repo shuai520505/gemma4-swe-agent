@@ -15,7 +15,7 @@ if mode in ('launcher','launcher_outer'):
     raise SystemExit(0)
 j=Journal(p)
 j.stage('agent')
-j.patch('diff --git a/x b/x\n+scripted evidence\n',source='scripted_cpu_test')
+j.patch('' if mode=='empty' else 'diff --git a/x b/x\n+scripted evidence\n',source='scripted_cpu_test')
 with (p/'adk_events.jsonl').open('w',encoding='utf-8') as f:
     f.write('{"scripted_cpu_fixture":true}\n'); f.flush()
 if mode=='outer':
@@ -25,6 +25,7 @@ if mode=='outer':
 elif mode=='agent':
     time.sleep(30)
 elif mode=='verifier':
+    atomic_json(p/'agent_boundary_trace.json',{'scripted_cpu_fixture':True})
     j.stage('verification'); time.sleep(30)
 else:
     if mode=='slow_ok': time.sleep(.5)

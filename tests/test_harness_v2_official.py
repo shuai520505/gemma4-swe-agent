@@ -11,6 +11,20 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 class OfficialApiTests(unittest.IsolatedAsyncioTestCase):
+    async def test_observer_preserves_official_subprocess_setup_dispatch(self):
+        from swegemma.harness import container_setup
+        from swegemma.sandbox.subprocess import SubprocessManager as NativeManager
+        from harness_v2.official import DurableManager
+        from harness_v2.evidence import Journal
+        with tempfile.TemporaryDirectory() as tmp:
+            manager=DurableManager(journal=Journal(tmp))
+            self.assertIsInstance(manager,NativeManager)
+            self.assertEqual(type(manager).__name__,'SubprocessManager')
+            with patch.object(manager,'exec',side_effect=AssertionError('Unexpected Docker setup command')),patch.object(
+                container_setup,'_ensure_container_site_packages',side_effect=AssertionError('Unexpected Docker wheel injection')):
+                container_setup.install_editable_package(manager,'fixture_no_sandbox')
+                container_setup.install_test_dependencies(manager,'fixture_no_sandbox',repo='fixture/repository')
+
     async def test_compiler_defaults_and_guard_survive_model_clone(self):
         from adk_submission import ModelRegistry,compile_submission
         from google.adk.models.lite_llm import LiteLlm

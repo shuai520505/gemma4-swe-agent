@@ -8,7 +8,7 @@ from pathlib import Path
 from experiments.prepare import ROOT,archive_bytes,write_new
 from .integrity import verify_baseline
 from .budgets import Budgets
-from . import VERSION
+from . import VERSION,EXPERIMENT_ID
 
 
 def cell(source):
@@ -26,7 +26,7 @@ def build(revision):
         for a in ('v0','v1') for n in ('agent.yaml','eval_config.yaml','prompts/system.md')}
     files.update(candidates)
     hashes={n:hashlib.sha256(b).hexdigest() for n,b in files.items()}
-    plan=dict(schema_version=2,harness_version=VERSION,experiment_id='harness-v2-infra-dev-02',
+    plan=dict(schema_version=2,harness_version=VERSION,experiment_id=EXPERIMENT_ID,
         revision=revision,purpose='infrastructure development; no repair-rate inference',
         cpu_must_pass_before_gpu=True,budget=Budgets().as_dict(),model='google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2',
         tasks=[dict(index=1,arm='v0',instance_id='requests_7315'),dict(index=2,arm='v1',instance_id='rich_3777')],

@@ -164,8 +164,10 @@ def supervise(command, directory, *, outer_seconds, stage_caps, poll_seconds=.5,
         allow_next_run=not failure and stopped and cleanup,
         evidence=dict(official_result=raw is not None,
             patch_checkpoint=(directory/'latest.patch').is_file(),
+            patch_checkpoint_bytes=(directory/'latest.patch').stat().st_size if (directory/'latest.patch').is_file() else None,
             incremental_adk_events=(directory/'adk_events.jsonl').is_file(),
             native_trace=any(directory.glob('harness/traces/*.json')),
+            agent_boundary_trace=(directory/'agent_boundary_trace.json').is_file(),
             phase2_output=(directory/'phase2.log').is_file()),
         official_fields_unchanged=True)
     atomic_json(directory/'audit_result.json',result)
