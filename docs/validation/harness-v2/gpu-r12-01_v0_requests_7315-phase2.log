@@ -1,0 +1,23 @@
+STDOUT:
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_request_url_handles_leading_path_separators _______________
+
+    def test_request_url_handles_leading_path_separators():
+        """See also https://github.com/psf/requests/issues/6643."""
+        a = requests.adapters.HTTPAdapter()
+        p = requests.Request(method="GET", url="http://127.0.0.1:10000//v:h").prepare()
+>       assert "//v:h" == a.request_url(p, {})
+E       AssertionError: assert '//v:h' == '/v:h'
+E         
+E         - /v:h
+E         + //v:h
+E         ? +
+
+tests/test_adapters.py:8: AssertionError
+- generated xml file: /kaggle/working/harness_v2_gpu/20261016T064721_516615Z/runs/01_v0_requests_7315/sandbox_tmp/swegemma_sandbox_070309d7-29b/tmp/_swegemma_junit_606e81f7feee.xml -
+=========================== short test summary info ============================
+FAILED tests/test_adapters.py::test_request_url_handles_leading_path_separators
+1 failed in 0.05s
+
+STDERR:

@@ -73,3 +73,31 @@ requests 是真实断言失败：预期保留 `//v:h`，实际返回 `/v:h`；�
 ## 2.0.3 / infra-dev-04
 
 r12 保持模型、候选、工具、两道开发题和预算不变，仅识别官方内嵌应用脚本的固定 Usage 协议，进入 apply_patch 阶段后恢复先前阶段。新增真实官方 helper 回归检查调用时阶段为 apply_patch；不按任务、答案或 Patch 内容分支。先以 AST 加载的原生 helper 重放证实旧识别器停留 prepare_verifier，再修正并通过重放；初次本机重放缺少 PYTHONPATH 的启动失败日志也保留，不冒充有效红测试。完整官方 API 回归须在新 Linux CPU 门禁中执行。原 r11 注册、日志和结果全部保留。
+
+
+### r12 / GPU Notebook v4 最终实测
+
+2026-10-16 15:08:29（UTC+8）采集到 COMPLETE；实际运行 ID `20261016T064721_516615Z`。
+
+| 任务 | 原始 Phase 2 | LLM / 工具 | 官方 / 控制器耗时 | Patch |
+| --- | --- | --- | --- | --- |
+| requests_7315 / V0 | resolved=false，exit=1，1 failed | 20 / 18 | 245.725 / 258.457 秒 | 1654 字节 |
+| rich_3777 / V1 | resolved=false，exit=1，96 failed、3 passed | 53 / 53 | 489.593 / 502.417 秒 | 689 字节 |
+
+requests 的断言仍是应保留 `//v:h` 而返回 `/v:h`。rich 达到官方 8 分钟 Agent 截止（阶段观测 480.004 秒），自动回收未提交修改并继续验证；其 Patch 使 Console 初始化对只读 is_interactive 属性赋值，真实测试产生 AttributeError。最终分类 failed 的依据是已经完成的官方验证，不是将超时占位值当失败；原始 error_message 仍保留 Agent exceeded session timeout。不能因它超时就丢弃随后实际取得的测试证据。
+
+**人工基础设施准入通过。** 两题均有完整官方结果、非空 Patch（验证前已保存）、原生边界及最终 Trace、增量事件和 Phase 2 输出；清理确认、进程树停止，没有控制器截止。两题各 2 次官方 Patch 应用（Agent Patch 与验证 Patch）均实际进入 apply_patch，累计观测约 0.104 / 0.104 秒，回到准备阶段后继续执行。真实 pytest 命令约 1.171 / 5.842 秒；阶段区间约 1.191 / 5.872 秒。旧 Docker setup 命令均未出现，4 次沙箱解释器前缀及入口绑定通过。
+
+80 次请求准入全部在预算内，最大总预留 27219，Agent 输出预留始终 16384，0 越界、0 计数错误。73 个原生 usage 响应与 tokenizer 完全一致，最大误差 0；7 次额外压缩准入无独立 usage，保留缺口。超限探针 37428 总预留在生成前拒绝。指定 31B v2、冻结候选 Prompt、4×L4 和官方包版本均匹配。
+
+原始 ZIP：437375 字节，SHA-256 `fe3cc96d0d97abcba6f938da340ec482f5d3c3fc6b2eb486b00b4f39308b5e25`。CRC、manifest、28 项注册源码和原始冻结证据均通过；只读审计 `results/r12-gpu-audit.json`；原始 Phase 2、控制器结果、阶段和 usage 对应关系索引在 `docs/validation/harness-v2/gpu-r12-*`。完整 Trace/Patch 保留于本机/private Kaggle 原始 ZIP。
+
+结论：允许进入**另行预注册**的正式配对实验；本阶段不执行正式八次对照。Harness 的可靠性门禁通过不代表候选解题能力通过。上一修订 rich 曾为 resolved，本轮失败，不能选取较好的一轮拼接、不能把不同开发题当 V0/V1 对比，也不能将这两题外推为榜单成绩。
+
+### 当前提交与拿分判断
+
+2026-10-16 使用已授权 CLI 只读查询 `kaggle competitions submissions -c gemma-4-developer-agent -v`，返回 `No submissions found`，尚无官方分数。冻结 V0/V1 ZIP 的 CRC 和根目录 agent.yaml 结构通过，官方 CPU 编译测试已覆盖两候选；技术上可以作为首次探分输入。比赛实际提交是 Agent 配置 ZIP，官方隐藏任务通过率才产生分数；本机开发结果不能上传替代分数，也不能保证正分或高分。
+
+Harness V2 不打包进 Agent submission。冻结 ZIP 仍声明 60 分钟 / 100 工具 / 单命令 300 秒，开发实验明确覆盖为 8 分钟 / 60 工具 / 单命令 120 秒；官方评分行为不能直接等同于本轮。建议先依新协议完成配对比较、确认最终提交预算，再选择一个独立版本探分；需要修改候选预算时创建新候选，保留原 V0/V1。用户本次询问提交可行性，没有执行排行榜提交。
+
+官方依据：[竞赛评估说明](https://www.kaggle.com/competitions/gemma-4-developer-agent/overview)。官方评分按验证通过比例；总 Agent 运行上限 12 小时（含准备，不含 Patch 验证）。该上限不能用本地批次 1530 秒外层配置替代。

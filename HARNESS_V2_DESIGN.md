@@ -1,6 +1,6 @@
 # Harness V2：预算准入、进程隔离与持久证据
 
-基线提交 `6b8a0ba`；初始Harness版本 `2.0.0` / `harness-v2-infra-dev-01`，随后为 `2.0.1` / `harness-v2-infra-dev-02`；进一步确认观测子类改变官方setup分支后新增 `2.0.2` / `harness-v2-infra-dev-03`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
+基线提交 `6b8a0ba`；初始Harness版本 `2.0.0` / `harness-v2-infra-dev-01`，随后为 `2.0.1` / `harness-v2-infra-dev-02`；进一步确认观测子类改变官方setup分支后新增 `2.0.2` / `harness-v2-infra-dev-03`；当前为补齐内嵌 Patch 应用阶段识别的 `2.0.3` / `harness-v2-infra-dev-04`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
 
 本阶段只修改本地实验基础设施。`harness_v2/` 不进入 Agent submission；仍使用指定官方 Gemma 4 31B v2、六个工具、单Agent。没有 Prompt 优化、LoRA 或多Agent。
 
@@ -105,3 +105,6 @@ r10已通过35项官方CPU检查并执行GPU，但第二题因上述观测子类
 
 
 2.0.3 / infra-dev-04（r12）：r11 已取得两题真实 Phase 2 及完整清理，但人工审计发现内嵌 Python 的官方 Patch 应用脚本未进入独立阶段。观察器补识别官方 `apply_patch.py` Usage 协议，应用时使用既定 60 秒阶段预算，完成后恢复准备阶段累计时间；原生 helper/API 回归验证，不改官方脚本或候选。正式准入仍待本版本 CPU→GPU 开发门禁。
+
+
+最终（2.0.3 / r12）：38 项官方 CPU 门禁通过；GPU v4 两题完成真实验证与清理，独立 apply_patch 阶段实际出现，边界 Patch/Trace 和最终证据完整。人工基础设施准入通过，允许另行预注册正式配对实验。开发两题均失败，不构成候选性能比较或官方榜单成绩。正式八次实验及排行榜提交均未执行；完整证据和限制见 VALIDATION.md / RESULTS.md。

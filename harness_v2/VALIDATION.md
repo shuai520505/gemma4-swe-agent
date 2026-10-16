@@ -2,6 +2,8 @@
 
 本文件只记录执行过的检查及当前门禁；CPU脚本化结果不是Gemma修复成功。新正式配对实验未执行，未进行排行榜提交。
 
+当前候选为 **2.0.3 / r12 / infra-dev-04**：官方 CPU **38/38 通过**，GPU Notebook v4 两题均完成真实 Phase 2，人工基础设施准入通过。**允许另行预注册正式 GPU 配对实验；正式八次实验尚未执行。** 本轮两题均 failed，不能将门禁通过称作解题成功。下列历史记录不替代当前版本门禁。
+
 ## 已执行
 
 | 环境 / 修订 | 真实结果 | 解释 |
@@ -42,7 +44,7 @@ Kaggle r07 CPU ZIP内7项真实进程夹具的逐项状态、Patch哈希和原�
 
 GPU v1提交后，代码复核发现生成器复用官方INSTALL/SERVER诊断分支时缺少 `bundle_run` 别名。先以注入安装失败的测试复现NameError，再补绑定并验证安装/启动两条异常路径。红/绿日志全部保存，第一份绿日志中的Notebook路径/哈希来自拦截写入的测试构建，并未重写r07的真实Notebook。修正只用于后续新构建；正在执行的r07注册Notebook、CPU验证过的核心运行时和候选保持不变，不声称这条新异常路径已通过GPU执行验证。
 
-## GPU及正式实验门禁
+## GPU及正式实验门禁历史（当前状态见文件开头与末尾）
 
 当前：**不允许正式GPU对照实验；允许2.0.2最小GPU开发验证**。r07及r10的真实GPU整批门禁均未通过，结果和归因见 `RESULTS.md`。2.0.2 / `harness-v2-infra-dev-03` / r11修复观测子类引入的官方分支错误，已通过本版本37项官方CPU门禁，并据此生成新的GPU预注册；在实际输出审计通过前，不能宣称完整开发门禁通过。不能直接续接Pilot 01剩余五次。
 
@@ -75,3 +77,12 @@ r11 GPU v3 已完成并通过原自动链路门禁：requests/V0 为真实断言
 
 
 r12 官方 Linux CPU Notebook v8：**38/38 通过，0 失败、0 错误、0 跳过**，包含真实官方内嵌 Patch helper 阶段回归。原始 ZIP 147984 字节，SHA-256 `ca8f7ce8d6e6ee9f22ee6d3d267b916b5101c4f5fda3e75132000672ae068520`；CRC、全部 28 项源码和冻结证据通过。原始日志 `docs/validation/harness-v2/official-cpu-r12.log`，只读审计 `results/r12-cpu-audit.json`。GPU v4 仅在该门禁后生成，注册 Notebook SHA-256 `8d61e81e2efeff021a3e3df47122d9862dd2c844d0df50803defd407f5da3d42`。GPU 结果未取得前不宣称该版本开发门禁通过。
+
+
+## 最终准入结论（2.0.3 / r12）
+
+**允许进入另行预注册的正式 GPU 配对实验。** 38 项官方 CPU/API/工具/超时测试通过，GPU v4 的模型/计数探针、冻结候选、真实 Patch 应用阶段、两题完整 Phase 2、证据与清理通过人工验收。两题实际结果均为 failed（requests 1 failed；rich 96 failed、3 passed，先触发 Agent 8 分钟截止）；它们不是 Harness unknown，也不是版本修复率比较。
+
+r12 CPU 的 8 项真实进程夹具索引为 `docs/validation/harness-v2/cpu-r12-timeout-evidence.json`。GPU 原始 ZIP 437375 字节，SHA-256 `fe3cc96d0d97abcba6f938da340ec482f5d3c3fc6b2eb486b00b4f39308b5e25`；只读审计 `results/r12-gpu-audit.json`，人工逐阶段/usage核验 `docs/validation/harness-v2/gpu-r12-forensics.json`。原生 Trace/Patch/验证输出均可从原始 ZIP 复核，缺少独立 usage 的压缩请求不冒充已交叉验证。
+
+正式协议仍为草案，未补跑 Pilot 01、未执行新的八次对照、未提交排行榜；冻结候选与原始 V0/Pilot 证据保持不变。建议继续做预注册配对验证，再据完整数据决定 Agent 策略优化与首次探分版本；不能从本地成功宣称官方分数。

@@ -9,6 +9,7 @@
 5. 只有完整CPU门禁通过，才执行 `python -m harness_v2.gpu_build <revision> <actual_cpu_gate_json>`。构建器再次核验核心运行时和版本匹配；生成GPU Notebook及预注册哈希。当前GPU必须挂载同一注册bundle，任何输入变化都会停止。
 6. 在新修订 `gpu-kernel/` 目录提交Notebook。两题在不同工作进程串行运行；异常、unknown或清理未确认时停止接纳。GPU Notebook COMPLETE只代表Notebook结束，任务是否完成看原始结果与批次门禁。
 7. 使用 `python -m harness_v2.audit <original_zip> <revision> cpu` 或 `gpu` 只读核验注册源码、CRC和证据manifest。结果输出到新的 `results/<revision>-<kind>-audit.json`；它不会回写官方字段。超时缺少完整Trace、Patch或验证结果时如实记录。
+8. 自动 gate=true 后仍检查原始事件与官方 Phase 2 输出：模型及冻结 Prompt 一致；非空 Patch 先于验证保存；官方内嵌 Patch 应用命令实际进入 apply_patch 阶段并恢复准备阶段；验证失败是否为真实断言或收集/环境问题；进程树停止且目录清理确认。没有观察到的阶段不能宣称已由该次 GPU 覆盖。人工准入结论与自动 gate 分开记录；r11 即因阶段覆盖缺口暂缓正式准入。
 
 本机CPU控制器可运行 `python -m unittest discover -s tests -p test_harness_v2.py -v`。官方Linux API、真实六工具及跨沙箱安装回归由CPU Notebook执行；其中脚本化仓库或可丢弃包只用于基础设施测试，不是Gemma修复任务。Windows不执行需要/bin/bash的官方沙箱测试，不能据本机结果放行GPU。
 
