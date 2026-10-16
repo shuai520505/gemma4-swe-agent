@@ -1,0 +1,825 @@
+{
+  "at_utc": "2026-10-16T12:38:16.036541+00:00",
+  "mode": "CPU static wheel inspection; no install, import, model, adapter, training or inference",
+  "wheels": {
+    "adk_submission-0.2.13-py3-none-any.whl": {
+      "sha256": "f156f0bd84580ccb9334726d114d7a5481f16d3a6e2887cc4d276ced0ef8d99d",
+      "bytes": 66528,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/adk_submission-0.2.13-py3-none-any.whl"
+    },
+    "compressed_tensors-0.15.0.1-py3-none-any.whl": {
+      "sha256": "e1b1f322e82e475715e242bad46925a304ea8e5c98b5055a15b8eb22fb6bfea9",
+      "bytes": 194260,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/compressed_tensors-0.15.0.1-py3-none-any.whl"
+    },
+    "google_adk-1.36.1-py3-none-any.whl": {
+      "sha256": "1a2f6868c509e3151fb0de3575a7d18b45c338be86f420924dad74e7193631a0",
+      "bytes": 2877731,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/google_adk-1.36.1-py3-none-any.whl"
+    },
+    "google_genai-2.11.0-py3-none-any.whl": {
+      "sha256": "5bc8186100e1d34d691fbe0cba392b7e04e98d286ca952323a6672d054accf95",
+      "bytes": 984162,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/google_genai-2.11.0-py3-none-any.whl"
+    },
+    "swegemma-0.2.11-py3-none-any.whl": {
+      "sha256": "9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3",
+      "bytes": 119670,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/swegemma-0.2.11-py3-none-any.whl"
+    },
+    "transformers-5.13.1-py3-none-any.whl": {
+      "sha256": "53f0ea8aa397e29244c2377ba981bcaf0c87adcf44fbdd447ef6306522afcacd",
+      "bytes": 11503977,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/transformers-5.13.1-py3-none-any.whl"
+    },
+    "vllm-0.19.1-cp38-abi3-manylinux_2_31_x86_64.whl": {
+      "sha256": "73c69bafca24fbdad44690c44d6c6446514351e6f3cc9a6057cba05e66051310",
+      "bytes": 433132704,
+      "mount": "/kaggle/input/datasets/metric/gemma-4-developer-agent-wheelhouse/vllm-0.19.1-cp38-abi3-manylinux_2_31_x86_64.whl"
+    }
+  },
+  "sources": {
+    "adk_submission/__init__.py": {
+      "sha256": "4b89347769780899d22628508e90e1066e5824e586bd1da60c4f817dc91f1b70",
+      "bytes": 4369,
+      "hits": [
+        {
+          "line": 10,
+          "text": "compile_submission, discover_adapters, discover_skills,"
+        },
+        {
+          "line": 29,
+          "text": "adapter_manifest = discover_adapters(submission_path, adapter_extensions={\".safetensors\"})"
+        },
+        {
+          "line": 55,
+          "text": "discover_adapters,"
+        },
+        {
+          "line": 157,
+          "text": "\"discover_adapters\","
+        }
+      ]
+    },
+    "adk_submission/compiler.py": {
+      "sha256": "39cc4884699faf147ca1b326664e888c1861f750fe36525b840b5f812d593eed",
+      "bytes": 10492,
+      "hits": [
+        {
+          "line": 39,
+          "text": "discover_adapters,"
+        },
+        {
+          "line": 129,
+          "text": "adapter_manifest = discover_adapters("
+        }
+      ]
+    },
+    "adk_submission/context.py": {
+      "sha256": "3c77519415b1dd2cc97b42bcbe29d32dd85f8188ca7eba5b5fb8636bce92c908",
+      "bytes": 7403,
+      "hits": []
+    },
+    "adk_submission/discovery.py": {
+      "sha256": "ca19fc75fb3baa42e85438b41248a06c35987cbf26ef652159b302752d0f191c",
+      "bytes": 31163,
+      "hits": [
+        {
+          "line": 266,
+          "text": "Generated during adapter discovery by :func:`discover_adapters`. If adapter files"
+        },
+        {
+          "line": 384,
+          "text": "def discover_adapters("
+        }
+      ]
+    },
+    "adk_submission/errors.py": {
+      "sha256": "7e121e7c6581288788500cd1a8deceb003a74ec150d5477c37f794971a5f4818",
+      "bytes": 13999,
+      "hits": []
+    },
+    "adk_submission/limits.py": {
+      "sha256": "afde5056f2df1fd77b53e0495712d03f60b3e246d4393617dd800d970f7482e2",
+      "bytes": 18965,
+      "hits": [
+        {
+          "line": 237,
+          "text": "\"seed\","
+        },
+        {
+          "line": 287,
+          "text": "thinking_budget: Bounding range constraint for the model's thinking budget"
+        },
+        {
+          "line": 304,
+          "text": "thinking_budget: NumericRange | None = None"
+        },
+        {
+          "line": 321,
+          "text": "5. Validates ``thinking_budget`` within ``thinking_config``. If ``thinking_config`` is"
+        },
+        {
+          "line": 323,
+          "text": "allowed budget (``thinking_budget.max``)."
+        },
+        {
+          "line": 356,
+          "text": "for field_name in _RANGE_CONSTRAINED_FIELDS | {\"seed\"}:"
+        },
+        {
+          "line": 409,
+          "text": "# 6. Check and enrich thinking_budget on merged config"
+        },
+        {
+          "line": 413,
+          "text": "tc.get(\"thinking_budget\")"
+        },
+        {
+          "line": 415,
+          "text": "else getattr(tc, \"thinking_budget\", None)"
+        },
+        {
+          "line": 425,
+          "text": "f\"Agent '{agent_name}': thinking_budget={budget!r} is not a valid finite number\""
+        },
+        {
+          "line": 427,
+          "text": "if self.thinking_budget is not None:"
+        },
+        {
+          "line": 428,
+          "text": "self.thinking_budget.check(budget, \"thinking_budget\", agent_name)"
+        },
+        {
+          "line": 429,
+          "text": "elif self.thinking_budget is not None:"
+        },
+        {
+          "line": 430,
+          "text": "default_budget = self.thinking_budget.max"
+        },
+        {
+          "line": 433,
+          "text": "tc_copy[\"thinking_budget\"] = default_budget"
+        },
+        {
+          "line": 437,
+          "text": "tc_copy[\"thinking_budget\"] = default_budget"
+        }
+      ]
+    },
+    "adk_submission/paths.py": {
+      "sha256": "7c4b7050141bdb05a9e6849be11f6440f2a18082a364623226c4343649b2f59f",
+      "bytes": 9379,
+      "hits": []
+    },
+    "adk_submission/registry.py": {
+      "sha256": "c17f9770c2f3663309dd61807d2ae4e7d75bbd06b7c674847f655d218e82cf7a",
+      "bytes": 11173,
+      "hits": []
+    },
+    "adk_submission/schema.py": {
+      "sha256": "6554de60cfa208dcb0b095f4236271795b2955adf87f3be3c40dfa3d62521c5d",
+      "bytes": 17404,
+      "hits": [
+        {
+          "line": 159,
+          "text": "thinking_budget (Optional[int]): The token budget allocated for the model's internal"
+        },
+        {
+          "line": 169,
+          "text": "thinking_budget: int | None = Field(default=None, ge=0)"
+        },
+        {
+          "line": 173,
+          "text": "@field_validator(\"thinking_budget\", mode=\"before\")"
+        },
+        {
+          "line": 175,
+          "text": "def _validate_thinking_budget(cls, v: Any) -> Any:"
+        },
+        {
+          "line": 176,
+          "text": "return _reject_bool_nan_inf(v, \"thinking_budget\")"
+        },
+        {
+          "line": 198,
+          "text": "seed (Optional[int]): Random seed for deterministic generation. Defaults to None."
+        },
+        {
+          "line": 212,
+          "text": "seed: int | None = None"
+        },
+        {
+          "line": 222,
+          "text": "\"seed\","
+        }
+      ]
+    },
+    "adk_submission/server.py": {
+      "sha256": "d60b3fe34dd7f6e359b003db82b68434757c74b1030862bacda5cff6164f91eb",
+      "bytes": 35447,
+      "hits": [
+        {
+          "line": 12,
+          "text": "from adk_submission import compile_submission, discover_adapters, ToolRegistry"
+        },
+        {
+          "line": 16,
+          "text": "adapters = discover_adapters(submission_dir)"
+        },
+        {
+          "line": 63,
+          "text": "\"\"\"Round an adapter rank up to the smallest supported vLLM max_lora_rank bucket.\"\"\""
+        },
+        {
+          "line": 125,
+          "text": "max_model_len: Maximum model context length (tokens). Defaults to 32768."
+        },
+        {
+          "line": 130,
+          "text": "max_loras: Maximum number of active LoRA adapters simultaneously loaded. Defaults to 1."
+        },
+        {
+          "line": 131,
+          "text": "max_lora_rank: Fallback maximum LoRA rank supported when adapter rank cannot be inferred. Defaults to 128."
+        },
+        {
+          "line": 152,
+          "text": "max_model_len: int = 32768"
+        },
+        {
+          "line": 157,
+          "text": "max_loras: int = 1"
+        },
+        {
+          "line": 158,
+          "text": "max_lora_rank: int = 128"
+        },
+        {
+          "line": 731,
+          "text": "reasoning_cfg = json.dumps(reasoning_cfg)"
+        },
+        {
+          "line": 737,
+          "text": "kwargs_val = json.dumps(kwargs_val)"
+        },
+        {
+          "line": 749,
+          "text": "spec_val = json.dumps(spec_val)"
+        },
+        {
+          "line": 783,
+          "text": "effective_max_loras = len(modules_to_mount)"
+        },
+        {
+          "line": 785,
+          "text": "effective_max_lora_rank = _round_up_vllm_lora_rank(max(detected_ranks))"
+        },
+        {
+          "line": 787,
+          "text": "effective_max_lora_rank = _round_up_vllm_lora_rank("
+        },
+        {
+          "line": 788,
+          "text": "max([self.config.max_lora_rank, *detected_ranks])"
+        },
+        {
+          "line": 790,
+          "text": "cmd.extend([\"--max-loras\", str(effective_max_loras)])"
+        },
+        {
+          "line": 791,
+          "text": "cmd.extend([\"--max-lora-rank\", str(effective_max_lora_rank)])"
+        }
+      ]
+    },
+    "adk_submission/yaml_loader.py": {
+      "sha256": "01d644ef7f5acc216506245fd7e115e7096641e62e825c6873c83e148b23c69c",
+      "bytes": 12618,
+      "hits": []
+    },
+    "adk_submission/builders/__init__.py": {
+      "sha256": "ec6273c54cfb08f22777146c1636be4f13d4d00a67a17d9ae7a19e3a8f18f6c1",
+      "bytes": 637,
+      "hits": []
+    },
+    "adk_submission/builders/llm.py": {
+      "sha256": "97c27324ce60ac6dc466941bcc19f5482f7693af9fc02fb760a40526c84c10b5",
+      "bytes": 3658,
+      "hits": []
+    },
+    "adk_submission/builders/sub_agents.py": {
+      "sha256": "ba6162832b1ca4e023e2848c6391242c18cbe9dadcfd560a6ebef81108c35b5a",
+      "bytes": 2801,
+      "hits": []
+    },
+    "adk_submission/builders/workflows.py": {
+      "sha256": "d8d7ccf9a51d57daec58c7231e2a62621a3ecca269e71ee64c57062cadadf980",
+      "bytes": 5565,
+      "hits": []
+    },
+    "adk_submission/resolvers/__init__.py": {
+      "sha256": "b88fe281c2b927a046e6485c7e0966b1808a5c8d0a0849cd85824ffb04ae53be",
+      "bytes": 800,
+      "hits": []
+    },
+    "adk_submission/resolvers/callbacks.py": {
+      "sha256": "332ce0732aa3eb1b555630c57683f51e59d5caee3f519371d376210e9ae33e29",
+      "bytes": 3643,
+      "hits": []
+    },
+    "adk_submission/resolvers/generation.py": {
+      "sha256": "ba0d58d1dce4395d656416522855cab07d43b7ed0cd61898234dc35e9b92ecc6",
+      "bytes": 18037,
+      "hits": [
+        {
+          "line": 66,
+          "text": "\"\"\"Ensure assistant messages with reasoning_content also populate reasoning for vLLM.\"\"\""
+        },
+        {
+          "line": 68,
+          "text": "rc = msg.get(\"reasoning_content\")"
+        },
+        {
+          "line": 74,
+          "text": "rc = item.get(\"reasoning_content\")"
+        },
+        {
+          "line": 81,
+          "text": "\"\"\"Remove reasoning and reasoning_content from assistant messages when include_thoughts is False.\"\"\""
+        },
+        {
+          "line": 83,
+          "text": "msg.pop(\"reasoning_content\", None)"
+        },
+        {
+          "line": 88,
+          "text": "item.pop(\"reasoning_content\", None)"
+        },
+        {
+          "line": 198,
+          "text": "1. Mirrors ``reasoning_content`` into ``reasoning`` on assistant messages so"
+        },
+        {
+          "line": 206,
+          "text": "history and strips ``reasoning``/``reasoning_content`` from outgoing messages."
+        },
+        {
+          "line": 280,
+          "text": "seed = getattr(req_cfg, \"seed\", None) if req_cfg is not None else None"
+        },
+        {
+          "line": 281,
+          "text": "if seed is not None and not isinstance(seed, bool) and len(res) >= 4:"
+        },
+        {
+          "line": 283,
+          "text": "gen_params.setdefault(\"seed\", int(seed))"
+        },
+        {
+          "line": 360,
+          "text": "\"\"\"Attach thinking_config and seed from GenerateContentConfig to LiteLlm._additional_args."
+        },
+        {
+          "line": 363,
+          "text": "thinking_config or seed to OpenAI-compatible endpoints (like vLLM), this bridges"
+        },
+        {
+          "line": 364,
+          "text": "thinking_level, thinking_budget, include_thoughts, and seed into"
+        },
+        {
+          "line": 366,
+          "text": "reasoning_effort, and seed on a cloned model instance."
+        },
+        {
+          "line": 377,
+          "text": "seed = gen_config.get(\"seed\")"
+        },
+        {
+          "line": 380,
+          "text": "seed = getattr(gen_config, \"seed\", None)"
+        },
+        {
+          "line": 383,
+          "text": "has_valid_seed = seed is not None and not isinstance(seed, bool)"
+        },
+        {
+          "line": 388,
+          "text": "thinking_budget: int | float | None = None"
+        },
+        {
+          "line": 394,
+          "text": "thinking_budget = thinking_cfg.get(\"thinking_budget\")"
+        },
+        {
+          "line": 398,
+          "text": "thinking_budget = getattr(thinking_cfg, \"thinking_budget\", None)"
+        },
+        {
+          "line": 403,
+          "text": "has_budget = thinking_budget is not None and not isinstance("
+        },
+        {
+          "line": 404,
+          "text": "thinking_budget, bool"
+        },
+        {
+          "line": 407,
+          "text": "if level_str == \"none\" or (has_budget and int(thinking_budget) <= 0):"
+        },
+        {
+          "line": 411,
+          "text": "or (has_budget and int(thinking_budget) > 0)"
+        },
+        {
+          "line": 419,
+          "text": "if enable_thinking is None and not has_valid_seed and include_thoughts is None:"
+        },
+        {
+          "line": 431,
+          "text": "if has_valid_seed:"
+        },
+        {
+          "line": 432,
+          "text": "additional_args[\"seed\"] = int(seed)  # type: ignore[arg-type]"
+        },
+        {
+          "line": 442,
+          "text": "and thinking_budget is not None"
+        },
+        {
+          "line": 443,
+          "text": "and not isinstance(thinking_budget, bool)"
+        },
+        {
+          "line": 444,
+          "text": "and int(thinking_budget) > 0"
+        },
+        {
+          "line": 446,
+          "text": "extra_body[\"thinking_token_budget\"] = int(thinking_budget)"
+        }
+      ]
+    },
+    "adk_submission/resolvers/models.py": {
+      "sha256": "39070f6ae52ad8880750b51af373da8762850d3a8ecc65c6f11744afe4cd5066",
+      "bytes": 3179,
+      "hits": []
+    },
+    "adk_submission/resolvers/tools.py": {
+      "sha256": "ae44a5ca815a05edfd763b92283d0444c77755afbd827fc35bcb87eb2633259e",
+      "bytes": 10593,
+      "hits": []
+    },
+    "google/adk/models/lite_llm.py": {
+      "sha256": "2f28c6afa110006e0fdec46c9ac7c6b614d74c81e0d0bf6fda2b0d6353111098",
+      "bytes": 80905,
+      "hits": [
+        {
+          "line": 387,
+          "text": "for key in (\"text\", \"content\", \"reasoning\", \"reasoning_content\"):"
+        },
+        {
+          "line": 447,
+          "text": "'reasoning_content' (LiteLLM standard, used by Azure/Foundry, Ollama via"
+        },
+        {
+          "line": 450,
+          "text": "'reasoning_content', then 'reasoning'."
+        },
+        {
+          "line": 459,
+          "text": "reasoning_content = message.get(\"reasoning_content\")"
+        },
+        {
+          "line": 460,
+          "text": "if reasoning_content is not None:"
+        },
+        {
+          "line": 461,
+          "text": "return reasoning_content"
+        },
+        {
+          "line": 558,
+          "text": "return json.dumps(obj, ensure_ascii=False)"
+        },
+        {
+          "line": 934,
+          "text": "reasoning_content = _NEW_LINE.join(text for text in reasoning_texts if text)"
+        },
+        {
+          "line": 939,
+          "text": "reasoning_content=reasoning_content or None,"
+        },
+        {
+          "line": 1205,
+          "text": "return json.dumps(content)"
+        },
+        {
+          "line": 1225,
+          "text": "return json.dumps(blocks)"
+        },
+        {
+          "line": 1294,
+          "text": "arguments_payload = json.dumps(args, ensure_ascii=False)"
+        },
+        {
+          "line": 1548,
+          "text": "or message.get(\"reasoning_content\")"
+        }
+      ]
+    },
+    "swegemma/__init__.py": {
+      "sha256": "408f88b0b7a4c2124d6642d017c044edacd20b1380797d59b497fe6105662e34",
+      "bytes": 3858,
+      "hits": []
+    },
+    "swegemma/__main__.py": {
+      "sha256": "5cd5c92ee1a230e24c17d693c3093edf0e3e78b96c08815351ba82432a1aa4f4",
+      "bytes": 145,
+      "hits": []
+    },
+    "swegemma/budget.py": {
+      "sha256": "5e520b3019c13b2420e6998119128f9c45b58820530ec942b5b40cab67d2336f",
+      "bytes": 1399,
+      "hits": []
+    },
+    "swegemma/cli.py": {
+      "sha256": "6b1082907ab7e64cc130b0dc2702612b51314ba7112cd39fe7edd1d0d6baf5af",
+      "bytes": 9091,
+      "hits": [
+        {
+          "line": 13,
+          "text": "from adk_submission import ModelRegistry, discover_adapters"
+        },
+        {
+          "line": 77,
+          "text": "manifest = discover_adapters(submission_dir)"
+        }
+      ]
+    },
+    "swegemma/config.py": {
+      "sha256": "0cf65965d713a883eaf779652979e281f1fbd3d24707f1bd7e91e054c5069f0b",
+      "bytes": 7750,
+      "hits": [
+        {
+          "line": 61,
+          "text": "max_output_tokens=NumericRange(1, 32768),"
+        },
+        {
+          "line": 62,
+          "text": "thinking_budget=NumericRange(0, 32768),"
+        },
+        {
+          "line": 64,
+          "text": "'max_output_tokens': 16384,"
+        },
+        {
+          "line": 65,
+          "text": "'thinking_config': {'thinking_budget': 4096},"
+        }
+      ]
+    },
+    "swegemma/context.py": {
+      "sha256": "272168834495f424dac54cfcc3d470c1b8e42b75a1125e7501586eb5f4fb73c0",
+      "bytes": 23794,
+      "hits": [
+        {
+          "line": 476,
+          "text": "return json.dumps("
+        },
+        {
+          "line": 490,
+          "text": "return json.dumps("
+        },
+        {
+          "line": 504,
+          "text": "return json.dumps("
+        },
+        {
+          "line": 518,
+          "text": "return json.dumps("
+        },
+        {
+          "line": 529,
+          "text": "return json.dumps("
+        },
+        {
+          "line": 540,
+          "text": "return json.dumps("
+        }
+      ]
+    },
+    "swegemma/deduplication.py": {
+      "sha256": "f8353a8da887fc45823b9174f4578cd816b341d52c3a074964c1c2310af1573e",
+      "bytes": 49745,
+      "hits": []
+    },
+    "swegemma/difficulty.py": {
+      "sha256": "0b97e060fa6a3b437024a45c42cb131526d5a48b74dd858e4fc0259301f7a6ba",
+      "bytes": 16760,
+      "hits": []
+    },
+    "swegemma/display.py": {
+      "sha256": "d2dfff4ebe0ff655a240b5c1f073e85702869f618c0aa5c95cc6b54b20be47c8",
+      "bytes": 3976,
+      "hits": []
+    },
+    "swegemma/edit.py": {
+      "sha256": "d34acdff4530ed211325117395cf7fa9d085f7ee84250d02acf9c8533657a956",
+      "bytes": 2573,
+      "hits": []
+    },
+    "swegemma/evaluate.py": {
+      "sha256": "96a46f49267ffcf861f7f90b98efbe828d03f27553ceefce745819028589de1e",
+      "bytes": 25197,
+      "hits": []
+    },
+    "swegemma/results.py": {
+      "sha256": "4705de95a05ae5f01f743cbb97046fb0f47f1407f4cd1db249489b2253a7f72f",
+      "bytes": 5200,
+      "hits": [
+        {
+          "line": 58,
+          "text": "f.write(json.dumps(data) + '\\n')"
+        },
+        {
+          "line": 87,
+          "text": "tmp_summary.write_text(json.dumps(summary_data, indent=2), encoding='utf-8')"
+        },
+        {
+          "line": 113,
+          "text": "f.write(json.dumps(data) + '\\n')"
+        },
+        {
+          "line": 139,
+          "text": "tmp_summary.write_text(json.dumps(summary_data, indent=2), encoding='utf-8')"
+        }
+      ]
+    },
+    "swegemma/submission.py": {
+      "sha256": "d387b402223300d06eb6f4f960faf82e997098050f5317961c64e6b95365974a",
+      "bytes": 3577,
+      "hits": []
+    },
+    "swegemma/warnings.py": {
+      "sha256": "f24d5cf69977bd88a5bb82639767ba41c12fed3bd8692969cb7c80051fbb1945",
+      "bytes": 1084,
+      "hits": []
+    },
+    "swegemma/graph/__init__.py": {
+      "sha256": "992e9fec50fabd65a003769fc4289dad787b22ca7b6045ce95bf61d3b5e35d0d",
+      "bytes": 1420,
+      "hits": []
+    },
+    "swegemma/graph/embedding_utils.py": {
+      "sha256": "c0970058b7e069bd4493bd86beb68d29047eb0e51d38814a1a146c428e243bf0",
+      "bytes": 16080,
+      "hits": []
+    },
+    "swegemma/graph/graph_utils.py": {
+      "sha256": "ab2fc0349207baf0c37423f9a28a550923a0ac553c4de2cf0e58447e96ad3050",
+      "bytes": 19051,
+      "hits": []
+    },
+    "swegemma/graph/retrieval_utils.py": {
+      "sha256": "65fbdddccef339ee74b6434f254e6a94a5d878aab1cc16a432906944e9dcb8e7",
+      "bytes": 34709,
+      "hits": []
+    },
+    "swegemma/harness/__init__.py": {
+      "sha256": "ca5053d64fc35f7d457974879656e63fa7980a7b36d37a28bbe7391f1fa90fe5",
+      "bytes": 1079,
+      "hits": []
+    },
+    "swegemma/harness/agent_runner.py": {
+      "sha256": "4d7eccabd203c26f7c39e882684d2fd851f383f6a5c76c4a75b0e559cd5d6a18",
+      "bytes": 46695,
+      "hits": []
+    },
+    "swegemma/harness/container_setup.py": {
+      "sha256": "3192acdce35f2d0bd0b191186851b46c251390af16b7f139a1640e16fb1d862c",
+      "bytes": 40661,
+      "hits": []
+    },
+    "swegemma/harness/sample_verification.py": {
+      "sha256": "0bbd4322534442420a4f782ffb76a5467d6a9d9bd7c32fe212269f304e05fa41",
+      "bytes": 20399,
+      "hits": []
+    },
+    "swegemma/harness/verification.py": {
+      "sha256": "99e2a5fdab2be2b5e0388de29080da9d6e7003cf8b53299cda790464f4ecd2aa",
+      "bytes": 27196,
+      "hits": []
+    },
+    "swegemma/models/__init__.py": {
+      "sha256": "605c7dc1e516d69d41993e8b8da7f7c7cff11ac8d24ccc6fb8dbbc71ac3935fc",
+      "bytes": 305,
+      "hits": []
+    },
+    "swegemma/models/task.py": {
+      "sha256": "0b9d705ce759645bd1ee59bb28662a25a951990c024bfeb1e00a41f08350812a",
+      "bytes": 7693,
+      "hits": []
+    },
+    "swegemma/sandbox/__init__.py": {
+      "sha256": "ba3725efee8f6d0fba2321851d66d4497ae3cda5863edc0d4a8ef232f1fdb775",
+      "bytes": 829,
+      "hits": []
+    },
+    "swegemma/sandbox/base.py": {
+      "sha256": "aab491aabc84105963bead16dab4d3d5745e31727ba248fd5a568d8f4e0c7dc1",
+      "bytes": 10113,
+      "hits": []
+    },
+    "swegemma/sandbox/docker.py": {
+      "sha256": "cc10c287acf7c9326f622e91b98207bb9cdcf4fadf5d4aa5f5658e854051d09d",
+      "bytes": 34531,
+      "hits": [
+        {
+          "line": 35,
+          "text": "\"\"\"Resolves the sandbox image in the Docker daemon, falling back to pre-seeded SDG tags.\"\"\""
+        },
+        {
+          "line": 54,
+          "text": "\"Found pre-seeded SDG image '%s' for requested '%s'.\","
+        }
+      ]
+    },
+    "swegemma/sandbox/subprocess.py": {
+      "sha256": "a26e9265d93f0387dd0a820ea451d1c530884bebca41583738f3ab2cc31df1f2",
+      "bytes": 21429,
+      "hits": []
+    },
+    "swegemma/tools/__init__.py": {
+      "sha256": "e19d1e81d90976fda93f346104d7f34f74018747ac81838a363de2e357358c31",
+      "bytes": 1632,
+      "hits": []
+    },
+    "swegemma/tools/base.py": {
+      "sha256": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
+      "bytes": 3768,
+      "hits": [
+        {
+          "line": 15,
+          "text": "return json.dumps(data, ensure_ascii=False)"
+        },
+        {
+          "line": 31,
+          "text": "return json.dumps(data, ensure_ascii=False)"
+        },
+        {
+          "line": 66,
+          "text": "return json.dumps(payload, ensure_ascii=False)"
+        }
+      ]
+    },
+    "swegemma/tools/execution.py": {
+      "sha256": "ff4df981ae1070334665ce8ab726c231e139ac5cf34bb5ebc4660eada28a7b2d",
+      "bytes": 6573,
+      "hits": [
+        {
+          "line": 145,
+          "text": "return json.dumps(status_data, ensure_ascii=False)"
+        }
+      ]
+    },
+    "swegemma/tools/graph.py": {
+      "sha256": "74b74d151925f99ffa37fd68513c234e25b74136369c3a3b072519d36af577cd",
+      "bytes": 16816,
+      "hits": []
+    },
+    "swegemma/tools/workspace.py": {
+      "sha256": "d38ba2f68636c5e33c9f607bd9e5401dbf81d77125b966ef87c799a1615b05c6",
+      "bytes": 12316,
+      "hits": []
+    },
+    "vllm/entrypoints/chat_utils.py": {
+      "sha256": "8d1ed2b6321d587f89d3f59dbd6e6b4a942328bcdc0673fb30ec8e45559f834d",
+      "bytes": 59672,
+      "hits": [
+        {
+          "line": 330,
+          "text": "reasoning_content: str | None"
+        },
+        {
+          "line": 1539,
+          "text": "result_msg[\"reasoning_content\"] = cast("
+        }
+      ]
+    },
+    "vllm/model_executor/models/gemma4.py": {
+      "sha256": "31c752290ca93c2d004b61e14f9bf7e6de2f11e59b538a903b3b409c9b96b5c5",
+      "bytes": 67456,
+      "hits": [
+        {
+          "line": 1668,
+          "text": "\"vision_embedder.\","
+        }
+      ]
+    }
+  }
+}
