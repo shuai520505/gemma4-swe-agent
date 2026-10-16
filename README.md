@@ -27,3 +27,11 @@ Kaggle 单题实测：导入 Notebook，挂载官方比赛数据、官方 wheelh
 2026-10-15已在Kaggle实际执行[预注册配对pilot](experiments/PLAN.md)：计划8次，记录3次后因外层超时停止，剩余5次未执行。唯一完整配对的V0/V1均未解决；V1进入Phase2，98 passed / 1 failed。完整成功率尚不可计算，暂不替换V0；[真实结果](experiments/RESULTS.md)与[本轮审计](experiments/PILOT_01_AUDIT.md)说明上下文溢出、环境接口遗漏及超时证据缺口。所有V0原始文件保持不变。
 
 Harness V2 单独实现上下文准入、分阶段截止、进程隔离及持续证据保存，冻结V0/V1与Pilot 01：[设计与预算](HARNESS_V2_DESIGN.md)、[运行步骤](harness_v2/RUNBOOK.md)、[真实验证记录](harness_v2/VALIDATION.md)、[GPU结果与归因](harness_v2/RESULTS.md)、[正式配对实验草案](harness_v2/FORMAL_EXPERIMENT_DRAFT.md)。CPU门禁已通过；GPU开发任务及正式实验准入以验证记录中的实际证据为准。
+
+
+## S0、正式配对实验与公开方案研究（2026-10-16）
+
+- 独立首次提交候选：[S0 就绪记录](SUBMISSION_S0_READINESS.md)、[候选ZIP](candidates/s0/submission.zip)、[只输出ZIP的Notebook](candidates/s0/notebook/submission.ipynb)。官方编译及5项既有静态测试通过，保存版本确实生成ZIP。正式Submission ID为57261002；最新API仍PENDING，无官方分数。
+- [冻结配对协议](experiments/formal-paired-01/PROTOCOL.md)与[真实执行报告](experiments/formal-paired-01/REPORT.md)：7次执行，6 failed、1 unknown；余下1次按停止规则not_run。完整修复率为null，不判定V1优于V0，不拼接补跑。
+- [小模型路线核验](MODEL_ALTERNATIVES_ASSESSMENT.md)：官方支持12B/E4B/E2B，三配置实际编译通过；未做小模型GPU加载、测速或修复验证，31B候选不变。
+- [公开榜方案研究](PUBLIC_LEADERBOARD_STUDY.md)：只读分析实际下载的公开源码，记录来源SHA和成绩证据边界；仅提出下一轮消融假设，没有修改冻结候选。

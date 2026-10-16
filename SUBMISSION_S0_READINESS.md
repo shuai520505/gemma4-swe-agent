@@ -38,6 +38,10 @@ ZIP 根目录只有 agent.yaml、eval_config.yaml、prompts/system.md。Notebook
 
 已授权尝试提交保存版本：`kaggle competitions submit gemma-4-developer-agent -k wudangdexiaodoashi/gemma4-s0-first-submission -v 1 -f submission.zip -m "S0 V0 prompt 5min 60tools initial probe"`。
 
-提交前确认官方编译及保存版输出完成；提交响应、Submission ID、状态、Public Score 和运行错误只根据官方返回另存。当前尚未执行该命令，不声称有分数。若 CLI 受限，可打开保存版本 Notebook，在 Output 核对 submission.zip 后选择 Submit to Competition；不能提交只编辑未保存运行的版本。
+提交前确认官方编译及保存版输出完成；提交响应、Submission ID、状态、Public Score 和运行错误只根据官方返回另存。该命令已执行并由官方接纳：Submission ID **57261002**，提交时间 2026-10-16 16:04:50（UTC+8），保存版本 v1。官方 API 在 16:09:27（UTC+8）返回 PENDING，Public Score 为 null，error_description 为空；尚未取得终态，空错误不代表运行已成功。原始记录在 `docs/validation/s0/submission-57261002-initial.json`。若 CLI 受限，可打开保存版本 Notebook，在 Output 核对 submission.zip 后选择 Submit to Competition；不能提交只编辑未保存运行的版本。
 
 官方依据：[评估说明](https://www.kaggle.com/competitions/gemma-4-developer-agent/overview)、[工作人员说明保存版本输出](https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/743683)。
+
+## 本次交付时官方状态
+
+截至 2026-10-16 20:19:23（UTC+8），Submission **57261002** 仍为 **SubmissionStatus.PENDING**，Public Score **未返回（null）**，官方 error_description 为空。尚不能确认评分运行成功或失败，不能把排队状态记成0分。最新原始API快照见 `docs/validation/s0/submission-57261002-latest.json`。本次只提交一次，没有取消、重复提交或消耗另一版本探分。

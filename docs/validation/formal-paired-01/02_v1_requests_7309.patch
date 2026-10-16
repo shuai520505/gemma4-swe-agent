@@ -1,0 +1,50 @@
+diff --git a/reproduce_issue.py b/reproduce_issue.py
+new file mode 100644
+index 00000000..44232196
+--- /dev/null
++++ b/reproduce_issue.py
+@@ -0,0 +1,26 @@
++from requests.utils import _parse_content_type_header
++import sys
++import os
++
++print(f"Python path: {sys.path}")
++print(f"Executing from: {os.getcwd()}")
++
++def test_malformed_content_type():
++
++    header = "text/html; charset=utf-8; malformed"
++    content_type, params = _parse_content_type_header(header)
++    print(f"Header: {header}")
++    print(f"Content-Type: {content_type}")
++    print(f"Params: {params}")
++    
++    assert "malformed" not in params, f"Expected 'malformed' to be ignored, but got {params}"
++    assert params == {"charset": "utf-8"}
++
++if __name__ == "__main__":
++    try:
++        test_malformed_content_type()
++        print("Test passed!")
++    except AssertionError as e:
++        print(f"Test failed: {e}")
++    except Exception as e:
++        print(f"An error occurred: {e}")
+diff --git a/src/requests/utils.py b/src/requests/utils.py
+index 54959bb8..805cf9d2 100644
+--- a/src/requests/utils.py
++++ b/src/requests/utils.py
+@@ -517,12 +517,11 @@ def _parse_content_type_header(header):
+     for param in params:
+         param = param.strip()
+         if param:
+-            key, value = param, True
+             index_of_equals = param.find("=")
+             if index_of_equals != -1:
+                 key = param[:index_of_equals].strip(items_to_strip)
+                 value = param[index_of_equals + 1 :].strip(items_to_strip)
+-            params_dict[key.lower()] = value
++                params_dict[key.lower()] = value
+     return content_type, params_dict
+ 
+ 

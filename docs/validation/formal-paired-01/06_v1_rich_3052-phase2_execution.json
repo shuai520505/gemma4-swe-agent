@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "stdout": ".F.....                                                                  [100%]\n=================================== FAILURES ===================================\n_______________________ test_prompt_str_case_insensitive _______________________\n\n    def test_prompt_str_case_insensitive():\n        INPUT = \"egg\\nFoO\"\n        console = Console(file=io.StringIO())\n>       name = Prompt.ask(\n            \"what is your name\",\n            console=console,\n            choices=[\"foo\", \"bar\"],\n            default=\"baz\",\n            case_sensitive=False,\n            stream=io.StringIO(INPUT),\n        )\nE       TypeError: PromptBase.ask() got an unexpected keyword argument 'case_sensitive'\n\ntests/test_prompt.py:27: TypeError\n- generated xml file: /kaggle/working/formal_paired_01/b/20261016T080559_083038Z/runs/06_v1_rich_3052/sandbox_tmp/swegemma_sandbox_9a3e091f-ccc/tmp/_swegemma_junit_6fac23e20dd4.xml -\n=========================== short test summary info ============================\nFAILED tests/test_prompt.py::test_prompt_str_case_insensitive - TypeError: Pr...\n1 failed, 6 passed in 0.09s\n",
+  "stderr": "",
+  "duration_seconds": 1.318821380999907,
+  "source": "official_sandbox_exec_return"
+}
