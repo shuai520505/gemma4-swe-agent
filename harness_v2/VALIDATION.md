@@ -17,6 +17,7 @@
 | Kaggle CPU / r08 / Notebook v5 | 35 tests，34通过、1失败、0错误、0跳过 | 新隔离夹具使用宿主/tmp wheel路径，被官方路径翻译改写，未进入安装检查；失败ZIP与日志保留 |
 | r09 | 未执行 | 准备了pip及pytest入口的注册输入，修正夹具路径前未启动Notebook；不能列为测试结果 |
 | 本机 / 2.0.1控制器 | 27 tests全部通过；隔离单元2项通过 | 新增工作进程导入失败阶段归因及解释器前缀检查，不代表GPU门禁通过 |
+| Kaggle CPU / r10 / Notebook v6 | **35 tests全部通过，0失败、0错误、0跳过** | 修正夹具复制路径；真实pip安装、沙箱pytest、宿主包不变与下一沙箱导入回归通过；完整官方API/工具/超时控制门禁通过 |
 
 CPU使用官方curated wheelhouse原样离线安装：`--no-index --no-deps --force-reinstall`。r06实际核心版本为swegemma0.2.11、adk-submission0.2.13、adk-eval-core0.1.0、google-adk1.36.1、google-genai2.11.0、LiteLLM1.82.4。没有运行CPU版Gemma推理。
 
@@ -40,7 +41,9 @@ GPU v1提交后，代码复核发现生成器复用官方INSTALL/SERVER诊断分
 
 ## GPU及正式实验门禁
 
-当前：**不允许正式GPU对照实验**。2.0.0 / r07 GPU已实际执行且整批基础设施门禁未通过，真实结果和归因见 `RESULTS.md`、`results/r07-gpu-audit.json`。2.0.1 / 新实验ID `harness-v2-infra-dev-02` 重新执行官方CPU门禁，在其通过前不得用r07旧CPU结果放行新GPU。不能直接续接Pilot 01剩余五次。
+当前：**不允许正式GPU对照实验；允许2.0.1最小GPU开发验证**。2.0.0 / r07 GPU已实际执行且整批基础设施门禁未通过，真实结果和归因见 `RESULTS.md`、`results/r07-gpu-audit.json`。2.0.1 / 新实验ID `harness-v2-infra-dev-02` 的r10已通过35项官方CPU门禁，才生成GPU Notebook v2并提交；注册在 `registrations/r10-gpu.json`，不能以提交成功声称任务完成。不能直接续接Pilot 01剩余五次。
+
+r10 CPU原始ZIP：140045字节，SHA-256 `80a8bb42e71020e0f39b3c3a26dfa2335b176ba01656f9540689ca6c8c4808d4`。CRC及全部28项注册源码核验通过；日志在 `docs/validation/harness-v2/official-cpu-r10.log`，只读审计在 `results/r10-cpu-audit.json`。GPU v2 Notebook SHA-256为 `1d855f9ab925b7641e1cadb68602d9411098ad1bc55100a874f9ccc9346cdea5`。
 
 最终结论必须同时考虑真实CPU门禁、GPUtokenizer/路由探针、开发任务结果、清理和证据完整性；模型任务失败与基础设施错误分别报告。正式实验仍需另行注册。
 
