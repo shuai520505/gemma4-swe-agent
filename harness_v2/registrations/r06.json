@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "harness_version": "2.0.0",
+  "experiment_id": "harness-v2-infra-dev-01",
+  "revision": "r06",
+  "purpose": "infrastructure development; no repair-rate inference",
+  "cpu_must_pass_before_gpu": true,
+  "budget": {
+    "stage_caps": {
+      "prepare_agent": 180,
+      "agent": 510,
+      "save_patch": 60,
+      "prepare_verifier": 180,
+      "apply_patch": 60,
+      "verification": 300,
+      "persist": 60,
+      "cleanup": 120
+    },
+    "safety_seconds": 60,
+    "outer_seconds": 1530,
+    "agent_seconds": 480,
+    "command_seconds": 120,
+    "max_tool_calls": 60
+  },
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "tasks": [
+    {
+      "index": 1,
+      "arm": "v0",
+      "instance_id": "requests_7315",
+      "repo": "psf/requests",
+      "base_commit": "6360477c52303c9445b45fa8744b02d05a2f0905",
+      "problem_sha256": "468a069409bce40c07c19a1ab9a781955c3e68bb47274265ae73975ecb95ad67"
+    },
+    {
+      "index": 2,
+      "arm": "v1",
+      "instance_id": "rich_3777",
+      "repo": "Textualize/rich",
+      "base_commit": "49117ced6648a432d85951f72dce777038f6ce09",
+      "problem_sha256": "44a2858054c7733850ba8a34626ccbca5023ec18ed1ff8a62ecd68a796b3583f"
+    }
+  ],
+  "source_hashes": {
+    "harness_v2/budgets.py": "5b3fac504eb8cea5d8b297f0466bee12eb251100f442c4764589db37d7871a6d",
+    "harness_v2/build.py": "de95369eefc1a9e083293b920ed806e94f6fb1c02e3563b3630fa34503def7f3",
+    "harness_v2/context_budget.py": "4e23971ade660bfa7fac2db00f93cd49f04e296e99dddf22b14741a2acf1a8b1",
+    "harness_v2/cpu_validation.py": "09b7056e30e85a3e004750a8bb131c659991d723434dfe0c074dbe66a029842e",
+    "harness_v2/evidence.py": "b9c2db073d5e8cffd45366b7b96ce48558bd57e2b3f634521e889b5eac3e117a",
+    "harness_v2/integrity.py": "53970b58354e71f67e03b53e6e121ce5f7528fad836a7e705e4e1dc07148198b",
+    "harness_v2/kaggle_watch.py": "d1e462935b9830386c675969fdb58df621da43b52be68bc78318d7233a052992",
+    "harness_v2/official.py": "8e520038186cf182d615cd2c850f3ec13488d7416a95e0f2cc3918f92f8d9b5f",
+    "harness_v2/outcomes.py": "497e18ac8010772f47f7324cafde141932df7bb230adabea5816f03084e60687",
+    "harness_v2/supervisor.py": "fdbc355f24212d5baa6cfb359c57bf5443fa5717ac3f804edae199e6e7620c5d",
+    "harness_v2/windows_job.py": "0e42bbfadf32b945e5bbb40c37a1662718371f3097618e45d234c01259dc39e3",
+    "harness_v2/worker.py": "1cc06f65fd55f206cb9d087cfdba7c2f475d8b79fc665767f44ef18b3937b4ee",
+    "harness_v2/__init__.py": "69e2860d4853d838bac27b78b68ece46c8cd7adee0ef9d273a30aa82e82cb8e7",
+    "tests/test_harness_v2.py": "90f814c990fb9871ed11a1097c800afc7909ca2b5f366e7380a87756afcd38d3",
+    "tests/test_harness_v2_official.py": "f6a7763dcde73ae9f468e9a8a6cd39e513a848dbadae5f4ee9f0759867be26ec",
+    "tests/harness_v2_fixture.py": "af1505660a23b67bdcb36357797f9b018067c80df1dd48d9ffc776293fcf54eb",
+    "tests/test_official_tools.py": "40ddf0dca800dffbe1da69c5e5d41951470d2c928dc7d3d798e6ff0c0234b932",
+    "candidates/v0/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v0/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v0/submission/prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+    "candidates/v1/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v1/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v1/submission/prompts/system.md": "2cf366891268c05252604f8c5d2fba9a93fb93dfddef6564f3c0b4f0eba9e9f1"
+  },
+  "formal_comparison_status": "draft_not_registered_not_executed"
+}

@@ -1,0 +1,35 @@
+{
+  "reference_access": "post-hoc audit only; never mounted in agent experiment",
+  "upstream_pr": "https://github.com/fastapi/fastapi/pull/15661",
+  "base_commit": "ee22a4b8ca46dcce26c8c183afc4992a888d8be2",
+  "head_commit": "7a9d4077e1409bc782395e35cd1194b8003b273f",
+  "base_matches_original_task": true,
+  "changed_paths": [
+    ".github/workflows/create-draft-release.yml",
+    ".github/workflows/labeler.yml",
+    ".github/workflows/latest-changes.yml",
+    ".github/workflows/prepare-release.yml",
+    ".github/workflows/publish.yml",
+    "pyproject.toml",
+    "scripts/prepare_release.py",
+    "tests/test_prepare_release.py",
+    "uv.lock"
+  ],
+  "baseline_path_checks": {
+    "base_commit": "ee22a4b8ca46dcce26c8c183afc4992a888d8be2",
+    "http_status": {
+      "tests/test_prepare_release.py": 404,
+      ".github/workflows/prepare-release.yml": 404,
+      "scripts/prepare_release.py": 404
+    },
+    "positive_control": {
+      "path": "scripts/add_latest_release_date.py",
+      "http_status": 200
+    }
+  },
+  "raw_reference_sha256": {
+    "baseline-path-check.json": "a2f909bc41d38bb838c6bca2e0bc1a8ef2ccdaa7781c8f0a0279e8aaece5c2bb",
+    "upstream-files.json": "86c15d5cf4f66643375b8f3419be1e62e3476d58add35983fef9a8b9d029b520",
+    "upstream-pr.json": "7949453fe17c5eb47656fcbc23381a44e9ece8cdd3a4e94d392f13af5fb66650"
+  }
+}

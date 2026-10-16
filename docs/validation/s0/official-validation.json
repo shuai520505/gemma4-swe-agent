@@ -1,0 +1,67 @@
+{
+  "candidate": "s0",
+  "official_compiler_passed": true,
+  "existing_static_tests_passed": true,
+  "expected_static_tests": 5,
+  "model": "openai/gemma-4-31b-it-qat-w4a16-ct",
+  "tools": [
+    "get_status",
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "submit_patch"
+  ],
+  "subagents": 0,
+  "evaluation": {
+    "timeout_seconds": 120,
+    "max_tool_calls": 60,
+    "max_time_minutes": 5.0
+  },
+  "original_v0_prompt_identical": true,
+  "versions": {
+    "swegemma": "0.2.11",
+    "adk-submission": "0.2.13",
+    "adk-eval-core": "0.1.0",
+    "google-adk": "1.36.1",
+    "google-genai": "2.11.0",
+    "vllm": "0.19.1",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.13.1",
+    "litellm": "1.82.4"
+  },
+  "vllm_source_probes": {
+    "model_executor/models/gemma4.py": {
+      "sha256": "31c752290ca93c2d004b61e14f9bf7e6de2f11e59b538a903b3b409c9b96b5c5",
+      "vision_embedder_skip_marker": true,
+      "reasoning_content_marker": false
+    },
+    "entrypoints/chat_utils.py": {
+      "sha256": "8d1ed2b6321d587f89d3f59dbd6e6b4a942328bcdc0673fb30ec8e45559f834d",
+      "vision_embedder_skip_marker": false,
+      "reasoning_content_marker": true
+    }
+  },
+  "smaller_models_compilation": {
+    "gemma-4-12b-it-qat-w4a16-ct": {
+      "compiled": true,
+      "inference_executed": false
+    },
+    "gemma-4-e4b-it-qat-w4a16-ct": {
+      "compiled": true,
+      "inference_executed": false
+    },
+    "gemma-4-e2b-it-qat-w4a16-ct": {
+      "compiled": true,
+      "inference_executed": false
+    }
+  },
+  "official_documents": {
+    "HARNESS_README.md": {
+      "sha256": "445000219b803942c469391ec8b69791a31e9cec2f934738c767e34b5ca0aa1f",
+      "path": "/kaggle/input/competitions/gemma-4-developer-agent/HARNESS_README.md"
+    }
+  },
+  "model_inference_executed": false,
+  "official_score": null
+}

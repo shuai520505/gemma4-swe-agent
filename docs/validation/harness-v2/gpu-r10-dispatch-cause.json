@@ -1,0 +1,44 @@
+{
+  "archive_sha256": "b32ded44a848f31aa6692b70969e2c9f75ca4a2af4fcb560bc204f9e32c566e5",
+  "harness_version": "2.0.1",
+  "command": "python3 /tmp/setup.py --fast-path Textualize/rich",
+  "command_sha256": "84ab5e0b1334ebd40e7fee3ab9bd821379d64c7e412413655086587e5337679a",
+  "matched_start_events": [
+    {
+      "recorded_monotonic": 1078.138887288,
+      "kind": "sandbox_command_start",
+      "sandbox_id": "a57500ca-43c",
+      "command_sha256": "84ab5e0b1334ebd40e7fee3ab9bd821379d64c7e412413655086587e5337679a",
+      "timeout": null,
+      "command_kind": "other"
+    },
+    {
+      "recorded_monotonic": 1614.473102801,
+      "kind": "sandbox_command_start",
+      "sandbox_id": "300acb2d-63d",
+      "command_sha256": "84ab5e0b1334ebd40e7fee3ab9bd821379d64c7e412413655086587e5337679a",
+      "timeout": null,
+      "command_kind": "other"
+    },
+    {
+      "recorded_monotonic": 1734.722213025,
+      "kind": "sandbox_command_start",
+      "sandbox_id": "300acb2d-63d",
+      "command_sha256": "84ab5e0b1334ebd40e7fee3ab9bd821379d64c7e412413655086587e5337679a",
+      "timeout": null,
+      "command_kind": "other"
+    }
+  ],
+  "official_source": "swegemma0.2.11 harness/container_setup.py::install_test_dependencies",
+  "observer_class": "DurableManager",
+  "official_skip_names": [
+    "SubprocessManager",
+    "SubprocessSandbox"
+  ],
+  "observer_missed_native_skip": true,
+  "final_patch_bytes": 0,
+  "native_agent_boundary_trace_present": true,
+  "official_final_trace_present": false,
+  "phase2_started": false,
+  "conclusion": "Known observer class-name compatibility defect; prepared setup is not Agent test failure"
+}

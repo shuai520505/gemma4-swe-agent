@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-swe-agent\artifacts\harness-v2\replay_native_apply_budget.py", line 19, in <module>
+    assert ns['apply_patch_in_container'](m,'verifier','/tmp/fixture.patch')[0]==0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "artifacts/harness-v2/official-source/swegemma/swegemma/harness/container_setup.py", line 851, in apply_patch_in_container
+    res = docker.exec(container_id, cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "harness_v2/official.py", line 116, in exec
+    result=super().exec(sandbox_id,command,timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-swe-agent\artifacts\harness-v2\replay_native_apply_budget.py", line 10, in exec
+    assert self.journal.state['stage']=='apply_patch',self.journal.state['stage']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: prepare_verifier

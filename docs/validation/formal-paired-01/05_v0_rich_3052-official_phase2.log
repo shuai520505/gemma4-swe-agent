@@ -1,0 +1,29 @@
+STDOUT:
+.F.....                                                                  [100%]
+=================================== FAILURES ===================================
+_______________________ test_prompt_str_case_insensitive _______________________
+
+    def test_prompt_str_case_insensitive():
+        INPUT = "egg\nFoO"
+        console = Console(file=io.StringIO())
+        name = Prompt.ask(
+            "what is your name",
+            console=console,
+            choices=["foo", "bar"],
+            default="baz",
+            case_sensitive=False,
+            stream=io.StringIO(INPUT),
+        )
+>       assert name == "foo"
+E       AssertionError: assert 'FoO' == 'foo'
+E         
+E         - foo
+E         + FoO
+
+tests/test_prompt.py:35: AssertionError
+- generated xml file: /kaggle/working/formal_paired_01/b/20261016T080559_083038Z/runs/05_v0_rich_3052/sandbox_tmp/swegemma_sandbox_f396f3eb-8fc/tmp/_swegemma_junit_403dafadd133.xml -
+=========================== short test summary info ============================
+FAILED tests/test_prompt.py::test_prompt_str_case_insensitive - AssertionErro...
+1 failed, 6 passed in 0.09s
+
+STDERR:

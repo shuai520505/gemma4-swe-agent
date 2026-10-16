@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "experiment": "v1-prompt-pilot-01",
+  "seed": 20261015,
+  "historical_task_excluded": "fastapi_15661",
+  "repeats": 1,
+  "model": "gemma-4-31b-it-qat-w4a16-ct",
+  "model_version": 2,
+  "profile": {
+    "max_time_minutes": 8.0,
+    "max_tool_calls": 60,
+    "timeout_seconds": 120,
+    "verification_timeout_seconds": 300,
+    "max_tasks": 8,
+    "task_wall_minutes": 12.0
+  },
+  "schedule": [
+    {
+      "index": 1,
+      "arm": "v0",
+      "instance_id": "rich_3777",
+      "category": "terminal environment configuration",
+      "repo": "Textualize/rich",
+      "base_commit": "49117ced6648a432d85951f72dce777038f6ce09",
+      "problem_sha256": "44a2858054c7733850ba8a34626ccbca5023ec18ed1ff8a62ecd68a796b3583f"
+    },
+    {
+      "index": 2,
+      "arm": "v1",
+      "instance_id": "rich_3777",
+      "category": "terminal environment configuration",
+      "repo": "Textualize/rich",
+      "base_commit": "49117ced6648a432d85951f72dce777038f6ce09",
+      "problem_sha256": "44a2858054c7733850ba8a34626ccbca5023ec18ed1ff8a62ecd68a796b3583f"
+    },
+    {
+      "index": 3,
+      "arm": "v1",
+      "instance_id": "rich_4006",
+      "category": "Unicode termination/algorithm",
+      "repo": "Textualize/rich",
+      "base_commit": "27701029082052c6541031b6f139097230253900",
+      "problem_sha256": "28fae6196b2c67989d1ad751a3376902c8f4cc40de5731bf588a9cd21ad42357"
+    },
+    {
+      "index": 4,
+      "arm": "v0",
+      "instance_id": "rich_4006",
+      "category": "Unicode termination/algorithm",
+      "repo": "Textualize/rich",
+      "base_commit": "27701029082052c6541031b6f139097230253900",
+      "problem_sha256": "28fae6196b2c67989d1ad751a3376902c8f4cc40de5731bf588a9cd21ad42357"
+    },
+    {
+      "index": 5,
+      "arm": "v0",
+      "instance_id": "fastapi_15589",
+      "category": "request validation",
+      "repo": "fastapi/fastapi",
+      "base_commit": "22b02e26f9e8c7e32bd8266e2b0ebe8bb3a0db2b",
+      "problem_sha256": "229336ed7ae9e210946df9c37beec9e46e35dd0d890541ee5693a40290f7ac2a"
+    },
+    {
+      "index": 6,
+      "arm": "v1",
+      "instance_id": "fastapi_15589",
+      "category": "request validation",
+      "repo": "fastapi/fastapi",
+      "base_commit": "22b02e26f9e8c7e32bd8266e2b0ebe8bb3a0db2b",
+      "problem_sha256": "229336ed7ae9e210946df9c37beec9e46e35dd0d890541ee5693a40290f7ac2a"
+    },
+    {
+      "index": 7,
+      "arm": "v1",
+      "instance_id": "requests_7315",
+      "category": "URL normalization",
+      "repo": "psf/requests",
+      "base_commit": "6360477c52303c9445b45fa8744b02d05a2f0905",
+      "problem_sha256": "468a069409bce40c07c19a1ab9a781955c3e68bb47274265ae73975ecb95ad67"
+    },
+    {
+      "index": 8,
+      "arm": "v0",
+      "instance_id": "requests_7315",
+      "category": "URL normalization",
+      "repo": "psf/requests",
+      "base_commit": "6360477c52303c9445b45fa8744b02d05a2f0905",
+      "problem_sha256": "468a069409bce40c07c19a1ab9a781955c3e68bb47274265ae73975ecb95ad67"
+    }
+  ],
+  "source_hashes": {
+    "v0/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "v0/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "v0/prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+    "v1/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "v1/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "v1/prompts/system.md": "2cf366891268c05252604f8c5d2fba9a93fb93dfddef6564f3c0b4f0eba9e9f1"
+  },
+  "inference_status": "not_executed_at_registration",
+  "competition_score": null
+}

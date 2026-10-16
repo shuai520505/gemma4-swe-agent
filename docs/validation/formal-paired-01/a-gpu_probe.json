@@ -1,0 +1,28 @@
+{
+  "kind": "infrastructure_probe_not_task_repair",
+  "actual_model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "generated_tokens": 2,
+  "input_tokens": 19,
+  "tokenizer_input_tokens": 19,
+  "admission": {
+    "kind": "context_admission",
+    "core_restored": false,
+    "input_tokens": 19,
+    "output_reserved": 8,
+    "safety_tokens": 1024,
+    "max_model_len": 32768,
+    "total_reserved": 1051,
+    "decision": "allow"
+  },
+  "oversize_rejected_before_generation": true,
+  "oversize_admission": {
+    "kind": "context_admission",
+    "core_restored": true,
+    "decision": "reject",
+    "input_tokens": 20020,
+    "max_model_len": 32768,
+    "output_reserved": 16384,
+    "safety_tokens": 1024,
+    "total_reserved": 37428
+  }
+}
