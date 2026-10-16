@@ -1,0 +1,35 @@
+{
+  "notebook": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-swe-agent\\artifacts\\harness-v2\\r07\\gpu-kernel\\gpu.ipynb",
+  "sha256": "b8c18906b1fc2e3df2039dca462905f384bff39b3d587c2de03fdb7904e7cd74",
+  "cpu_gate_passed": true,
+  "gpu_executed": false
+}
+test_install_failure_retains_original_exception_and_diagnostic_zip (test_harness_v2_packaging.PackagingTests.test_install_failure_retains_original_exception_and_diagnostic_zip) ... ERROR
+
+======================================================================
+ERROR: test_install_failure_retains_original_exception_and_diagnostic_zip (test_harness_v2_packaging.PackagingTests.test_install_failure_retains_original_exception_and_diagnostic_zip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<official-INSTALL>", line 20, in <module>
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\unittest\mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\unittest\mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\unittest\mock.py", line 1183, in _execute_mock_call
+    raise effect
+subprocess.CalledProcessError: Command '['nvidia-smi']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-swe-agent\tests\test_harness_v2_packaging.py", line 36, in test_install_failure_retains_original_exception_and_diagnostic_zip
+    exec(compile(notebook['cells'][3]['source'],'<official-INSTALL>','exec'),namespace)
+  File "<official-INSTALL>", line 60, in <module>
+NameError: name 'bundle_run' is not defined
+
+----------------------------------------------------------------------
+Ran 1 test in 0.043s
+
+FAILED (errors=1)

@@ -1,0 +1,37 @@
+test_missing_pip_scripts_are_bound_to_checked_venv_python (test_harness_v2_isolation.IsolationUnitTests.test_missing_pip_scripts_are_bound_to_checked_venv_python) ... ERROR
+test_wrong_interpreter_prefix_is_rejected_before_installation (test_harness_v2_isolation.IsolationUnitTests.test_wrong_interpreter_prefix_is_rejected_before_installation) ... ERROR
+
+======================================================================
+ERROR: test_missing_pip_scripts_are_bound_to_checked_venv_python (test_harness_v2_isolation.IsolationUnitTests.test_missing_pip_scripts_are_bound_to_checked_venv_python)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-swe-agent\tests\test_harness_v2_isolation.py", line 16, in test_missing_pip_scripts_are_bound_to_checked_venv_python
+    m=importlib.import_module('harness_v2.isolation')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'harness_v2.isolation'
+
+======================================================================
+ERROR: test_wrong_interpreter_prefix_is_rejected_before_installation (test_harness_v2_isolation.IsolationUnitTests.test_wrong_interpreter_prefix_is_rejected_before_installation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-swe-agent\tests\test_harness_v2_isolation.py", line 30, in test_wrong_interpreter_prefix_is_rejected_before_installation
+    m=importlib.import_module('harness_v2.isolation')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'harness_v2.isolation'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.013s
+
+FAILED (errors=2)

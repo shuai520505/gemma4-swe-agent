@@ -1,6 +1,6 @@
 # Harness V2：预算准入、进程隔离与持久证据
 
-基线提交 `6b8a0ba`；Harness 版本 `2.0.0`；开发实验 ID `harness-v2-infra-dev-01`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
+基线提交 `6b8a0ba`；初始Harness版本 `2.0.0`、开发实验ID `harness-v2-infra-dev-01`；GPU发现共享依赖污染后新增 `2.0.1` / `harness-v2-infra-dev-02`。所有尝试使用独立 revision 和运行目录，不能合并成 Pilot 01 的补跑结果。V0/V1 的6个源文件、两个候选ZIP，以及 Pilot 01 协议/记录/原始输出保持冻结。
 
 本阶段只修改本地实验基础设施。`harness_v2/` 不进入 Agent submission；仍使用指定官方 Gemma 4 31B v2、六个工具、单Agent。没有 Prompt 优化、LoRA 或多Agent。
 
@@ -56,6 +56,8 @@ Pilot 01 的Agent超时实际约483秒，进入B后又等待约236秒就遭旧�
 
 Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态分配后恢复进程，包含后代并在关闭时终止。工作进程拥有自己的sandbox_tmp和日志目录；vLLM由Notebook父进程持有，模型服务不在被终止的任务进程组内。父进程监督阶段、外层截止和后代存活状态，异常后阻止下一题，并停止本批共享模型服务。
 
+2.0.0的真实GPU开发运行显示，进程/目录清理不能证明宿主Python依赖未变：ensurepip失败的官方venv回退路径可能把裸pip命令解析到宿主入口。2.0.1在每个官方沙箱创建后、安装前核验sys.prefix并写入只位于该venv/bin内的pip及pytest启动脚本，统一通过沙箱Python的`-m`调用，记录sandbox_python_admission。没有修改工具或官方wheel；共享只读包仍可继承，不能宣称操作系统级隔离。安全回归在可丢弃父venv内验证版本替换与下一沙箱导入，细节和证据边界见 `harness_v2/RESULTS.md`。
+
 持久化位置如下：
 
 - `events.jsonl`：阶段、活动、命令哈希/类型/退出码、预算准入和计数，逐条flush+fsync；同阶段的进度更新不重置截止。
@@ -92,3 +94,5 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 官方Linux API/工具链CPU门禁另在私有Kaggle Notebook执行。r04因错误的LiteLLM开发版本要求在安装阶段失败；r05因启用依赖解析而碰到官方wheelhouse不含的可选依赖失败，均未执行模型推理。r06采用官方Notebook原样的离线全量wheel安装（--no-index --no-deps --force-reinstall）重新验证。所有失败输出保留；门禁不允许把安装失败当成测试通过。
 
 官方CPU r07 / Notebook v4已经31项全通过、0跳过；r06暴露的编译器复制客户端问题已通过保留单任务内guard/journal绑定解决，并经真实编译器回归确认。GPU开发smoke按新注册配置执行，正式GPU对照仍禁止。最终真实状态以 `harness_v2/VALIDATION.md` 为准；必须具备官方CPU通过日志、最小GPU基础设施结果和冻结候选核验，才可讨论正式实验。
+
+r07真实GPU探针及第一题Phase 2完成，第二题在导入阶段失败，整批门禁未通过。2.0.1重新走CPU→GPU流程；禁止以旧CPU通过记录为已改动的核心运行时放行。后续生成器也补齐官方INSTALL/SERVER失败分支所需的ZIP别名，并经注入异常的本机测试验证。

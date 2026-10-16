@@ -8,6 +8,7 @@ import sys
 import unittest
 
 from .evidence import atomic_json
+from . import VERSION
 
 
 def flatten(suite):
@@ -37,7 +38,7 @@ def main():
     atomic_json(args.output/'versions.json',versions)
     with (args.output/'cpu_tests.log').open('x',encoding='utf-8') as log:
         result=unittest.TextTestRunner(stream=log,verbosity=2).run(unittest.TestSuite(tests))
-    gate=dict(schema_version=2,harness_version='2.0.0',kind='cpu_only_no_model_inference',
+    gate=dict(schema_version=2,harness_version=VERSION,kind='cpu_only_no_model_inference',
         tests_run=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=len(result.skipped),
         official_api_tests_executed=any('OfficialApiTests' in t.id() for t in tests),
         passed=result.wasSuccessful() and not result.skipped,versions=versions)

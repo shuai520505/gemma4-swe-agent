@@ -11,6 +11,7 @@ import traceback
 from .budgets import Budgets
 from .context_budget import RequestGuard,VllmCounter
 from .evidence import Journal,atomic_json,atomic_bytes
+from . import VERSION
 
 
 async def evaluate(spec,directory):
@@ -60,7 +61,7 @@ async def evaluate(spec,directory):
     compiled=compile_submission(agent_dir,ctx.create_tools(),models,limits=limits,generation_constraints=constraints)
     assert len(compiled.tools)==6 and not compiled.sub_agents
     assert compiled.generate_content_config.max_output_tokens==16384
-    atomic_json(directory/'runtime_config.json',dict(harness_version='2.0.0',budget=budget.as_dict(),
+    atomic_json(directory/'runtime_config.json',dict(harness_version=VERSION,budget=budget.as_dict(),
         compaction=dict(interval=5,overlap=1,token_threshold=8192,event_retention_size=4),
         operational_limits=dict(max_stdout_chars=2000,max_file_chars=4000,max_file_lines=120),
         max_model_len=32768,output_reserved=16384,safety_tokens=1024,
@@ -107,6 +108,7 @@ def main():
     args.directory.mkdir(parents=True,exist_ok=True)
     # Imports/compile failures also leave an explicit record, never an official failure.
     try:
+        Journal(args.directory).stage('prepare_agent',operation='worker_bootstrap')
         asyncio.run(evaluate(json.loads(args.spec.read_text(encoding='utf-8')),args.directory))
     except BaseException as exc:
         atomic_json(args.directory/'worker_top_exception.json',dict(type=type(exc).__name__,message=str(exc),

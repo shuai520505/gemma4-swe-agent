@@ -1,0 +1,10 @@
+# V2 runtime hashes must reproduce on Windows and Linux checkouts.
+/harness_v2/*.py text eol=lf
+/harness_v2/registrations/*.json -text
+/harness_v2/frozen_baseline.json -text
+/tests/test_harness_v2*.py text eol=lf
+/tests/harness_v2_fixture.py text eol=lf
+# Preserve native validation artifacts byte-for-byte.
+/docs/validation/harness-v2/*.log -text whitespace=cr-at-eol
+/docs/validation/harness-v2/*.json -text
+/harness_v2/results/*.json -text

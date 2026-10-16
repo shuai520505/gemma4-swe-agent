@@ -8,6 +8,7 @@ from pathlib import Path
 from experiments.prepare import ROOT,archive_bytes,write_new
 from .integrity import verify_baseline
 from .budgets import Budgets
+from . import VERSION
 
 
 def cell(source):
@@ -18,14 +19,14 @@ def cell(source):
 def build(revision):
     verify_baseline()
     base=ROOT/'artifacts/harness-v2'/revision
-    tests=['test_harness_v2.py','test_harness_v2_official.py','harness_v2_fixture.py','test_official_tools.py']
+    tests=['test_harness_v2.py','test_harness_v2_official.py','test_harness_v2_isolation.py','harness_v2_fixture.py','test_official_tools.py']
     files={p.relative_to(ROOT).as_posix():p.read_bytes() for p in (ROOT/'harness_v2').glob('*.py')}
     files.update({f'tests/{n}':(ROOT/'tests'/n).read_bytes() for n in tests})
     candidates={f'candidates/{a}/submission/{n}':(ROOT/'candidates'/a/'submission'/n).read_bytes()
         for a in ('v0','v1') for n in ('agent.yaml','eval_config.yaml','prompts/system.md')}
     files.update(candidates)
     hashes={n:hashlib.sha256(b).hexdigest() for n,b in files.items()}
-    plan=dict(schema_version=2,harness_version='2.0.0',experiment_id='harness-v2-infra-dev-01',
+    plan=dict(schema_version=2,harness_version=VERSION,experiment_id='harness-v2-infra-dev-02',
         revision=revision,purpose='infrastructure development; no repair-rate inference',
         cpu_must_pass_before_gpu=True,budget=Budgets().as_dict(),model='google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2',
         tasks=[dict(index=1,arm='v0',instance_id='requests_7315'),dict(index=2,arm='v1',instance_id='rich_3777')],

@@ -205,6 +205,15 @@ class BudgetAndEvidenceTests(unittest.TestCase):
 
 
 class SupervisorTests(unittest.TestCase):
+    def test_bootstrap_failure_is_unknown_in_preparation_stage(self):
+        m=component(self,'supervisor')
+        with tempfile.TemporaryDirectory() as tmp:
+            r=m.supervise([sys.executable,'-c','raise ImportError("fixture")'],Path(tmp)/'run',
+                outer_seconds=5,stage_caps={},poll_seconds=.02)
+        self.assertEqual(r['status'],'unknown')
+        self.assertEqual(r['failure_stage'],'prepare_agent')
+        self.assertEqual(r['controller_failure_stage'],'prepare_agent')
+
     def run_worker(self, mode, *, stage_caps=None, outer_seconds=8):
         m = component(self, 'supervisor')
         base=os.environ.get('HARNESS_V2_TEST_EVIDENCE_DIR')

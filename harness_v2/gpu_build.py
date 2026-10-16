@@ -25,6 +25,7 @@ def build(revision,gate_path):
     setup+=f'CPU_GATE={gate!r}\nCPU_PLAN={plan!r}\n'
     setup+='''from harness_v2.evidence import atomic_json,bundle
 from harness_v2.batch import require_cpu_gate,run_batch
+bundle_run=bundle  # Organizer INSTALL/SERVER diagnostic branches use this name.
 atomic_json(RUN_DIR/'cpu_gate.json',CPU_GATE)
 require_cpu_gate(RUN_DIR/'cpu_gate.json',CPU_PLAN,SOURCE)
 MODEL_NAME='gemma-4-31b-it-qat-w4a16-ct'
@@ -110,7 +111,7 @@ finally:
         code_file='gpu.ipynb',dataset_sources=['metric/gemma-4-developer-agent-wheelhouse',
         'wudangdexiaodoashi/gemma4-harness-v2-private-input'])
     write_new(base/'gpu-kernel/kernel-metadata.json',(json.dumps(meta,indent=2)+'\n').encode())
-    registration=dict(experiment_id='harness-v2-infra-dev-01',revision=revision,kind='gpu_development_smoke',
+    registration=dict(experiment_id=plan['experiment_id'],revision=revision,kind='gpu_development_smoke',
         cpu_gate_sha256=hashlib.sha256(Path(gate_path).read_bytes()).hexdigest(),
         cpu_plan_sha256=hashlib.sha256((ROOT/'harness_v2/registrations'/f'{revision}.json').read_bytes()).hexdigest(),
         notebook_sha256=hashlib.sha256(data).hexdigest(),tasks=plan['tasks'],

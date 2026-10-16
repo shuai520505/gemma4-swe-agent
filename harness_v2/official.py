@@ -11,6 +11,7 @@ from swegemma.sandbox.subprocess import SubprocessManager
 from swegemma.harness.verification import strip_protected_files_from_patch
 
 from .evidence import atomic_bytes,atomic_json
+from .isolation import prepare_pip_entrypoints
 
 
 class GuardedClient(LiteLLMClient):
@@ -84,6 +85,12 @@ class DurableManager(SubprocessManager):
         stage='prepare_agent' if self.agent_id is None else 'prepare_verifier'
         self.journal.stage(stage)
         sid=super().start()
+        try:
+            admission=prepare_pip_entrypoints(self.sandboxes[sid]['venv'])
+            self.journal.append(dict(kind='sandbox_python_admission',sandbox_id=sid,**admission))
+        except BaseException:
+            super().stop(sid)
+            raise
         if self.agent_id is None: self.agent_id=sid
         self.journal.append(dict(kind='sandbox_started',sandbox_id=sid,stage=stage))
         return sid

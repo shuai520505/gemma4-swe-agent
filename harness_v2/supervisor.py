@@ -147,7 +147,7 @@ def supervise(command, directory, *, outer_seconds, stage_caps, poll_seconds=.5,
             if job is not None:
                 job.close()
     raw=_read(directory/'official_result.json')
-    result=normalize(raw,started=True,stage=controller_stage or progress.get('stage'))
+    result=normalize(raw,started=True,stage=controller_stage or progress.get('stage') or last_stage)
     done=_read(directory/'worker_done.json',{})
     cleanup=done.get('cleanup_complete') is True
     if not stopped:
@@ -156,6 +156,8 @@ def supervise(command, directory, *, outer_seconds, stage_caps, poll_seconds=.5,
         failure='worker_nonzero_exit'
     elif not failure and not cleanup:
         failure='cleanup_unconfirmed'
+    if failure and controller_stage is None:
+        controller_stage=progress.get('stage') or last_stage
     result.update(controller_error=failure,controller_failure_stage=controller_stage,
         process_exit_code=process.returncode,process_tree_stopped=stopped,
         cleanup_complete=cleanup,duration_seconds=time.monotonic()-start,

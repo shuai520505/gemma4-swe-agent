@@ -10,9 +10,10 @@ from .budgets import Budgets
 from .evidence import atomic_json,read_events
 from .outcomes import summarize
 from .supervisor import supervise
+from . import VERSION
 
 CRITICAL=('__init__.py','budgets.py','context_budget.py','evidence.py','official.py',
-          'outcomes.py','supervisor.py','windows_job.py','worker.py','batch.py')
+          'outcomes.py','supervisor.py','windows_job.py','worker.py','batch.py','isolation.py')
 
 
 def split_pairs(schedule):
@@ -28,7 +29,7 @@ def split_pairs(schedule):
 
 def require_cpu_gate(gate_path,cpu_plan,source_root):
     gate=json.loads(Path(gate_path).read_text(encoding='utf-8'))
-    if (gate.get('passed') is not True or gate.get('failures')!=0 or gate.get('errors')!=0 or
+    if (gate.get('harness_version')!=VERSION or gate.get('passed') is not True or gate.get('failures')!=0 or gate.get('errors')!=0 or
             gate.get('skipped')!=0 or gate.get('official_api_tests_executed') is not True):
         raise ValueError('Official CPU gate not passed; GPU is forbidden')
     expected={'swegemma':'0.2.11','adk-submission':'0.2.13','adk-eval-core':'0.1.0',
@@ -89,7 +90,7 @@ def run_batch(plan,source_root,output,paths,model,*,session_started,session_seco
     passed=all(r['status'] in ('resolved','failed') and r.get('allow_next_run') is True and
         r.get('phase2_command_completed') is True for r in records)
     atomic_json(output/'audit_summary.json',dict(purpose='infrastructure_development_only',arms=metrics))
-    atomic_json(output/'batch_status.json',dict(harness_version='2.0.0',
+    atomic_json(output/'batch_status.json',dict(harness_version=VERSION,
         experiment_id=plan['experiment_id'],all_runs_admitted=all(r['status']!='not_run' for r in records),
         infrastructure_gate_passed=passed,stop_reason=stop,competition_score=None))
     return records
