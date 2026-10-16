@@ -72,3 +72,6 @@ GPU Notebook v3 于 2026-10-16 06:17:57 UTC 接纳，实验 `harness-v2-infra-de
 r11 GPU v3 已完成并通过原自动链路门禁：requests/V0 为真实断言失败（1 failed），rich/V1 为 resolved（99 passed），两题 Phase 2 与清理完整。原始 ZIP SHA-256 `ac494ea58ffd07483c4a5f44b7f0d5797d2d96f4c6c1d2e702e1a4770a742d81`，373874 字节；完整归因见 `RESULTS.md`。
 
 **正式对照仍 BLOCKED。** 人工审计发现独立 60 秒 Patch 应用阶段未识别官方内嵌 Python 路径，r11 实际由 prepare_verifier=180 秒约束。2.0.3 / r12 / `harness-v2-infra-dev-04` 增补通用官方协议识别及 API 回归；本机 28 项控制器测试通过，AST 原生 helper 重放先红后绿。新版本重新执行官方 CPU 门禁，GPU 只能在该门禁通过后启动。此项是 Harness 预算观测修正，不改写 r11 的原生任务结论。
+
+
+r12 官方 Linux CPU Notebook v8：**38/38 通过，0 失败、0 错误、0 跳过**，包含真实官方内嵌 Patch helper 阶段回归。原始 ZIP 147984 字节，SHA-256 `ca8f7ce8d6e6ee9f22ee6d3d267b916b5101c4f5fda3e75132000672ae068520`；CRC、全部 28 项源码和冻结证据通过。原始日志 `docs/validation/harness-v2/official-cpu-r12.log`，只读审计 `results/r12-cpu-audit.json`。GPU v4 仅在该门禁后生成，注册 Notebook SHA-256 `8d61e81e2efeff021a3e3df47122d9862dd2c844d0df50803defd407f5da3d42`。GPU 结果未取得前不宣称该版本开发门禁通过。
