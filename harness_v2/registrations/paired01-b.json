@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "harness_version": "2.0.3",
+  "experiment_id": "harness-v2-formal-paired-01",
+  "revision": "paired01-b",
+  "purpose": "formal paired prompt comparison; separate protocol",
+  "cpu_must_pass_before_gpu": true,
+  "budget": {
+    "stage_caps": {
+      "prepare_agent": 180,
+      "agent": 510,
+      "save_patch": 60,
+      "prepare_verifier": 180,
+      "apply_patch": 60,
+      "verification": 300,
+      "persist": 60,
+      "cleanup": 120
+    },
+    "safety_seconds": 60,
+    "outer_seconds": 1530,
+    "agent_seconds": 480,
+    "command_seconds": 120,
+    "max_tool_calls": 60
+  },
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "tasks": [
+    {
+      "index": 5,
+      "arm": "v0",
+      "instance_id": "rich_3052",
+      "category": "case-insensitive CLI choices",
+      "repo": "Textualize/rich",
+      "base_commit": "7a168a27c5097805b3bafa495f35e3955004ff4a",
+      "problem_sha256": "ee28e2b6527b67a12170d7289f2c625a11b210d801d09fa09de9e278d4c58a94"
+    },
+    {
+      "index": 6,
+      "arm": "v1",
+      "instance_id": "rich_3052",
+      "category": "case-insensitive CLI choices",
+      "repo": "Textualize/rich",
+      "base_commit": "7a168a27c5097805b3bafa495f35e3955004ff4a",
+      "problem_sha256": "ee28e2b6527b67a12170d7289f2c625a11b210d801d09fa09de9e278d4c58a94"
+    },
+    {
+      "index": 7,
+      "arm": "v1",
+      "instance_id": "fastapi_14258",
+      "category": "router self-inclusion validation",
+      "repo": "fastapi/fastapi",
+      "base_commit": "e94028ab60d18080810910352bc9129e8046c92d",
+      "problem_sha256": "81736899f2891d336671bf1f7a726d25907619f4efe17669eee7a16f21dbed3d"
+    },
+    {
+      "index": 8,
+      "arm": "v0",
+      "instance_id": "fastapi_14258",
+      "category": "router self-inclusion validation",
+      "repo": "fastapi/fastapi",
+      "base_commit": "e94028ab60d18080810910352bc9129e8046c92d",
+      "problem_sha256": "81736899f2891d336671bf1f7a726d25907619f4efe17669eee7a16f21dbed3d"
+    }
+  ],
+  "source_hashes": {
+    "harness_v2/audit.py": "f8d12a446ff8a8707fcc5187ce485b26dc4becd2941c05b3e57f1c4ef8adca00",
+    "harness_v2/batch.py": "be2bdadcbe06b0c4136ad328a5306837519764ecb50caa185c3a1b32cc1b8f80",
+    "harness_v2/budgets.py": "5b3fac504eb8cea5d8b297f0466bee12eb251100f442c4764589db37d7871a6d",
+    "harness_v2/build.py": "0503236a98136954cb4ae2e63f87b16ec929b31786bc37aceed92d5f07ad9adc",
+    "harness_v2/context_budget.py": "4e23971ade660bfa7fac2db00f93cd49f04e296e99dddf22b14741a2acf1a8b1",
+    "harness_v2/cpu_validation.py": "abea3b96981600bc81cfd23ae98cc823a3a8da5cc91b5b6c96019f68667240f2",
+    "harness_v2/evidence.py": "2661bcb97f54a5ddfbc85c592dad03949a706d14efa0d962a86f2aeedfe73621",
+    "harness_v2/gpu_build.py": "29954c5d7adf3d87abcd233c4b7877a8cd8446b67a5dae6ec273baa4a2cf5fa3",
+    "harness_v2/integrity.py": "53970b58354e71f67e03b53e6e121ce5f7528fad836a7e705e4e1dc07148198b",
+    "harness_v2/isolation.py": "66bc9d1a54044bcb66c5173a1109ca97914db59aeb44da65ffb37ebc64da9ddf",
+    "harness_v2/kaggle_watch.py": "e351cd394b61d922cffeee44b5f5af0b61c81d5c7646a51e062aff3a4792373e",
+    "harness_v2/official.py": "4d31616de82c1c68ab2b72b1ce9c9ed84724f6aa04df807e46728bcb674bec28",
+    "harness_v2/outcomes.py": "01cc11df6bfcf2fd30aab6721403053d0e85c4ad723c3b498232ea19aff77121",
+    "harness_v2/supervisor.py": "2bfdb28c291d4faafbc13b58229a550ddb28dcf984645fdf766711dd42a3ee62",
+    "harness_v2/windows_job.py": "0e42bbfadf32b945e5bbb40c37a1662718371f3097618e45d234c01259dc39e3",
+    "harness_v2/worker.py": "0ce544a0b9da376ddec357e4993382669bd79d596df1f0e19f7277db5c700c2c",
+    "harness_v2/__init__.py": "273d7c042359bd5939b33800399bda322c8a06483d99c21a655c866028d71a3a",
+    "tests/test_harness_v2.py": "57924918fcc81d5ab3833de2df8849ac3c68a4c67324c29d7e0a90eddc8305a2",
+    "tests/test_harness_v2_official.py": "351194ce2ee4874ad32b795c9693a809cf2845f7878a8da20cf22ff41564f7b7",
+    "tests/test_harness_v2_isolation.py": "b93abffe4afa35ba98ae73a153a893e48b9d83e04883ddd775cf58fd153cc582",
+    "tests/harness_v2_fixture.py": "5d75aaca6f90c6945b174e6e641ab8e6d2f874ec92d2d17c671ac0205dc188ec",
+    "tests/test_official_tools.py": "40ddf0dca800dffbe1da69c5e5d41951470d2c928dc7d3d798e6ff0c0234b932",
+    "candidates/v0/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v0/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v0/submission/prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+    "candidates/v1/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v1/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v1/submission/prompts/system.md": "2cf366891268c05252604f8c5d2fba9a93fb93dfddef6564f3c0b4f0eba9e9f1"
+  },
+  "formal_comparison_status": "preregistered_not_executed"
+}
