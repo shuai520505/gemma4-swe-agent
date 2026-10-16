@@ -25,6 +25,26 @@ class OfficialApiTests(unittest.IsolatedAsyncioTestCase):
                 container_setup.install_editable_package(manager,'fixture_no_sandbox')
                 container_setup.install_test_dependencies(manager,'fixture_no_sandbox',repo='fixture/repository')
 
+    async def test_native_embedded_patch_command_uses_apply_budget(self):
+        from types import SimpleNamespace
+        from swegemma.harness.container_setup import apply_patch_in_container
+        from swegemma.sandbox.subprocess import SubprocessManager as NativeManager
+        from harness_v2.official import DurableManager
+        from harness_v2.evidence import Journal
+        with tempfile.TemporaryDirectory() as tmp:
+            journal=Journal(tmp); journal.stage('prepare_verifier')
+            manager=DurableManager(journal=journal); manager.agent_id='agent'
+            observed=[]
+            def execute(_manager,sid,command,**kwargs):
+                if 'Usage: apply_patch.py <workspace_dir> <patch_path>' in command:
+                    observed.append(journal.state['stage'])
+                    self.assertEqual(journal.state['stage'],'apply_patch')
+                return SimpleNamespace(exit_code=0,stdout='',stderr='')
+            with patch.object(NativeManager,'exec',execute):
+                self.assertEqual(apply_patch_in_container(manager,'verifier','/tmp/fixture.patch')[0],0)
+            self.assertEqual(observed,['apply_patch'])
+            self.assertEqual(journal.state['stage'],'prepare_verifier')
+
     async def test_compiler_defaults_and_guard_survive_model_clone(self):
         from adk_submission import ModelRegistry,compile_submission
         from google.adk.models.lite_llm import LiteLlm

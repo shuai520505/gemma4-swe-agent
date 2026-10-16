@@ -104,7 +104,9 @@ class SubprocessManager(OrganizerSubprocessManager):
         import hashlib
         verifier=sandbox_id!=self.agent_id
         test_command=verifier and ' -m pytest ' in command
-        applying=verifier and ('git apply' in command or 'patch --' in command or 'patch -p' in command)
+        # The organizer also wraps git/patch subprocesses inside python -S -c.
+        applying=verifier and ('git apply' in command or 'patch --' in command or 'patch -p' in command or
+            'Usage: apply_patch.py <workspace_dir> <patch_path>' in command)
         old_stage=self.journal.state.get('stage')
         if test_command: self.journal.stage('verification')
         elif applying: self.journal.stage('apply_patch')

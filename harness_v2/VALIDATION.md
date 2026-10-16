@@ -57,3 +57,18 @@ r10 CPU原始ZIP：140045字节，SHA-256 `80a8bb42e71020e0f39b3c3a26dfa2335b176
 ## 保存路径
 
 本机日志、CPU原始ZIP、原生日志和安装记录位于 `artifacts/harness-v2/` 的各修订目录；精简可公开验证记录在 `docs/validation/harness-v2/`。注册配置在 `harness_v2/registrations/`，源码和编译/预算/事件接口设计见根目录 `HARNESS_V2_DESIGN.md`。
+
+## r11 官方 CPU 门禁及当前 GPU 注册
+
+r11 / Harness 2.0.2 的官方 Linux CPU 门禁为 **37/37 通过，0 失败、0 错误、0 跳过**，耗时 29.715 秒。原始 ZIP 为 146708 字节，SHA-256 `ff51c56d7e6071fe7247d56a69cd2ce6eb78626191335434a6bb2b79b196b161`；CRC、28 项注册源码及冻结证据核验通过。原始测试日志见 `docs/validation/harness-v2/official-cpu-r11.log`，只读审计见 `results/r11-cpu-audit.json`。
+
+8 项真实 CPU 进程夹具索引见 `docs/validation/harness-v2/cpu-r11-timeout-evidence.json`：进程树均已停止，超时及清理异常均阻止下一题；包含 0 字节 Patch 检查点与边界 Trace 分别标记。此处只证明控制器行为，不代表 Gemma 修复任务。
+
+GPU Notebook v3 于 2026-10-16 06:17:57 UTC 接纳，实验 `harness-v2-infra-dev-03`，输入注册 `r11-gpu.json`；Notebook SHA-256 `f0cd029b0e9df20545b1d231638e6348a15e74313cd97a2b84e9fe46aaf767a6`，源码包 SHA-256 `346fb702fba1f8573066384c95305fb0e7ed5f42b94c1ddbc583a9ca27032531`。仍使用预先指定的 requests_7315/v0 和 rich_3777/v1 两道开发任务；最终结果另按原始输出审计，不作正式对照。
+
+
+## r11 GPU 终态和 r12 追加门禁
+
+r11 GPU v3 已完成并通过原自动链路门禁：requests/V0 为真实断言失败（1 failed），rich/V1 为 resolved（99 passed），两题 Phase 2 与清理完整。原始 ZIP SHA-256 `ac494ea58ffd07483c4a5f44b7f0d5797d2d96f4c6c1d2e702e1a4770a742d81`，373874 字节；完整归因见 `RESULTS.md`。
+
+**正式对照仍 BLOCKED。** 人工审计发现独立 60 秒 Patch 应用阶段未识别官方内嵌 Python 路径，r11 实际由 prepare_verifier=180 秒约束。2.0.3 / r12 / `harness-v2-infra-dev-04` 增补通用官方协议识别及 API 回归；本机 28 项控制器测试通过，AST 原生 helper 重放先红后绿。新版本重新执行官方 CPU 门禁，GPU 只能在该门禁通过后启动。此项是 Harness 预算观测修正，不改写 r11 的原生任务结论。

@@ -53,3 +53,23 @@ r10原始ZIP为339521字节，SHA-256 `b32ded44a848f31aa6692b70969e2c9f75ca4a2af
 ## 2.0.2 / infra-dev-03
 
 r11是新的开发注册，保持同一模型、Prompt、六工具、阶段预算和两道预指定题。修复官方subprocess分支兼容性，并为审计显式区分空Patch字节数、Agent边界Trace和最终Trace；上下文错误单列context_admission阶段。先重新执行官方CPU/API门禁，未通过前不得启动GPU。
+
+
+### r11 / GPU Notebook v3 实测与预算审计
+
+| 任务 | 原始 Phase 2 | LLM / 工具 | 官方 / 控制器耗时 | Patch |
+| --- | --- | --- | --- | --- |
+| requests_7315 / V0 | resolved=false，exit=1，1 failed | 28 / 26 | 301.888 / 314.529 秒 | 1820 字节 |
+| rich_3777 / V1 | resolved=true，exit=0，99 passed | 59 / 57 | 376.519 / 389.183 秒 | 1393 字节 |
+
+requests 是真实断言失败：预期保留 `//v:h`，实际返回 `/v:h`；没有测试收集错误或环境异常。rich 的原生验证完成。两题均保存非空 Patch（先于 Phase 2）、完整原生边界及最终 Trace、增量事件、官方结果和验证输出；进程树停止、目录清理确认。未发生控制器超时。它们是不同开发题，不输出正式修复率或 V0/V1 优劣结论。
+
+4 张 L4、31B v2 模型、六工具及冻结 Prompt 已核验。两题共 93 次请求准入，输出预留均为 16384、最大总预留 26414，0 越界、0 计数错误；87 个可取得原生 usage 的响应与 tokenizer 逐项完全一致（误差 0）。另 6 次压缩请求准入没有独立原生 usage，明确保留缺口。探针仍在生成前拦截 37428 总预留请求。
+
+此前额外 Docker setup 命令的 SHA 在两题均为 0 次；4 次沙箱解释器准入均绑定各自 venv，第二工作进程正常导入。Verifier 准备约 1.094 / 1.337 秒，实际 pytest 命令约 1.164 / 2.179 秒。原始 ZIP 为 373874 字节，SHA-256 `ac494ea58ffd07483c4a5f44b7f0d5797d2d96f4c6c1d2e702e1a4770a742d81`；CRC、manifest、28 项源码及原始冻结证据均核验。只读结果见 `results/r11-gpu-audit.json`，逐事件/usage/命令核验见 `docs/validation/harness-v2/gpu-r11-forensics.json`。
+
+**额外发现，不隐去门禁缺口：** r11 自动链路门禁为 true，但人工预算审计发现官方内嵌 Python Patch 应用脚本没有匹配到原先只识别裸 git/patch 的阶段检测，应用时间记入 prepare_verifier。这不改变已完成的原生测试结果，但独立 apply_patch=60 秒截止尚未覆盖该官方路径，因此不能据自动 true 放行正式对照。
+
+## 2.0.3 / infra-dev-04
+
+r12 保持模型、候选、工具、两道开发题和预算不变，仅识别官方内嵌应用脚本的固定 Usage 协议，进入 apply_patch 阶段后恢复先前阶段。新增真实官方 helper 回归检查调用时阶段为 apply_patch；不按任务、答案或 Patch 内容分支。先以 AST 加载的原生 helper 重放证实旧识别器停留 prepare_verifier，再修正并通过重放；初次本机重放缺少 PYTHONPATH 的启动失败日志也保留，不冒充有效红测试。完整官方 API 回归须在新 Linux CPU 门禁中执行。原 r11 注册、日志和结果全部保留。

@@ -91,9 +91,9 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 
 2.0.2额外明确patch_checkpoint_bytes，0字节不等于有效修改；agent_boundary_trace与最终native_trace分别标记。硬截止前已有完整Agent边界Trace时，不因最终TaskResult尚未生成而误报全部Trace丢失。上下文计数/越界异常归入context_admission阶段，仍保留先前错误之后实际完成的测试判定优先级。
 
-## 验证门禁和当前状态
+## 验证门禁和版本历史（当前结论见 VALIDATION.md）
 
-26项本地CPU回归已通过，覆盖输入15360/15361、核心Issue保留、计数服务失效、压缩输出默认值、Agent/Verifier/外层超时、已有Patch无最终结果、父进程提前退出、清理延迟、配对拆批、完整比较分母和原始哈希不变。脚本化结果明确标注CPU fixture，不是Gemma修复。
+初版26项本地CPU回归已通过，覆盖输入15360/15361、核心Issue保留、计数服务失效、压缩输出默认值、Agent/Verifier/外层超时、已有Patch无最终结果、父进程提前退出、清理延迟、配对拆批、完整比较分母和原始哈希不变。脚本化结果明确标注CPU fixture，不是Gemma修复。
 
 官方Linux API/工具链CPU门禁另在私有Kaggle Notebook执行。r04因错误的LiteLLM开发版本要求在安装阶段失败；r05因启用依赖解析而碰到官方wheelhouse不含的可选依赖失败，均未执行模型推理。r06采用官方Notebook原样的离线全量wheel安装（--no-index --no-deps --force-reinstall）重新验证。所有失败输出保留；门禁不允许把安装失败当成测试通过。
 
@@ -102,3 +102,6 @@ Linux使用独立进程组；Windows CPU回归使用Job Object，在挂起状态
 r07真实GPU探针及第一题Phase 2完成，第二题在导入阶段失败，整批门禁未通过。2.0.1重新走CPU→GPU流程；禁止以旧CPU通过记录为已改动的核心运行时放行。后续生成器也补齐官方INSTALL/SERVER失败分支所需的ZIP别名，并经注入异常的本机测试验证。
 
 r10已通过35项官方CPU检查并执行GPU，但第二题因上述观测子类错误在Verifier准备截止，完整边界Trace得以保留。2.0.2/r11重新执行本版本官方CPU门禁，随后才可再做开发GPU验证；最终准入结论以 `harness_v2/VALIDATION.md` 为准，不能将前一修订的通过自动传给新核心源码。
+
+
+2.0.3 / infra-dev-04（r12）：r11 已取得两题真实 Phase 2 及完整清理，但人工审计发现内嵌 Python 的官方 Patch 应用脚本未进入独立阶段。观察器补识别官方 `apply_patch.py` Usage 协议，应用时使用既定 60 秒阶段预算，完成后恢复准备阶段累计时间；原生 helper/API 回归验证，不改官方脚本或候选。正式准入仍待本版本 CPU→GPU 开发门禁。
