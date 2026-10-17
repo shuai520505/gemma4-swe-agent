@@ -1,0 +1,163 @@
+{
+  "experiment_id": "cure-gpu-mechanism-01",
+  "globally_stopped": true,
+  "reason": "CURE frozen literal {JSON} fails ADK instruction state substitution before first LLM request",
+  "slots": [
+    {
+      "index": 1,
+      "task_id": "lumen_interface_01",
+      "arm": "checklist",
+      "status": "resolved",
+      "official_resolved": true,
+      "official_error": null,
+      "official_test_exit_code": 0,
+      "official_llm_calls": 14,
+      "official_tool_calls": 12,
+      "official_total_tokens": 0,
+      "http_llm_calls": 14,
+      "observed_tool_calls_including_submit": 13,
+      "actual_server_usage": {
+        "prompt_tokens": 48353,
+        "completion_tokens": 2629,
+        "total_tokens": 50982
+      },
+      "agent_seconds": 76.00156711699992,
+      "official_seconds": 79.00010835600006,
+      "worker_seconds": 92.19699063999997,
+      "infrastructure_passed": true,
+      "phase2_ran": true,
+      "patch_bytes": 978,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "audited_failure_stage": null
+    },
+    {
+      "index": 2,
+      "task_id": "lumen_interface_01",
+      "arm": "cure_v01",
+      "status": "unknown",
+      "official_resolved": false,
+      "official_error": "Sandbox execution error: 'Context variable not found: `JSON`.'",
+      "official_test_exit_code": -1,
+      "official_llm_calls": 0,
+      "official_tool_calls": 0,
+      "official_total_tokens": 0,
+      "http_llm_calls": 0,
+      "observed_tool_calls_including_submit": 0,
+      "actual_server_usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0
+      },
+      "agent_seconds": 0.3778577949999544,
+      "official_seconds": 1.0750931009999931,
+      "worker_seconds": 14.532061397000007,
+      "infrastructure_passed": false,
+      "phase2_ran": false,
+      "patch_bytes": 0,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "audited_failure_stage": "agent_instruction_preprocess"
+    },
+    {
+      "index": 3,
+      "task_id": "harbor_injection_02",
+      "arm": "cure_v01",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    },
+    {
+      "index": 4,
+      "task_id": "harbor_injection_02",
+      "arm": "checklist",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    },
+    {
+      "index": 5,
+      "task_id": "cedar_boundary_03",
+      "arm": "checklist",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    },
+    {
+      "index": 6,
+      "task_id": "cedar_boundary_03",
+      "arm": "cure_v01",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    },
+    {
+      "index": 7,
+      "task_id": "orion_legacy_04",
+      "arm": "cure_v01",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    },
+    {
+      "index": 8,
+      "task_id": "orion_legacy_04",
+      "arm": "checklist",
+      "status": "not_run",
+      "reason": "Global stop after slot 2 instruction rendering error"
+    }
+  ],
+  "complete_evaluable_pairs": 0,
+  "mechanism_effect": "not_evaluable",
+  "kaggle_resolution_rate": null,
+  "official_public_submission_created": false,
+  "frozen_baseline_files_verified": 76,
+  "original_cure_manifest_files_verified": 73,
+  "registered_cpu_sources_verified": 59,
+  "protocol_sha256": "5a4c237f3ec7c5f7dd9927769b283831a024317192f47efe8bf9a5144c8bbbb5",
+  "archives": [
+    {
+      "kind": "cpu",
+      "kernel": "wudangdexiaodoashi/gemma4-cure-mechanism-01-cpu",
+      "kernel_version": 1,
+      "kaggle_status": "ERROR",
+      "archive_sha256": "bfbf2628a8a6d361390472312f495d08e42af8bbb7e841435a121d610bdc7837",
+      "bytes": 393581,
+      "original_archive": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-swe-agent\\artifacts\\cure-gpu-mechanism-01\\cpu\\output\\cure_gpu_mechanism_01\\cpu\\20261017T092745_323383Z.zip",
+      "crc_verified": true,
+      "member_count": 322,
+      "formal_submission": false
+    },
+    {
+      "kind": "cpu-r02",
+      "kernel": "wudangdexiaodoashi/gemma4-cure-mechanism-01-cpu-r02",
+      "kernel_version": 1,
+      "kaggle_status": "COMPLETE",
+      "archive_sha256": "7f120cf9caecf9b97bf29be7cd2044522fe225b3a026f15460e2c17e50f30f51",
+      "bytes": 433697,
+      "original_archive": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-swe-agent\\artifacts\\cure-gpu-mechanism-01\\cpu-r02\\output\\cure_gpu_mechanism_01\\cpu-r02\\20261017T093449_277143Z.zip",
+      "crc_verified": true,
+      "member_count": 385,
+      "formal_submission": false
+    },
+    {
+      "kind": "smoke",
+      "kernel": "wudangdexiaodoashi/gemma4-cure-mechanism-01-smoke",
+      "kernel_version": 1,
+      "kaggle_status": "COMPLETE",
+      "archive_sha256": "37c81c3cc89ddca69f8858f28015522f2f48af6e1781e1d44689885619c70639",
+      "bytes": 355949,
+      "original_archive": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-swe-agent\\artifacts\\cure-gpu-mechanism-01\\smoke\\output\\cure_gpu_mechanism_01\\smoke\\20261017T094335_931012Z.zip",
+      "crc_verified": true,
+      "member_count": 156,
+      "formal_submission": false
+    }
+  ],
+  "b_request_semantics": {
+    "all_issue_bodies_preserved": true,
+    "hidden_test_patch_absent": true,
+    "response_reasoning_messages": 14,
+    "outbound_requests_with_retained_reasoning": 13,
+    "tools_single_json_encoding_verified": true,
+    "output_cap": 8192,
+    "thinking_budget": 4096,
+    "seed": 17,
+    "model_manifest_sha256": "53e2e2fbd72d65edf6af3477b6950c3b4d8e456865dcdbd65530e654469d22e2"
+  },
+  "limits": "No C model inference. No estimate of C decision ability, repair gain or extra investigation cost. Native official fields preserved; zero official B tokens is a placeholder, use actual HTTP usage."
+}

@@ -1,0 +1,31 @@
+diff --git a/lumen/__init__.py b/lumen/__init__.py
+index d93bbd4..b16eab3 100644
+--- a/lumen/__init__.py
++++ b/lumen/__init__.py
+@@ -1 +1 @@
+-from .codec import render
++from .codec import render, encode_packet
+diff --git a/lumen/codec.py b/lumen/codec.py
+index 6bcb04d..9529cf6 100644
+--- a/lumen/codec.py
++++ b/lumen/codec.py
+@@ -1,2 +1,5 @@
+ def render(value, *, header="R"):
+     return f"{header}:{value}"
++
++def encode_packet(payload, *, label='PK'):
++    return f"{label.upper()}:{payload}"
+diff --git a/repro.py b/repro.py
+new file mode 100644
+index 0000000..2a11b2d
+--- /dev/null
++++ b/repro.py
+@@ -0,0 +1,8 @@
++from lumen.client import preview
++from lumen.codec import encode_packet
++import lumen
++
++print(f"preview('test'): {preview('test')}")
++print(f"encode_packet('test'): {encode_packet('test')}")
++print(f"encode_packet('test', label='legacy'): {encode_packet('test', label='legacy')}")
++print(f"lumen.encode_packet available: {hasattr(lumen, 'encode_packet')}")

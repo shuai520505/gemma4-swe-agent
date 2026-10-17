@@ -1,0 +1,47 @@
+{
+  "harness_version": "0.1.0",
+  "research_config": {
+    "version": "0.1.0",
+    "agent_seconds": 300,
+    "tool_budget": 60,
+    "output_tokens": 8192,
+    "thinking_budget": 4096,
+    "include_thoughts": true,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "budget": {
+    "stage_caps": {
+      "prepare_agent": 180,
+      "agent": 330,
+      "save_patch": 60,
+      "prepare_verifier": 180,
+      "apply_patch": 60,
+      "verification": 300,
+      "persist": 60,
+      "cleanup": 120
+    },
+    "outer_seconds": 1350
+  },
+  "compaction": {
+    "interval": 5,
+    "overlap": 1,
+    "token_threshold": 8192,
+    "event_retention_size": 4
+  },
+  "operational_limits": {
+    "max_stdout_chars": 2000,
+    "max_file_chars": 4000,
+    "max_file_lines": 120
+  },
+  "max_model_len": 32768,
+  "output_reserved": 8192,
+  "safety_tokens": 1024,
+  "model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "candidate_hashes": {
+    "agent.yaml": "bde2eea41edb5f4950359777709b1aaf4dbca1f294f355b7087df98357af6dd4",
+    "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "sampling.yaml": "39652a4e51d0d5d6e783e1185da7e695b2890ed5be2beb946a0e572d6d26c934",
+    "prompts/system.md": "300f1f1861ab00d1ada1af56a391afd800ad8d96858dd386e85e9b403e00df97"
+  }
+}

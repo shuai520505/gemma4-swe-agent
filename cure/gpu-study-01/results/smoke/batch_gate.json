@@ -1,0 +1,101 @@
+{
+  "experiment_id": "cure-gpu-mechanism-01",
+  "batch": "smoke",
+  "infrastructure_passed": false,
+  "stop_reason": "infrastructure_or_evidence_gate_failed_at_02-lumen_interface_01-cure_v01",
+  "records": [
+    {
+      "index": 1,
+      "arm": "checklist",
+      "task_id": "lumen_interface_01",
+      "category": "interface",
+      "base_commit": "47a1332014916c840c63a4d1980084f08e1481d9",
+      "problem_sha256": "a91a35810cacf37c1829d78018e4e9d0a521c356c5b2ea6ae51d9d65498698de",
+      "snapshot_sha256": "508b8b3fa16d451ff35631fffcf5612b105c628b1434d460d475a71cccc0eb5e",
+      "test_patch_sha256": "4435c377ad5de8ddb9c8ab6a1fd50fbebf114574382b07225d5fa6234b2d4f91",
+      "initial_files": {
+        "lumen/__init__.py": "3d0094e6ab881048dfff66f3d8f33ff5a2f76b1ad53d5b4e8816aee51051f5db",
+        "lumen/codec.py": "21fdc7aedd26779a98a05062144ee15f89c7f4eccbb2703edbbcaa60bd37270a",
+        "lumen/client.py": "a4e4553efd3a69b74ec44754714d14171d089f7ef6a7eeee224b90b9465b173e",
+        "MIGRATION.md": "eaad53ef048c0dffaba804c84f705bd587e0dad654951ad34c3bb883cd9f5ed6",
+        "tests/test_public.py": "0914f41e5a348b450b0d74daef6497301c8327312128b7e2ede5db331dca083d"
+      },
+      "result": {
+        "status": "resolved",
+        "failure_stage": null,
+        "reason": "official_resolved",
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "cleanup_complete": true,
+        "duration_seconds": 92.19699063999997,
+        "allow_next_run": true,
+        "evidence": {
+          "official_result": true,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 978,
+          "incremental_adk_events": true,
+          "native_trace": true,
+          "agent_boundary_trace": true,
+          "phase2_output": true
+        },
+        "official_fields_unchanged": true
+      },
+      "infrastructure_passed": true,
+      "audit_path": "/kaggle/working/cure_gpu_mechanism_01/smoke/20261017T094335_931012Z/runs/01-lumen_interface_01-checklist/mechanism_audit.json"
+    },
+    {
+      "index": 2,
+      "arm": "cure_v01",
+      "task_id": "lumen_interface_01",
+      "category": "interface",
+      "base_commit": "47a1332014916c840c63a4d1980084f08e1481d9",
+      "problem_sha256": "a91a35810cacf37c1829d78018e4e9d0a521c356c5b2ea6ae51d9d65498698de",
+      "snapshot_sha256": "508b8b3fa16d451ff35631fffcf5612b105c628b1434d460d475a71cccc0eb5e",
+      "test_patch_sha256": "4435c377ad5de8ddb9c8ab6a1fd50fbebf114574382b07225d5fa6234b2d4f91",
+      "initial_files": {
+        "lumen/__init__.py": "3d0094e6ab881048dfff66f3d8f33ff5a2f76b1ad53d5b4e8816aee51051f5db",
+        "lumen/codec.py": "21fdc7aedd26779a98a05062144ee15f89c7f4eccbb2703edbbcaa60bd37270a",
+        "lumen/client.py": "a4e4553efd3a69b74ec44754714d14171d089f7ef6a7eeee224b90b9465b173e",
+        "MIGRATION.md": "eaad53ef048c0dffaba804c84f705bd587e0dad654951ad34c3bb883cd9f5ed6",
+        "tests/test_public.py": "0914f41e5a348b450b0d74daef6497301c8327312128b7e2ede5db331dca083d"
+      },
+      "result": {
+        "status": "unknown",
+        "failure_stage": "cleanup",
+        "reason": "no_confirmed_verdict",
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "cleanup_complete": true,
+        "duration_seconds": 14.532061397000007,
+        "allow_next_run": true,
+        "evidence": {
+          "official_result": true,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 0,
+          "incremental_adk_events": false,
+          "native_trace": true,
+          "agent_boundary_trace": true,
+          "phase2_output": false
+        },
+        "official_fields_unchanged": true
+      },
+      "infrastructure_passed": false,
+      "audit_path": "/kaggle/working/cure_gpu_mechanism_01/smoke/20261017T094335_931012Z/runs/02-lumen_interface_01-cure_v01/mechanism_audit.json"
+    }
+  ],
+  "model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "protocol_sha256": "5a4c237f3ec7c5f7dd9927769b283831a024317192f47efe8bf9a5144c8bbbb5"
+}
