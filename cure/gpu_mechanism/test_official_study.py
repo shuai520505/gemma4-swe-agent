@@ -1,5 +1,8 @@
 """CPU integration: scripted Phase1 only; fresh official Phase2 for each new scenario."""
 import json
+import os
+import subprocess
+import sys
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,8 +13,6 @@ from cure import MODEL
 
 class OfficialStudyTests(unittest.IsolatedAsyncioTestCase):
     async def test_real_official_phase2_accepts_all_four_independent_tests(self):
-        from cure.worker import evaluate
-        from harness_v2.official import DurableEvaluator
         root=Path(__file__).resolve().parents[2]
         plan=json.loads((root/'study/protocol.json').read_text())
         refs=json.loads((root/'study/evaluation-references.json').read_text())
@@ -24,14 +25,20 @@ class OfficialStudyTests(unittest.IsolatedAsyncioTestCase):
                     wheels_dir=str(root/'study/data/wheels'),graph_dir=str(root/'study/data/graphs'),
                     embeddings_dir=str(root/'study/data/embeddings'),instance_id=row['task_id'],
                     base_commit=row['base_commit'],problem_sha256=row['problem_sha256'])
-                async def scripted(_self,*args,**kwargs): return refs[row['task_id']],None,None
-                with patch.object(DurableEvaluator,'_run_agent_sandbox',scripted):
-                    await evaluate(spec,Path(temp))
-                result=json.loads((Path(temp)/'official_result.json').read_text())
+                spec['_cpu_reference_patch']=refs[row['task_id']]
+                base=Path(os.environ.get('CURE_STUDY_CPU_EVIDENCE_DIR',temp))/row['task_id']
+                base.mkdir(parents=True,exist_ok=False)
+                spec_path=base/'spec.json';spec_path.write_text(json.dumps(spec))
+                output=base/'run'
+                proc=subprocess.run([sys.executable,'-m','cure.gpu_mechanism.cpu_phase2',str(spec_path),str(output)],
+                    cwd=root,capture_output=True,text=True,timeout=180)
+                (base/'worker.log').write_text(proc.stdout+proc.stderr)
+                self.assertEqual(proc.returncode,0,proc.stdout+proc.stderr)
+                result=json.loads((output/'official_result.json').read_text())
                 self.assertTrue(result['resolved'],result)
                 self.assertEqual(result['test_exit_code'],0)
-                self.assertTrue((Path(temp)/'phase2_execution.json').is_file())
-                self.assertTrue(json.loads((Path(temp)/'worker_done.json').read_text())['cleanup_complete'])
+                self.assertTrue((output/'phase2_execution.json').is_file())
+                self.assertTrue(json.loads((output/'worker_done.json').read_text())['cleanup_complete'])
 
 
 if __name__=='__main__': unittest.main()

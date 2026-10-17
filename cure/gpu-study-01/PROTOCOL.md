@@ -21,7 +21,7 @@ B ZIP：`f002c3c5cba1f629f2cce7608d2d72ac389af8a3ee03760257e1aff011844798`；C Z
 
 ## 数据分离
 
-GPU源码bundle不含 `scenarios.py`、参考替换串、脚本修复器、CPU场景decoder或evaluation-references.json。每个Agent快照仅含初始仓库、公开测试和Issue；Task.patch为空。独立隐藏测试由官方Task.test_patch进入**新的Phase 2 sandbox**。参考修复仅用于本地/CPU验证评估器并单独保存，不传给模型。原生subprocess隔离不是恶意代码安全边界；审计实际HTTP输入和工具命令，核查是否出现评估测试或越出仓库读取答案。任何泄漏使机制结果不可用。
+GPU源码bundle不含本轮的 `scenarios.py`、参考替换串、脚本修复器、CPU场景decoder或evaluation-references.json。旧cpu-r03门登记的测试/旧场景源码仍保留于研究侧以校验原门，不在Agent仓库内，也不是本轮答案。每个Agent快照仅含初始仓库、公开测试和Issue；Task.patch为空。独立隐藏测试由官方Task.test_patch进入**新的Phase 2 sandbox**。参考修复仅用于本地/CPU验证评估器并单独保存，不传给模型。原生subprocess隔离不是恶意代码安全边界；审计实际HTTP输入和工具命令，核查是否出现评估测试或越出仓库读取答案。任何泄漏使机制结果不可用。
 
 ## 门禁与判定
 

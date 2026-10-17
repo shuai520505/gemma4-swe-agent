@@ -115,7 +115,8 @@ def files(cpu=False,smoke_gate=None):
 
 
 def notebook(kind, smoke_gate=None):
-    payload=archive(files(cpu=kind=='cpu',smoke_gate=smoke_gate))
+    is_cpu=kind.startswith('cpu')
+    payload=archive(files(cpu=is_cpu,smoke_gate=smoke_gate))
     base=REPO/'artifacts/cure-gpu-mechanism-01'/kind
     setup=f'''import os,sys,json,hashlib,zipfile,io,subprocess,shutil,time
 from pathlib import Path
@@ -136,7 +137,7 @@ assert actual==PLAN['wheel_hashes'],'Wheelhouse bytes changed; stop before infer
 (RUN_DIR/'wheel_hashes.json').write_text(json.dumps(actual,indent=2))
 '''
     install=(ROOT/'notebooks/install_official.py').read_text()
-    if kind!='cpu':
+    if not is_cpu:
         setup+="os.environ.update(VLLM_WORKER_MULTIPROC_METHOD='spawn',VLLM_NO_USAGE_STATS='1',VLLM_ENGINE_READY_TIMEOUT_S='1200',VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS='1',NCCL_DEBUG='WARN',PYTORCH_CUDA_ALLOC_CONF='expandable_segments:True',LOCAL_API_KEY='EMPTY',OPENAI_API_KEY='EMPTY')\n"
         run=f'''from cure.gpu_mechanism.session import run
 try:
@@ -146,7 +147,8 @@ finally:
     print('GPU_MECHANISM_EVIDENCE',bundle(RUN_DIR),flush=True)
 '''
     else:
-        run='''try:
+        run='''os.environ['CURE_STUDY_CPU_EVIDENCE_DIR']=str(RUN_DIR/'phase2-cpu')
+try:
     for label,args in [('original63',['-m','cure.cpu_validation','cpu-r03',str(RUN_DIR/'validation')]),('study',['-m','unittest','cure.gpu_mechanism.test_study','cure.gpu_mechanism.test_official_study','-v'])]:
         p=subprocess.run([sys.executable,*args],cwd=SOURCE,capture_output=True,text=True,timeout=1200)
         (RUN_DIR/(label+'.log')).write_text(p.stdout+p.stderr)
@@ -165,8 +167,8 @@ finally:
     raw=json.dumps(nb,indent=1).encode(); write_new(base/'kernel/study.ipynb',raw)
     meta=json.loads((REPO/'artifacts/harness-v2/r12/gpu-kernel/kernel-metadata.json').read_text())
     meta.update(id='wudangdexiaodoashi/gemma4-cure-mechanism-01-'+kind,title='Gemma4 CURE Mechanism 01 '+kind,
-        code_file='study.ipynb',enable_gpu=kind!='cpu',dataset_sources=['metric/gemma-4-developer-agent-wheelhouse'],
-        model_sources=[] if kind=='cpu' else ['google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2'])
+        code_file='study.ipynb',enable_gpu=not is_cpu,dataset_sources=['metric/gemma-4-developer-agent-wheelhouse'],
+        model_sources=[] if is_cpu else ['google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2'])
     write_new(base/'kernel/kernel-metadata.json',json.dumps(meta,indent=2).encode())
     save_json(STUDY/('notebook-'+kind+'.json'),dict(kind=kind,payload_sha256=sha(payload),notebook_sha256=sha(raw),
         protocol_sha256=sha((STUDY/'protocol.json').read_bytes()),notebook_id=meta['id'],status_at_registration='not_executed'))
@@ -175,6 +177,6 @@ finally:
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['freeze','cpu','smoke','followup_a','followup_b']);p.add_argument('--smoke-gate')
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['freeze','cpu','cpu-r02','smoke','followup_a','followup_b']);p.add_argument('--smoke-gate')
     a=p.parse_args()
     print(freeze() if a.action=='freeze' else notebook(a.action,a.smoke_gate))
