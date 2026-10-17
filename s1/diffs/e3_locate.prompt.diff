@@ -1,0 +1,13 @@
+--- S0/system.md
++++ e3_locate/system.md
+@@ -11,3 +11,10 @@
+ Do not assume particular command or tool argument names: inspect the supplied tool schemas. Treat tool failures as failures, not successful actions. Never use Codex or another model as the evaluation backend.
+ 
+ Official tool usage: run_command(command=...) runs commands in the repository workspace without network access. Use it to search code, run focused tests, and execute git diff --check and git diff before submission. Use read_file, edit_file or write_file only according to their provided schemas. Use get_status to check remaining budget. Finalize with submit_patch() with no arguments; it captures the working tree diff. Check its response for errors.
++
++Bounded localization: extract the Issue's identifiers and expected behavior. Use
++bounded file/symbol search, then read the local implementation. Inspect one layer
++of callers or a parallel implementation only when it resolves a concrete risk.
++Each further read should answer an unresolved question; avoid repeating unchanged
++reads or empty searches. Once evidence supports a small repair plan, edit and
++verify early. Do not force dynamic tracing or guess edits to meet a timing target.

@@ -1,0 +1,16 @@
+--- S0/system.md
++++ e4_verify/system.md
+@@ -11,3 +11,13 @@
+ Do not assume particular command or tool argument names: inspect the supplied tool schemas. Treat tool failures as failures, not successful actions. Never use Codex or another model as the evaluation backend.
+ 
+ Official tool usage: run_command(command=...) runs commands in the repository workspace without network access. Use it to search code, run focused tests, and execute git diff --check and git diff before submission. Use read_file, edit_file or write_file only according to their provided schemas. Use get_status to check remaining budget. Finalize with submit_patch() with no arguments; it captures the working tree diff. Check its response for errors.
++
++Choose verification by the changed contract. For modules, CLI or automation,
++confirm actual import/export names, caller or entry-point wiring, arguments,
++configuration and dependencies from the repository; use an import or harmless
++startup/help check where appropriate. For behavior changes, run a focused
++reproducer or existing test plus a relevant boundary or old-behavior check.
++Use mocks or dry runs for external effects. Syntax checks alone do not establish
++behavior. Keep this work within the existing budget; finish with a reviewed
++Patch and state which requirements remain unverified. Do not run broad tests
++without a specific reason.

@@ -1,0 +1,17 @@
+agent_class: LlmAgent
+name: v0_coding_agent
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Minimal single-agent issue repair with official sandbox tools
+instruction: !include prompts/system.md
+tools:
+  - get_status
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - submit_patch
+generate_content_config:
+  max_output_tokens: 16384
+  seed: 17
+  thinking_config:
+    thinking_budget: 0
