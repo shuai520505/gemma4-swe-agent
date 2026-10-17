@@ -1,0 +1,208 @@
+{
+  "arm": "cure_v01_c1",
+  "empty_initial_session_state": true,
+  "real_official_runner": true,
+  "mocked_HTTP": true,
+  "mocked_counter": true,
+  "expected_failure": false,
+  "observed_error": null,
+  "HTTP_requests": 1,
+  "prompt_sha256": "7a4b6547f139d7fbd466d891651ff3b75148cc5eba83854683624d2d581d058e",
+  "wire": [
+    {
+      "messages": [
+        {
+          "role": "system",
+          "content": "Repair the user's issue in the supplied repository using the six provided tools.\nFollow the issue's public requirements and existing interfaces. Keep changes minimal.\nUse only visible repository evidence; do not assume hidden tests or reference fixes.\nDo not alter tests to make them pass. Keep scratch work outside the repository.\nUse get_status for remaining budget; reserve time for a useful patch and submission.\nDo not install packages or contact external services. Keep tool output bounded.\nNever erase unrelated existing files. Review your diff and submit_patch once, then stop.\n\nUse Prompt-only CURE. You, not an external controller, choose each next action.\nKeep at most six compact contracts: requirement, evidence references, ordinal\nuncertainty (low/medium/high), impact, verification_status, proposed_probe.\nEvidence is a bounded quote/path and a tool-result reference, never copied files.\nLabel facts from tools observed; your deductions inferred; unresolved guesses unknown.\nAfter a tool result, update affected contracts. A contradictory result invalidates\nthe old hypothesis and reopens investigation; do not continue a disproven edit plan.\nUncertainty is a priority judgment, not a calibrated success probability.\n\nBefore the next tool operation, emit one short visible <cure>JSON object</cure> record:\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"...\",\"evidence\":\"observed/inferred/unknown: ref\",\n\"uncertainty\":\"high\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"...\"}],\n\"action\":\"inspect\",\"alternatives\":[\"probe\",\"edit\"],\"basis\":\"...\",\n\"estimated_cost\":{\"seconds\":5,\"tools\":1},\"previous_result\":\"...\",\n\"decision_changed\":true}\nKeep each record short (aim below 180 tokens), omit unchanged detail but retain core\nrequirements. Use only the six tools; no logging tool, subagent or external policy.\n\nChoose locate if evidence does not identify code; inspect if caller/entry/dependency\ncontracts are unclear; probe for the most consequential unresolved behavior; edit\nwhen evidence supports a concrete repair; verify the changed contract and relevant\nold behavior; submit when verified or exploration no longer fits the remaining budget.\nCompare expected uncertainty reduction and impact against estimated time/tools.\nCost estimates are rough; do not execute a long check that prevents saving a patch.\nFor new modules/CLI inspect actual caller names, env/arguments and injection seams.\nPrefer one directed boundary/import/behavior check over repeating broad reads.\nTesting failure can be environment, collection or behavior: record which is supported.\nDo not claim that a successful import or syntax check proves behavior correctness.\n\n\nYou are an agent. Your internal name is \"cure_v01_c\". The description about you is \"Prompt-only contract uncertainty guided repair\"."
+        },
+        {
+          "role": "user",
+          "content": "CPU Runner compatibility probe."
+        }
+      ],
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "max_completion_tokens": 8192,
+      "seed": 17,
+      "temperature": 0.2,
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "get_status",
+            "description": "Check active budget details (time, tool calls) and active patch details.",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "run_command",
+            "description": "Execute a shell command inside the repository sandbox.\n\n        You can run any shell command (Python scripts, tests, git commands, etc.).\n        The command runs in the repository workspace. No network access.\n\n        Args:\n            command: Shell command to execute (e.g., \"pytest tests/\", \"python3 script.py\").\n        ",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "command": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "command"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "read_file",
+            "description": "Read the contents of a file from the repository workspace.\n\n        Supports reading specific line ranges using start_line and end_line (1-indexed).\n        To avoid overwhelming the context window, large files are automatically truncated\n        to a maximum number of lines (default: 150 lines).\n\n        Args:\n            filepath: Relative path within the workspace directory (e.g., \"fastapi/main.py\", \"pyproject.toml\").\n            start_line: Optional starting line number (1-indexed, inclusive).\n            end_line: Optional ending line number (1-indexed, inclusive).\n\n        Returns:\n            Dictionary containing file content, line range, and truncation status.\n        ",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "filepath": {
+                  "type": "string"
+                },
+                "start_line": {
+                  "nullable": true,
+                  "type": "integer"
+                },
+                "end_line": {
+                  "nullable": true,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "filepath"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "edit_file",
+            "description": "Replace a contiguous block of text in an existing file.\n\n        More token-efficient than write_file for targeted changes. Provide 2-4 lines of unique\n        surrounding context in old_string to ensure an unambiguous match.\n\n        Args:\n            filepath: Relative path to the target file.\n            old_string: Text block to replace.\n            new_string: Replacement text block.\n            allow_multiple: Replace all occurrences of old_string if True.\n\n        Returns:\n            Dictionary containing file status, occurrences count, match strategy, and unified diff.\n        ",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "filepath": {
+                  "type": "string"
+                },
+                "old_string": {
+                  "type": "string"
+                },
+                "new_string": {
+                  "type": "string"
+                },
+                "allow_multiple": {
+                  "default": false,
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "filepath",
+                "old_string",
+                "new_string"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "write_file",
+            "description": "Create or overwrite a file in the workspace.\n\n        Args:\n            filepath: Relative path to the file to create or overwrite.\n            content: Full content of the file.\n        ",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "filepath": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "filepath",
+                "content"
+              ]
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "submit_patch",
+            "description": "Capture the current working tree modifications as the agent's submission.\n\n        This generates a unified git diff against the baseline commit. The agent\n        can submit multiple times; only the final submission is evaluated.\n        ",
+            "parameters": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      ],
+      "top_p": 0.95,
+      "chat_template_kwargs": {
+        "enable_thinking": true
+      },
+      "thinking_token_budget": 4096,
+      "top_k": 40.0
+    }
+  ],
+  "admission": [
+    {
+      "kind": "research_request_parameters",
+      "max_output_tokens": 8192,
+      "thinking_budget": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "uncapped_request_defaulted": false,
+      "messages_sha256": "45bd777dc77ea6814756e650b2ab33021d459b3a14cab89797d62cef13780c07"
+    },
+    {
+      "kind": "context_admission",
+      "core_restored": false,
+      "input_tokens": 100,
+      "output_reserved": 8192,
+      "safety_tokens": 1024,
+      "max_model_len": 32768,
+      "total_reserved": 9316,
+      "decision": "allow"
+    }
+  ],
+  "events": [
+    {
+      "model_version": "gemma-4-31b-it-qat-w4a16-ct",
+      "content": {
+        "parts": [
+          {
+            "text": "CPU mock completion"
+          }
+        ],
+        "role": "model"
+      },
+      "partial": false,
+      "finish_reason": "STOP",
+      "usage_metadata": {
+        "cached_content_token_count": 0,
+        "candidates_token_count": 3,
+        "prompt_token_count": 100,
+        "total_token_count": 103
+      },
+      "invocation_id": "e-c1645fa6-e999-42ad-8d7d-15b376f503b0",
+      "author": "cure_v01_c",
+      "actions": {
+        "state_delta": {},
+        "artifact_delta": {},
+        "requested_auth_configs": {},
+        "requested_tool_confirmations": {}
+      },
+      "id": "85fcc53f-7ada-4657-b563-8598b579e674",
+      "timestamp": 1792233172.579866
+    }
+  ],
+  "assertions_passed": true
+}

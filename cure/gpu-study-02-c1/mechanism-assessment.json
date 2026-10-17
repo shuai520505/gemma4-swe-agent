@@ -1,0 +1,49 @@
+{
+  "experiment_id": "cure-gpu-mechanism-02-c1",
+  "basis": "Human audit of actual HTTP content and native tool call/response events; independent of decision_changed self-report",
+  "analyst_limitation": "Same implementation/research agent; not blinded or independently replicated",
+  "A_compatibility": {
+    "verdict": "passed_for_tested_paths",
+    "CPU": "63 existing tests plus 5 full Runner tests passed; frozen C and double-braces fail before HTTP as expected",
+    "GPU": "Both newly executed B and C1 generated actual model/tool events, valid final Patch and completed official Phase2",
+    "scope": "Not a universal guarantee for all ADK features or future package versions"
+  },
+  "B_decision_mechanism": {
+    "verdict": "partial_state_expression_observed_active_revision_not_established",
+    "full_C1_prompt_in_first_model_request": true,
+    "visible_JSON_state_records": 2,
+    "state_record_request_indices": [1, 14],
+    "native_tool_operations": 14,
+    "recorded_before_tool_operations": 2,
+    "continuous_per_tool_state_updates": false,
+    "contracts_retained": ["r1", "r2", "r3", "r4"],
+    "observed_update": "r4 uncertainty medium to low; all verification_status unverified to verified in final self-report",
+    "state_change_crosscheck": "Native reads show caller uses render; baseline and post-edit probes preserve legacy output; existing public tests pass",
+    "alternative_action_lists": "empty in both records",
+    "previous_result_at_final_record": "none despite preceding tools",
+    "confirmed_wrong_hypothesis_then_counterevidence_then_action_reversal": "not_observed",
+    "reason": "Both models treated the migration assumption as unverified, checked the caller and retained render before editing; no identifiable adopted false plan was overturned",
+    "causal_state_guidance": "unverified; actions also occurred under Checklist",
+    "budget_aware_ranking": "unverified; no visible alternative/cost comparison at intermediate choices",
+    "self_reported_decision_changed": [false, false]
+  },
+  "C_success_rate_gain": {
+    "verdict": "not_supported",
+    "new_pair_official_resolved": {"B": true, "C1": true},
+    "identical_final_patch": true,
+    "completed_pairs": 1,
+    "prior_exposure": true,
+    "Kaggle_resolution_rate": null,
+    "independent_generalization_evidence": false
+  },
+  "cost_and_budget": {
+    "C1_minus_B_HTTP_calls": -1,
+    "C1_minus_B_official_tool_calls": 0,
+    "C1_minus_B_tool_events_including_submit": -1,
+    "C1_minus_B_total_tokens": 4622,
+    "C1_minus_B_Agent_seconds": 11.310536627999909,
+    "budget_prevented_edit_or_submission": false,
+    "causal_attribution_to_logging_only": false
+  },
+  "next_decision": "Do not claim mechanism or repair-rate improvement and do not expand automatically. Freeze C1; preregister a fresh scenario with an observable counterevidence opportunity and matched logging ablation before broader comparisons."
+}

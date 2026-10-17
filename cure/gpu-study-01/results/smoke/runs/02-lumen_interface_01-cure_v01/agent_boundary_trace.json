@@ -1,0 +1,38 @@
+{
+  "schema_version": "ATIF-v1.7",
+  "agent": {
+    "name": "adk-eval-core",
+    "version": "1.0"
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "source": "system",
+      "message": "Repair the user's issue in the supplied repository using the six provided tools.\nFollow the issue's public requirements and existing interfaces. Keep changes minimal.\nUse only visible repository evidence; do not assume hidden tests or reference fixes.\nDo not alter tests to make them pass. Keep scratch work outside the repository.\nUse get_status for remaining budget; reserve time for a useful patch and submission.\nDo not install packages or contact external services. Keep tool output bounded.\nNever erase unrelated existing files. Review your diff and submit_patch once, then stop.\n\nUse Prompt-only CURE. You, not an external controller, choose each next action.\nKeep at most six compact contracts: requirement, evidence references, ordinal\nuncertainty (low/medium/high), impact, verification_status, proposed_probe.\nEvidence is a bounded quote/path and a tool-result reference, never copied files.\nLabel facts from tools observed; your deductions inferred; unresolved guesses unknown.\nAfter a tool result, update affected contracts. A contradictory result invalidates\nthe old hypothesis and reopens investigation; do not continue a disproven edit plan.\nUncertainty is a priority judgment, not a calibrated success probability.\n\nBefore the next tool operation, emit one short visible <cure>{JSON}</cure> record:\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"...\",\"evidence\":\"observed/inferred/unknown: ref\",\n\"uncertainty\":\"high\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"...\"}],\n\"action\":\"inspect\",\"alternatives\":[\"probe\",\"edit\"],\"basis\":\"...\",\n\"estimated_cost\":{\"seconds\":5,\"tools\":1},\"previous_result\":\"...\",\n\"decision_changed\":true}\nKeep each record short (aim below 180 tokens), omit unchanged detail but retain core\nrequirements. Use only the six tools; no logging tool, subagent or external policy.\n\nChoose locate if evidence does not identify code; inspect if caller/entry/dependency\ncontracts are unclear; probe for the most consequential unresolved behavior; edit\nwhen evidence supports a concrete repair; verify the changed contract and relevant\nold behavior; submit when verified or exploration no longer fits the remaining budget.\nCompare expected uncertainty reduction and impact against estimated time/tools.\nCost estimates are rough; do not execute a long check that prevents saving a patch.\nFor new modules/CLI inspect actual caller names, env/arguments and injection seams.\nPrefer one directed boundary/import/behavior check over repeating broad reads.\nTesting failure can be environment, collection or behavior: record which is supported.\nDo not claim that a successful import or syntax check proves behavior correctness.",
+      "extra": {
+        "event_type": "system_instruction",
+        "elapsed_s": 0.13881754875183105,
+        "timestamp": 1792231301.9144573,
+        "author": "harness"
+      }
+    },
+    {
+      "step_id": 2,
+      "source": "user",
+      "message": "You are evaluating a software engineering task for repository cure_synthetic/lumen_interface_01.\n\nProblem Statement:\nAdd lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload,\nwhere LABEL is label.upper(). Export it from lumen. Keep the shipped client working\nwith its existing exact output. An old migration note assumes render has no callers;\nthat assumption is unverified. Reproduce the public client behavior before choosing\nwhether to rename or retain entry points. Do not modify tests or caller contracts.\n\n## Task Budget (Session terminates when any budget is exhausted)\n- Time allowance: 5.0 minutes\n- Tool calls allowance: 60 calls\n\n## Execution Environment Rules\n- Single command timeout: 120 seconds (commands exceeding this fail without ending the session)\n- Command output limit: 2000 characters\n- File view limit: 120 lines per read_file call\n- File character limit: 4000 characters per read_file call\n- Environment is offline (no network/PyPI access). All repository and test dependencies are ALREADY pre-installed. Do NOT attempt to run pip install or download packages.\n\n## Instructions:\n0. All source code is under `/workspace`. Do NOT search outside `/workspace` (e.g. `/usr/`, `/wheels/`, system site-packages). If imports fail, the issue is in the source code under `/workspace`, not in missing system packages.\n1. Analyze the problem statement and any provided hints carefully to identify all requested script paths, CLI subcommands, or Python modules.\n2. Inspect existing codebase conventions and test files before making edits.\n3. Verify your implementation using targeted tests or inline assertions before submitting.\n4. Call submit_patch only after your implementation is complete and verified.\n5. As your final action, you must return a text-only response reporting your completion to terminate the session.\n## Workspace Layout\nThe repository is located at `/workspace`. Here is the directory tree (up to 3 levels):\n```\n./conftest.py\n./lumen\n./lumen/client.py\n./lumen/codec.py\n./lumen/__init__.py\n./MIGRATION.md\n./pytest.ini\n./tests\n```\n",
+      "extra": {
+        "event_type": "task_prompt",
+        "elapsed_s": 0.13882875442504883,
+        "timestamp": 1792231301.9144685,
+        "author": "harness"
+      }
+    }
+  ],
+  "final_metrics": {
+    "total_prompt_tokens": 0,
+    "total_completion_tokens": 0,
+    "total_cached_tokens": 0,
+    "total_tokens": 0,
+    "total_steps": 2
+  }
+}

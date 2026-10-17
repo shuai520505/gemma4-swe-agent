@@ -1,0 +1,265 @@
+{
+  "experiment_id": "cure-gpu-mechanism-02-c1",
+  "exploratory_prior_exposure": true,
+  "infrastructure_pair_passed": true,
+  "stop_reason": null,
+  "runs": [
+    {
+      "index": 1,
+      "arm": "checklist",
+      "status": "resolved",
+      "official_resolved": true,
+      "official_error": null,
+      "test_exit_code": 0,
+      "official_llm_calls": 16,
+      "actual_http_calls": 16,
+      "official_tool_calls": 13,
+      "observed_tool_calls_including_submit": 15,
+      "official_total_tokens": 0,
+      "actual_server_usage": {
+        "prompt_tokens": 58616,
+        "completion_tokens": 2747,
+        "total_tokens": 61363
+      },
+      "agent_seconds": 79.56359842200004,
+      "official_seconds": 82.44987195400017,
+      "worker_seconds": 95.17630942799997,
+      "patch_bytes": 497,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "..                                                                       [100%]\n- generated xml file: /kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_d9030369-2cb/tmp/_swegemma_junit_57d1f92acdeb.xml -\n2 passed in 0.02s\n",
+        "stderr": "",
+        "duration_seconds": 1.1338519720000022,
+        "source": "official_sandbox_exec_return"
+      },
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "infrastructure_passed": true,
+      "full_Prompt_in_first_system": true,
+      "observer_claims": [],
+      "visible_claims": [],
+      "reasoning_responses": 16,
+      "retained_reasoning_requests": 15,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ]
+    },
+    {
+      "index": 2,
+      "arm": "cure_v01_c1",
+      "status": "resolved",
+      "official_resolved": true,
+      "official_error": null,
+      "test_exit_code": 0,
+      "official_llm_calls": 15,
+      "actual_http_calls": 15,
+      "official_tool_calls": 13,
+      "observed_tool_calls_including_submit": 14,
+      "official_total_tokens": 0,
+      "actual_server_usage": {
+        "prompt_tokens": 62838,
+        "completion_tokens": 3147,
+        "total_tokens": 65985
+      },
+      "agent_seconds": 90.87413504999995,
+      "official_seconds": 93.4999006070002,
+      "worker_seconds": 106.69449284799998,
+      "patch_bytes": 497,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "..                                                                       [100%]\n- generated xml file: /kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/02-lumen_interface_01-cure_v01_c1/sandbox_tmp/swegemma_sandbox_1680816d-d2c/tmp/_swegemma_junit_dfbd7e90c477.xml -\n2 passed in 0.02s\n",
+        "stderr": "",
+        "duration_seconds": 1.138203434000161,
+        "source": "official_sandbox_exec_return"
+      },
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "infrastructure_passed": true,
+      "full_Prompt_in_first_system": true,
+      "observer_claims": [
+        {
+          "recorded_monotonic": 1529.953383358,
+          "kind": "model_contract_claim",
+          "event_id": "28bbde4d-a542-41cc-bb4c-cb00aa9e9baa",
+          "valid": true,
+          "summary": "\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Implement and test encode_packet\"},{\"id\":\"r2\",\"requirement\":\"Export encode_packet from lumen\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Check lumen/__init__.py\"},{\"id\":\"r3\",\"requirement\":\"Keep shipped client working with existing exact output\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Run existing client tests/scripts\"},{\"id\":\"r4\",\"requirement\":\"Verify if render has callers\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"medium\",\"impact\":\"medium\",\"verification_status\":\"unverified\",\"proposed_probe\":\"grep for 'render' in the codebase\"}],\n\"action\":\"inspect\",\"alternatives\":[],\"basis\":\"Need to understand the current state of the codebase and the client behavior.\",\"estimated_cost\":{\"seconds\":10,\"tools\":4},\"previous_result\":\"none\",\"decision_changed\":false}\n",
+          "provenance": "model_report_only_unverified",
+          "affects_controller_decisions": false
+        },
+        {
+          "recorded_monotonic": 1600.370252704,
+          "kind": "model_contract_claim",
+          "event_id": "5edb5c7e-4196-48a4-a8c1-3f5a3d81501d",
+          "valid": true,
+          "summary": "\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload\",\"evidence\":\"observed: lumen/codec.py\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r2\",\"requirement\":\"Export encode_packet from lumen\",\"evidence\":\"observed: lumen/__init__.py\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r3\",\"requirement\":\"Keep shipped client working with existing exact output\",\"evidence\":\"observed: python3 -c 'from lumen.client import preview; print(preview(\\\"test\\\"))'\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r4\",\"requirement\":\"Verify if render has callers\",\"evidence\":\"observed: lumen/client.py uses getattr(codec, \\\"render\\\")\",\n\"uncertainty\":\"low\",\"impact\":\"medium\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"}],\n\"action\":\"submit\",\"alternatives\":[],\"basis\":\"All requirements met and verified.\",\"estimated_cost\":{\"seconds\":0,\"tools\":0},\"previous_result\":\"none\",\"decision_changed\":false}\n",
+          "provenance": "model_report_only_unverified",
+          "affects_controller_decisions": false
+        }
+      ],
+      "visible_claims": [
+        {
+          "request": 1,
+          "valid_JSON_object": true,
+          "parsed": {
+            "contracts": [
+              {
+                "id": "r1",
+                "requirement": "Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload",
+                "evidence": "observed: problem statement",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "unverified",
+                "proposed_probe": "Implement and test encode_packet"
+              },
+              {
+                "id": "r2",
+                "requirement": "Export encode_packet from lumen",
+                "evidence": "observed: problem statement",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "unverified",
+                "proposed_probe": "Check lumen/__init__.py"
+              },
+              {
+                "id": "r3",
+                "requirement": "Keep shipped client working with existing exact output",
+                "evidence": "observed: problem statement",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "unverified",
+                "proposed_probe": "Run existing client tests/scripts"
+              },
+              {
+                "id": "r4",
+                "requirement": "Verify if render has callers",
+                "evidence": "observed: problem statement",
+                "uncertainty": "medium",
+                "impact": "medium",
+                "verification_status": "unverified",
+                "proposed_probe": "grep for 'render' in the codebase"
+              }
+            ],
+            "action": "inspect",
+            "alternatives": [],
+            "basis": "Need to understand the current state of the codebase and the client behavior.",
+            "estimated_cost": {
+              "seconds": 10,
+              "tools": 4
+            },
+            "previous_result": "none",
+            "decision_changed": false
+          },
+          "raw": "\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Implement and test encode_packet\"},{\"id\":\"r2\",\"requirement\":\"Export encode_packet from lumen\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Check lumen/__init__.py\"},{\"id\":\"r3\",\"requirement\":\"Keep shipped client working with existing exact output\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"unverified\",\"proposed_probe\":\"Run existing client tests/scripts\"},{\"id\":\"r4\",\"requirement\":\"Verify if render has callers\",\"evidence\":\"observed: problem statement\",\"uncertainty\":\"medium\",\"impact\":\"medium\",\"verification_status\":\"unverified\",\"proposed_probe\":\"grep for 'render' in the codebase\"}],\n\"action\":\"inspect\",\"alternatives\":[],\"basis\":\"Need to understand the current state of the codebase and the client behavior.\",\"estimated_cost\":{\"seconds\":10,\"tools\":4},\"previous_result\":\"none\",\"decision_changed\":false}\n",
+          "provenance": "server_visible_content_model_self_report_not_verdict"
+        },
+        {
+          "request": 14,
+          "valid_JSON_object": true,
+          "parsed": {
+            "contracts": [
+              {
+                "id": "r1",
+                "requirement": "Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload",
+                "evidence": "observed: lumen/codec.py",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "verified",
+                "proposed_probe": "none"
+              },
+              {
+                "id": "r2",
+                "requirement": "Export encode_packet from lumen",
+                "evidence": "observed: lumen/__init__.py",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "verified",
+                "proposed_probe": "none"
+              },
+              {
+                "id": "r3",
+                "requirement": "Keep shipped client working with existing exact output",
+                "evidence": "observed: python3 -c 'from lumen.client import preview; print(preview(\"test\"))'",
+                "uncertainty": "low",
+                "impact": "high",
+                "verification_status": "verified",
+                "proposed_probe": "none"
+              },
+              {
+                "id": "r4",
+                "requirement": "Verify if render has callers",
+                "evidence": "observed: lumen/client.py uses getattr(codec, \"render\")",
+                "uncertainty": "low",
+                "impact": "medium",
+                "verification_status": "verified",
+                "proposed_probe": "none"
+              }
+            ],
+            "action": "submit",
+            "alternatives": [],
+            "basis": "All requirements met and verified.",
+            "estimated_cost": {
+              "seconds": 0,
+              "tools": 0
+            },
+            "previous_result": "none",
+            "decision_changed": false
+          },
+          "raw": "\n{\"contracts\":[{\"id\":\"r1\",\"requirement\":\"Add lumen.codec.encode_packet(payload, *, label='PK') returning LABEL:payload\",\"evidence\":\"observed: lumen/codec.py\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r2\",\"requirement\":\"Export encode_packet from lumen\",\"evidence\":\"observed: lumen/__init__.py\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r3\",\"requirement\":\"Keep shipped client working with existing exact output\",\"evidence\":\"observed: python3 -c 'from lumen.client import preview; print(preview(\\\"test\\\"))'\",\n\"uncertainty\":\"low\",\"impact\":\"high\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"},{\"id\":\"r4\",\"requirement\":\"Verify if render has callers\",\"evidence\":\"observed: lumen/client.py uses getattr(codec, \\\"render\\\")\",\n\"uncertainty\":\"low\",\"impact\":\"medium\",\"verification_status\":\"verified\",\"proposed_probe\":\"none\"}],\n\"action\":\"submit\",\"alternatives\":[],\"basis\":\"All requirements met and verified.\",\"estimated_cost\":{\"seconds\":0,\"tools\":0},\"previous_result\":\"none\",\"decision_changed\":false}\n",
+          "provenance": "server_visible_content_model_self_report_not_verdict"
+        }
+      ],
+      "reasoning_responses": 15,
+      "retained_reasoning_requests": 14,
+      "finish_reasons": [
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "tool_calls",
+        "stop"
+      ]
+    }
+  ],
+  "C1_minus_B": {
+    "actual_http_calls": -1,
+    "official_tool_calls": 0,
+    "observed_tool_calls_including_submit": -1,
+    "agent_seconds": 11.310536627999909,
+    "worker_seconds": 11.518183420000014,
+    "tokens": {
+      "prompt_tokens": 4222,
+      "completion_tokens": 400,
+      "total_tokens": 4622
+    },
+    "complete_infrastructure_pair": true
+  },
+  "A_compatibility": "real_GPU_requests_observed",
+  "B_mechanism": "requires_independent_native_tool_and_claim_audit_not_self_report",
+  "C_repair_rate": "not_supported_by_one_exposed_synthetic_pair",
+  "kaggle_resolution_rate": null,
+  "formal_submission": false
+}
