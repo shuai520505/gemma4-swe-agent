@@ -1,0 +1,19 @@
+--- frozen-r03/prepare.py
++++ r04/prepare.py
+@@ -72,6 +72,7 @@
+ def make_notebook(kind,revision,files,registration):
+     payload=archive(files)
+     setup=f'''import os,sys,json,hashlib,zipfile,io,subprocess,shutil,time
++SESSION_STARTED=time.monotonic()
+ from pathlib import Path
+ from datetime import datetime,timezone
+ RUN_DIR=Path('/kaggle/working/s1_e1_01')/{kind!r}/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ')
+@@ -107,7 +108,7 @@
+     else:
+         run=f'''from harness_v2.evidence import bundle
+ from s1.session import run
+-try:await run(SOURCE,RUN_DIR,{kind!r})
++try:await run(SOURCE,RUN_DIR,{kind!r},session_started=SESSION_STARTED)
+ finally:print('S1_GPU_EVIDENCE',bundle(RUN_DIR),flush=True)
+ '''
+     cells=[]
