@@ -1,6 +1,6 @@
 # C1兼容性修正与完整Runner CPU结果
 
-本记录只针对CPU兼容阶段；真实GPU结论另见本轮对照报告，不能由此推导Gemma能力。
+本记录只针对CPU兼容阶段；真实GPU结论另见 [本轮对照报告](../GPU_MECHANISM_C1_RESULTS.md)，不能由此推导Gemma能力。
 
 ## 精确修正
 

@@ -1,0 +1,63 @@
+{
+  "response": {
+    "id": "chatcmpl-be86b9a2ef4af8ae",
+    "created": 1792234584,
+    "model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "object": "chat.completion",
+    "system_fingerprint": null,
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "READY",
+          "role": "assistant",
+          "tool_calls": null,
+          "function_call": null,
+          "reasoning_content": "*   Input: \"Infrastructure-only probe: reply READY.\"\n    *   Intent: The user is testing the system's availability or connectivity (a \"probe\").\n    *   Constraint: The user explicitly requested a specific response: \"READY\".\n\n    *   The request is a simple command to return a specific string.\n    *   There are no safety violations or complex instructions.\n\n    *   Response: READY.",
+          "provider_specific_fields": {
+            "reasoning": "*   Input: \"Infrastructure-only probe: reply READY.\"\n    *   Intent: The user is testing the system's availability or connectivity (a \"probe\").\n    *   Constraint: The user explicitly requested a specific response: \"READY\".\n\n    *   The request is a simple command to return a specific string.\n    *   There are no safety violations or complex instructions.\n\n    *   Response: READY.",
+            "refusal": null,
+            "reasoning_content": "*   Input: \"Infrastructure-only probe: reply READY.\"\n    *   Intent: The user is testing the system's availability or connectivity (a \"probe\").\n    *   Constraint: The user explicitly requested a specific response: \"READY\".\n\n    *   The request is a simple command to return a specific string.\n    *   There are no safety violations or complex instructions.\n\n    *   Response: READY."
+          }
+        },
+        "provider_specific_fields": {
+          "token_ids": null,
+          "stop_reason": 106
+        }
+      }
+    ],
+    "usage": {
+      "completion_tokens": 95,
+      "prompt_tokens": 24,
+      "total_tokens": 119,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null
+    },
+    "service_tier": null,
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  },
+  "admissions": [
+    {
+      "kind": "research_request_parameters",
+      "max_output_tokens": 8192,
+      "thinking_budget": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "uncapped_request_defaulted": false,
+      "messages_sha256": "2fda3a2cb5b3cc4f4e88a5ca0b4f5176878a5126465124bd6144229504fb4c4a"
+    },
+    {
+      "kind": "context_admission",
+      "core_restored": false,
+      "input_tokens": 24,
+      "output_reserved": 8192,
+      "safety_tokens": 1024,
+      "max_model_len": 32768,
+      "total_reserved": 9240,
+      "decision": "allow"
+    }
+  ]
+}

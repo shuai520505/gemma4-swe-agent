@@ -1,0 +1,17 @@
+diff --git a/lumen/__init__.py b/lumen/__init__.py
+index d93bbd4..b16eab3 100644
+--- a/lumen/__init__.py
++++ b/lumen/__init__.py
+@@ -1 +1 @@
+-from .codec import render
++from .codec import render, encode_packet
+diff --git a/lumen/codec.py b/lumen/codec.py
+index 6bcb04d..9529cf6 100644
+--- a/lumen/codec.py
++++ b/lumen/codec.py
+@@ -1,2 +1,5 @@
+ def render(value, *, header="R"):
+     return f"{header}:{value}"
++
++def encode_packet(payload, *, label='PK'):
++    return f"{label.upper()}:{payload}"

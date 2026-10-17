@@ -1,0 +1,458 @@
+{
+  "infrastructure_passed": true,
+  "checks": {
+    "controller_ok": true,
+    "official_result": true,
+    "requests_present": true,
+    "native_trace": true,
+    "agent_boundary_trace": true,
+    "patch_checkpoint": true,
+    "phase2": true,
+    "context_allowed": true,
+    "request_count_matches": true,
+    "requests_registered": true,
+    "responses_ok": true,
+    "tokenizer_matches_inference": true,
+    "real_phase2_tests": true
+  },
+  "official": {
+    "task_id": "lumen_interface_01",
+    "resolved": true,
+    "status": "SUCCESS",
+    "duration_seconds": 82.44987195400017,
+    "cost_usd": 0.0,
+    "total_tokens": 0,
+    "total_llm_calls": 16,
+    "error_message": null,
+    "trace_path": "/kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/harness/traces/trace_lumen_interface_01.json",
+    "metadata": {},
+    "repo": "cure_synthetic/lumen_interface_01",
+    "agent_patch": "diff --git a/lumen/__init__.py b/lumen/__init__.py\nindex d93bbd4..b16eab3 100644\n--- a/lumen/__init__.py\n+++ b/lumen/__init__.py\n@@ -1 +1 @@\n-from .codec import render\n+from .codec import render, encode_packet\ndiff --git a/lumen/codec.py b/lumen/codec.py\nindex 6bcb04d..9529cf6 100644\n--- a/lumen/codec.py\n+++ b/lumen/codec.py\n@@ -1,2 +1,5 @@\n def render(value, *, header=\"R\"):\n     return f\"{header}:{value}\"\n+\n+def encode_packet(payload, *, label='PK'):\n+    return f\"{label.upper()}:{payload}\"\n",
+    "test_output": "STDOUT:\n..                                                                       [100%]\n- generated xml file: /kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_d9030369-2cb/tmp/_swegemma_junit_57d1f92acdeb.xml -\n2 passed in 0.02s\n\nSTDERR:\n",
+    "test_exit_code": 0,
+    "tool_calls": 13,
+    "task_index": 1
+  },
+  "controller": {
+    "status": "resolved",
+    "failure_stage": null,
+    "reason": "official_resolved",
+    "controller_error": null,
+    "controller_failure_stage": null,
+    "process_exit_code": 0,
+    "process_tree_stopped": true,
+    "cleanup_complete": true,
+    "duration_seconds": 95.17630942799997,
+    "allow_next_run": true,
+    "evidence": {
+      "official_result": true,
+      "patch_checkpoint": true,
+      "patch_checkpoint_bytes": 497,
+      "incremental_adk_events": true,
+      "native_trace": true,
+      "agent_boundary_trace": true,
+      "phase2_output": true
+    },
+    "official_fields_unchanged": true
+  },
+  "model_requests": 16,
+  "http_responses": 16,
+  "usage": {
+    "prompt_tokens": 58616,
+    "completion_tokens": 2747,
+    "total_tokens": 61363
+  },
+  "tool_sequence": [
+    {
+      "index": 1,
+      "monotonic": 1429.142898518,
+      "event_id": "1f2f00c1-53ba-4cb1-bcd1-93ddb444938d",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-b4bf4ddd3adf2e31",
+      "args": {
+        "command": "ls -R /workspace"
+      },
+      "name": "run_command"
+    },
+    {
+      "index": 2,
+      "monotonic": 1429.163333033,
+      "event_id": "50326a12-62dd-449d-adbb-a421d0ed6b45",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-b4bf4ddd3adf2e31",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "/kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_54cab48f-a24/workspace:\nconftest.py\nlumen\nMIGRATION.md\npytest.ini\ntests\n\n/kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_54cab48f-a24/workspace/lumen:\nclient.py\ncodec.py\n__init__.py\n\n/kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_54cab48f-a24/workspace/tests:\ntest_public.py\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "index": 3,
+      "monotonic": 1430.498688101,
+      "event_id": "0d33a98a-2b76-4265-b423-145d8aa27aa4",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-89b557dbf9ca3a9b",
+      "args": {
+        "filepath": "MIGRATION.md"
+      },
+      "name": "read_file"
+    },
+    {
+      "index": 4,
+      "monotonic": 1430.510556658,
+      "event_id": "a5d72c7b-ae82-4c90-a079-fbeefbe2b964",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-89b557dbf9ca3a9b",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "MIGRATION.md",
+        "content": "Working assumption (not verified): render is unused; rename it for the new packet API. The shipped client is the compatibility check.",
+        "start_line": 1,
+        "end_line": 1,
+        "total_lines": 1,
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 5,
+      "monotonic": 1432.837465093,
+      "event_id": "2aa26e45-a306-4b48-ac9d-a0994549e202",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-84f3ec1689e0fc29",
+      "args": {
+        "filepath": "lumen/codec.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "index": 6,
+      "monotonic": 1432.847790156,
+      "event_id": "553aa3ee-1b17-4800-9d97-7114e98ea599",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-84f3ec1689e0fc29",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "lumen/codec.py",
+        "content": "def render(value, *, header=\"R\"):\n    return f\"{header}:{value}\"",
+        "start_line": 1,
+        "end_line": 2,
+        "total_lines": 2,
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 7,
+      "monotonic": 1436.335702869,
+      "event_id": "170272ea-8066-4eb8-92de-d49e87666958",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-b372e081a55201ba",
+      "args": {
+        "filepath": "lumen/client.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "index": 8,
+      "monotonic": 1436.346216301,
+      "event_id": "09ac0f0b-3e31-4662-9eca-b544b6b28dd0",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-b372e081a55201ba",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "lumen/client.py",
+        "content": "from . import codec\n\ndef preview(value):\n    entry = getattr(codec, \"render\")\n    return entry(value, header=\"legacy\")",
+        "start_line": 1,
+        "end_line": 5,
+        "total_lines": 5,
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 9,
+      "monotonic": 1443.769142381,
+      "event_id": "8ba99496-9966-4e44-b16b-c70d9d3caf1c",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-a794f96b464bf2b5",
+      "args": {
+        "content": "from lumen.client import preview\nprint(f\"'{preview('test')}'\")\n",
+        "filepath": "repro.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "index": 10,
+      "monotonic": 1443.788857986,
+      "event_id": "0d08e25b-3a53-4529-a04d-8ccbf6c67f2f",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-a794f96b464bf2b5",
+      "name": "write_file",
+      "response": {
+        "status": "ok",
+        "filepath": "repro.py",
+        "size": 63
+      }
+    },
+    {
+      "index": 11,
+      "monotonic": 1444.661512743,
+      "event_id": "d6e58df2-d587-4516-9a6b-ad2bc0c5fe5d",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-ba8ec4df711a09aa",
+      "args": {
+        "command": "python3 repro.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "index": 12,
+      "monotonic": 1444.766546208,
+      "event_id": "92f355aa-2a7b-41b7-8a7c-a6d60bebeaf5",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-ba8ec4df711a09aa",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "'legacy:test'\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "index": 13,
+      "monotonic": 1454.389908227,
+      "event_id": "faded795-30f4-439f-8c77-6df0a2b79f35",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-b5a7b7c8d681af54",
+      "args": {
+        "filepath": "lumen/__init__.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "index": 14,
+      "monotonic": 1454.401818155,
+      "event_id": "fc320769-dbd0-4a88-a72a-d657455bc3ff",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-b5a7b7c8d681af54",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "lumen/__init__.py",
+        "content": "from .codec import render",
+        "start_line": 1,
+        "end_line": 1,
+        "total_lines": 1,
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 15,
+      "monotonic": 1464.99441642,
+      "event_id": "43ceb761-69b2-4aea-a8d7-a524d7a32a49",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-a482d2b2ded7d929",
+      "args": {
+        "filepath": "lumen/codec.py",
+        "new_string": "def render(value, *, header=\"R\"):\n    return f\"{header}:{value}\"\n\ndef encode_packet(payload, *, label='PK'):\n    return f\"{label.upper()}:{payload}\"\n",
+        "old_string": "def render(value, *, header=\"R\"):\n    return f\"{header}:{value}\"\n"
+      },
+      "name": "edit_file"
+    },
+    {
+      "index": 16,
+      "monotonic": 1465.006355556,
+      "event_id": "301a9da0-1025-4b76-88f5-a0ae4fe0ad57",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-a482d2b2ded7d929",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "lumen/codec.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/lumen/codec.py\n+++ b/lumen/codec.py\n@@ -1,2 +1,5 @@\n def render(value, *, header=\"R\"):\n     return f\"{header}:{value}\"\n+\n+def encode_packet(payload, *, label='PK'):\n+    return f\"{label.upper()}:{payload}\"\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 17,
+      "monotonic": 1467.099429594,
+      "event_id": "538dc7eb-7922-4671-a3d4-abe5346433b6",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-bdef45f874bd8393",
+      "args": {
+        "filepath": "lumen/__init__.py",
+        "new_string": "from .codec import render, encode_packet",
+        "old_string": "from .codec import render"
+      },
+      "name": "edit_file"
+    },
+    {
+      "index": 18,
+      "monotonic": 1467.11024623,
+      "event_id": "b2617fa9-2ee4-4db0-90fd-63dcbdb79907",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-bdef45f874bd8393",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "lumen/__init__.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/lumen/__init__.py\n+++ b/lumen/__init__.py\n@@ -1 +1 @@\n-from .codec import render\n+from .codec import render, encode_packet\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "index": 19,
+      "monotonic": 1471.886866596,
+      "event_id": "763628a7-a79e-4bde-af62-5abe51d2ddb2",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-b786b3ec9accd7f1",
+      "args": {
+        "content": "from lumen import encode_packet\nfrom lumen.client import preview\n\nprint(f\"encode_packet('test'): {encode_packet('test')}\")\nprint(f\"encode_packet('test', label='pk'): {encode_packet('test', label='pk')}\")\nprint(f\"encode_packet('test', label='custom'): {encode_packet('test', label='custom')}\")\nprint(f\"preview('test'): {preview('test')}\")\n",
+        "filepath": "verify.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "index": 20,
+      "monotonic": 1471.906140024,
+      "event_id": "438e3c81-e72b-4ea7-98b1-fe5cba1efcf8",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-b786b3ec9accd7f1",
+      "name": "write_file",
+      "response": {
+        "status": "ok",
+        "filepath": "verify.py",
+        "size": 338
+      }
+    },
+    {
+      "index": 21,
+      "monotonic": 1472.871907456,
+      "event_id": "d6a917bb-95fe-4dc3-b488-994db0c9335b",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-8e85e573395a2191",
+      "args": {
+        "command": "python3 verify.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "index": 22,
+      "monotonic": 1472.975034875,
+      "event_id": "4ebf284a-64c1-41cd-8d3e-c8dc63aead71",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-8e85e573395a2191",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "encode_packet('test'): PK:test\nencode_packet('test', label='pk'): PK:test\nencode_packet('test', label='custom'): CUSTOM:test\npreview('test'): legacy:test\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "index": 23,
+      "monotonic": 1479.107734295,
+      "event_id": "304704ee-321c-49ec-8a99-eb24aca14697",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-a95fdef69f5d2248",
+      "args": {
+        "command": "pytest tests/"
+      },
+      "name": "run_command"
+    },
+    {
+      "index": 24,
+      "monotonic": 1480.572874808,
+      "event_id": "f62cf6ff-416c-4b4c-ac30-81f2fd4070fa",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-a95fdef69f5d2248",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.12.13, pytest-8.4.2, pluggy-1.6.0\nrootdir: /kaggle/working/cure_gpu_mechanism_02_c1/smoke/20261017T103929_827618Z/runs/01-lumen_interface_01-checklist/sandbox_tmp/swegemma_sandbox_54cab48f-a24/workspace\nconfigfile: pytest.ini\nplugins: typeguard-4.5.1, langsmith-0.7.34\ncollected 1 item\n\ntests/test_public.py .                                                   [100%]\n\n============================== 1 passed in 0.01s ===============================\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "index": 25,
+      "monotonic": 1485.362977804,
+      "event_id": "405f087c-5035-4713-aadc-bad605b1a4fd",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-be6fd19dde1c5c0b",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "index": 26,
+      "monotonic": 1485.403195486,
+      "event_id": "ebb1bf36-ea21-4895-9140-d0209dd851e8",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-be6fd19dde1c5c0b",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 1154,
+        "files_changed": 4
+      }
+    },
+    {
+      "index": 27,
+      "monotonic": 1490.97240123,
+      "event_id": "56ffcdd4-4de0-45b4-a7fe-ae9739ac173f",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-851ddfca8dda7b1f",
+      "args": {
+        "command": "rm repro.py verify.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "index": 28,
+      "monotonic": 1490.994434434,
+      "event_id": "25e3f7ab-a69a-4868-90df-fd20792da9e9",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-851ddfca8dda7b1f",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "index": 29,
+      "monotonic": 1491.632652023,
+      "event_id": "2a6e370c-1340-4dc5-a07c-668e515d8f9c",
+      "kind": "function_call",
+      "id": "chatcmpl-tool-be320d63f8faf57b",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "index": 30,
+      "monotonic": 1491.6685488,
+      "event_id": "72e587ed-9a68-416a-b9db-5b4859c91416",
+      "kind": "function_response",
+      "id": "chatcmpl-tool-be320d63f8faf57b",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 497,
+        "files_changed": 2
+      }
+    }
+  ],
+  "tool_calls": 15,
+  "caveat": "HTTP usage is actual server usage; no estimated token substitution. CURE declarations are not causal evidence."
+}
