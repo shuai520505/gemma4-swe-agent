@@ -1,0 +1,357 @@
+{
+  "experiment_id": "cure-gpu-mechanism-01",
+  "status_at_registration": "not_executed",
+  "origin_commit": "7aa7801a5629c3fef05242e23701c03cb922dd6a",
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "model_alias": "gemma-4-31b-it-qat-w4a16-ct",
+  "model_sha_rule": "Attest every mounted model file before first inference; all continuation batches must match smoke manifest. Version pinned to /2 before execution.",
+  "wheel_hashes": {
+    "safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "f216afd4ba743e744c86cbd08e7185efa8749e4c905f14e4e977d65576466cb0",
+    "mistral_common-1.11.7-py3-none-any.whl": "a9511b88eacacbe7dacddd9d3498c1739f56847b7fdddbd5a22e7844fd9def95",
+    "partial_json_parser-0.2.1.1.post7-py3-none-any.whl": "145119e5eabcf80cbb13844a6b50a85c68bf99d376f8ed771e2a3c3b03e653ae",
+    "compressed_tensors-0.15.0.1-py3-none-any.whl": "e1b1f322e82e475715e242bad46925a304ea8e5c98b5055a15b8eb22fb6bfea9",
+    "setproctitle-1.3.7-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl": "2906b6c7959cdb75f46159bf0acd8cc9906cf1361c9e1ded0d065fe8f9039629",
+    "model_hosting_container_standards-0.1.16-py3-none-any.whl": "47f4f65713120bc3a69feb022981a38db9e557aedf88dbd72077f20588caa12b",
+    "interegular-0.3.3-py37-none-any.whl": "b0c07007d48c89d6d19f7204972d369b2a77222722e126b6aa63aa721dc3b19c",
+    "outlines_core-0.2.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "86df9740368866295077346440d911df4972da2b3f1f54b8125e6f329e8a8891",
+    "msgspec-0.21.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "21995e74b5c598c2e004110ad66ec7f1b8c20bf2bcf3b2de8fd9a3094422d3ff",
+    "pycountry-26.2.16-py3-none-any.whl": "115c4baf7cceaa30f59a4694d79483c9167dbce7a9de4d3d571c5f3ea77c305a",
+    "adk_eval_core-0.1.0-py3-none-any.whl": "e614e1b2fe8d886a634871e4c57f9887e1cc66e8c27300f8503a43c6e3ca82f3",
+    "quack_kernels-0.6.4-py3-none-any.whl": "e77c5d1f1299b0b38487fe8737df6c6975daa16bca7f7eb883bd1a74d09e7e78",
+    "pydantic_extra_types-2.11.2-py3-none-any.whl": "683b8943252543e49760f89733b1519bc62f31d1a287ebbdc5a7b7959fb4acfd",
+    "transformers-5.13.1-py3-none-any.whl": "53f0ea8aa397e29244c2377ba981bcaf0c87adcf44fbdd447ef6306522afcacd",
+    "apache_tvm_ffi-0.1.13.post3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl": "edaca70656f87831c3b4989169b1d85fe563ccd6d2e2cadc1f4f5880e1295f7a",
+    "google_adk-1.36.1-py3-none-any.whl": "1a2f6868c509e3151fb0de3575a7d18b45c338be86f420924dad74e7193631a0",
+    "google_genai-2.11.0-py3-none-any.whl": "5bc8186100e1d34d691fbe0cba392b7e04e98d286ca952323a6672d054accf95",
+    "gguf-0.19.0-py3-none-any.whl": "70bcd10edfe697fb2dad6e40af2234b9d8ece9a41a99761405121ebda1c3c1cd",
+    "cbor2-6.1.4-cp312-cp312-manylinux_2_28_x86_64.whl": "310f3dfb296ba48fe9b63c5cf26e691e3548a1eae6901d2f0c18e941d151f220",
+    "xgrammar-0.2.5.post1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "8df76e57eabf0576023826bd179dd2dddb56c1663dab74fd64086452487b795b",
+    "ijson-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "e4fcebfe1685bb7ba06a8255a5d428ea6b4b895d7acf979cb637d8bbc9db2f47",
+    "tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+    "flashinfer_cubin-0.6.6-py3-none-any.whl": "36508dfc792eb5ecfb15d2c140a7702812e1fa1ab0fb03929b2ed55e3e8191f3",
+    "anthropic-1.4.0-py3-none-any.whl": "590e85bff75b713a123b03f586d68f02266b5fdc49f70dd75f721ced93a4716c",
+    "vllm-0.19.1-cp38-abi3-manylinux_2_31_x86_64.whl": "73c69bafca24fbdad44690c44d6c6446514351e6f3cc9a6057cba05e66051310",
+    "loguru-0.7.3-py3-none-any.whl": "31a33c10c8e1e10422bfd431aeb5d351c7cf7fa671e3c4df004162264b28220c",
+    "flashinfer_python-0.6.6-py3-none-any.whl": "078f158636969eec1a0d3dea19c3ca90b426b66df89bbf7b7b8276ce2ec08148",
+    "bitsandbytes-0.46.1-py3-none-manylinux_2_24_x86_64.whl": "b0ee4a204fb926d4eae02bc2f5468ae3c11c011cfa849a4c771d4c6b201f57ae",
+    "depyf-0.20.0-py3-none-any.whl": "d31effad4261cebecb58955d832e448ace88f432328f95f82fd99c30fd9308d4",
+    "openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "c007d277218a50db8839e599ed78e0fffe5130f614c3f6d93ae257f282071a29",
+    "diskcache-5.6.3-py3-none-any.whl": "5e31b2d5fbad117cc363ebaf6b689474db18a1f6438bc82358b024abd4c2ca19",
+    "opentelemetry_semantic_conventions_ai-0.5.1-py3-none-any.whl": "25aeb22bd261543b4898a73824026d96770e5351209c7d07a0b1314762b1f6e4",
+    "swegemma-0.2.11-py3-none-any.whl": "9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3",
+    "opentelemetry_exporter_otlp-1.44.0-py3-none-any.whl": "4a498fa8d8fd8be9e8e2d175fe5524a3fe581ccffadd8509db86526a5fb97051",
+    "astor-0.8.1-py2.py3-none-any.whl": "070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5",
+    "adk_submission-0.2.13-py3-none-any.whl": "f156f0bd84580ccb9334726d114d7a5481f16d3a6e2887cc4d276ced0ef8d99d",
+    "pybase64-1.5.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl": "1a2b9cf39b4d30f600df8c56cccbc03adfc6e1ae8c04cd6b181105a432d4a515",
+    "prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl": "b9f40b2cff3f7891ca0610b3ae4fc6ec723fd326b04bb659819aaeb821a0fc7d",
+    "lm_format_enforcer-0.11.3-py3-none-any.whl": "cf586350875def1ae7a8fba84fcbbfc8371424b6c9d05c1fcba70aa233fbf06f",
+    "llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "bc17e9dd602c3879bf91664a64bf72f54c74dbfbeb24ccfab6a5fe435b12f7aa",
+    "nvidia_cudnn_frontend-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "6c023539ca6de99234cf5102c3ec0d6af817f5396fc93028a22ba5b834a35b8a"
+  },
+  "wheelhouse_manifest_sha256": "421e6813718ef79e5667e4bea63c89491c137768373ba468a8e057c1522aa769",
+  "research_config": {
+    "version": "0.1.0",
+    "agent_seconds": 300,
+    "tool_budget": 60,
+    "output_tokens": 8192,
+    "thinking_budget": 4096,
+    "include_thoughts": true,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "top_k": 40
+  },
+  "cpu_gate_sha256": "37c817c13a3003922a5dce2b510a392eaa01035e4c8b405afb85032a9bf8e0b1",
+  "runtime_source_hashes": {
+    "harness_v2/audit.py": "f8d12a446ff8a8707fcc5187ce485b26dc4becd2941c05b3e57f1c4ef8adca00",
+    "harness_v2/batch.py": "be2bdadcbe06b0c4136ad328a5306837519764ecb50caa185c3a1b32cc1b8f80",
+    "harness_v2/budgets.py": "5b3fac504eb8cea5d8b297f0466bee12eb251100f442c4764589db37d7871a6d",
+    "harness_v2/build.py": "0503236a98136954cb4ae2e63f87b16ec929b31786bc37aceed92d5f07ad9adc",
+    "harness_v2/context_budget.py": "4e23971ade660bfa7fac2db00f93cd49f04e296e99dddf22b14741a2acf1a8b1",
+    "harness_v2/cpu_validation.py": "abea3b96981600bc81cfd23ae98cc823a3a8da5cc91b5b6c96019f68667240f2",
+    "harness_v2/evidence.py": "2661bcb97f54a5ddfbc85c592dad03949a706d14efa0d962a86f2aeedfe73621",
+    "harness_v2/gpu_build.py": "29954c5d7adf3d87abcd233c4b7877a8cd8446b67a5dae6ec273baa4a2cf5fa3",
+    "harness_v2/integrity.py": "53970b58354e71f67e03b53e6e121ce5f7528fad836a7e705e4e1dc07148198b",
+    "harness_v2/isolation.py": "66bc9d1a54044bcb66c5173a1109ca97914db59aeb44da65ffb37ebc64da9ddf",
+    "harness_v2/kaggle_watch.py": "e351cd394b61d922cffeee44b5f5af0b61c81d5c7646a51e062aff3a4792373e",
+    "harness_v2/official.py": "4d31616de82c1c68ab2b72b1ce9c9ed84724f6aa04df807e46728bcb674bec28",
+    "harness_v2/outcomes.py": "01cc11df6bfcf2fd30aab6721403053d0e85c4ad723c3b498232ea19aff77121",
+    "harness_v2/supervisor.py": "2bfdb28c291d4faafbc13b58229a550ddb28dcf984645fdf766711dd42a3ee62",
+    "harness_v2/windows_job.py": "0e42bbfadf32b945e5bbb40c37a1662718371f3097618e45d234c01259dc39e3",
+    "harness_v2/worker.py": "0ce544a0b9da376ddec357e4993382669bd79d596df1f0e19f7277db5c700c2c",
+    "harness_v2/__init__.py": "273d7c042359bd5939b33800399bda322c8a06483d99c21a655c866028d71a3a",
+    "cure/action_selector.py": "8f4fbadbf35f355738409777d452b8642098302b535446e06722833667242373",
+    "cure/build.py": "6b4eacc97a5fe6a94240fba4e5b07518854270b4ed4c6ddb50fb4b8d48a0384c",
+    "cure/contract_state.py": "cdd0527718892f4c03d458d74e91740fe881ee3e954404feacf41ac6c0b10091",
+    "cure/cpu_validation.py": "a0b1571f530b8b3c5ef95c525bf44fa7aefec4a3145642703dbc9a8efef34123",
+    "cure/decision_log.py": "b30aedcc19115aeb12a3fbc909f083d737515b904455a01a00811c77be8526fa",
+    "cure/fixtures.py": "401644795a51c5cacbf1e84f077638379d879fe8e3549f55b82526cf2b830b69",
+    "cure/mechanisms.py": "8b8dae3c0b174347a3bbad28e45d171a6d4b1b7e8cb41f0eee62dd4ece1ca147",
+    "cure/observer.py": "8960b11f05724d1e51cbed9fbaa9515675fdda96c505ec29c7a9efc5aefb77db",
+    "cure/request_guard.py": "38faef5e8af28f5aaa8ff2017bd0cf24c81e285f5a3f15ffb5af0876b27442b1",
+    "cure/runner.py": "2f4388d0875ddf88c28b9bbc3694bf9a6c57ea3c290eec41d903895743b4e20e",
+    "cure/runtime_config.py": "8a440de3c1eeee5dae337339a0da4aa2b9201297552670cca2fb643841be97b3",
+    "cure/worker.py": "cb03fce64672331a4d84f72eacdbc2ee357149f0986ed9b1014b7899a42e51a1",
+    "cure/__init__.py": "69892f46f9e48fd8831b25b3681df605350c9c911da4a558e1473d793fe61087",
+    "cure/tests/test_mechanisms.py": "ade069bdbba258d0f5f5a4aaad687fa023e2af83ada8b2bb2d257404ec998f5a",
+    "cure/tests/test_official_api.py": "c78f554d058467dfa02f7997100c8a4646a2e50283a796a4e384978947645818",
+    "cure/tests/test_packaging.py": "701a7a800306fcb979ef1ab5a904fdd3f0e191ae57f6e980817250d4a0ed52fa",
+    "cure/tests/test_runtime.py": "f072c14be8258ec95a0ef6f81b9afa2dc78f6c0d6fecd33f0ffac2ad860d8c89",
+    "cure/tests/test_selector.py": "bfe88bdaa878e149cf9e62bfe2af0862df84513efbd3243389e54b0c4883ef86",
+    "cure/tests/test_state.py": "f65e80f89cd707a49d2c911beb689ac884b9d3c6dad2c34c341077e608ca4ae7",
+    "cure/notebooks/install_official.py": "26f5633f28426678849cf81af621f100a4085f6aaa9de25931eb8a8420434c27",
+    "cure/notebooks/cpu-metadata-template.json": "b49bfec1c27009d7291b17f4dca633bc1caba3abbbe6e5fd54781017ca79d255",
+    "tests/test_harness_v2.py": "57924918fcc81d5ab3833de2df8849ac3c68a4c67324c29d7e0a90eddc8305a2",
+    "tests/test_harness_v2_official.py": "351194ce2ee4874ad32b795c9693a809cf2845f7878a8da20cf22ff41564f7b7",
+    "tests/test_harness_v2_isolation.py": "b93abffe4afa35ba98ae73a153a893e48b9d83e04883ddd775cf58fd153cc582",
+    "tests/harness_v2_fixture.py": "5d75aaca6f90c6945b174e6e641ab8e6d2f874ec92d2d17c671ac0205dc188ec",
+    "tests/test_official_tools.py": "40ddf0dca800dffbe1da69c5e5d41951470d2c928dc7d3d798e6ff0c0234b932",
+    "candidates/v0/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v0/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v0/submission/prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+    "candidates/v1/submission/agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+    "candidates/v1/submission/eval_config.yaml": "d5858c36fb7ece60bb510c4b78db98b1bbdf63ade48652d9a5883162e61683a4",
+    "candidates/v1/submission/prompts/system.md": "2cf366891268c05252604f8c5d2fba9a93fb93dfddef6564f3c0b4f0eba9e9f1",
+    "cure/candidates/checklist/agent.yaml": "1893a4e61896fe85639fcb25b266b39c13fafd3135e409adf9637890accfb825",
+    "cure/candidates/checklist/eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "cure/candidates/checklist/sampling.yaml": "39652a4e51d0d5d6e783e1185da7e695b2890ed5be2beb946a0e572d6d26c934",
+    "cure/candidates/checklist/prompts/system.md": "07f01915902774b55ccba6ef1f404a23506fb05c18879221629ad661985b3999",
+    "cure/packages/checklist/submission.zip": "f002c3c5cba1f629f2cce7608d2d72ac389af8a3ee03760257e1aff011844798",
+    "cure/candidates/cure_v01/agent.yaml": "bde2eea41edb5f4950359777709b1aaf4dbca1f294f355b7087df98357af6dd4",
+    "cure/candidates/cure_v01/eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "cure/candidates/cure_v01/sampling.yaml": "39652a4e51d0d5d6e783e1185da7e695b2890ed5be2beb946a0e572d6d26c934",
+    "cure/candidates/cure_v01/prompts/system.md": "300f1f1861ab00d1ada1af56a391afd800ad8d96858dd386e85e9b403e00df97",
+    "cure/packages/cure_v01/submission.zip": "01e2a6271cab07356b7696cc21d82d9011ce88869a4a2bd4df68c62138a7634c",
+    "cure/gpu_mechanism/__init__.py": "e2f0cba7d4526d5beef6190bddf9217d9ae23495cfa25973f5efc27476751b95",
+    "cure/gpu_mechanism/worker_entry.py": "174ffed3e404634188c292c9a3020a1cf9e3f13ec7bc739a27601a0778f9c4db",
+    "cure/gpu_mechanism/audit.py": "e546cfd661fc45bfe8f6d5931374e74715fb41fe1279ed1c5f7ad9a43a0d55e2",
+    "cure/gpu_mechanism/session.py": "036ccc256987528f36862239081714589b627c3139cfe177fed866d1803e98a6"
+  },
+  "candidates": {
+    "checklist": {
+      "zip_sha256": "f002c3c5cba1f629f2cce7608d2d72ac389af8a3ee03760257e1aff011844798",
+      "bytes": 1488,
+      "members": {
+        "agent.yaml": "1893a4e61896fe85639fcb25b266b39c13fafd3135e409adf9637890accfb825",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "sampling.yaml": "39652a4e51d0d5d6e783e1185da7e695b2890ed5be2beb946a0e572d6d26c934",
+        "prompts/system.md": "07f01915902774b55ccba6ef1f404a23506fb05c18879221629ad661985b3999"
+      }
+    },
+    "cure_v01": {
+      "zip_sha256": "01e2a6271cab07356b7696cc21d82d9011ce88869a4a2bd4df68c62138a7634c",
+      "bytes": 2175,
+      "members": {
+        "agent.yaml": "bde2eea41edb5f4950359777709b1aaf4dbca1f294f355b7087df98357af6dd4",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "sampling.yaml": "39652a4e51d0d5d6e783e1185da7e695b2890ed5be2beb946a0e572d6d26c934",
+        "prompts/system.md": "300f1f1861ab00d1ada1af56a391afd800ad8d96858dd386e85e9b403e00df97"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "lumen_interface_01",
+      "category": "interface",
+      "base_commit": "47a1332014916c840c63a4d1980084f08e1481d9",
+      "problem_sha256": "a91a35810cacf37c1829d78018e4e9d0a521c356c5b2ea6ae51d9d65498698de",
+      "snapshot_sha256": "508b8b3fa16d451ff35631fffcf5612b105c628b1434d460d475a71cccc0eb5e",
+      "test_patch_sha256": "4435c377ad5de8ddb9c8ab6a1fd50fbebf114574382b07225d5fa6234b2d4f91",
+      "initial_files": {
+        "lumen/__init__.py": "3d0094e6ab881048dfff66f3d8f33ff5a2f76b1ad53d5b4e8816aee51051f5db",
+        "lumen/codec.py": "21fdc7aedd26779a98a05062144ee15f89c7f4eccbb2703edbbcaa60bd37270a",
+        "lumen/client.py": "a4e4553efd3a69b74ec44754714d14171d089f7ef6a7eeee224b90b9465b173e",
+        "MIGRATION.md": "eaad53ef048c0dffaba804c84f705bd587e0dad654951ad34c3bb883cd9f5ed6",
+        "tests/test_public.py": "0914f41e5a348b450b0d74daef6497301c8327312128b7e2ede5db331dca083d"
+      }
+    },
+    {
+      "task_id": "harbor_injection_02",
+      "category": "dependency_injection",
+      "base_commit": "47d0121ead2878749e14e3d087f3743a5a9ddc95",
+      "problem_sha256": "1918b6bc35cd3af5cbce8b6250b821dfec31eb9aae8c0dfcbff6c8dc280fc3c9",
+      "snapshot_sha256": "921a6714be661a51ab1f1290a306d7e5a0ced0dcd94919f8566082e8a59ba207",
+      "test_patch_sha256": "00ab356b38eba612b1caed6366b010b5c3f6b407c2cb3de41dac60f342bead11",
+      "initial_files": {
+        "harbor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "harbor/parcel.py": "bb1e5ef64a85a74d638d4ed977f78c35bed727d5548678307f05f4950632409f",
+        "tests/test_public.py": "38693f33041060bba35c5776c7f1c46584f1c788dd728536922cba5cd04a972a"
+      }
+    },
+    {
+      "task_id": "cedar_boundary_03",
+      "category": "boundary",
+      "base_commit": "24ab0cc70e1884c35d829ec4bc54f228a72dfd0f",
+      "problem_sha256": "0c5e676d49626be00c637e1c53e5dd141e867dfb00b8bda6a3b28c3d391248a8",
+      "snapshot_sha256": "48e0e95b589ce41f06f9bcaa55e15b8a26249b534b8023a2a07c07d45fbdde82",
+      "test_patch_sha256": "ad6258ba89dcc5d26a1b3ca53424a8f41d9139d4d66f2d576367d7da571a3c1d",
+      "initial_files": {
+        "cedar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "cedar/rows.py": "7b1ea67e9232e51a2abed5727f2358adfa1b081746a54b039d43bc88bbde16e9",
+        "tests/test_public.py": "accb05b51bddbe185c82c746f7f769e26a48dced87504198a6ecd12b71cdea55"
+      }
+    },
+    {
+      "task_id": "orion_legacy_04",
+      "category": "legacy",
+      "base_commit": "b41fb612752529f9524bd23ab89d41dca7f00031",
+      "problem_sha256": "9740c5e8ff457e853286dc6e82bb4db5cad82afef7a84181fa8714b5eb0e4790",
+      "snapshot_sha256": "fb20090de9b1c20550ac2ec02c2d2487198a4e2cd22f96b1f63399e4e1194dcb",
+      "test_patch_sha256": "3401149fe06dfb0186301a6f811b9e5ca701aae81f4a86ccad646789b87813c0",
+      "initial_files": {
+        "orion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "orion/duration.py": "d132a0808d0a9da69ee83204481f4ec425d781277c620414b8e8c1dfc38491a4",
+        "tests/test_public.py": "15d80b8311081f93e3b2cbc67353c5bfdff88a179f1fe775945293952a9ed29e"
+      }
+    }
+  ],
+  "batches": {
+    "smoke": [
+      {
+        "index": 1,
+        "arm": "checklist",
+        "task_id": "lumen_interface_01",
+        "category": "interface",
+        "base_commit": "47a1332014916c840c63a4d1980084f08e1481d9",
+        "problem_sha256": "a91a35810cacf37c1829d78018e4e9d0a521c356c5b2ea6ae51d9d65498698de",
+        "snapshot_sha256": "508b8b3fa16d451ff35631fffcf5612b105c628b1434d460d475a71cccc0eb5e",
+        "test_patch_sha256": "4435c377ad5de8ddb9c8ab6a1fd50fbebf114574382b07225d5fa6234b2d4f91",
+        "initial_files": {
+          "lumen/__init__.py": "3d0094e6ab881048dfff66f3d8f33ff5a2f76b1ad53d5b4e8816aee51051f5db",
+          "lumen/codec.py": "21fdc7aedd26779a98a05062144ee15f89c7f4eccbb2703edbbcaa60bd37270a",
+          "lumen/client.py": "a4e4553efd3a69b74ec44754714d14171d089f7ef6a7eeee224b90b9465b173e",
+          "MIGRATION.md": "eaad53ef048c0dffaba804c84f705bd587e0dad654951ad34c3bb883cd9f5ed6",
+          "tests/test_public.py": "0914f41e5a348b450b0d74daef6497301c8327312128b7e2ede5db331dca083d"
+        }
+      },
+      {
+        "index": 2,
+        "arm": "cure_v01",
+        "task_id": "lumen_interface_01",
+        "category": "interface",
+        "base_commit": "47a1332014916c840c63a4d1980084f08e1481d9",
+        "problem_sha256": "a91a35810cacf37c1829d78018e4e9d0a521c356c5b2ea6ae51d9d65498698de",
+        "snapshot_sha256": "508b8b3fa16d451ff35631fffcf5612b105c628b1434d460d475a71cccc0eb5e",
+        "test_patch_sha256": "4435c377ad5de8ddb9c8ab6a1fd50fbebf114574382b07225d5fa6234b2d4f91",
+        "initial_files": {
+          "lumen/__init__.py": "3d0094e6ab881048dfff66f3d8f33ff5a2f76b1ad53d5b4e8816aee51051f5db",
+          "lumen/codec.py": "21fdc7aedd26779a98a05062144ee15f89c7f4eccbb2703edbbcaa60bd37270a",
+          "lumen/client.py": "a4e4553efd3a69b74ec44754714d14171d089f7ef6a7eeee224b90b9465b173e",
+          "MIGRATION.md": "eaad53ef048c0dffaba804c84f705bd587e0dad654951ad34c3bb883cd9f5ed6",
+          "tests/test_public.py": "0914f41e5a348b450b0d74daef6497301c8327312128b7e2ede5db331dca083d"
+        }
+      }
+    ],
+    "followup_a": [
+      {
+        "index": 3,
+        "arm": "cure_v01",
+        "task_id": "harbor_injection_02",
+        "category": "dependency_injection",
+        "base_commit": "47d0121ead2878749e14e3d087f3743a5a9ddc95",
+        "problem_sha256": "1918b6bc35cd3af5cbce8b6250b821dfec31eb9aae8c0dfcbff6c8dc280fc3c9",
+        "snapshot_sha256": "921a6714be661a51ab1f1290a306d7e5a0ced0dcd94919f8566082e8a59ba207",
+        "test_patch_sha256": "00ab356b38eba612b1caed6366b010b5c3f6b407c2cb3de41dac60f342bead11",
+        "initial_files": {
+          "harbor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "harbor/parcel.py": "bb1e5ef64a85a74d638d4ed977f78c35bed727d5548678307f05f4950632409f",
+          "tests/test_public.py": "38693f33041060bba35c5776c7f1c46584f1c788dd728536922cba5cd04a972a"
+        }
+      },
+      {
+        "index": 4,
+        "arm": "checklist",
+        "task_id": "harbor_injection_02",
+        "category": "dependency_injection",
+        "base_commit": "47d0121ead2878749e14e3d087f3743a5a9ddc95",
+        "problem_sha256": "1918b6bc35cd3af5cbce8b6250b821dfec31eb9aae8c0dfcbff6c8dc280fc3c9",
+        "snapshot_sha256": "921a6714be661a51ab1f1290a306d7e5a0ced0dcd94919f8566082e8a59ba207",
+        "test_patch_sha256": "00ab356b38eba612b1caed6366b010b5c3f6b407c2cb3de41dac60f342bead11",
+        "initial_files": {
+          "harbor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "harbor/parcel.py": "bb1e5ef64a85a74d638d4ed977f78c35bed727d5548678307f05f4950632409f",
+          "tests/test_public.py": "38693f33041060bba35c5776c7f1c46584f1c788dd728536922cba5cd04a972a"
+        }
+      }
+    ],
+    "followup_b": [
+      {
+        "index": 5,
+        "arm": "checklist",
+        "task_id": "cedar_boundary_03",
+        "category": "boundary",
+        "base_commit": "24ab0cc70e1884c35d829ec4bc54f228a72dfd0f",
+        "problem_sha256": "0c5e676d49626be00c637e1c53e5dd141e867dfb00b8bda6a3b28c3d391248a8",
+        "snapshot_sha256": "48e0e95b589ce41f06f9bcaa55e15b8a26249b534b8023a2a07c07d45fbdde82",
+        "test_patch_sha256": "ad6258ba89dcc5d26a1b3ca53424a8f41d9139d4d66f2d576367d7da571a3c1d",
+        "initial_files": {
+          "cedar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "cedar/rows.py": "7b1ea67e9232e51a2abed5727f2358adfa1b081746a54b039d43bc88bbde16e9",
+          "tests/test_public.py": "accb05b51bddbe185c82c746f7f769e26a48dced87504198a6ecd12b71cdea55"
+        }
+      },
+      {
+        "index": 6,
+        "arm": "cure_v01",
+        "task_id": "cedar_boundary_03",
+        "category": "boundary",
+        "base_commit": "24ab0cc70e1884c35d829ec4bc54f228a72dfd0f",
+        "problem_sha256": "0c5e676d49626be00c637e1c53e5dd141e867dfb00b8bda6a3b28c3d391248a8",
+        "snapshot_sha256": "48e0e95b589ce41f06f9bcaa55e15b8a26249b534b8023a2a07c07d45fbdde82",
+        "test_patch_sha256": "ad6258ba89dcc5d26a1b3ca53424a8f41d9139d4d66f2d576367d7da571a3c1d",
+        "initial_files": {
+          "cedar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "cedar/rows.py": "7b1ea67e9232e51a2abed5727f2358adfa1b081746a54b039d43bc88bbde16e9",
+          "tests/test_public.py": "accb05b51bddbe185c82c746f7f769e26a48dced87504198a6ecd12b71cdea55"
+        }
+      },
+      {
+        "index": 7,
+        "arm": "cure_v01",
+        "task_id": "orion_legacy_04",
+        "category": "legacy",
+        "base_commit": "b41fb612752529f9524bd23ab89d41dca7f00031",
+        "problem_sha256": "9740c5e8ff457e853286dc6e82bb4db5cad82afef7a84181fa8714b5eb0e4790",
+        "snapshot_sha256": "fb20090de9b1c20550ac2ec02c2d2487198a4e2cd22f96b1f63399e4e1194dcb",
+        "test_patch_sha256": "3401149fe06dfb0186301a6f811b9e5ca701aae81f4a86ccad646789b87813c0",
+        "initial_files": {
+          "orion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "orion/duration.py": "d132a0808d0a9da69ee83204481f4ec425d781277c620414b8e8c1dfc38491a4",
+          "tests/test_public.py": "15d80b8311081f93e3b2cbc67353c5bfdff88a179f1fe775945293952a9ed29e"
+        }
+      },
+      {
+        "index": 8,
+        "arm": "checklist",
+        "task_id": "orion_legacy_04",
+        "category": "legacy",
+        "base_commit": "b41fb612752529f9524bd23ab89d41dca7f00031",
+        "problem_sha256": "9740c5e8ff457e853286dc6e82bb4db5cad82afef7a84181fa8714b5eb0e4790",
+        "snapshot_sha256": "fb20090de9b1c20550ac2ec02c2d2487198a4e2cd22f96b1f63399e4e1194dcb",
+        "test_patch_sha256": "3401149fe06dfb0186301a6f811b9e5ca701aae81f4a86ccad646789b87813c0",
+        "initial_files": {
+          "orion/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "orion/duration.py": "d132a0808d0a9da69ee83204481f4ec425d781277c620414b8e8c1dfc38491a4",
+          "tests/test_public.py": "15d80b8311081f93e3b2cbc67353c5bfdff88a179f1fe775945293952a9ed29e"
+        }
+      }
+    ]
+  },
+  "context": {
+    "max_model_len": 32768,
+    "safety_tokens": 1024,
+    "compaction_interval": 5,
+    "overlap_size": 1,
+    "token_threshold": 8192,
+    "event_retention_size": 4
+  },
+  "stop_rule": "Global stop on first infrastructure/evidence gate failure. No retry, replacement, outcome-based selection or partial-pair splicing. Followups require complete smoke pair gate; followup_b also requires followup_a. A completed assertion failure is not infrastructure failure.",
+  "mechanism_rule": "Independently inspect native tool sequences and visible claims: counterevidence must contradict an identifiable prior claim; subsequent relevant inspection/probe/change must have tool evidence. Lack of a prior wrong hypothesis means no contradiction opportunity, not success. Do not use decision_changed as proof.",
+  "input_separation": "Snapshots contain initial code/public tests only. Hidden tests are Task.test_patch outside workspace and enter fresh Phase2 sandbox only. Reference solutions/scenario generators excluded from GPU source bundle. Subprocess is not an OS security boundary; audit model requests and tool paths for leakage.",
+  "analysis": "Synthetic mechanism screening only; no Kaggle Resolution Rate or leaderboard estimate. Report all eight slots, unknown/not_run separately. No inferential significance claim from four scenarios.",
+  "competition_submission": false,
+  "lora": false
+}
