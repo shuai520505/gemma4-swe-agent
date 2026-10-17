@@ -1,0 +1,13 @@
+agent_class: LlmAgent
+name: contract_checklist_b
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Single-agent contract checklist baseline
+instruction: !include prompts/system.md
+generate_content_config: !include sampling.yaml
+tools:
+  - get_status
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - submit_patch

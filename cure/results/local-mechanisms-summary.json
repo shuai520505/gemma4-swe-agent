@@ -1,0 +1,1191 @@
+{
+  "archive_sha256": "8d3dc2d7b31849209db200d0700f75d7ab80b3d451bff09398028cc2f42e2fb9",
+  "records": [
+    {
+      "case": "interface",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 2.326999999999316,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "CLI render_text entry must work; preserve render(value).",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def render(value):\n    return '[' + value + ']'\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8de1982ccf7b7128f13e7bd4bcf4b28c0b6b63ed84d0779965247e636adfe8bf",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 1, in <module>\n    from caller import main\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_nwjcj8rr\\caller.py\", line 1, in <module>\n    from app import render_text\nImportError: cannot import name 'render_text' from 'app' (C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_nwjcj8rr\\app.py)\n",
+                "reference": "03-probe.json",
+                "digest": "0824b0a4d6f8dedec96df37c4c8d48e88896a8c6fcded33a1731e44f1f27d93f",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex b79f9af..d583dad 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,4 @@\n def render(value):\n     return '[' + value + ']'\n+\n+render_text = render\n\n",
+                "reference": "06-submit.json",
+                "digest": "d6a97d73fa03ac97c222eb6f0618f37d6e8ffa4041469f47ff000b2b5546f120",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.95,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": false,
+            "ready_to_edit": false,
+            "edited": true,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "interface",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "inspect",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 7,
+      "duration_seconds": 2.9219999999995707,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "CLI render_text entry must work; preserve render(value).",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def render(value):\n    return '[' + value + ']'\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8de1982ccf7b7128f13e7bd4bcf4b28c0b6b63ed84d0779965247e636adfe8bf",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 1, in <module>\n    from caller import main\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_o3uri7ir\\caller.py\", line 1, in <module>\n    from app import render_text\nImportError: cannot import name 'render_text' from 'app' (C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_o3uri7ir\\app.py)\n",
+                "reference": "03-probe.json",
+                "digest": "532b588bdfbe24b00c4e48e20a94c34cc736d696d720406d9f0a0d902e925b17",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "from app import render_text\ndef main(): return render_text('x')\n\n",
+                "reference": "04-inspect.json",
+                "digest": "76aad829e6e33ff0e0766b73c429e920f1d33f82268a3fbb35e01eb39c4e4bfd",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "05-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "06-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex b79f9af..d583dad 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,4 @@\n def render(value):\n     return '[' + value + ']'\n+\n+render_text = render\n\n",
+                "reference": "07-submit.json",
+                "digest": "d6a97d73fa03ac97c222eb6f0618f37d6e8ffa4041469f47ff000b2b5546f120",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "dependency_injection",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 2.875,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Use the caller supplied factory without constructing the default client.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "class Default:\n    def read(self): return 'default'\ndef load(factory=None):\n    return Default().read()\n\n",
+                "reference": "02-inspect.json",
+                "digest": "29e5a82c96965db846e56693e65e0bffdade2b2a2d33403c191e7390baa80e39",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() == 'injected', 'factory bypassed'\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: factory bypassed\n",
+                "reference": "03-probe.json",
+                "digest": "44e5870803d426e4586b8cd0e02012dea40d9791d80667e135b3ea96e807a4d5",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex 90c79f3..9db787b 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,4 +1,4 @@\n class Default:\n     def read(self): return 'default'\n def load(factory=None):\n-    return Default().read()\n+    return (factory() if factory is not None else Default()).read()\n\n",
+                "reference": "06-submit.json",
+                "digest": "611dd29b93af2544b07fbe44e918dad47ad62c8e235d3fc9f93025566cb622f3",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.95,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": false,
+            "ready_to_edit": false,
+            "edited": true,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "dependency_injection",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "inspect",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 7,
+      "duration_seconds": 3.2479999999995925,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Use the caller supplied factory without constructing the default client.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "class Default:\n    def read(self): return 'default'\ndef load(factory=None):\n    return Default().read()\n\n",
+                "reference": "02-inspect.json",
+                "digest": "29e5a82c96965db846e56693e65e0bffdade2b2a2d33403c191e7390baa80e39",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() == 'injected', 'factory bypassed'\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError: factory bypassed\n",
+                "reference": "03-probe.json",
+                "digest": "44e5870803d426e4586b8cd0e02012dea40d9791d80667e135b3ea96e807a4d5",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "from app import load\nclass Fake:\n    def read(self): return 'injected'\ndef main(): return load(lambda: Fake())\n\n",
+                "reference": "04-inspect.json",
+                "digest": "4473600a290fef493dc058785a7299c8392ccc2e3bd05b3341d70a444be5c174",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "05-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "06-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex 90c79f3..9db787b 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,4 +1,4 @@\n class Default:\n     def read(self): return 'default'\n def load(factory=None):\n-    return Default().read()\n+    return (factory() if factory is not None else Default()).read()\n\n",
+                "reference": "07-submit.json",
+                "digest": "611dd29b93af2544b07fbe44e918dad47ad62c8e235d3fc9f93025566cb622f3",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "zero_boundary",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 3.0150000000003274,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 0,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Zero is an explicit upper limit, None means no limit; negative values unchanged.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def cap(value, limit=None):\n    return min(value, limit) if limit else value\n\n",
+                "reference": "02-inspect.json",
+                "digest": "0304361e4701bef10ac72d477e6b09eb9f58835813a23d3fc4f346fae2ac4d9f",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() == 0, 'zero limit ignored'\n           ^^^^^^^^^^^\nAssertionError: zero limit ignored\n",
+                "reference": "03-probe.json",
+                "digest": "71f003f78d76c094948e8c2562cc3fb5003583a88c571ff3e280158050997d97",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex 585980f..6f5e688 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def cap(value, limit=None):\n-    return min(value, limit) if limit else value\n+    return min(value, limit) if limit is not None else value\n\n",
+                "reference": "06-submit.json",
+                "digest": "38c1b3606cb09b90f28703a47e7c39c345b9cf5ac56dc47c22925b1315ccda14",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 0,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "zero_boundary",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 3.0180000000009386,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 0,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Zero is an explicit upper limit, None means no limit; negative values unchanged.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def cap(value, limit=None):\n    return min(value, limit) if limit else value\n\n",
+                "reference": "02-inspect.json",
+                "digest": "0304361e4701bef10ac72d477e6b09eb9f58835813a23d3fc4f346fae2ac4d9f",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() == 0, 'zero limit ignored'\n           ^^^^^^^^^^^\nAssertionError: zero limit ignored\n",
+                "reference": "03-probe.json",
+                "digest": "71f003f78d76c094948e8c2562cc3fb5003583a88c571ff3e280158050997d97",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex 585980f..6f5e688 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def cap(value, limit=None):\n-    return min(value, limit) if limit else value\n+    return min(value, limit) if limit is not None else value\n\n",
+                "reference": "06-submit.json",
+                "digest": "38c1b3606cb09b90f28703a47e7c39c345b9cf5ac56dc47c22925b1315ccda14",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 0,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "old_behavior",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 2.6379999999990105,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 0,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Empty string returns None; preserve integer zero, negative and invalid input behavior.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def parse(value):\n    return int(value)\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8f11c5c3fdd4cd2ef40cfeba8a8cf49d5499a3837a848fa8299cc17037c8daff",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() is None\n           ^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_htlbkvcp\\caller.py\", line 2, in main\n    def main(): return parse('')\n                       ^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_htlbkvcp\\app.py\", line 2, in par",
+                "reference": "03-probe.json",
+                "digest": "db4d0947f40fb3661bfb62616ac32e5ed53f5911fbff0a052330b71cc53ca98a",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex f7a4139..7092da3 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def parse(value):\n-    return int(value)\n+    return None if value == '' else int(value)\n\n",
+                "reference": "06-submit.json",
+                "digest": "941efb09bbaf982728b46d69c13a7ee1814b3e564aca5da24a98acc9757acfa0",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 0,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "old_behavior",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 2.469000000000051,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 0,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Empty string returns None; preserve integer zero, negative and invalid input behavior.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def parse(value):\n    return int(value)\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8f11c5c3fdd4cd2ef40cfeba8a8cf49d5499a3837a848fa8299cc17037c8daff",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() is None\n           ^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_iobqwbcy\\caller.py\", line 2, in main\n    def main(): return parse('')\n                       ^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_iobqwbcy\\app.py\", line 2, in par",
+                "reference": "03-probe.json",
+                "digest": "337170afc8d193cc989101bd37e1fce9dd33d2c1fbf0bb5f23a73b8aef071c6a",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex f7a4139..7092da3 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def parse(value):\n-    return int(value)\n+    return None if value == '' else int(value)\n\n",
+                "reference": "06-submit.json",
+                "digest": "941efb09bbaf982728b46d69c13a7ee1814b3e564aca5da24a98acc9757acfa0",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 0,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "interface",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 3.467999999999847,
+      "patch_ready": true,
+      "verification_passed": true,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "CLI render_text entry must work; preserve render(value).",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def render(value):\n    return '[' + value + ']'\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8de1982ccf7b7128f13e7bd4bcf4b28c0b6b63ed84d0779965247e636adfe8bf",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 1, in <module>\n    from caller import main\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_659m0zw4\\caller.py\", line 1, in <module>\n    from app import render_text\nImportError: cannot import name 'render_text' from 'app' (C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_659m0zw4\\app.py)\n",
+                "reference": "03-probe.json",
+                "digest": "808c7b1ef46e4f0451c0de13b25cbafb7384c1dffc4dfb2e908803a2e7472f43",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "CHECK_PASSED\n",
+                "reference": "05-verify.json",
+                "digest": "3f70883c56a8962bcdfaa9f398d5b13fc480f2799f9e3ea31a807e0c5ecccbae",
+                "role": "verification",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex b79f9af..d583dad 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,4 @@\n def render(value):\n     return '[' + value + ']'\n+\n+render_text = render\n\n",
+                "reference": "06-submit.json",
+                "digest": "d6a97d73fa03ac97c222eb6f0618f37d6e8ffa4041469f47ff000b2b5546f120",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.95,
+            "impact": 0.8,
+            "verification_status": "passed",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": false,
+            "ready_to_edit": false,
+            "edited": true,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "old_behavior",
+      "arm": "B",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "submit"
+      ],
+      "tools_used": 6,
+      "duration_seconds": 3.0939999999991414,
+      "patch_ready": true,
+      "verification_passed": false,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Empty string returns None; preserve integer zero, negative and invalid input behavior.",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def parse(value):\n    return int(value)\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8f11c5c3fdd4cd2ef40cfeba8a8cf49d5499a3837a848fa8299cc17037c8daff",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 2, in <module>\n    assert main() is None\n           ^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_8_ty_jbv\\caller.py\", line 2, in main\n    def main(): return parse('')\n                       ^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_8_ty_jbv\\app.py\", line 2, in par",
+                "reference": "03-probe.json",
+                "digest": "b44d167c20dd18074faad45cf77f80aa4adb2622dfe82b4421050bac485c0ad7",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"verify.py\", line 3, in <module>\n    assert parse(0) == 0\n           ^^^^^^^^^^^^^\nAssertionError\n",
+                "reference": "05-verify.json",
+                "digest": "eff088f253ae9a95454f5b2f15b7153b26d0c2b38da4ae2458323aee50bdf8b6",
+                "role": "verification",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex f7a4139..1ae2f1a 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def parse(value):\n-    return int(value)\n+    return None if not value else int(value)\n\n",
+                "reference": "06-submit.json",
+                "digest": "accd60a6d684b56b28bb386b1df3b52699350f8c4b01cc30ea95102b392ee640",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.9,
+            "impact": 0.8,
+            "verification_status": "unverified",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": false,
+            "ready_to_edit": false,
+            "edited": false,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": true
+    },
+    {
+      "case": "interface",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "inspect",
+        "submit"
+      ],
+      "tools_used": 5,
+      "duration_seconds": 2.6710000000002765,
+      "patch_ready": false,
+      "verification_passed": false,
+      "contradictions": 1,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "CLI render_text entry must work; preserve render(value).",
+            "evidence": [
+              {
+                "kind": "unconfirmed_hypothesis",
+                "summary": "Initial implementation alone may satisfy the contract",
+                "reference": "initial-scripted-hypothesis",
+                "digest": "",
+                "role": "read",
+                "exit_code": null
+              },
+              {
+                "kind": "observation",
+                "summary": "['app.py', 'caller.py', 'probe.py', 'verify.py']\n",
+                "reference": "01-locate.json",
+                "digest": "915d30a37bc7af7e829714a5b723e05b31207bf9452e0e76b3e0f89266996a02",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "def render(value):\n    return '[' + value + ']'\n\n",
+                "reference": "02-inspect.json",
+                "digest": "8de1982ccf7b7128f13e7bd4bcf4b28c0b6b63ed84d0779965247e636adfe8bf",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"probe.py\", line 1, in <module>\n    from caller import main\n  File \"C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_621swfdl\\caller.py\", line 1, in <module>\n    from app import render_text\nImportError: cannot import name 'render_text' from 'app' (C:\\Users\\HP\\AppData\\Local\\Temp\\cure_mechanism_621swfdl\\app.py)\n",
+                "reference": "03-probe.json",
+                "digest": "df8fa67f76213f95ba6867c06526365d7d2ab82e3dbe27dd98e33d920bdcf8e0",
+                "role": "probe",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "from app import render_text\ndef main(): return render_text('x')\n\n",
+                "reference": "04-inspect.json",
+                "digest": "76aad829e6e33ff0e0766b73c429e920f1d33f82268a3fbb35e01eb39c4e4bfd",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "\n",
+                "reference": "05-submit.json",
+                "digest": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "unverified",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": false,
+            "contradiction_count": 1,
+            "dropped_evidence": 0,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": false
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": false
+    },
+    {
+      "case": "old_behavior",
+      "arm": "C",
+      "actions": [
+        "locate",
+        "inspect",
+        "probe",
+        "edit",
+        "verify",
+        "inspect",
+        "edit",
+        "verify",
+        "inspect",
+        "edit",
+        "submit"
+      ],
+      "tools_used": 11,
+      "duration_seconds": 4.810999999999694,
+      "patch_ready": true,
+      "verification_passed": false,
+      "contradictions": 2,
+      "final_state": {
+        "contracts": [
+          {
+            "id": "r1",
+            "requirement": "Empty string returns None; preserve integer zero, negative and invalid input behavior.",
+            "evidence": [
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "04-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"verify.py\", line 3, in <module>\n    assert parse(0) == 0\n           ^^^^^^^^^^^^^\nAssertionError\n",
+                "reference": "05-verify.json",
+                "digest": "eff088f253ae9a95454f5b2f15b7153b26d0c2b38da4ae2458323aee50bdf8b6",
+                "role": "verification",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "from app import parse\ndef main(): return parse('')\n\n",
+                "reference": "06-inspect.json",
+                "digest": "0a5d5fbf59002a0258a1df1bee8601002d835a7719f7f480a6defcbef685ce16",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "07-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"verify.py\", line 3, in <module>\n    assert parse(0) == 0\n           ^^^^^^^^^^^^^\nAssertionError\n",
+                "reference": "08-verify.json",
+                "digest": "eff088f253ae9a95454f5b2f15b7153b26d0c2b38da4ae2458323aee50bdf8b6",
+                "role": "verification",
+                "exit_code": 1
+              },
+              {
+                "kind": "observation",
+                "summary": "from app import parse\ndef main(): return parse('')\n\n",
+                "reference": "09-inspect.json",
+                "digest": "0a5d5fbf59002a0258a1df1bee8601002d835a7719f7f480a6defcbef685ce16",
+                "role": "read",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "SCRIPTED_EDIT_APPLIED\n",
+                "reference": "10-edit.json",
+                "digest": "070b0fed7d35ba76714e847347cd261c364334f64e74b12e6e369ba24814035c",
+                "role": "edit",
+                "exit_code": 0
+              },
+              {
+                "kind": "observation",
+                "summary": "diff --git a/app.py b/app.py\nindex f7a4139..1ae2f1a 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def parse(value):\n-    return int(value)\n+    return None if not value else int(value)\n\n",
+                "reference": "11-submit.json",
+                "digest": "accd60a6d684b56b28bb386b1df3b52699350f8c4b01cc30ea95102b392ee640",
+                "role": "read",
+                "exit_code": 0
+              }
+            ],
+            "uncertainty": 0.2,
+            "impact": 0.8,
+            "verification_status": "unverified",
+            "proposed_probe": "Run the provided caller reproduction",
+            "located": true,
+            "inspected": true,
+            "ready_to_edit": true,
+            "edited": true,
+            "contradiction_count": 2,
+            "dropped_evidence": 4,
+            "max_evidence": 8
+          }
+        ],
+        "patch_ready": true
+      },
+      "kind": "scripted_CPU_mechanism_not_Gemma_or_Kaggle",
+      "bad_edit": true
+    }
+  ]
+}
