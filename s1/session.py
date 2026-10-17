@@ -7,13 +7,14 @@ import shutil
 import sys
 import time
 import urllib.request
-from harness_v2.evidence import atomic_json,bundle
+from harness_v2.evidence import atomic_json,bundle,Journal
 from harness_v2.supervisor import supervise
 from . import MODEL
 from .config import Config,validate_compiled
 from .util import sha_file,sha
 from .task_identity import identify,find_data
 from .audit import inspect_run
+from .window import SessionWindow
 
 
 def require_cpu(source):
@@ -27,14 +28,13 @@ def require_cpu(source):
     return gate
 
 
-async def run(source,output,batch):
+async def run(source,output,batch,*,session_started):
     import torch
     import psutil
     from adk_submission import VllmConfig,VllmServer,compile_submission,discover_adapters
     from swegemma.context import SwegemmaContext
     from swegemma.config import build_submission_limits
-    from google.adk.models.lite_llm import LiteLLMClient
-    from harness_v2.context_budget import VllmCounter,RequestGuard,ContextBudgetExceeded
+    from .preflight import check_model
     source,output=Path(source),Path(output)
     require_cpu(source)
     plan=json.loads((source/'s1/gpu_protocol.json').read_text())
@@ -58,8 +58,14 @@ async def run(source,output,batch):
         enable_auto_tool_choice=True,enable_lora=False,scheduler_reserve_full_isl=False,tensor_parallel_size=4,startup_timeout=1200)
     atomic_json(output/'vllm_config.json',asdict(cfg))
     server=VllmServer(cfg,adapter_manifest=adapters)
-    records=[];stop=None;started=time.monotonic();known=[]
+    records=[];stop=None;known=[]
+    window=SessionWindow(session_started,limit_seconds=plan['session_seconds'])
+    journal=Journal(output)
     try:
+        bootstrap_slot=1200+max(Config(**c['config']).outer_seconds for c in candidates.values())
+        admission=window.admission(bootstrap_slot)
+        journal.append(dict(kind='session_admission',phase='before_server',**admission))
+        if not admission['allow']:raise TimeoutError('Insufficient Notebook window for startup, complete task and finalization')
         server.start()
         # Observe the actual server tree so a stop-return alone is not called cleanup.
         proc=getattr(server,'_process',None) or getattr(server,'process',None)
@@ -74,23 +80,13 @@ async def run(source,output,batch):
         for arm in ('control','e1_output8192'):
             agent=compile_submission(source/'s1/candidates'/arm,SwegemmaContext().create_tools(),registry,limits=limits,generation_constraints=constraints)
             validate_compiled(agent,Config(**candidates[arm]['config']))
-        admissions=[]
-        guard=RequestGuard(VllmCounter(server.base_url,key),LiteLLMClient().acompletion,core_issue='Reply READY.',emit=admissions.append)
-        response=await guard.acompletion(model='openai/'+str(model_path),api_base=server.base_url,api_key=key,
-            messages=[dict(role='user',content='Reply READY.')],max_completion_tokens=16,
-            extra_body={'chat_template_kwargs':{'enable_thinking':False}})
-        assert response.model==str(model_path) and response.usage.prompt_tokens==admissions[-1]['input_tokens']
-        async def forbidden(**kwargs):raise AssertionError('Oversize request sent')
-        over=[]
-        guard=RequestGuard(VllmCounter(server.base_url,key),forbidden,core_issue='Boundary',emit=over.append)
-        try:await guard.acompletion(model='openai/'+str(model_path),messages=[dict(role='user',content=' token'*30000)],max_completion_tokens=16384)
-        except ContextBudgetExceeded:pass
-        else:raise AssertionError('Boundary not enforced')
-        atomic_json(output/'gpu_probe.json',dict(response=response.model_dump(),admission=admissions,oversize=over))
+        atomic_json(output/'gpu_probe.json',await check_model(server.base_url,str(model_path),key))
         for row in plan['batches'][batch]:
             if stop:break
             arm=row['arm'];config=Config(**candidates[arm]['config'])
-            if time.monotonic()-started+config.outer_seconds+900>plan['session_seconds']:
+            admission=window.admission(config.outer_seconds)
+            journal.append(dict(kind='session_admission',phase='before_task',index=row['index'],**admission))
+            if not admission['allow']:
                 stop='insufficient_complete_task_slot';break
             task=plan['task_inputs'][row['instance_id']]
             directory=output/'runs'/f"{row['index']:02d}-{row['instance_id']}-{arm}"

@@ -1,0 +1,49 @@
+[{"stream_name":"stderr","time":10.483709251,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.483749884,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.483753692,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.483755831,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.241441061,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.241463809,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.241466851,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.241468909,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":1152.073103806,"data":"S1_GPU_EVIDENCE /kaggle/working/s1_e1_01/smoke/20261017T133213_064694Z.zip\n"}
+,{"stream_name":"stderr","time":1155.183840881,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":1155.18386728,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":1155.183871494,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":1155.183876479,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":1155.183942613,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":1155.184042377,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":1155.184213119,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":1155.184220493,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":1155.184223195,"data":"Exception encountered at \"In [3]\":\n"}
+,{"stream_name":"stderr","time":1155.184225719,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":1155.18422815,"data":"TypeError                                 Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":1155.184230649,"data":"/tmp/ipykernel_65/1172319218.py in \u003ccell line: 1\u003e()\n"}
+,{"stream_name":"stderr","time":1155.184233384,"data":"      1 from harness_v2.evidence import bundle\n"}
+,{"stream_name":"stderr","time":1155.184235699,"data":"      2 from s1.session import run\n"}
+,{"stream_name":"stderr","time":1155.184237969,"data":"----\u003e 3 try:await run(SOURCE,RUN_DIR,'smoke')\n"}
+,{"stream_name":"stderr","time":1155.18424039,"data":"      4 finally:print('S1_GPU_EVIDENCE',bundle(RUN_DIR),flush=True)\n"}
+,{"stream_name":"stderr","time":1155.184242831,"data":"\n"}
+,{"stream_name":"stderr","time":1155.184245027,"data":"/kaggle/working/s1_e1_01/smoke/20261017T133213_064694Z/source/s1/session.py in run(source, output, batch)\n"}
+,{"stream_name":"stderr","time":1155.184247536,"data":"     77         admissions=[]\n"}
+,{"stream_name":"stderr","time":1155.18424991,"data":"     78         guard=RequestGuard(VllmCounter(server.base_url,key),LiteLLMClient().acompletion,core_issue='Reply READY.',emit=admissions.append)\n"}
+,{"stream_name":"stderr","time":1155.184252649,"data":"---\u003e 79         response=await guard.acompletion(model='openai/'+str(model_path),api_base=server.base_url,api_key=key,\n"}
+,{"stream_name":"stderr","time":1155.184265616,"data":"     80             messages=[dict(role='user',content='Reply READY.')],max_completion_tokens=16,\n"}
+,{"stream_name":"stderr","time":1155.184267793,"data":"     81             extra_body={'chat_template_kwargs':{'enable_thinking':False}})\n"}
+,{"stream_name":"stderr","time":1155.184269631,"data":"\n"}
+,{"stream_name":"stderr","time":1155.184271343,"data":"/kaggle/working/s1_e1_01/smoke/20261017T133213_064694Z/source/harness_v2/context_budget.py in acompletion(self, **kwargs)\n"}
+,{"stream_name":"stderr","time":1155.184273159,"data":"     95             raise ContextCountingError('Token counting failed; generation was not sent') from exc\n"}
+,{"stream_name":"stderr","time":1155.184274968,"data":"     96         self.emit(dict(kind='context_admission', core_restored=restored, **event))\n"}
+,{"stream_name":"stderr","time":1155.184276968,"data":"---\u003e 97         return await self.generate(**args)\n"}
+,{"stream_name":"stderr","time":1155.184278891,"data":"\n"}
+,{"stream_name":"stderr","time":1155.184280542,"data":"TypeError: LiteLLMClient.acompletion() missing 1 required positional argument: 'tools'\n"}
+,{"stream_name":"stderr","time":1155.184282482,"data":"\n"}
+,{"stream_name":"stderr","time":1157.582479083,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1157.582500743,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1157.763158034,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1157.763175793,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1158.634209079,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1158.957442687,"data":"[NbConvertApp] Writing 270788 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1161.722131101,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1162.570760245,"data":"[NbConvertApp] Writing 555152 bytes to __results__.html\n"}
+]

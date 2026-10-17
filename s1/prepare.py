@@ -32,7 +32,10 @@ def register(revision,evidence_repo):
     for p in (ROOT/'submission').rglob('*'):
         if p.is_file():files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
     for p in (ROOT/'s1').rglob('*.py'):
-        if 'results' not in p.parts:files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
+        if not {'results','_local','revisions','__pycache__'}.intersection(p.relative_to(ROOT/'s1').parts):
+            files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
+    stopped=ROOT/'s1/experiments/e1-public-01/STOP.json'
+    if stopped.exists():files['s1/experiments/e1-public-01/STOP.json']=stopped.read_bytes()
     for name in ('candidates.json',):files['s1/'+name]=(ROOT/'s1'/name).read_bytes()
     for parent in ('candidates','packages'):
         for p in (ROOT/'s1'/parent).rglob('*'):
@@ -69,6 +72,7 @@ finally:shutil.rmtree(links)
 def make_notebook(kind,revision,files,registration):
     payload=archive(files)
     setup=f'''import os,sys,json,hashlib,zipfile,io,subprocess,shutil,time
+SESSION_STARTED=time.monotonic()
 from pathlib import Path
 from datetime import datetime,timezone
 RUN_DIR=Path('/kaggle/working/s1_e1_01')/{kind!r}/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%fZ')
@@ -104,7 +108,7 @@ finally:print('S1_CPU_EVIDENCE',bundle(RUN_DIR),flush=True)
     else:
         run=f'''from harness_v2.evidence import bundle
 from s1.session import run
-try:await run(SOURCE,RUN_DIR,{kind!r})
+try:await run(SOURCE,RUN_DIR,{kind!r},session_started=SESSION_STARTED)
 finally:print('S1_GPU_EVIDENCE',bundle(RUN_DIR),flush=True)
 '''
     cells=[]
@@ -131,6 +135,8 @@ def cpu(revision,evidence_repo):
 
 
 def gpu(kind,revision,cpu_dir,model_identity,previous_gate=None):
+    if (ROOT/'s1/experiments/e1-public-01/STOP.json').exists():
+        raise RuntimeError('s1-e1-public-01 globally stopped; a new experiment ID and preregistration are required')
     cpu_dir=Path(cpu_dir)
     reg=json.loads((ROOT/f's1/registrations/{revision}.json').read_text())
     gate=json.loads((cpu_dir/'validation/cpu_gate.json').read_text())

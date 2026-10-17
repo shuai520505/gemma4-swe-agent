@@ -1,0 +1,142 @@
+{
+  "experiment_id": "s1-e1-public-01",
+  "scope": "public development screening; smoke excluded from primary",
+  "planned_screen_pairs": 4,
+  "complete_screen_pairs": 0,
+  "all_pairs_complete": false,
+  "counts": {
+    "control": {
+      "resolved": 0,
+      "failed": 0,
+      "unknown": 0,
+      "not_run": 4
+    },
+    "e1_output8192": {
+      "resolved": 0,
+      "failed": 0,
+      "unknown": 0,
+      "not_run": 4
+    }
+  },
+  "pairs": [
+    {
+      "instance_id": "requests_7427",
+      "complete": false,
+      "control": "not_run",
+      "e1": "not_run"
+    },
+    {
+      "instance_id": "rich_3894",
+      "complete": false,
+      "control": "not_run",
+      "e1": "not_run"
+    },
+    {
+      "instance_id": "fastapi_14794",
+      "complete": false,
+      "control": "not_run",
+      "e1": "not_run"
+    },
+    {
+      "instance_id": "fastapi_14349",
+      "complete": false,
+      "control": "not_run",
+      "e1": "not_run"
+    }
+  ],
+  "all_slots": [
+    {
+      "index": 1,
+      "instance_id": "requests_7328",
+      "arm": "control",
+      "batch": "smoke",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 2,
+      "instance_id": "requests_7328",
+      "arm": "e1_output8192",
+      "batch": "smoke",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 3,
+      "instance_id": "requests_7427",
+      "arm": "control",
+      "batch": "screen_a",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 4,
+      "instance_id": "requests_7427",
+      "arm": "e1_output8192",
+      "batch": "screen_a",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 5,
+      "instance_id": "rich_3894",
+      "arm": "e1_output8192",
+      "batch": "screen_a",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 6,
+      "instance_id": "rich_3894",
+      "arm": "control",
+      "batch": "screen_a",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 7,
+      "instance_id": "fastapi_14794",
+      "arm": "control",
+      "batch": "screen_b",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 8,
+      "instance_id": "fastapi_14794",
+      "arm": "e1_output8192",
+      "batch": "screen_b",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 9,
+      "instance_id": "fastapi_14349",
+      "arm": "e1_output8192",
+      "batch": "screen_b",
+      "status": "not_run",
+      "audit": null
+    },
+    {
+      "index": 10,
+      "instance_id": "fastapi_14349",
+      "arm": "control",
+      "batch": "screen_b",
+      "status": "not_run",
+      "audit": null
+    }
+  ],
+  "primary_resolved_difference": null,
+  "full_resolution_rates": {
+    "control": null,
+    "e1_output8192": null
+  },
+  "discordant": {
+    "control_only": 0,
+    "e1_only": 0,
+    "both_resolved": 0,
+    "scope": "Observed complete pairs only; not a replacement for the planned denominator"
+  },
+  "sufficient_for_S1_freeze": false,
+  "warning": "Four selected development pairs cannot by themselves establish robust improvement or hidden leaderboard gain"
+}

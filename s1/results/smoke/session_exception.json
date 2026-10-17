@@ -1,0 +1,4 @@
+{
+  "error": "TypeError: LiteLLMClient.acompletion() missing 1 required positional argument: 'tools'",
+  "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/s1_e1_01/smoke/20261017T133213_064694Z/source/s1/session.py\", line 79, in run\n    response=await guard.acompletion(model='openai/'+str(model_path),api_base=server.base_url,api_key=key,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/s1_e1_01/smoke/20261017T133213_064694Z/source/harness_v2/context_budget.py\", line 97, in acompletion\n    return await self.generate(**args)\n                 ^^^^^^^^^^^^^^^^^^^^^\nTypeError: LiteLLMClient.acompletion() missing 1 required positional argument: 'tools'\n"
+}

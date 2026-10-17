@@ -1,0 +1,23 @@
+--- frozen-r02/prepare.py
++++ r03/prepare.py
+@@ -32,7 +32,10 @@
+     for p in (ROOT/'submission').rglob('*'):
+         if p.is_file():files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
+     for p in (ROOT/'s1').rglob('*.py'):
+-        if 'results' not in p.parts:files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
++        if not {'results','_local','revisions','__pycache__'}.intersection(p.relative_to(ROOT/'s1').parts):
++            files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
++    stopped=ROOT/'s1/experiments/e1-public-01/STOP.json'
++    if stopped.exists():files['s1/experiments/e1-public-01/STOP.json']=stopped.read_bytes()
+     for name in ('candidates.json',):files['s1/'+name]=(ROOT/'s1'/name).read_bytes()
+     for parent in ('candidates','packages'):
+         for p in (ROOT/'s1'/parent).rglob('*'):
+@@ -131,6 +134,8 @@
+ 
+ 
+ def gpu(kind,revision,cpu_dir,model_identity,previous_gate=None):
++    if (ROOT/'s1/experiments/e1-public-01/STOP.json').exists():
++        raise RuntimeError('s1-e1-public-01 globally stopped; a new experiment ID and preregistration are required')
+     cpu_dir=Path(cpu_dir)
+     reg=json.loads((ROOT/f's1/registrations/{revision}.json').read_text())
+     gate=json.loads((cpu_dir/'validation/cpu_gate.json').read_text())

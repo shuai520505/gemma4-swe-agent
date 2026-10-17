@@ -20,7 +20,7 @@ def main():
     old=[t for t in old if not t.id().endswith('test_baseline_hashes_and_archives_remain_unchanged')]
     old+=list(flatten(loader.discover(str(source/'tests'),pattern='test_official_tools.py')))
     static=list(flatten(loader.discover(str(source/'tests'),pattern='test_submission.py')))
-    new=list(flatten(loader.loadTestsFromNames(['s1.tests.test_core','s1.tests.test_runner','s1.tests.test_worker'])))
+    new=list(flatten(loader.loadTestsFromNames(['s1.tests.test_core','s1.tests.test_runner','s1.tests.test_worker','s1.tests.test_preflight','s1.tests.test_window'])))
     versions={p:importlib.metadata.version(p) for p in ('swegemma','adk-submission','adk-eval-core',
         'google-adk','google-genai','litellm','psutil')}
     with (output/'tests.log').open('x') as log:

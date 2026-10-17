@@ -1,0 +1,33 @@
+--- frozen-r02/session.py
++++ r03/session.py
+@@ -33,8 +33,7 @@
+     from adk_submission import VllmConfig,VllmServer,compile_submission,discover_adapters
+     from swegemma.context import SwegemmaContext
+     from swegemma.config import build_submission_limits
+-    from google.adk.models.lite_llm import LiteLLMClient
+-    from harness_v2.context_budget import VllmCounter,RequestGuard,ContextBudgetExceeded
++    from .preflight import check_model
+     source,output=Path(source),Path(output)
+     require_cpu(source)
+     plan=json.loads((source/'s1/gpu_protocol.json').read_text())
+@@ -74,19 +73,7 @@
+         for arm in ('control','e1_output8192'):
+             agent=compile_submission(source/'s1/candidates'/arm,SwegemmaContext().create_tools(),registry,limits=limits,generation_constraints=constraints)
+             validate_compiled(agent,Config(**candidates[arm]['config']))
+-        admissions=[]
+-        guard=RequestGuard(VllmCounter(server.base_url,key),LiteLLMClient().acompletion,core_issue='Reply READY.',emit=admissions.append)
+-        response=await guard.acompletion(model='openai/'+str(model_path),api_base=server.base_url,api_key=key,
+-            messages=[dict(role='user',content='Reply READY.')],max_completion_tokens=16,
+-            extra_body={'chat_template_kwargs':{'enable_thinking':False}})
+-        assert response.model==str(model_path) and response.usage.prompt_tokens==admissions[-1]['input_tokens']
+-        async def forbidden(**kwargs):raise AssertionError('Oversize request sent')
+-        over=[]
+-        guard=RequestGuard(VllmCounter(server.base_url,key),forbidden,core_issue='Boundary',emit=over.append)
+-        try:await guard.acompletion(model='openai/'+str(model_path),messages=[dict(role='user',content=' token'*30000)],max_completion_tokens=16384)
+-        except ContextBudgetExceeded:pass
+-        else:raise AssertionError('Boundary not enforced')
+-        atomic_json(output/'gpu_probe.json',dict(response=response.model_dump(),admission=admissions,oversize=over))
++        atomic_json(output/'gpu_probe.json',await check_model(server.base_url,str(model_path),key))
+         for row in plan['batches'][batch]:
+             if stop:break
+             arm=row['arm'];config=Config(**candidates[arm]['config'])
