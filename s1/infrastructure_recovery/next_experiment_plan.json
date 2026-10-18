@@ -1,0 +1,69 @@
+{
+  "status": "DRAFT_NOT_EXECUTABLE",
+  "GPU_authorized": false,
+  "selection": "For each of Rich/FastAPI, minimum SHA256(s1-infra-recovery-fresh-v1:instance_id) among conservative unexposed IDs; selection fixed before CPU readiness outcomes",
+  "excluded": [
+    "fastapi_15661",
+    "fastapi_15589",
+    "requests_7315",
+    "rich_3777",
+    "rich_4006",
+    "requests_7309",
+    "fastapi_14258",
+    "rich_3052",
+    "httpx_3672",
+    "requests_7328",
+    "requests_7427",
+    "rich_3894",
+    "fastapi_14794",
+    "fastapi_14349"
+  ],
+  "pairs": [
+    {
+      "arm": "e3_locate",
+      "instance_id": "rich_3278",
+      "repo": "Textualize/rich",
+      "base_commit": "4c5d305bb902ce97011666ada19e48d0b27b49e1",
+      "issue_sha256": "665a4e2e3fc95e55e496f73945d905a5a0df5e30335fcf387b61655c41155b1d",
+      "audit_modules": [
+        "rich"
+      ],
+      "order": [
+        "control",
+        "e3_locate"
+      ],
+      "candidate_zip_sha256": "ae5e6157d2e96b20ffb4c9dd54902313cffeb9d1f9bdd231c38ef4eafbca7461",
+      "control_zip_sha256": "8835fd8ab4bdd43f5fcf74423c8ed2c3b9e0e0711686c8eac335b22c1da9da12"
+    },
+    {
+      "arm": "e4_verify",
+      "instance_id": "fastapi_14361",
+      "repo": "fastapi/fastapi",
+      "base_commit": "5265c4f5cb4d8fb4fb5015bccf1a6de8f3fc6044",
+      "issue_sha256": "e11ab2fe38a6dfc974e0f407059b6bdd6428c1a53ad5bfff7e5f11b36ab35b2f",
+      "audit_modules": [
+        "fastapi"
+      ],
+      "order": [
+        "control",
+        "e4_verify"
+      ],
+      "candidate_zip_sha256": "51185b0bf7e6772b7b51a5b7bab8393f2091b41712e37e6f532ba00ac3cdfcc8",
+      "control_zip_sha256": "8835fd8ab4bdd43f5fcf74423c8ed2c3b9e0e0711686c8eac335b22c1da9da12"
+    }
+  ],
+  "config": {
+    "version": "s1-runner-0.1.0",
+    "agent_seconds": 300,
+    "tool_budget": 60,
+    "output_tokens": 16384,
+    "thinking_budget": 4096,
+    "include_thoughts": null,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "frozen_candidates": true,
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "independent_studies": true,
+  "no_combined_factors": true
+}

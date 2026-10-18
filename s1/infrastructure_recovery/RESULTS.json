@@ -1,0 +1,43 @@
+{
+  "recovery_version": "s1-infra-recovery-0.2.0",
+  "CPU_revision": "r05",
+  "controller_tests": 97,
+  "controller_passed": true,
+  "requests_verifier_eligible": false,
+  "requests_environment_gate": "results/r05/validation/clean_requests/environment_gate.json",
+  "new_task_environment_gates": [
+    {
+      "instance_id": "rich_3278",
+      "base_commit": "4c5d305bb902ce97011666ada19e48d0b27b49e1",
+      "eligible": true,
+      "scope": "CPU import and original public baseline target-file tests only; no evaluation test patch",
+      "source_import_verified": true,
+      "original_test_targets": [
+        "tests/test_ansi.py"
+      ],
+      "public_baseline_exit_code": 0,
+      "cleanup_complete": true
+    },
+    {
+      "instance_id": "fastapi_14361",
+      "base_commit": "5265c4f5cb4d8fb4fb5015bccf1a6de8f3fc6044",
+      "eligible": false,
+      "scope": "CPU import and original public baseline target-file tests only; no evaluation test patch",
+      "error": "AssertionError('Baseline target files missing')",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/s1_infra_recovery/r05/20261018T063513_577668Z/source/s1/infrastructure_recovery/public_preflight.py\", line 42, in check\n    assert targets and all((workspace/name).is_file() for name in targets),'Baseline target files missing'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Baseline target files missing\n",
+      "cleanup_complete": true
+    }
+  ],
+  "request_cancellation_observation_repaired": true,
+  "source_import_provenance_repaired": true,
+  "real_Gemma_GPU_tested_this_round": false,
+  "algorithm_benefit_proven": false,
+  "GPU_runs": 0,
+  "formal_submissions": 0,
+  "priority": [
+    "E3",
+    "E4",
+    "E1 (deferred)"
+  ],
+  "next_GPU_authorized": false
+}

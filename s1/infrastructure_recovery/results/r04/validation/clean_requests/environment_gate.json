@@ -1,0 +1,72 @@
+{
+  "clean_base": "cbce031327be4f1b4b5fd041ff4dcaa8efa2ce53",
+  "Agent_patch_used": false,
+  "evaluation_test_patch_used": false,
+  "embedded_git_head": "7dea5aec68f3c6448eda1a5a6153155baeec82ad",
+  "embedded_git_head_matches_declared_base": false,
+  "critical_upstream_blobs_verified": {
+    "pyproject.toml": "8b77f737f59f572ec1f34117f73f76ac15489dc3",
+    "src/requests/sessions.py": "578cc44d5c17a81982c28308b6396760ab9d5946",
+    "tests/conftest.py": "530a4c2a5f9917d62ffed2e2eecfdb8164655740"
+  },
+  "baseline_authority": "Official registered archive bytes; embedded Git graph not asserted equal to task metadata",
+  "source_and_test_hashes_unchanged": true,
+  "files_checked": 33,
+  "source_import_corrected": true,
+  "before_import": {
+    "sys_path": [
+      "",
+      "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/workspace",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/venv/lib/python3.12/site-packages",
+      "/usr/local/lib/python3.12/dist-packages",
+      "/usr/lib/python3/dist-packages"
+    ],
+    "requests_file": "/usr/local/lib/python3.12/dist-packages/requests/__init__.py",
+    "sessions_file": "/usr/local/lib/python3.12/dist-packages/requests/sessions.py"
+  },
+  "after_import": {
+    "sys_path": [
+      "",
+      "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/workspace",
+      "/usr/lib/python312.zip",
+      "/usr/lib/python3.12",
+      "/usr/lib/python3.12/lib-dynload",
+      "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/venv/lib/python3.12/site-packages",
+      "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/workspace/src",
+      "/usr/local/lib/python3.12/dist-packages",
+      "/usr/lib/python3/dist-packages"
+    ],
+    "requests_file": "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/workspace/src/requests/__init__.py",
+    "sessions_file": "/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/validation/clean_requests/sandboxes/swegemma_sandbox_bddb1bb7-5a6/workspace/src/requests/sessions.py"
+  },
+  "pytest_exit_code": 1,
+  "fixture_setup_errors": 193,
+  "providers": {
+    "modules": {
+      "pytest_httpbin": false,
+      "httpbin": false,
+      "trustme": false
+    },
+    "pytest11": [
+      {
+        "name": "anyio",
+        "value": "anyio.pytest_plugin"
+      },
+      {
+        "name": "typeguard",
+        "value": "typeguard._pytest_plugin"
+      },
+      {
+        "name": "langsmith_plugin",
+        "value": "langsmith.pytest_plugin"
+      }
+    ]
+  },
+  "offline_provider_resolvable": false,
+  "requests_verifier_eligible": false,
+  "status": "blocked",
+  "blocker": "Official offline wheel/input environment lacks required fixture providers; do not use Requests as a repair-rate endpoint"
+}
