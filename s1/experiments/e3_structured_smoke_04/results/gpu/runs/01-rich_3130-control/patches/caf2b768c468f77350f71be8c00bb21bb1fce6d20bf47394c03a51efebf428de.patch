@@ -1,0 +1,42 @@
+diff --git a/repro.py b/repro.py
+new file mode 100644
+index 00000000..2042ff14
+--- /dev/null
++++ b/repro.py
+@@ -0,0 +1,14 @@
++
++from rich.console import Console
++from rich.markdown import Markdown
++
++markdown_text = """
++| Column 1 | Column 2 |
++| --- | --- |
++| This is [a link](https://google.com) and some text | Normal text |
++| This has **bold** and *italic* | Normal text |
++"""
++
++console = Console(record=True)
++console.print(Markdown(markdown_text))
++print(console.export())
+diff --git a/rich/markdown.py b/rich/markdown.py
+index 704da301..34d91de2 100644
+--- a/rich/markdown.py
++++ b/rich/markdown.py
+@@ -330,15 +330,12 @@ class TableDataElement(MarkdownElement):
+         return cls(justify=justify)
+ 
+     def __init__(self, justify: JustifyMethod) -> None:
+-        self.content: TextType = ""
++        self.content = Text(justify=justify)
+         self.justify = justify
+ 
+     def on_text(self, context: "MarkdownContext", text: TextType) -> None:
+         plain = text.plain if isinstance(text, Text) else text
+-        style = text.style if isinstance(text, Text) else ""
+-        self.content = Text(
+-            plain, justify=self.justify, style=context.style_stack.current
+-        )
++        self.content.append(plain, context.current_style)
+ 
+ 
+ class ListElement(MarkdownElement):
