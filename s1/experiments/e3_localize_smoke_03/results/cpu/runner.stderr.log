@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py", line 74, in <module>
+    if __name__=='__main__':main(sys.argv[1])
+                            ^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py", line 67, in main
+    admission=asyncio.run(phase2(output/'rich_full_phase2'))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py", line 30, in phase2
+    cfg=EvalConfig(tasks_path=data/'tasks.jsonl',snapshots_dir=data/'snapshots',results_dir=output/'native',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EvalConfig.__init__() missing 1 required positional argument: 'models'
