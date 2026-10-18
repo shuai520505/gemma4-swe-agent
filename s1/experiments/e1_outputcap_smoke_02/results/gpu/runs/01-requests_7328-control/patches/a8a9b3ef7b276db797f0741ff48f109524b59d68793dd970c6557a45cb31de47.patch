@@ -1,0 +1,164 @@
+diff --git a/repro_self_ref.py b/repro_self_ref.py
+new file mode 100644
+index 00000000..da8621c8
+--- /dev/null
++++ b/repro_self_ref.py
+@@ -0,0 +1,73 @@
++
++import requests
++from requests import Session, Response
++from requests.models import PreparedRequest
++from unittest.mock import MagicMock
++
++def test_redirect_history_self_reference():
++    session = Session()
++    adapter = MagicMock()
++    session.get_adapter = MagicMock(return_value=adapter)
++
++    # Mock responses for 2 redirects
++    # resp0 -> 301 -> resp1 -> 301 -> resp2 -> 200
++    resp0 = Response()
++    resp0.status_code = 301
++    resp0.url = "http://example.com/0"
++    resp0.raw = MagicMock()
++
++    resp1 = Response()
++    resp1.status_code = 301
++    resp1.url = "http://example.com/1"
++    resp1.raw = MagicMock()
++
++    resp2 = Response()
++    resp2.status_code = 200
++    resp2.url = "http://example.com/2"
++    resp2.raw = MagicMock()
++
++    # Mock get_redirect_target to return the next URL
++    session.get_redirect_target = MagicMock(side_effect=[
++        "http://example.com/1",
++        "http://example.com/2",
++        None
++    ])
++
++    # Mock adapter.send to return the responses in order
++    adapter.send.side_effect = [resp0, resp1, resp2]
++
++    req = PreparedRequest()
++    req.url = "http://example.com/0"
++    req.method = "GET"
++
++    response = session.send(req, allow_redirects=True)
++
++    print(f"Final response URL: {response.url}")
++    print(f"History length: {len(response.history)}")
++
++    # Check if any response in the history chain contains itself in its history
++    all_responses = [response] + list(response.history)
++    found_self_reference = False
++    for r in all_responses:
++        for h in getattr(r, 'history', []):
++            if h is r:
++                print(f"Self-reference found in {r.url}")
++                found_self_reference = True
++
++    if not found_self_reference:
++        print("No self-reference found.")
++
++    assert not found_self_reference, "Self-reference should not be present in response history"
++
++if __name__ == "__main__":
++    try:
++        test_redirect_history_self_reference()
++        print("Test passed!")
++    except AssertionError as e:
++        print(f"Test failed: {e}")
++        exit(1)
++    except Exception as e:
++        print(f"An error occurred: {e}")
++        import traceback
++        traceback.print_exc()
++        exit(1)
+diff --git a/reproduce_issue.py b/reproduce_issue.py
+new file mode 100644
+index 00000000..f468188b
+--- /dev/null
++++ b/reproduce_issue.py
+@@ -0,0 +1,66 @@
++import requests
++from requests.models import PreparedRequest, Response
++from requests.utils import CaseInsensitiveDict
++import gc
++
++def reproduce():
++    # Setup a mock-like environment
++    # We need a PreparedRequest and a Response
++    req = PreparedRequest()
++    req.headers = CaseInsensitiveDict()
++    req.url = "http://example.com"
++    req.method = "GET"
++
++    # Create a response that looks like it came from a redirect
++    resp = Response()
++    resp.url = "http://example.com/redirect"
++    resp.status_code = 302
++    # Mock the request that created this response
++    resp.request = req
++
++    # Simulate the loop in resolve_redirects
++    hist = []
++    
++    # First redirect
++    # In resolve_redirects:
++    # hist.append(resp)
++    # resp.history = hist[1:]
++    hist.append(resp)
++    resp.history = hist[1:]
++    
++    print(f"After 1st redirect, resp.history: {resp.history}")
++    # hist is [resp], hist[1:] is []
++    # resp.history is [] - No self-reference yet.
++
++    # Create a second response for the second redirect
++    resp2 = Response()
++    resp2.url = "http://example.com/redirect2"
++    resp2.status_code = 302
++    resp2.request = req
++    
++    # Second redirect
++    # In resolve_redirects:
++    # hist.append(resp2)
++    # resp2.history = hist[1:]
++    hist.append(resp2)
++    resp2.history = hist[1:]
++    
++    print(f"After 2nd redirect, resp2.history: {resp2.history}")
++    # hist is [resp, resp2], hist[1:] is [resp2]
++    # resp2.history is [resp2] - SELF REFERENCE!
++
++    # Verify self-reference
++    if resp2 in resp2.history:
++        print("SUCCESS: Self-reference detected in resp2.history")
++    else:
++        print("FAILURE: No self-reference detected")
++
++    # Check if this prevents GC
++    # Create a cycle: resp2 -> resp2.history -> [resp2]
++    # We want to see if the objects are collected.
++    # Since it's a simple cycle, GC should eventually handle it,
++    # but the issue is "reference explosion delaying the objects being properly cleaned up".
++    # A direct reference can keep it alive longer than expected if there are other references.
++
++if __name__ == "__main__":
++    reproduce()
+diff --git a/src/requests/sessions.py b/src/requests/sessions.py
+index 578cc44d..d2180f80 100644
+--- a/src/requests/sessions.py
++++ b/src/requests/sessions.py
+@@ -181,7 +181,7 @@ class SessionRedirectMixin:
+             # Update history and keep track of redirects.
+             # resp.history must ignore the original request in this loop
+             hist.append(resp)
+-            resp.history = hist[1:]
++            resp.history = hist[:-1]
+ 
+             try:
+                 resp.content  # Consume socket so it can be released

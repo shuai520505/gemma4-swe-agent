@@ -1,0 +1,71 @@
+{
+  "experiment_id": "s1-e1-outputcap-smoke-02",
+  "scope": "One smoke pair; no rate estimate",
+  "rows": [
+    {
+      "index": 1,
+      "instance_id": "requests_7328",
+      "arm": "control",
+      "status": "unknown",
+      "outcome": {
+        "status": "unknown",
+        "failure_stage": "verifier_environment",
+        "reason": "Recursive httpbin fixtures prevent attributable repair verdict; raw fields retained"
+      },
+      "r04_runtime_outcome": {
+        "status": "failed",
+        "failure_stage": "verification",
+        "reason": "nonzero_test_exit"
+      },
+      "metrics": {
+        "HTTP_requests": 25,
+        "HTTP_responses": 24,
+        "unmatched_requests": 1,
+        "official_LLM_calls": 22,
+        "observed_response_usage": {
+          "prompt_tokens": 123109,
+          "completion_tokens": 9662,
+          "total_tokens": 132771
+        },
+        "usage_complete": false,
+        "usage_scope": "Only received responses; cancellation output unknown. Do not treat as complete total.",
+        "agent_seconds": 299.99773174200004,
+        "worker_seconds": 392.76967471199987,
+        "tools": 23,
+        "first_effective_edit_seconds": 151.102469359,
+        "first_production_edit_seconds": 258.496797219,
+        "first_effective_edit_status": "Successful result plus nonempty edit diff or final Patch file; manually audited calls 9 and 20",
+        "edit_attempts": 5,
+        "changed_files": [
+          "repro_self_ref.py",
+          "reproduce_issue.py",
+          "src/requests/sessions.py"
+        ],
+        "patch_bytes": 5244,
+        "explicit_submits": 0,
+        "exact_repeated_reads": 0,
+        "testing_commands": 5,
+        "finish_length": 0,
+        "uncapped_summary_requests": 2,
+        "max_input_tokens": 10899,
+        "min_context_slack": 4461,
+        "context_rejects": 0,
+        "phase2_exit": 1,
+        "phase2_completed": true,
+        "official_resolved": false,
+        "infrastructure_passed": false,
+        "fixture_setup_errors": 194
+      },
+      "reasons": [
+        "missing/unmatched HTTP"
+      ]
+    },
+    {
+      "index": 2,
+      "instance_id": "requests_7328",
+      "arm": "e1_output8192",
+      "status": "not_run",
+      "metrics": null
+    }
+  ]
+}
