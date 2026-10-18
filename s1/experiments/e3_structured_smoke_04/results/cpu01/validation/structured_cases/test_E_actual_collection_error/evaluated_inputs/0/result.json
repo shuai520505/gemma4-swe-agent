@@ -1,0 +1,32 @@
+{
+  "category": "collection_error",
+  "categories": [
+    "collection_error"
+  ],
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "summary": {
+    "error": 1
+  },
+  "events": [
+    {
+      "classname": "",
+      "name": "tests.test_case",
+      "message": "collection failure",
+      "details": "ImportError while importing test module '/tmp/tmpncpvjld3/sandbox_tmp/swegemma_sandbox_c10cc6ab-825/workspace/tests/test_case.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_case.py:1: in <module>\n    import absent_cpu_validation_dependency\nE   ModuleNotFoundError: No module named 'absent_cpu_validation_dependency'",
+      "type": "",
+      "category": "collection_error"
+    }
+  ],
+  "attribution": "unknown_requires_baseline_and_callchain",
+  "infrastructure_stop": true,
+  "confirmed_failure": false,
+  "reason": "Error event does not by itself prove external environment",
+  "evidence_level": "original_JUnit",
+  "exit_code": 2,
+  "historical_only": false
+}

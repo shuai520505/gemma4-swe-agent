@@ -1,0 +1,43 @@
+{
+  "category": "setup_error",
+  "categories": [
+    "assertion_failure",
+    "setup_error"
+  ],
+  "counts": {
+    "tests": 2,
+    "failures": 1,
+    "errors": 1,
+    "skipped": 0
+  },
+  "summary": {
+    "failed": 1,
+    "error": 1
+  },
+  "events": [
+    {
+      "classname": "tests.test_case",
+      "name": "test_a",
+      "message": "assert False",
+      "details": ">   def test_a(): assert False\n                  ^^^^^^^^^^^^\nE   assert False\n\ntests/test_case.py:4: AssertionError",
+      "type": "",
+      "category": "assertion_failure"
+    },
+    {
+      "classname": "tests.test_case",
+      "name": "test_b",
+      "message": "failed on setup with \"RuntimeError: fixture failure\"",
+      "details": "@pytest.fixture\n>   def broken(): raise RuntimeError(\"fixture failure\")\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   RuntimeError: fixture failure\n\ntests/test_case.py:3: RuntimeError",
+      "type": "",
+      "category": "setup_error",
+      "phase": "setup"
+    }
+  ],
+  "attribution": "unknown_requires_baseline_and_callchain",
+  "infrastructure_stop": true,
+  "confirmed_failure": false,
+  "reason": "Error event does not by itself prove external environment",
+  "evidence_level": "original_JUnit",
+  "exit_code": 1,
+  "historical_only": false
+}
