@@ -1,0 +1,27 @@
+{
+  "identity": "S1-EGV-V0.1",
+  "architecture": "Prompt-only EGV; no external decision controller",
+  "source_parent": "f9e9e61276a375e886b57839879e9490144d01a3",
+  "base_candidate": "control / original S0 Prompt",
+  "addition_words": 103,
+  "added_rule": "Before running a behavioral check, use existing evidence to decide whether it can test your current repair hypothesis: does the input reach the relevant behavior, does it execute the current workspace implementation, and what new result could change your patch or plan? If any link is unsupported, fix the smallest gap first. Inspect or assert the expected outcome; exit zero alone is insufficient. Repeat a check when code, inputs, environment, hypothesis, or a justified confidence requirement changes; otherwise investigate its existing evidence rather than rerunning unchanged. Retain relevant old-behavior regressions. When sufficient checks are complete, review and submit the patch, stating unverified risks.",
+  "prompt_sha256": "13fff5ef395d0835e6163e4d3429000236ac65b738c3332b826566072dab6d11",
+  "base_prompt_sha256": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+  "zip_sha256": "cefadd019ec64d9d06cbde72e0d0507796e8af9a370dd2358059e211845135e9",
+  "members": {
+    "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+    "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "prompts/system.md": "13fff5ef395d0835e6163e4d3429000236ac65b738c3332b826566072dab6d11"
+  },
+  "config": {
+    "version": "s1-runner-0.1.0",
+    "agent_seconds": 300,
+    "tool_budget": 60,
+    "output_tokens": 16384,
+    "thinking_budget": 4096,
+    "include_thoughts": null,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "GPU_executed": false
+}

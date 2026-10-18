@@ -1,0 +1,62 @@
+"""Metadata-only draft after CPU admission. Does not execute tasks or GPU.
+Run from repo root with exec(compile(open(this_file).read(),'<draft>','exec')).
+"""
+import hashlib
+import json
+from pathlib import Path
+import re
+
+HERE=Path('s1/egv_v01')
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+def load(p):return json.loads(p.read_text(encoding='utf-8'))
+gate=load(HERE/'results/cpu03/validation/cpu_gate.json')
+assert gate['passed'] and gate['new_candidate_gate']['passed']
+rule=load(HERE/'selection_rule.json')
+ledger=load(HERE/'pre_execution_integrity.json')
+exposed=set()
+for name in ledger['files']:
+    p=Path(name)
+    if p.suffix.lower() in {'.md','.json','.jsonl','.py','.yaml','.yml','.txt','.log','.csv'}:
+        exposed.update(re.findall(r'\b[A-Za-z][A-Za-z0-9]*_\d+\b',p.read_text(encoding='utf-8',errors='replace')))
+metadata=[]
+for line in Path('../official-inputs/tasks.jsonl').read_text(encoding='utf-8').splitlines():
+    item=json.loads(line)
+    if item['instance_id'] in exposed:continue
+    metadata.append(dict(instance_id=item['instance_id'],repo=item['repo'],base_commit=item['base_commit'],
+        issue_sha256=sha(item['problem_statement'].encode()),
+        rank=sha(('s1-egv-v01-fresh-01:'+item['instance_id']).encode())))
+assert metadata,'No unseen task under frozen conservative rule; stop, no substitution'
+metadata.sort(key=lambda x:(x['rank'],x['instance_id']))
+selected=metadata[0]
+candidate=load(HERE/'candidate.json')
+prior=load(Path('s1/experiments/e3_structured_smoke_04/protocol.json'))
+registration=load(HERE/'registration_cpu03.json')
+first='egv' if int(sha(('s1-egv-order-v01:'+selected['instance_id']).encode()),16)&1 else 'control'
+protocol=dict(status='DRAFT_NOT_AUTHORIZED_OR_EXECUTED',proposed_experiment_id='s1-egv-mechanism-smoke-01',
+    parent_commit=ledger['head'],selection_rule=rule,selection_rule_sha256=sha((HERE/'selection_rule.json').read_bytes()),
+    selection=selected,eligible_count=len(metadata),excluded_ids=sorted(exposed),complete_ranking=metadata,
+    order=[first,'control' if first=='egv' else 'egv'],independent_clean_sandboxes=True,
+    candidates=dict(control=prior['candidates']['control'],egv=candidate),
+    model=prior['model'],model_files=prior['model_files'],wheel_hashes=prior['wheel_hashes'],task_wheel_hashes=prior['task_wheel_hashes'],
+    infrastructure_version=prior['infrastructure_version'],worker_sha256=registration['source_hashes']['s1/verifier_v3/worker.py'],
+    verifier_sources={n:h for n,h in registration['source_hashes'].items() if n.startswith('s1/verifier_v3/')},
+    accepted_CPU_payload_sha256=sha((HERE/'results/cpu03/raw.zip').read_bytes()),
+    configuration=candidate['config'],vllm=dict(max_model_len=32768,tensor_parallel_size=4,devices='4L4',safety_tokens=1024),
+    snapshot=dict(path='snapshots/'+selected['instance_id']+'.tgz',sha256=None,status='not_yet_sealed; no local snapshot available'),
+    fresh_baseline_status='not_run; must be sealed/admitted before separate authorization and execution',
+    primary_endpoint='Unmodified complete official resolved,with native test_exit_code and original Phase2/JUnit',
+    mechanism_endpoints=['invalid target probes','actual target execution with graded evidence','production/input/environment state hashes',
+        'unchanged non-discriminating tests; legitimate repeats counted separately','counterevidence followed by real repair',
+        'old-behavior checks and regressions','explicit submit versus native fallback','Patch validity and residue',
+        'LLM/tool/time and observed complete-or-partial Token usage'],
+    interpretation='One paired task is mechanism smoke,not population resolution rate;fewer checks with worse correctness is negative',
+    stop='Unknown/error infrastructure,hash/request drift,leakage,missing/conflicting JUnit,unexplained cancellation,unproven cleanup/idle or resources;ordinary assertion failure continues other arm',
+    no_retry_replacement_or_splicing=True,GPU_authorized=False,GPU_runs=0,formal_submissions=0,LoRA=False,
+    blocking_requirements=['seal snapshot and full task-record/evaluator-test hashes from official inputs without reference repair inspection',
+        'clean native full baseline with path/JUnit/cleanup evidence;on failure stop selected task without replacement',
+        'freeze final executable Notebook and identical worker/observer config for both arms',
+        'publish final registration before any launch and obtain separate GPU authorization'])
+dest=HERE/'next_gpu_protocol_draft.json'
+assert not dest.exists()
+dest.write_text(json.dumps(protocol,indent=2)+'\n',encoding='utf-8',newline='\n')
+print(json.dumps(dict(selected=selected,order=protocol['order'],eligible=len(metadata),GPU_runs=0),indent=2))
