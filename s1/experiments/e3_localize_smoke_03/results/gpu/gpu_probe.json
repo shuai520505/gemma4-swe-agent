@@ -1,0 +1,68 @@
+{
+  "response": {
+    "id": "chatcmpl-a63b591656ead5f4",
+    "created": 1792328015,
+    "model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "object": "chat.completion",
+    "system_fingerprint": null,
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "READY",
+          "role": "assistant",
+          "tool_calls": null,
+          "function_call": null,
+          "provider_specific_fields": {
+            "refusal": null,
+            "reasoning": null
+          }
+        },
+        "provider_specific_fields": {
+          "stop_reason": 106,
+          "token_ids": null
+        }
+      }
+    ],
+    "usage": {
+      "completion_tokens": 2,
+      "prompt_tokens": 16,
+      "total_tokens": 18,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": null
+    },
+    "service_tier": null,
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "kv_transfer_params": null
+  },
+  "admission": [
+    {
+      "kind": "context_admission",
+      "core_restored": false,
+      "input_tokens": 16,
+      "output_reserved": 16,
+      "safety_tokens": 1024,
+      "max_model_len": 32768,
+      "total_reserved": 1056,
+      "decision": "allow"
+    }
+  ],
+  "oversize": [
+    {
+      "kind": "context_admission",
+      "core_restored": true,
+      "decision": "reject",
+      "input_tokens": 30019,
+      "max_model_len": 32768,
+      "output_reserved": 16384,
+      "safety_tokens": 1024,
+      "total_reserved": 47427
+    }
+  ],
+  "startup_seconds": 4.63848240599998,
+  "actual_generation_requests": 1,
+  "valid_text": true,
+  "original_probe": "s1.preflight.check_model (r04, unchanged)"
+}

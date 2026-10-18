@@ -1,0 +1,85 @@
+{
+  "request_id": "4ca3231d3b2e40f2864874533e7e1df5",
+  "cancelled_event": {
+    "recorded_monotonic": 1271.617253484,
+    "kind": "cancelled",
+    "request_id": "4ca3231d3b2e40f2864874533e7e1df5",
+    "error_type": "CancelledError",
+    "response_object_received": false
+  },
+  "terminal": {
+    "recorded_monotonic": 1271.62156339,
+    "kind": "terminal_status",
+    "request_id": "4ca3231d3b2e40f2864874533e7e1df5",
+    "status": "cancelled",
+    "elapsed_seconds": 42.70620587899998,
+    "usage": null,
+    "usage_observed": false,
+    "partial_usage": true
+  },
+  "native_agent_end": {
+    "recorded_monotonic": 1271.625355276,
+    "kind": "stage",
+    "stage": "save_patch",
+    "agent_elapsed_seconds": 300.04294081399996
+  },
+  "cancel_before_native_end_seconds": 0.008101791999933994,
+  "idle_observations": [
+    {
+      "recorded_monotonic": 1281.599585694,
+      "kind": "server_scheduler_snapshot",
+      "index": 0,
+      "known": true,
+      "idle": true,
+      "values": {
+        "vllm:num_requests_running": [
+          0.0
+        ],
+        "vllm:num_requests_waiting": [
+          0.0
+        ]
+      }
+    },
+    {
+      "recorded_monotonic": 1282.611390297,
+      "kind": "server_scheduler_snapshot",
+      "index": 1,
+      "known": true,
+      "idle": true,
+      "values": {
+        "vllm:num_requests_running": [
+          0.0
+        ],
+        "vllm:num_requests_waiting": [
+          0.0
+        ]
+      }
+    },
+    {
+      "recorded_monotonic": 1283.623974441,
+      "kind": "server_scheduler_snapshot",
+      "index": 2,
+      "known": true,
+      "idle": true,
+      "values": {
+        "vllm:num_requests_running": [
+          0.0
+        ],
+        "vllm:num_requests_waiting": [
+          0.0
+        ]
+      }
+    }
+  ],
+  "idle_after_cancel_seconds": [
+    9.982332210000095,
+    10.994136813000068,
+    12.00672095699997
+  ],
+  "server_reported_no_residual": true,
+  "server_immediate_abort_causality_proven": false,
+  "server_stop_counter": 20,
+  "server_abort_counter": 0,
+  "server_backend_text_log_available": false,
+  "scope": "Independent server gauges prove reported idle at observation times; no unreceived usage or immediate abort inferred"
+}
