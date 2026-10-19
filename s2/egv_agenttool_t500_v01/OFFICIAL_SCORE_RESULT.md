@@ -2,7 +2,7 @@
 
 Exactly one CreateCodeSubmission request was sent and accepted: HTTP200,ref57402336. Notebook `wudangdexiaodoashi/gemma4-s2-t500-first-official-score`, saved version1, official scriptVersionId360113138. ZIP SHA256 `13968b67844d1041bfb79b9f11fc21ae66fb36aee5b00d3b91c526d5d35da329`. Submitted at 2026-10-19T16:20:54.433326+00:00 UTC; native official accepted date remains in OFFICIAL_SUBMISSION_RECORD.json.
 
-Latest actual query: 2026-10-19T16:24:46.141586+00:00. Status **PENDING**,Public Score **not returned**,official error None. Evaluation has not completed; no score, resolved count, runtime/usage or successful Gemma repair is inferred from acceptance. The packaging Notebook COMPLETE state is separate from scoring PENDING.
+Latest actual query: 2026-10-19T16:28:56.406277+00:00. Status **PENDING**,Public Score **not returned**,official error None. Evaluation has not completed; no score, resolved count, runtime/usage or successful Gemma repair is inferred from acceptance. The packaging Notebook COMPLETE state is separate from scoring PENDING.
 
 | Metric | S0 | S2-T500 |
 |---|---|---|
