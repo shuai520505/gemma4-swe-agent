@@ -1,0 +1,18 @@
+{
+  "task_id": "rich_3882",
+  "resolved": false,
+  "status": "SUCCESS",
+  "duration_seconds": 8.836331561000009,
+  "cost_usd": 0.0,
+  "total_tokens": 0,
+  "total_llm_calls": 0,
+  "error_message": null,
+  "trace_path": null,
+  "metadata": {},
+  "repo": "Textualize/rich",
+  "agent_patch": "",
+  "test_output": "STDOUT:\n.......F                                                                 [100%]\n=================================== FAILURES ===================================\n__________________________ test_prompt_confirm_markup __________________________\n\n    def test_prompt_confirm_markup():\n        INPUT = \"foo\\nNO\\ny\"\n        console = Console(file=io.StringIO(), markup=False)\n        answer = Confirm.ask(\n            \"continue\", console=console, stream=io.StringIO(INPUT), default=True\n        )\n        assert answer is True\n        expected = \"continue [y/n] (y): Please enter Y or N\\ncontinue [y/n] (y): Please enter Y or N\\ncontinue [y/n] (y): \"\n        output = console.file.getvalue()\n        print(repr(output))\n>       assert output == expected\nE       AssertionError: assert 'continue [y/...e [y/n] (y): ' == 'continue [y/...e [y/n] (y): '\nE         \nE         - continue [y/n] (y): Please enter Y or N\nE         + continue [y/n] (y): [prompt.invalid]Please enter Y or N\nE         ?                     ++++++++++++++++\nE         - continue [y/n] (y): Please enter Y or N\nE         + continue [y/n] (y): [prompt.invalid]Please enter Y or N\nE         ?                     ++++++++++++++++\nE           continue [y/n] (y):\n\ntests/test_prompt.py:126: AssertionError\n----------------------------- Captured stdout call -----------------------------\n'continue [y/n] (y): [prompt.invalid]Please enter Y or N\\ncontinue [y/n] (y): [prompt.invalid]Please enter Y or N\\ncontinue [y/n] (y): '\n- generated xml file: /kaggle/working/s2_egv_agenttool_t500_v01/env01/20261019T160838_449464Z/validation/rich_3882/sandbox_tmp/swegemma_sandbox_02380ecc-ea1/tmp/_swegemma_junit_4278b52ba192.xml -\n=========================== short test summary info ============================\nFAILED tests/test_prompt.py::test_prompt_confirm_markup - AssertionError: ass...\n1 failed, 7 passed in 0.11s\n\nSTDERR:\n",
+  "test_exit_code": 1,
+  "tool_calls": 0,
+  "task_index": null
+}

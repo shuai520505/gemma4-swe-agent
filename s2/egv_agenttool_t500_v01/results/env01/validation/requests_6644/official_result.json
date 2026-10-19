@@ -1,0 +1,18 @@
+{
+  "task_id": "requests_6644",
+  "resolved": false,
+  "status": "SUCCESS",
+  "duration_seconds": 8.380559204999997,
+  "cost_usd": 0.0,
+  "total_tokens": 0,
+  "total_llm_calls": 0,
+  "error_message": null,
+  "trace_path": null,
+  "metadata": {},
+  "repo": "psf/requests",
+  "agent_patch": "",
+  "test_output": "STDOUT:\nF                                                                        [100%]\n=================================== FAILURES ===================================\n________________ test_request_url_trims_leading_path_separators ________________\n\n    def test_request_url_trims_leading_path_separators():\n        \"\"\"See also https://github.com/psf/requests/issues/6643.\"\"\"\n        a = requests.adapters.HTTPAdapter()\n        p = requests.Request(method=\"GET\", url=\"http://127.0.0.1:10000//v:h\").prepare()\n>       assert \"/v:h\" == a.request_url(p, {})\nE       AssertionError: assert '/v:h' == '//v:h'\nE         \nE         - //v:h\nE         ? -\nE         + /v:h\n\ntests/test_adapters.py:8: AssertionError\n- generated xml file: /kaggle/working/s2_egv_agenttool_t500_v01/env01/20261019T160838_449464Z/validation/requests_6644/sandbox_tmp/swegemma_sandbox_68c1bc18-526/tmp/_swegemma_junit_1de5120273c3.xml -\n=========================== short test summary info ============================\nFAILED tests/test_adapters.py::test_request_url_trims_leading_path_separators\n1 failed in 0.06s\n\nSTDERR:\n",
+  "test_exit_code": 1,
+  "tool_calls": 0,
+  "task_index": null
+}

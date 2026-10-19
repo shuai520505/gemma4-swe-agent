@@ -1,0 +1,33 @@
+{
+  "total_seconds": 43200,
+  "official_test_count": "About120 total, evenly public/private; not exactly129 or a confirmed per-rerun count.",
+  "hidden_scheduler_concurrency": "NOT_EXPOSED; serial is conservative sensitivity, not a verified scoring topology.",
+  "actual_T500_GPU_observations": 0,
+  "empirical_P50": null,
+  "empirical_P90": null,
+  "empirical_P95": null,
+  "empirical_cap_fraction": null,
+  "empirical_explicit_submit_fraction": null,
+  "empirical_delegation_cost": null,
+  "empirical_main_retest_reserve": null,
+  "probability_of_actual_budget_exhaustion": null,
+  "scenarios": 144,
+  "large_loss_definition": "At least20% tasks unrun in a conditional scenario.",
+  "release_rule": "NoGo if verified task scheduling and representative matched T500 timing support >=90% probability of >=20% unrun tasks. Do not treat assumed Monte Carlo frequencies as empirical probability. Report worst-case envelope and unresolved risk before any single exploratory official submission.",
+  "full_cap_serial_capacity": {
+    "5": 85,
+    "20": 83,
+    "60": 77
+  },
+  "full_cap_serial_capacity_with600second_reserve": {
+    "5": 84,
+    "20": 81,
+    "60": 76
+  },
+  "expected_mean_agent_requirement_for120": {
+    "5": 355.0,
+    "20": 340.0,
+    "60": 300.0
+  },
+  "score_causality": "S0 vs T500 changes architecture/prompts/time. A single score cannot identify time or AgentTool causal benefit."
+}
