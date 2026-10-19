@@ -1,0 +1,2317 @@
+{
+  "experiment_id": "s1-egv-mechanism-smoke-01",
+  "infrastructure_passed": true,
+  "stop_reason": null,
+  "records": [
+    {
+      "index": 1,
+      "instance_id": "fastapi_15800",
+      "arm": "egv",
+      "result": {
+        "status": "failed",
+        "failure_stage": "verification",
+        "reason": "nonzero_test_exit",
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "cleanup_complete": true,
+        "duration_seconds": 330.11595339099995,
+        "allow_next_run": true,
+        "evidence": {
+          "official_result": true,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 1223,
+          "incremental_adk_events": true,
+          "native_trace": true,
+          "agent_boundary_trace": true,
+          "phase2_output": true
+        },
+        "official_fields_unchanged": true
+      },
+      "audit": {
+        "infrastructure_passed": true,
+        "reasons": [],
+        "outcome": {
+          "status": "failed",
+          "failure_stage": "verification",
+          "reason": "assertion_failure"
+        },
+        "official_resolved": false,
+        "official_test_exit_code": 1,
+        "HTTP_requests": 30,
+        "official_LLM_calls": 27,
+        "official_tool_calls": 27,
+        "native_tool_events": 27,
+        "usage": {
+          "prompt_tokens": 167878,
+          "completion_tokens": 9263,
+          "total_tokens": 177141
+        },
+        "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+        "finish_length": 0,
+        "agent_seconds": 300.0111992609999,
+        "worker_seconds": 330.11595339099995,
+        "first_edit_action_seconds": 150.37911899300002,
+        "first_effective_edit_seconds": null,
+        "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+        "exact_repeated_reads": 0,
+        "testing_commands": 4,
+        "explicit_submits": 0,
+        "leakage_findings": [],
+        "tools": [
+          {
+            "time": 794.380686645,
+            "id": "chatcmpl-tool-9054fc9fdd73b62d",
+            "args": {
+              "command": "grep -r \"def frontend\" ."
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 798.523685429,
+            "id": "chatcmpl-tool-989b056a6d72c1d6",
+            "args": {
+              "filepath": "fastapi/applications.py"
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 800.818777929,
+            "id": "chatcmpl-tool-a84a68804cd3e4f2",
+            "args": {
+              "filepath": "fastapi/routing.py"
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 802.979043016,
+            "id": "chatcmpl-tool-9053fbf3f14ae404",
+            "args": {
+              "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 806.175969062,
+            "id": "chatcmpl-tool-9a3c67c2243158aa",
+            "args": {
+              "filepath": "fastapi/staticfiles.py"
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 814.47392654,
+            "id": "chatcmpl-tool-9e4410057e85f7bb",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1723,
+              "end_line": 1800
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 820.632268534,
+            "id": "chatcmpl-tool-b8f5ef0753818f23",
+            "args": {
+              "command": "grep -n \"self.routes.append\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 822.245984168,
+            "id": "chatcmpl-tool-a686cba2f23929c9",
+            "args": {
+              "end_line": 2225,
+              "filepath": "fastapi/routing.py",
+              "start_line": 2210
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 823.952025289,
+            "id": "chatcmpl-tool-89de9d6e6a2cdae9",
+            "args": {
+              "end_line": 2310,
+              "filepath": "fastapi/routing.py",
+              "start_line": 2290
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 825.666449716,
+            "id": "chatcmpl-tool-b01b62efa64468f4",
+            "args": {
+              "end_line": 2570,
+              "filepath": "fastapi/routing.py",
+              "start_line": 2540
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 841.695551234,
+            "id": "chatcmpl-tool-ae7ddb361d761ac2",
+            "args": {
+              "command": "grep -n \"def mount\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 867.346790805,
+            "id": "chatcmpl-tool-83100e0fdddc8f3c",
+            "args": {
+              "command": "grep -n \"def get(\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 890.204880377,
+            "id": "chatcmpl-tool-b4af07f923bb570d",
+            "args": {
+              "command": "grep -n \"class FastAPI\" fastapi/applications.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 893.484684836,
+            "id": "chatcmpl-tool-84de067393b6dfd2",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 2560,
+              "end_line": 2575
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 895.714692101,
+            "id": "chatcmpl-tool-a527aa61fb0a9c95",
+            "args": {
+              "end_line": 100,
+              "filepath": "fastapi/applications.py",
+              "start_line": 41
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 897.493185393,
+            "id": "chatcmpl-tool-83a863411b012150",
+            "args": {
+              "command": "grep -n \"def \" fastapi/applications.py | head -n 20"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 902.519657622,
+            "id": "chatcmpl-tool-a4ecdfc3b0978b29",
+            "args": {
+              "end_line": 1575,
+              "filepath": "fastapi/applications.py",
+              "start_line": 1560
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 936.410646347,
+            "id": "chatcmpl-tool-87996532bdb9e6d6",
+            "args": {
+              "content": "from fastapi import FastAPI, APIRouter\nfrom fastapi.testclient import TestClient\nimport os\nimport shutil\nfrom pathlib import Path\n\ndef test_fastapi_frontend(tmp_path):\n    # Create a dummy static directory\n    dist = tmp_path / \"dist\"\n    dist.mkdir()\n    index_html = dist / \"index.html\"\n    index_html.write_text(\"Hello Frontend\")\n\n    app = FastAPI()\n    app.frontend(\"/\", directory=str(dist))\n\n    client = TestClient(app)\n    response = client.get(\"/\")\n    assert response.status_code == 200\n    assert \"Hello Frontend\" in response.text\n\ndef test_apirouter_frontend(tmp_path):\n    # Create a dummy static directory\n    dist = tmp_path / \"dist\"\n    dist.mkdir()\n    index_html = dist / \"index.html\"\n    index_html.write_text(\"Hello Router Frontend\")\n\n    app = FastAPI()\n    router = APIRouter(prefix=\"/api\")\n    router.frontend(\"/\", directory=str(dist))\n    app.include_router(router)\n\n    client = TestClient(app)\n    # The frontend should be at /api/\n    response = client.get(\"/api/\")\n    assert response.status_code == 200\n    assert \"Hello Router Frontend\" in response.text\n\ndef test_apirouter_frontend_path(tmp_path):\n    # Create a dummy static directory\n    dist = tmp_path / \"dist\"\n    dist.mkdir()\n    index_html = dist / \"index.html\"\n    index_html.write_text(\"Hello Router Frontend Path\")\n\n    app = FastAPI()\n    router = APIRouter(prefix=\"/api\")\n    router.frontend(\"/static\", directory=str(dist))\n    app.include_router(router)\n\n    client = TestClient(app)\n    # The frontend should be at /api/static/\n    response = client.get(\"/api/static/\")\n    assert response.status_code == 200\n    assert \"Hello Router Frontend Path\" in response.text\n",
+              "filepath": "tests/test_frontend.py"
+            },
+            "name": "write_file"
+          },
+          {
+            "time": 938.170915894,
+            "id": "chatcmpl-tool-92fc15fe441da0b1",
+            "args": {
+              "command": "pytest tests/test_frontend.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 946.083054978,
+            "id": "chatcmpl-tool-80fa6f0efb418fea",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "new_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        route = Mount(self.prefix + path, app=StaticFiles(directory=directory))\n        self.routes.append(route)\n        self._mark_routes_changed()\n\n    def get(\n",
+              "old_string": "    def get(\n"
+            },
+            "name": "edit_file"
+          },
+          {
+            "time": 982.08757007,
+            "id": "chatcmpl-tool-abc8d24d3c78d755",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "new_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, app=StaticFiles(directory=directory), name=\"frontend\")\n\n    def get(\n",
+              "old_string": "    def get(\n"
+            },
+            "name": "edit_file"
+          },
+          {
+            "time": 983.588281438,
+            "id": "chatcmpl-tool-9fd95ee075874fde",
+            "args": {
+              "command": "pytest tests/test_frontend.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1014.210927049,
+            "id": "chatcmpl-tool-adcd85f17e2cebcd",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "new_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, app=StaticFiles(directory=directory, html=True), name=\"frontend\")\n\n    def get(\n",
+              "old_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, app=StaticFiles(directory=directory), name=\"frontend\")\n\n    def get(\n"
+            },
+            "name": "edit_file"
+          },
+          {
+            "time": 1020.753738982,
+            "id": "chatcmpl-tool-9bc55e6639797be3",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "new_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        route = Mount(self.prefix + path, app=StaticFiles(directory=directory, html=True))\n        self.routes.append(route)\n        self._mark_routes_changed()\n\n    def get(\n",
+              "old_string": "    def frontend(\n        self,\n        path: str,\n        *,\n        directory: str,\n    ) -> None:\n        from fastapi.staticfiles import StaticFiles\n        route = Mount(self.prefix + path, app=StaticFiles(directory=directory))\n        self.routes.append(route)\n        self._mark_routes_changed()\n\n    def get(\n"
+            },
+            "name": "edit_file"
+          },
+          {
+            "time": 1022.151681933,
+            "id": "chatcmpl-tool-88b9ba24db3a42b5",
+            "args": {
+              "command": "pytest tests/test_frontend.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1032.920626549,
+            "id": "chatcmpl-tool-9510ee18b7d87f4e",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 2500,
+              "end_line": 2600
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1068.462590363,
+            "id": "chatcmpl-tool-867e86ea457fa476",
+            "args": {
+              "command": "pytest tests/test_frontend.py"
+            },
+            "name": "run_command"
+          }
+        ],
+        "patch_bytes": 1223,
+        "phase2": {
+          "exit_code": 1,
+          "stdout": "..FFFFFFFF...FFFFFFFFFFFF.F.F.FFFFFFF.F.........FFFFFFFFFFFF             [100%]\n=================================== FAILURES ===================================\n_______________ test_frontend_fallback_rejects_invalid_fallback ________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_fallback_rejects0')\n\n    def test_frontend_fallback_rejects_invalid_fallback(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        dist.mkdir()\n        app = FastAPI()\n    \n        with pytest.raises(AssertionError, match=\"fallback\"):\n>           app.frontend(\"/\", directory=dist, fallback=\"invalid\")  # type: ignore[arg-type]  # ty: ignore[invalid-argument-type]\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:52: TypeError\n_________________ test_index_fallback_ignores_invalid_q_value __________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_ignores_in0')\n\n    def test_index_fallback_ignores_invalid_q_value(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:59: TypeError\n___________________ test_frontend_static_files_lookup_errors ___________________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d53a5710d0>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_static_files_loo0')\n\n    def test_frontend_static_files_lookup_errors(monkeypatch, tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n>       frontend_routes = app.router._frontend_routes\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_frontend_routes'\n\ntests/test_frontend.py:74: AttributeError\n______________________ test_frontend_route_group_helpers _______________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_route_group_help0')\n\n    def test_frontend_route_group_helpers(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n>       route_group = app.router._frontend_routes\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_frontend_routes'\n\ntests/test_frontend.py:112: AttributeError\n______________ test_included_low_priority_routes_cache_is_reused _______________\n\n    def test_included_low_priority_routes_cache_is_reused():\n        async def low_priority_endpoint(request: Request):\n            return PlainTextResponse(\"low\")\n    \n        router = APIRouter()\n>       router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:139: AttributeError\n_______________ test_low_priority_api_route_handles_with_context _______________\n\n    def test_low_priority_api_route_handles_with_context():\n        app = FastAPI()\n    \n        async def endpoint(request: Request) -> Response:\n            return PlainTextResponse(request.scope[\"path_params\"][\"item_id\"])\n    \n        route = app.router.route_class(\"/low/{item_id}\", endpoint=endpoint, methods=[\"GET\"])\n>       app.router._low_priority_routes.append(route)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:165: AttributeError\n__________ test_included_low_priority_api_route_handles_with_context ___________\n\n    def test_included_low_priority_api_route_handles_with_context():\n        router = APIRouter()\n    \n        async def endpoint(request: Request) -> Response:\n            return PlainTextResponse(request.scope[\"path_params\"][\"item_id\"])\n    \n        route = router.route_class(\"/low/{item_id}\", endpoint=endpoint, methods=[\"GET\"])\n>       router._low_priority_routes.append(route)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:181: AttributeError\n___________ test_normal_route_partial_match_returns_before_frontend ____________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_normal_route_partial_matc0')\n\n    def test_normal_route_partial_match_returns_before_frontend(tmp_path: Path):\n        class PartialRoute(BaseRoute):\n            def matches(self, scope):\n                return Match.PARTIAL, {}\n    \n            async def handle(self, scope, receive, send):\n                response = PlainTextResponse(\"partial\", status_code=405)\n                await response(scope, receive, send)\n    \n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"frontend\")\n        app = FastAPI()\n        app.router.routes.append(PartialRoute())\n        app.frontend(\"/\", directory=dist)\n    \n        response = TestClient(app).get(\"/anything\")\n    \n>       assert response.status_code == 405\nE       assert 404 == 405\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:209: AssertionError\n___________ test_api_route_404_is_not_replaced_by_frontend_fallback ____________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_api_route_404_is_not_repl0')\n\n    def test_api_route_404_is_not_replaced_by_frontend_fallback(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"frontend\")\n        app = FastAPI()\n    \n        @app.get(\"/api/users\")\n        def read_users():\n            raise HTTPException(status_code=404, detail=\"api missing\")\n    \n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:274: TypeError\n__________________ test_index_fallback_for_navigation_request __________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_for_naviga0')\n\n    def test_index_fallback_for_navigation_request(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:286: TypeError\n_________________ test_index_fallback_parses_accept_parameters _________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_parses_acc0')\n\n    def test_index_fallback_parses_accept_parameters(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:300: TypeError\n__________________ test_index_fallback_ignores_q_zero_accept ___________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_ignores_q_0')\n\n    def test_index_fallback_ignores_q_zero_accept(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:314: TypeError\n______ test_index_fallback_respects_explicit_html_rejection_with_wildcard ______\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_respects_e0')\n\n    def test_index_fallback_respects_explicit_html_rejection_with_wildcard(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:329: TypeError\n_____ test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard ______\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_respects_e1')\n\n    def test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:345: TypeError\n_ test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.js-*/*] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h0')\npath = '/assets/missing.js', accept = '*/*'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError\n_ test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.css-text/css] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h1')\npath = '/assets/missing.css', accept = 'text/css'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError\n_ test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.png-image/png] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h2')\npath = '/assets/missing.png', accept = 'image/png'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError\n_ test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/api/missing-application/json] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h3')\npath = '/api/missing', accept = 'application/json'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError\n_ test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/users/jane.doe-text/html] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h4')\npath = '/users/jane.doe', accept = 'text/html'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError\n___________________ test_404_fallback_handles_missing_assets ___________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_404_fallback_handles_miss0')\n\n    def test_404_fallback_handles_missing_assets(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"404.html\", \"missing\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"404.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:383: TypeError\n______________ test_auto_fallback_uses_index_when_404_is_missing _______________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_auto_fallback_uses_index_0')\n\n    def test_auto_fallback_uses_index_when_404_is_missing(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n    \n        response = TestClient(app).get(\"/dashboard\", headers={\"accept\": \"text/html\"})\n    \n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:412: AssertionError\n_____________________ test_no_fallback_returns_normal_404 ______________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_no_fallback_returns_norma0')\n\n    def test_no_fallback_returns_normal_404(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=None)\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:432: TypeError\n____________ test_path_validation_and_trailing_slash_normalization _____________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_path_validation_and_trail0')\n\n    def test_path_validation_and_trailing_slash_normalization(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"asset.txt\", \"ok\")\n        app = FastAPI()\n    \n>       with pytest.raises(AssertionError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'AssertionError'>\n\ntests/test_frontend.py:461: Failed\n_____________ test_frontend_path_matching_uses_segment_boundaries ______________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_path_matching_us0')\n\n    def test_frontend_path_matching_uses_segment_boundaries(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n>       app.frontend(\"/app\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:477: TypeError\n_____________ test_multiple_frontends_use_longest_matching_prefix ______________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_multiple_frontends_use_lo0')\n\n    def test_multiple_frontends_use_longest_matching_prefix(tmp_path: Path):\n        site = tmp_path / \"site\"\n        admin = tmp_path / \"admin\"\n        write_file(site / \"index.html\", \"site\")\n        write_file(admin / \"index.html\", \"admin\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=site, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:490: TypeError\n_________________ test_apirouter_frontend_uses_include_prefix __________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_apirouter_frontend_uses_i0')\n\n    def test_apirouter_frontend_uses_include_prefix(tmp_path: Path):\n        dist = tmp_path / \"admin\"\n        write_file(dist / \"index.html\", \"admin\")\n        router = APIRouter()\n>       router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:503: TypeError\n_________________ test_global_priority_across_included_routers _________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_global_priority_across_in0')\n\n    def test_global_priority_across_included_routers(tmp_path: Path):\n        dist = tmp_path / \"site\"\n        write_file(dist / \"index.html\", \"site\")\n        site_router = APIRouter()\n>       site_router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:517: TypeError\n___________ test_nested_apirouter_frontend_uses_all_include_prefixes ___________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_nested_apirouter_frontend0')\n\n    def test_nested_apirouter_frontend_uses_all_include_prefixes(tmp_path: Path):\n        dist = tmp_path / \"admin\"\n        write_file(dist / \"index.html\", \"admin\")\n        child_router = APIRouter()\n>       child_router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:538: TypeError\n_____ test_low_priority_cache_updates_after_route_added_to_included_router _____\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_low_priority_cache_update0')\n\n    def test_low_priority_cache_updates_after_route_added_to_included_router(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"site\"\n        write_file(dist / \"index.html\", \"site\")\n        router = APIRouter()\n>       router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:558: TypeError\n_______________________ test_frontend_respects_root_path _______________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_respects_root_pa0')\n\n    def test_frontend_respects_root_path(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"assets\" / \"app.js\", \"console.log('ok')\")\n        app = FastAPI()\n        app.frontend(\"/app\", directory=dist)\n    \n        response = TestClient(app, root_path=\"/proxy\").get(\"/app/assets/app.js\")\n    \n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:606: AssertionError\n____________ test_check_dir_true_fails_early_for_missing_directory _____________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d539782e10>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0')\n\n    def test_check_dir_true_fails_early_for_missing_directory(monkeypatch, tmp_path: Path):\n        app = FastAPI()\n        monkeypatch.chdir(tmp_path)\n    \n        with pytest.raises(RuntimeError, match=\"does not exist\") as exc_info:\n            app.frontend(\"/\", directory=\"missing\")\n    \n        message = str(exc_info.value)\n        assert \"'missing'\" in message\n>       assert str(tmp_path / \"missing\") in message\nE       assert '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' in \"Directory 'missing' does not exist\"\nE        +  where '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' = str((PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0') / 'missing'))\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:704: AssertionError\n______ test_check_dir_false_allows_missing_directory_and_fails_on_request ______\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_false_allows_mi0')\n\n    def test_check_dir_false_allows_missing_directory_and_fails_on_request(tmp_path: Path):\n        app = FastAPI()\n>       app.frontend(\"/\", directory=tmp_path / \"missing\", check_dir=False)\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'check_dir'\n\ntests/test_frontend.py:709: TypeError\n____________ test_explicit_fallback_files_fail_clearly_when_missing ____________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397658e0>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_explicit_fallback_files_f0')\n\n    def test_explicit_fallback_files_fail_clearly_when_missing(monkeypatch, tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        dist.mkdir()\n        monkeypatch.chdir(tmp_path)\n        app = FastAPI()\n    \n        with pytest.raises(RuntimeError, match=\"index.html\") as exc_info:\n>           app.frontend(\"/\", directory=\"dist\", fallback=\"index.html\")\nE           TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:722: TypeError\n___________________ test_frontend_routes_are_not_in_openapi ____________________\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_routes_are_not_i0')\n\n    def test_frontend_routes_are_not_in_openapi(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n    \n        @app.get(\"/api\")\n        def read_api():\n            return {\"ok\": True}\n    \n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:748: TypeError\n_ test_docs_frontend_examples[tutorial001_py310.py-files0-/asset.txt-200-asset] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu0')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397968d0>\nexample = 'tutorial001_py310.py', files = {'asset.txt': 'asset'}\npath = '/asset.txt', status_code = 200, body = 'asset'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n_ test_docs_frontend_examples[tutorial002_py310.py-files1-/dashboard-200-index] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu1')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397978c0>\nexample = 'tutorial002_py310.py', files = {'index.html': 'index'}\npath = '/dashboard', status_code = 200, body = 'index'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n_ test_docs_frontend_examples[tutorial003_py310.py-files2-/missing-404-missing] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu2')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb0dd0>\nexample = 'tutorial003_py310.py', files = {'404.html': 'missing'}\npath = '/missing', status_code = 404, body = 'missing'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n_ test_docs_frontend_examples[tutorial004_py310.py-files3-/app/dashboard-200-index] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu3')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb0950>\nexample = 'tutorial004_py310.py', files = {'index.html': 'index'}\npath = '/app/dashboard', status_code = 200, body = 'index'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n_ test_docs_frontend_examples[tutorial005_py310.py-files4-/dashboard-404-{\"detail\":\"Not Found\"}] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu4')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb2840>\nexample = 'tutorial005_py310.py', files = {'index.html': 'index'}\npath = '/dashboard', status_code = 404, body = '{\"detail\":\"Not Found\"}'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n_ test_docs_frontend_examples[tutorial006_py310.py-files5-/asset.txt-200-asset] _\n\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu5')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb25a0>\nexample = 'tutorial006_py310.py', files = {'asset.txt': 'asset'}\npath = '/asset.txt', status_code = 200, body = 'asset'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'\n\n<frozen runpy>:254: FileNotFoundError\n____________ test_low_priority_routes_can_store_non_frontend_routes ____________\n\n    def test_low_priority_routes_can_store_non_frontend_routes():\n        async def low_priority_endpoint(request):\n            return PlainTextResponse(\"low\")\n    \n        app = FastAPI()\n>       app.router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:836: AttributeError\n_______ test_included_low_priority_routes_can_store_non_frontend_routes ________\n\n    def test_included_low_priority_routes_can_store_non_frontend_routes():\n        async def low_priority_endpoint(request):\n            return PlainTextResponse(\"low\")\n    \n        router = APIRouter()\n>       router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:850: AttributeError\n- generated xml file: /kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/_swegemma_junit_5864dc6c4e18.xml -\n=========================== short test summary info ============================\nFAILED tests/test_frontend.py::test_frontend_fallback_rejects_invalid_fallback\nFAILED tests/test_frontend.py::test_index_fallback_ignores_invalid_q_value - ...\nFAILED tests/test_frontend.py::test_frontend_static_files_lookup_errors - Att...\nFAILED tests/test_frontend.py::test_frontend_route_group_helpers - AttributeE...\nFAILED tests/test_frontend.py::test_included_low_priority_routes_cache_is_reused\nFAILED tests/test_frontend.py::test_low_priority_api_route_handles_with_context\nFAILED tests/test_frontend.py::test_included_low_priority_api_route_handles_with_context\nFAILED tests/test_frontend.py::test_normal_route_partial_match_returns_before_frontend\nFAILED tests/test_frontend.py::test_api_route_404_is_not_replaced_by_frontend_fallback\nFAILED tests/test_frontend.py::test_index_fallback_for_navigation_request - T...\nFAILED tests/test_frontend.py::test_index_fallback_parses_accept_parameters\nFAILED tests/test_frontend.py::test_index_fallback_ignores_q_zero_accept - Ty...\nFAILED tests/test_frontend.py::test_index_fallback_respects_explicit_html_rejection_with_wildcard\nFAILED tests/test_frontend.py::test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard\nFAILED tests/test_frontend.py::test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.js-*/*]\nFAILED tests/test_frontend.py::test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.css-text/css]\nFAILED tests/test_frontend.py::test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.png-image/png]\nFAILED tests/test_frontend.py::test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/api/missing-application/json]\nFAILED tests/test_frontend.py::test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/users/jane.doe-text/html]\nFAILED tests/test_frontend.py::test_404_fallback_handles_missing_assets - Typ...\nFAILED tests/test_frontend.py::test_auto_fallback_uses_index_when_404_is_missing\nFAILED tests/test_frontend.py::test_no_fallback_returns_normal_404 - TypeErro...\nFAILED tests/test_frontend.py::test_path_validation_and_trailing_slash_normalization\nFAILED tests/test_frontend.py::test_frontend_path_matching_uses_segment_boundaries\nFAILED tests/test_frontend.py::test_multiple_frontends_use_longest_matching_prefix\nFAILED tests/test_frontend.py::test_apirouter_frontend_uses_include_prefix - ...\nFAILED tests/test_frontend.py::test_global_priority_across_included_routers\nFAILED tests/test_frontend.py::test_nested_apirouter_frontend_uses_all_include_prefixes\nFAILED tests/test_frontend.py::test_low_priority_cache_updates_after_route_added_to_included_router\nFAILED tests/test_frontend.py::test_frontend_respects_root_path - assert 404 ...\nFAILED tests/test_frontend.py::test_check_dir_true_fails_early_for_missing_directory\nFAILED tests/test_frontend.py::test_check_dir_false_allows_missing_directory_and_fails_on_request\nFAILED tests/test_frontend.py::test_explicit_fallback_files_fail_clearly_when_missing\nFAILED tests/test_frontend.py::test_frontend_routes_are_not_in_openapi - Type...\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial001_py310.py-files0-/asset.txt-200-asset]\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial002_py310.py-files1-/dashboard-200-index]\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial003_py310.py-files2-/missing-404-missing]\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial004_py310.py-files3-/app/dashboard-200-index]\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial005_py310.py-files4-/dashboard-404-{\"detail\":\"Not Found\"}]\nFAILED tests/test_frontend.py::test_docs_frontend_examples[tutorial006_py310.py-files5-/asset.txt-200-asset]\nFAILED tests/test_frontend.py::test_low_priority_routes_can_store_non_frontend_routes\nFAILED tests/test_frontend.py::test_included_low_priority_routes_can_store_non_frontend_routes\n42 failed, 18 passed in 1.21s\n",
+          "stderr": "",
+          "duration_seconds": 2.4285880200000065,
+          "source": "official_sandbox_exec_return"
+        },
+        "raw_fields_preserved": true,
+        "structured_verifier": {
+          "category": "assertion_failure",
+          "categories": [
+            "assertion_failure",
+            "passed"
+          ],
+          "counts": {
+            "tests": 60,
+            "failures": 42,
+            "errors": 0,
+            "skipped": 0
+          },
+          "summary": {
+            "failed": 42,
+            "passed": 18
+          },
+          "events": [
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_exact_prefix_path_serves_index",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_apirouter_frontend_with_router_prefix_and_frontend_subpath",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_fallback_rejects_invalid_fallback",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_fallback_rejects0')\n\n    def test_frontend_fallback_rejects_invalid_fallback(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        dist.mkdir()\n        app = FastAPI()\n    \n        with pytest.raises(AssertionError, match=\"fallback\"):\n>           app.frontend(\"/\", directory=dist, fallback=\"invalid\")  # type: ignore[arg-type]  # ty: ignore[invalid-argument-type]\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:52: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_ignores_invalid_q_value",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_ignores_in0')\n\n    def test_index_fallback_ignores_invalid_q_value(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:59: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_static_files_lookup_errors",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_frontend_routes'",
+              "details": "monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d53a5710d0>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_static_files_loo0')\n\n    def test_frontend_static_files_lookup_errors(monkeypatch, tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n>       frontend_routes = app.router._frontend_routes\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_frontend_routes'\n\ntests/test_frontend.py:74: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_route_group_helpers",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_frontend_routes'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_route_group_help0')\n\n    def test_frontend_route_group_helpers(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n>       route_group = app.router._frontend_routes\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_frontend_routes'\n\ntests/test_frontend.py:112: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_included_low_priority_routes_cache_is_reused",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'",
+              "details": "def test_included_low_priority_routes_cache_is_reused():\n        async def low_priority_endpoint(request: Request):\n            return PlainTextResponse(\"low\")\n    \n        router = APIRouter()\n>       router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:139: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_low_priority_api_route_handles_with_context",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'",
+              "details": "def test_low_priority_api_route_handles_with_context():\n        app = FastAPI()\n    \n        async def endpoint(request: Request) -> Response:\n            return PlainTextResponse(request.scope[\"path_params\"][\"item_id\"])\n    \n        route = app.router.route_class(\"/low/{item_id}\", endpoint=endpoint, methods=[\"GET\"])\n>       app.router._low_priority_routes.append(route)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:165: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_included_low_priority_api_route_handles_with_context",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'",
+              "details": "def test_included_low_priority_api_route_handles_with_context():\n        router = APIRouter()\n    \n        async def endpoint(request: Request) -> Response:\n            return PlainTextResponse(request.scope[\"path_params\"][\"item_id\"])\n    \n        route = router.route_class(\"/low/{item_id}\", endpoint=endpoint, methods=[\"GET\"])\n>       router._low_priority_routes.append(route)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:181: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_normal_route_partial_match_returns_before_frontend",
+              "message": "assert 404 == 405\n +  where 404 = <Response [404 Not Found]>.status_code",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_normal_route_partial_matc0')\n\n    def test_normal_route_partial_match_returns_before_frontend(tmp_path: Path):\n        class PartialRoute(BaseRoute):\n            def matches(self, scope):\n                return Match.PARTIAL, {}\n    \n            async def handle(self, scope, receive, send):\n                response = PlainTextResponse(\"partial\", status_code=405)\n                await response(scope, receive, send)\n    \n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"frontend\")\n        app = FastAPI()\n        app.router.routes.append(PartialRoute())\n        app.frontend(\"/\", directory=dist)\n    \n        response = TestClient(app).get(\"/anything\")\n    \n>       assert response.status_code == 405\nE       assert 404 == 405\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:209: AssertionError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_normal_route_partial_match_wins_before_frontend",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_basic_file_serving",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_existing_api_route_wins_over_frontend",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_api_route_404_is_not_replaced_by_frontend_fallback",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_api_route_404_is_not_repl0')\n\n    def test_api_route_404_is_not_replaced_by_frontend_fallback(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"frontend\")\n        app = FastAPI()\n    \n        @app.get(\"/api/users\")\n        def read_users():\n            raise HTTPException(status_code=404, detail=\"api missing\")\n    \n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:274: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_for_navigation_request",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_for_naviga0')\n\n    def test_index_fallback_for_navigation_request(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:286: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_parses_accept_parameters",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_parses_acc0')\n\n    def test_index_fallback_parses_accept_parameters(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:300: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_ignores_q_zero_accept",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_ignores_q_0')\n\n    def test_index_fallback_ignores_q_zero_accept(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:314: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_respects_explicit_html_rejection_with_wildcard",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_respects_e0')\n\n    def test_index_fallback_respects_explicit_html_rejection_with_wildcard(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:329: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_respects_e1')\n\n    def test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:345: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.js-*/*]",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h0')\npath = '/assets/missing.js', accept = '*/*'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.css-text/css]",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h1')\npath = '/assets/missing.css', accept = 'text/css'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.png-image/png]",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h2')\npath = '/assets/missing.png', accept = 'image/png'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/api/missing-application/json]",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h3')\npath = '/api/missing', accept = 'application/json'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/users/jane.doe-text/html]",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_index_fallback_does_not_h4')\npath = '/users/jane.doe', accept = 'text/html'\n\n    @pytest.mark.parametrize(\n        (\"path\", \"accept\"),\n        [\n            (\"/assets/missing.js\", \"*/*\"),\n            (\"/assets/missing.css\", \"text/css\"),\n            (\"/assets/missing.png\", \"image/png\"),\n            (\"/api/missing\", \"application/json\"),\n            (\"/users/jane.doe\", \"text/html\"),\n        ],\n    )\n    def test_index_fallback_does_not_handle_asset_like_or_non_html_requests(\n        tmp_path: Path, path: str, accept: str\n    ):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:371: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_404_fallback_handles_missing_assets",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_404_fallback_handles_miss0')\n\n    def test_404_fallback_handles_missing_assets(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"404.html\", \"missing\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=\"404.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:383: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_auto_fallback_prefers_404_over_index",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_auto_fallback_uses_index_when_404_is_missing",
+              "message": "assert 404 == 200\n +  where 404 = <Response [404 Not Found]>.status_code",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_auto_fallback_uses_index_0')\n\n    def test_auto_fallback_uses_index_when_404_is_missing(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n        app.frontend(\"/\", directory=dist)\n    \n        response = TestClient(app).get(\"/dashboard\", headers={\"accept\": \"text/html\"})\n    \n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:412: AssertionError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_auto_fallback_returns_normal_404_without_fallback_files",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_no_fallback_returns_normal_404",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_no_fallback_returns_norma0')\n\n    def test_no_fallback_returns_normal_404(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app shell\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=dist, fallback=None)\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:432: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_directory_index_and_redirect",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_validation_and_trailing_slash_normalization",
+              "message": "Failed: DID NOT RAISE <class 'AssertionError'>",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_path_validation_and_trail0')\n\n    def test_path_validation_and_trailing_slash_normalization(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"asset.txt\", \"ok\")\n        app = FastAPI()\n    \n>       with pytest.raises(AssertionError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'AssertionError'>\n\ntests/test_frontend.py:461: Failed",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_path_matching_uses_segment_boundaries",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_path_matching_us0')\n\n    def test_frontend_path_matching_uses_segment_boundaries(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n>       app.frontend(\"/app\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:477: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_multiple_frontends_use_longest_matching_prefix",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_multiple_frontends_use_lo0')\n\n    def test_multiple_frontends_use_longest_matching_prefix(tmp_path: Path):\n        site = tmp_path / \"site\"\n        admin = tmp_path / \"admin\"\n        write_file(site / \"index.html\", \"site\")\n        write_file(admin / \"index.html\", \"admin\")\n        app = FastAPI()\n>       app.frontend(\"/\", directory=site, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:490: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_apirouter_frontend_uses_include_prefix",
+              "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_apirouter_frontend_uses_i0')\n\n    def test_apirouter_frontend_uses_include_prefix(tmp_path: Path):\n        dist = tmp_path / \"admin\"\n        write_file(dist / \"index.html\", \"admin\")\n        router = APIRouter()\n>       router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:503: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_global_priority_across_included_routers",
+              "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_global_priority_across_in0')\n\n    def test_global_priority_across_included_routers(tmp_path: Path):\n        dist = tmp_path / \"site\"\n        write_file(dist / \"index.html\", \"site\")\n        site_router = APIRouter()\n>       site_router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:517: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_nested_apirouter_frontend_uses_all_include_prefixes",
+              "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_nested_apirouter_frontend0')\n\n    def test_nested_apirouter_frontend_uses_all_include_prefixes(tmp_path: Path):\n        dist = tmp_path / \"admin\"\n        write_file(dist / \"index.html\", \"admin\")\n        child_router = APIRouter()\n>       child_router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:538: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_low_priority_cache_updates_after_route_added_to_included_router",
+              "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_low_priority_cache_update0')\n\n    def test_low_priority_cache_updates_after_route_added_to_included_router(\n        tmp_path: Path,\n    ):\n        dist = tmp_path / \"site\"\n        write_file(dist / \"index.html\", \"site\")\n        router = APIRouter()\n>       router.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:558: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_normal_route_slash_redirect_wins_before_frontend_redirect",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_respects_root_path",
+              "message": "assert 404 == 200\n +  where 404 = <Response [404 Not Found]>.status_code",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_respects_root_pa0')\n\n    def test_frontend_respects_root_path(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"assets\" / \"app.js\", \"console.log('ok')\")\n        app = FastAPI()\n        app.frontend(\"/app\", directory=dist)\n    \n        response = TestClient(app, root_path=\"/proxy\").get(\"/app/assets/app.js\")\n    \n>       assert response.status_code == 200\nE       assert 404 == 200\nE        +  where 404 = <Response [404 Not Found]>.status_code\n\ntests/test_frontend.py:606: AssertionError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_websocket_route_wins_over_frontend",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_head_requests_work",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_unsupported_methods_return_405",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_traversal_cannot_escape_directory[/../secret.txt]",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_traversal_cannot_escape_directory[/%2e%2e/secret.txt]",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_traversal_cannot_escape_directory[/..%2fsecret.txt]",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_traversal_cannot_escape_directory[/%5c..%5csecret.txt]",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_path_traversal_cannot_escape_directory[/..%5csecret.txt]",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_symlink_outside_directory_is_not_served",
+              "category": "passed"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_check_dir_true_fails_early_for_missing_directory",
+              "message": "assert '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' in \"Directory 'missing' does not exist\"\n +  where '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' = str((PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0') / 'missing'))",
+              "details": "monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d539782e10>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0')\n\n    def test_check_dir_true_fails_early_for_missing_directory(monkeypatch, tmp_path: Path):\n        app = FastAPI()\n        monkeypatch.chdir(tmp_path)\n    \n        with pytest.raises(RuntimeError, match=\"does not exist\") as exc_info:\n            app.frontend(\"/\", directory=\"missing\")\n    \n        message = str(exc_info.value)\n        assert \"'missing'\" in message\n>       assert str(tmp_path / \"missing\") in message\nE       assert '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' in \"Directory 'missing' does not exist\"\nE        +  where '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' = str((PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0') / 'missing'))\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:704: AssertionError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_check_dir_false_allows_missing_directory_and_fails_on_request",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'check_dir'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_false_allows_mi0')\n\n    def test_check_dir_false_allows_missing_directory_and_fails_on_request(tmp_path: Path):\n        app = FastAPI()\n>       app.frontend(\"/\", directory=tmp_path / \"missing\", check_dir=False)\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'check_dir'\n\ntests/test_frontend.py:709: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_explicit_fallback_files_fail_clearly_when_missing",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397658e0>\ntmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_explicit_fallback_files_f0')\n\n    def test_explicit_fallback_files_fail_clearly_when_missing(monkeypatch, tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        dist.mkdir()\n        monkeypatch.chdir(tmp_path)\n        app = FastAPI()\n    \n        with pytest.raises(RuntimeError, match=\"index.html\") as exc_info:\n>           app.frontend(\"/\", directory=\"dist\", fallback=\"index.html\")\nE           TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:722: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_frontend_routes_are_not_in_openapi",
+              "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_frontend_routes_are_not_i0')\n\n    def test_frontend_routes_are_not_in_openapi(tmp_path: Path):\n        dist = tmp_path / \"dist\"\n        write_file(dist / \"index.html\", \"app\")\n        app = FastAPI()\n    \n        @app.get(\"/api\")\n        def read_api():\n            return {\"ok\": True}\n    \n>       app.frontend(\"/\", directory=dist, fallback=\"index.html\")\nE       TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'\n\ntests/test_frontend.py:748: TypeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial001_py310.py-files0-/asset.txt-200-asset]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu0')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397968d0>\nexample = 'tutorial001_py310.py', files = {'asset.txt': 'asset'}\npath = '/asset.txt', status_code = 200, body = 'asset'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial002_py310.py-files1-/dashboard-200-index]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu1')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d5397978c0>\nexample = 'tutorial002_py310.py', files = {'index.html': 'index'}\npath = '/dashboard', status_code = 200, body = 'index'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial003_py310.py-files2-/missing-404-missing]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu2')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb0dd0>\nexample = 'tutorial003_py310.py', files = {'404.html': 'missing'}\npath = '/missing', status_code = 404, body = 'missing'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial004_py310.py-files3-/app/dashboard-200-index]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu3')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb0950>\nexample = 'tutorial004_py310.py', files = {'index.html': 'index'}\npath = '/app/dashboard', status_code = 200, body = 'index'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial005_py310.py-files4-/dashboard-404-{\"detail\":\"Not Found\"}]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu4')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb2840>\nexample = 'tutorial005_py310.py', files = {'index.html': 'index'}\npath = '/dashboard', status_code = 404, body = '{\"detail\":\"Not Found\"}'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_docs_frontend_examples[tutorial006_py310.py-files5-/asset.txt-200-asset]",
+              "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'",
+              "details": "tmp_path = PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_docs_frontend_examples_tu5')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x78d538eb25a0>\nexample = 'tutorial006_py310.py', files = {'asset.txt': 'asset'}\npath = '/asset.txt', status_code = 200, body = 'asset'\n\n    @pytest.mark.parametrize(\n        (\"example\", \"files\", \"path\", \"status_code\", \"body\"),\n        [\n            (\n                \"tutorial001_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n            (\n                \"tutorial002_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial003_py310.py\",\n                {\"404.html\": \"missing\"},\n                \"/missing\",\n                404,\n                \"missing\",\n            ),\n            (\n                \"tutorial004_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/app/dashboard\",\n                200,\n                \"index\",\n            ),\n            (\n                \"tutorial005_py310.py\",\n                {\"index.html\": \"index\"},\n                \"/dashboard\",\n                404,\n                '{\"detail\":\"Not Found\"}',\n            ),\n            (\n                \"tutorial006_py310.py\",\n                {\"asset.txt\": \"asset\"},\n                \"/asset.txt\",\n                200,\n                \"asset\",\n            ),\n        ],\n    )\n    def test_docs_frontend_examples(\n        tmp_path: Path,\n        monkeypatch,\n        example: str,\n        files: dict[str, str],\n        path: str,\n        status_code: int,\n        body: str,\n    ):\n        dist = tmp_path / \"dist\"\n        for file, content in files.items():\n            write_file(dist / file, content)\n        monkeypatch.chdir(tmp_path)\n    \n>       namespace = runpy.run_path(\n            str(Path(__file__).parents[1] / \"docs_src\" / \"frontend\" / example)\n        )\n\n/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/tests/test_frontend.py:820: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n<frozen runpy>:286: in run_path\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfname = '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'\n\n>   ???\nE   FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'\n\n<frozen runpy>:254: FileNotFoundError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_low_priority_routes_can_store_non_frontend_routes",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'",
+              "details": "def test_low_priority_routes_can_store_non_frontend_routes():\n        async def low_priority_endpoint(request):\n            return PlainTextResponse(\"low\")\n    \n        app = FastAPI()\n>       app.router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:836: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            },
+            {
+              "classname": "tests.test_frontend",
+              "name": "test_included_low_priority_routes_can_store_non_frontend_routes",
+              "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'",
+              "details": "def test_included_low_priority_routes_can_store_non_frontend_routes():\n        async def low_priority_endpoint(request):\n            return PlainTextResponse(\"low\")\n    \n        router = APIRouter()\n>       router._low_priority_routes.append(Route(\"/low\", low_priority_endpoint))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'\n\ntests/test_frontend.py:850: AttributeError",
+              "type": "",
+              "category": "assertion_failure"
+            }
+          ],
+          "attribution": "test_call_failure",
+          "infrastructure_stop": false,
+          "confirmed_failure": true,
+          "reason": "Structured native test outcome",
+          "evidence_level": "original_JUnit",
+          "exit_code": 1,
+          "historical_only": false
+        },
+        "http_lifecycle": {
+          "passed": true,
+          "reasons": [],
+          "requests": 30,
+          "responses": 29,
+          "rows": [
+            {
+              "request_id": "7576d640fe8a4fffabd62a906e97b574",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 2946,
+                "total_tokens": 3156,
+                "completion_tokens": 210,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "e790e9401f9b460ab95a3ed0247e5983",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3209,
+                "total_tokens": 3350,
+                "completion_tokens": 141,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ed43b835ade84a578d26aa3f33da656b",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4373,
+                "total_tokens": 4429,
+                "completion_tokens": 56,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "c5b1fd584b6a4d8e9a57647f1a80d0bb",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5400,
+                "total_tokens": 5451,
+                "completion_tokens": 51,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ce07e42f677f4a9081656f9f7ef3167a",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5501,
+                "total_tokens": 5612,
+                "completion_tokens": 111,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "db9ea9677cdb46babad46eb176a2842d",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5691,
+                "total_tokens": 5953,
+                "completion_tokens": 262,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "eff037ef89d649d2b63668de05b04a62",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6764,
+                "total_tokens": 6962,
+                "completion_tokens": 198,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "8d5c21cb033a4367969063c5bd498008",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7040,
+                "total_tokens": 7091,
+                "completion_tokens": 51,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "d5a77006d8cc47b7969cc5ec2e7eaa0d",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7311,
+                "total_tokens": 7362,
+                "completion_tokens": 51,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "4e53458e75944497b5b2d37b30fbbf2c",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7568,
+                "total_tokens": 7619,
+                "completion_tokens": 51,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "831fd14edaa64755a327a7d157f8f7ed",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7982,
+                "total_tokens": 8542,
+                "completion_tokens": 560,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "2970274d03c2449e8a8910dfd4c7925a",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8594,
+                "total_tokens": 9504,
+                "completion_tokens": 910,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "c5b6a56e89ff45db8048b012915de8a1",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 2522,
+                "total_tokens": 3198,
+                "completion_tokens": 676,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "57ebf71471e845f285f1a1c1e284e00c",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3651,
+                "total_tokens": 3713,
+                "completion_tokens": 62,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "f35c334b12fc4319bbf5d3e1f162fe4a",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3758,
+                "total_tokens": 3875,
+                "completion_tokens": 117,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "363e0fad6bb84007b2098615608f67dd",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4077,
+                "total_tokens": 4150,
+                "completion_tokens": 73,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "74346b2b4b044537b23d50ba6a14afbe",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4648,
+                "total_tokens": 4697,
+                "completion_tokens": 49,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "44b8b1f0c6204650a97c6cd06d253ee5",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5070,
+                "total_tokens": 5241,
+                "completion_tokens": 171,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "69f72014b7f2447b840fff0343e6a4cf",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5442,
+                "total_tokens": 6676,
+                "completion_tokens": 1234,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "9c8d271073e64537b80f169ce0499a59",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6715,
+                "total_tokens": 6761,
+                "completion_tokens": 46,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "587c0727e7ce4e569276e976763a5b61",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8245,
+                "total_tokens": 8411,
+                "completion_tokens": 166,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "8781510695ab48c2b200ee0de52e5e67",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3562,
+                "total_tokens": 4423,
+                "completion_tokens": 861,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ec28754d62d8424dbe45d4388f752fac",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4134,
+                "total_tokens": 4466,
+                "completion_tokens": 332,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "36d4ddf3fdea4a32b2190ef52564f4e2",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4672,
+                "total_tokens": 4716,
+                "completion_tokens": 44,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "befae74c9eb14154878cf707ced1780b",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6240,
+                "total_tokens": 7238,
+                "completion_tokens": 998,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "19aff3fdd3d741198f59074c59f9b7fc",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7415,
+                "total_tokens": 7637,
+                "completion_tokens": 222,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "725336eccf9e4033939484a8cc6adb3f",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7823,
+                "total_tokens": 7859,
+                "completion_tokens": 36,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "8dbb41c3062943e2b949eb964c3b5fe9",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8097,
+                "total_tokens": 8399,
+                "completion_tokens": 302,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "bd33e4ae1f7c4c4cb9e4e01909aee653",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 9428,
+                "total_tokens": 10650,
+                "completion_tokens": 1222,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "eaf94082cfd7402d80b95b757261dc9b",
+              "terminal_status": "cancelled",
+              "explained_cancellation": true,
+              "usage": null,
+              "usage_complete": false
+            }
+          ],
+          "observed_response_usage": {
+            "prompt_tokens": 167878,
+            "completion_tokens": 9263,
+            "total_tokens": 177141
+          },
+          "usage_complete": false,
+          "partial_token_usage": true,
+          "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+        },
+        "deadline_proof": {
+          "official_agent_deadline": true,
+          "cleanup_verified": true,
+          "official_error": "Agent exceeded session timeout (5.0 min)",
+          "registered_agent_seconds": 300,
+          "observed_agent_seconds": 300.0111992609999,
+          "cutoff_monotonic": 1086.042730647
+        },
+        "usage_complete": false,
+        "partial_token_usage": true,
+        "server_idle": {
+          "passed": true,
+          "consecutive_idle_snapshots": 3,
+          "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "instance_id": "fastapi_15800",
+      "arm": "control",
+      "result": {
+        "status": "failed",
+        "failure_stage": "test_collection",
+        "reason": "collection_failure",
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "cleanup_complete": true,
+        "duration_seconds": 328.5824246039999,
+        "allow_next_run": true,
+        "evidence": {
+          "official_result": true,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 2881,
+          "incremental_adk_events": true,
+          "native_trace": true,
+          "agent_boundary_trace": true,
+          "phase2_output": true
+        },
+        "official_fields_unchanged": true
+      },
+      "audit": {
+        "infrastructure_passed": true,
+        "reasons": [],
+        "outcome": {
+          "status": "failed",
+          "failure_stage": "verification",
+          "reason": "collection_error"
+        },
+        "official_resolved": false,
+        "official_test_exit_code": 2,
+        "HTTP_requests": 51,
+        "official_LLM_calls": 47,
+        "official_tool_calls": 47,
+        "native_tool_events": 47,
+        "usage": {
+          "prompt_tokens": 272184,
+          "completion_tokens": 9510,
+          "total_tokens": 281694
+        },
+        "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+        "finish_length": 0,
+        "agent_seconds": 300.01403737300006,
+        "worker_seconds": 328.5824246039999,
+        "first_edit_action_seconds": 171.18755637899994,
+        "first_effective_edit_seconds": null,
+        "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+        "exact_repeated_reads": 3,
+        "testing_commands": 2,
+        "explicit_submits": 0,
+        "leakage_findings": [],
+        "tools": [
+          {
+            "time": 1126.981875079,
+            "id": "chatcmpl-tool-a67cc284aebe22cd",
+            "args": {
+              "command": "grep -n \"class FastAPI\" fastapi/applications.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1128.411398582,
+            "id": "chatcmpl-tool-a28206cda6efdabb",
+            "args": {
+              "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1134.313574681,
+            "id": "chatcmpl-tool-a12f41c5fd43d2ea",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "start_line": 41,
+              "end_line": 100
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1136.60640975,
+            "id": "chatcmpl-tool-9623acdb3cff9e5d",
+            "args": {
+              "command": "grep -n \"def frontend\" fastapi/applications.py fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1144.887922775,
+            "id": "chatcmpl-tool-a02d7f7f8759af87",
+            "args": {
+              "command": "grep -r \"frontend\" ."
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1149.207194764,
+            "id": "chatcmpl-tool-96a4c53084d6b6cc",
+            "args": {
+              "filepath": "fastapi/staticfiles.py"
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1155.017212205,
+            "id": "chatcmpl-tool-a1aab8b476ffa5e8",
+            "args": {
+              "end_line": 1750,
+              "filepath": "fastapi/routing.py",
+              "start_line": 1723
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1157.078439202,
+            "id": "chatcmpl-tool-8fdab250bcc9e6a5",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1,
+              "end_line": 50
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1159.217703198,
+            "id": "chatcmpl-tool-b630b5ed249b5a62",
+            "args": {
+              "command": "grep -n \"class Router\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1161.702269697,
+            "id": "chatcmpl-tool-af8939eccee88c40",
+            "args": {
+              "command": "grep \"import\" fastapi/routing.py | head -n 20"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1163.750593262,
+            "id": "chatcmpl-tool-93fd0f503b66782c",
+            "args": {
+              "command": "grep \"starlette\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1180.064483352,
+            "id": "chatcmpl-tool-8575a685b5b60e32",
+            "args": {
+              "end_line": 100,
+              "filepath": "fastapi/applications.py",
+              "start_line": 41
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1181.914200543,
+            "id": "chatcmpl-tool-855e15b6e9ed4796",
+            "args": {
+              "command": "grep -n \"def \" fastapi/applications.py | head -n 50"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1186.04454445,
+            "id": "chatcmpl-tool-9ee27422a50a827f",
+            "args": {
+              "command": "grep -n \"def \" fastapi/routing.py | grep -n \"APIRouter\" -A 20"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1205.48850608,
+            "id": "chatcmpl-tool-b8bfae31221ff766",
+            "args": {
+              "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1206.877456597,
+            "id": "chatcmpl-tool-b1a3564429494f51",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1723
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1212.38115286,
+            "id": "chatcmpl-tool-9738040ea7805abe",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "start_line": 1
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1219.375645164,
+            "id": "chatcmpl-tool-b4ac444c1858f400",
+            "args": {
+              "command": "grep \"from fastapi import FastAPI\" fastapi/staticfiles.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1220.869881139,
+            "id": "chatcmpl-tool-a90f185087aec75b",
+            "args": {
+              "filepath": "fastapi/staticfiles.py"
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1228.753401564,
+            "id": "chatcmpl-tool-a32453a3ef416f34",
+            "args": {
+              "command": "grep -n \"def \" fastapi/routing.py | grep -A 5 \"class APIRouter\" | tail -n 20"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1231.425407321,
+            "id": "chatcmpl-tool-884c6fe4b67aeb2b",
+            "args": {
+              "command": "grep -n \"def \" fastapi/routing.py | grep \"APIRouter\" -B 1 -A 100"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1234.356575377,
+            "id": "chatcmpl-tool-9bd5eb00470fa4a3",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1723
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1236.575975239,
+            "id": "chatcmpl-tool-b500755007121744",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1843
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1261.547351298,
+            "id": "chatcmpl-tool-87a2d7629c2f8e03",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1963
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1264.889687266,
+            "id": "chatcmpl-tool-8cb50869cb06013a",
+            "args": {
+              "command": "grep -n \"def \" fastapi/routing.py | grep -A 20 \"1723\" | head -n 50"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1268.708294582,
+            "id": "chatcmpl-tool-975f9cfcc3484d41",
+            "args": {
+              "command": "grep -n \"def include_router\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1271.069347209,
+            "id": "chatcmpl-tool-91a221b238724e7b",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 2370,
+              "end_line": 2390
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1274.007899166,
+            "id": "chatcmpl-tool-9d18cab745792b41",
+            "args": {
+              "command": "grep -r \"def mount\" ."
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1279.889623599,
+            "id": "chatcmpl-tool-a9d3851e86c05ee6",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "start_line": 1120,
+              "end_line": 1150
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1289.551116161,
+            "id": "chatcmpl-tool-a22a48798055bbec",
+            "args": {
+              "content": "\nfrom fastapi import FastAPI, APIRouter\nfrom fastapi.staticfiles import StaticFiles\nimport os\nimport shutil\n\n# Setup a dummy directory for static files\nSTATIC_DIR = \"test_static\"\nif not os.path.exists(STATIC_DIR):\n    os.makedirs(STATIC_DIR)\nwith open(os.path.join(STATIC_DIR, \"index.html\"), \"w\") as f:\n    f.write(\"Hello World\")\n\napp = FastAPI()\nrouter = APIRouter()\n\nprint(f\"FastAPI has mount: {hasattr(app, 'mount')}\")\nprint(f\"APIRouter has mount: {hasattr(router, 'mount')}\")\n\n# Test mount on app\napp.mount(\"/static\", StaticFiles(directory=STATIC_DIR), name=\"static\")\nprint(\"App mount successful\")\n\n# Test mount on router\nrouter.mount(\"/router-static\", StaticFiles(directory=STATIC_DIR), name=\"router-static\")\nprint(\"Router mount successful\")\n\n# Cleanup\nshutil.rmtree(STATIC_DIR)\n",
+              "filepath": "repro_mount.py"
+            },
+            "name": "write_file"
+          },
+          {
+            "time": 1290.715925475,
+            "id": "chatcmpl-tool-934a1bd327d85df0",
+            "args": {
+              "command": "python3 repro_mount.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1296.597011832,
+            "id": "chatcmpl-tool-96f0990b3e110e72",
+            "args": {
+              "command": "grep \"from fastapi.staticfiles import StaticFiles\" fastapi/applications.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1302.892598661,
+            "id": "chatcmpl-tool-aa70adac51f7cb27",
+            "args": {
+              "end_line": 4694,
+              "filepath": "fastapi/applications.py",
+              "start_line": 4650
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1313.913917504,
+            "id": "chatcmpl-tool-9ed9652433fbc4ba",
+            "args": {
+              "command": "grep -n \"def include_router\" fastapi/applications.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1338.567249746,
+            "id": "chatcmpl-tool-927de7640252b83d",
+            "args": {
+              "command": "grep -n \"def include_router\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1347.524372747,
+            "id": "chatcmpl-tool-88a2d9fcfda28150",
+            "args": {
+              "command": "python3 -c \"from fastapi import FastAPI, APIRouter; app = FastAPI(); router = APIRouter(); print(f'FastAPI has mount: {hasattr(app, \\\"mount\\\")}'); print(f'APIRouter has mount: {hasattr(router, \\\"mount\\\")}')\""
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1351.21553311,
+            "id": "chatcmpl-tool-a796aedf47754925",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "start_line": 1,
+              "end_line": 100
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1353.273749967,
+            "id": "chatcmpl-tool-86ad29ccd8cf76c2",
+            "args": {
+              "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1357.938645177,
+            "id": "chatcmpl-tool-a7b5ebc6331ecd1a",
+            "args": {
+              "command": "grep -n \"def mount\" fastapi/routing.py"
+            },
+            "name": "run_command"
+          },
+          {
+            "time": 1362.138335676,
+            "id": "chatcmpl-tool-8859f2ec884bf2a8",
+            "args": {
+              "end_line": 1370,
+              "filepath": "fastapi/applications.py",
+              "start_line": 1350
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1365.032631916,
+            "id": "chatcmpl-tool-864cef4627a18f19",
+            "args": {
+              "end_line": 2385,
+              "filepath": "fastapi/routing.py",
+              "start_line": 2370
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1377.2493538,
+            "id": "chatcmpl-tool-a3d7cbc2c445f6e2",
+            "args": {
+              "end_line": 50,
+              "filepath": "fastapi/staticfiles.py",
+              "start_line": 1
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1386.647187571,
+            "id": "chatcmpl-tool-92a206517a36c23d",
+            "args": {
+              "filepath": "fastapi/applications.py",
+              "new_string": "    def frontend(\n        self,\n        path: Annotated[str, Doc(\"The path to mount the frontend assets at.\")],\n        directory: Annotated[str, Doc(\"The directory containing the frontend assets.\")],\n        name: Annotated[str | None, Doc(\"The name of the mount.\")] = \"static\",\n    ) -> None:\n        \\\"\\\"\\\"\n        Mount a static directory to serve frontend assets.\n\n        This is a convenience wrapper around `mount()` using `StaticFiles`.\n        \\\"\\\"\\\"\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, StaticFiles(directory=directory), name=name)\n\n    def include_router(\n",
+              "old_string": "    def include_router("
+            },
+            "name": "edit_file"
+          },
+          {
+            "time": 1391.677355466,
+            "id": "chatcmpl-tool-8cef939694bae6b2",
+            "args": {
+              "end_line": 1365,
+              "filepath": "fastapi/applications.py",
+              "start_line": 1355
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1393.341280023,
+            "id": "chatcmpl-tool-a52cc3cb1b13841e",
+            "args": {
+              "end_line": 1375,
+              "filepath": "fastapi/applications.py",
+              "start_line": 1365
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1396.325675856,
+            "id": "chatcmpl-tool-a4a00dfde45f7043",
+            "args": {
+              "end_line": 1380,
+              "filepath": "fastapi/applications.py",
+              "start_line": 1375
+            },
+            "name": "read_file"
+          },
+          {
+            "time": 1403.171885167,
+            "id": "chatcmpl-tool-855d4d47467c041f",
+            "args": {
+              "filepath": "fastapi/routing.py",
+              "new_string": "    def frontend(\n        self,\n        path: Annotated[str, Doc(\"The path to mount the frontend assets at.\")],\n        directory: Annotated[str, Doc(\"The directory containing the frontend assets.\")],\n        name: Annotated[str | None, Doc(\"The name of the mount.\")] = \"static\",\n    ) -> None:\n        \\\"\\\"\\\"\n        Mount a static directory to serve frontend assets.\n\n        This is a convenience wrapper around `mount()` using `StaticFiles`.\n        \\\"\\\"\\\"\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, StaticFiles(directory=directory), name=name)\n\n    def include_router(\n",
+              "old_string": "    def include_router("
+            },
+            "name": "edit_file"
+          }
+        ],
+        "patch_bytes": 2881,
+        "phase2": {
+          "exit_code": 2,
+          "stdout": "\n==================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_frontend.py ____________________\n/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/test_frontend.py:8: in <module>\n    from fastapi import APIRouter, FastAPI, HTTPException, Request, WebSocket\nfastapi/__init__.py:7: in <module>\n    from .applications import FastAPI as FastAPI\nE     File \"/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/workspace/fastapi/applications.py\", line 1367\nE       \\\"\\\"\\\"\nE        ^\nE   SyntaxError: unexpected character after line continuation character\n- generated xml file: /kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/tmp/_swegemma_junit_cb1c427656c0.xml -\n=========================== short test summary info ============================\nERROR tests/test_frontend.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.35s\n",
+          "stderr": "",
+          "duration_seconds": 1.5160331199999746,
+          "source": "official_sandbox_exec_return"
+        },
+        "raw_fields_preserved": true,
+        "structured_verifier": {
+          "category": "collection_error",
+          "categories": [
+            "collection_error"
+          ],
+          "counts": {
+            "tests": 1,
+            "failures": 0,
+            "errors": 1,
+            "skipped": 0
+          },
+          "summary": {
+            "error": 1
+          },
+          "events": [
+            {
+              "classname": "",
+              "name": "tests.test_frontend",
+              "message": "collection failure",
+              "details": "/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/test_frontend.py:8: in <module>\n    from fastapi import APIRouter, FastAPI, HTTPException, Request, WebSocket\nfastapi/__init__.py:7: in <module>\n    from .applications import FastAPI as FastAPI\nE     File \"/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/workspace/fastapi/applications.py\", line 1367\nE       \\\"\\\"\\\"\nE        ^\nE   SyntaxError: unexpected character after line continuation character",
+              "type": "",
+              "category": "collection_error"
+            }
+          ],
+          "attribution": "agent_regression",
+          "infrastructure_stop": false,
+          "confirmed_failure": true,
+          "reason": "Error event does not by itself prove external environment",
+          "evidence_level": "original_JUnit",
+          "exit_code": 2,
+          "historical_only": false,
+          "causal_evidence": {
+            "exception": "SyntaxError",
+            "root_file": "fastapi/applications.py",
+            "baseline_sha256": "5f6555ae17f7b9fa24c35b24dbf67272ecced669f71b1179a9e22263d13e9338",
+            "executed_sha256": "50d3dea0cb360d3d0aebff1e099ecef6c03581c517b20e1c2f81dc2e57f31404",
+            "basis": "Real JUnit error traceback and changed production bytes"
+          }
+        },
+        "http_lifecycle": {
+          "passed": true,
+          "reasons": [],
+          "requests": 51,
+          "responses": 50,
+          "rows": [
+            {
+              "request_id": "c15ce1b684de4950b0b0d5fa92203c97",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 2811,
+                "total_tokens": 3057,
+                "completion_tokens": 246,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "dff9a904bd354211922d59b0d7b2c681",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3103,
+                "total_tokens": 3151,
+                "completion_tokens": 48,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "993466c1db634d889016dca2a159107b",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3201,
+                "total_tokens": 3417,
+                "completion_tokens": 216,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "85778dd9256a409cb30471289bb6faab",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3916,
+                "total_tokens": 3985,
+                "completion_tokens": 69,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "b4e2c9009f674db4a62beb494d2b2fee",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4037,
+                "total_tokens": 4338,
+                "completion_tokens": 301,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "5ec3bcf5e8224175b6fab704409e1860",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4919,
+                "total_tokens": 5016,
+                "completion_tokens": 97,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "a263f2c783144c6fa704c0ad3bcea045",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5095,
+                "total_tokens": 5303,
+                "completion_tokens": 208,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "67d5f7af314c4c01bb369f229c0d11a9",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5616,
+                "total_tokens": 5679,
+                "completion_tokens": 63,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "274c79febb4d45039871173492d8a7ed",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6031,
+                "total_tokens": 6096,
+                "completion_tokens": 65,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "a9a81273198243a69627d37b5571d383",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6148,
+                "total_tokens": 6232,
+                "completion_tokens": 84,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "0e90cdb2fd0846dfa7795f74f3e796da",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6404,
+                "total_tokens": 6469,
+                "completion_tokens": 65,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "6a38b236b1d04c86b5931a0616f48e80",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7028,
+                "total_tokens": 7601,
+                "completion_tokens": 573,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "7841a808966b4eb5a24629dd97eb1ef3",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8099,
+                "total_tokens": 8148,
+                "completion_tokens": 49,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "5365373cbc984b8aab26d02c6893ddbd",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8875,
+                "total_tokens": 8999,
+                "completion_tokens": 124,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "b043b9dcf78d4067b31b7892c6409bf3",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3327,
+                "total_tokens": 3899,
+                "completion_tokens": 572,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "5c298eb45ebf41ea9b65d9e3228f5084",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3284,
+                "total_tokens": 3349,
+                "completion_tokens": 65,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "a8eec84a401e4fc58f692913015109c5",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3400,
+                "total_tokens": 3446,
+                "completion_tokens": 46,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "c96f38f6a9e24fd8bb8e15f3ee9fd3de",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4546,
+                "total_tokens": 4719,
+                "completion_tokens": 173,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "4b0903f2b26f4eb5a40aa4ebe179ae4c",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5742,
+                "total_tokens": 5969,
+                "completion_tokens": 227,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "10d1038eb92b4cf3a7c5e1298d8eed56",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6021,
+                "total_tokens": 6069,
+                "completion_tokens": 48,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "e82730c2f61e4e04bb93abe0314044ba",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6148,
+                "total_tokens": 6429,
+                "completion_tokens": 281,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "8d925af6adc9408d95db0e38af616bd4",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6463,
+                "total_tokens": 6554,
+                "completion_tokens": 91,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "1cb9bf10c5b4479d9d24d4714501a120",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7301,
+                "total_tokens": 7383,
+                "completion_tokens": 82,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "3b08845ff90646d0b570488b2048f623",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8483,
+                "total_tokens": 8530,
+                "completion_tokens": 47,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "82d851a0780b4818947d36e557501632",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 1835,
+                "total_tokens": 2629,
+                "completion_tokens": 794,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "cfa09ed3d9d44208837277a582d72efd",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4248,
+                "total_tokens": 4295,
+                "completion_tokens": 47,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "f3b76d71a28a4c3fab7547538c4c9a2c",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5423,
+                "total_tokens": 5514,
+                "completion_tokens": 91,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "9e92948bfce3483c93551c17e68db810",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5549,
+                "total_tokens": 5683,
+                "completion_tokens": 134,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "25dd34d3f75441f2805c076e880e56ff",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5730,
+                "total_tokens": 5810,
+                "completion_tokens": 80,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "6861f4d7d5754c6c9adcad80e1e1eaea",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6081,
+                "total_tokens": 6177,
+                "completion_tokens": 96,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ddb0438c9eb64935ba9ed8fad7b71fc5",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6233,
+                "total_tokens": 6435,
+                "completion_tokens": 202,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "036831039f254f4f9ea489acf70abf1a",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6889,
+                "total_tokens": 7224,
+                "completion_tokens": 335,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "dda5e41fa0334202b0deae7f0cf07572",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7261,
+                "total_tokens": 7291,
+                "completion_tokens": 30,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "62c02d756ec7451ea69693bd0c055e65",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7353,
+                "total_tokens": 7528,
+                "completion_tokens": 175,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "922c0d3f8fe54033b046754abd922804",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7580,
+                "total_tokens": 7801,
+                "completion_tokens": 221,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "432038eae6ba4416b1c3821d91333f5e",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 8215,
+                "total_tokens": 8593,
+                "completion_tokens": 378,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "c3b11dba88e5412a91406a483f9cd782",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 1994,
+                "total_tokens": 2747,
+                "completion_tokens": 753,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "734d7f01b19149829ffe906117ee11a8",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 2984,
+                "total_tokens": 3087,
+                "completion_tokens": 103,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "a0132a1b4177414fa9397a41de1ab005",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3134,
+                "total_tokens": 3466,
+                "completion_tokens": 332,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "c47dc6c67c6c4d83b2e965c4d7d0b65f",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 3518,
+                "total_tokens": 3619,
+                "completion_tokens": 101,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "e10d02a5dfc3463eb4ea67133723019a",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4377,
+                "total_tokens": 4430,
+                "completion_tokens": 53,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "6c61d2bb36794065b7b5162390e26a27",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4480,
+                "total_tokens": 4648,
+                "completion_tokens": 168,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "d09110bcf58a422b8bd40b49561cde39",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 4700,
+                "total_tokens": 4850,
+                "completion_tokens": 150,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "d41c056bee3b4f6b9be9494ad52da811",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5095,
+                "total_tokens": 5191,
+                "completion_tokens": 96,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ec3f67edba9f46f59f82641e58a266db",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5427,
+                "total_tokens": 5866,
+                "completion_tokens": 439,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "ab7c57cbd869460fbee1a73ca3c0fab7",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 5945,
+                "total_tokens": 6283,
+                "completion_tokens": 338,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "9eafde4945b243509127b5a06ec3fa35",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6602,
+                "total_tokens": 6768,
+                "completion_tokens": 166,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "2a81343185ee45d281f4efe8dc94e8d4",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 6940,
+                "total_tokens": 6991,
+                "completion_tokens": 51,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "b692633dd830471ab7bd45d68eba2411",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7178,
+                "total_tokens": 7276,
+                "completion_tokens": 98,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "59e389ad1e2746c3b805ee88ab90abb7",
+              "terminal_status": "response_received",
+              "explained_cancellation": false,
+              "usage": {
+                "prompt_tokens": 7415,
+                "total_tokens": 7654,
+                "completion_tokens": 239,
+                "prompt_tokens_details": null
+              },
+              "usage_complete": true
+            },
+            {
+              "request_id": "83c3628d97294342812cc0b29fc6b62f",
+              "terminal_status": "cancelled",
+              "explained_cancellation": true,
+              "usage": null,
+              "usage_complete": false
+            }
+          ],
+          "observed_response_usage": {
+            "prompt_tokens": 272184,
+            "completion_tokens": 9510,
+            "total_tokens": 281694
+          },
+          "usage_complete": false,
+          "partial_token_usage": true,
+          "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+        },
+        "deadline_proof": {
+          "official_agent_deadline": true,
+          "cleanup_verified": true,
+          "official_error": "Agent exceeded session timeout (5.0 min)",
+          "registered_agent_seconds": 300,
+          "observed_agent_seconds": 300.01403737300006,
+          "cutoff_monotonic": 1418.377601866
+        },
+        "usage_complete": false,
+        "partial_token_usage": true,
+        "server_idle": {
+          "passed": true,
+          "consecutive_idle_snapshots": 3,
+          "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+        }
+      }
+    }
+  ],
+  "not_run": [],
+  "protocol_sha256": "b117f403548e874dcc2928e92d53b853101ec5eaf3b8e8669ff7059b83dc379b"
+}

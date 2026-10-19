@@ -1,0 +1,89 @@
+diff --git a/fastapi/applications.py b/fastapi/applications.py
+index c7c551e4e..61eab8014 100644
+--- a/fastapi/applications.py
++++ b/fastapi/applications.py
+@@ -1358,7 +1358,22 @@ class FastAPI(Starlette):
+ 
+         return decorator
+ 
++    def frontend(
++        self,
++        path: Annotated[str, Doc("The path to mount the frontend assets at.")],
++        directory: Annotated[str, Doc("The directory containing the frontend assets.")],
++        name: Annotated[str | None, Doc("The name of the mount.")] = "static",
++    ) -> None:
++        \"\"\"
++        Mount a static directory to serve frontend assets.
++
++        This is a convenience wrapper around `mount()` using `StaticFiles`.
++        \"\"\"
++        from fastapi.staticfiles import StaticFiles
++        self.mount(path, StaticFiles(directory=directory), name=name)
++
+     def include_router(
++
+         self,
+         router: Annotated[routing.APIRouter, Doc("The `APIRouter` to include.")],
+         *,
+diff --git a/fastapi/routing.py b/fastapi/routing.py
+index 4a55fda8a..bc23b27b1 100644
+--- a/fastapi/routing.py
++++ b/fastapi/routing.py
+@@ -2376,7 +2376,22 @@ class APIRouter(routing.Router):
+ 
+         return decorator
+ 
++    def frontend(
++        self,
++        path: Annotated[str, Doc("The path to mount the frontend assets at.")],
++        directory: Annotated[str, Doc("The directory containing the frontend assets.")],
++        name: Annotated[str | None, Doc("The name of the mount.")] = "static",
++    ) -> None:
++        \"\"\"
++        Mount a static directory to serve frontend assets.
++
++        This is a convenience wrapper around `mount()` using `StaticFiles`.
++        \"\"\"
++        from fastapi.staticfiles import StaticFiles
++        self.mount(path, StaticFiles(directory=directory), name=name)
++
+     def include_router(
++
+         self,
+         router: Annotated["APIRouter", Doc("The `APIRouter` to include.")],
+         *,
+diff --git a/repro_mount.py b/repro_mount.py
+new file mode 100644
+index 000000000..be36c70bc
+--- /dev/null
++++ b/repro_mount.py
+@@ -0,0 +1,29 @@
++
++from fastapi import FastAPI, APIRouter
++from fastapi.staticfiles import StaticFiles
++import os
++import shutil
++
++# Setup a dummy directory for static files
++STATIC_DIR = "test_static"
++if not os.path.exists(STATIC_DIR):
++    os.makedirs(STATIC_DIR)
++with open(os.path.join(STATIC_DIR, "index.html"), "w") as f:
++    f.write("Hello World")
++
++app = FastAPI()
++router = APIRouter()
++
++print(f"FastAPI has mount: {hasattr(app, 'mount')}")
++print(f"APIRouter has mount: {hasattr(router, 'mount')}")
++
++# Test mount on app
++app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
++print("App mount successful")
++
++# Test mount on router
++router.mount("/router-static", StaticFiles(directory=STATIC_DIR), name="router-static")
++print("Router mount successful")
++
++# Cleanup
++shutil.rmtree(STATIC_DIR)

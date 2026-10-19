@@ -1,0 +1,340 @@
+{
+  "control": {
+    "official_resolved": false,
+    "test_exit_code": 2,
+    "phase2": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0
+    },
+    "phase2_summary": {
+      "error": 1
+    },
+    "phase2_category": "collection_error",
+    "attribution": "agent_regression",
+    "official_LLM_calls": 47,
+    "tool_calls": 47,
+    "HTTP_requests": 51,
+    "responses": 50,
+    "summary_requests": [
+      15,
+      25,
+      37
+    ],
+    "usage": {
+      "prompt_tokens": 272184,
+      "completion_tokens": 9510,
+      "total_tokens": 281694
+    },
+    "usage_complete": false,
+    "cancellation": {
+      "request_id": "83c3628d97294342812cc0b29fc6b62f",
+      "terminal_status": "cancelled",
+      "explained_cancellation": true,
+      "usage": null,
+      "usage_complete": false
+    },
+    "deadline": {
+      "official_agent_deadline": true,
+      "cleanup_verified": true,
+      "official_error": "Agent exceeded session timeout (5.0 min)",
+      "registered_agent_seconds": 300,
+      "observed_agent_seconds": 300.01403737300006,
+      "cutoff_monotonic": 1418.377601866
+    },
+    "agent_seconds": 300.01403737300006,
+    "worker_seconds": 328.5824246039999,
+    "phase2_seconds": 1.5160331199999746,
+    "production_edits": [
+      {
+        "index": 43,
+        "seconds": 268.283628,
+        "returned_seconds": 268.315881,
+        "filepath": "fastapi/applications.py"
+      },
+      {
+        "index": 47,
+        "seconds": 284.808325,
+        "returned_seconds": 284.843141,
+        "filepath": "fastapi/routing.py"
+      }
+    ],
+    "first_production_diff_seconds": 268.315881,
+    "whole_task_stable_repair_seconds": null,
+    "exact_repeated_reads": 3,
+    "maximum_admitted_input": 8875,
+    "explicit_submit": false,
+    "patch_bytes": 2881,
+    "patch_sha256": "ba6d2ca894dd9d54005041ca56cd470623b0ccdcc4244e09563e866baf61b4bc",
+    "patch_files": [
+      "fastapi/applications.py",
+      "fastapi/routing.py",
+      "repro_mount.py"
+    ],
+    "JUnit_sha256": "76ce223a18230a620652219d28fb1fe248bdd5c37c2e5dde02ffe94cad5b665a",
+    "failures": [
+      {
+        "name": "tests.test_frontend",
+        "message": "collection failure"
+      }
+    ]
+  },
+  "egv": {
+    "official_resolved": false,
+    "test_exit_code": 1,
+    "phase2": {
+      "tests": 60,
+      "failures": 42,
+      "errors": 0,
+      "skipped": 0
+    },
+    "phase2_summary": {
+      "failed": 42,
+      "passed": 18
+    },
+    "phase2_category": "assertion_failure",
+    "attribution": "test_call_failure",
+    "official_LLM_calls": 27,
+    "tool_calls": 27,
+    "HTTP_requests": 30,
+    "responses": 29,
+    "summary_requests": [
+      13,
+      22,
+      30
+    ],
+    "usage": {
+      "prompt_tokens": 167878,
+      "completion_tokens": 9263,
+      "total_tokens": 177141
+    },
+    "usage_complete": false,
+    "cancellation": {
+      "request_id": "eaf94082cfd7402d80b95b757261dc9b",
+      "terminal_status": "cancelled",
+      "explained_cancellation": true,
+      "usage": null,
+      "usage_complete": false
+    },
+    "deadline": {
+      "official_agent_deadline": true,
+      "cleanup_verified": true,
+      "official_error": "Agent exceeded session timeout (5.0 min)",
+      "registered_agent_seconds": 300,
+      "observed_agent_seconds": 300.0111992609999,
+      "cutoff_monotonic": 1086.042730647
+    },
+    "agent_seconds": 300.0111992609999,
+    "worker_seconds": 330.11595339099995,
+    "phase2_seconds": 2.4285880200000065,
+    "production_edits": [
+      {
+        "index": 20,
+        "seconds": 160.051528,
+        "returned_seconds": 160.085015,
+        "filepath": "fastapi/routing.py"
+      },
+      {
+        "index": 21,
+        "seconds": 196.056043,
+        "returned_seconds": 196.086494,
+        "filepath": "fastapi/applications.py"
+      },
+      {
+        "index": 23,
+        "seconds": 228.1794,
+        "returned_seconds": 228.210354,
+        "filepath": "fastapi/applications.py"
+      },
+      {
+        "index": 24,
+        "seconds": 234.722212,
+        "returned_seconds": 234.755149,
+        "filepath": "fastapi/routing.py"
+      }
+    ],
+    "first_production_diff_seconds": 160.085015,
+    "whole_task_stable_repair_seconds": null,
+    "exact_repeated_reads": 0,
+    "maximum_admitted_input": 9428,
+    "explicit_submit": false,
+    "patch_bytes": 1223,
+    "patch_sha256": "75c38d196304d237a99f3d1d4cea7527abf0ddb30fc29558c0a6d0a2b1acdccf",
+    "patch_files": [
+      "fastapi/applications.py",
+      "fastapi/routing.py"
+    ],
+    "JUnit_sha256": "7fb2a4fd4facef2f1bf00c659cc70ba90ca3cd1f98d9e1f270a262d9cb1ba4fd",
+    "failures": [
+      {
+        "name": "test_frontend_fallback_rejects_invalid_fallback",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_ignores_invalid_q_value",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_frontend_static_files_lookup_errors",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_frontend_routes'"
+      },
+      {
+        "name": "test_frontend_route_group_helpers",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_frontend_routes'"
+      },
+      {
+        "name": "test_included_low_priority_routes_cache_is_reused",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'"
+      },
+      {
+        "name": "test_low_priority_api_route_handles_with_context",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'"
+      },
+      {
+        "name": "test_included_low_priority_api_route_handles_with_context",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'"
+      },
+      {
+        "name": "test_normal_route_partial_match_returns_before_frontend",
+        "message": "assert 404 == 405\n +  where 404 = <Response [404 Not Found]>.status_code"
+      },
+      {
+        "name": "test_api_route_404_is_not_replaced_by_frontend_fallback",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_for_navigation_request",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_parses_accept_parameters",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_ignores_q_zero_accept",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_respects_explicit_html_rejection_with_wildcard",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_respects_explicit_xhtml_rejection_with_wildcard",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.js-*/*]",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.css-text/css]",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/assets/missing.png-image/png]",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/api/missing-application/json]",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_index_fallback_does_not_handle_asset_like_or_non_html_requests[/users/jane.doe-text/html]",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_404_fallback_handles_missing_assets",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_auto_fallback_uses_index_when_404_is_missing",
+        "message": "assert 404 == 200\n +  where 404 = <Response [404 Not Found]>.status_code"
+      },
+      {
+        "name": "test_no_fallback_returns_normal_404",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_path_validation_and_trailing_slash_normalization",
+        "message": "Failed: DID NOT RAISE <class 'AssertionError'>"
+      },
+      {
+        "name": "test_frontend_path_matching_uses_segment_boundaries",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_multiple_frontends_use_longest_matching_prefix",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_apirouter_frontend_uses_include_prefix",
+        "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_global_priority_across_included_routers",
+        "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_nested_apirouter_frontend_uses_all_include_prefixes",
+        "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_low_priority_cache_updates_after_route_added_to_included_router",
+        "message": "TypeError: APIRouter.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_frontend_respects_root_path",
+        "message": "assert 404 == 200\n +  where 404 = <Response [404 Not Found]>.status_code"
+      },
+      {
+        "name": "test_check_dir_true_fails_early_for_missing_directory",
+        "message": "assert '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' in \"Directory 'missing' does not exist\"\n +  where '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0/missing' = str((PosixPath('/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/tmp/pytest-of-root/pytest-0/test_check_dir_true_fails_earl0') / 'missing'))"
+      },
+      {
+        "name": "test_check_dir_false_allows_missing_directory_and_fails_on_request",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'check_dir'"
+      },
+      {
+        "name": "test_explicit_fallback_files_fail_clearly_when_missing",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_frontend_routes_are_not_in_openapi",
+        "message": "TypeError: FastAPI.frontend() got an unexpected keyword argument 'fallback'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial001_py310.py-files0-/asset.txt-200-asset]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial001_py310.py'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial002_py310.py-files1-/dashboard-200-index]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial002_py310.py'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial003_py310.py-files2-/missing-404-missing]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial003_py310.py'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial004_py310.py-files3-/app/dashboard-200-index]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial004_py310.py'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial005_py310.py-files4-/dashboard-404-{\"detail\":\"Not Found\"}]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial005_py310.py'"
+      },
+      {
+        "name": "test_docs_frontend_examples[tutorial006_py310.py-files5-/asset.txt-200-asset]",
+        "message": "FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/01-fastapi_15800-egv/sandbox_tmp/swegemma_sandbox_73d3db29-598/workspace/docs_src/frontend/tutorial006_py310.py'"
+      },
+      {
+        "name": "test_low_priority_routes_can_store_non_frontend_routes",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'"
+      },
+      {
+        "name": "test_included_low_priority_routes_can_store_non_frontend_routes",
+        "message": "AttributeError: 'APIRouter' object has no attribute '_low_priority_routes'"
+      }
+    ]
+  }
+}
