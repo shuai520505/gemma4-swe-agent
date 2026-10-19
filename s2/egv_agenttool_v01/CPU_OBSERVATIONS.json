@@ -1,0 +1,533 @@
+{
+  "scope": "Scripted model responses; real official tools/edits/assertions/feedback/submit; no Gemma inference or public-task Agent run.",
+  "cases": {
+    "budget": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 3,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "cancel_child": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 2,
+      "actual_tool_events": 3,
+      "model_requests": 5,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 1
+      },
+      "child_HTTP_cancelled": true,
+      "error": "CancelledError propagated"
+    },
+    "child_command_timeout": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "child_write": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 9,
+      "actual_tool_events": 14,
+      "model_requests": 17,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 8
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "closed_loop": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "direct_retest": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": true,
+      "counted_tools": 7,
+      "actual_tool_events": 11,
+      "model_requests": 13,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "forbidden_tool": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 2,
+      "actual_tool_events": 3,
+      "model_requests": 5,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 1
+      },
+      "child_HTTP_cancelled": false,
+      "error": "ValueError(\"Tool 'edit_file' not found.\\nAvailable tools: get_status, read_file, run_command\\n\\nPossible causes:\\n  1. LLM hallucinated the function name - review agent instruction clarity\\n  2. Tool not registered - verify agent.tools list\\n  3. Name mismatch - check for typos\\n\\nSuggested fixes:\\n  - Review agent instruction to ensure tool usage is clear\\n  - Verify tool is included in agent.tools list\\n  - Check for typos in function name\")"
+    },
+    "ignored": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 5,
+      "actual_tool_events": 9,
+      "model_requests": 11,
+      "actors": {
+        "main_coding_agent": 7,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "invalid_probe": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "lost_result": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 6,
+      "actual_tool_events": 10,
+      "model_requests": 13,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "missing_usage": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 6,
+      "actual_tool_events": 10,
+      "model_requests": 13,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "native_budget": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 3,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "native_closed_loop": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "native_native_deadline": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 2,
+      "actual_tool_events": 3,
+      "model_requests": 5,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 1
+      },
+      "child_HTTP_cancelled": true,
+      "error": "Agent exceeded session timeout (0.05 min)"
+    },
+    "near_deadline": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 3,
+      "actual_tool_events": 5,
+      "model_requests": 6,
+      "actors": {
+        "main_coding_agent": 6,
+        "egv_verifier": 0
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "old_regression": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "parameter_drift": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 2,
+      "actual_tool_events": 3,
+      "model_requests": 4,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 0
+      },
+      "child_HTTP_cancelled": false,
+      "error": "ValueError('Output cap drift')"
+    },
+    "skip_true": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 4,
+      "actual_tool_events": 7,
+      "model_requests": 8,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "still_fails": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "submit_fail": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": false,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "transport_error": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 6,
+      "actual_tool_events": 10,
+      "model_requests": 14,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 5
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "unknown": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 6,
+      "actual_tool_events": 10,
+      "model_requests": 13,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "error": null
+    },
+    "exact_budget": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 60,
+      "actual_tool_events": 71,
+      "model_requests": 74,
+      "actors": {
+        "main_coding_agent": 67,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "error": null,
+      "HTTP": {
+        "passed": true,
+        "requests": 74,
+        "responses": 74,
+        "observed_response_usage": {
+          "prompt_tokens": 7400,
+          "completion_tokens": 370,
+          "total_tokens": 7770
+        },
+        "usage_complete": true,
+        "partial_token_usage": false
+      }
+    },
+    "exact_deadline": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 2,
+      "actual_tool_events": 3,
+      "model_requests": 5,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 1
+      },
+      "child_HTTP_cancelled": true,
+      "error": "Agent exceeded session timeout (5 min)",
+      "HTTP": {
+        "passed": true,
+        "requests": 5,
+        "responses": 4,
+        "observed_response_usage": {
+          "prompt_tokens": 400,
+          "completion_tokens": 20,
+          "total_tokens": 420
+        },
+        "usage_complete": false,
+        "partial_token_usage": true
+      }
+    }
+  }
+}

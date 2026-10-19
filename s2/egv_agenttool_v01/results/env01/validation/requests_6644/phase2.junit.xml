@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.133" timestamp="2026-10-19T12:57:20.251733+00:00" hostname="a4f48d172795"><testcase classname="tests.test_adapters" name="test_request_url_trims_leading_path_separators" time="0.003"><failure message="AssertionError: assert '/v:h' == '//v:h'&#10;  &#10;  - //v:h&#10;  ? -&#10;  + /v:h">def test_request_url_trims_leading_path_separators():
+        """See also https://github.com/psf/requests/issues/6643."""
+        a = requests.adapters.HTTPAdapter()
+        p = requests.Request(method="GET", url="http://127.0.0.1:10000//v:h").prepare()
+&gt;       assert "/v:h" == a.request_url(p, {})
+E       AssertionError: assert '/v:h' == '//v:h'
+E         
+E         - //v:h
+E         ? -
+E         + /v:h
+
+tests/test_adapters.py:8: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,142 @@
+{
+  "category": "assertion_failure",
+  "categories": [
+    "assertion_failure",
+    "passed"
+  ],
+  "counts": {
+    "tests": 22,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "summary": {
+    "failed": 2,
+    "passed": 20
+  },
+  "events": [
+    {
+      "classname": "test_columns",
+      "name": "test_render",
+      "message": "AssertionError: assert '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500...         \\n\\n' == '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500...         \\n\\n'\n  \n  Skipping 3341 identical leading characters in diff, use -v to show\n  - r,        Eunectes sp.     Coluber          Corvus           Ursus americanus\n  + r,         Eunectes sp.     Coluber          Corvus           Ursus americanus \n  ?   +                                                                           +\n  - australian spiny                  constrictor      brachyrhynchos                   \n  + australian spiny                   constrictor      brachyrhynchos                    ...\n  \n  ...Full output truncated (20 lines hidden), use '-vv' to show",
+      "details": "def test_render():\n        expected = \"\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 empty \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 optimal \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nUrsus americanus           American buffalo       Bison bison            American crow          \\nCorvus brachyrhynchos      American marten        Martes americana       American racer         \\nColuber constrictor        American woodcock      Scolopax minor         Anaconda (unidentified)\\nEunectes sp.               Andean goose           Chloephaga melanoptera Ant                    \\nAnteater, australian spiny Tachyglossus aculeatus Anteater, giant        Myrmecophaga tridactyla\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 optimal, expand \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nUrsus americanus             American buffalo        Bison bison             American crow          \\nCorvus brachyrhynchos        American marten         Martes americana        American racer         \\nColuber constrictor          American woodcock       Scolopax minor          Anaconda (unidentified)\\nEunectes sp.                 Andean goose            Chloephaga melanoptera  Ant                    \\nAnteater, australian spiny   Tachyglossus aculeatus  Anteater, giant         Myrmecophaga tridactyla\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 column first, optimal \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nUrsus americanus      American marten     Scolopax minor          Ant                       \\nAmerican buffalo      Martes americana    Anaconda (unidentified) Anteater, australian spiny\\nBison bison           American racer      Eunectes sp.            Tachyglossus aculeatus    \\nAmerican crow         Coluber constrictor Andean goose            Anteater, giant           \\nCorvus brachyrhynchos American woodcock   Chloephaga melanoptera  Myrmecophaga tridactyla   \\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 column first, right to left \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nAnt                        Scolopax minor          American marten     Ursus americanus     \\nAnteater, australian spiny Anaconda (unidentified) Martes americana    American buffalo     \\nTachyglossus aculeatus     Eunectes sp.            American racer      Bison bison          \\nAnteater, giant            Andean goose            Coluber constrictor American crow        \\nMyrmecophaga tridactyla    Chloephaga melanoptera  American woodcock   Corvus brachyrhynchos\\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 equal columns, expand \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nChloephaga melanoptera                American racer                    Ursus americanus            \\nAnt                                   Coluber constrictor               American buffalo            \\nAnteater, australian spiny            American woodcock                 Bison bison                 \\nTachyglossus aculeatus                Scolopax minor                    American crow               \\nAnteater, giant                       Anaconda (unidentified)           Corvus brachyrhynchos       \\nMyrmecophaga tridactyla               Eunectes sp.                      American marten             \\n                                      Andean goose                      Martes americana            \\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 fixed width \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\\nAnteater,        Eunectes sp.     Coluber          Corvus           Ursus americanus\\naustralian spiny                  constrictor      brachyrhynchos                   \\nTachyglossus     Andean goose     American         American marten  American buffalo\\naculeatus                         woodcock                                          \\nAnteater, giant  Chloephaga       Scolopax minor   Martes americana Bison bison     \\n                 melanoptera                                                        \\nMyrmecophaga     Ant              Anaconda         American racer   American crow   \\ntridactyla                        (unidentified)                                    \\n\\n\"\n        print(\"--\")\n        print(expected)\n        print(\"--\")\n>       assert render() == expected\nE       AssertionError: assert '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500...         \\n\\n' == '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500...         \\n\\n'\nE         \nE         Skipping 3341 identical leading characters in diff, use -v to show\nE         - r,        Eunectes sp.     Coluber          Corvus           Ursus americanus\nE         + r,         Eunectes sp.     Coluber          Corvus           Ursus americanus \nE         ?   +                                                                           +\nE         - australian spiny                  constrictor      brachyrhynchos                   \nE         + australian spiny                   constrictor      brachyrhynchos                    ...\nE         \nE         ...Full output truncated (20 lines hidden), use '-vv' to show\n\ntests/test_columns.py:71: AssertionError",
+      "type": "",
+      "category": "assertion_failure"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_render_table",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_not_renderable",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_init_append_column",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_rich_measure",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_min_width",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_no_columns",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_get_row_style",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_vertical_align_top",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[None- 1  2 \\n 3  4 \\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[box1-\\u250c\\u2500\\u2500\\u2500\\u252c\\u2500\\u2500\\u2500\\u2510\\n\\u2502 1 \\u2502 2 \\u2502\\n\\u2502 3 \\u2502 4 \\u2502\\n\\u2514\\u2500\\u2500\\u2500\\u2534\\u2500\\u2500\\u2500\\u2518\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[box2-\\u250c\\u2500\\u2500\\u2500\\u252c\\u2500\\u2500\\u2500\\u2510\\n\\u2502 1 \\u2502 2 \\u2502\\n\\u2502 3 \\u2502 4 \\u2502\\n\\u2514\\u2500\\u2500\\u2500\\u2534\\u2500\\u2500\\u2500\\u2518\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[box3-    \\u2577    \\n  1 \\u2502 2  \\n  3 \\u2502 4  \\n    \\u2575    \\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[box4-    \\u2577    \\n  1 \\u2502 2  \\n  3 \\u2502 4  \\n    \\u2575    \\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_table_show_header_false_substitution[box5-+---+---+\\n| 1 | 2 |\\n| 3 | 4 |\\n+---+---+\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_section",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_placement_table_box_elements[False-False-abbbbbcbbbbbbbbbcbbbbcbbbbbd\\n1Dec  2Skywalker2275M2375M 3\\n4May  5Solo     5275M5393M 6\\nijjjjjkjjjjjjjjjkjjjjkjjjjjl\\n7Dec  8Last Jedi8262M81333M9\\nqrrrrrsrrrrrrrrrsrrrrsrrrrrt\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_placement_table_box_elements[True-False-abbbbbcbbbbbbbbbcbbbbcbbbbbd\\n1Month2Nickname 2Cost2Gross3\\nefffffgfffffffffgffffgfffffh\\n4Dec  5Skywalker5275M5375M 6\\n4May  5Solo     5275M5393M 6\\nijjjjjkjjjjjjjjjkjjjjkjjjjjl\\n7Dec  8Last Jedi8262M81333M9\\nqrrrrrsrrrrrrrrrsrrrrsrrrrrt\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_placement_table_box_elements[False-True-abbbbbcbbbbbbbbbcbbbbcbbbbbd\\n1Dec  2Skywalker2275M2375M 3\\n4May  5Solo     5275M5393M 6\\nijjjjjkjjjjjjjjjkjjjjkjjjjjl\\n4Dec  5Last Jedi5262M51333M6\\nmnnnnnonnnnnnnnnonnnnonnnnnp\\n7MONTH8NICKNAME 8COST8GROSS9\\nqrrrrrsrrrrrrrrrsrrrrsrrrrrt\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_placement_table_box_elements[True-True-abbbbbcbbbbbbbbbcbbbbcbbbbbd\\n1Month2Nickname 2Cost2Gross3\\nefffffgfffffffffgffffgfffffh\\n4Dec  5Skywalker5275M5375M 6\\n4May  5Solo     5275M5393M 6\\nijjjjjkjjjjjjjjjkjjjjkjjjjjl\\n4Dec  5Last Jedi5262M51333M6\\nmnnnnnonnnnnnnnnonnnnonnnnnp\\n7MONTH8NICKNAME 8COST8GROSS9\\nqrrrrrsrrrrrrrrrsrrrrsrrrrrt\\n]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_columns_highlight_added_by_add_row",
+      "category": "passed"
+    },
+    {
+      "classname": "test_table",
+      "name": "test_padding_width",
+      "message": "AssertionError: assert 'aaa  aaa aaa \\n' == 'aaa aaa aaa\\n'\n  \n  - aaa aaa aaa\n  + aaa  aaa aaa \n  ?     +       +",
+      "details": "def test_padding_width():\n        \"\"\"Regression test for https://github.com/Textualize/rich/issues/3871\n    \n        Padding should be even between cells/\n    \n        \"\"\"\n    \n        table = Table.grid(padding=(0, 1))\n    \n        for _ in range(3):\n            table.add_column(width=3)\n    \n        for row in range(1):\n            table.add_row(*[\"a\" * 3 for _ in range(3)])\n    \n        console = Console(record=True)\n        console.print(table)\n        output = console.export_text(styles=True)\n    \n        print(repr(output))\n        expected = \"aaa aaa aaa\\n\"\n>       assert output == expected\nE       AssertionError: assert 'aaa  aaa aaa \\n' == 'aaa aaa aaa\\n'\nE         \nE         - aaa aaa aaa\nE         + aaa  aaa aaa \nE         ?     +       +\n\ntests/test_table.py:406: AssertionError",
+      "type": "",
+      "category": "assertion_failure"
+    }
+  ],
+  "attribution": "test_call_failure",
+  "infrastructure_stop": false,
+  "confirmed_failure": true,
+  "reason": "Structured native test outcome",
+  "evidence_level": "original_JUnit",
+  "exit_code": 1,
+  "historical_only": false
+}
