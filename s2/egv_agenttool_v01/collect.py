@@ -18,7 +18,8 @@ def main(revision):
             if n.endswith('/'):continue
             assert not n.startswith('/') and '..' not in Path(n).parts
             write_new(here/'_local'/(revision+'-extract')/n,z.read(n))
-            if not n.startswith('source/') and '/original115/' not in n and n!='installation.log':
+            if (not n.startswith('source/') and '/original115/' not in n and n!='installation.log'
+                    and 'snapshot_source' not in Path(n).parts and '.git' not in Path(n).parts):
                 write_new(out/n,z.read(n))
     for log in download.glob('*.log'):write_new(out/log.name,log.read_bytes())
     write_new(out/'collection.json',(json.dumps(proof,indent=2)+'\n').encode())
