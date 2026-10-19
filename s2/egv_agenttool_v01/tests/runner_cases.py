@@ -68,7 +68,9 @@ def plan(case):
     if case == 'child_command_timeout': child[2] = call('run_command', command='python3 -c "import time; time.sleep(3)"')
     if case == 'child_write': child.insert(2, call('run_command', command="printf 'def accepts(n):\\n    return True\\n' > app.py"))
     if case == 'forbidden_tool': child = [call('edit_file', filepath='app.py', old_string=FIRST, new_string=GOOD)]
-    if case in ('cancel_child', 'native_deadline'): child = ['__STALL__']
+    if case in ('cancel_child', 'native_deadline', 'exact_deadline'): child = ['__STALL__']
+    if case=='exact_budget':
+        main=[call('get_status')]+[call('read_file',filepath='app.py') for _ in range(59)]+[edit(BAD,FIRST),delegate]
     if case == 'transport_error': child = ['__TRANSPORT_ERROR__']
     if case == 'missing_usage': child = ['__MISSING_USAGE__']
     if case == 'ignored':
@@ -258,7 +260,7 @@ async def exercise(case, directory, *, native=False, skip=False, research_observ
             leftover_sandboxes=len(list((directory/'sandboxes').glob('swegemma_sandbox_*')))))
     result=inspect_case(directory,transport,context)
     result.update(error=error,native_Harness=native,skip_summarization=skip,
-        HTTP=audit_requests(directory,deadline_evidence=dict(official_agent_deadline=case=='native_deadline',
+        HTTP=audit_requests(directory,deadline_evidence=dict(official_agent_deadline=case in ('native_deadline','exact_deadline'),
             cleanup_verified=not manager.sandboxes)))
     atomic_json(directory/'result.json',result)
     return result

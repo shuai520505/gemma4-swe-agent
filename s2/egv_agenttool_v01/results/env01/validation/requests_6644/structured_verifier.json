@@ -1,0 +1,32 @@
+{
+  "category": "assertion_failure",
+  "categories": [
+    "assertion_failure"
+  ],
+  "counts": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "summary": {
+    "failed": 1
+  },
+  "events": [
+    {
+      "classname": "tests.test_adapters",
+      "name": "test_request_url_trims_leading_path_separators",
+      "message": "AssertionError: assert '/v:h' == '//v:h'\n  \n  - //v:h\n  ? -\n  + /v:h",
+      "details": "def test_request_url_trims_leading_path_separators():\n        \"\"\"See also https://github.com/psf/requests/issues/6643.\"\"\"\n        a = requests.adapters.HTTPAdapter()\n        p = requests.Request(method=\"GET\", url=\"http://127.0.0.1:10000//v:h\").prepare()\n>       assert \"/v:h\" == a.request_url(p, {})\nE       AssertionError: assert '/v:h' == '//v:h'\nE         \nE         - //v:h\nE         ? -\nE         + /v:h\n\ntests/test_adapters.py:8: AssertionError",
+      "type": "",
+      "category": "assertion_failure"
+    }
+  ],
+  "attribution": "test_call_failure",
+  "infrastructure_stop": false,
+  "confirmed_failure": true,
+  "reason": "Structured native test outcome",
+  "evidence_level": "original_JUnit",
+  "exit_code": 1,
+  "historical_only": false
+}

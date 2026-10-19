@@ -1,0 +1,55 @@
+STDOUT:
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+_____________________________ test_openapi_schema ______________________________
+
+    def test_openapi_schema():
+        response = client.get("/openapi.json")
+        assert response.status_code == 200, response.text
+>       assert response.json() == {
+            "openapi": "3.1.0",
+            "info": {
+                "title": "ChimichangApp",
+                "summary": "Deadpool's favorite app. Nuff said.",
+                "description": "\nChimichangApp API helps you do awesome stuff. 🚀\n\n## Items\n\nYou can **read items**.\n\n## Users\n\nYou will be able to:\n\n* **Create users** (_not implemented_).\n* **Read users** (_not implemented_).\n",
+                "termsOfService": "http://example.com/terms/",
+                "contact": {
+                    "name": "Deadpoolio the Amazing",
+                    "url": "http://x-force.example.com/contact/",
+                    "email": "dp@x-force.example.com",
+                },
+                "license": {
+                    "name": "Apache 2.0",
+                    "identifier": "Apache-2.0",
+                },
+                "version": "0.0.1",
+            },
+            "paths": {
+                "/items/": {
+                    "get": {
+                        "summary": "Read Items",
+                        "operationId": "read_items_items__get",
+                        "responses": {
+                            "200": {
+                                "description": "Successful Response",
+                                "content": {"application/json": {"schema": {}}},
+                            }
+                        },
+                    }
+                }
+            },
+        }
+E       assert {'info': {'co...ead Items'}}}} == {'info': {'co...ead Items'}}}}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'info': {'contact': {'email': 'dp@x-force.example.com', 'name': 'Deadpoolio the Amazing', 'url': 'http://x-force.exam..._).\n', 'license': {'identifier': 'MIT', 'name': 'Apache 2.0'}, 'summary': "Deadpool's favorite app. Nuff said.", ...}} != {'info': {'contact': {'email': 'dp@x-force.example.com', 'name': 'Deadpoolio the Amazing', 'url': 'http://x-force.exam... 'license': {'identifier': 'Apache-2.0', 'name': 'Apache 2.0'}, 'summary': "Deadpool's favorite app. Nuff said.", ...}}
+E         Use -v to get more diff
+
+tests/test_tutorial/test_metadata/test_tutorial001_1.py:17: AssertionError
+- generated xml file: /kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_14492/sandbox_tmp/swegemma_sandbox_c7fbd47d-03b/tmp/_swegemma_junit_2cd00081154c.xml -
+=========================== short test summary info ============================
+FAILED tests/test_tutorial/test_metadata/test_tutorial001_1.py::test_openapi_schema
+1 failed, 1 passed in 0.99s
+
+STDERR:

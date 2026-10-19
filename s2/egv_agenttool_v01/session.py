@@ -37,7 +37,7 @@ def require_authorization(plan, authorization, batch):
     assert plan['status']=='AUTHORIZED_FROZEN', 'Draft is not executable authorization'
     assert authorization['authorized'] is True and authorization['batch']==batch
     assert authorization['experiment_id']==EXPERIMENT_ID
-    assert authorization['protocol_sha256']==sha(json.dumps(plan,sort_keys=True).encode())
+    assert authorization['protocol_sha256']==sha((json.dumps(plan,indent=2)+'\n').encode())
     if batch==2:
         prior=authorization['prior_batch']
         assert prior['infrastructure_passed'] and prior['complete_pairs']==4

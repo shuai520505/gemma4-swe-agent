@@ -1,6 +1,7 @@
 """Research-only passive ADK plugin. Never included in submission.zip."""
 import hashlib
 import time
+import subprocess
 from pathlib import Path
 from google.adk.plugins.base_plugin import BasePlugin
 
@@ -17,6 +18,15 @@ class AuditPlugin(BasePlugin):
         self.workspace, self.context, self.journal = workspace, context, journal
 
     def record(self, kind, **data):
+        if kind in ('tool_start','tool_end') and data.get('tool')=='egv_verifier':
+            git={}
+            for name,args in [('status',['status','--porcelain']),('diff',['diff','--binary','--no-ext-diff'])]:
+                try:
+                    r=subprocess.run(['git','--no-optional-locks','-c','core.fsmonitor=false','-C',str(self.workspace),*args],
+                                     capture_output=True,text=True,timeout=5)
+                    git[name]=dict(exit_code=r.returncode,stdout=r.stdout,stderr=r.stderr)
+                except Exception as exc:git[name]=dict(error=repr(exc))
+            data['git_boundary']=git
         self.journal.append(dict(kind=kind, monotonic=time.monotonic(),
             counted_tools=self.context.tool_calls_used, **data), filename='nested_audit.jsonl')
 

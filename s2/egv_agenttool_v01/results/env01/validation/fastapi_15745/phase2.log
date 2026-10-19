@@ -1,0 +1,31 @@
+STDOUT:
+
+==================================== ERRORS ====================================
+______________ ERROR collecting tests/test_custom_route_class.py _______________
+ImportError while importing test module '/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/tests/test_custom_route_class.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_custom_route_class.py:5: in <module>
+    from inline_snapshot import snapshot
+E   ModuleNotFoundError: No module named 'inline_snapshot'
+____________ ERROR collecting tests/test_router_include_context.py _____________
+ImportError while importing test module '/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/tests/test_router_include_context.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_router_include_context.py:6: in <module>
+    from fastapi.routing import (
+E   ImportError: cannot import name '_IncludedRouter' from 'fastapi.routing' (/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/fastapi/routing.py)
+- generated xml file: /kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/tmp/_swegemma_junit_ceeffc139a60.xml -
+=========================== short test summary info ============================
+ERROR tests/test_custom_route_class.py
+ERROR tests/test_router_include_context.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 1.09s
+
+STDERR:

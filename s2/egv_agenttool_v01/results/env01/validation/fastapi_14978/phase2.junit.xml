@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="3" failures="0" skipped="0" tests="3" time="0.928" timestamp="2026-10-19T12:49:55.516484+00:00" hostname="a4f48d172795"><testcase classname="" name="tests.test_strict_content_type_nested" time="0.000"><error message="collection failure">tests/test_strict_content_type_nested.py:8: in &lt;module&gt;
+    inner_strict = APIRouter(prefix="/strict", strict_content_type=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: APIRouter.__init__() got an unexpected keyword argument 'strict_content_type'</error></testcase><testcase classname="" name="tests.test_strict_content_type_router_level" time="0.000"><error message="collection failure">tests/test_strict_content_type_router_level.py:6: in &lt;module&gt;
+    router_lax = APIRouter(prefix="/lax", strict_content_type=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: APIRouter.__init__() got an unexpected keyword argument 'strict_content_type'</error></testcase><testcase classname="" name="tests.test_tutorial.test_body.test_tutorial001" time="0.000"><error message="collection failure">ImportError while importing test module '/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_14978/sandbox_tmp/swegemma_sandbox_d8623204-195/workspace/tests/test_tutorial/test_body/test_tutorial001.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_tutorial/test_body/test_tutorial001.py:6: in &lt;module&gt;
+    from inline_snapshot import snapshot
+E   ModuleNotFoundError: No module named 'inline_snapshot'</error></testcase></testsuite></testsuites>

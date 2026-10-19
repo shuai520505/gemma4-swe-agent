@@ -34,7 +34,8 @@ def main(output):
     versions={n:importlib.metadata.version(n) for n in ('swegemma','adk-submission','adk-eval-core','google-adk','google-genai','litellm','pytest')}
     atomic_json(output/'versions.json',versions)
     os.environ['S2_CPU_EVIDENCE']=str(output/'cases')
-    suite=unittest.defaultTestLoader.loadTestsFromName('s2.egv_agenttool_v01.tests.test_closed_loop')
+    suite=unittest.defaultTestLoader.loadTestsFromNames(['s2.egv_agenttool_v01.tests.test_closed_loop',
+        's2.egv_agenttool_v01.tests.test_statistics'])
     with (output/'new_tests.log').open('x') as log:
         result=unittest.TextTestRunner(stream=log,verbosity=2).run(suite)
     gate=dict(passed=result.wasSuccessful() and not result.skipped,test_methods=result.testsRun,

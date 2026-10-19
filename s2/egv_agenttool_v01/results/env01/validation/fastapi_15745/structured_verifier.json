@@ -1,0 +1,40 @@
+{
+  "category": "collection_error",
+  "categories": [
+    "collection_error"
+  ],
+  "counts": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 2,
+    "skipped": 0
+  },
+  "summary": {
+    "error": 2
+  },
+  "events": [
+    {
+      "classname": "",
+      "name": "tests.test_custom_route_class",
+      "message": "collection failure",
+      "details": "ImportError while importing test module '/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/tests/test_custom_route_class.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_custom_route_class.py:5: in <module>\n    from inline_snapshot import snapshot\nE   ModuleNotFoundError: No module named 'inline_snapshot'",
+      "type": "",
+      "category": "collection_error"
+    },
+    {
+      "classname": "",
+      "name": "tests.test_router_include_context",
+      "message": "collection failure",
+      "details": "ImportError while importing test module '/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/tests/test_router_include_context.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_router_include_context.py:6: in <module>\n    from fastapi.routing import (\nE   ImportError: cannot import name '_IncludedRouter' from 'fastapi.routing' (/kaggle/working/s2_egv_agenttool_v01/env01/20261019T124021_334651Z/validation/fastapi_15745/sandbox_tmp/swegemma_sandbox_b1496fd4-82f/workspace/fastapi/routing.py)",
+      "type": "",
+      "category": "collection_error"
+    }
+  ],
+  "attribution": "unknown_requires_baseline_and_callchain",
+  "infrastructure_stop": true,
+  "confirmed_failure": false,
+  "reason": "Error event does not by itself prove external environment",
+  "evidence_level": "original_JUnit",
+  "exit_code": 2,
+  "historical_only": false
+}

@@ -22,6 +22,11 @@ class ClosedLoopTests(unittest.IsolatedAsyncioTestCase):
                     self.assertTrue(r['HTTP']['passed'],r['HTTP'])
                     self.assertFalse(r['child_side_effects'])
                     self.assertIn('return n >= 0',(root/case/'submitted.patch').read_text())
+                    boundary=[e for e in __import__('harness_v2.evidence',fromlist=['read_events']).read_events(root/case/'nested_audit.jsonl')
+                              if e.get('tool')=='egv_verifier' and e['kind'] in ('tool_start','tool_end')]
+                    self.assertTrue(boundary)
+                    self.assertTrue(all(e['git_boundary']['status']['exit_code']==0 and
+                                        e['git_boundary']['diff']['exit_code']==0 for e in boundary))
                 if case in ('unknown','invalid_probe','ignored','still_fails','old_regression','lost_result'):
                     self.assertFalse(r['closed_loop'])
                 if case=='ignored':
