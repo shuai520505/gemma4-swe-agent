@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n________________ test_request_url_trims_leading_path_separators ________________\n\n    def test_request_url_trims_leading_path_separators():\n        \"\"\"See also https://github.com/psf/requests/issues/6643.\"\"\"\n        a = requests.adapters.HTTPAdapter()\n        p = requests.Request(method=\"GET\", url=\"http://127.0.0.1:10000//v:h\").prepare()\n>       assert \"/v:h\" == a.request_url(p, {})\nE       AssertionError: assert '/v:h' == '//v:h'\nE         \nE         - //v:h\nE         ? -\nE         + /v:h\n\ntests/test_adapters.py:8: AssertionError\n- generated xml file: /kaggle/working/s2_egv_agenttool_t500_v01/env01/20261019T160838_449464Z/validation/requests_6644/sandbox_tmp/swegemma_sandbox_68c1bc18-526/tmp/_swegemma_junit_1de5120273c3.xml -\n=========================== short test summary info ============================\nFAILED tests/test_adapters.py::test_request_url_trims_leading_path_separators\n1 failed in 0.06s\n",
+  "stderr": "",
+  "duration_seconds": 1.6420048739999515,
+  "source": "official_sandbox_exec_return"
+}

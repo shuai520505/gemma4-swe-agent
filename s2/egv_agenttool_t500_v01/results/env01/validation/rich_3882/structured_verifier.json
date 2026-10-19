@@ -1,0 +1,69 @@
+{
+  "category": "assertion_failure",
+  "categories": [
+    "assertion_failure",
+    "passed"
+  ],
+  "counts": {
+    "tests": 8,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "summary": {
+    "failed": 1,
+    "passed": 7
+  },
+  "events": [
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_str",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_str_case_insensitive",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_str_default",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_int",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_confirm_no",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_confirm_yes",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_confirm_default",
+      "category": "passed"
+    },
+    {
+      "classname": "test_prompt",
+      "name": "test_prompt_confirm_markup",
+      "message": "AssertionError: assert 'continue [y/...e [y/n] (y): ' == 'continue [y/...e [y/n] (y): '\n  \n  - continue [y/n] (y): Please enter Y or N\n  + continue [y/n] (y): [prompt.invalid]Please enter Y or N\n  ?                     ++++++++++++++++\n  - continue [y/n] (y): Please enter Y or N\n  + continue [y/n] (y): [prompt.invalid]Please enter Y or N\n  ?                     ++++++++++++++++\n    continue [y/n] (y):",
+      "details": "def test_prompt_confirm_markup():\n        INPUT = \"foo\\nNO\\ny\"\n        console = Console(file=io.StringIO(), markup=False)\n        answer = Confirm.ask(\n            \"continue\", console=console, stream=io.StringIO(INPUT), default=True\n        )\n        assert answer is True\n        expected = \"continue [y/n] (y): Please enter Y or N\\ncontinue [y/n] (y): Please enter Y or N\\ncontinue [y/n] (y): \"\n        output = console.file.getvalue()\n        print(repr(output))\n>       assert output == expected\nE       AssertionError: assert 'continue [y/...e [y/n] (y): ' == 'continue [y/...e [y/n] (y): '\nE         \nE         - continue [y/n] (y): Please enter Y or N\nE         + continue [y/n] (y): [prompt.invalid]Please enter Y or N\nE         ?                     ++++++++++++++++\nE         - continue [y/n] (y): Please enter Y or N\nE         + continue [y/n] (y): [prompt.invalid]Please enter Y or N\nE         ?                     ++++++++++++++++\nE           continue [y/n] (y):\n\ntests/test_prompt.py:126: AssertionError",
+      "type": "",
+      "category": "assertion_failure"
+    }
+  ],
+  "attribution": "test_call_failure",
+  "infrastructure_stop": false,
+  "confirmed_failure": true,
+  "reason": "Structured native test outcome",
+  "evidence_level": "original_JUnit",
+  "exit_code": 1,
+  "historical_only": false
+}

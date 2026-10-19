@@ -20,8 +20,8 @@ def emit(path,data):
 
 def main(environment_revision):
     accepted=json.loads((HERE/'CPU_FEASIBILITY.json').read_text());assert accepted['passed']
-    envroot=ROOT/'s2/egv_agenttool_v01/results/env01/validation'
-    env=json.loads((envroot/'environment_gate.json').read_text());assert env['passed'] and len(env['selected'])==8
+    envroot=HERE/'results/env01/validation'
+    env=json.loads((envroot/'task_admission_gate.json').read_text());env['selected']=env['records'];env['pool_sha256']=sha_file(ROOT/'s2/egv_agenttool_v01/TASK_POOL_PREREGISTRATION.json');assert env['passed'] and len(env['selected'])==8
     exact=HERE/'results'/accepted['revision']/'validation/cpu_gate.json'
     assert json.loads(exact.read_text())['passed']
     original=json.loads((PARENT/'protocol.json').read_text())
@@ -50,7 +50,7 @@ def main(environment_revision):
         parent_S2_commit='c979394af8521ed62d9fcca990a260d715f1042c',selected=selected,task_inputs=tasks,runs=runs,
         candidates=dict(A=a,B=b),source_hashes={n:hashlib.sha256(v).hexdigest() for n,v in files.items()},
         model=original['model'],model_files=original['model_files'],wheel_hashes=original['wheel_hashes'],task_wheel_hashes=original['task_wheel_hashes'],
-        CPU_acceptance_sha256=sha_file(HERE/'CPU_FEASIBILITY.json'),environment_gate_sha256=sha_file(envroot/'environment_gate.json'),
+        CPU_acceptance_sha256=sha_file(HERE/'CPU_FEASIBILITY.json'),environment_gate_sha256=sha_file(envroot/'task_admission_gate.json'),
         exact_budget_gate_sha256=sha_file(exact),exact_budget_raw_sha256=sha_file(HERE/'results'/accepted['revision']/'raw.zip'),
         pool_sha256=env['pool_sha256'],shared_budget=Config().snapshot(),
         conditions='31B QATv2,4L4/TP4,context32768,safety1024,output16384,thinking4096,seed17;sampling/include_thoughts omitted;500s/60 organizer-counted tools/120s command per task shared by both roles',
@@ -86,7 +86,7 @@ def main(environment_revision):
             cells.append(dict(cell_type='code',metadata={},source=s,outputs=[],execution_count=None,id=hashlib.sha256(s.encode()).hexdigest()[:12]))
         raw=(json.dumps(dict(cells=cells,metadata=source_cpu['metadata'],nbformat=4,nbformat_minor=5),indent=1)+'\n').encode()
         folder=HERE/'notebooks'/('gpu-batch'+str(batch)+'-draft');write_new(folder/'study.ipynb',raw)
-        metadata=json.loads((PARENT/'notebooks/gpu/kernel-metadata.json').read_text());metadata.update(id='wudangdexiaodoashi/gemma4-s2-egv-agenttool-batch'+str(batch)+'-draft',title='S2 AgentTool batch'+str(batch)+' DRAFT')
+        metadata=json.loads((PARENT/'notebooks/gpu/kernel-metadata.json').read_text());metadata.update(id='wudangdexiaodoashi/gemma4-s2-t500-batch'+str(batch)+'-draft',title='S2 T500 AgentTool batch'+str(batch)+' DRAFT')
         emit(folder/'kernel-metadata.json',metadata)
         bindings[str(batch)]=dict(notebook_sha256=hashlib.sha256(raw).hexdigest(),metadata_sha256=sha_file(folder/'kernel-metadata.json'),dispatched=False)
     emit(HERE/'GPU_DRAFT_FREEZE.json',dict(status='DRAFT_NEVER_DISPATCHED',protocol_sha256=sha_file(HERE/'GPU_PROTOCOL_T500_DRAFT.json'),payload_sha256=hashlib.sha256(payload).hexdigest(),notebooks=bindings))
