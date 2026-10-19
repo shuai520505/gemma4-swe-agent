@@ -1,0 +1,11 @@
+# Evidence feedback and loop scoring
+
+EGV returns the eight plain-language labels in its frozen Prompt: Verification status, Tested behavior, Execution evidence, Source provenance, Counterevidence, Regression coverage, Recommended next action, Remaining uncertainty. PASS is scoped to actually executed checks; FAIL/UNKNOWN/INCOMPLETE never imply full task success. A broken probe is not automatically a production defect.
+
+An actionable counterexample needs a tool call/result pointer, input/expected-versus-observed behavior, relevant current source and an explanation of how it discriminates the repair hypothesis. Reports and acknowledgments alone do not count. A module import/property existence is at most Level3; a verified target assertion is Level1; strong path/output inference without complete reach evidence is Level2; insufficient evidence remains Unknown.
+
+For each counterexample retain the discovery event, actual AgentTool function response delivered to Main, Main's subsequent production diff or evidence-backed exclusion action, revised-source hash, real retest event/result, and relevant old-behavior outcome. Report feedback_handled and counterevidence_cleared separately. Revising code followed by another failure is handled but not cleared; a PASS sentence cannot override failed tool output.
+
+Denominators: delivery=delivered actionable evidence/discovered actionable evidence; handling=handled/delivered; closed-loop=delivered + relevant Main correction + actual successful retest/delivered actionable evidence. Zero denominator gives null/undefined, never100%. A Main direct retest can close the loop without a second delegation. A child production write is not credited as a Main correction.
+
+The synthetic CPU fixture asks for an inclusive zero boundary with negative behavior unchanged. Main first changes always-False to n>0, EGV executes real assertions and observes TARGET_BOUNDARY failure; Main changes to n>=0; assertions for zero and negative behavior pass; Main reviews diff and invokes the real official submit_patch. Mock HTTP fixes the sequence to test the execution route. The fixture, scripted responses and reference desired behavior are CPU-only and never placed in the candidate or future public Agent workspace.
