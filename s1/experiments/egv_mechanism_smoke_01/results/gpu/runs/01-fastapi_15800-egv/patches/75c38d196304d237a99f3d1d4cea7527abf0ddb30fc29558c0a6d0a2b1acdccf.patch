@@ -1,0 +1,42 @@
+diff --git a/fastapi/applications.py b/fastapi/applications.py
+index c7c551e4e..4ef1cff79 100644
+--- a/fastapi/applications.py
++++ b/fastapi/applications.py
+@@ -1563,6 +1563,15 @@ class FastAPI(Starlette):
+             generate_unique_id_function=generate_unique_id_function,
+         )
+ 
++    def frontend(
++        self,
++        path: str,
++        *,
++        directory: str,
++    ) -> None:
++        from fastapi.staticfiles import StaticFiles
++        self.mount(path, app=StaticFiles(directory=directory, html=True), name="frontend")
++
+     def get(
+         self,
+         path: Annotated[
+diff --git a/fastapi/routing.py b/fastapi/routing.py
+index 4a55fda8a..d296d244d 100644
+--- a/fastapi/routing.py
++++ b/fastapi/routing.py
+@@ -2565,6 +2565,17 @@ class APIRouter(routing.Router):
+             router.lifespan_context,
+         )
+ 
++    def frontend(
++        self,
++        path: str,
++        *,
++        directory: str,
++    ) -> None:
++        from fastapi.staticfiles import StaticFiles
++        route = Mount(self.prefix + path, app=StaticFiles(directory=directory, html=True))
++        self.routes.append(route)
++        self._mark_routes_changed()
++
+     def get(
+         self,
+         path: Annotated[

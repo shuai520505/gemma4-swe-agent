@@ -1,0 +1,39 @@
+diff --git a/reproduce_issue.py b/reproduce_issue.py
+new file mode 100644
+index 00000000..b04d3477
+--- /dev/null
++++ b/reproduce_issue.py
+@@ -0,0 +1,11 @@
++from rich.console import Console
++from rich.markdown import Markdown
++
++markdown_text = """
++| Column 1 |
++| -------- |
++| a **b** c |
++"""
++console = Console(record=True)
++console.print(Markdown(markdown_text))
++print(console.export_text())
+diff --git a/rich/markdown.py b/rich/markdown.py
+index 704da301..e78155ee 100644
+--- a/rich/markdown.py
++++ b/rich/markdown.py
+@@ -330,15 +330,11 @@ class TableDataElement(MarkdownElement):
+         return cls(justify=justify)
+ 
+     def __init__(self, justify: JustifyMethod) -> None:
+-        self.content: TextType = ""
+         self.justify = justify
++        self.content = Text(justify=self.justify)
+ 
+     def on_text(self, context: "MarkdownContext", text: TextType) -> None:
+-        plain = text.plain if isinstance(text, Text) else text
+-        style = text.style if isinstance(text, Text) else ""
+-        self.content = Text(
+-            plain, justify=self.justify, style=context.style_stack.current
+-        )
++        self.content.append(text, context.current_style if isinstance(text, str) else None)
+ 
+ 
+ class ListElement(MarkdownElement):

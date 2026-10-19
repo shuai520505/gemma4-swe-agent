@@ -1,0 +1,39 @@
+{
+  "category": "collection_error",
+  "categories": [
+    "collection_error"
+  ],
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "summary": {
+    "error": 1
+  },
+  "events": [
+    {
+      "classname": "",
+      "name": "tests.test_case",
+      "message": "collection failure",
+      "details": "/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/test_case.py:1: in <module>\n    import sample_pkg\nE     File \"/tmp/tmpxlyt7m03/sandbox_tmp/swegemma_sandbox_84e266c6-5b2/workspace/sample_pkg.py\", line 1\nE       def broken(:\nE                  ^\nE   SyntaxError: invalid syntax",
+      "type": "",
+      "category": "collection_error"
+    }
+  ],
+  "attribution": "agent_regression",
+  "infrastructure_stop": false,
+  "confirmed_failure": true,
+  "reason": "Error event does not by itself prove external environment",
+  "evidence_level": "original_JUnit",
+  "exit_code": 2,
+  "historical_only": false,
+  "causal_evidence": {
+    "exception": "SyntaxError",
+    "root_file": "sample_pkg.py",
+    "baseline_sha256": "ddced955472eca8cf0eea19edf798c43514e97feae458369b17732a4a6453e4b",
+    "executed_sha256": "e5c39b5d9e483c96898f2970978fee4d8e5a3814e685d9ab37365a5aa333b5ad",
+    "basis": "Real JUnit error traceback and changed production bytes"
+  }
+}

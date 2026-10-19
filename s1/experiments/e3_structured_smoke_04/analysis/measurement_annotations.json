@@ -1,0 +1,18 @@
+{
+  "control": {
+    "first_target_class_read": 2,
+    "first_faulty_method_read": 4,
+    "first_repair_edit": 23,
+    "first_stable_repair": 23,
+    "production_diagnostic_edit": null,
+    "note": "One production edit; repro uses missing Console.export before/after. Three identical pytest runs without intervening code edits."
+  },
+  "e3_locate": {
+    "first_target_class_read": 4,
+    "first_faulty_method_read": 4,
+    "first_repair_edit": 28,
+    "first_stable_repair": 31,
+    "production_diagnostic_edit": 12,
+    "note": "Debug print is not repair. First init edit reads self.justify before assignment; real AttributeError in tool30; tool31 corrects order. Probes9/11/13 lack table separator and do not exercise table handler."
+  }
+}

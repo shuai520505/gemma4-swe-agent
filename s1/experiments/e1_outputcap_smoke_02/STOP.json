@@ -1,0 +1,28 @@
+{
+  "experiment_id": "s1-e1-outputcap-smoke-02",
+  "status": "STOPPED",
+  "kernel": "wudangdexiaodoashi/gemma4-s1-e1-smoke02-smoke",
+  "saved_version": 1,
+  "platform_status": "COMPLETE",
+  "protocol_sha256": "6a30e7220d7bd04bc9d428c8c877705a44d2360f1cac7c08a276fa675b5d22c0",
+  "trigger": "A has 25 HTTP requests but only 24 responses; r04 evidence gate rejected continuation",
+  "additional_audit_blocker": "Official Phase 2 returned exit 1 with 194 httpbin/httpbin_secure fixture setup errors; repair verdict is environmentally confounded",
+  "arms": {
+    "control": {
+      "official_resolved": false,
+      "official_test_exit_code": 1,
+      "r04_runtime_status": "failed",
+      "research_status": "unknown",
+      "agent_timeout": true,
+      "patch_captured_and_applied": true,
+      "phase2_executed": true
+    },
+    "e1_output8192": {"research_status": "not_run"}
+  },
+  "complete_pairs": 0,
+  "screening_decision": "No-Go",
+  "retries_allowed": false,
+  "followup_batches_allowed": false,
+  "new_experiment_required": true,
+  "instructions": "Do not reupload this saved Notebook or splice another B run into this ID. Preserve all original outputs and native fields. Any future infrastructure fixes and pair require a new CPU gate and preregistration."
+}

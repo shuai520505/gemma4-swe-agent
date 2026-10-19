@@ -1,0 +1,28 @@
+test_actual_empty_state_runner_control_and_EGV (s1.egv_v01.tests.CandidateTests.test_actual_empty_state_runner_control_and_EGV) ... ok
+test_single_factor_package_and_official_compilation (s1.egv_v01.tests.CandidateTests.test_single_factor_package_and_official_compilation) ... ERROR
+
+======================================================================
+ERROR: test_single_factor_package_and_official_compilation (s1.egv_v01.tests.CandidateTests.test_single_factor_package_and_official_compilation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_egv_v01/cpu01/20261018T152255_028948Z/source/s1/egv_v01/tests.py", line 49, in test_single_factor_package_and_official_compilation
+    self.assertEqual(sha_file(HERE/'submission.zip'),manifest['zip_sha256'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_egv_v01/cpu01/20261018T152255_028948Z/source/s1/util.py", line 10, in sha_file
+    with Path(path).open('rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/s1_egv_v01/cpu01/20261018T152255_028948Z/source/s1/egv_v01/submission.zip'
+
+----------------------------------------------------------------------
+Ran 2 tests in 17.724s
+
+FAILED (errors=1)

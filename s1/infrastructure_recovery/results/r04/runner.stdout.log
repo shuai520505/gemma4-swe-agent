@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "controller_tests_passed": true,
+  "tests_run": 94,
+  "baseline_tests": 77,
+  "new_tests": 17,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "versions": {
+    "swegemma": "0.2.11",
+    "adk-submission": "0.2.13",
+    "adk-eval-core": "0.1.0",
+    "google-adk": "1.36.1",
+    "google-genai": "2.11.0",
+    "litellm": "1.82.4",
+    "psutil": "5.9.5"
+  },
+  "requests_verifier_eligible": false,
+  "new_task_environment_gates": [
+    {
+      "instance_id": "rich_3278",
+      "base_commit": "4c5d305bb902ce97011666ada19e48d0b27b49e1",
+      "eligible": false,
+      "scope": "CPU import and original public baseline target-file tests only; no evaluation test patch",
+      "error": "RuntimeError('Research editable installation failed; source provenance unverified')",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/source/s1/infrastructure_recovery/public_preflight.py\", line 32, in check\n    install_editable(manager,sid)\n  File \"/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/source/s1/infrastructure_recovery/environment.py\", line 55, in install_editable\n    if result.exit_code:raise RuntimeError('Research editable installation failed; source provenance unverified')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Research editable installation failed; source provenance unverified\n",
+      "cleanup_complete": true
+    },
+    {
+      "instance_id": "fastapi_14361",
+      "base_commit": "5265c4f5cb4d8fb4fb5015bccf1a6de8f3fc6044",
+      "eligible": false,
+      "scope": "CPU import and original public baseline target-file tests only; no evaluation test patch",
+      "error": "RuntimeError('Research editable installation failed; source provenance unverified')",
+      "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/source/s1/infrastructure_recovery/public_preflight.py\", line 32, in check\n    install_editable(manager,sid)\n  File \"/kaggle/working/s1_infra_recovery/r04/20261018T063218_715034Z/source/s1/infrastructure_recovery/environment.py\", line 55, in install_editable\n    if result.exit_code:raise RuntimeError('Research editable installation failed; source provenance unverified')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Research editable installation failed; source provenance unverified\n",
+      "cleanup_complete": true
+    }
+  ],
+  "overall_requests_GPU_ready": false,
+  "real_official_Runner": true,
+  "Gemma_inference": false,
+  "GPU": false,
+  "scope": "Controller regression success does not mean the Requests fixture gate passed"
+}

@@ -1,0 +1,80 @@
+--- frozen-r12/worker.py
++++ s1/worker.py
+@@ -1,4 +1,4 @@
+-"""One official evaluate_task per disposable process, sharing only the model server."""
++"""S1 independent worker derived from frozen r12; see worker-r12.diff."""
+ import argparse
+ import asyncio
+ import hashlib
+@@ -8,9 +8,10 @@
+ from pathlib import Path
+ import traceback
+ 
+-from .budgets import Budgets
+-from .context_budget import RequestGuard,VllmCounter
+-from .evidence import Journal,atomic_json,atomic_bytes
++from .config import Config, validate_compiled
++from harness_v2.context_budget import VllmCounter
++from .guard import Guard
++from harness_v2.evidence import Journal,atomic_json,atomic_bytes
+ from . import VERSION
+ 
+ 
+@@ -22,10 +23,10 @@
+     from swegemma.config import EvalConfig,build_submission_limits
+     from swegemma.budget import HarnessLimits
+     from swegemma.models import load_tasks
+-    from .official import DurableContext,DurableEvaluator,DurableManager,GuardedClient
++    from harness_v2.official import DurableContext,DurableEvaluator,DurableManager,GuardedClient
+     j=Journal(directory)
+     j.stage('prepare_agent')
+-    budget=Budgets()
++    budget=Config(**spec['research_config'])
+     agent_dir=Path(spec['agent_dir'])
+     for name,digest in spec['candidate_hashes'].items():
+         assert hashlib.sha256((agent_dir/name).read_bytes()).hexdigest()==digest,'Candidate changed'
+@@ -35,36 +36,36 @@
+     key=os.environ.get('LOCAL_API_KEY','EMPTY')
+     model=LiteLlm(model='openai/'+spec['model_path'],api_base=spec['base_url'],api_key=key)
+     backend=LiteLLMClient()
+-    guard=RequestGuard(VllmCounter(spec['base_url'],key),backend.acompletion,
+-        core_issue=task.problem_statement,emit=j.append)
++    guard=Guard(VllmCounter(spec['base_url'],key),backend.acompletion,
++        core_issue=task.problem_statement,emit=j.append,config=budget)
+     model.llm_client=GuardedClient(guard)
+     models=ModelRegistry(); models.register(spec['model_alias'],model)
+     limits,constraints=build_submission_limits()
+     cfg=EvalConfig(tasks_path=Path(spec['tasks_path']),snapshots_dir=Path(spec['snapshots_dir']),
+         results_dir=directory/'harness',submission_dir=agent_dir,models=models,sandbox='subprocess',
+         wheels_dir=Path(spec['wheels_dir']),graph_dir=spec['graph_dir'],embeddings_dir=spec['embeddings_dir'],
+-        max_time_minutes=budget.agent_seconds/60,max_tool_calls=budget.max_tool_calls,
++        max_time_minutes=budget.agent_seconds/60,max_tool_calls=budget.tool_budget,
+         timeout_seconds=budget.command_seconds,verification_timeout_seconds=budget.stage_caps['verification'],
+         limits=limits,generation_constraints=constraints,concurrency=1,display_mode='quiet',
+         enable_sandbox_testing=True,context_cache_config=ContextCacheConfig(min_tokens=2048,ttl_seconds=1800,cache_intervals=10),
+         events_compaction_config=EventsCompactionConfig(compaction_interval=5,overlap_size=1,
+             token_threshold=8192,event_retention_size=4))
+     # Only public operational limits change, identically for both frozen candidates.
+-    cfg.harness=HarnessLimits(command_timeout_seconds=120,max_stdout_chars=2000,
++    cfg.harness=HarnessLimits(command_timeout_seconds=budget.command_seconds,max_stdout_chars=2000,
+         max_file_lines=120,max_file_chars=4000,verification_timeout_seconds=300)
+     evaluator=DurableEvaluator(cfg,journal=j)
+-    manager=DurableManager(journal=j,base_dir=directory/'sandbox_tmp',timeout_seconds=120)
++    manager=DurableManager(journal=j,base_dir=directory/'sandbox_tmp',timeout_seconds=budget.command_seconds)
+     evaluator.docker=evaluator.sandbox=manager
+     ctx=DurableContext(journal=j,docker_manager=manager,task=task,budget=cfg.budget,harness=cfg.harness,
+         graph_dir=cfg.graph_dir,embeddings_dir=cfg.embeddings_dir)
+     manager.context=ctx
+     compiled=compile_submission(agent_dir,ctx.create_tools(),models,limits=limits,generation_constraints=constraints)
+     assert len(compiled.tools)==6 and not compiled.sub_agents
+-    assert compiled.generate_content_config.max_output_tokens==16384
+-    atomic_json(directory/'runtime_config.json',dict(harness_version=VERSION,budget=budget.as_dict(),
++    validate_compiled(compiled,budget)
++    atomic_json(directory/'runtime_config.json',dict(harness_version=VERSION,budget=budget.snapshot(),
+         compaction=dict(interval=5,overlap=1,token_threshold=8192,event_retention_size=4),
+         operational_limits=dict(max_stdout_chars=2000,max_file_chars=4000,max_file_lines=120),
+-        max_model_len=32768,output_reserved=16384,safety_tokens=1024,
++        max_model_len=32768,output_reserved=budget.output_tokens,safety_tokens=1024,
+         model=spec['model_path'],candidate_hashes=spec['candidate_hashes']))
+     atomic_json(directory/'incremental_trace_scope.json',dict(
+         observer='SwegemmaContext.handle_adk_event',native_trace=False,

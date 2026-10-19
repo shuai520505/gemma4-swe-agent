@@ -1,0 +1,22 @@
+test_actual_empty_state_runner_control_and_EGV (s1.egv_v01.tests.CandidateTests.test_actual_empty_state_runner_control_and_EGV) ... ok
+test_single_factor_package_and_official_compilation (s1.egv_v01.tests.CandidateTests.test_single_factor_package_and_official_compilation) ... FAIL
+
+======================================================================
+FAIL: test_single_factor_package_and_official_compilation (s1.egv_v01.tests.CandidateTests.test_single_factor_package_and_official_compilation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_egv_v01/cpu02/20261018T153238_772666Z/source/s1/egv_v01/tests.py", line 63, in test_single_factor_package_and_official_compilation
+    self.assertEqual(agent.instruction.strip(),prompt.decode().strip())
+AssertionError: "You [353 chars]ons.\n\nFollow this workflow within the harnes[3041 chars]sks." != "You [353 chars]ons.\r\n\r\nFollow this workflow within the ha[3067 chars]sks."
+Diff is 8909 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 2 tests in 15.216s
+
+FAILED (failures=1)

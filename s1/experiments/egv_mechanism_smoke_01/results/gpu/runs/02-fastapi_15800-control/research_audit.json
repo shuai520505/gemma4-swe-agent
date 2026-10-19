@@ -1,0 +1,1133 @@
+{
+  "infrastructure_passed": true,
+  "reasons": [],
+  "outcome": {
+    "status": "failed",
+    "failure_stage": "verification",
+    "reason": "collection_error"
+  },
+  "official_resolved": false,
+  "official_test_exit_code": 2,
+  "HTTP_requests": 51,
+  "official_LLM_calls": 47,
+  "official_tool_calls": 47,
+  "native_tool_events": 47,
+  "usage": {
+    "prompt_tokens": 272184,
+    "completion_tokens": 9510,
+    "total_tokens": 281694
+  },
+  "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+  "finish_length": 0,
+  "agent_seconds": 300.01403737300006,
+  "worker_seconds": 328.5824246039999,
+  "first_edit_action_seconds": 171.18755637899994,
+  "first_effective_edit_seconds": null,
+  "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+  "exact_repeated_reads": 3,
+  "testing_commands": 2,
+  "explicit_submits": 0,
+  "leakage_findings": [],
+  "tools": [
+    {
+      "time": 1126.981875079,
+      "id": "chatcmpl-tool-a67cc284aebe22cd",
+      "args": {
+        "command": "grep -n \"class FastAPI\" fastapi/applications.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1128.411398582,
+      "id": "chatcmpl-tool-a28206cda6efdabb",
+      "args": {
+        "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1134.313574681,
+      "id": "chatcmpl-tool-a12f41c5fd43d2ea",
+      "args": {
+        "filepath": "fastapi/applications.py",
+        "start_line": 41,
+        "end_line": 100
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1136.60640975,
+      "id": "chatcmpl-tool-9623acdb3cff9e5d",
+      "args": {
+        "command": "grep -n \"def frontend\" fastapi/applications.py fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1144.887922775,
+      "id": "chatcmpl-tool-a02d7f7f8759af87",
+      "args": {
+        "command": "grep -r \"frontend\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1149.207194764,
+      "id": "chatcmpl-tool-96a4c53084d6b6cc",
+      "args": {
+        "filepath": "fastapi/staticfiles.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1155.017212205,
+      "id": "chatcmpl-tool-a1aab8b476ffa5e8",
+      "args": {
+        "end_line": 1750,
+        "filepath": "fastapi/routing.py",
+        "start_line": 1723
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1157.078439202,
+      "id": "chatcmpl-tool-8fdab250bcc9e6a5",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1,
+        "end_line": 50
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1159.217703198,
+      "id": "chatcmpl-tool-b630b5ed249b5a62",
+      "args": {
+        "command": "grep -n \"class Router\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1161.702269697,
+      "id": "chatcmpl-tool-af8939eccee88c40",
+      "args": {
+        "command": "grep \"import\" fastapi/routing.py | head -n 20"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1163.750593262,
+      "id": "chatcmpl-tool-93fd0f503b66782c",
+      "args": {
+        "command": "grep \"starlette\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1180.064483352,
+      "id": "chatcmpl-tool-8575a685b5b60e32",
+      "args": {
+        "end_line": 100,
+        "filepath": "fastapi/applications.py",
+        "start_line": 41
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1181.914200543,
+      "id": "chatcmpl-tool-855e15b6e9ed4796",
+      "args": {
+        "command": "grep -n \"def \" fastapi/applications.py | head -n 50"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1186.04454445,
+      "id": "chatcmpl-tool-9ee27422a50a827f",
+      "args": {
+        "command": "grep -n \"def \" fastapi/routing.py | grep -n \"APIRouter\" -A 20"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1205.48850608,
+      "id": "chatcmpl-tool-b8bfae31221ff766",
+      "args": {
+        "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1206.877456597,
+      "id": "chatcmpl-tool-b1a3564429494f51",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1723
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1212.38115286,
+      "id": "chatcmpl-tool-9738040ea7805abe",
+      "args": {
+        "filepath": "fastapi/applications.py",
+        "start_line": 1
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1219.375645164,
+      "id": "chatcmpl-tool-b4ac444c1858f400",
+      "args": {
+        "command": "grep \"from fastapi import FastAPI\" fastapi/staticfiles.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1220.869881139,
+      "id": "chatcmpl-tool-a90f185087aec75b",
+      "args": {
+        "filepath": "fastapi/staticfiles.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1228.753401564,
+      "id": "chatcmpl-tool-a32453a3ef416f34",
+      "args": {
+        "command": "grep -n \"def \" fastapi/routing.py | grep -A 5 \"class APIRouter\" | tail -n 20"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1231.425407321,
+      "id": "chatcmpl-tool-884c6fe4b67aeb2b",
+      "args": {
+        "command": "grep -n \"def \" fastapi/routing.py | grep \"APIRouter\" -B 1 -A 100"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1234.356575377,
+      "id": "chatcmpl-tool-9bd5eb00470fa4a3",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1723
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1236.575975239,
+      "id": "chatcmpl-tool-b500755007121744",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1843
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1261.547351298,
+      "id": "chatcmpl-tool-87a2d7629c2f8e03",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1963
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1264.889687266,
+      "id": "chatcmpl-tool-8cb50869cb06013a",
+      "args": {
+        "command": "grep -n \"def \" fastapi/routing.py | grep -A 20 \"1723\" | head -n 50"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1268.708294582,
+      "id": "chatcmpl-tool-975f9cfcc3484d41",
+      "args": {
+        "command": "grep -n \"def include_router\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1271.069347209,
+      "id": "chatcmpl-tool-91a221b238724e7b",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 2370,
+        "end_line": 2390
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1274.007899166,
+      "id": "chatcmpl-tool-9d18cab745792b41",
+      "args": {
+        "command": "grep -r \"def mount\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1279.889623599,
+      "id": "chatcmpl-tool-a9d3851e86c05ee6",
+      "args": {
+        "filepath": "fastapi/applications.py",
+        "start_line": 1120,
+        "end_line": 1150
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1289.551116161,
+      "id": "chatcmpl-tool-a22a48798055bbec",
+      "args": {
+        "content": "\nfrom fastapi import FastAPI, APIRouter\nfrom fastapi.staticfiles import StaticFiles\nimport os\nimport shutil\n\n# Setup a dummy directory for static files\nSTATIC_DIR = \"test_static\"\nif not os.path.exists(STATIC_DIR):\n    os.makedirs(STATIC_DIR)\nwith open(os.path.join(STATIC_DIR, \"index.html\"), \"w\") as f:\n    f.write(\"Hello World\")\n\napp = FastAPI()\nrouter = APIRouter()\n\nprint(f\"FastAPI has mount: {hasattr(app, 'mount')}\")\nprint(f\"APIRouter has mount: {hasattr(router, 'mount')}\")\n\n# Test mount on app\napp.mount(\"/static\", StaticFiles(directory=STATIC_DIR), name=\"static\")\nprint(\"App mount successful\")\n\n# Test mount on router\nrouter.mount(\"/router-static\", StaticFiles(directory=STATIC_DIR), name=\"router-static\")\nprint(\"Router mount successful\")\n\n# Cleanup\nshutil.rmtree(STATIC_DIR)\n",
+        "filepath": "repro_mount.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 1290.715925475,
+      "id": "chatcmpl-tool-934a1bd327d85df0",
+      "args": {
+        "command": "python3 repro_mount.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1296.597011832,
+      "id": "chatcmpl-tool-96f0990b3e110e72",
+      "args": {
+        "command": "grep \"from fastapi.staticfiles import StaticFiles\" fastapi/applications.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1302.892598661,
+      "id": "chatcmpl-tool-aa70adac51f7cb27",
+      "args": {
+        "end_line": 4694,
+        "filepath": "fastapi/applications.py",
+        "start_line": 4650
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1313.913917504,
+      "id": "chatcmpl-tool-9ed9652433fbc4ba",
+      "args": {
+        "command": "grep -n \"def include_router\" fastapi/applications.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1338.567249746,
+      "id": "chatcmpl-tool-927de7640252b83d",
+      "args": {
+        "command": "grep -n \"def include_router\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1347.524372747,
+      "id": "chatcmpl-tool-88a2d9fcfda28150",
+      "args": {
+        "command": "python3 -c \"from fastapi import FastAPI, APIRouter; app = FastAPI(); router = APIRouter(); print(f'FastAPI has mount: {hasattr(app, \\\"mount\\\")}'); print(f'APIRouter has mount: {hasattr(router, \\\"mount\\\")}')\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1351.21553311,
+      "id": "chatcmpl-tool-a796aedf47754925",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "start_line": 1,
+        "end_line": 100
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1353.273749967,
+      "id": "chatcmpl-tool-86ad29ccd8cf76c2",
+      "args": {
+        "command": "grep -n \"class APIRouter\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1357.938645177,
+      "id": "chatcmpl-tool-a7b5ebc6331ecd1a",
+      "args": {
+        "command": "grep -n \"def mount\" fastapi/routing.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1362.138335676,
+      "id": "chatcmpl-tool-8859f2ec884bf2a8",
+      "args": {
+        "end_line": 1370,
+        "filepath": "fastapi/applications.py",
+        "start_line": 1350
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1365.032631916,
+      "id": "chatcmpl-tool-864cef4627a18f19",
+      "args": {
+        "end_line": 2385,
+        "filepath": "fastapi/routing.py",
+        "start_line": 2370
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1377.2493538,
+      "id": "chatcmpl-tool-a3d7cbc2c445f6e2",
+      "args": {
+        "end_line": 50,
+        "filepath": "fastapi/staticfiles.py",
+        "start_line": 1
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1386.647187571,
+      "id": "chatcmpl-tool-92a206517a36c23d",
+      "args": {
+        "filepath": "fastapi/applications.py",
+        "new_string": "    def frontend(\n        self,\n        path: Annotated[str, Doc(\"The path to mount the frontend assets at.\")],\n        directory: Annotated[str, Doc(\"The directory containing the frontend assets.\")],\n        name: Annotated[str | None, Doc(\"The name of the mount.\")] = \"static\",\n    ) -> None:\n        \\\"\\\"\\\"\n        Mount a static directory to serve frontend assets.\n\n        This is a convenience wrapper around `mount()` using `StaticFiles`.\n        \\\"\\\"\\\"\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, StaticFiles(directory=directory), name=name)\n\n    def include_router(\n",
+        "old_string": "    def include_router("
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 1391.677355466,
+      "id": "chatcmpl-tool-8cef939694bae6b2",
+      "args": {
+        "end_line": 1365,
+        "filepath": "fastapi/applications.py",
+        "start_line": 1355
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1393.341280023,
+      "id": "chatcmpl-tool-a52cc3cb1b13841e",
+      "args": {
+        "end_line": 1375,
+        "filepath": "fastapi/applications.py",
+        "start_line": 1365
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1396.325675856,
+      "id": "chatcmpl-tool-a4a00dfde45f7043",
+      "args": {
+        "end_line": 1380,
+        "filepath": "fastapi/applications.py",
+        "start_line": 1375
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1403.171885167,
+      "id": "chatcmpl-tool-855d4d47467c041f",
+      "args": {
+        "filepath": "fastapi/routing.py",
+        "new_string": "    def frontend(\n        self,\n        path: Annotated[str, Doc(\"The path to mount the frontend assets at.\")],\n        directory: Annotated[str, Doc(\"The directory containing the frontend assets.\")],\n        name: Annotated[str | None, Doc(\"The name of the mount.\")] = \"static\",\n    ) -> None:\n        \\\"\\\"\\\"\n        Mount a static directory to serve frontend assets.\n\n        This is a convenience wrapper around `mount()` using `StaticFiles`.\n        \\\"\\\"\\\"\n        from fastapi.staticfiles import StaticFiles\n        self.mount(path, StaticFiles(directory=directory), name=name)\n\n    def include_router(\n",
+        "old_string": "    def include_router("
+      },
+      "name": "edit_file"
+    }
+  ],
+  "patch_bytes": 2881,
+  "phase2": {
+    "exit_code": 2,
+    "stdout": "\n==================================== ERRORS ====================================\n___________________ ERROR collecting tests/test_frontend.py ____________________\n/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/test_frontend.py:8: in <module>\n    from fastapi import APIRouter, FastAPI, HTTPException, Request, WebSocket\nfastapi/__init__.py:7: in <module>\n    from .applications import FastAPI as FastAPI\nE     File \"/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/workspace/fastapi/applications.py\", line 1367\nE       \\\"\\\"\\\"\nE        ^\nE   SyntaxError: unexpected character after line continuation character\n- generated xml file: /kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/tmp/_swegemma_junit_cb1c427656c0.xml -\n=========================== short test summary info ============================\nERROR tests/test_frontend.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.35s\n",
+    "stderr": "",
+    "duration_seconds": 1.5160331199999746,
+    "source": "official_sandbox_exec_return"
+  },
+  "raw_fields_preserved": true,
+  "structured_verifier": {
+    "category": "collection_error",
+    "categories": [
+      "collection_error"
+    ],
+    "counts": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0
+    },
+    "summary": {
+      "error": 1
+    },
+    "events": [
+      {
+        "classname": "",
+        "name": "tests.test_frontend",
+        "message": "collection failure",
+        "details": "/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule\n    mod = import_path(\n/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path\n    importlib.import_module(module_name)\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n<frozen importlib._bootstrap>:1387: in _gcd_import\n    ???\n<frozen importlib._bootstrap>:1360: in _find_and_load\n    ???\n<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked\n    ???\n<frozen importlib._bootstrap>:935: in _load_unlocked\n    ???\n/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module\n    exec(co, module.__dict__)\ntests/test_frontend.py:8: in <module>\n    from fastapi import APIRouter, FastAPI, HTTPException, Request, WebSocket\nfastapi/__init__.py:7: in <module>\n    from .applications import FastAPI as FastAPI\nE     File \"/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/workspace/fastapi/applications.py\", line 1367\nE       \\\"\\\"\\\"\nE        ^\nE   SyntaxError: unexpected character after line continuation character",
+        "type": "",
+        "category": "collection_error"
+      }
+    ],
+    "attribution": "agent_regression",
+    "infrastructure_stop": false,
+    "confirmed_failure": true,
+    "reason": "Error event does not by itself prove external environment",
+    "evidence_level": "original_JUnit",
+    "exit_code": 2,
+    "historical_only": false,
+    "causal_evidence": {
+      "exception": "SyntaxError",
+      "root_file": "fastapi/applications.py",
+      "baseline_sha256": "5f6555ae17f7b9fa24c35b24dbf67272ecced669f71b1179a9e22263d13e9338",
+      "executed_sha256": "50d3dea0cb360d3d0aebff1e099ecef6c03581c517b20e1c2f81dc2e57f31404",
+      "basis": "Real JUnit error traceback and changed production bytes"
+    }
+  },
+  "http_lifecycle": {
+    "passed": true,
+    "reasons": [],
+    "requests": 51,
+    "responses": 50,
+    "rows": [
+      {
+        "request_id": "c15ce1b684de4950b0b0d5fa92203c97",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2811,
+          "total_tokens": 3057,
+          "completion_tokens": 246,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "dff9a904bd354211922d59b0d7b2c681",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3103,
+          "total_tokens": 3151,
+          "completion_tokens": 48,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "993466c1db634d889016dca2a159107b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3201,
+          "total_tokens": 3417,
+          "completion_tokens": 216,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "85778dd9256a409cb30471289bb6faab",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3916,
+          "total_tokens": 3985,
+          "completion_tokens": 69,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b4e2c9009f674db4a62beb494d2b2fee",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4037,
+          "total_tokens": 4338,
+          "completion_tokens": 301,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5ec3bcf5e8224175b6fab704409e1860",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4919,
+          "total_tokens": 5016,
+          "completion_tokens": 97,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a263f2c783144c6fa704c0ad3bcea045",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5095,
+          "total_tokens": 5303,
+          "completion_tokens": 208,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "67d5f7af314c4c01bb369f229c0d11a9",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5616,
+          "total_tokens": 5679,
+          "completion_tokens": 63,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "274c79febb4d45039871173492d8a7ed",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6031,
+          "total_tokens": 6096,
+          "completion_tokens": 65,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a9a81273198243a69627d37b5571d383",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6148,
+          "total_tokens": 6232,
+          "completion_tokens": 84,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0e90cdb2fd0846dfa7795f74f3e796da",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6404,
+          "total_tokens": 6469,
+          "completion_tokens": 65,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6a38b236b1d04c86b5931a0616f48e80",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7028,
+          "total_tokens": 7601,
+          "completion_tokens": 573,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7841a808966b4eb5a24629dd97eb1ef3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8099,
+          "total_tokens": 8148,
+          "completion_tokens": 49,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5365373cbc984b8aab26d02c6893ddbd",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8875,
+          "total_tokens": 8999,
+          "completion_tokens": 124,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b043b9dcf78d4067b31b7892c6409bf3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3327,
+          "total_tokens": 3899,
+          "completion_tokens": 572,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5c298eb45ebf41ea9b65d9e3228f5084",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3284,
+          "total_tokens": 3349,
+          "completion_tokens": 65,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a8eec84a401e4fc58f692913015109c5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3400,
+          "total_tokens": 3446,
+          "completion_tokens": 46,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c96f38f6a9e24fd8bb8e15f3ee9fd3de",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4546,
+          "total_tokens": 4719,
+          "completion_tokens": 173,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4b0903f2b26f4eb5a40aa4ebe179ae4c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5742,
+          "total_tokens": 5969,
+          "completion_tokens": 227,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "10d1038eb92b4cf3a7c5e1298d8eed56",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6021,
+          "total_tokens": 6069,
+          "completion_tokens": 48,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e82730c2f61e4e04bb93abe0314044ba",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6148,
+          "total_tokens": 6429,
+          "completion_tokens": 281,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "8d925af6adc9408d95db0e38af616bd4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6463,
+          "total_tokens": 6554,
+          "completion_tokens": 91,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1cb9bf10c5b4479d9d24d4714501a120",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7301,
+          "total_tokens": 7383,
+          "completion_tokens": 82,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "3b08845ff90646d0b570488b2048f623",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8483,
+          "total_tokens": 8530,
+          "completion_tokens": 47,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "82d851a0780b4818947d36e557501632",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1835,
+          "total_tokens": 2629,
+          "completion_tokens": 794,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "cfa09ed3d9d44208837277a582d72efd",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4248,
+          "total_tokens": 4295,
+          "completion_tokens": 47,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f3b76d71a28a4c3fab7547538c4c9a2c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5423,
+          "total_tokens": 5514,
+          "completion_tokens": 91,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "9e92948bfce3483c93551c17e68db810",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5549,
+          "total_tokens": 5683,
+          "completion_tokens": 134,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "25dd34d3f75441f2805c076e880e56ff",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5730,
+          "total_tokens": 5810,
+          "completion_tokens": 80,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6861f4d7d5754c6c9adcad80e1e1eaea",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6081,
+          "total_tokens": 6177,
+          "completion_tokens": 96,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ddb0438c9eb64935ba9ed8fad7b71fc5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6233,
+          "total_tokens": 6435,
+          "completion_tokens": 202,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "036831039f254f4f9ea489acf70abf1a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6889,
+          "total_tokens": 7224,
+          "completion_tokens": 335,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "dda5e41fa0334202b0deae7f0cf07572",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7261,
+          "total_tokens": 7291,
+          "completion_tokens": 30,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "62c02d756ec7451ea69693bd0c055e65",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7353,
+          "total_tokens": 7528,
+          "completion_tokens": 175,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "922c0d3f8fe54033b046754abd922804",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7580,
+          "total_tokens": 7801,
+          "completion_tokens": 221,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "432038eae6ba4416b1c3821d91333f5e",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8215,
+          "total_tokens": 8593,
+          "completion_tokens": 378,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c3b11dba88e5412a91406a483f9cd782",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1994,
+          "total_tokens": 2747,
+          "completion_tokens": 753,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "734d7f01b19149829ffe906117ee11a8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2984,
+          "total_tokens": 3087,
+          "completion_tokens": 103,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a0132a1b4177414fa9397a41de1ab005",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3134,
+          "total_tokens": 3466,
+          "completion_tokens": 332,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c47dc6c67c6c4d83b2e965c4d7d0b65f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3518,
+          "total_tokens": 3619,
+          "completion_tokens": 101,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e10d02a5dfc3463eb4ea67133723019a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4377,
+          "total_tokens": 4430,
+          "completion_tokens": 53,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6c61d2bb36794065b7b5162390e26a27",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4480,
+          "total_tokens": 4648,
+          "completion_tokens": 168,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d09110bcf58a422b8bd40b49561cde39",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4700,
+          "total_tokens": 4850,
+          "completion_tokens": 150,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d41c056bee3b4f6b9be9494ad52da811",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5095,
+          "total_tokens": 5191,
+          "completion_tokens": 96,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ec3f67edba9f46f59f82641e58a266db",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5427,
+          "total_tokens": 5866,
+          "completion_tokens": 439,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ab7c57cbd869460fbee1a73ca3c0fab7",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5945,
+          "total_tokens": 6283,
+          "completion_tokens": 338,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "9eafde4945b243509127b5a06ec3fa35",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6602,
+          "total_tokens": 6768,
+          "completion_tokens": 166,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "2a81343185ee45d281f4efe8dc94e8d4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6940,
+          "total_tokens": 6991,
+          "completion_tokens": 51,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b692633dd830471ab7bd45d68eba2411",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7178,
+          "total_tokens": 7276,
+          "completion_tokens": 98,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "59e389ad1e2746c3b805ee88ab90abb7",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7415,
+          "total_tokens": 7654,
+          "completion_tokens": 239,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "83c3628d97294342812cc0b29fc6b62f",
+        "terminal_status": "cancelled",
+        "explained_cancellation": true,
+        "usage": null,
+        "usage_complete": false
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 272184,
+      "completion_tokens": 9510,
+      "total_tokens": 281694
+    },
+    "usage_complete": false,
+    "partial_token_usage": true,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "deadline_proof": {
+    "official_agent_deadline": true,
+    "cleanup_verified": true,
+    "official_error": "Agent exceeded session timeout (5.0 min)",
+    "registered_agent_seconds": 300,
+    "observed_agent_seconds": 300.01403737300006,
+    "cutoff_monotonic": 1418.377601866
+  },
+  "usage_complete": false,
+  "partial_token_usage": true,
+  "server_idle": {
+    "passed": true,
+    "consecutive_idle_snapshots": 3,
+    "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+  }
+}

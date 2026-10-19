@@ -1,0 +1,83 @@
+{
+  "reproduced_on_CPU": true,
+  "frozen_predicate": "\\bERROR\\b|\\b\\d+ errors?\\b|INTERNALERROR|ModuleNotFoundError",
+  "predicate_fires": true,
+  "matches": [
+    {
+      "line": 3,
+      "text": "_ test_decode_issue_2688[\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n-Found 4 errors in 2 files (checked 18 source files)] _",
+      "matched": "4 errors"
+    },
+    {
+      "line": 3,
+      "text": "_ test_decode_issue_2688[\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n-Found 4 errors in 2 files (checked 18 source files)] _",
+      "matched": "4 errors"
+    },
+    {
+      "line": 5,
+      "text": "ansi_bytes = b'\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n'",
+      "matched": "4 errors"
+    },
+    {
+      "line": 6,
+      "text": "expected_text = 'Found 4 errors in 2 files (checked 18 source files)'",
+      "matched": "4 errors"
+    },
+    {
+      "line": 13,
+      "text": "                b\"\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 14,
+      "text": "                \"Found 4 errors in 2 files (checked 18 source files)\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 44,
+      "text": "                b\"\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 45,
+      "text": "                \"Found 4 errors in 2 files (checked 18 source files)\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 74,
+      "text": "                b\"\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 75,
+      "text": "                \"Found 4 errors in 2 files (checked 18 source files)\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 104,
+      "text": "                b\"\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 105,
+      "text": "                \"Found 4 errors in 2 files (checked 18 source files)\",",
+      "matched": "4 errors"
+    },
+    {
+      "line": 126,
+      "text": "FAILED tests/test_ansi.py::test_decode_issue_2688[\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n-Found 4 errors in 2 files (checked 18 source files)]",
+      "matched": "4 errors"
+    },
+    {
+      "line": 126,
+      "text": "FAILED tests/test_ansi.py::test_decode_issue_2688[\\x1b[31mFound 4 errors in 2 files (checked 18 source files)\\x1b(B\\x1b[m\\n-Found 4 errors in 2 files (checked 18 source files)]",
+      "matched": "4 errors"
+    }
+  ],
+  "actual_summary": "4 failed, 19 passed in 0.11s",
+  "setup_or_collection_error_sections": false,
+  "native_test_exit_code": 1,
+  "result": "False positive: test payload contains Found 4 errors; native result is assertion failure",
+  "frozen_STOP_or_runtime_modified": false,
+  "second_arm_restarted": false
+}

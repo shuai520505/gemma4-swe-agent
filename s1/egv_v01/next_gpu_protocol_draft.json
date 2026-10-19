@@ -1,0 +1,1325 @@
+{
+  "status": "DRAFT_NOT_AUTHORIZED_OR_EXECUTED",
+  "proposed_experiment_id": "s1-egv-mechanism-smoke-01",
+  "parent_commit": "f9e9e61276a375e886b57839879e9490144d01a3",
+  "selection_rule": {
+    "status": "declared_before_selection",
+    "unit": "one public task with two independent fresh arms",
+    "universe": "all supplied public task metadata; no reference patch/hints inspected",
+    "exclude": "any task ID present in parent-tracked textual files before this study; conservative metadata mentions count as exposed",
+    "ordering": "ascending SHA256 of UTF8(s1-egv-v01-fresh-01: + instance_id), lexical ID tiebreak",
+    "replacement": "none in same proposed study; stop if selected snapshot fails later baseline admission",
+    "order_rule": "EGV first if lowest bit of SHA256(s1-egv-order-v01: + selected ID) is 1; otherwise Control first",
+    "timing": "select only after CPU acceptance, before future task outcome/Issue inspection",
+    "GPU_authorization": false
+  },
+  "selection_rule_sha256": "6761bb2d5cfa7a82fc3ef446990398ac67d1099c155e762552c001e1f4ac69f6",
+  "selection": {
+    "instance_id": "fastapi_15800",
+    "repo": "fastapi/fastapi",
+    "base_commit": "f1d750fddad90e2faad6c3cc5c85c7687b787e89",
+    "issue_sha256": "85c676765d59e203b9e78c89f06dd4fbf7ed3e469ec298892f08fd3ae12e4a11",
+    "rank": "063d75a222c6edd2c34502c02d4ecbfd7a91d5c606d2e35476686c70f6e57cc8"
+  },
+  "eligible_count": 70,
+  "excluded_ids": [
+    "call_102",
+    "call_105",
+    "call_108",
+    "call_111",
+    "call_114",
+    "call_117",
+    "call_12",
+    "call_120",
+    "call_123",
+    "call_126",
+    "call_129",
+    "call_132",
+    "call_15",
+    "call_18",
+    "call_21",
+    "call_22",
+    "call_24",
+    "call_26",
+    "call_27",
+    "call_29",
+    "call_3",
+    "call_30",
+    "call_32",
+    "call_33",
+    "call_35",
+    "call_36",
+    "call_38",
+    "call_39",
+    "call_40",
+    "call_41",
+    "call_42",
+    "call_43",
+    "call_44",
+    "call_45",
+    "call_46",
+    "call_47",
+    "call_48",
+    "call_49",
+    "call_50",
+    "call_51",
+    "call_52",
+    "call_53",
+    "call_54",
+    "call_56",
+    "call_57",
+    "call_59",
+    "call_6",
+    "call_60",
+    "call_62",
+    "call_63",
+    "call_65",
+    "call_66",
+    "call_68",
+    "call_69",
+    "call_72",
+    "call_75",
+    "call_78",
+    "call_81",
+    "call_84",
+    "call_87",
+    "call_9",
+    "call_90",
+    "call_93",
+    "call_96",
+    "call_99",
+    "fastapi_14258",
+    "fastapi_14349",
+    "fastapi_14361",
+    "fastapi_14794",
+    "fastapi_15589",
+    "fastapi_15661",
+    "httpx_3672",
+    "ipykernel_16",
+    "ipykernel_65",
+    "requests_7309",
+    "requests_7315",
+    "requests_7328",
+    "requests_7427",
+    "rich_2725",
+    "rich_2943",
+    "rich_3006",
+    "rich_3043",
+    "rich_3052",
+    "rich_3061",
+    "rich_3063",
+    "rich_3064",
+    "rich_3067",
+    "rich_3105",
+    "rich_3130",
+    "rich_3180",
+    "rich_3278",
+    "rich_3296",
+    "rich_3454",
+    "rich_3468",
+    "rich_3469",
+    "rich_3470",
+    "rich_3471",
+    "rich_3472",
+    "rich_3480",
+    "rich_3486",
+    "rich_3506",
+    "rich_3518",
+    "rich_3521",
+    "rich_3535",
+    "rich_3675",
+    "rich_3676",
+    "rich_3718",
+    "rich_3772",
+    "rich_3777",
+    "rich_3782",
+    "rich_3882",
+    "rich_3894",
+    "rich_3905",
+    "rich_3930",
+    "rich_3934",
+    "rich_3935",
+    "rich_3938",
+    "rich_3942",
+    "rich_3944",
+    "rich_3953",
+    "rich_4006",
+    "rich_4070",
+    "rich_4075",
+    "rich_4076",
+    "rich_4077",
+    "rich_4079",
+    "test_512",
+    "x86_64"
+  ],
+  "complete_ranking": [
+    {
+      "instance_id": "fastapi_15800",
+      "repo": "fastapi/fastapi",
+      "base_commit": "f1d750fddad90e2faad6c3cc5c85c7687b787e89",
+      "issue_sha256": "85c676765d59e203b9e78c89f06dd4fbf7ed3e469ec298892f08fd3ae12e4a11",
+      "rank": "063d75a222c6edd2c34502c02d4ecbfd7a91d5c606d2e35476686c70f6e57cc8"
+    },
+    {
+      "instance_id": "fastapi_5624",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c6487ed632056e450d844846a1b63be551a3cbc6",
+      "issue_sha256": "a58f8d79e910e4d84b3a4e0eae50deddfc2db24fe1e4194e20c97313450e914e",
+      "rank": "082caa0ce5636b5bdb6ab49285b491135bb16b21e993bad2c94c20e3bb7930e0"
+    },
+    {
+      "instance_id": "fastapi_13713",
+      "repo": "fastapi/fastapi",
+      "base_commit": "5c1f87c56387a96dbdddb2b1c4ec9ba48dcebc4e",
+      "issue_sha256": "f03866dd735b8707ce601ce1a4b1de5457fdb7ff570b62de1628a68f4539f1c6",
+      "rank": "0c0946e7784044be05a0d3e1ab69b508c8b8b80a6a8375fb52f58755ca61c61d"
+    },
+    {
+      "instance_id": "fastapi_14786",
+      "repo": "fastapi/fastapi",
+      "base_commit": "eacbce24c9d299c6a28110d9fc8ac50f53cddb08",
+      "issue_sha256": "6df978503e68962de32f771a6372cfe970611b0e287609955484a043001f4b80",
+      "rank": "11933853f8687e140f217640f527de4f441149b22074e467e770f52005d7aa7f"
+    },
+    {
+      "instance_id": "fastapi_14266",
+      "repo": "fastapi/fastapi",
+      "base_commit": "2cf04ee30db9df2db04a5b1e0d2c625dfbf1a211",
+      "issue_sha256": "13b58b9f5058c1effbfc894eed03d0afc5f610a3fc6dd070d73fb4456dec01e2",
+      "rank": "129f1124249008cb029abefd5228f907225d3aaa1cb8360c4bca26bd5286acac"
+    },
+    {
+      "instance_id": "requests_6757",
+      "repo": "psf/requests",
+      "base_commit": "0e322af87745eff34caffe4df68456ebc20d9068",
+      "issue_sha256": "77026c2d101f038577718e0fd53eeed23f56dd8dc7fbf860b334e3e98b4fa653",
+      "rank": "161350300a96f4fd561074be3f8ea6470a1a3f73fc0779bd000eb9333c8a00ff"
+    },
+    {
+      "instance_id": "fastapi_14492",
+      "repo": "fastapi/fastapi",
+      "base_commit": "a456e92a21d5b94a67d6d0fd070218df09444443",
+      "issue_sha256": "1f56d9154676b921b625c9dbeb7a258e4d904572d559dc3c90f726122c64cc90",
+      "rank": "19be6f5b047603ffd805069f15028734e5fc092d0b5f8682e3762db7b6ba1d73"
+    },
+    {
+      "instance_id": "fastapi_5077",
+      "repo": "fastapi/fastapi",
+      "base_commit": "930b27e5fa32ce150ddcea61f0c913435ae71c83",
+      "issue_sha256": "07fa3ca85eb583233bf5bb64c84480645d3c8b27afcd105cbe679a9f204d0a7e",
+      "rank": "253ef574829e7d3948bb443660620997ecd4e268edf016e011cded88ca66ae20"
+    },
+    {
+      "instance_id": "fastapi_14583",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6513d4daa16a536d17743de6a292f49bd06388a4",
+      "issue_sha256": "77efb35fdc47e88e9d6c3e23860c5d2458da72ec01a50f05024f58cdfa58fb5c",
+      "rank": "2845c30d6971fb46b0e49bc6e8320ee3108cb3d0a0b00392b78d62d63e2275cb"
+    },
+    {
+      "instance_id": "fastapi_14099",
+      "repo": "fastapi/fastapi",
+      "base_commit": "861b22c40897a03d2d7e5926923d962121ed5e2e",
+      "issue_sha256": "8b2aed5ea65819509ef1652310c94c4d04ec1cf32f9a4971aaa5f65685dd6846",
+      "rank": "2921d75f3e98e8b17de8c6e1da4d657e3cde200c92ce8085dac3e09334b31e68"
+    },
+    {
+      "instance_id": "fastapi_9425",
+      "repo": "fastapi/fastapi",
+      "base_commit": "0bdc3ca3732e3742e094bea2b320e9774659ac38",
+      "issue_sha256": "d70b96e8488a4d67f5c08de9d0319e8db1657912720fa029c24ad74ab087d673",
+      "rank": "2b763946f426ebf803716a659569632dae7a5240dba7a6ee7a770fd4978f6aa2"
+    },
+    {
+      "instance_id": "fastapi_14485",
+      "repo": "fastapi/fastapi",
+      "base_commit": "60699f306b67dc1f4918ebea17f04d7a48cda645",
+      "issue_sha256": "8259186a7b07d7fc2131e42f59d0144a097ce33a75273491a277153be489a0b3",
+      "rank": "32e50c72f5d4481ab492428a2a9420eddb956f81fc0f7e0c317f110b40328f6b"
+    },
+    {
+      "instance_id": "fastapi_13207",
+      "repo": "fastapi/fastapi",
+      "base_commit": "5126e099bdda51f261fd5a101b5f914991d31897",
+      "issue_sha256": "546aee84525162a2347a4592b386b424bec7225ab34ae9591a0e83928dcac3a6",
+      "rank": "336f990b76c930d717ac6862432d887bfe9c2bd8924c7aa078c7794bfd0824cb"
+    },
+    {
+      "instance_id": "fastapi_15030",
+      "repo": "fastapi/fastapi",
+      "base_commit": "48d58ae3b6ef4ded5a4794618c00345667256d98",
+      "issue_sha256": "988a8d178da78eeaaf056ee02be623b7dd29d76c62f2552309eeda65561915ec",
+      "rank": "3529e11a8b0012b8f9f31bfea54d9fc1c56d1595e913fcf72e9f619c881c509b"
+    },
+    {
+      "instance_id": "fastapi_15280",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6ee87478d821171139264cd9cd17cbd2232934ce",
+      "issue_sha256": "f8f0fefc29d8a2a0aeca4fd8d66351e3cc6ca9494c199259e3723f791f61efba",
+      "rank": "3972fa21c1a37caa3b477198dbdfead43ba365fc5e55504b75c8c5349bed9895"
+    },
+    {
+      "instance_id": "fastapi_14605",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6b53786f626db95a42fd0f66afd360bab161f4b1",
+      "issue_sha256": "5a5c8f083ec8370091efcd55028c4869bfee6b4b999ae836ba490bb4e8eb026c",
+      "rank": "3ebbd187fd1bd506efc14be720384c80679062435813afd23e0cd1b2768306da"
+    },
+    {
+      "instance_id": "requests_7433",
+      "repo": "psf/requests",
+      "base_commit": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+      "issue_sha256": "2753a02000cf17c5258bc23b9a91257403e57b34dcd934adbe3956b0523444db",
+      "rank": "407443ce60f73c1d9db8dfcdc60fd75cf0f16d75c68636d5562ec6d9ab0d3a4b"
+    },
+    {
+      "instance_id": "fastapi_13786",
+      "repo": "fastapi/fastapi",
+      "base_commit": "e2354a0a063f2fcb890ec568f1a98e136a39fd25",
+      "issue_sha256": "cf006d5816e4d773abff38f81cee767da2c1991de1f887aac0a865493a457df8",
+      "rank": "46a3540f84be5a99a39e3b6122bafe4d7ca78ab2d62f4cf661678dcdbc186706"
+    },
+    {
+      "instance_id": "fastapi_15785",
+      "repo": "fastapi/fastapi",
+      "base_commit": "202b2d2f5f331db9102b5dbcef071a9e09bed10e",
+      "issue_sha256": "1e04f744c7f3d7ab99ba2cdec791eb498da6d7b6c0a99fa5b152d8bb037037f7",
+      "rank": "4ce0dfbdfed8bbc11c1cd950acd418849b41462dd4b130b508cf7b78f07c5625"
+    },
+    {
+      "instance_id": "fastapi_14301",
+      "repo": "fastapi/fastapi",
+      "base_commit": "972a967d5d3fa24d450637c36c6b7ad1f1d8c1b6",
+      "issue_sha256": "9e0561a96bc1d0f71ff75b7291c8ab1733155c3dfc47e4fe45ee4924d30efdd2",
+      "rank": "51abc7577c58f5ea6ca79d53c2f1ee5c8dd800ab8c8a3bcdcd137f159971729c"
+    },
+    {
+      "instance_id": "fastapi_14306",
+      "repo": "fastapi/fastapi",
+      "base_commit": "08b09e5236e315b6f10265ed229f130d4befb4ea",
+      "issue_sha256": "9367475725d871081fa67bd15290ba3aad1e750386e0b53d5602f87ef4974275",
+      "rank": "53c93d49189adead662cfce8e8ad46242664da8b4f6bb1184020a7cc6cdf05d3"
+    },
+    {
+      "instance_id": "requests_6589",
+      "repo": "psf/requests",
+      "base_commit": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+      "issue_sha256": "60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04",
+      "rank": "5411d071c932e22e46b8250899797c43140a0f6a6db7be45f5058c4f6085d844"
+    },
+    {
+      "instance_id": "fastapi_14609",
+      "repo": "fastapi/fastapi",
+      "base_commit": "1b3bea8b6be2220cc1544653ea785d2134fcb35b",
+      "issue_sha256": "8c071b0dd8203eafd9832b933d3b2e5daf55bd60559028abc612180ff75ef815",
+      "rank": "57b6b56c2ab2579f5eb208d8537d07c54b5b5b9f5d9398a9a9c08a7945b8946d"
+    },
+    {
+      "instance_id": "fastapi_9555",
+      "repo": "fastapi/fastapi",
+      "base_commit": "4976568fc7cb7501729d8f84d946cde1e91299cd",
+      "issue_sha256": "eeffbd0ab7a4ce245c9743cdf237b0eb5f3a8ef25c35f7f16a2b1aac7f7fb835",
+      "rank": "5e9294cf6475e87483e9a88dc42f3535f1337b9d5b23b79fe3b6a23ae73d6b6a"
+    },
+    {
+      "instance_id": "fastapi_14246",
+      "repo": "fastapi/fastapi",
+      "base_commit": "7132a690461c2367f22556eb87c2b5eb7d9cfb45",
+      "issue_sha256": "b37958a355083366a701d129df61e636e1dcb088e19200ba7d4cd1840e1fae5e",
+      "rank": "5fdba9ff3e6d76ced02518786a4cb8a076994a1f52f1497d21efb87743ecf409"
+    },
+    {
+      "instance_id": "fastapi_14360",
+      "repo": "fastapi/fastapi",
+      "base_commit": "eead41bf4cf8587b4d86091dd3eabbb85796e717",
+      "issue_sha256": "7e84d7fff1a642af47fe6e9846c9b6da22d437110eb0cd4d4e401d8f8b0ef63b",
+      "rank": "62adc56576b181da796c8c032b615eb4ba902e136400017ba990e3e409f0ad86"
+    },
+    {
+      "instance_id": "fastapi_13537",
+      "repo": "fastapi/fastapi",
+      "base_commit": "3b4b5ab8c819dce27fbaf0aa0a9c74b7f3255ec0",
+      "issue_sha256": "d1fdccf2ed7b7e54d9c814c808ad41b6f9951ee7205ccba25d3eed72e977a15d",
+      "rank": "65658bb795e50fd345343586a3336889116a6d68a254832426931f9d88de8391"
+    },
+    {
+      "instance_id": "requests_7205",
+      "repo": "psf/requests",
+      "base_commit": "1b40fdd004bfc8ba5301bcf8a6908264e9b6b877",
+      "issue_sha256": "ec4dd468be7affa56976ba0ca497797b620fbe6a04b2e9e709cf18f958543666",
+      "rank": "66654834d355c5a08be8ed547d9873f9f326d1f32515c495ea47d52adba4758c"
+    },
+    {
+      "instance_id": "fastapi_14077",
+      "repo": "fastapi/fastapi",
+      "base_commit": "16d75d90eb96976a57b94cc24e4018859cd54c4d",
+      "issue_sha256": "d0fd1a8c5e99e28c621f6d032842b81819f6499b98946431a30f60dfc653b97b",
+      "rank": "67197cac22a3af602b2c17f805feec5d9293e07de459a70d484a51534ae8ab42"
+    },
+    {
+      "instance_id": "fastapi_14262",
+      "repo": "fastapi/fastapi",
+      "base_commit": "425a4c5bb1d1a8e00007e82e5188fc4d30585767",
+      "issue_sha256": "63bfaef6461b9744eaf3a4ff2a1961b752638263ba8bd5c413761f5412255102",
+      "rank": "70e12166b92b04547293ae888b8d3ea77e80e3e678b07f9a73ba3cff4e5634e5"
+    },
+    {
+      "instance_id": "requests_7502",
+      "repo": "psf/requests",
+      "base_commit": "661970d171d9c3e12e4c789c4768db647d8c4da0",
+      "issue_sha256": "8bef3ddbbc42cb6ab045879228b55ce25187ea4507d047f92bd1e814d2bedca4",
+      "rank": "7639ddc28b2cb7512139d7d22d95a03c0d4579cba9c95c3d5fe367fe9f05a0f7"
+    },
+    {
+      "instance_id": "fastapi_14297",
+      "repo": "fastapi/fastapi",
+      "base_commit": "3c54a8f07b70cdd40e3d81ea319e9fcccd2481d2",
+      "issue_sha256": "55c911d665e9b00a79f5db7c5a1bb75ded6307f7719b061ef0799bacd0b6fdd5",
+      "rank": "77b15a5df2d0b6feb8a4008ad479717da7056f4ce35bc71cb36ca3bd3e2c29c2"
+    },
+    {
+      "instance_id": "fastapi_12942",
+      "repo": "fastapi/fastapi",
+      "base_commit": "27c0f7e75fc0ce26ca75295d455eb36f0ca033d3",
+      "issue_sha256": "96145ac0590e35b3548c08e6d8340ee8109dde73199f27270cde2515f941d17d",
+      "rank": "7861348a060da0f1d9108ed3db8653c74a8aed89e3efbf58b8b4c7f0e53f3091"
+    },
+    {
+      "instance_id": "fastapi_14479",
+      "repo": "fastapi/fastapi",
+      "base_commit": "2b212ddd7604891d42e2ffbafe764c334230bdb7",
+      "issue_sha256": "cd0a15ee794aca5ea3729aabe50a2e5e8e6a82265ac0f306b060ce2f15bb5758",
+      "rank": "7e012cc124d7f1194c3bdfd0d5f302fc2c714732a39e12251eacdfc88b4b1002"
+    },
+    {
+      "instance_id": "fastapi_15588",
+      "repo": "fastapi/fastapi",
+      "base_commit": "cb83b83dcf78eab4ea17d504db5abcda705fbdc4",
+      "issue_sha256": "b6d5cbc129d25d270191bbe0c24d49c0c236ceba73c311b118a80a7e930cd0b3",
+      "rank": "80a9f025bea876f898f0e40120554f113ecf15d165ee508f183ec3d4f9b71a9e"
+    },
+    {
+      "instance_id": "fastapi_14430",
+      "repo": "fastapi/fastapi",
+      "base_commit": "cff2236dacb7aedcaf2d2de0873cfbc9bb2b897a",
+      "issue_sha256": "85be4cb8c18139e60c7c49de4d0ec7d98a5e4f50c17e165b34f22ecacb0de830",
+      "rank": "8424871f4b9c8ba6b8b134a2913eb9650c92b5c676bfc082ee74efd0cdd3edcc"
+    },
+    {
+      "instance_id": "fastapi_14419",
+      "repo": "fastapi/fastapi",
+      "base_commit": "63d7a2b9978258d13dfc22664e60fc2110d30e20",
+      "issue_sha256": "8b69a4b356095bb894dd9ec25c34c62a0f5f90e2d268268aa8379897a5e26403",
+      "rank": "88e44efa4901ace96f1ca96d4e233134c8f15d560aae30952a4ec87b1aa2aa44"
+    },
+    {
+      "instance_id": "fastapi_14962",
+      "repo": "fastapi/fastapi",
+      "base_commit": "1e78a36b7310003f0ff634627d8a7bc53c6ccdee",
+      "issue_sha256": "403a87550df11e5a6fac2912129ea42fade6e9b99a8757a3220c901320861f94",
+      "rank": "8e8d5d9710e3dbae4a64db023d05c0a0bca879326e37a21456f6aefa11b858a9"
+    },
+    {
+      "instance_id": "fastapi_14459",
+      "repo": "fastapi/fastapi",
+      "base_commit": "eb1d50479ba0ac873e4ffa08a824b1d822ca3a17",
+      "issue_sha256": "204aee6b1a8978fc1b0ce5777b3b116c45cea82d4b6822c5667724ccb6d62960",
+      "rank": "91d2c7e92ec07c63511e159cbf4773cc77e221cf89c906bed8f27ccc970e382c"
+    },
+    {
+      "instance_id": "fastapi_14791",
+      "repo": "fastapi/fastapi",
+      "base_commit": "08924400c2c75533685148b029defcf6913f1def",
+      "issue_sha256": "2b7e64ee08d830c1c5cff11341259e664426f37c1f6bc82aa8d1353cef2cafa8",
+      "rank": "9495ba09165550b8cefe6013d97d200b0b83a052e0ea5d9d28ca3873470bcbc3"
+    },
+    {
+      "instance_id": "requests_6629",
+      "repo": "psf/requests",
+      "base_commit": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+      "issue_sha256": "aa205ed8a7fe5451356f5e3f54bc5e773aeb5f637d0d4157f78a8c58354080b1",
+      "rank": "9581f8c2df3c4e19b91f80628b067d58674da1968c71a83bc488cbe079498672"
+    },
+    {
+      "instance_id": "fastapi_14964",
+      "repo": "fastapi/fastapi",
+      "base_commit": "bc06e4296d588f39f38c7ac2fc96d3913c565962",
+      "issue_sha256": "5ea0e133c3874a9a5ef72600954e8c5c20db6c93259d3397ba42396eb4c5e88c",
+      "rank": "9dde5ab399bbab5a2fe51a8ee6d8308cfa95ae7c3e4ae1ce37c75ed97eaac2f7"
+    },
+    {
+      "instance_id": "requests_6644",
+      "repo": "psf/requests",
+      "base_commit": "382fc2c0c6c0ef0874bc65bc1175f97c073e5086",
+      "issue_sha256": "bbc61379a6d293c7deb71f215eba9dcfba76673b8432b43859ff17a4800112b3",
+      "rank": "a1a7c85cc89fb2eb218a55d39d0984e9359debd6ec7d028fc7b3b51b34735f29"
+    },
+    {
+      "instance_id": "fastapi_14372",
+      "repo": "fastapi/fastapi",
+      "base_commit": "566e3157a5517784c741dbf36e39687af326fe90",
+      "issue_sha256": "9998040438eb43155362fa0eca746dda802e359b421aeed05e8e41d100181924",
+      "rank": "a353fe07e8fe4c8111d72b58b9dea929f7013527032daafc8aaa831db4262f43"
+    },
+    {
+      "instance_id": "fastapi_13920",
+      "repo": "fastapi/fastapi",
+      "base_commit": "0dd42b746e17d33a74ea267a62eace9ccdccf345",
+      "issue_sha256": "0f8ceaaa05488cf58be29de5f297311f705fd5cce34123f950ba724d8f43ee03",
+      "rank": "a3ab6702de04684664c1bf97e753e69a1aa81bd9bd221954e6b79d2d3ba9abb0"
+    },
+    {
+      "instance_id": "fastapi_15023",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c0836dc1b7f4ba91e9563c8c4ccd0ebe655bc914",
+      "issue_sha256": "aecf86c47e2ea04e00dae98cac021e9f9bc08bfa7e3153a156753ce0cec6255d",
+      "rank": "a81aa258958238992150d1aa276198583b1ea9ddf8da76ea165b614f95af6d38"
+    },
+    {
+      "instance_id": "fastapi_14512",
+      "repo": "fastapi/fastapi",
+      "base_commit": "1fcec88ad2df4541b6a81c4786c4d039dc745e1e",
+      "issue_sha256": "33c782727b81f5dfe8d4c099c3ab1a64df42761ce909a7f93203c4da792dcb19",
+      "rank": "ac3fbc6328fd20eed33d70cfe097efdfa2e41f35d99eea8861eb98a068a2dad5"
+    },
+    {
+      "instance_id": "fastapi_14616",
+      "repo": "fastapi/fastapi",
+      "base_commit": "54f8aeeb9a15e4d5a12401ec5549840966df0087",
+      "issue_sha256": "4a354dba07e3a1f80dec14d2a4385b3a8aa436edd9bb4ba7eb8c0a0d4379da41",
+      "rank": "adc3293431c48360caf4071377c1437ef33800cfd20c98991a7a344682e10092"
+    },
+    {
+      "instance_id": "requests_6592",
+      "repo": "psf/requests",
+      "base_commit": "0b4d494192de489701d3a2e32acef8fb5d3f042e",
+      "issue_sha256": "19eac23b976cae55ad6f2ef09e7a474501c52d53845893e05201cae9d297ad98",
+      "rank": "b0f5987badeea02a09ff55e02b06add37ba064657465cfc3e773e0e986723b20"
+    },
+    {
+      "instance_id": "fastapi_14356",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6cf40df24d1d199fd25d034fc87fcae284fc23a2",
+      "issue_sha256": "41520e2b3c65bfd782b0f36f9ae0b1d4ee39ad5b1e6aaac7e9cc18255db9ed34",
+      "rank": "b21a42238c42e55c7b9f34acff8993cbb7e8004d1b338998f64c4776bd1b91c5"
+    },
+    {
+      "instance_id": "fastapi_11194",
+      "repo": "fastapi/fastapi",
+      "base_commit": "a7f2dbe976bf72703376f0cd04487bfc4a849f83",
+      "issue_sha256": "e7e1f699804253b082c3fdfa77900c9f2e8fb3daeb2c33ce4e1ff6203e647906",
+      "rank": "b259934bcf1cf3dc8d7be4cb92fce82ab56ec6f01347ed29ee65d3dc55de00f7"
+    },
+    {
+      "instance_id": "fastapi_9753",
+      "repo": "fastapi/fastapi",
+      "base_commit": "aee8e78078e8a7f2736d3cab7a1cb7197356951c",
+      "issue_sha256": "044400970a0b83c94dd03cc7a1f7e8f4f4f5260780423eac02ea314ba57c9f78",
+      "rank": "bdb6d61e31d00e9ad515acf8ad7ae65182373f9e7ed0bf6080da38447f724975"
+    },
+    {
+      "instance_id": "fastapi_14986",
+      "repo": "fastapi/fastapi",
+      "base_commit": "2f9c914d440e99fe8b62646b51e4d24c5bcd858b",
+      "issue_sha256": "54e937fb46cc46f8ab4441e0abff9c97a1e670d07bd30dc88ef64525c6e25886",
+      "rank": "c0383503eebf84c1b3ab5797e68e1a10389cdd50a2b30207c3bd6b3ee5e81941"
+    },
+    {
+      "instance_id": "fastapi_14851",
+      "repo": "fastapi/fastapi",
+      "base_commit": "8e50c55fd90c4433ddc9096ff439da9498a8314a",
+      "issue_sha256": "50a90e2d8c40856486a575fe0e861daa709eecf393e0edac23726bc90f3be034",
+      "rank": "c51708240af5b28e7b37c1836388c5f12a03864dcf667745db9e23d7a8ef6a41"
+    },
+    {
+      "instance_id": "fastapi_11355",
+      "repo": "fastapi/fastapi",
+      "base_commit": "811fa898752e7f5697733a2958ff79ad8dfb5276",
+      "issue_sha256": "a0befe396e4c57ae07f1e3f5a5973c717c48c899f1eb043bb46f1f3fb0804bee",
+      "rank": "c945ec03ccfebf06db6977e520ef2bb46027d165a5c10aa3947ae145ec774f1f"
+    },
+    {
+      "instance_id": "fastapi_14953",
+      "repo": "fastapi/fastapi",
+      "base_commit": "d2c17b603d2f986d5f3800d3bf24acba8e1f485b",
+      "issue_sha256": "c448aabff5f658c71168df75346ee9ba8717de454eb016e952a71c4491df5e36",
+      "rank": "cf407d5026607804dc5a41adb4325111d22412837fdd3f0734aca9d389aa9d0f"
+    },
+    {
+      "instance_id": "fastapi_14873",
+      "repo": "fastapi/fastapi",
+      "base_commit": "cd31576d5704b6aef1bdadc43770238cd88aad2b",
+      "issue_sha256": "de321030ff33d7bf6122e9fef3059975895d1574435051d110dea2f9938d8748",
+      "rank": "d1f5bdc2cf18d8aa955fd37bc4b0c4a6c5174ec639e5b0ec49a17aff3e2417f4"
+    },
+    {
+      "instance_id": "fastapi_14448",
+      "repo": "fastapi/fastapi",
+      "base_commit": "c57ac7bdf3613798c94caceff562a41fa16d4a2d",
+      "issue_sha256": "12d7c9e557e6e809fd1d4345eab6f948466962bc21f306e0fe8b69de3c8f6610",
+      "rank": "d5f0123c33276dccda4fe316ebd8e512ccc8d374e0fa248a141b8390854418f7"
+    },
+    {
+      "instance_id": "fastapi_14455",
+      "repo": "fastapi/fastapi",
+      "base_commit": "603df6e36f59cc4a3e189f506b8f36d1e816c3ac",
+      "issue_sha256": "4b271d1cec1b5a99283e18e84dc41c8e728be8e5fbd33975e0ec15bfc8fd5ab7",
+      "rank": "d9f881dd19bbd9db2d7a15c06b46901fac39b065a5052c5353fbc87d4e30e865"
+    },
+    {
+      "instance_id": "fastapi_14371",
+      "repo": "fastapi/fastapi",
+      "base_commit": "3fe6522aaed4d36d6a38175a4a8137ee0fc62451",
+      "issue_sha256": "36f90f1404bfc530f9319e0d3dcbbda9a38fab2376eb3dad4b493dd60c7463e2",
+      "rank": "df22cdf144dec042a702b492ec6827462fb75c11b477c9e9654c60ac8ed0979e"
+    },
+    {
+      "instance_id": "fastapi_15745",
+      "repo": "fastapi/fastapi",
+      "base_commit": "016ab760faba1813ba235d5582a014a58bd2f417",
+      "issue_sha256": "e51591dfa0f72134488f7a513b3357b3e28d60e3e2e5a3c51b595bbfd2f7c86b",
+      "rank": "e1deb513831be1f28461129653887d6f4d034e76bcfcc81a63fb43870c4f3ecd"
+    },
+    {
+      "instance_id": "fastapi_14487",
+      "repo": "fastapi/fastapi",
+      "base_commit": "4a98a66778987648d2195155c9cbe0824d67b02a",
+      "issue_sha256": "ed1deb46cbcf4ba85eeedef916f1d22183e71619e374cfcc3ad8d16d064fdd49",
+      "rank": "e1e3ddeedd064fc44d10d9cc0b0a927c0987d54a5f78455d01fbce07237c8ff3"
+    },
+    {
+      "instance_id": "requests_7505",
+      "repo": "psf/requests",
+      "base_commit": "6f205ff422bccd5e4c4fc0b64c5f3e7df5181db6",
+      "issue_sha256": "a12c378acc68e2ae971d8afb0c2c94f21e371b1539eafbd0b8e931d472976e03",
+      "rank": "ea24d4620111d09266aa89d52b081af8256328ccaf9921c963c587fea0588ade"
+    },
+    {
+      "instance_id": "fastapi_14463",
+      "repo": "fastapi/fastapi",
+      "base_commit": "f2687dc1bb01f4cb62eee90e656b61c38c2aaf6a",
+      "issue_sha256": "c5a930e1d6843b6239e7febcfa3541f49019d779650c58af9bacd3dfa7423b6c",
+      "rank": "eac1ebc60668efdda0a41acf6e7faedc2c79fe31050b6f7ee933aaf577a18185"
+    },
+    {
+      "instance_id": "fastapi_14978",
+      "repo": "fastapi/fastapi",
+      "base_commit": "94a1ee749e63591e6e275b726a66e07a25f6c407",
+      "issue_sha256": "63862afb58d907db18388329b67920e924de5ae667d3457d2345717af05e5c0f",
+      "rank": "ee56f11461e0231655744dedee91bfd41f3ca72dac95fdddd1d90b746e44fdb2"
+    },
+    {
+      "instance_id": "fastapi_14303",
+      "repo": "fastapi/fastapi",
+      "base_commit": "740ec2787b25e59f7aa9e3df1db09d4489c22718",
+      "issue_sha256": "c770e6b69a1d6ef58d359766f38949adc41ab470b7847ed8029247ca817a3700",
+      "rank": "f05f140b000dd042a1a27547635f2f5c766d159e3c4740d7536bd62ed36e7748"
+    },
+    {
+      "instance_id": "fastapi_14458",
+      "repo": "fastapi/fastapi",
+      "base_commit": "516169428d2fa189d34318ebc469a082c49c1189",
+      "issue_sha256": "0034bface83bee2f8a67fc2f4f87901f626a319ee5e43017c5f63463bcb166ef",
+      "rank": "f09c9b0ce1fa82e1c0d18422ff14c26e00703b3e8b3ca6023aaa853dd3144cc2"
+    },
+    {
+      "instance_id": "fastapi_15763",
+      "repo": "fastapi/fastapi",
+      "base_commit": "9a9c4ad5d06f5fe8ee6775a5aeaa2f83c854f263",
+      "issue_sha256": "6f9544f73811e1d5a906869fc0bc6478cadd033f551ddd0c0f26d4c30fcae09d",
+      "rank": "f5e94fd0cdc6fef1b17bf0db5034bf8902a97fdf8b66e07b0b60d4874b0d3c94"
+    },
+    {
+      "instance_id": "fastapi_14482",
+      "repo": "fastapi/fastapi",
+      "base_commit": "71a17b5932e38bcf798fcd05c5bb384e6d4db5bf",
+      "issue_sha256": "ffd63d60d9a2ce0717790f9fd845950d28cfce2c441e41668efc791b44770dbd",
+      "rank": "facc41aade200dd8221c6b1820fec4a99cf9756e6982a85086fed8d0b582428d"
+    },
+    {
+      "instance_id": "fastapi_14186",
+      "repo": "fastapi/fastapi",
+      "base_commit": "6e49dc029541aaa896fa63c47647ccd3f066df67",
+      "issue_sha256": "a2aac9540aab34f8eb4506caf47cd6d9b7c81eb3ea5b489f0d144bff8d4bf3db",
+      "rank": "fe4f8bd244b2de9acafdface21dd8717a51f37b61b4f825da6223b1f460e8732"
+    }
+  ],
+  "order": [
+    "egv",
+    "control"
+  ],
+  "independent_clean_sandboxes": true,
+  "candidates": {
+    "control": {
+      "config": {
+        "version": "s1-runner-0.1.0",
+        "agent_seconds": 300,
+        "tool_budget": 60,
+        "output_tokens": 16384,
+        "thinking_budget": 4096,
+        "include_thoughts": null,
+        "seed": 17,
+        "command_seconds": 120
+      },
+      "zip_sha256": "8835fd8ab4bdd43f5fcf74423c8ed2c3b9e0e0711686c8eac335b22c1da9da12",
+      "bytes": 1968,
+      "members": {
+        "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce"
+      },
+      "prompt_changed": false,
+      "readiness": "CPU gate required; E2-E4 GPU not registered"
+    },
+    "egv": {
+      "identity": "S1-EGV-V0.1",
+      "architecture": "Prompt-only EGV; no external decision controller",
+      "source_parent": "f9e9e61276a375e886b57839879e9490144d01a3",
+      "base_candidate": "control / original S0 Prompt",
+      "addition_words": 103,
+      "added_rule": "Before running a behavioral check, use existing evidence to decide whether it can test your current repair hypothesis: does the input reach the relevant behavior, does it execute the current workspace implementation, and what new result could change your patch or plan? If any link is unsupported, fix the smallest gap first. Inspect or assert the expected outcome; exit zero alone is insufficient. Repeat a check when code, inputs, environment, hypothesis, or a justified confidence requirement changes; otherwise investigate its existing evidence rather than rerunning unchanged. Retain relevant old-behavior regressions. When sufficient checks are complete, review and submit the patch, stating unverified risks.",
+      "prompt_sha256": "13fff5ef395d0835e6163e4d3429000236ac65b738c3332b826566072dab6d11",
+      "base_prompt_sha256": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce",
+      "zip_sha256": "cefadd019ec64d9d06cbde72e0d0507796e8af9a370dd2358059e211845135e9",
+      "members": {
+        "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "13fff5ef395d0835e6163e4d3429000236ac65b738c3332b826566072dab6d11"
+      },
+      "config": {
+        "version": "s1-runner-0.1.0",
+        "agent_seconds": 300,
+        "tool_budget": 60,
+        "output_tokens": 16384,
+        "thinking_budget": 4096,
+        "include_thoughts": null,
+        "seed": 17,
+        "command_seconds": 120
+      },
+      "GPU_executed": false
+    }
+  },
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "wheel_hashes": {
+    "safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "f216afd4ba743e744c86cbd08e7185efa8749e4c905f14e4e977d65576466cb0",
+    "mistral_common-1.11.7-py3-none-any.whl": "a9511b88eacacbe7dacddd9d3498c1739f56847b7fdddbd5a22e7844fd9def95",
+    "partial_json_parser-0.2.1.1.post7-py3-none-any.whl": "145119e5eabcf80cbb13844a6b50a85c68bf99d376f8ed771e2a3c3b03e653ae",
+    "compressed_tensors-0.15.0.1-py3-none-any.whl": "e1b1f322e82e475715e242bad46925a304ea8e5c98b5055a15b8eb22fb6bfea9",
+    "setproctitle-1.3.7-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl": "2906b6c7959cdb75f46159bf0acd8cc9906cf1361c9e1ded0d065fe8f9039629",
+    "model_hosting_container_standards-0.1.16-py3-none-any.whl": "47f4f65713120bc3a69feb022981a38db9e557aedf88dbd72077f20588caa12b",
+    "interegular-0.3.3-py37-none-any.whl": "b0c07007d48c89d6d19f7204972d369b2a77222722e126b6aa63aa721dc3b19c",
+    "outlines_core-0.2.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "86df9740368866295077346440d911df4972da2b3f1f54b8125e6f329e8a8891",
+    "msgspec-0.21.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "21995e74b5c598c2e004110ad66ec7f1b8c20bf2bcf3b2de8fd9a3094422d3ff",
+    "pycountry-26.2.16-py3-none-any.whl": "115c4baf7cceaa30f59a4694d79483c9167dbce7a9de4d3d571c5f3ea77c305a",
+    "adk_eval_core-0.1.0-py3-none-any.whl": "e614e1b2fe8d886a634871e4c57f9887e1cc66e8c27300f8503a43c6e3ca82f3",
+    "quack_kernels-0.6.4-py3-none-any.whl": "e77c5d1f1299b0b38487fe8737df6c6975daa16bca7f7eb883bd1a74d09e7e78",
+    "pydantic_extra_types-2.11.2-py3-none-any.whl": "683b8943252543e49760f89733b1519bc62f31d1a287ebbdc5a7b7959fb4acfd",
+    "transformers-5.13.1-py3-none-any.whl": "53f0ea8aa397e29244c2377ba981bcaf0c87adcf44fbdd447ef6306522afcacd",
+    "apache_tvm_ffi-0.1.13.post3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl": "edaca70656f87831c3b4989169b1d85fe563ccd6d2e2cadc1f4f5880e1295f7a",
+    "google_adk-1.36.1-py3-none-any.whl": "1a2f6868c509e3151fb0de3575a7d18b45c338be86f420924dad74e7193631a0",
+    "google_genai-2.11.0-py3-none-any.whl": "5bc8186100e1d34d691fbe0cba392b7e04e98d286ca952323a6672d054accf95",
+    "gguf-0.19.0-py3-none-any.whl": "70bcd10edfe697fb2dad6e40af2234b9d8ece9a41a99761405121ebda1c3c1cd",
+    "cbor2-6.1.4-cp312-cp312-manylinux_2_28_x86_64.whl": "310f3dfb296ba48fe9b63c5cf26e691e3548a1eae6901d2f0c18e941d151f220",
+    "xgrammar-0.2.5.post1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "8df76e57eabf0576023826bd179dd2dddb56c1663dab74fd64086452487b795b",
+    "ijson-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": "e4fcebfe1685bb7ba06a8255a5d428ea6b4b895d7acf979cb637d8bbc9db2f47",
+    "tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "369cc9fc8cc10cb24143873a0d95438bb8ee257bb80c71989e3ee290e8d72c67",
+    "flashinfer_cubin-0.6.6-py3-none-any.whl": "36508dfc792eb5ecfb15d2c140a7702812e1fa1ab0fb03929b2ed55e3e8191f3",
+    "anthropic-1.4.0-py3-none-any.whl": "590e85bff75b713a123b03f586d68f02266b5fdc49f70dd75f721ced93a4716c",
+    "vllm-0.19.1-cp38-abi3-manylinux_2_31_x86_64.whl": "73c69bafca24fbdad44690c44d6c6446514351e6f3cc9a6057cba05e66051310",
+    "loguru-0.7.3-py3-none-any.whl": "31a33c10c8e1e10422bfd431aeb5d351c7cf7fa671e3c4df004162264b28220c",
+    "flashinfer_python-0.6.6-py3-none-any.whl": "078f158636969eec1a0d3dea19c3ca90b426b66df89bbf7b7b8276ce2ec08148",
+    "bitsandbytes-0.46.1-py3-none-manylinux_2_24_x86_64.whl": "b0ee4a204fb926d4eae02bc2f5468ae3c11c011cfa849a4c771d4c6b201f57ae",
+    "depyf-0.20.0-py3-none-any.whl": "d31effad4261cebecb58955d832e448ace88f432328f95f82fd99c30fd9308d4",
+    "openai_harmony-0.0.8-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "c007d277218a50db8839e599ed78e0fffe5130f614c3f6d93ae257f282071a29",
+    "diskcache-5.6.3-py3-none-any.whl": "5e31b2d5fbad117cc363ebaf6b689474db18a1f6438bc82358b024abd4c2ca19",
+    "opentelemetry_semantic_conventions_ai-0.5.1-py3-none-any.whl": "25aeb22bd261543b4898a73824026d96770e5351209c7d07a0b1314762b1f6e4",
+    "swegemma-0.2.11-py3-none-any.whl": "9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3",
+    "opentelemetry_exporter_otlp-1.44.0-py3-none-any.whl": "4a498fa8d8fd8be9e8e2d175fe5524a3fe581ccffadd8509db86526a5fb97051",
+    "astor-0.8.1-py2.py3-none-any.whl": "070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5",
+    "adk_submission-0.2.13-py3-none-any.whl": "f156f0bd84580ccb9334726d114d7a5481f16d3a6e2887cc4d276ced0ef8d99d",
+    "pybase64-1.5.0-cp312-cp312-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl": "1a2b9cf39b4d30f600df8c56cccbc03adfc6e1ae8c04cd6b181105a432d4a515",
+    "prometheus_fastapi_instrumentator-8.1.0-py3-none-any.whl": "b9f40b2cff3f7891ca0610b3ae4fc6ec723fd326b04bb659819aaeb821a0fc7d",
+    "lm_format_enforcer-0.11.3-py3-none-any.whl": "cf586350875def1ae7a8fba84fcbbfc8371424b6c9d05c1fcba70aa233fbf06f",
+    "llguidance-1.3.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "bc17e9dd602c3879bf91664a64bf72f54c74dbfbeb24ccfab6a5fe435b12f7aa",
+    "nvidia_cudnn_frontend-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "6c023539ca6de99234cf5102c3ec0d6af817f5396fc93028a22ba5b834a35b8a"
+  },
+  "task_wheel_hashes": {
+    "Flask-2.2.5-py3-none-any.whl": {
+      "bytes": 101817,
+      "sha256": "58107ed83443e86067e41eff4631b058178191a355886f8e479e347fa1285fdf"
+    },
+    "annotated_types-0.7.0-py3-none-any.whl": {
+      "bytes": 13643,
+      "sha256": "1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"
+    },
+    "annotated_types-0.8.0-py3-none-any.whl": {
+      "bytes": 13427,
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+    },
+    "anyio-4.14.1-py3-none-any.whl": {
+      "bytes": 124875,
+      "sha256": "4e5533c5b8ff0a24f5d7a176cbe6877129cd183893f66b537f8f227d10527d72"
+    },
+    "anyio-4.14.2-py3-none-any.whl": {
+      "bytes": 125813,
+      "sha256": "9f505dda5ac9f0c8309b5e8bd445a8c2bf7246f3ce950121e45ea15bc41d1494"
+    },
+    "certifi-2026.6.17-py3-none-any.whl": {
+      "bytes": 133289,
+      "sha256": "2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db"
+    },
+    "certifi-2026.7.22-py3-none-any.whl": {
+      "bytes": 136983,
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+    },
+    "charset_normalizer-3.4.7-py3-none-any.whl": {
+      "bytes": 61958,
+      "sha256": "3dce51d0f5e7951f8bb4900c257dad282f49190fdbebecd4ba99bcc41fef404d"
+    },
+    "charset_normalizer-3.4.9-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 223149,
+      "sha256": "84fd18bcc17526fc2b3c1af7d2b9217d32c9c04448c16ec693b9b4f1985c3d33"
+    },
+    "charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 248801,
+      "sha256": "b9af956078716df40d985fb0dfeb2c2120c5ca92ba4ff4b388acfd01cdc14d08"
+    },
+    "click-8.2.1-py3-none-any.whl": {
+      "bytes": 102215,
+      "sha256": "61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b"
+    },
+    "click-8.4.2-py3-none-any.whl": {
+      "bytes": 119243,
+      "sha256": "e6f9f66136c816745b9d65817da91d61d957fb16e02e4dcd0552553c5a197b76"
+    },
+    "colorama-0.4.6-py2.py3-none-any.whl": {
+      "bytes": 25335,
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+    },
+    "editables-0.6-py3-none-any.whl": {
+      "bytes": 5438,
+      "sha256": "d70e4698078a1d033e7786d9c64e5be070d058a67c21417024d38a58ac20aa43"
+    },
+    "fastapi-0.141.1-py3-none-any.whl": {
+      "bytes": 131954,
+      "sha256": "bfb91aa2d334c61cb35ba9a116fc123b3d3df31640b801cf57a7a78ec3f603b3"
+    },
+    "flask-2.3.3-py3-none-any.whl": {
+      "bytes": 96112,
+      "sha256": "f69fcd559dc907ed196ab9df0e48471709175e696d6e698dd4dbe940f96ce66b"
+    },
+    "flask-3.1.3-py3-none-any.whl": {
+      "bytes": 103424,
+      "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c"
+    },
+    "flit_core-3.12.0-py3-none-any.whl": {
+      "bytes": 45594,
+      "sha256": "e7a0304069ea895172e3c7bb703292e992c5d1555dd1233ab7b5621b5b69e62c"
+    },
+    "hatchling-1.30.1-py3-none-any.whl": {
+      "bytes": 77489,
+      "sha256": "161eacafb3c6f91526e92116d21426369f2c36e98c36a864f11a96345ad4ee31"
+    },
+    "httpcore-1.0.9-py3-none-any.whl": {
+      "bytes": 78784,
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+    },
+    "httpx-0.28.1-py3-none-any.whl": {
+      "bytes": 73517,
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+    },
+    "idna-3.18-py3-none-any.whl": {
+      "bytes": 65455,
+      "sha256": "7f952cbe720b688055e3f87de14f5c3e5fdaa8bc3928985c4077ca689de849a2"
+    },
+    "idna-3.19-py3-none-any.whl": {
+      "bytes": 68550,
+      "sha256": "815e7be7a7806d54abb586dc943addc79e8b2ee16915059658cbeff4b1b43bf4"
+    },
+    "iniconfig-2.3.0-py3-none-any.whl": {
+      "bytes": 7484,
+      "sha256": "f631c04d2c48c52b84d0d0549c99ff3859c98df65b3101406327ecc7d53fbf12"
+    },
+    "itsdangerous-2.2.0-py3-none-any.whl": {
+      "bytes": 16234,
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef"
+    },
+    "jinja2-3.1.6-py3-none-any.whl": {
+      "bytes": 134899,
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+    },
+    "markdown_it_py-4.2.0-py3-none-any.whl": {
+      "bytes": 91687,
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+    },
+    "markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 22947,
+      "sha256": "d6dd0be5b5b189d31db7cda48b91d7e0a9795f31430b7f271219ab30f1d3ac9d"
+    },
+    "markupsafe-3.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 22980,
+      "sha256": "ccfcd093f13f0f0b7fdd0f198b90053bf7b2f02a3927a30e63f3ccc9df56b676"
+    },
+    "mdurl-0.1.2-py3-none-any.whl": {
+      "bytes": 9979,
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+    },
+    "packaging-26.2-py3-none-any.whl": {
+      "bytes": 100195,
+      "sha256": "5fc45236b9446107ff2415ce77c807cee2862cb6fac22b8a73826d0693b0980e"
+    },
+    "packaging-26.3-py3-none-any.whl": {
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    "pdm_backend-2.4.9-py3-none-any.whl": {
+      "bytes": 115770,
+      "sha256": "8d1064751dadb0c40b1026b46826a448d85c8228a564985c62fb53d4aba538a1"
+    },
+    "pluggy-1.6.0-py3-none-any.whl": {
+      "bytes": 20538,
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+    },
+    "poetry_core-2.4.1-py3-none-any.whl": {
+      "bytes": 374834,
+      "sha256": "acf06f9537cd2625bdaec926d95d90b557ba15353bc71d27a3a8a441042b5316"
+    },
+    "pydantic-1.10.15-py3-none-any.whl": {
+      "bytes": 159931,
+      "sha256": "28e552a060ba2740d0d2aabe35162652c1459a0b9069fe0db7f4ee0e18e74d58"
+    },
+    "pydantic-2.13.4-py3-none-any.whl": {
+      "bytes": 472262,
+      "sha256": "45a282cde31d808236fd7ea9d919b128653c8b38b393d1c4ab335c62924d9aba"
+    },
+    "pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": {
+      "bytes": 2094516,
+      "sha256": "926c9541b14b12b1681dca8a0b75feb510b06c6341b70a8e500c2fdcff837cce"
+    },
+    "pydantic_core-2.46.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": {
+      "bytes": 2094467,
+      "sha256": "9551187363ffc0de2a00b2e47c25aeaeb1020b69b668762966df15fc5659dd5a"
+    },
+    "pygments-2.20.0-py3-none-any.whl": {
+      "bytes": 1231151,
+      "sha256": "81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"
+    },
+    "pygments-2.21.0-py3-none-any.whl": {
+      "bytes": 1250147,
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+    },
+    "pytest-6.2.5-py3-none-any.whl": {
+      "bytes": 280654,
+      "sha256": "7310f8d27bc79ced999e760ca304d69f6ba6c6649c0b60fb0e04a4a77cacc134"
+    },
+    "pytest-8.3.4-py3-none-any.whl": {
+      "bytes": 343083,
+      "sha256": "50e16d954148559c9a74109af1eaf0c945ba2d8f30f0a3d3335edde19788b6f6"
+    },
+    "pytest-9.1.1-py3-none-any.whl": {
+      "bytes": 386536,
+      "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"
+    },
+    "requests-2.33.0-py3-none-any.whl": {
+      "bytes": 65017,
+      "sha256": "3324635456fa185245e24865e810cecec7b4caf933d7eb133dcde67d48cee69b"
+    },
+    "requests-2.34.2-py3-none-any.whl": {
+      "bytes": 73075,
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+    },
+    "rich-15.0.0-py3-none-any.whl": {
+      "bytes": 310654,
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+    },
+    "setuptools-82.0.1-py3-none-any.whl": {
+      "bytes": 1006223,
+      "sha256": "a59e362652f08dcd477c78bb6e7bd9d80a7995bc73ce773050228a348ce2e5bb"
+    },
+    "setuptools-83.0.0-py3-none-any.whl": {
+      "bytes": 1008090,
+      "sha256": "29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3"
+    },
+    "sniffio-1.3.1-py3-none-any.whl": {
+      "bytes": 10235,
+      "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
+    },
+    "sqlalchemy-2.0.51-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 3302756,
+      "sha256": "1bed1ee8b01da6088210aa9412023326fb98a599ba502e6118308601dcbef77f"
+    },
+    "sqlalchemy-2.0.51-py3-none-any.whl": {
+      "bytes": 1944334,
+      "sha256": "bb024d8b621d0be75f4f44ecc7c950450026e76d66dc8f791bb5331d7fed59d5"
+    },
+    "sqlalchemy-2.0.52-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl": {
+      "bytes": 3398577,
+      "sha256": "8738008376d22f30f411ea3efecf39b51110b6996d80bb73786f30bcfdd5fd3b"
+    },
+    "sqlmodel-0.0.24-py3-none-any.whl": {
+      "bytes": 28622,
+      "sha256": "6778852f09370908985b667d6a3ab92910d0d5ec88adcaf23dbc242715ff7193"
+    },
+    "sqlmodel-0.0.25-py3-none-any.whl": {
+      "bytes": 28893,
+      "sha256": "c98234cda701fb77e9dcbd81688c23bb251c13bb98ce1dd8d4adc467374d45b7"
+    },
+    "sqlmodel-0.0.27-py3-none-any.whl": {
+      "bytes": 29131,
+      "sha256": "667fe10aa8ff5438134668228dc7d7a08306f4c5c4c7e6ad3ad68defa0e7aa49"
+    },
+    "sqlmodel-0.0.31-py3-none-any.whl": {
+      "bytes": 27093,
+      "sha256": "6d946d56cac4c2db296ba1541357cee2e795d68174e2043cd138b916794b1513"
+    },
+    "sqlmodel-0.0.39-py3-none-any.whl": {
+      "bytes": 29680,
+      "sha256": "90ebe92ce5cc11d7fff8dc7cb594790a102333c8fe7c14865254f6fc5c939795"
+    },
+    "starlette-0.19.0-py3-none-any.whl": {
+      "bytes": 60781,
+      "sha256": "de752c8f6c2ac6ef78bfe44058fc61dc04895eba24d4e47d2ae254ba5c125c5e"
+    },
+    "starlette-0.20.0-py3-none-any.whl": {
+      "bytes": 61857,
+      "sha256": "006a726e2398dc0c88c41b1810f66669932ada3ac8539e4ad6a981fde791343b"
+    },
+    "starlette-0.21.0-py3-none-any.whl": {
+      "bytes": 64044,
+      "sha256": "0efc058261bbcddeca93cad577efd36d0c8a317e44376bcfc0e097a2b3dc24a7"
+    },
+    "starlette-0.22.0-py3-none-any.whl": {
+      "bytes": 64327,
+      "sha256": "b5eda991ad5f0ee5d8ce4c4540202a573bb6691ecd0c712262d0bc85cf8f2c50"
+    },
+    "starlette-0.23.0-py3-none-any.whl": {
+      "bytes": 64540,
+      "sha256": "a0412476cff97f7296b7257b0c1e637d94da060b28767be5d70e98d1da9c4864"
+    },
+    "starlette-0.24.0-py3-none-any.whl": {
+      "bytes": 65780,
+      "sha256": "75e2b24d71ff4f7cb9a3338f83d234c2d4135bf80f52aeb105c02a01d72a5df1"
+    },
+    "starlette-0.25.0-py3-none-any.whl": {
+      "bytes": 66410,
+      "sha256": "774f1df1983fd594b9b6fb3ded39c2aa1979d10ac45caac0f4255cbe2acb8628"
+    },
+    "starlette-0.26.0-py3-none-any.whl": {
+      "bytes": 66843,
+      "sha256": "71595d3a19e9fdb359542538a89224b6bc11087170ad4473bc9051df5f5c7459"
+    },
+    "starlette-0.27.0-py3-none-any.whl": {
+      "bytes": 66978,
+      "sha256": "918416370e846586541235ccd38a474c08b80443ed31c578a418e2209b3eef91"
+    },
+    "starlette-0.28.0-py3-none-any.whl": {
+      "bytes": 68948,
+      "sha256": "e58b9fc402c579950260fbb6d57173395c4e62804c40d3ede7e9ef1074f0c579"
+    },
+    "starlette-0.30.0-py3-none-any.whl": {
+      "bytes": 68824,
+      "sha256": "cb15a5dfbd8de70c999bd1ae4b7e1ba625d74520bc57b28cc4086c7969431f2d"
+    },
+    "starlette-0.31.0-py3-none-any.whl": {
+      "bytes": 69834,
+      "sha256": "1aab7e04bcbafbb1867c1ce62f6b21c60a6e3cecb5a08dcee8abac7457fbcfbf"
+    },
+    "starlette-0.32.0-py3-none-any.whl": {
+      "bytes": 69953,
+      "sha256": "bbc0973cfeba8cc767ee9b53f28d0b85fa77ab5045083e13fb99e6e7bcf0b748"
+    },
+    "starlette-0.35.0-py3-none-any.whl": {
+      "bytes": 71012,
+      "sha256": "521234a99a5b5a11de1d0e2e8cea775cf2eeb081ad9dec3d9cecc8aed5ea11a7"
+    },
+    "starlette-0.36.0-py3-none-any.whl": {
+      "bytes": 71421,
+      "sha256": "84edbd1d9e7a315390acd5789f1e4f93e834eb90f6a7d98450ef35e001ac3877"
+    },
+    "starlette-0.37.0-py3-none-any.whl": {
+      "bytes": 71969,
+      "sha256": "53a95037cf6a563fca942ea16ba0260edce10258c213cbd554adc263fad22dfc"
+    },
+    "starlette-0.38.0-py3-none-any.whl": {
+      "bytes": 72053,
+      "sha256": "dd58f5854ca4fc476710e48d61b29fa4ff3639d42604a786f9d2091e64b95c7e"
+    },
+    "starlette-0.38.1-py3-none-any.whl": {
+      "bytes": 72004,
+      "sha256": "42688a287165bd6acc53068457b5cbf28a3204110b704930411728a633f0f7b8"
+    },
+    "starlette-0.38.2-py3-none-any.whl": {
+      "bytes": 72020,
+      "sha256": "4ec6a59df6bbafdab5f567754481657f7ed90dc9d69b0c9ff017907dd54faeff"
+    },
+    "starlette-0.38.3-py3-none-any.whl": {
+      "bytes": 72130,
+      "sha256": "0e4af343a4e59324b96fbe0f3c6ad8c3a908d73f12f5c80a797803a6c3ad4687"
+    },
+    "starlette-0.38.4-py3-none-any.whl": {
+      "bytes": 71427,
+      "sha256": "526f53a77f0e43b85f583438aee1a940fd84f8fd610353e8b0c1a77ad8a87e76"
+    },
+    "starlette-0.38.5-py3-none-any.whl": {
+      "bytes": 71447,
+      "sha256": "632f420a9d13e3ee2a6f18f437b0a9f1faecb0bc42e1942aa2ea0e379a4c4206"
+    },
+    "starlette-0.38.6-py3-none-any.whl": {
+      "bytes": 71451,
+      "sha256": "4517a1409e2e73ee4951214ba012052b9e16f60e90d73cfb06192c19203bbb05"
+    },
+    "starlette-0.39.0-py3-none-any.whl": {
+      "bytes": 73034,
+      "sha256": "57164a38948018134537d31367fb46ef9be6050a8e955fb4990235960ed03f92"
+    },
+    "starlette-0.39.1-py3-none-any.whl": {
+      "bytes": 73125,
+      "sha256": "0d31c90dacae588734e91b98cb4469fd37848ef23d2dd34355c5542bc827c02a"
+    },
+    "starlette-0.39.2-py3-none-any.whl": {
+      "bytes": 73219,
+      "sha256": "134dd6deb655a9775991d352312d53f1879775e5cc8a481f966e83416a2c3f71"
+    },
+    "starlette-0.40.0-py3-none-any.whl": {
+      "bytes": 73303,
+      "sha256": "c494a22fae73805376ea6bf88439783ecfba9aac88a43911b48c653437e784c4"
+    },
+    "starlette-0.41.0-py3-none-any.whl": {
+      "bytes": 73216,
+      "sha256": "a0193a3c413ebc9c78bff1c3546a45bb8c8bcb4a84cae8747d650a65bd37210a"
+    },
+    "starlette-0.41.1-py3-none-any.whl": {
+      "bytes": 73229,
+      "sha256": "eea797e3cd183a9fb10ac57c3d90610319aee7c34d2998fc0a8d71d27b59aae6"
+    },
+    "starlette-0.41.2-py3-none-any.whl": {
+      "bytes": 73259,
+      "sha256": "fbc189474b4731cf30fcef52f18a8d070e3f3b46c6a04c97579e85e6ffca942d"
+    },
+    "starlette-0.41.3-py3-none-any.whl": {
+      "bytes": 73225,
+      "sha256": "44cedb2b7c77a9de33a8b74b2b90e9f50d11fcf25d8270ea525ad71a25374ff7"
+    },
+    "starlette-0.42.0-py3-none-any.whl": {
+      "bytes": 73356,
+      "sha256": "02f877201a3d6d301714b5c72f15cac305ea5cc9e213c4b46a5af7eecad0d625"
+    },
+    "starlette-0.43.0-py3-none-any.whl": {
+      "bytes": 73291,
+      "sha256": "0e0a91f33c57b30820cbe0828f993df67f890f1e4ae48ed8080f24793446450c"
+    },
+    "starlette-0.44.0-py3-none-any.whl": {
+      "bytes": 73412,
+      "sha256": "19edeb75844c16dcd4f9dd72f22f9108c1539f3fc9c4c88885654fef64f85aea"
+    },
+    "starlette-0.45.0-py3-none-any.whl": {
+      "bytes": 71795,
+      "sha256": "c911ba0e86eed5b336931623f45e56a8c6d76c618f2749d9f5ed9ee55a5bf1bb"
+    },
+    "starlette-0.45.1-py3-none-any.whl": {
+      "bytes": 71488,
+      "sha256": "5656c0524f586e9148d9a3c1dd5257fb42a99892fb0dc6877dd76ef4d184aac3"
+    },
+    "starlette-0.45.2-py3-none-any.whl": {
+      "bytes": 71505,
+      "sha256": "4daec3356fb0cb1e723a5235e5beaf375d2259af27532958e2d79df549dad9da"
+    },
+    "starlette-0.45.3-py3-none-any.whl": {
+      "bytes": 71507,
+      "sha256": "dfb6d332576f136ec740296c7e8bb8c8a7125044e7c6da30744718880cdd059d"
+    },
+    "starlette-0.46.0-py3-none-any.whl": {
+      "bytes": 71991,
+      "sha256": "913f0798bd90ba90a9156383bcf1350a17d6259451d0d8ee27fc0cf2db609038"
+    },
+    "starlette-0.46.1-py3-none-any.whl": {
+      "bytes": 71995,
+      "sha256": "77c74ed9d2720138b25875133f3a2dae6d854af2ec37dceb56aef370c1d8a227"
+    },
+    "starlette-0.46.2-py3-none-any.whl": {
+      "bytes": 72037,
+      "sha256": "595633ce89f8ffa71a015caed34a5b2dc1c0cdb3f0f1fbd1e69339cf2abeec35"
+    },
+    "starlette-0.47.0-py3-none-any.whl": {
+      "bytes": 72796,
+      "sha256": "9d052d4933683af40ffd47c7465433570b4949dc937e20ad1d73b34e72f10c37"
+    },
+    "starlette-0.47.1-py3-none-any.whl": {
+      "bytes": 72747,
+      "sha256": "5e11c9f5c7c3f24959edbf2dffdc01bba860228acf657129467d8a7468591527"
+    },
+    "starlette-0.47.2-py3-none-any.whl": {
+      "bytes": 72984,
+      "sha256": "c5847e96134e5c5371ee9fac6fdf1a67336d5815e09eb2a01fdb57a351ef915b"
+    },
+    "starlette-0.47.3-py3-none-any.whl": {
+      "bytes": 72991,
+      "sha256": "89c0778ca62a76b826101e7c709e70680a1699ca7da6b44d38eb0a7e61fe4b51"
+    },
+    "starlette-0.48.0-py3-none-any.whl": {
+      "bytes": 73736,
+      "sha256": "0764ca97b097582558ecb498132ed0c7d942f233f365b86ba37770e026510659"
+    },
+    "starlette-0.49.0-py3-none-any.whl": {
+      "bytes": 74057,
+      "sha256": "6f3988f55dda3fd36e5640aeaceee5b691063e0ebc4d7851e1c3a6695fbdc8ba"
+    },
+    "starlette-0.49.1-py3-none-any.whl": {
+      "bytes": 74175,
+      "sha256": "d92ce9f07e4a3caa3ac13a79523bd18e3bc0042bb8ff2d759a8e7dd0e1859875"
+    },
+    "starlette-0.49.2-py3-none-any.whl": {
+      "bytes": 74208,
+      "sha256": "0d40c638fe75eaf16e3160103f6962918e0e17cf16cc09351e4c54b899a46291"
+    },
+    "starlette-0.49.3-py3-none-any.whl": {
+      "bytes": 74340,
+      "sha256": "b579b99715fdc2980cf88c8ec96d3bf1ce16f5a8051a7c2b84ef9b1cdecaea2f"
+    },
+    "starlette-0.50.0-py3-none-any.whl": {
+      "bytes": 74033,
+      "sha256": "9e5391843ec9b6e472eed1365a78c8098cfceb7a74bfd4d6b1c0c0095efb3bca"
+    },
+    "starlette-0.51.0-py3-none-any.whl": {
+      "bytes": 74133,
+      "sha256": "fb460a3d6fd3c958d729fdd96aee297f89a51b0181f16401fe8fd4cb6129165d"
+    },
+    "starlette-0.52.0-py3-none-any.whl": {
+      "bytes": 74238,
+      "sha256": "ae047dccdfedb2dd9f86efe182e259eb72bcf50e7cd49309a46c906160df2545"
+    },
+    "starlette-0.52.1-py3-none-any.whl": {
+      "bytes": 74272,
+      "sha256": "0029d43eb3d273bc4f83a08720b4912ea4b071087a3b48db01b7c839f7954d74"
+    },
+    "starlette-1.3.1-py3-none-any.whl": {
+      "bytes": 73632,
+      "sha256": "c7372aae11c3c3f26a42df7bd626cec2f47d03483d261d369516a615a53714c6"
+    },
+    "starlette-1.6.0-py3-none-any.whl": {
+      "bytes": 75969,
+      "sha256": "a86dd39d14bb45f85a3d18525215a9ef0cfd1f192ac793220e72598c90335f0c"
+    },
+    "tqdm-4.70.0-py3-none-any.whl": {
+      "bytes": 80184,
+      "sha256": "7f585706bfddbdebf89daac705b2dfcc16890130727d3197ca62c732b4310953"
+    },
+    "typer-0.16.0-py3-none-any.whl": {
+      "bytes": 46317,
+      "sha256": "1f79bed11d4d02d4310e3c1b7ba594183bcedb0ac73b27a9e5f28f6fb5b98855"
+    },
+    "typer-0.21.1-py3-none-any.whl": {
+      "bytes": 47381,
+      "sha256": "7985e89081c636b88d172c2ee0cfe33c253160994d47bdfdc302defd7d1f1d01"
+    },
+    "typer-0.26.7-py3-none-any.whl": {
+      "bytes": 122456,
+      "sha256": "5c87cfbc5d34491c5346ebf49c23e18d56ccb863268d3a8d592b26087c2f5e58"
+    },
+    "typing_extensions-4.15.0-py3-none-any.whl": {
+      "bytes": 44614,
+      "sha256": "f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"
+    },
+    "typing_extensions-4.16.0-py3-none-any.whl": {
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    "urllib3-2.7.0-py3-none-any.whl": {
+      "bytes": 131087,
+      "sha256": "9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897"
+    },
+    "werkzeug-2.3.8-py3-none-any.whl": {
+      "bytes": 242332,
+      "sha256": "bba1f19f8ec89d4d607a3bd62f1904bd2e609472d93cd85e9d4e178f472c3748"
+    },
+    "werkzeug-3.1.8-py3-none-any.whl": {
+      "bytes": 226459,
+      "sha256": "63a77fb8892bf28ebc3178683445222aa500e48ebad5ec77b0ad80f8726b1f50"
+    },
+    "wheel-0.47.0-py3-none-any.whl": {
+      "bytes": 32218,
+      "sha256": "212281cab4dff978f6cedd499cd893e1f620791ca6ff7107cf270781e587eced"
+    }
+  },
+  "infrastructure_version": "s1-verifier-0.3.0",
+  "worker_sha256": "9605d60edf8fc5fd4a7d9ee958d47148d950572a0e74e69b51f8660f94ab94d4",
+  "verifier_sources": {
+    "s1/verifier_v3/__init__.py": "ffe58cb239eb9b01d9d5ea492afcb0ce604761bb007c18e4f1882b6aa5722f05",
+    "s1/verifier_v3/audit.py": "17cf9b4b8af9b2cf8fd3e50c1f78585d97a9818b8690e3eb542924318b05f58d",
+    "s1/verifier_v3/backend_logs.py": "2458c535983c0b8f2f5fbde341207b57d0555b602d7b207114fe4c9f12a9c4f1",
+    "s1/verifier_v3/classification.py": "32d9cba73b80cd504f5e129eaabe8a911625577984a34af633542ebe55605580",
+    "s1/verifier_v3/environment.py": "ab5ea450a6a5074bfb519a29495b9a9be74a2178109c30388fccf41071314cb7",
+    "s1/verifier_v3/fixtures/manifest.json": "9988c2318cc8f30863cfc391a8eb954d7a37a8e041a6f273c5bc9e63450d9e86",
+    "s1/verifier_v3/fixtures/requests_baseline.json": "1c22a275e8febc96cb891fbfc39186882d6fb99b391f061340f681c6de80c4dc",
+    "s1/verifier_v3/fixtures/requests_historical.json": "ec96dcb557ac1547c4d14c2fa3c9b301f99d55b7a61ff97e40ca4e45aac17054",
+    "s1/verifier_v3/fixtures/rich_historical.json": "0bcb106b62c22b54a996b3a735cd0965d7697c9b5587aabdf6899139cf08311c",
+    "s1/verifier_v3/import_runtime.py": "986fe3e8d47a35b02874bf100ea14177459cda161ea3bece2d3647f0d827eec5",
+    "s1/verifier_v3/tests.py": "4f0dd0830659fe7dd541ee7c627ce56db24e8aa0a8a7ff65a6ad042bb21d08bd",
+    "s1/verifier_v3/worker.py": "9605d60edf8fc5fd4a7d9ee958d47148d950572a0e74e69b51f8660f94ab94d4"
+  },
+  "accepted_CPU_payload_sha256": "e0625e923ac128a33f762062f23b050156b9be5be256a4f3696ed129906a53e6",
+  "configuration": {
+    "version": "s1-runner-0.1.0",
+    "agent_seconds": 300,
+    "tool_budget": 60,
+    "output_tokens": 16384,
+    "thinking_budget": 4096,
+    "include_thoughts": null,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "vllm": {
+    "max_model_len": 32768,
+    "tensor_parallel_size": 4,
+    "devices": "4L4",
+    "safety_tokens": 1024
+  },
+  "snapshot": {
+    "path": "snapshots/fastapi_15800.tgz",
+    "sha256": "39db9ef995f8066b5f3cc70a7d8c54325e7bdc4faa9599e76099b533a4e034c0",
+    "status": "sealed official download;archive headers/CRC checked;source and reference repair not inspected",
+    "bytes": 334879209,
+    "gzip_EOF_CRC_verified": true,
+    "uncompressed_bytes": 357406720
+  },
+  "fresh_baseline_status": "not_run; must be sealed/admitted before separate authorization and execution",
+  "primary_endpoint": "Unmodified complete official resolved,with native test_exit_code and original Phase2/JUnit",
+  "mechanism_endpoints": [
+    "invalid target probes",
+    "actual target execution with graded evidence",
+    "production/input/environment state hashes",
+    "unchanged non-discriminating tests; legitimate repeats counted separately",
+    "counterevidence followed by real repair",
+    "old-behavior checks and regressions",
+    "explicit submit versus native fallback",
+    "Patch validity and residue",
+    "LLM/tool/time and observed complete-or-partial Token usage"
+  ],
+  "interpretation": "One paired task is mechanism smoke,not population resolution rate;fewer checks with worse correctness is negative",
+  "stop": "Unknown/error infrastructure,hash/request drift,leakage,missing/conflicting JUnit,unexplained cancellation,unproven cleanup/idle or resources;ordinary assertion failure continues other arm",
+  "no_retry_replacement_or_splicing": true,
+  "GPU_authorized": false,
+  "GPU_runs": 0,
+  "formal_submissions": 0,
+  "LoRA": false,
+  "blocking_requirements": [
+    "verify sealed snapshot/task-record/evaluator-test hashes on future official input mount",
+    "clean native full baseline with path/JUnit/cleanup evidence;on failure stop selected task without replacement",
+    "freeze final executable Notebook and identical worker/observer config for both arms",
+    "publish final registration before any launch and obtain separate GPU authorization"
+  ],
+  "task_record_sha256": "93190808d0ce68beee0454dfe92d6358c5a0676bdf14c8f8e4a72e860e117ea8",
+  "test_patch_sha256": "6c7294d784901eb68f284a9a0aa5363147e1cecbbf87eaf24b31fce4639f819d",
+  "passive_import_prefix": "fastapi",
+  "runtime_dependency_admission": "Record effective imports/versions from fresh baseline,not wheel filenames alone;match both arms"
+}

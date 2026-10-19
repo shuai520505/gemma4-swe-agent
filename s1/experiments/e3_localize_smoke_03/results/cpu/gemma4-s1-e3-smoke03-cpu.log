@@ -1,0 +1,60 @@
+[{"stream_name":"stderr","time":9.120268014,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.120332334,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.120336894,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.120339324,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.801645992,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.801698892,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.801704012,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.801708062,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":290.655077948,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":290.655119908,"data":"  File \"\u003cfrozen runpy\u003e\", line 198, in _run_module_as_main\n"}
+,{"stream_name":"stdout","time":290.655135119,"data":"  File \"\u003cfrozen runpy\u003e\", line 88, in _run_code\n"}
+,{"stream_name":"stdout","time":290.655139299,"data":"  File \"/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py\", line 74, in \u003cmodule\u003e\n"}
+,{"stream_name":"stdout","time":290.655142828,"data":"    if __name__=='__main__':main(sys.argv[1])\n"}
+,{"stream_name":"stdout","time":290.655145819,"data":"                            ^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655148808,"data":"  File \"/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py\", line 67, in main\n"}
+,{"stream_name":"stdout","time":290.655152039,"data":"    admission=asyncio.run(phase2(output/'rich_full_phase2'))\n"}
+,{"stream_name":"stdout","time":290.655154968,"data":"              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655157888,"data":"  File \"/usr/lib/python3.12/asyncio/runners.py\", line 195, in run\n"}
+,{"stream_name":"stdout","time":290.655160968,"data":"    return runner.run(main)\n"}
+,{"stream_name":"stdout","time":290.655163859,"data":"           ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655166719,"data":"  File \"/usr/lib/python3.12/asyncio/runners.py\", line 118, in run\n"}
+,{"stream_name":"stdout","time":290.655169719,"data":"    return self._loop.run_until_complete(task)\n"}
+,{"stream_name":"stdout","time":290.655172588,"data":"           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655175559,"data":"  File \"/usr/lib/python3.12/asyncio/base_events.py\", line 691, in run_until_complete\n"}
+,{"stream_name":"stdout","time":290.655178619,"data":"    return future.result()\n"}
+,{"stream_name":"stdout","time":290.655181788,"data":"           ^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655184819,"data":"  File \"/kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z/source/s1/experiments/e3_localize_smoke_03/cpu.py\", line 30, in phase2\n"}
+,{"stream_name":"stdout","time":290.655187988,"data":"    cfg=EvalConfig(tasks_path=data/'tasks.jsonl',snapshots_dir=data/'snapshots',results_dir=output/'native',\n"}
+,{"stream_name":"stdout","time":290.655191339,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":290.655208719,"data":"TypeError: EvalConfig.__init__() missing 1 required positional argument: 'models'\n"}
+,{"stream_name":"stdout","time":290.655211188,"data":"\n"}
+,{"stream_name":"stdout","time":290.854193774,"data":"E3_SMOKE03_EVIDENCE /kaggle/working/s1_e3_localize_smoke_03/cpu/20261018T084254_342490Z.zip\n"}
+,{"stream_name":"stderr","time":291.343179985,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":291.343212055,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":291.343217555,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":291.343221315,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":291.343283675,"data":"  File \"/usr/local/lib/python3.12/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":291.343408015,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":291.343416745,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":291.343420865,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":291.343424175,"data":"Exception encountered at \"In [2]\":\n"}
+,{"stream_name":"stderr","time":291.343427475,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":291.343430845,"data":"AssertionError                            Traceback (most recent call last)\n"}
+,{"stream_name":"stderr","time":291.343434415,"data":"/tmp/ipykernel_16/2502882198.py in \u003ccell line: 0\u003e()\n"}
+,{"stream_name":"stderr","time":291.343438245,"data":"     18     (RUN_DIR/'runner.stdout.log').write_text(p.stdout);(RUN_DIR/'runner.stderr.log').write_text(p.stderr)\n"}
+,{"stream_name":"stderr","time":291.343441455,"data":"     19     print(p.stdout+p.stderr,flush=True)\n"}
+,{"stream_name":"stderr","time":291.343444505,"data":"---\u003e 20     assert p.returncode==0,'CPU/Phase2 gate failed; GPU forbidden'\n"}
+,{"stream_name":"stderr","time":291.343447565,"data":"     21 finally:print('E3_SMOKE03_EVIDENCE',bundle(RUN_DIR),flush=True)\n"}
+,{"stream_name":"stderr","time":291.343450835,"data":"\n"}
+,{"stream_name":"stderr","time":291.343454055,"data":"AssertionError: CPU/Phase2 gate failed; GPU forbidden\n"}
+,{"stream_name":"stderr","time":291.343457375,"data":"\n"}
+,{"stream_name":"stderr","time":294.383593996,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":294.383659045,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":294.615595361,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":294.615648901,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":295.471915261,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":295.796001048,"data":"[NbConvertApp] Writing 238667 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":299.27583327,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":300.247204133,"data":"[NbConvertApp] Writing 524834 bytes to __results__.html\n"}
+]

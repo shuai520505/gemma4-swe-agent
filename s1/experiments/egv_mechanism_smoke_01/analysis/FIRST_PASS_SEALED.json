@@ -1,0 +1,90 @@
+{
+  "sealed_utc": "2026-10-19T09:26:43.618053+00:00",
+  "before_unblinding": true,
+  "independent_reviewer": false,
+  "scope": "Tool arguments/results only; final Phase2, labels, usage and model narration not inspected. Same reviewer knows protocol.",
+  "X": {
+    "behavior_checks": [
+      {
+        "action": 31,
+        "validity": "Tests inherited mount construction, not requested frontend HTTP behavior",
+        "provenance": "No module path/version assertion in command; needs passive evidence after unblinding",
+        "novelty": "Initial mount capability evidence",
+        "consequence": "No target behavior assertions; later edit only wraps mount"
+      },
+      {
+        "action": 36,
+        "validity": "Print-only hasattr; does not invoke target frontend",
+        "provenance": "Unverified in tool command",
+        "novelty": "Both hasattr results duplicate action31; no relevant intervening code/input change",
+        "consequence": "No discriminating new evidence"
+      }
+    ],
+    "valid_target_assertion_checks": 0,
+    "non_target_probes": 2,
+    "redundant_behavior_checks": 1,
+    "production_edits": [
+      43,
+      47
+    ],
+    "counterevidence_revision": false,
+    "old_behavior_regression": false,
+    "submission_call": false,
+    "notes": [
+      "47 tools; repeated class location/staticfiles/APIRouter reads",
+      "Literal backslash-escaped triple quotes in both production edits appear syntactically invalid; no compile/import/test after edit",
+      "Diagnostic repro_mount.py written; workspace retention needs Patch evidence",
+      "Do not equate grep no-match with infrastructure failure"
+    ]
+  },
+  "Y": {
+    "behavior_checks": [
+      {
+        "action": 19,
+        "validity": "Three real TestClient assertions for app/root and included router paths; absent frontend produces failure",
+        "provenance": "Traceback FastAPI call context; confirm module provenance later",
+        "novelty": "Baseline missing interface",
+        "consequence": "Actions20/21 implement interface"
+      },
+      {
+        "action": 22,
+        "validity": "Same three relevant HTTP/status/content assertions after code changes",
+        "provenance": "New frontend reached, 404 contradicts expected200",
+        "novelty": "Necessary post-edit test, not redundant",
+        "consequence": "Actions23/24 enable html=True"
+      },
+      {
+        "action": 25,
+        "validity": "Three relevant assertions pass after html=True",
+        "provenance": "Needs passive source-path confirmation",
+        "novelty": "Necessary corrective-change retest",
+        "consequence": "No additional coverage after pass"
+      },
+      {
+        "action": 27,
+        "validity": "Same relevant assertions",
+        "provenance": "Same test/code conditions observed",
+        "novelty": "Unchanged rerun after read only, no stated/tool-supported confidence requirement",
+        "consequence": "No new distinguishing evidence"
+      }
+    ],
+    "valid_target_assertion_checks": 4,
+    "informative_target_checks": 3,
+    "redundant_behavior_checks": 1,
+    "non_target_probes": 0,
+    "production_edits": [
+      20,
+      21,
+      23,
+      24
+    ],
+    "counterevidence_revision": true,
+    "old_behavior_regression": false,
+    "submission_call": false,
+    "notes": [
+      "27 tools; local test file written by Agent, not official evaluator tests",
+      "Limited static index happy paths do not cover complete requirements",
+      "No stable complete-repair conclusion from three self-authored checks"
+    ]
+  }
+}

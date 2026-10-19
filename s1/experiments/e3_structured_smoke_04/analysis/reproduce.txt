@@ -1,0 +1,97 @@
+"""Offline audit; never uploaded to the Agent. Run from repository root:
+python -c "exec(compile(open('s1/experiments/e3_structured_smoke_04/analysis/reproduce.txt',encoding='utf-8').read(),'<audit>','exec'))"
+Annotations are human-reviewed tool indices, not predicted success probabilities.
+"""
+import hashlib
+import json
+from pathlib import Path
+from harness_v2.evidence import read_events
+from s1.verifier_v3.audit import audit_verifier
+
+HERE=Path('s1/experiments/e3_structured_smoke_04')
+RAW=HERE/'results/gpu'
+OUT=HERE/'analysis'
+def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def load(p):return json.loads(p.read_text(encoding='utf-8'))
+def save(p,x):p.write_text(json.dumps(x,indent=2)+'\n',encoding='utf-8',newline='\n')
+
+annotations={
+ 'control':dict(first_target_class_read=2,first_faulty_method_read=4,first_repair_edit=23,
+    first_stable_repair=23,production_diagnostic_edit=None,
+    note='One production edit; repro uses missing Console.export before/after. Three identical pytest runs without intervening code edits.'),
+ 'e3_locate':dict(first_target_class_read=4,first_faulty_method_read=4,first_repair_edit=28,
+    first_stable_repair=31,production_diagnostic_edit=12,
+    note='Debug print is not repair. First init edit reads self.justify before assignment; real AttributeError in tool30; tool31 corrects order. Probes9/11/13 lack table separator and do not exercise table handler.')}
+save(OUT/'measurement_annotations.json',annotations)
+baseline=load(RAW/'gpu_host_environment/environment_admission.json')
+baseline_events=load(RAW/'gpu_host_environment/structured_verifier.json')['events']
+baseline_by={e['name']:e for e in baseline_events}
+comparison={};provenance={};transport={}
+for directory in sorted((RAW/'runs').iterdir()):
+ if not directory.is_dir():continue
+ arm='control' if directory.name.endswith('control') else 'e3_locate'
+ calls=load(OUT/(directory.name+'-tools.json'))
+ events=read_events(directory/'events.jsonl')
+ origin=next(e['recorded_monotonic'] for e in events if e.get('agent_started'))
+ audit=load(directory/'research_audit.json')
+ structured=audit_verifier(directory,baseline=baseline)
+ assert structured==audit['structured_verifier']
+ native=load(directory/'official_result.json')
+ assert native['agent_patch'].encode()==(directory/'latest.patch').read_bytes()
+ stats=dict(arm=arm,official_resolved=native['resolved'],official_test_exit_code=native['test_exit_code'],
+    normalized_outcome=audit['outcome'],structured_category=structured['category'],Phase2_counts=structured['counts'],
+    infrastructure_passed=audit['infrastructure_passed'],native_LLM_calls=native['total_llm_calls'],
+    native_tool_calls=native['tool_calls'],actual_tool_events=len(calls),
+    agent_seconds=audit['agent_seconds'],worker_seconds=audit['worker_seconds'],
+    native_duration_seconds=native['duration_seconds'],explicit_submits=audit['explicit_submits'],
+    patch_bytes=audit['patch_bytes'],patch_sha256=digest(directory/'latest.patch'),
+    received_response_usage=audit['usage'],usage_complete=audit['usage_complete'],
+    token_scope=audit['usage_scope'],native_reported_total_tokens=native['total_tokens'],
+    failed_tool_indices=[c['index'] for c in calls if c['result'].get('status')=='error'],
+    exact_repeated_read_arguments=audit['exact_repeated_reads'],
+    behavior_test_delta=[dict(name=e['name'],baseline=baseline_by[e['name']]['category'],after=e['category'],
+      failure_message_identical_to_baseline=e.get('message')==baseline_by[e['name']].get('message') if e['category']=='assertion_failure' else None)
+      for e in structured['events']])
+ for key,index in annotations[arm].items():
+  if type(index) is int:stats[key]=dict(tool=index,call_seconds=calls[index-1]['seconds'],result_seconds=calls[index-1]['result_seconds'])
+ stats['tools_before_first_repair']=annotations[arm]['first_repair_edit']-1
+ previous={};overlaps=[];command_proofs=[]
+ for call in calls:
+  args=call['call']['args']
+  if call['call']['name']=='read_file' and call['result'].get('status')=='ok':
+   name=args['filepath'];start=args.get('start_line',1);end=args.get('end_line',10**9)
+   if any(max(start,s)<=min(end,e) for s,e in previous.get(name,[])):overlaps.append(call['index'])
+   previous.setdefault(name,[]).append((start,end))
+  if call['call']['name']=='run_command':
+   # Correlate native command observer with actual ADK call/response window.
+   for event in events:
+    if event['kind']!='audited_command' or not call['seconds']<=event['recorded_monotonic']-origin<=call['result_seconds']:continue
+    file=directory/'import_verdicts'/(event['command_id']+'.json')
+    if not file.exists():continue
+    verdict=load(file)
+    for module in verdict.get('modules',[]):
+     if module['module']=='rich.markdown':command_proofs.append(dict(tool=call['index'],command=args['command'],
+        command_id=event['command_id'],provenance_file=file.as_posix(),**module))
+ stats['overlapping_read_ranges']=overlaps
+ stats['overlap_definition']='Same-file successful read range intersects an earlier read; includes legitimate post-edit inspection, not all are wasted.'
+ stats['workspace_markdown_commands']=[x['tool'] for x in command_proofs]
+ stats['edited_source_sha256']=load(directory/'phase2_junit_capture.json')['production_source_hashes']['rich/markdown.py']
+ wire=read_events(directory/'http_wire.jsonl')
+ stats['observed_max_input']=max(e['body']['usage']['prompt_tokens'] for e in wire if e['kind']=='http_response')
+ stats['observed_max_output']=max(e['body']['usage']['completion_tokens'] for e in wire if e['kind']=='http_response')
+ stats['finish_length']=audit['finish_length']
+ comparison[arm]=stats;provenance[arm]=command_proofs
+ cancellations=[e for e in read_events(directory/'http_lifecycle.jsonl') if e['kind']=='cancelled']
+ assert len(cancellations)==1
+ cancel=cancellations[0]
+ idle=read_events(directory/'server_reclamation/events.jsonl')
+ transport[arm]=dict(requests=audit['http_lifecycle']['requests'],responses=audit['http_lifecycle']['responses'],
+    terminals=audit['http_lifecycle']['rows'],cancel_event=cancel,
+    cancel_before_native_end_seconds=audit['deadline_proof']['cutoff_monotonic']-cancel['recorded_monotonic'],
+    server_idle_seconds_after_cancel=[e['recorded_monotonic']-cancel['recorded_monotonic'] for e in idle],
+    server_idle_events=idle,worker_cleanup=load(directory/'worker_done.json'),
+    request_specific_backend_abort_confirmed=False)
+save(OUT/'comparison.json',comparison)
+save(OUT/'source_provenance.json',provenance)
+save(OUT/'http_cleanup_summary.json',transport)
+print(json.dumps({k:{n:v for n,v in x.items() if n in ('Phase2_counts','tools_before_first_repair','overlapping_read_ranges','received_response_usage')} for k,x in comparison.items()},indent=2))

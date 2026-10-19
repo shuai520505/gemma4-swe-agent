@@ -1,0 +1,60 @@
+{
+  "experiment_id": "s1-e3-localize-smoke-03",
+  "complete_pairs": 0,
+  "control": {
+    "status_as_executed": "unknown",
+    "posthoc_native_verdict": "failed",
+    "posthoc_reason": "Four existing assertion regressions, no fixture or collection error",
+    "official_resolved": false,
+    "official_test_exit_code": 1,
+    "Phase2": {
+      "passed": 19,
+      "failed": 4
+    },
+    "first_correct_location_read_seconds": 10.188523983000096,
+    "first_diagnostic_write_seconds": 62.420113938999975,
+    "first_production_edit_seconds": 72.83948971500013,
+    "production_edit_correct": false,
+    "first_complete_correct_repair_seconds": null,
+    "tool_calls_before_production_edit": 4,
+    "exact_repeated_reads": 0,
+    "overlapping_read_operations": 2,
+    "tool_schema_errors": 0,
+    "failed_tool_calls": 1,
+    "Agent_pytest_calls": 0,
+    "post_edit_python_probe_calls": 4,
+    "explicit_submit": false,
+    "patch_applied": true,
+    "patch_correct": false,
+    "patch_bytes": 1254,
+    "diagnostics_left_in_patch": [
+      "repro.py",
+      "reproduce_issue.py"
+    ],
+    "workspace_modified_module_executed": true,
+    "old_behavior_counterexample_seconds": 130.07938152500014,
+    "corrective_edits_after_counterexample": 0,
+    "official_LLM_calls": 18,
+    "official_tool_calls": 17,
+    "HTTP_requests": 20,
+    "HTTP_responses": 19,
+    "HTTP_cancelled": 1,
+    "usage": {
+      "prompt_tokens": 101572,
+      "completion_tokens": 8966,
+      "total_tokens": 110538
+    },
+    "usage_complete": false,
+    "agent_seconds": 300.04294081399996,
+    "worker_seconds": 328.1106182230001
+  },
+  "E3": {
+    "status": "not_run",
+    "official_resolved": null,
+    "tools": null,
+    "tokens": null,
+    "elapsed": null
+  },
+  "decision": "No-Go for multi-task confirmation; E3 mechanism and relative benefit untested",
+  "cause": "Frozen stop-classifier false positive; no within-study repair or restart"
+}

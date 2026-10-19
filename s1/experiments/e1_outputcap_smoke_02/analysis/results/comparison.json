@@ -1,0 +1,55 @@
+{
+  "experiment_id": "s1-e1-outputcap-smoke-02",
+  "scope": "One smoke pair; no rate estimate",
+  "rows": [
+    {
+      "index": 1,
+      "instance_id": "requests_7328",
+      "arm": "control",
+      "status": "failed",
+      "metrics": {
+        "HTTP_requests": 25,
+        "official_LLM_calls": 22,
+        "actual_usage": {
+          "prompt_tokens": 123109,
+          "completion_tokens": 9662,
+          "total_tokens": 132771
+        },
+        "agent_seconds": 299.99773174200004,
+        "worker_seconds": 392.76967471199987,
+        "tools": 23,
+        "first_effective_edit_seconds": null,
+        "first_effective_edit_status": "manual review pending",
+        "edit_attempts": 5,
+        "changed_files": [
+          "repro_self_ref.py",
+          "reproduce_issue.py",
+          "src/requests/sessions.py"
+        ],
+        "patch_bytes": 5244,
+        "explicit_submits": 0,
+        "exact_repeated_reads": 0,
+        "testing_commands": 5,
+        "finish_length": 0,
+        "uncapped_summary_requests": 2,
+        "max_input_tokens": 10899,
+        "min_context_slack": 4461,
+        "context_rejects": 0,
+        "phase2_exit": 1,
+        "phase2_completed": true,
+        "official_resolved": false,
+        "infrastructure_passed": false
+      },
+      "reasons": [
+        "missing/unmatched HTTP"
+      ]
+    },
+    {
+      "index": 2,
+      "instance_id": "requests_7328",
+      "arm": "e1_output8192",
+      "status": "not_run",
+      "metrics": null
+    }
+  ]
+}

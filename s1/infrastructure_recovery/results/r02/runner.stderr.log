@@ -1,0 +1,21 @@
+WARNING:asyncio:Executing <Task finished name='Task-3' coro=<WireTests.test_logging_failure_does_not_swallow_CancelledError() done, defined at /kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/tests/test_wire.py:102> result=None created at /usr/lib/python3.12/asyncio/runners.py:100> took 0.115 seconds
+WARNING:asyncio:Executing <Task finished name='Task-49' coro=<WireTests.test_transport_error_is_not_cancel() done, defined at /kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/tests/test_wire.py:86> result=None created at /usr/lib/python3.12/asyncio/runners.py:100> took 0.103 seconds
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 27a452e4-fee, creating venv without pip: Command '['/tmp/tmpv4mntso7/sandboxes/swegemma_sandbox_27a452e4-fee/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:asyncio:Executing <Task pending name='Task-61' coro=<OfficialDeadlineTests.test_native_Agent_deadline_reaches_observer_and_preserves_patch_trace() running at /kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/tests/test_official_deadline.py:50> wait_for=<Future pending cb=[_chain_future.<locals>._call_check_cancel() at /usr/lib/python3.12/asyncio/futures.py:389, Task.task_wakeup()] created at /usr/lib/python3.12/asyncio/base_events.py:448> cb=[_run_until_complete_cb() at /usr/lib/python3.12/asyncio/base_events.py:181] created at /usr/lib/python3.12/asyncio/runners.py:100> took 0.488 seconds
+WARNING:asyncio:Executing <Task pending name='Task-61' coro=<OfficialDeadlineTests.test_native_Agent_deadline_reaches_observer_and_preserves_patch_trace() running at /kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/tests/test_official_deadline.py:50> wait_for=<Future pending cb=[_chain_future.<locals>._call_check_cancel() at /usr/lib/python3.12/asyncio/futures.py:389, Task.task_wakeup()] created at /usr/lib/python3.12/asyncio/base_events.py:448> cb=[_run_until_complete_cb() at /usr/lib/python3.12/asyncio/base_events.py:181] created at /usr/lib/python3.12/asyncio/runners.py:100> took 0.226 seconds
+WARNING:swegemma.harness.agent_runner:Task native_cancel_cpu agent timed out.
+WARNING:swegemma.harness.agent_runner:Task native_cancel_cpu completed without explicit submit_patch call and no working tree modifications.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 4c5f61f9-db8, creating venv without pip: Command '['/kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/validation/clean_requests/sandboxes/swegemma_sandbox_4c5f61f9-db8/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/cpu.py", line 45, in <module>
+    if __name__=='__main__':sys.exit(main(sys.argv[1]))
+                                     ^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/cpu.py", line 29, in main
+    environment=check(output/'clean_requests')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/s1_infra_recovery/r02/20261018T035157_848809Z/source/s1/infrastructure_recovery/workspace_check.py", line 34, in check
+    assert head.exit_code==0 and head.stdout.strip()==row['base_commit']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

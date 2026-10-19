@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.353" timestamp="2026-10-19T09:09:30.336548+00:00" hostname="9a6f444402c3"><testcase classname="" name="tests.test_frontend" time="0.000"><error message="collection failure">/usr/local/lib/python3.12/dist-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/usr/local/lib/python3.12/dist-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap&gt;:1387: in _gcd_import
+    ???
+&lt;frozen importlib._bootstrap&gt;:1360: in _find_and_load
+    ???
+&lt;frozen importlib._bootstrap&gt;:1331: in _find_and_load_unlocked
+    ???
+&lt;frozen importlib._bootstrap&gt;:935: in _load_unlocked
+    ???
+/usr/local/lib/python3.12/dist-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+tests/test_frontend.py:8: in &lt;module&gt;
+    from fastapi import APIRouter, FastAPI, HTTPException, Request, WebSocket
+fastapi/__init__.py:7: in &lt;module&gt;
+    from .applications import FastAPI as FastAPI
+E     File "/kaggle/working/s1_egv_mechanism_smoke_01/gpu/20261019T084912_749991Z/runs/02-fastapi_15800-control/sandbox_tmp/swegemma_sandbox_d19ab7fc-7ab/workspace/fastapi/applications.py", line 1367
+E       \"\"\"
+E        ^
+E   SyntaxError: unexpected character after line continuation character</error></testcase></testsuite></testsuites>
