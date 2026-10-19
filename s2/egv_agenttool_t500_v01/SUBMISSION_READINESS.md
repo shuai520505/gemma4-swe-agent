@@ -1,0 +1,13 @@
+# T500 submission readiness
+
+Candidate S2-EGV-AgentTool-T500-V0.1 derives from frozen S2-300 at c979394. ZIP13968b67844d1041bfb79b9f11fc21ae66fb36aee5b00d3b91c526d5d35da329. All five member hashes in candidate.json; only evaluation.max_time_minutes changes5.0->8.333333333333334. Both Prompts, model/tools/generation and child declaration are byte-identical.
+
+Official account initial preflight: userHasEntered=true, submissionsDisabled=false, deadline2026-12-02, daily allowance1, numToday0/numAllowedNow1; only accepted submission is S0 ref57261002 COMPLETE score0.13. Rules acceptance is evidenced by entered state and the already accepted same-account S0 submission; no new rule acceptance or account switching is performed. A fresh check runs immediately before any create request; prior initial allowance is not treated as a reservation.
+
+Packaging-only Notebook wudangdexiaodoashi/gemma4-s2-t500-first-official-score, saved version1, COMPLETE. Downloaded output submission.zip byte-equals frozen candidate; raw status/log/packaging_result/output ZIP under submission_evidence/package_v1. No development tasks, wheel install or research GPU run in that Notebook.
+
+CPU status and actual500s deadline must be accepted through CPU_FEASIBILITY.json before submit_once.py can proceed; archived300s tests alone cannot pass it. Official private scripts/inference.py is not among the524 public competition files or installed official wheels, and its direct public download returned404. Do not claim to have inspected or executed that private loader. Public HARNESS_README documents the exact eval_config keys, official public EvalConfig/native Runner accept floating minutes, and the new500s test checks actual timing. Official scoring remains the eventual end-to-end private-loader compatibility check.
+
+GLOBAL_BUDGET_MODEL.md/JSON/CSV report substantial cap-heavy120-task risk, no measured T500 population timing and no fabricated real risk probability. Any submission gate decision must explicitly account for this unresolved risk and the requested NoGo condition. A single exploratory score does not certify full12-hour coverage or causal time benefit.
+
+One-request guard: submit_once.py checks CPU/candidate/history/output hashes, current competition/account/limits and duplicates. SUBMISSION_INTENT.json is created exclusively before the single CreateCodeSubmission transport call; transport retries are disabled for that request. Ambiguous outcomes are queried with query_submission.py; there is no automatic second creation. Only T500 version1 may be submitted. Query preserves actual publicScore/status/error, never guesses a score. Research16-run authorization is separate and remains false.
