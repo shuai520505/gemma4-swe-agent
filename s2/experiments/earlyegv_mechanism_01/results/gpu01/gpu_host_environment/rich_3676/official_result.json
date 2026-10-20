@@ -1,0 +1,18 @@
+{
+  "task_id": "rich_3676",
+  "resolved": false,
+  "status": "SUCCESS",
+  "duration_seconds": 9.43499547700003,
+  "cost_usd": 0.0,
+  "total_tokens": 0,
+  "total_llm_calls": 0,
+  "error_message": null,
+  "trace_path": null,
+  "metadata": {},
+  "repo": "Textualize/rich",
+  "agent_patch": "",
+  "test_output": "STDOUT:\n...................s.F                                                   [100%]\n=================================== FAILURES ===================================\n__________________________________ test_notes __________________________________\n\n    @pytest.mark.skipif(\n        sys.version_info.minor < 11, reason=\"Not supported before Python 3.11\"\n    )\n    def test_notes() -> None:\n        \"\"\"Check traceback captures __note__.\"\"\"\n        try:\n>           1 / 0\nE           ZeroDivisionError: division by zero\nE           Hello\nE           World\n\ntests/test_traceback.py:369: ZeroDivisionError\n\nDuring handling of the above exception, another exception occurred:\n\n    @pytest.mark.skipif(\n        sys.version_info.minor < 11, reason=\"Not supported before Python 3.11\"\n    )\n    def test_notes() -> None:\n        \"\"\"Check traceback captures __note__.\"\"\"\n        try:\n            1 / 0\n        except Exception as error:\n            error.add_note(\"Hello\")\n            error.add_note(\"World\")\n            traceback = Traceback()\n    \n>           assert traceback.trace.stacks[0].notes == [\"Hello\", \"World\"]\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: 'Stack' object has no attribute 'notes'\n\ntests/test_traceback.py:375: AttributeError\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/gpu_host_environment/rich_3676/sandbox_tmp/swegemma_sandbox_be9517e2-fbf/tmp/_swegemma_junit_d2e8c464ed88.xml -\n=========================== short test summary info ============================\nFAILED tests/test_traceback.py::test_notes - AttributeError: 'Stack' object h...\n1 failed, 20 passed, 1 skipped in 1.61s\n\nSTDERR:\n",
+  "test_exit_code": 1,
+  "tool_calls": 0,
+  "task_index": null
+}

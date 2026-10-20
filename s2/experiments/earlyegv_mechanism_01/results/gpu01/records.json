@@ -1,0 +1,4587 @@
+[
+  {
+    "index": 1,
+    "pair": 1,
+    "batch": 1,
+    "instance_id": "rich_3676",
+    "arm": "A",
+    "result": {
+      "status": "resolved",
+      "failure_stage": null,
+      "reason": "official_resolved",
+      "controller_error": null,
+      "controller_failure_stage": null,
+      "process_exit_code": 0,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "duration_seconds": 521.5436661980001,
+      "allow_next_run": true,
+      "evidence": {
+        "official_result": true,
+        "patch_checkpoint": true,
+        "patch_checkpoint_bytes": 1699,
+        "incremental_adk_events": true,
+        "native_trace": true,
+        "agent_boundary_trace": true,
+        "phase2_output": true
+      },
+      "official_fields_unchanged": true
+    },
+    "audit": {
+      "infrastructure_passed": true,
+      "reasons": [],
+      "outcome": {
+        "status": "resolved",
+        "failure_stage": null,
+        "reason": "passed"
+      },
+      "official_resolved": true,
+      "official_test_exit_code": 0,
+      "HTTP_requests": 67,
+      "official_LLM_calls": 61,
+      "official_tool_calls": 60,
+      "native_tool_events": 60,
+      "usage": {
+        "prompt_tokens": 375649,
+        "completion_tokens": 15860,
+        "total_tokens": 391509
+      },
+      "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+      "finish_length": 0,
+      "agent_seconds": 491.4555337359999,
+      "worker_seconds": 521.5436661980001,
+      "first_edit_action_seconds": 259.3250681909999,
+      "first_effective_edit_seconds": null,
+      "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+      "exact_repeated_reads": 0,
+      "testing_commands": 2,
+      "explicit_submits": 0,
+      "leakage_findings": [],
+      "tools": [
+        {
+          "time": 810.985983347,
+          "id": "chatcmpl-tool-8e8819ccf0480427",
+          "args": {
+            "command": "grep -n \"Exception\" rich/traceback.py | head -n 20"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 813.771151051,
+          "id": "chatcmpl-tool-a71c46a0b7d9c17f",
+          "args": {
+            "command": "grep -n \"exc_value\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 818.305587016,
+          "id": "chatcmpl-tool-95be401b4cb90611",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 300,
+            "end_line": 430
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 821.201906306,
+          "id": "chatcmpl-tool-8b8a8245afc9b857",
+          "args": {
+            "end_line": 500,
+            "filepath": "rich/traceback.py",
+            "start_line": 420
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 825.770213606,
+          "id": "chatcmpl-tool-b5495439d12e8594",
+          "args": {
+            "end_line": 450,
+            "filepath": "rich/traceback.py",
+            "start_line": 410
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 831.034588762,
+          "id": "chatcmpl-tool-9dfff65b0648f9b4",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 832.954589969,
+          "id": "chatcmpl-tool-b288bfdeb070205d",
+          "args": {
+            "end_line": 210,
+            "filepath": "rich/traceback.py",
+            "start_line": 197
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 836.997226663,
+          "id": "chatcmpl-tool-8c5f36837e904098",
+          "args": {
+            "end_line": 205,
+            "filepath": "rich/traceback.py",
+            "start_line": 190
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 839.653718957,
+          "id": "chatcmpl-tool-8b9cbb1c36772e1b",
+          "args": {
+            "command": "grep -n \"stack.exc_value\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 841.504115945,
+          "id": "chatcmpl-tool-937fb8ae89533415",
+          "args": {
+            "end_line": 610,
+            "filepath": "rich/traceback.py",
+            "start_line": 570
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 852.335212881,
+          "id": "chatcmpl-tool-a6d243c9f1bc7dbb",
+          "args": {
+            "command": "grep -C 5 \"elif stack.exc_value:\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 854.216793618,
+          "id": "chatcmpl-tool-bdeaa0220da0f802",
+          "args": {
+            "command": "grep -B 50 \"elif stack.exc_value:\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 875.504973424,
+          "id": "chatcmpl-tool-bcf94a4f761f2bef",
+          "args": {
+            "command": "grep -n \"def _render_stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 877.125443352,
+          "id": "chatcmpl-tool-85a1722653bd9760",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 647
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 879.67624426,
+          "id": "chatcmpl-tool-865fc3a66cc1d9a4",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 767
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 889.836033875,
+          "id": "chatcmpl-tool-afb0ed882babe156",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 750,
+            "end_line": 770
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 894.09947051,
+          "id": "chatcmpl-tool-bd079c05bcefd415",
+          "args": {
+            "command": "grep -n \"elif stack.exc_value:\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 896.201024165,
+          "id": "chatcmpl-tool-89151efd2366b7bf",
+          "args": {
+            "end_line": 600,
+            "filepath": "rich/traceback.py",
+            "start_line": 570
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 898.887297531,
+          "id": "chatcmpl-tool-983b85048ab9865d",
+          "args": {
+            "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 901.003015466,
+          "id": "chatcmpl-tool-b2f24d3ea398a42a",
+          "args": {
+            "command": "grep -n \"class Traceback\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 903.07323519,
+          "id": "chatcmpl-tool-842145db634bdb77",
+          "args": {
+            "command": "grep \"def \" rich/traceback.py | grep -B 1 \"class Traceback\" -A 500"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 905.0232805,
+          "id": "chatcmpl-tool-8b9de33cbc9ff627",
+          "args": {
+            "end_line": 646,
+            "filepath": "rich/traceback.py",
+            "start_line": 214
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 908.398947099,
+          "id": "chatcmpl-tool-acd728d0b8da660d",
+          "args": {
+            "end_line": 646,
+            "filepath": "rich/traceback.py",
+            "start_line": 550
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 916.118901048,
+          "id": "chatcmpl-tool-8a28f9506734ce0a",
+          "args": {
+            "end_line": 550,
+            "filepath": "rich/traceback.py",
+            "start_line": 400
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 938.060914649,
+          "id": "chatcmpl-tool-b28d347249667e08",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 939.953431963,
+          "id": "chatcmpl-tool-8f7b3d8f4579e230",
+          "args": {
+            "end_line": 210,
+            "filepath": "rich/traceback.py",
+            "start_line": 180
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 943.283748949,
+          "id": "chatcmpl-tool-83b7edcd6b3def54",
+          "args": {
+            "end_line": 430,
+            "filepath": "rich/traceback.py",
+            "start_line\"": 410
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 946.205679725,
+          "id": "chatcmpl-tool-bbf046fb8c7d9ff0",
+          "args": {
+            "end_line": 440,
+            "filepath": "rich/traceback.py",
+            "start_line\"": 410
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 952.049714265,
+          "id": "chatcmpl-tool-bf1ca0ec58d7e519",
+          "args": {
+            "command": "grep -n \"def extract\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 954.224350075,
+          "id": "chatcmpl-tool-9193f180d06b39d8",
+          "args": {
+            "end_line": 440,
+            "filepath": "rich/traceback.py",
+            "start_line\"": 372
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 965.134404809,
+          "id": "chatcmpl-tool-b75e579f4e4ea75a",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 370,
+            "end_line": 450
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 990.544036531,
+          "id": "chatcmpl-tool-943406855025df48",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 992.648281592,
+          "id": "chatcmpl-tool-a24df05b66043c09",
+          "args": {
+            "end_line": 220,
+            "filepath": "rich/traceback.py",
+            "start_line": 190
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1002.27035127,
+          "id": "chatcmpl-tool-a9874b2d0f179919",
+          "args": {
+            "command": "grep -n \"def __rich__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1003.977618223,
+          "id": "chatcmpl-tool-81a1948e1cc965eb",
+          "args": {
+            "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1006.513740582,
+          "id": "chatcmpl-tool-8feb673b88d8d356",
+          "args": {
+            "command": "grep -n \"yield\" rich/traceback.py | grep -A 20 \"class Traceback\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1008.357097873,
+          "id": "chatcmpl-tool-9c2b7e35f6d0433b",
+          "args": {
+            "command": "grep -n \"yield\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1011.65177621,
+          "id": "chatcmpl-tool-b0956e0e11f47096",
+          "args": {
+            "end_line": 600,
+            "filepath": "rich/traceback.py",
+            "start_line": 550
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1017.998088604,
+          "id": "chatcmpl-tool-b165a8a4debd967b",
+          "args": {
+            "end_line": 550,
+            "filepath": "rich/traceback.py",
+            "start_line": 530
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1064.121514149,
+          "id": "chatcmpl-tool-847fb014bebf5111",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "old_string": "@dataclass\nclass Stack:\n    exc_type: str\n    exc_value: str\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)",
+            "new_string": "@dataclass\nclass Stack:\n    exc_type: str\n    exc_value: str\n    notes: Optional[str] = None\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1069.323218689,
+          "id": "chatcmpl-tool-beee793492a4dc36",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "new_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                notes=getattr(exc_value, \"__notes__\", None),\n                is_cause=is_cause,\n            )",
+            "old_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                is_cause=is_cause,\n            )"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1162.876699141,
+          "id": "chatcmpl-tool-b90e50324d790de3",
+          "args": {
+            "command": "grep -n \"highlighter =\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1189.848363245,
+          "id": "chatcmpl-tool-a3528ea662eaf237",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "new_string": "            else:\n                yield Text.assemble((f\"{stack.exc_type}\", \"traceback.exc_type\"))\n\n            if stack.notes:\n                yield Text.assemble((\"Notes:\", \"traceback.notes\"))\n                yield highlighter(stack.notes)\n",
+            "old_string": "            else:\n                yield Text.assemble((f\"{stack.exc_type}\", \"traceback.exc_type\"))"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1192.27846181,
+          "id": "chatcmpl-tool-ae35a315a76213fc",
+          "args": {
+            "command": "python3 --version"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1197.759375389,
+          "id": "chatcmpl-tool-8b480ae33067189a",
+          "args": {
+            "filepath": "reproduce_notes.py",
+            "content": "from rich.console import Console\nfrom rich.traceback import Traceback\n\ndef test_notes():\n    try:\n        try:\n            raise Exception(\"Original Error\")\n        except Exception as e:\n            e.__notes__ = \"Additional information\\nSecond line of notes\"\n            raise e\n    except Exception:\n        console = Console(record=True)\n        console.print_exception(show_traceback=True)\n        print(console.export_text())\n\nif __name__ == \"__main__\":\n    test_notes()\n"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1199.243523872,
+          "id": "chatcmpl-tool-8b6962f6f87d98c2",
+          "args": {
+            "command": "python3 reproduce_notes.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1206.598251428,
+          "id": "chatcmpl-tool-a4af82c8e7bcf69a",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import Traceback\n\ndef test_notes():\n    try:\n        try:\n            raise Exception(\"Original Error\")\n        except Exception as e:\n            e.__notes__ = \"Additional information\\nSecond line of notes\"\n            raise e\n    except Exception:\n        console = Console(record=True)\n        console.print_exception()\n        print(console.export_text())\n\nif __name__ == \"__main__\":\n    test_notes()\n",
+            "filepath": "reproduce_notes.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1230.42382769,
+          "id": "chatcmpl-tool-81e5e9f67a552e48",
+          "args": {
+            "command": "python3 reproduce_notes.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1234.14880529,
+          "id": "chatcmpl-tool-a4270268b32506b5",
+          "args": {
+            "filepath": "rich/traceback.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1237.961621722,
+          "id": "chatcmpl-tool-a41b783212a8c47a",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1239.51693721,
+          "id": "chatcmpl-tool-adabd59eeb56b9a3",
+          "args": {
+            "command": "grep -n \"def extract\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1241.261602596,
+          "id": "chatcmpl-tool-b1c712c59bc9bf9e",
+          "args": {
+            "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1244.277254101,
+          "id": "chatcmpl-tool-b8458835ac660c50",
+          "args": {
+            "command": "grep -n \"def \" rich/traceback.py | grep -A 20 \"class Traceback\" | head -n 20"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1247.044950871,
+          "id": "chatcmpl-tool-b25fddb550f148c2",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 190,
+            "end_line": 400
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1250.241623391,
+          "id": "chatcmpl-tool-b114a886289fa264",
+          "args": {
+            "end_line": 385,
+            "filepath": "rich/traceback.py",
+            "start_line": 373
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1252.626135151,
+          "id": "chatcmpl-tool-83b9c5f8e43120cf",
+          "args": {
+            "end_line": 430,
+            "filepath": "rich/traceback.py",
+            "start_line": 386
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1257.146876153,
+          "id": "chatcmpl-tool-bf6a8c446720c8f8",
+          "args": {
+            "command": "grep -n \"def \" rich/traceback.py | grep -v \"extract\" | grep -v \".__init__\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1260.254415242,
+          "id": "chatcmpl-tool-a0da084763e060c8",
+          "args": {
+            "end_line": 670,
+            "filepath": "rich/traceback.py",
+            "start_line": 654
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1286.451033682,
+          "id": "chatcmpl-tool-9c50d808c3e2a790",
+          "args": {
+            "end_line": 560,
+            "filepath": "rich/traceback.py",
+            "start_line": 531
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1295.353856381,
+          "id": "chatcmpl-tool-bb44d0455f549008",
+          "args": {
+            "command": "grep -n \"stack.\" rich/traceback.py"
+          },
+          "name": "run_command"
+        }
+      ],
+      "patch_bytes": 1699,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "...................s..                                                   [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/01-rich_3676-A/sandbox_tmp/swegemma_sandbox_1bce952d-77b/tmp/_swegemma_junit_477d68f4954c.xml -\n21 passed, 1 skipped in 0.98s\n",
+        "stderr": "",
+        "duration_seconds": 2.476102195999829,
+        "source": "official_sandbox_exec_return"
+      },
+      "raw_fields_preserved": true,
+      "structured_verifier": {
+        "category": "passed",
+        "categories": [
+          "passed",
+          "skipped"
+        ],
+        "counts": {
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1
+        },
+        "summary": {
+          "passed": 21,
+          "skipped": 1
+        },
+        "events": [
+          {
+            "classname": "test_traceback",
+            "name": "test_handler",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_capture",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_no_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception_no_msg",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception_locals",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_syntax_error",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_nested_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_caused_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_filename_with_bracket",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_filename_not_a_file",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_console_theme_applies",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_broken_str",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_guess_lexer",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_guess_lexer_yaml_j2",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_recursive",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_suppress",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_rich_traceback_omit_optional_local_flag[True-3-expected_frame_names0]",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_rich_traceback_omit_optional_local_flag[False-4-expected_frame_names1]",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_finely_grained_missing",
+            "message": "Not applicable after Python 3.11",
+            "details": "/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/01-rich_3676-A/sandbox_tmp/swegemma_sandbox_1bce952d-77b/workspace/tests/test_traceback.py:332: Not applicable after Python 3.11",
+            "type": "pytest.skip",
+            "category": "skipped"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_finely_grained",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_notes",
+            "category": "passed"
+          }
+        ],
+        "attribution": "no_test_failures",
+        "infrastructure_stop": false,
+        "confirmed_failure": false,
+        "reason": "Structured native test outcome",
+        "evidence_level": "original_JUnit",
+        "exit_code": 0,
+        "historical_only": false
+      },
+      "http_lifecycle": {
+        "passed": true,
+        "reasons": [],
+        "requests": 67,
+        "responses": 67,
+        "rows": [
+          {
+            "request_id": "04eb0ef4a7704aab96322ca57495fc8f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2970,
+              "total_tokens": 3114,
+              "completion_tokens": 144,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "83f74790591144c7851450993f39f2f9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3335,
+              "total_tokens": 3418,
+              "completion_tokens": 83,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "52b2c920cc9e482a9bfa4f6fdda40635",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3836,
+              "total_tokens": 3979,
+              "completion_tokens": 143,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "91571608439145b599d39fbb6655b219",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5112,
+              "total_tokens": 5176,
+              "completion_tokens": 64,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e5fa6810b89345ab92d38a27133ccebc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5999,
+              "total_tokens": 6131,
+              "completion_tokens": 132,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "69fe7e47d58d4e3f8f652f45e2300818",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6602,
+              "total_tokens": 6756,
+              "completion_tokens": 154,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e671c64b78c244879e96f200fb7c3fba",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6799,
+              "total_tokens": 6852,
+              "completion_tokens": 53,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f979dab90f7d47db9d4a0dac9c6021be",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7018,
+              "total_tokens": 7144,
+              "completion_tokens": 126,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "cf033b9c933d481cb0db20d97bfb32ef",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7317,
+              "total_tokens": 7393,
+              "completion_tokens": 76,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "677d0d75ac4546d98b09cc9fbbc396d4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7457,
+              "total_tokens": 7506,
+              "completion_tokens": 49,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7998dbf99c954a3e828c68185f453947",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7980,
+              "total_tokens": 8340,
+              "completion_tokens": 360,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "05476ece2a954036be51a3f7b37a5398",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8481,
+              "total_tokens": 8528,
+              "completion_tokens": 47,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "883db5fa36e0435cb6ce6ba99fdaec3f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2090,
+              "total_tokens": 2683,
+              "completion_tokens": 593,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "974a11befbb84ec49dac6a790de2a605",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3009,
+              "total_tokens": 3124,
+              "completion_tokens": 115,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f2c08db8b37042f3ab6aa2e7fe40dfad",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3182,
+              "total_tokens": 3225,
+              "completion_tokens": 43,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "9c232036464b449cba4ed5606ed34f07",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4230,
+              "total_tokens": 4284,
+              "completion_tokens": 54,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ff35261567a343e29ba57a19366b11a8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4576,
+              "total_tokens": 4931,
+              "completion_tokens": 355,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "bcd75e3dfc6c413084a424ae20511849",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5123,
+              "total_tokens": 5259,
+              "completion_tokens": 136,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "306515f56f194ebfbe0927099837212b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5307,
+              "total_tokens": 5367,
+              "completion_tokens": 60,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "dc7f945b7ea94da485efdbf627f0d172",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5747,
+              "total_tokens": 5820,
+              "completion_tokens": 73,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "eac5027b564a4d298b97e908f8d63312",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5872,
+              "total_tokens": 5931,
+              "completion_tokens": 59,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a8d59d9d1a0144529cd810fe2269f4e6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5975,
+              "total_tokens": 6033,
+              "completion_tokens": 58,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8a70516ce03841feb02111c887f2ca3f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6085,
+              "total_tokens": 6138,
+              "completion_tokens": 53,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "880af07b7f2c4857b990895962261d7f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7322,
+              "total_tokens": 7398,
+              "completion_tokens": 76,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7b8554eab5874af884554cfe3e041904",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8478,
+              "total_tokens": 8711,
+              "completion_tokens": 233,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "2f3812a90425435797e9ba9a1433f9a5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1741,
+              "total_tokens": 2385,
+              "completion_tokens": 644,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "bcc7b6be673e495d91cdc78968dda039",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4397,
+              "total_tokens": 4459,
+              "completion_tokens": 62,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1977f4120a3b43c3aae5bbc7446d6909",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4503,
+              "total_tokens": 4556,
+              "completion_tokens": 53,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "dc4ac0ecd50a4dc592c57f679b74ec12",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4840,
+              "total_tokens": 4941,
+              "completion_tokens": 101,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e4297af1530a4803ab1b87fd302c4aed",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6110,
+              "total_tokens": 6173,
+              "completion_tokens": 63,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1b36ea7f20ae45aa876b214a068c4d54",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7343,
+              "total_tokens": 7509,
+              "completion_tokens": 166,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "0f56dfeadc9941c782516778fd437958",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7553,
+              "total_tokens": 7613,
+              "completion_tokens": 60,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c2eb09530c4b41409daadae13d461a72",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8782,
+              "total_tokens": 9125,
+              "completion_tokens": 343,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b90f583ff8044a0389d4333377da0a0c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1271,
+              "total_tokens": 1967,
+              "completion_tokens": 696,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "cb1c20ba97364cbd8289243358aa593a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4490,
+              "total_tokens": 4642,
+              "completion_tokens": 152,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "84bcbd0147804b0c80ad4fbda8110021",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4686,
+              "total_tokens": 4747,
+              "completion_tokens": 61,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1c4a1f2604514f9f9cf7c044ecd2f7ba",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5053,
+              "total_tokens": 5386,
+              "completion_tokens": 333,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "81955740cd71476bba7563247d52986c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5438,
+              "total_tokens": 5483,
+              "completion_tokens": 45,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f58bf8d82b0f4e159b75e520fc089f15",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5535,
+              "total_tokens": 5611,
+              "completion_tokens": 76,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "05d68bc61a0d4be487968b1d842f3eb9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5663,
+              "total_tokens": 5713,
+              "completion_tokens": 50,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "85eaf4aa71ae44b996b55508242a05f6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5978,
+              "total_tokens": 6076,
+              "completion_tokens": 98,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a9cc722edf8f4f7f94e86d323e7cb7e4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6674,
+              "total_tokens": 6874,
+              "completion_tokens": 200,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "49ea85a9fd5c42bcb08ce75fa4cfd0f6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7217,
+              "total_tokens": 8852,
+              "completion_tokens": 1635,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7e858faeaa55415e99d09e50d536fe5b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 9017,
+              "total_tokens": 9178,
+              "completion_tokens": 161,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4c1e3a5f81c048f69e39f12871e4a205",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1903,
+              "total_tokens": 2795,
+              "completion_tokens": 892,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "fd5f5894ce774d349f0421b94ca2a633",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4149,
+              "total_tokens": 6618,
+              "completion_tokens": 2469,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "51f97db3e4f84d2687f6a7c30e2efd4f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6711,
+              "total_tokens": 7671,
+              "completion_tokens": 960,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4d0676cf1bf04975a0c9bb31457eab7f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7856,
+              "total_tokens": 7920,
+              "completion_tokens": 64,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6398ab88526b497689f8c19b49fb67a5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7966,
+              "total_tokens": 8146,
+              "completion_tokens": 180,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "af98a0376f1e475dacc5536e4bf03a2b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8183,
+              "total_tokens": 8215,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b8f8aa1a3c224c528d6369ad7458eefc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 9303,
+              "total_tokens": 9507,
+              "completion_tokens": 204,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f92b8814d79b4027932eede2c6de8651",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5844,
+              "total_tokens": 6490,
+              "completion_tokens": 646,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "260578873a3944a685e3f39e4c2fb1c5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3339,
+              "total_tokens": 3372,
+              "completion_tokens": 33,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "adee2ba2c21c47628bbb577221ee97e8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3928,
+              "total_tokens": 4026,
+              "completion_tokens": 98,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a81468ff013441e580c5b90664b20484",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5196,
+              "total_tokens": 5293,
+              "completion_tokens": 97,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c21b97382ffe4e4d94fe3b47a5e3efff",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5372,
+              "total_tokens": 5411,
+              "completion_tokens": 39,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b9f664e569c74a2fbe362efd59218036",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5490,
+              "total_tokens": 5536,
+              "completion_tokens": 46,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c5a1c85ca4284ccbbf26ddc0b3e0e34c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5623,
+              "total_tokens": 5715,
+              "completion_tokens": 92,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ad968c20c77540e6a0dd247114a4f96e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5784,
+              "total_tokens": 5867,
+              "completion_tokens": 83,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d14309371da94a878000dc66913376b2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7127,
+              "total_tokens": 7196,
+              "completion_tokens": 69,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6f7217dad5c145ebbb4815d69010eadf",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7429,
+              "total_tokens": 7493,
+              "completion_tokens": 64,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e993d54ea9114b2991bccdbd41ecea95",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8071,
+              "total_tokens": 8203,
+              "completion_tokens": 132,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d35271f554fc48f1b9eeff446d18d098",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8571,
+              "total_tokens": 8656,
+              "completion_tokens": 85,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "14523b3729e544b9afe9f23514181675",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1185,
+              "total_tokens": 1997,
+              "completion_tokens": 812,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "53595f2bc89543a48fd82de0ead7fcba",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2809,
+              "total_tokens": 2923,
+              "completion_tokens": 114,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "59465fda70d34a489ab73b487e9648de",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3384,
+              "total_tokens": 3692,
+              "completion_tokens": 308,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "28a5421325124d1492d7e26cbd0d5a27",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4233,
+              "total_tokens": 4236,
+              "completion_tokens": 3,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 375649,
+          "completion_tokens": 15860,
+          "total_tokens": 391509
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      },
+      "deadline_proof": {
+        "official_agent_deadline": false,
+        "cleanup_verified": true,
+        "official_error": "Agent exceeded tool call budget (60 calls)",
+        "registered_agent_seconds": 500,
+        "observed_agent_seconds": 491.4555337359999,
+        "cutoff_monotonic": 1296.251981775
+      },
+      "usage_complete": true,
+      "partial_token_usage": false,
+      "server_idle": {
+        "passed": true,
+        "consecutive_idle_snapshots": 3,
+        "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+      }
+    }
+  },
+  {
+    "index": 2,
+    "pair": 1,
+    "batch": 1,
+    "instance_id": "rich_3676",
+    "arm": "B",
+    "result": {
+      "status": "resolved",
+      "failure_stage": null,
+      "reason": "official_resolved",
+      "controller_error": null,
+      "controller_failure_stage": null,
+      "process_exit_code": 0,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "duration_seconds": 503.5030710840001,
+      "allow_next_run": true,
+      "evidence": {
+        "official_result": true,
+        "patch_checkpoint": true,
+        "patch_checkpoint_bytes": 8711,
+        "incremental_adk_events": true,
+        "native_trace": true,
+        "agent_boundary_trace": true,
+        "phase2_output": true
+      },
+      "official_fields_unchanged": true
+    },
+    "audit": {
+      "infrastructure_passed": true,
+      "reasons": [],
+      "outcome": {
+        "status": "resolved",
+        "failure_stage": null,
+        "reason": "passed"
+      },
+      "official_resolved": true,
+      "official_test_exit_code": 0,
+      "HTTP_requests": 68,
+      "official_LLM_calls": 62,
+      "official_tool_calls": 60,
+      "native_tool_events": 61,
+      "usage": {
+        "prompt_tokens": 375486,
+        "completion_tokens": 15202,
+        "total_tokens": 390688
+      },
+      "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+      "finish_length": 0,
+      "agent_seconds": 473.56862093400014,
+      "worker_seconds": 503.5030710840001,
+      "first_edit_action_seconds": 41.485144812000044,
+      "first_effective_edit_seconds": null,
+      "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+      "exact_repeated_reads": 1,
+      "testing_commands": 14,
+      "explicit_submits": 1,
+      "leakage_findings": [],
+      "tools": [
+        {
+          "time": 1335.48670339,
+          "id": "chatcmpl-tool-823e29ab646a0aeb",
+          "args": {
+            "command": "grep -n \"Exception\" rich/traceback.py | head -n 20"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1338.269293572,
+          "id": "chatcmpl-tool-820ce5b71487cc15",
+          "args": {
+            "command": "grep -n \"exc_value\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1341.278193426,
+          "id": "chatcmpl-tool-bf48df768c9f0587",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 390,
+            "end_line": 440
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1345.773654151,
+          "id": "chatcmpl-tool-8e86c43984086a9f",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1347.62629915,
+          "id": "chatcmpl-tool-a777fa7cd763e08d",
+          "args": {
+            "end_line": 220,
+            "filepath": "rich/traceback.py",
+            "start_line": 197
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1350.549588946,
+          "id": "chatcmpl-tool-aa9903416d21bfe9",
+          "args": {
+            "command": "grep -n \"stack\" rich/traceback.py | grep \"render\" -C 5"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1360.223464524,
+          "id": "chatcmpl-tool-b99d7c2bbdfb8301",
+          "args": {
+            "end_line": 430,
+            "filepath": "rich/traceback.py",
+            "start_line": 370
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1366.511338382,
+          "id": "chatcmpl-tool-8f93def21b1f88a3",
+          "args": {
+            "command": "python3 --version"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1370.705300047,
+          "id": "chatcmpl-tool-923c1871371df2c1",
+          "args": {
+            "content": "\nfrom rich.console import Console\nfrom rich.traceback import Traceback\n\nconsole = Console()\n\ntry:\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"This is a note\")\n        raise e\nexcept Exception:\n    console.print(Traceback())\n",
+            "filepath": "repro.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1372.047643981,
+          "id": "chatcmpl-tool-ac215f66342c41f0",
+          "args": {
+            "command": "python3 repro.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1389.063350569,
+          "id": "chatcmpl-tool-a12f9edb34727000",
+          "args": {
+            "command": "grep -n \"__rich_console__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1391.012808722,
+          "id": "chatcmpl-tool-9088474bb0904012",
+          "args": {
+            "end_line": 640,
+            "filepath": "rich/traceback.py",
+            "start_line": 529
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1418.621626259,
+          "id": "chatcmpl-tool-98884dc10092a532",
+          "args": {
+            "command": "grep -n \"def print_exception\" rich/console.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1420.462480379,
+          "id": "chatcmpl-tool-b30a283e3bc1efe8",
+          "args": {
+            "end_line": 1870,
+            "filepath": "rich/console.py",
+            "start_line": 1843
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1425.569340563,
+          "id": "chatcmpl-tool-a3a7e74ff6ae6c37",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1427.390935867,
+          "id": "chatcmpl-tool-9ea1914fe562c01c",
+          "args": {
+            "end_line": 220,
+            "filepath": "rich/traceback.py",
+            "start_line": 197
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1432.261926011,
+          "id": "chatcmpl-tool-9c89191e087bccca",
+          "args": {
+            "end_line": 196,
+            "filepath": "rich/traceback.py",
+            "start_line": 190
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1435.606587875,
+          "id": "chatcmpl-tool-b9c23a4f27b3c3c1",
+          "args": {
+            "command": "grep -n \"def extract\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1437.447672771,
+          "id": "chatcmpl-tool-a0b6dfcf1f703ea2",
+          "args": {
+            "end_line": 450,
+            "filepath": "rich/traceback.py",
+            "start_line": 372
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1455.213541561,
+          "id": "chatcmpl-tool-9c9f330aee790202",
+          "args": {
+            "content": "import traceback\ntry:\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"This is a note\")\n        raise e\nexcept Exception:\n    traceback.print_exc()\n",
+            "filepath": "standard_traceback.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1456.576339755,
+          "id": "chatcmpl-tool-805b736180a501b3",
+          "args": {
+            "command": "python3 standard_traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1461.805197404,
+          "id": "chatcmpl-tool-8ff01dd46f91c358",
+          "args": {
+            "content": "import traceback\ntry:\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\nexcept Exception:\n    traceback.print_exc()\n",
+            "filepath": "standard_traceback_multi.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1463.239900998,
+          "id": "chatcmpl-tool-9aa61c59c77b6707",
+          "args": {
+            "command": "python3 standard_traceback_multi.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1493.550105759,
+          "id": "chatcmpl-tool-9f0c182ee145cf8d",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "new_string": "class Stack:\n    exc_type: str\n    exc_value: str\n    notes: Optional[List[str]] = None\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)\n",
+            "old_string": "class Stack:\n    exc_type: str\n    exc_value: str\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)\n"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1517.434916624,
+          "id": "chatcmpl-tool-b4fb7753f3182bc4",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "new_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                notes=getattr(exc_value, \"__notes__\", None),\n                is_cause=is_cause,\n            )",
+            "old_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                is_cause=is_cause,\n            )"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1522.663852133,
+          "id": "chatcmpl-tool-bea1aab679428866",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "new_string": "            elif stack.exc_value:\n                yield Text.assemble(\n                    (f\"{stack.exc_type}: \", \"traceback.exc_type\"),\n                    highlighter(stack.exc_value),\n                )\n                if stack.notes:\n                    for note in stack.notes:\n                        yield Text(note)\n",
+            "old_string": "            elif stack.exc_value:\n                yield Text.assemble(\n                    (f\"{stack.exc_type}: \", \"traceback.exc_type\"),\n                    highlighter(stack.exc_value),\n                )\n"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1524.45383369,
+          "id": "chatcmpl-tool-a07825d1a90d5a3a",
+          "args": {
+            "command": "python3 reproduction.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1530.996565376,
+          "id": "chatcmpl-tool-97754e6ac1aec1fa",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import install\n\ninstall(show_locals=True)\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\nif __name__ == \"__main__\":\n    console = Console(record=True)\n    try:\n        fail()\n    except Exception:\n        console.print_exception()\n        print(console.export_text())\n",
+            "filepath": "reproduction.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1532.301537813,
+          "id": "chatcmpl-tool-93a573cfd34918a5",
+          "args": {
+            "command": "python3 reproduction.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1543.506018166,
+          "id": "chatcmpl-tool-9947f20df55f4fcb",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import install\n\ninstall(show_locals=True)\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\nif __name__ == \"__main__\":\n    console = Console(file=open(\"output.txt\", \"w\"))\n    try:\n        fail()\n    except Exception:\n        console.print_exception()\n",
+            "filepath": "reproduction.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1545.095460769,
+          "id": "chatcmpl-tool-9d6b2433fa1d5c17",
+          "args": {
+            "command": "python3 reproduction.py && cat output.txt"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1552.855282075,
+          "id": "chatcmpl-tool-855acf03981046bc",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import Traceback\nimport sys\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\nif __name__ == \"__main__\":\n    console = Console(width=120)\n    try:\n        fail()\n    except Exception:\n        tb = Traceback.from_exception(sys.exc_info())\n        console.print(tb)\n",
+            "filepath": "reproduction.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1554.157264178,
+          "id": "chatcmpl-tool-a38a3d2f256eab4c",
+          "args": {
+            "command": "python3 reproduction.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1564.905090027,
+          "id": "chatcmpl-tool-a03f7ee03c4dc726",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import install\n\ninstall(show_locals=False)\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\nif __name__ == \"__main__\":\n    console = Console(width=100)\n    try:\n        fail()\n    except Exception:\n        console.print_exception()\n",
+            "filepath": "reproduction.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1566.225210775,
+          "id": "chatcmpl-tool-81f276973ea0cfa4",
+          "args": {
+            "command": "python3 reproduction.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1599.491647102,
+          "id": "chatcmpl-tool-80ee9be9bb80145a",
+          "args": {
+            "content": "from rich.console import Console\nfrom rich.traceback import install\nimport sys\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\nif __name__ == \"__main__\":\n    # Create a console that writes to a file\n    with open(\"output.txt\", \"w\") as f:\n        console = Console(file=f, width=100, force_terminal=True)\n        try:\n            fail()\n        except Exception:\n            console.print_exception()\n",
+            "filepath": "reproduction.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1600.894341602,
+          "id": "chatcmpl-tool-abfe99161ffac8ab",
+          "args": {
+            "command": "python3 reproduction.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1602.400320552,
+          "id": "chatcmpl-tool-a54a8dc13b3b38b6",
+          "args": {
+            "filepath": "output.txt"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1608.485343094,
+          "id": "chatcmpl-tool-ad58f75fb6c666bf",
+          "args": {
+            "command": "tail -n 20 output.txt"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1617.47891777,
+          "id": "chatcmpl-tool-bedeb2edf99ba417",
+          "args": {
+            "content": "from rich.traceback import extract\nimport sys\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\ntry:\n    fail()\nexcept Exception as e:\n    stack = extract(sys.exc_info())\n    print(f\"Notes: {stack.notes}\")\n",
+            "filepath": "test_notes_capture.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1637.815545654,
+          "id": "chatcmpl-tool-a21bdf62879c9974",
+          "args": {
+            "command": "python3 test_notes_capture.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1641.016404685,
+          "id": "chatcmpl-tool-a724103b0479e1cc",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 1
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1643.715957597,
+          "id": "chatcmpl-tool-afd4307da163dda4",
+          "args": {
+            "command": "grep -n \"def extract\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1646.120817528,
+          "id": "chatcmpl-tool-8367759d60b3b76c",
+          "args": {
+            "filepath": "rich/traceback.py",
+            "start_line": 360,
+            "end_line": 380
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1651.453500793,
+          "id": "chatcmpl-tool-80affa846ae25d13",
+          "args": {
+            "content": "from rich.traceback import Traceback\nimport sys\n\ndef fail():\n    try:\n        raise ValueError(\"Original error\")\n    except ValueError as e:\n        e.add_note(\"Note 1\")\n        e.add_note(\"Note 2\")\n        raise e\n\ntry:\n    fail()\nexcept Exception as e:\n    stack = Traceback.extract(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])\n    print(f\"Notes: {stack.notes}\")\n",
+            "filepath": "test_notes_capture.py"
+          },
+          "name": "write_file"
+        },
+        {
+          "time": 1652.896267336,
+          "id": "chatcmpl-tool-ac6d1cbca390e29b",
+          "args": {
+            "command": "python3 test_notes_capture.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1656.726739486,
+          "id": "chatcmpl-tool-a074f2d4837bb3fb",
+          "args": {
+            "end_line": 400,
+            "filepath": "rich/traceback.py",
+            "start_line": 373
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1658.867758337,
+          "id": "chatcmpl-tool-90ed8b2854787fe4",
+          "args": {
+            "command": "grep -n \"class Trace\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1682.845298985,
+          "id": "chatcmpl-tool-9dc00478cef5afef",
+          "args": {
+            "end_line": 235,
+            "filepath": "rich/traceback.py",
+            "start_line": 207
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1688.987674097,
+          "id": "chatcmpl-tool-aeeb77081df3e883",
+          "args": {
+            "command": "grep -n \"class Stack\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1690.836104989,
+          "id": "chatcmpl-tool-95f6ddfe11a173db",
+          "args": {
+            "end_line": 205,
+            "filepath": "rich/traceback.py",
+            "start_line": 197
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1697.852941571,
+          "id": "chatcmpl-tool-a2cc72b355dbb06d",
+          "args": {
+            "end_line": 200,
+            "filepath": "rich/traceback.py",
+            "start_line": 195
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1700.222194002,
+          "id": "chatcmpl-tool-a3c0ec9742b805a7",
+          "args": {
+            "end_line": 550,
+            "filepath": "rich/traceback.py",
+            "start_line": 400
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1705.519420602,
+          "id": "chatcmpl-tool-9d0c6e70ec3423c3",
+          "args": {
+            "command": "grep -n \"def __rich_console__\" rich/traceback.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1707.474302869,
+          "id": "chatcmpl-tool-91288ec6ed057df8",
+          "args": {
+            "end_line": 600,
+            "filepath": "rich/traceback.py",
+            "start_line": 531
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1723.874990908,
+          "id": "chatcmpl-tool-97162b0614616b79",
+          "args": {
+            "command": "python3 -c \"try:\n    raise ValueError('test')\nexcept ValueError as e:\n    e.add_note('note 1')\n    e.add_note('note 2')\n    print(f'type: {type(e.__notes__)}, value: {e.__notes__}')\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1726.584117078,
+          "id": "chatcmpl-tool-b804368a6edd1254",
+          "args": {
+            "command": "python3 --version"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1736.503907804,
+          "id": "chatcmpl-tool-8b2bad370d48601d",
+          "args": {
+            "command": "python3 -c \"try:\n    raise ValueError('test')\nexcept ValueError as e:\n    print(f'before: {getattr(e, \\\"__notes__\\\", \\\"no notes\\\")}')\n    e.add_note('note 1')\n    print(f'after 1: {e.__notes__}')\n    e.add_note('note 2')\n    print(f'after 2: {e.__notes__}')\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1745.038749514,
+          "id": "chatcmpl-tool-a2156f18c0da9177",
+          "args": {
+            "command": "python3 -c \"from rich.traceback import Traceback;\ntry:\n    raise ValueError('test')\nexcept ValueError as e:\n    e.add_note('note 1')\n    e.add_note('note 2')\n    trace = Traceback.extract(type(e), e, e.__traceback__)\n    print(f'Notes: {trace.stacks[0].notes}')\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1762.44404575,
+          "id": "chatcmpl-tool-b2d5573225243973",
+          "args": {
+            "command": "git diff"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1786.000079363,
+          "id": "chatcmpl-tool-a3009c1fd8d931b2",
+          "args": {},
+          "name": "submit_patch"
+        }
+      ],
+      "patch_bytes": 8711,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "...................s..                                                   [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/02-rich_3676-B/sandbox_tmp/swegemma_sandbox_197b0b50-b94/tmp/_swegemma_junit_aa403cb0d587.xml -\n21 passed, 1 skipped in 0.99s\n",
+        "stderr": "",
+        "duration_seconds": 2.437567010999828,
+        "source": "official_sandbox_exec_return"
+      },
+      "raw_fields_preserved": true,
+      "structured_verifier": {
+        "category": "passed",
+        "categories": [
+          "passed",
+          "skipped"
+        ],
+        "counts": {
+          "tests": 22,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 1
+        },
+        "summary": {
+          "passed": 21,
+          "skipped": 1
+        },
+        "events": [
+          {
+            "classname": "test_traceback",
+            "name": "test_handler",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_capture",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_no_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception_no_msg",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_print_exception_locals",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_syntax_error",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_nested_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_caused_exception",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_filename_with_bracket",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_filename_not_a_file",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_console_theme_applies",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_broken_str",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_guess_lexer",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_guess_lexer_yaml_j2",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_recursive",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_suppress",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_rich_traceback_omit_optional_local_flag[True-3-expected_frame_names0]",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_rich_traceback_omit_optional_local_flag[False-4-expected_frame_names1]",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_finely_grained_missing",
+            "message": "Not applicable after Python 3.11",
+            "details": "/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/02-rich_3676-B/sandbox_tmp/swegemma_sandbox_197b0b50-b94/workspace/tests/test_traceback.py:332: Not applicable after Python 3.11",
+            "type": "pytest.skip",
+            "category": "skipped"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_traceback_finely_grained",
+            "category": "passed"
+          },
+          {
+            "classname": "test_traceback",
+            "name": "test_notes",
+            "category": "passed"
+          }
+        ],
+        "attribution": "no_test_failures",
+        "infrastructure_stop": false,
+        "confirmed_failure": false,
+        "reason": "Structured native test outcome",
+        "evidence_level": "original_JUnit",
+        "exit_code": 0,
+        "historical_only": false
+      },
+      "http_lifecycle": {
+        "passed": true,
+        "reasons": [],
+        "requests": 68,
+        "responses": 68,
+        "rows": [
+          {
+            "request_id": "d29e887854e041db9ea1e5bcbd157858",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3325,
+              "total_tokens": 3469,
+              "completion_tokens": 144,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "9c39d4367fb0441db6fdcf67d2170573",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3690,
+              "total_tokens": 3773,
+              "completion_tokens": 83,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "05979b9e307e4838802547bfa2a3a825",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4191,
+              "total_tokens": 4278,
+              "completion_tokens": 87,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "96838ded727944e7833825a0c7b30c91",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4890,
+              "total_tokens": 5026,
+              "completion_tokens": 136,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "29397ae2f00341cd83ac5b168bdea326",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5069,
+              "total_tokens": 5121,
+              "completion_tokens": 52,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e552f632405c41f793f08694f099c1ec",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5393,
+              "total_tokens": 5478,
+              "completion_tokens": 85,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "58f09c1a85ed4a9d830ec43aaa972bab",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5895,
+              "total_tokens": 6212,
+              "completion_tokens": 317,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8974376a42c34db0a8fd5037d4491ffb",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6892,
+              "total_tokens": 7087,
+              "completion_tokens": 195,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8ca989256c764ffc90e880d0e9b5700d",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7133,
+              "total_tokens": 7268,
+              "completion_tokens": 135,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b30bdfc2bb9e40639c23fbd42ea9ed67",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7303,
+              "total_tokens": 7333,
+              "completion_tokens": 30,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "79db2a70772948c592b841d5448c27e8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7855,
+              "total_tokens": 8422,
+              "completion_tokens": 567,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d41fde440609423c9f8136c3642b7498",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8470,
+              "total_tokens": 8522,
+              "completion_tokens": 52,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "87e64fe5eb6f46d4bc03d612624427e6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2300,
+              "total_tokens": 2907,
+              "completion_tokens": 607,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "cb1f0f9f6f3b4e08b7b3093b8963bec3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4085,
+              "total_tokens": 4397,
+              "completion_tokens": 312,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7adf0870cddc4c7da75222331021837c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4445,
+              "total_tokens": 4496,
+              "completion_tokens": 51,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c93f0f3266b7462892263e44756fe003",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4905,
+              "total_tokens": 5069,
+              "completion_tokens": 164,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "9c2039f5c28d406b9fa61039c5c36766",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5112,
+              "total_tokens": 5162,
+              "completion_tokens": 50,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1b1707c6abcd434baa292ab1e3712b06",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5434,
+              "total_tokens": 5592,
+              "completion_tokens": 158,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a98cc44abc9e436da76a92da979116bd",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5695,
+              "total_tokens": 5799,
+              "completion_tokens": 104,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f7ddd87b15f341278d66ba83fcfd3de8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5843,
+              "total_tokens": 5893,
+              "completion_tokens": 50,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "967a212935be4a82bec5816a5e096801",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6782,
+              "total_tokens": 7389,
+              "completion_tokens": 607,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "524755df3dc6483f9ec6b80662780121",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7426,
+              "total_tokens": 7456,
+              "completion_tokens": 30,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e4ed9fa7323d4b0c9b4e63213cad5f0c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7729,
+              "total_tokens": 7891,
+              "completion_tokens": 162,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4e1e99ec691540058f49d5da0241cd0a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7930,
+              "total_tokens": 7962,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "32f53f0517db47ebb7bad60262b502c4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8243,
+              "total_tokens": 9299,
+              "completion_tokens": 1056,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5b590bb5a4044cef8f0a1afff3e1d3a9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2554,
+              "total_tokens": 3172,
+              "completion_tokens": 618,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "9506dc1a54ef46aab70d3ee12a3a6b60",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3958,
+              "total_tokens": 4116,
+              "completion_tokens": 158,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6443b23ccd664583b44e29c9298fb041",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4278,
+              "total_tokens": 4450,
+              "completion_tokens": 172,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e278f6acb29a42a4aac1cceb83c110cc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4638,
+              "total_tokens": 4681,
+              "completion_tokens": 43,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "aabbdc720c5c422485db66ee7ccf52b0",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4951,
+              "total_tokens": 5168,
+              "completion_tokens": 217,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7a464c9ca1174a05a7229af4621fa5f9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5204,
+              "total_tokens": 5232,
+              "completion_tokens": 28,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "80ac4d7c4fbd4cb8b5e3490766fcddee",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5775,
+              "total_tokens": 6146,
+              "completion_tokens": 371,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "31e7ff3eab474f4882ae18d8ab0d7d9b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6181,
+              "total_tokens": 6219,
+              "completion_tokens": 38,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "82048c18a47740659edd8b5d08de97df",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6767,
+              "total_tokens": 7008,
+              "completion_tokens": 241,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4a1e45bffb824c4a8f80cbd5e3c61a3f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7043,
+              "total_tokens": 7070,
+              "completion_tokens": 27,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "0872152d0d2e4bad9f11d05d271d3de4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8174,
+              "total_tokens": 8507,
+              "completion_tokens": 333,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7333bcc839334a1b86999671cc8f5571",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8542,
+              "total_tokens": 8569,
+              "completion_tokens": 27,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "843d74dc3c4145528279c2d48d01cc1c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2109,
+              "total_tokens": 3028,
+              "completion_tokens": 919,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "642cfe92911f4c6999459676f495e7ea",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3316,
+              "total_tokens": 3546,
+              "completion_tokens": 230,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b73159de4aa0408f8b839c881902bd2e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3581,
+              "total_tokens": 3613,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "379fce8b3d044ff4b1f87a83a071a008",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3648,
+              "total_tokens": 3676,
+              "completion_tokens": 28,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1ab72f08ef974fb28bae7544f1053d28",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6999,
+              "total_tokens": 7123,
+              "completion_tokens": 124,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "07aa9ade067c4c2bb85f0d382c40b60a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8770,
+              "total_tokens": 9033,
+              "completion_tokens": 263,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d093f4b1b47a494faf7925abc4358407",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1304,
+              "total_tokens": 1920,
+              "completion_tokens": 616,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5d07a5493cba472fbbb5312824bf849e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4435,
+              "total_tokens": 4492,
+              "completion_tokens": 57,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5e14e8ac2f714bc8a3c086f62a4fdd64",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5000,
+              "total_tokens": 5080,
+              "completion_tokens": 80,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "314ca7449b974bb49aeff6d109f4195d",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6249,
+              "total_tokens": 6303,
+              "completion_tokens": 54,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "034c6cb7bb0847c3828940799e692771",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6348,
+              "total_tokens": 6419,
+              "completion_tokens": 71,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ae96806217264291b65bd91748fe5618",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6683,
+              "total_tokens": 6855,
+              "completion_tokens": 172,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "091fb68627844e6494b05e065c5ecafc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6893,
+              "total_tokens": 6925,
+              "completion_tokens": 32,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6d37623db09646b3b46f959596634492",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8005,
+              "total_tokens": 8090,
+              "completion_tokens": 85,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "85ca7b7280314e418994bdcda75a1ae5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8497,
+              "total_tokens": 8547,
+              "completion_tokens": 50,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b66b688f5bf147199553b06f603f1d7a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 1148,
+              "total_tokens": 1944,
+              "completion_tokens": 796,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "3a7c6bcec43d41118366e8e1961b30d2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3023,
+              "total_tokens": 3073,
+              "completion_tokens": 50,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "2db1e15514ee45ed851cdb77ea8067f3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3575,
+              "total_tokens": 3777,
+              "completion_tokens": 202,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "023b482553ea4e0ca809dfb94a75496c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3856,
+              "total_tokens": 3907,
+              "completion_tokens": 51,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8dc1eef4c3dd4d6982118364cd634195",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4089,
+              "total_tokens": 4330,
+              "completion_tokens": 241,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c9b4162c32dd415c868b3c1d92bf808e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4473,
+              "total_tokens": 4542,
+              "completion_tokens": 69,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c24a81c1c32a4e809c2fc15eed3b87fb",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5563,
+              "total_tokens": 5717,
+              "completion_tokens": 154,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d8c0ebf43ac044eba0f2ddc30c816c05",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5800,
+              "total_tokens": 5853,
+              "completion_tokens": 53,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f8c9d0cd35fd43a5bb8a1bceaf72cbe6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6727,
+              "total_tokens": 7286,
+              "completion_tokens": 559,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8e8aff9d75544063859d71b7622af186",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7378,
+              "total_tokens": 7452,
+              "completion_tokens": 74,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6ac8276606a6458b940a8f74f3988ae4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7533,
+              "total_tokens": 7873,
+              "completion_tokens": 340,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7b8b46c0270d4a61893f2a200fb3163f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7976,
+              "total_tokens": 8258,
+              "completion_tokens": 282,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ba159fb932ec4e72a8eb876061f3a2cc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8342,
+              "total_tokens": 8933,
+              "completion_tokens": 591,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "361bf97599da42d0845fad40a812e03a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2335,
+              "total_tokens": 3065,
+              "completion_tokens": 730,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a5aa9c33d55a498ba4697dfc88b0dde9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3824,
+              "total_tokens": 3870,
+              "completion_tokens": 46,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a7d9064affcb4922b4cd37c8278881c4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3907,
+              "total_tokens": 4519,
+              "completion_tokens": 612,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 375486,
+          "completion_tokens": 15202,
+          "total_tokens": 390688
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      },
+      "deadline_proof": {
+        "official_agent_deadline": false,
+        "cleanup_verified": true,
+        "official_error": "",
+        "registered_agent_seconds": 500,
+        "observed_agent_seconds": 473.56862093400014,
+        "cutoff_monotonic": 1802.788778413
+      },
+      "usage_complete": true,
+      "partial_token_usage": false,
+      "server_idle": {
+        "passed": true,
+        "consecutive_idle_snapshots": 3,
+        "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+      }
+    }
+  },
+  {
+    "index": 3,
+    "pair": 2,
+    "batch": 1,
+    "instance_id": "fastapi_14492",
+    "arm": "B",
+    "result": {
+      "status": "resolved",
+      "failure_stage": null,
+      "reason": "official_resolved",
+      "controller_error": null,
+      "controller_failure_stage": null,
+      "process_exit_code": 0,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "duration_seconds": 238.47983814800023,
+      "allow_next_run": true,
+      "evidence": {
+        "official_result": true,
+        "patch_checkpoint": true,
+        "patch_checkpoint_bytes": 391,
+        "incremental_adk_events": true,
+        "native_trace": true,
+        "agent_boundary_trace": true,
+        "phase2_output": true
+      },
+      "official_fields_unchanged": true
+    },
+    "audit": {
+      "infrastructure_passed": true,
+      "reasons": [],
+      "outcome": {
+        "status": "resolved",
+        "failure_stage": null,
+        "reason": "passed"
+      },
+      "official_resolved": true,
+      "official_test_exit_code": 0,
+      "HTTP_requests": 33,
+      "official_LLM_calls": 31,
+      "official_tool_calls": 27,
+      "native_tool_events": 30,
+      "usage": {
+        "prompt_tokens": 180088,
+        "completion_tokens": 5834,
+        "total_tokens": 185922
+      },
+      "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+      "finish_length": 0,
+      "agent_seconds": 209.49474139599988,
+      "worker_seconds": 238.47983814800023,
+      "first_edit_action_seconds": 38.54596936400003,
+      "first_effective_edit_seconds": null,
+      "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+      "exact_repeated_reads": 3,
+      "testing_commands": 1,
+      "explicit_submits": 3,
+      "leakage_findings": [],
+      "tools": [
+        {
+          "time": 1841.401314918,
+          "id": "chatcmpl-tool-bb4ba0afab1b6f66",
+          "args": {
+            "command": "grep -r \"MIT\" docs docs_src | grep -C 2 \"Apache\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1844.429819735,
+          "id": "chatcmpl-tool-bd8f7f8182214c19",
+          "args": {
+            "command": "grep -r \"MIT\" docs docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1849.352644839,
+          "id": "chatcmpl-tool-8a186de015c6306f",
+          "args": {
+            "command": "grep -ri \"license\" docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1852.471232928,
+          "id": "chatcmpl-tool-8c313bf0fc046228",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1858.391927963,
+          "id": "chatcmpl-tool-9296693400805eb8",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_1_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1864.760427095,
+          "id": "chatcmpl-tool-a959f744ef83212b",
+          "args": {
+            "command": "grep -r \"license_info\" docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1873.82172324,
+          "id": "chatcmpl-tool-8e7da69b63989480",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+            "new_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"Apache-2.0\",\n    },",
+            "old_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"MIT\",\n    },"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1886.514187698,
+          "id": "chatcmpl-tool-be5374c030ce1370",
+          "args": {
+            "command": "grep -r \"Apache-2.0\" ."
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1889.583890174,
+          "id": "chatcmpl-tool-9bf502320c900fa6",
+          "args": {
+            "command": "grep -r \"Apache 2.0\" ."
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1893.176185251,
+          "id": "chatcmpl-tool-b6865eb8941d9877",
+          "args": {
+            "filepath": "tests/test_tutorial/test_metadata/test_tutorial001_1.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1899.940406938,
+          "id": "chatcmpl-tool-bd73f43664b07553",
+          "args": {
+            "filepath": "tests/test_tutorial/test_metadata/test_tutorial001_1.py",
+            "new_string": "            \"license\": {\n                \"name\": \"Apache 2.0\",\n                \"identifier\": \"Apache-2.0\",\n            },",
+            "old_string": "            \"license\": {\n                \"name\": \"Apache 2.0\",\n                \"identifier\": \"MIT\",\n            },"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 1902.826601036,
+          "id": "chatcmpl-tool-a77facc7d2d8fa65",
+          "args": {
+            "command": "pytest tests/test_tutorial/test_metadata/test_tutorial001_1.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1928.982355143,
+          "id": "chatcmpl-tool-b1f965c4fea62edd",
+          "args": {
+            "command": "grep -r \"Apache 2.0\" docs_src | grep \"MIT\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1934.087739774,
+          "id": "chatcmpl-tool-b70ae68824ae45d3",
+          "args": {
+            "command": "ls docs_src/metadata/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1936.469345372,
+          "id": "chatcmpl-tool-b61c2c65de3bb197",
+          "args": {
+            "command": "grep -r \"license\" docs_src/metadata/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1939.465649341,
+          "id": "chatcmpl-tool-a5914d28324ed022",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1943.409347489,
+          "id": "chatcmpl-tool-b09b3224361a0497",
+          "args": {
+            "command": "grep -r \"Apache 2.0\" ."
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1945.961402417,
+          "id": "chatcmpl-tool-9bd7fc0828238ba7",
+          "args": {
+            "filepath": "fastapi/applications.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1949.854222897,
+          "id": "chatcmpl-tool-a736f097c5dccedd",
+          "args": {
+            "command": "grep -n \"Apache 2.0\" fastapi/applications.py"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1952.54187347,
+          "id": "chatcmpl-tool-8cf7527eb04b4aa3",
+          "args": {
+            "filepath": "fastapi/applications.py",
+            "end_line": 630,
+            "start_line": 610
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1959.716049603,
+          "id": "chatcmpl-tool-874bcddb43376764",
+          "args": {
+            "command": "grep -r \"\\\"identifier\\\": \\\"MIT\\\"\" ."
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1964.879151005,
+          "id": "chatcmpl-tool-b85ca827aff2c393",
+          "args": {
+            "command": "grep -r \"identifier\" docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1967.322142428,
+          "id": "chatcmpl-tool-87728f90b900939b",
+          "args": {
+            "command": "git diff --check"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1969.195776853,
+          "id": "chatcmpl-tool-9e74c24b3ffd0f3b",
+          "args": {},
+          "name": "submit_patch"
+        },
+        {
+          "time": 1977.11195358,
+          "id": "chatcmpl-tool-a46b9f78f6b14c70",
+          "args": {
+            "command": "git status"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1980.006423918,
+          "id": "chatcmpl-tool-ac3cb33e84285044",
+          "args": {
+            "command": "git diff"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 1988.45392665,
+          "id": "chatcmpl-tool-b011690d98414d8a",
+          "args": {},
+          "name": "submit_patch"
+        },
+        {
+          "time": 1997.126773407,
+          "id": "chatcmpl-tool-a6fb2b838ed561b8",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_1_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 1999.833053977,
+          "id": "chatcmpl-tool-a50f40c1ce5338a1",
+          "args": {
+            "filepath": "tests/test_tutorial/test_metadata/test_tutorial001_1.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 2026.48039646,
+          "id": "chatcmpl-tool-ad01ea9a37cbc5c6",
+          "args": {},
+          "name": "submit_patch"
+        }
+      ],
+      "patch_bytes": 391,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "..                                                                       [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/03-fastapi_14492-B/sandbox_tmp/swegemma_sandbox_451e2592-cdb/tmp/_swegemma_junit_3602e7051df0.xml -\n2 passed in 0.45s\n",
+        "stderr": "",
+        "duration_seconds": 1.65693704000023,
+        "source": "official_sandbox_exec_return"
+      },
+      "raw_fields_preserved": true,
+      "structured_verifier": {
+        "category": "passed",
+        "categories": [
+          "passed"
+        ],
+        "counts": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "summary": {
+          "passed": 2
+        },
+        "events": [
+          {
+            "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+            "name": "test_items",
+            "category": "passed"
+          },
+          {
+            "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+            "name": "test_openapi_schema",
+            "category": "passed"
+          }
+        ],
+        "attribution": "no_test_failures",
+        "infrastructure_stop": false,
+        "confirmed_failure": false,
+        "reason": "Structured native test outcome",
+        "evidence_level": "original_JUnit",
+        "exit_code": 0,
+        "historical_only": false
+      },
+      "http_lifecycle": {
+        "passed": true,
+        "reasons": [],
+        "requests": 33,
+        "responses": 33,
+        "rows": [
+          {
+            "request_id": "8152527f7d6e43f98f9e3431db6c95b0",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3248,
+              "total_tokens": 3388,
+              "completion_tokens": 140,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "11635de6f8a14924a9da3b61b30dbac3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3441,
+              "total_tokens": 3505,
+              "completion_tokens": 64,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4cf2da2f073446fba167bdbf70cf20f8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4750,
+              "total_tokens": 4856,
+              "completion_tokens": 106,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "37fdad2584a64cb7951c240a9f29b80e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4981,
+              "total_tokens": 5048,
+              "completion_tokens": 67,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "3a59712770ea469e9082ce8e23001ccf",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5420,
+              "total_tokens": 5585,
+              "completion_tokens": 165,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "46f0fecb7c274de68bd63f339dc7ece2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5943,
+              "total_tokens": 6097,
+              "completion_tokens": 154,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "542a26cec41e4b6183445e681f63de7c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6180,
+              "total_tokens": 6463,
+              "completion_tokens": 283,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "0088a51e54f748b0a362b12aeea365a7",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6642,
+              "total_tokens": 7052,
+              "completion_tokens": 410,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a6f3da75c0044b64a388d1e4a2a92e08",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7119,
+              "total_tokens": 7179,
+              "completion_tokens": 60,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "2f8edfaf0d6d4615afc9d876f84549c2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7366,
+              "total_tokens": 7441,
+              "completion_tokens": 75,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "072cf582d9ae4e749956bfc24f763231",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8032,
+              "total_tokens": 8217,
+              "completion_tokens": 185,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "fc64128ec190457882a1df0ded37741d",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8414,
+              "total_tokens": 8467,
+              "completion_tokens": 53,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "76bb8f4846a9410ca5c4f32219514642",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2489,
+              "total_tokens": 3218,
+              "completion_tokens": 729,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6382ea63495041e9934080175d7274be",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3056,
+              "total_tokens": 3121,
+              "completion_tokens": 65,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8610e4a14c2d42a4bff2f9c5386b33c3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3250,
+              "total_tokens": 3392,
+              "completion_tokens": 142,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1bc5819ddc73419b8f0aa583f2ac373e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3500,
+              "total_tokens": 3541,
+              "completion_tokens": 41,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "3c04ddeac33a47fea714f271ca8d69ee",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3704,
+              "total_tokens": 3766,
+              "completion_tokens": 62,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "442c1bb7aeff4351899b4dfdeb47d3db",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4138,
+              "total_tokens": 4231,
+              "completion_tokens": 93,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "9efa0f2eba314b2d8b4e79cd505f1654",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4531,
+              "total_tokens": 4568,
+              "completion_tokens": 37,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "cd996e21f98b4c0aa6a655ef04d13698",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5571,
+              "total_tokens": 5646,
+              "completion_tokens": 75,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "3f7a9d0b35064585a559d6c92796aade",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5698,
+              "total_tokens": 5750,
+              "completion_tokens": 52,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7557179cf31c4c37a986e689089c6d70",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6022,
+              "total_tokens": 6234,
+              "completion_tokens": 212,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d7040990bbdc4b7db5c77cadd84eac7b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6286,
+              "total_tokens": 6423,
+              "completion_tokens": 137,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "fb133fe19e154192b3896a598a439a16",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6528,
+              "total_tokens": 6569,
+              "completion_tokens": 41,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5246c091f5e1488eb522211b8cb7ba01",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6603,
+              "total_tokens": 6625,
+              "completion_tokens": 22,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "1cce53ea72b1468da0054b4063b8832b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6662,
+              "total_tokens": 6903,
+              "completion_tokens": 241,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5c0c4b21bd004852884fee5d818d69f2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7064,
+              "total_tokens": 7120,
+              "completion_tokens": 56,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d3d42e0638de4ed7a53aa6d20418ed21",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7554,
+              "total_tokens": 7802,
+              "completion_tokens": 248,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "fac3a052dda245ed94e022b9918196f3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7838,
+              "total_tokens": 8104,
+              "completion_tokens": 266,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "db2c19e0e27a4d84b1d44f572658cbd1",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8466,
+              "total_tokens": 8509,
+              "completion_tokens": 43,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "cdd163c3205a4269bbea7fc86b78549b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2193,
+              "total_tokens": 3039,
+              "completion_tokens": 846,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f82d2fa985f944aca5d9dc6509abca85",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3669,
+              "total_tokens": 3693,
+              "completion_tokens": 24,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e2516a606c2749edbd5f126ca32242c9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3730,
+              "total_tokens": 4370,
+              "completion_tokens": 640,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 180088,
+          "completion_tokens": 5834,
+          "total_tokens": 185922
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      },
+      "deadline_proof": {
+        "official_agent_deadline": false,
+        "cleanup_verified": true,
+        "official_error": "",
+        "registered_agent_seconds": 500,
+        "observed_agent_seconds": 209.49474139599988,
+        "cutoff_monotonic": 2044.770498603
+      },
+      "usage_complete": true,
+      "partial_token_usage": false,
+      "server_idle": {
+        "passed": true,
+        "consecutive_idle_snapshots": 3,
+        "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+      }
+    }
+  },
+  {
+    "index": 4,
+    "pair": 2,
+    "batch": 1,
+    "instance_id": "fastapi_14492",
+    "arm": "A",
+    "result": {
+      "status": "resolved",
+      "failure_stage": null,
+      "reason": "official_resolved",
+      "controller_error": null,
+      "controller_failure_stage": null,
+      "process_exit_code": 0,
+      "process_tree_stopped": true,
+      "cleanup_complete": true,
+      "duration_seconds": 152.3049544999999,
+      "allow_next_run": true,
+      "evidence": {
+        "official_result": true,
+        "patch_checkpoint": true,
+        "patch_checkpoint_bytes": 391,
+        "incremental_adk_events": true,
+        "native_trace": true,
+        "agent_boundary_trace": true,
+        "phase2_output": true
+      },
+      "official_fields_unchanged": true
+    },
+    "audit": {
+      "infrastructure_passed": true,
+      "reasons": [],
+      "outcome": {
+        "status": "resolved",
+        "failure_stage": null,
+        "reason": "passed"
+      },
+      "official_resolved": true,
+      "official_test_exit_code": 0,
+      "HTTP_requests": 26,
+      "official_LLM_calls": 25,
+      "official_tool_calls": 23,
+      "native_tool_events": 24,
+      "usage": {
+        "prompt_tokens": 143823,
+        "completion_tokens": 3123,
+        "total_tokens": 146946
+      },
+      "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+      "finish_length": 0,
+      "agent_seconds": 123.40489106099994,
+      "worker_seconds": 152.3049544999999,
+      "first_edit_action_seconds": 107.46761960200001,
+      "first_effective_edit_seconds": null,
+      "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+      "exact_repeated_reads": 1,
+      "testing_commands": 0,
+      "explicit_submits": 1,
+      "leakage_findings": [],
+      "tools": [
+        {
+          "time": 2082.754347361,
+          "id": "chatcmpl-tool-8bd27b68150ee38d",
+          "args": {
+            "command": "grep -r \"MIT\" docs docs_src | grep -C 2 \"Apache\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2085.7345624,
+          "id": "chatcmpl-tool-be9af5d06c898bdf",
+          "args": {
+            "command": "grep -r \"MIT\" docs docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2092.032792926,
+          "id": "chatcmpl-tool-9f8c287be83c4e1b",
+          "args": {
+            "command": "grep -r \"Apache\" docs docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2096.953771095,
+          "id": "chatcmpl-tool-b03445501d9ba1f8",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 2102.902872742,
+          "id": "chatcmpl-tool-92a6340692b81bbf",
+          "args": {
+            "command": "grep -r \"license\" docs docs_src | grep -i \"MIT\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2107.88311295,
+          "id": "chatcmpl-tool-8d62aa74bc61799d",
+          "args": {
+            "command": "grep -r \"identifier\" docs docs_src"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2112.716918238,
+          "id": "chatcmpl-tool-b5423bab49630028",
+          "args": {
+            "command": "find docs_src -name \"*metadata.md*\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2115.80370906,
+          "id": "chatcmpl-tool-8a0a3255feb80540",
+          "args": {
+            "command": "find docs_src -maxdepth 2"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2122.202850271,
+          "id": "chatcmpl-tool-91a4df570ebbc420",
+          "args": {
+            "command": "ls -R docs/en/docs/tutorial/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2125.763132849,
+          "id": "chatcmpl-tool-80216d569af616ec",
+          "args": {
+            "command": "grep -nE \"MIT|Apache\" docs/en/docs/tutorial/metadata.md"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2129.078389324,
+          "id": "chatcmpl-tool-a83237de3ae95312",
+          "args": {
+            "command": "grep -r \"license\" docs/en/docs/ --include \"*.md\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2149.67732361,
+          "id": "chatcmpl-tool-9a56100f12250aa0",
+          "args": {
+            "filepath": "docs/en/docs/tutorial/metadata.md"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 2153.893204875,
+          "id": "chatcmpl-tool-8f8954d4b23a0889",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_1_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 2158.405719899,
+          "id": "chatcmpl-tool-a1b9a01fa14d62cd",
+          "args": {
+            "command": "grep -r \"\\\"identifier\\\": \\\"MIT\\\"\" docs_src/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2161.427382447,
+          "id": "chatcmpl-tool-80bacb184ad56c03",
+          "args": {
+            "command": "grep -r \"Apache 2.0\" docs_src/ | grep \"MIT\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2164.707501912,
+          "id": "chatcmpl-tool-b25494bd35823e9e",
+          "args": {
+            "command": "ls docs_src/metadata/ | grep tutorial001_1"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2168.053276519,
+          "id": "chatcmpl-tool-9f35ba8cfa925d4c",
+          "args": {
+            "command": "grep -r \"MIT\" docs/ --include \"*.md\" | grep \"Apache\""
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2172.863671559,
+          "id": "chatcmpl-tool-b75dcd40f926e352",
+          "args": {
+            "command": "grep -r \"license_info\" docs_src/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2175.683521306,
+          "id": "chatcmpl-tool-9ed26e3a017f060e",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_py39.py"
+          },
+          "name": "read_file"
+        },
+        {
+          "time": 2184.466252065,
+          "id": "chatcmpl-tool-ba608ba911588a89",
+          "args": {
+            "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+            "new_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"Apache-2.0\",\n    },",
+            "old_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"MIT\",\n    },"
+          },
+          "name": "edit_file"
+        },
+        {
+          "time": 2187.57875492,
+          "id": "chatcmpl-tool-91b1b5c5727e2dc5",
+          "args": {
+            "command": "grep -r \"MIT\" docs_src/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2191.491264413,
+          "id": "chatcmpl-tool-94197194595554b8",
+          "args": {
+            "command": "grep -r \"MIT\" docs/"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2196.836636829,
+          "id": "chatcmpl-tool-817aa61f45eeb172",
+          "args": {
+            "command": "git diff"
+          },
+          "name": "run_command"
+        },
+        {
+          "time": 2198.740566647,
+          "id": "chatcmpl-tool-97af6c55e29df791",
+          "args": {},
+          "name": "submit_patch"
+        }
+      ],
+      "patch_bytes": 391,
+      "phase2": {
+        "exit_code": 0,
+        "stdout": "..                                                                       [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/04-fastapi_14492-A/sandbox_tmp/swegemma_sandbox_82eb87a9-44d/tmp/_swegemma_junit_1c0e6eea5e50.xml -\n2 passed in 0.45s\n",
+        "stderr": "",
+        "duration_seconds": 1.65726882700028,
+        "source": "official_sandbox_exec_return"
+      },
+      "raw_fields_preserved": true,
+      "structured_verifier": {
+        "category": "passed",
+        "categories": [
+          "passed"
+        ],
+        "counts": {
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "summary": {
+          "passed": 2
+        },
+        "events": [
+          {
+            "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+            "name": "test_items",
+            "category": "passed"
+          },
+          {
+            "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+            "name": "test_openapi_schema",
+            "category": "passed"
+          }
+        ],
+        "attribution": "no_test_failures",
+        "infrastructure_stop": false,
+        "confirmed_failure": false,
+        "reason": "Structured native test outcome",
+        "evidence_level": "original_JUnit",
+        "exit_code": 0,
+        "historical_only": false
+      },
+      "http_lifecycle": {
+        "passed": true,
+        "reasons": [],
+        "requests": 26,
+        "responses": 26,
+        "rows": [
+          {
+            "request_id": "a42855f710964363ba7191efcef97de3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2893,
+              "total_tokens": 3033,
+              "completion_tokens": 140,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4fbc97d865aa4df4a1902f23bec7ed4f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 3086,
+              "total_tokens": 3150,
+              "completion_tokens": 64,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "e43c4b8fef45417ebe9a485dc5872f55",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4395,
+              "total_tokens": 4553,
+              "completion_tokens": 158,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "2d8afb15e91149b9ab3d97773082dea5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4752,
+              "total_tokens": 4884,
+              "completion_tokens": 132,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "12d76547b5174c7e8a748a4993f7dcf3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5256,
+              "total_tokens": 5422,
+              "completion_tokens": 166,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ddd9aef4c48048dda1ef4fe08a5ee2d8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5573,
+              "total_tokens": 5680,
+              "completion_tokens": 107,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4aedab17ef874e37ae7aeb38eda74a04",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6352,
+              "total_tokens": 6466,
+              "completion_tokens": 114,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a4592527964147dfadb60f4d38d30d66",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6500,
+              "total_tokens": 6567,
+              "completion_tokens": 67,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "92e430fbfa934433852c101950a8ae45",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7494,
+              "total_tokens": 7658,
+              "completion_tokens": 164,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "99b19da456054faca1037fbceeab7a2d",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8104,
+              "total_tokens": 8177,
+              "completion_tokens": 73,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ffce5d2cee44475a8871bebcbeae2c4f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8229,
+              "total_tokens": 8302,
+              "completion_tokens": 73,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4b9145f9863e4a2abec01fa0de025b0a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2192,
+              "total_tokens": 2820,
+              "completion_tokens": 628,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "44b971fff5f745af9e1224dc0c5123e1",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 2813,
+              "total_tokens": 2873,
+              "completion_tokens": 60,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4b46438b912c4522bb8aadab7e0fd5de",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4161,
+              "total_tokens": 4242,
+              "completion_tokens": 81,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "15ad359809d745f4a266f2a6f02b890c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4601,
+              "total_tokens": 4715,
+              "completion_tokens": 114,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "99415714563e4ffd83d0154468259c0a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4778,
+              "total_tokens": 4843,
+              "completion_tokens": 65,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "89f243f77e75441b90dafe3755f5a412",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 4895,
+              "total_tokens": 4970,
+              "completion_tokens": 75,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5b557c831ccc4eebbf540f5617153976",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5019,
+              "total_tokens": 5097,
+              "completion_tokens": 78,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "862b461dc1684c14accf79f119c13fb6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5149,
+              "total_tokens": 5281,
+              "completion_tokens": 132,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "49e38b579ea642778019f5e38a6c4b19",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5364,
+              "total_tokens": 5421,
+              "completion_tokens": 57,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b77842c3d10b4d1f8e2ff4235f73cbe9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 5793,
+              "total_tokens": 6062,
+              "completion_tokens": 269,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "64a2f69c55da4a5ea0413f449e21991c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6241,
+              "total_tokens": 6304,
+              "completion_tokens": 63,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "69c7b0e0d0384992a9190b5f00d6fdcc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 6356,
+              "total_tokens": 6453,
+              "completion_tokens": 97,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a2c7023f73b940c593ee0de5b2e0f99a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 7698,
+              "total_tokens": 7814,
+              "completion_tokens": 116,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "4526fa0b941341549cb47366d9ba93d7",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8037,
+              "total_tokens": 8055,
+              "completion_tokens": 18,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "74b1b24b097747a5abfdf004fbae2139",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 8092,
+              "total_tokens": 8104,
+              "completion_tokens": 12,
+              "prompt_tokens_details": null
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 143823,
+          "completion_tokens": 3123,
+          "total_tokens": 146946
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      },
+      "deadline_proof": {
+        "official_agent_deadline": false,
+        "cleanup_verified": true,
+        "official_error": "",
+        "registered_agent_seconds": 500,
+        "observed_agent_seconds": 123.40489106099994,
+        "cutoff_monotonic": 2200.4035262
+      },
+      "usage_complete": true,
+      "partial_token_usage": false,
+      "server_idle": {
+        "passed": true,
+        "consecutive_idle_snapshots": 3,
+        "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+      }
+    }
+  }
+]

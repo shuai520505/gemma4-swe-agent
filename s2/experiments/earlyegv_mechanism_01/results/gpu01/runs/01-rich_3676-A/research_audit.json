@@ -1,0 +1,1554 @@
+{
+  "infrastructure_passed": true,
+  "reasons": [],
+  "outcome": {
+    "status": "resolved",
+    "failure_stage": null,
+    "reason": "passed"
+  },
+  "official_resolved": true,
+  "official_test_exit_code": 0,
+  "HTTP_requests": 67,
+  "official_LLM_calls": 61,
+  "official_tool_calls": 60,
+  "native_tool_events": 60,
+  "usage": {
+    "prompt_tokens": 375649,
+    "completion_tokens": 15860,
+    "total_tokens": 391509
+  },
+  "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+  "finish_length": 0,
+  "agent_seconds": 491.4555337359999,
+  "worker_seconds": 521.5436661980001,
+  "first_edit_action_seconds": 259.3250681909999,
+  "first_effective_edit_seconds": null,
+  "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+  "exact_repeated_reads": 0,
+  "testing_commands": 2,
+  "explicit_submits": 0,
+  "leakage_findings": [],
+  "tools": [
+    {
+      "time": 810.985983347,
+      "id": "chatcmpl-tool-8e8819ccf0480427",
+      "args": {
+        "command": "grep -n \"Exception\" rich/traceback.py | head -n 20"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 813.771151051,
+      "id": "chatcmpl-tool-a71c46a0b7d9c17f",
+      "args": {
+        "command": "grep -n \"exc_value\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 818.305587016,
+      "id": "chatcmpl-tool-95be401b4cb90611",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 300,
+        "end_line": 430
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 821.201906306,
+      "id": "chatcmpl-tool-8b8a8245afc9b857",
+      "args": {
+        "end_line": 500,
+        "filepath": "rich/traceback.py",
+        "start_line": 420
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 825.770213606,
+      "id": "chatcmpl-tool-b5495439d12e8594",
+      "args": {
+        "end_line": 450,
+        "filepath": "rich/traceback.py",
+        "start_line": 410
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 831.034588762,
+      "id": "chatcmpl-tool-9dfff65b0648f9b4",
+      "args": {
+        "command": "grep -n \"class Stack\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 832.954589969,
+      "id": "chatcmpl-tool-b288bfdeb070205d",
+      "args": {
+        "end_line": 210,
+        "filepath": "rich/traceback.py",
+        "start_line": 197
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 836.997226663,
+      "id": "chatcmpl-tool-8c5f36837e904098",
+      "args": {
+        "end_line": 205,
+        "filepath": "rich/traceback.py",
+        "start_line": 190
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 839.653718957,
+      "id": "chatcmpl-tool-8b9cbb1c36772e1b",
+      "args": {
+        "command": "grep -n \"stack.exc_value\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 841.504115945,
+      "id": "chatcmpl-tool-937fb8ae89533415",
+      "args": {
+        "end_line": 610,
+        "filepath": "rich/traceback.py",
+        "start_line": 570
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 852.335212881,
+      "id": "chatcmpl-tool-a6d243c9f1bc7dbb",
+      "args": {
+        "command": "grep -C 5 \"elif stack.exc_value:\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 854.216793618,
+      "id": "chatcmpl-tool-bdeaa0220da0f802",
+      "args": {
+        "command": "grep -B 50 \"elif stack.exc_value:\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 875.504973424,
+      "id": "chatcmpl-tool-bcf94a4f761f2bef",
+      "args": {
+        "command": "grep -n \"def _render_stack\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 877.125443352,
+      "id": "chatcmpl-tool-85a1722653bd9760",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 647
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 879.67624426,
+      "id": "chatcmpl-tool-865fc3a66cc1d9a4",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 767
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 889.836033875,
+      "id": "chatcmpl-tool-afb0ed882babe156",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 750,
+        "end_line": 770
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 894.09947051,
+      "id": "chatcmpl-tool-bd079c05bcefd415",
+      "args": {
+        "command": "grep -n \"elif stack.exc_value:\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 896.201024165,
+      "id": "chatcmpl-tool-89151efd2366b7bf",
+      "args": {
+        "end_line": 600,
+        "filepath": "rich/traceback.py",
+        "start_line": 570
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 898.887297531,
+      "id": "chatcmpl-tool-983b85048ab9865d",
+      "args": {
+        "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 901.003015466,
+      "id": "chatcmpl-tool-b2f24d3ea398a42a",
+      "args": {
+        "command": "grep -n \"class Traceback\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 903.07323519,
+      "id": "chatcmpl-tool-842145db634bdb77",
+      "args": {
+        "command": "grep \"def \" rich/traceback.py | grep -B 1 \"class Traceback\" -A 500"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 905.0232805,
+      "id": "chatcmpl-tool-8b9de33cbc9ff627",
+      "args": {
+        "end_line": 646,
+        "filepath": "rich/traceback.py",
+        "start_line": 214
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 908.398947099,
+      "id": "chatcmpl-tool-acd728d0b8da660d",
+      "args": {
+        "end_line": 646,
+        "filepath": "rich/traceback.py",
+        "start_line": 550
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 916.118901048,
+      "id": "chatcmpl-tool-8a28f9506734ce0a",
+      "args": {
+        "end_line": 550,
+        "filepath": "rich/traceback.py",
+        "start_line": 400
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 938.060914649,
+      "id": "chatcmpl-tool-b28d347249667e08",
+      "args": {
+        "command": "grep -n \"class Stack\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 939.953431963,
+      "id": "chatcmpl-tool-8f7b3d8f4579e230",
+      "args": {
+        "end_line": 210,
+        "filepath": "rich/traceback.py",
+        "start_line": 180
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 943.283748949,
+      "id": "chatcmpl-tool-83b7edcd6b3def54",
+      "args": {
+        "end_line": 430,
+        "filepath": "rich/traceback.py",
+        "start_line\"": 410
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 946.205679725,
+      "id": "chatcmpl-tool-bbf046fb8c7d9ff0",
+      "args": {
+        "end_line": 440,
+        "filepath": "rich/traceback.py",
+        "start_line\"": 410
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 952.049714265,
+      "id": "chatcmpl-tool-bf1ca0ec58d7e519",
+      "args": {
+        "command": "grep -n \"def extract\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 954.224350075,
+      "id": "chatcmpl-tool-9193f180d06b39d8",
+      "args": {
+        "end_line": 440,
+        "filepath": "rich/traceback.py",
+        "start_line\"": 372
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 965.134404809,
+      "id": "chatcmpl-tool-b75e579f4e4ea75a",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 370,
+        "end_line": 450
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 990.544036531,
+      "id": "chatcmpl-tool-943406855025df48",
+      "args": {
+        "command": "grep -n \"class Stack\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 992.648281592,
+      "id": "chatcmpl-tool-a24df05b66043c09",
+      "args": {
+        "end_line": 220,
+        "filepath": "rich/traceback.py",
+        "start_line": 190
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1002.27035127,
+      "id": "chatcmpl-tool-a9874b2d0f179919",
+      "args": {
+        "command": "grep -n \"def __rich__\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1003.977618223,
+      "id": "chatcmpl-tool-81a1948e1cc965eb",
+      "args": {
+        "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1006.513740582,
+      "id": "chatcmpl-tool-8feb673b88d8d356",
+      "args": {
+        "command": "grep -n \"yield\" rich/traceback.py | grep -A 20 \"class Traceback\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1008.357097873,
+      "id": "chatcmpl-tool-9c2b7e35f6d0433b",
+      "args": {
+        "command": "grep -n \"yield\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1011.65177621,
+      "id": "chatcmpl-tool-b0956e0e11f47096",
+      "args": {
+        "end_line": 600,
+        "filepath": "rich/traceback.py",
+        "start_line": 550
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1017.998088604,
+      "id": "chatcmpl-tool-b165a8a4debd967b",
+      "args": {
+        "end_line": 550,
+        "filepath": "rich/traceback.py",
+        "start_line": 530
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1064.121514149,
+      "id": "chatcmpl-tool-847fb014bebf5111",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "old_string": "@dataclass\nclass Stack:\n    exc_type: str\n    exc_value: str\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)",
+        "new_string": "@dataclass\nclass Stack:\n    exc_type: str\n    exc_value: str\n    notes: Optional[str] = None\n    syntax_error: Optional[_SyntaxError] = None\n    is_cause: bool = False\n    frames: List[Frame] = field(default_factory=list)"
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 1069.323218689,
+      "id": "chatcmpl-tool-beee793492a4dc36",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "new_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                notes=getattr(exc_value, \"__notes__\", None),\n                is_cause=is_cause,\n            )",
+        "old_string": "            stack = Stack(\n                exc_type=safe_str(exc_type.__name__),\n                exc_value=safe_str(exc_value),\n                is_cause=is_cause,\n            )"
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 1162.876699141,
+      "id": "chatcmpl-tool-b90e50324d790de3",
+      "args": {
+        "command": "grep -n \"highlighter =\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1189.848363245,
+      "id": "chatcmpl-tool-a3528ea662eaf237",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "new_string": "            else:\n                yield Text.assemble((f\"{stack.exc_type}\", \"traceback.exc_type\"))\n\n            if stack.notes:\n                yield Text.assemble((\"Notes:\", \"traceback.notes\"))\n                yield highlighter(stack.notes)\n",
+        "old_string": "            else:\n                yield Text.assemble((f\"{stack.exc_type}\", \"traceback.exc_type\"))"
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 1192.27846181,
+      "id": "chatcmpl-tool-ae35a315a76213fc",
+      "args": {
+        "command": "python3 --version"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1197.759375389,
+      "id": "chatcmpl-tool-8b480ae33067189a",
+      "args": {
+        "filepath": "reproduce_notes.py",
+        "content": "from rich.console import Console\nfrom rich.traceback import Traceback\n\ndef test_notes():\n    try:\n        try:\n            raise Exception(\"Original Error\")\n        except Exception as e:\n            e.__notes__ = \"Additional information\\nSecond line of notes\"\n            raise e\n    except Exception:\n        console = Console(record=True)\n        console.print_exception(show_traceback=True)\n        print(console.export_text())\n\nif __name__ == \"__main__\":\n    test_notes()\n"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 1199.243523872,
+      "id": "chatcmpl-tool-8b6962f6f87d98c2",
+      "args": {
+        "command": "python3 reproduce_notes.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1206.598251428,
+      "id": "chatcmpl-tool-a4af82c8e7bcf69a",
+      "args": {
+        "content": "from rich.console import Console\nfrom rich.traceback import Traceback\n\ndef test_notes():\n    try:\n        try:\n            raise Exception(\"Original Error\")\n        except Exception as e:\n            e.__notes__ = \"Additional information\\nSecond line of notes\"\n            raise e\n    except Exception:\n        console = Console(record=True)\n        console.print_exception()\n        print(console.export_text())\n\nif __name__ == \"__main__\":\n    test_notes()\n",
+        "filepath": "reproduce_notes.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 1230.42382769,
+      "id": "chatcmpl-tool-81e5e9f67a552e48",
+      "args": {
+        "command": "python3 reproduce_notes.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1234.14880529,
+      "id": "chatcmpl-tool-a4270268b32506b5",
+      "args": {
+        "filepath": "rich/traceback.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1237.961621722,
+      "id": "chatcmpl-tool-a41b783212a8c47a",
+      "args": {
+        "command": "grep -n \"class Stack\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1239.51693721,
+      "id": "chatcmpl-tool-adabd59eeb56b9a3",
+      "args": {
+        "command": "grep -n \"def extract\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1241.261602596,
+      "id": "chatcmpl-tool-b1c712c59bc9bf9e",
+      "args": {
+        "command": "grep -n \"def __rich_yield__\" rich/traceback.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1244.277254101,
+      "id": "chatcmpl-tool-b8458835ac660c50",
+      "args": {
+        "command": "grep -n \"def \" rich/traceback.py | grep -A 20 \"class Traceback\" | head -n 20"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1247.044950871,
+      "id": "chatcmpl-tool-b25fddb550f148c2",
+      "args": {
+        "filepath": "rich/traceback.py",
+        "start_line": 190,
+        "end_line": 400
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1250.241623391,
+      "id": "chatcmpl-tool-b114a886289fa264",
+      "args": {
+        "end_line": 385,
+        "filepath": "rich/traceback.py",
+        "start_line": 373
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1252.626135151,
+      "id": "chatcmpl-tool-83b9c5f8e43120cf",
+      "args": {
+        "end_line": 430,
+        "filepath": "rich/traceback.py",
+        "start_line": 386
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1257.146876153,
+      "id": "chatcmpl-tool-bf6a8c446720c8f8",
+      "args": {
+        "command": "grep -n \"def \" rich/traceback.py | grep -v \"extract\" | grep -v \".__init__\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1260.254415242,
+      "id": "chatcmpl-tool-a0da084763e060c8",
+      "args": {
+        "end_line": 670,
+        "filepath": "rich/traceback.py",
+        "start_line": 654
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1286.451033682,
+      "id": "chatcmpl-tool-9c50d808c3e2a790",
+      "args": {
+        "end_line": 560,
+        "filepath": "rich/traceback.py",
+        "start_line": 531
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1295.353856381,
+      "id": "chatcmpl-tool-bb44d0455f549008",
+      "args": {
+        "command": "grep -n \"stack.\" rich/traceback.py"
+      },
+      "name": "run_command"
+    }
+  ],
+  "patch_bytes": 1699,
+  "phase2": {
+    "exit_code": 0,
+    "stdout": "...................s..                                                   [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/01-rich_3676-A/sandbox_tmp/swegemma_sandbox_1bce952d-77b/tmp/_swegemma_junit_477d68f4954c.xml -\n21 passed, 1 skipped in 0.98s\n",
+    "stderr": "",
+    "duration_seconds": 2.476102195999829,
+    "source": "official_sandbox_exec_return"
+  },
+  "raw_fields_preserved": true,
+  "structured_verifier": {
+    "category": "passed",
+    "categories": [
+      "passed",
+      "skipped"
+    ],
+    "counts": {
+      "tests": 22,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "summary": {
+      "passed": 21,
+      "skipped": 1
+    },
+    "events": [
+      {
+        "classname": "test_traceback",
+        "name": "test_handler",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_capture",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_no_exception",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_print_exception",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_print_exception_no_msg",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_print_exception_locals",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_syntax_error",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_nested_exception",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_caused_exception",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_filename_with_bracket",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_filename_not_a_file",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_traceback_console_theme_applies",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_broken_str",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_guess_lexer",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_guess_lexer_yaml_j2",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_recursive",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_suppress",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_rich_traceback_omit_optional_local_flag[True-3-expected_frame_names0]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_rich_traceback_omit_optional_local_flag[False-4-expected_frame_names1]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_traceback_finely_grained_missing",
+        "message": "Not applicable after Python 3.11",
+        "details": "/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/01-rich_3676-A/sandbox_tmp/swegemma_sandbox_1bce952d-77b/workspace/tests/test_traceback.py:332: Not applicable after Python 3.11",
+        "type": "pytest.skip",
+        "category": "skipped"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_traceback_finely_grained",
+        "category": "passed"
+      },
+      {
+        "classname": "test_traceback",
+        "name": "test_notes",
+        "category": "passed"
+      }
+    ],
+    "attribution": "no_test_failures",
+    "infrastructure_stop": false,
+    "confirmed_failure": false,
+    "reason": "Structured native test outcome",
+    "evidence_level": "original_JUnit",
+    "exit_code": 0,
+    "historical_only": false
+  },
+  "http_lifecycle": {
+    "passed": true,
+    "reasons": [],
+    "requests": 67,
+    "responses": 67,
+    "rows": [
+      {
+        "request_id": "04eb0ef4a7704aab96322ca57495fc8f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2970,
+          "total_tokens": 3114,
+          "completion_tokens": 144,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "83f74790591144c7851450993f39f2f9",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3335,
+          "total_tokens": 3418,
+          "completion_tokens": 83,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "52b2c920cc9e482a9bfa4f6fdda40635",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3836,
+          "total_tokens": 3979,
+          "completion_tokens": 143,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "91571608439145b599d39fbb6655b219",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5112,
+          "total_tokens": 5176,
+          "completion_tokens": 64,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e5fa6810b89345ab92d38a27133ccebc",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5999,
+          "total_tokens": 6131,
+          "completion_tokens": 132,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "69fe7e47d58d4e3f8f652f45e2300818",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6602,
+          "total_tokens": 6756,
+          "completion_tokens": 154,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e671c64b78c244879e96f200fb7c3fba",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6799,
+          "total_tokens": 6852,
+          "completion_tokens": 53,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f979dab90f7d47db9d4a0dac9c6021be",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7018,
+          "total_tokens": 7144,
+          "completion_tokens": 126,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "cf033b9c933d481cb0db20d97bfb32ef",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7317,
+          "total_tokens": 7393,
+          "completion_tokens": 76,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "677d0d75ac4546d98b09cc9fbbc396d4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7457,
+          "total_tokens": 7506,
+          "completion_tokens": 49,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7998dbf99c954a3e828c68185f453947",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7980,
+          "total_tokens": 8340,
+          "completion_tokens": 360,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "05476ece2a954036be51a3f7b37a5398",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8481,
+          "total_tokens": 8528,
+          "completion_tokens": 47,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "883db5fa36e0435cb6ce6ba99fdaec3f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2090,
+          "total_tokens": 2683,
+          "completion_tokens": 593,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "974a11befbb84ec49dac6a790de2a605",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3009,
+          "total_tokens": 3124,
+          "completion_tokens": 115,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f2c08db8b37042f3ab6aa2e7fe40dfad",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3182,
+          "total_tokens": 3225,
+          "completion_tokens": 43,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "9c232036464b449cba4ed5606ed34f07",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4230,
+          "total_tokens": 4284,
+          "completion_tokens": 54,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ff35261567a343e29ba57a19366b11a8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4576,
+          "total_tokens": 4931,
+          "completion_tokens": 355,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "bcd75e3dfc6c413084a424ae20511849",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5123,
+          "total_tokens": 5259,
+          "completion_tokens": 136,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "306515f56f194ebfbe0927099837212b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5307,
+          "total_tokens": 5367,
+          "completion_tokens": 60,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "dc7f945b7ea94da485efdbf627f0d172",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5747,
+          "total_tokens": 5820,
+          "completion_tokens": 73,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "eac5027b564a4d298b97e908f8d63312",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5872,
+          "total_tokens": 5931,
+          "completion_tokens": 59,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a8d59d9d1a0144529cd810fe2269f4e6",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5975,
+          "total_tokens": 6033,
+          "completion_tokens": 58,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "8a70516ce03841feb02111c887f2ca3f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6085,
+          "total_tokens": 6138,
+          "completion_tokens": 53,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "880af07b7f2c4857b990895962261d7f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7322,
+          "total_tokens": 7398,
+          "completion_tokens": 76,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7b8554eab5874af884554cfe3e041904",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8478,
+          "total_tokens": 8711,
+          "completion_tokens": 233,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "2f3812a90425435797e9ba9a1433f9a5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1741,
+          "total_tokens": 2385,
+          "completion_tokens": 644,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "bcc7b6be673e495d91cdc78968dda039",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4397,
+          "total_tokens": 4459,
+          "completion_tokens": 62,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1977f4120a3b43c3aae5bbc7446d6909",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4503,
+          "total_tokens": 4556,
+          "completion_tokens": 53,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "dc4ac0ecd50a4dc592c57f679b74ec12",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4840,
+          "total_tokens": 4941,
+          "completion_tokens": 101,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e4297af1530a4803ab1b87fd302c4aed",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6110,
+          "total_tokens": 6173,
+          "completion_tokens": 63,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1b36ea7f20ae45aa876b214a068c4d54",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7343,
+          "total_tokens": 7509,
+          "completion_tokens": 166,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0f56dfeadc9941c782516778fd437958",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7553,
+          "total_tokens": 7613,
+          "completion_tokens": 60,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c2eb09530c4b41409daadae13d461a72",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8782,
+          "total_tokens": 9125,
+          "completion_tokens": 343,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b90f583ff8044a0389d4333377da0a0c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1271,
+          "total_tokens": 1967,
+          "completion_tokens": 696,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "cb1c20ba97364cbd8289243358aa593a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4490,
+          "total_tokens": 4642,
+          "completion_tokens": 152,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "84bcbd0147804b0c80ad4fbda8110021",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4686,
+          "total_tokens": 4747,
+          "completion_tokens": 61,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1c4a1f2604514f9f9cf7c044ecd2f7ba",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5053,
+          "total_tokens": 5386,
+          "completion_tokens": 333,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "81955740cd71476bba7563247d52986c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5438,
+          "total_tokens": 5483,
+          "completion_tokens": 45,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f58bf8d82b0f4e159b75e520fc089f15",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5535,
+          "total_tokens": 5611,
+          "completion_tokens": 76,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "05d68bc61a0d4be487968b1d842f3eb9",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5663,
+          "total_tokens": 5713,
+          "completion_tokens": 50,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "85eaf4aa71ae44b996b55508242a05f6",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5978,
+          "total_tokens": 6076,
+          "completion_tokens": 98,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a9cc722edf8f4f7f94e86d323e7cb7e4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6674,
+          "total_tokens": 6874,
+          "completion_tokens": 200,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "49ea85a9fd5c42bcb08ce75fa4cfd0f6",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7217,
+          "total_tokens": 8852,
+          "completion_tokens": 1635,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7e858faeaa55415e99d09e50d536fe5b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 9017,
+          "total_tokens": 9178,
+          "completion_tokens": 161,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4c1e3a5f81c048f69e39f12871e4a205",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1903,
+          "total_tokens": 2795,
+          "completion_tokens": 892,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fd5f5894ce774d349f0421b94ca2a633",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4149,
+          "total_tokens": 6618,
+          "completion_tokens": 2469,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "51f97db3e4f84d2687f6a7c30e2efd4f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6711,
+          "total_tokens": 7671,
+          "completion_tokens": 960,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4d0676cf1bf04975a0c9bb31457eab7f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7856,
+          "total_tokens": 7920,
+          "completion_tokens": 64,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6398ab88526b497689f8c19b49fb67a5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7966,
+          "total_tokens": 8146,
+          "completion_tokens": 180,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "af98a0376f1e475dacc5536e4bf03a2b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8183,
+          "total_tokens": 8215,
+          "completion_tokens": 32,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b8f8aa1a3c224c528d6369ad7458eefc",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 9303,
+          "total_tokens": 9507,
+          "completion_tokens": 204,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f92b8814d79b4027932eede2c6de8651",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5844,
+          "total_tokens": 6490,
+          "completion_tokens": 646,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "260578873a3944a685e3f39e4c2fb1c5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3339,
+          "total_tokens": 3372,
+          "completion_tokens": 33,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "adee2ba2c21c47628bbb577221ee97e8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3928,
+          "total_tokens": 4026,
+          "completion_tokens": 98,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a81468ff013441e580c5b90664b20484",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5196,
+          "total_tokens": 5293,
+          "completion_tokens": 97,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c21b97382ffe4e4d94fe3b47a5e3efff",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5372,
+          "total_tokens": 5411,
+          "completion_tokens": 39,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b9f664e569c74a2fbe362efd59218036",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5490,
+          "total_tokens": 5536,
+          "completion_tokens": 46,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c5a1c85ca4284ccbbf26ddc0b3e0e34c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5623,
+          "total_tokens": 5715,
+          "completion_tokens": 92,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ad968c20c77540e6a0dd247114a4f96e",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5784,
+          "total_tokens": 5867,
+          "completion_tokens": 83,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d14309371da94a878000dc66913376b2",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7127,
+          "total_tokens": 7196,
+          "completion_tokens": 69,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6f7217dad5c145ebbb4815d69010eadf",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7429,
+          "total_tokens": 7493,
+          "completion_tokens": 64,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e993d54ea9114b2991bccdbd41ecea95",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8071,
+          "total_tokens": 8203,
+          "completion_tokens": 132,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d35271f554fc48f1b9eeff446d18d098",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8571,
+          "total_tokens": 8656,
+          "completion_tokens": 85,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "14523b3729e544b9afe9f23514181675",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1185,
+          "total_tokens": 1997,
+          "completion_tokens": 812,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "53595f2bc89543a48fd82de0ead7fcba",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2809,
+          "total_tokens": 2923,
+          "completion_tokens": 114,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "59465fda70d34a489ab73b487e9648de",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3384,
+          "total_tokens": 3692,
+          "completion_tokens": 308,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "28a5421325124d1492d7e26cbd0d5a27",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4233,
+          "total_tokens": 4236,
+          "completion_tokens": 3,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 375649,
+      "completion_tokens": 15860,
+      "total_tokens": 391509
+    },
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "deadline_proof": {
+    "official_agent_deadline": false,
+    "cleanup_verified": true,
+    "official_error": "Agent exceeded tool call budget (60 calls)",
+    "registered_agent_seconds": 500,
+    "observed_agent_seconds": 491.4555337359999,
+    "cutoff_monotonic": 1296.251981775
+  },
+  "usage_complete": true,
+  "partial_token_usage": false,
+  "server_idle": {
+    "passed": true,
+    "consecutive_idle_snapshots": 3,
+    "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+  }
+}

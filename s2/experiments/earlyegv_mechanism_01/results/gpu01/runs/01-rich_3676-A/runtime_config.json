@@ -1,0 +1,35 @@
+{
+  "harness_version": "s2-egv-agenttool-t500-research-0.1",
+  "budget": {
+    "version": "s1-runner-0.1.0",
+    "agent_seconds": 500,
+    "tool_budget": 60,
+    "output_tokens": 16384,
+    "thinking_budget": 4096,
+    "include_thoughts": null,
+    "seed": 17,
+    "command_seconds": 120
+  },
+  "compaction": {
+    "interval": 5,
+    "overlap": 1,
+    "token_threshold": 8192,
+    "event_retention_size": 4
+  },
+  "operational_limits": {
+    "max_stdout_chars": 2000,
+    "max_file_chars": 4000,
+    "max_file_lines": 120
+  },
+  "max_model_len": 32768,
+  "output_reserved": 16384,
+  "safety_tokens": 1024,
+  "model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "candidate_hashes": {
+    "agent.yaml": "38a3e51ecd50fdbc2f94ab00826c2362ba8f2fb4baecf6e63c2d1068bf140885",
+    "eval_config.yaml": "3a9d85483763e4fa0013d600761093a0cbbfb68eda03f47b18e8d7c9cc977ad0",
+    "prompts/main.md": "ccc747fea7a6c53b318622f6faed288ecf7ff33200e26fd2f1434ba5ac32d996",
+    "sub_agents/egv_verifier.md": "e7ca6d28af7dd3eccac8a323fa781dbc86a7ff73fb1f880df21ed0f5971cdb22",
+    "sub_agents/egv_verifier.yaml": "fef8e2bcc9092c9ffe76708ab51ae87ac241596c9046aa7e2bb10ffdb2478a5b"
+  }
+}

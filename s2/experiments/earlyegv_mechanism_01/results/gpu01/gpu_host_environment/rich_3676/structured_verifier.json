@@ -1,0 +1,144 @@
+{
+  "category": "assertion_failure",
+  "categories": [
+    "assertion_failure",
+    "passed",
+    "skipped"
+  ],
+  "counts": {
+    "tests": 22,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 1
+  },
+  "summary": {
+    "failed": 1,
+    "passed": 20,
+    "skipped": 1
+  },
+  "events": [
+    {
+      "classname": "test_traceback",
+      "name": "test_handler",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_capture",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_no_exception",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_print_exception",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_print_exception_no_msg",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_print_exception_locals",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_syntax_error",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_nested_exception",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_caused_exception",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_filename_with_bracket",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_filename_not_a_file",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_traceback_console_theme_applies",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_broken_str",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_guess_lexer",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_guess_lexer_yaml_j2",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_recursive",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_suppress",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_rich_traceback_omit_optional_local_flag[True-3-expected_frame_names0]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_rich_traceback_omit_optional_local_flag[False-4-expected_frame_names1]",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_traceback_finely_grained_missing",
+      "message": "Not applicable after Python 3.11",
+      "details": "/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/gpu_host_environment/rich_3676/sandbox_tmp/swegemma_sandbox_be9517e2-fbf/workspace/tests/test_traceback.py:332: Not applicable after Python 3.11",
+      "type": "pytest.skip",
+      "category": "skipped"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_traceback_finely_grained",
+      "category": "passed"
+    },
+    {
+      "classname": "test_traceback",
+      "name": "test_notes",
+      "message": "AttributeError: 'Stack' object has no attribute 'notes'",
+      "details": "@pytest.mark.skipif(\n        sys.version_info.minor < 11, reason=\"Not supported before Python 3.11\"\n    )\n    def test_notes() -> None:\n        \"\"\"Check traceback captures __note__.\"\"\"\n        try:\n>           1 / 0\nE           ZeroDivisionError: division by zero\nE           Hello\nE           World\n\ntests/test_traceback.py:369: ZeroDivisionError\n\nDuring handling of the above exception, another exception occurred:\n\n    @pytest.mark.skipif(\n        sys.version_info.minor < 11, reason=\"Not supported before Python 3.11\"\n    )\n    def test_notes() -> None:\n        \"\"\"Check traceback captures __note__.\"\"\"\n        try:\n            1 / 0\n        except Exception as error:\n            error.add_note(\"Hello\")\n            error.add_note(\"World\")\n            traceback = Traceback()\n    \n>           assert traceback.trace.stacks[0].notes == [\"Hello\", \"World\"]\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: 'Stack' object has no attribute 'notes'\n\ntests/test_traceback.py:375: AttributeError",
+      "type": "",
+      "category": "assertion_failure"
+    }
+  ],
+  "attribution": "test_call_failure",
+  "infrastructure_stop": false,
+  "confirmed_failure": true,
+  "reason": "Structured native test outcome",
+  "evidence_level": "original_JUnit",
+  "exit_code": 1,
+  "historical_only": false
+}

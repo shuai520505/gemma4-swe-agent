@@ -1,0 +1,589 @@
+[
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-8bd27b68150ee38d",
+    "start_seconds": 6.300981902999865,
+    "end_seconds": 6.888055959000212,
+    "start_line": 3,
+    "end_line": 4,
+    "counted_tools": 1,
+    "arguments": {
+      "command": "grep -r \"MIT\" docs docs_src | grep -C 2 \"Apache\""
+    },
+    "result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "",
+      "details": {
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1
+      }
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-be9af5d06c898bdf",
+    "start_seconds": 9.279567553000106,
+    "end_seconds": 9.87656908100007,
+    "start_line": 7,
+    "end_line": 8,
+    "counted_tools": 2,
+    "arguments": {
+      "command": "grep -r \"MIT\" docs docs_src"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/pt/docs/index.md:Esse projeto é licenciado sob os termos da licença MIT.\ndocs/ja/docs/index.md:このプロジェクトは MIT ライセンスです。\ndocs/es/docs/index.md:Este proyecto tiene licencia bajo los términos de la licencia MIT.\ndocs/zh-hant/docs/index.md:該項目遵循 MIT 許可協議。\ndocs/ko/docs/index.md:이 프로젝트는 MIT 라이센스 조약에 따라 라이센스가 부여됩니다.\ndocs/en/docs/img/sponsors/docarray.svg:<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"240\" zoomAndPan=\"magnify\" viewBox=\"0 0 180 74.999997\" height=\"100\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.0\"><defs><filter x=\"0%\" y=\"0%\" width=\"100%\" height=\"100%\" id=\"id1\"><feColorMatrix values=\"0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0\" color-interpolation-filters=\"sRGB\"/></filter><filter x=\"0%\" y=\"0%\" width=\"100%\" height=\"100%\" id=\"id2\"><feColorMatrix values=\"0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.2126 0.7152 0.0722 0 0\" color-interpolation-filters=\"sRGB\"/></filter><g/><clipPath id=\"id3\"><path d=\"M 2.597656 51.75 L 44.597656 51.75 L 44.597656 74.25 L 2.597656 74.25 Z M 2.597656 51.75 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id4\"><path d=\"M 5.640625 3.550781 L 41.640625 3.550781 L 41.640625 29.050781 L 5.640625 29.050781 Z M 5.640625 3.550781 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id5\"><path d=\"M 162.617188 52.726562 L 176 52.726562 L 176 73.726562 L 162.617188 73.726562 Z M 162.617188 52.726562 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id6\"><path d=\"M 8 31.839844 L 25.984375 31.839844 L 25.984375 49.789062 L 8 49.789062 Z M 8 31.839844 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id7\"><path d=\"M 10.074219 34.125 L 23.574219 34.125 L 23.574219 47.625 L 10.074219 47.625 Z M 10.074219 34.125 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id8\"><path d=\"M 30.320312 32.046875 L 37.820312 32.046875 L 37.820312 40.296875 L 30.320312 40.296875 Z M 30.320312 32.046875 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id9\"><path d=\"M 160.59375 2 L 178.59375 2 L 178.59375 21.398438 L 160.59375 21.398438 Z M 160.59375 ",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-9f8c287be83c4e1b",
+    "start_seconds": 15.576318379999975,
+    "end_seconds": 16.162604839999858,
+    "start_line": 11,
+    "end_line": 12,
+    "counted_tools": 3,
+    "arguments": {
+      "command": "grep -r \"Apache\" docs docs_src"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/en/docs/release-notes.md:* Add external link [Apache Kafka producer and consumer with FastAPI and aiokafka](https://iwpnd.pw/articles/2020-03/apache-kafka-fastapi-geostream) to docs. PR [#1112](https://github.com/tiangolo/fastapi/pull/1112) by [@iwpnd](https://github.com/iwpnd).\ndocs_src/metadata/tutorial001_py39.py:        \"name\": \"Apache 2.0\",\ndocs_src/metadata/tutorial001_1_py39.py:        \"name\": \"Apache 2.0\",\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "read_file",
+    "call_id": "chatcmpl-tool-b03445501d9ba1f8",
+    "start_seconds": 20.49553196800025,
+    "end_seconds": 21.036289546000262,
+    "start_line": 15,
+    "end_line": 16,
+    "counted_tools": 4,
+    "arguments": {
+      "filepath": "docs_src/metadata/tutorial001_py39.py"
+    },
+    "result": {
+      "status": "ok",
+      "filepath": "docs_src/metadata/tutorial001_py39.py",
+      "content": "from fastapi import FastAPI\n\ndescription = \"\"\"\nChimichangApp API helps you do awesome stuff. 🚀\n\n## Items\n\nYou can **read items**.\n\n## Users\n\nYou will be able to:\n\n* **Create users** (_not implemented_).\n* **Read users** (_not implemented_).\n\"\"\"\n\napp = FastAPI(\n    title=\"ChimichangApp\",\n    description=description,\n    summary=\"Deadpool's favorite app. Nuff said.\",\n    version=\"0.0.1\",\n    terms_of_service=\"http://example.com/terms/\",\n    contact={\n        \"name\": \"Deadpoolio the Amazing\",\n        \"url\": \"http://x-force.example.com/contact/\",\n        \"email\": \"dp@x-force.example.com\",\n    },\n    license_info={\n        \"name\": \"Apache 2.0\",\n        \"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\",\n    },\n)\n\n\n@app.get(\"/items/\")\nasync def read_items():\n    return [{\"name\": \"Katana\"}]",
+      "start_line": 1,
+      "end_line": 38,
+      "total_lines": 38,
+      "is_truncated": false
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-92a6340692b81bbf",
+    "start_seconds": 26.444333890000053,
+    "end_seconds": 27.031496883000273,
+    "start_line": 19,
+    "end_line": 20,
+    "counted_tools": 5,
+    "arguments": {
+      "command": "grep -r \"license\" docs docs_src | grep -i \"MIT\""
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/en/docs/js/termynal.js: * @license MIT\ndocs/en/docs/index.md:This project is licensed under the terms of the MIT license.\ndocs/en/docs/css/termynal.css: * @license MIT\ndocs/de/docs/tutorial/metadata.md:Seit OpenAPI 3.1.0 und FastAPI 0.99.0 können Sie die `license_info` auch mit einem `identifier` anstelle einer `url` festlegen.\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-8d62aa74bc61799d",
+    "start_seconds": 31.425214665000112,
+    "end_seconds": 32.00816579499997,
+    "start_line": 23,
+    "end_line": 24,
+    "counted_tools": 6,
+    "arguments": {
+      "command": "grep -r \"identifier\" docs docs_src"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/pt/docs/tutorial/metadata.md:| `license_info` | `dict` | As informações de licença para a API exposta. Ela pode conter vários campos. <details><summary>Campos de <code>license_info</code></summary><table><thead><tr><th>Parâmetro</th><th>Tipo</th><th>Descrição</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>OBRIGATÓRIO</strong> (se um <code>license_info</code> for definido). O nome da licença usada para a API.</td></tr><tr><td><code>identifier</code></td><td><code>str</code></td><td>Uma expressão de licença <a href=\"https://spdx.org/licenses/\" class=\"external-link\" target=\"_blank\">SPDX</a> para a API. O campo <code>identifier</code> é mutuamente exclusivo do campo <code>url</code>. <small>Disponível desde OpenAPI 3.1.0, FastAPI 0.99.0.</small></td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>Uma URL para a licença usada para a API. DEVE estar no formato de uma URL.</td></tr></tbody></table></details> |\ndocs/pt/docs/tutorial/metadata.md:## Identificador de Licença { #license-identifier }\ndocs/pt/docs/tutorial/metadata.md:Desde o OpenAPI 3.1.0 e FastAPI 0.99.0, você também pode definir o license_info com um identifier em vez de uma url.\ndocs/es/docs/tutorial/metadata.md:| `license_info` | `dict` | La información de la licencia para la API expuesta. Puede contener varios campos. <details><summary><code>license_info</code> fields</summary><table><thead><tr><th>Parámetro</th><th>Tipo</th><th>Descripción</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>REQUERIDO</strong> (si se establece un <code>license_info</code>). El nombre de la licencia utilizada para la API.</td></tr><tr><td><code>identifier</code></td><td><code>str</code></td><td>Una expresión de licencia <a href=\"https://spdx.org/licenses/\" class=\"external-link\" target=\"_blank\">SPDX</a> para la API. El campo <code>identifier</code> es mutuamente excluyente del campo <code>url</code>. <small>Disponible desde ",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-b5423bab49630028",
+    "start_seconds": 36.26624375500023,
+    "end_seconds": 36.825622233000104,
+    "start_line": 27,
+    "end_line": 28,
+    "counted_tools": 7,
+    "arguments": {
+      "command": "find docs_src -name \"*metadata.md*\""
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-8a0a3255feb80540",
+    "start_seconds": 39.348888549000094,
+    "end_seconds": 39.90204106600004,
+    "start_line": 31,
+    "end_line": 32,
+    "counted_tools": 8,
+    "arguments": {
+      "command": "find docs_src -maxdepth 2"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs_src\ndocs_src/schema_extra_example\ndocs_src/schema_extra_example/tutorial001_py310.py\ndocs_src/schema_extra_example/tutorial005_py39.py\ndocs_src/schema_extra_example/tutorial003_py310.py\ndocs_src/schema_extra_example/tutorial001_pv1_py310.py\ndocs_src/schema_extra_example/tutorial004_py39.py\ndocs_src/schema_extra_example/__init__.py\ndocs_src/schema_extra_example/tutorial005_an_py310.py\ndocs_src/schema_extra_example/tutorial005_py310.py\ndocs_src/schema_extra_example/tutorial003_py39.py\ndocs_src/schema_extra_example/tutorial003_an_py39.py\ndocs_src/schema_extra_example/tutorial004_py310.py\ndocs_src/schema_extra_example/tutorial001_py39.py\ndocs_src/schema_extra_example/tutorial001_pv1_py39.py\ndocs_src/schema_extra_example/tutorial004_an_py310.py\ndocs_src/schema_extra_example/tutorial003_an_py310.py\ndocs_src/schema_extra_example/tutorial002_py310.py\ndocs_src/schema_extra_example/tutorial004_an_py39.py\ndocs_src/schema_extra_example/tutorial002_py39.py\ndocs_src/schema_extra_example/tutorial005_an_py39.py\ndocs_src/using_request_directly\ndocs_src/using_request_directly/__init__.py\ndocs_src/using_request_directly/tutorial001_py39.py\ndocs_src/body_nested_models\ndocs_src/body_nested_models/tutorial009_py39.py\ndocs_src/body_nested_models/tutorial006_py39.py\ndocs_src/body_nested_models/tutorial001_py310.py\ndocs_src/body_nested_models/tutorial005_py39.py\ndocs_src/body_nested_models/tutorial006_py310.py\ndocs_src/body_nested_models/tutorial007_py310.py\ndocs_src/body_nested_models/tutorial003_py310.py\ndocs_src/body_nested_models/tutorial004_py39.py\ndocs_src/body_nested_models/__init__.py\ndocs_src/body_nested_models/tutorial008_py39.py\ndocs_src/body_nested_models/tutorial005_py310.py\ndocs_src/body_nested_models/tutorial003_py39.py\ndocs_src/body_nested_models/tutorial004_py310.py\ndocs_src/body_nested_models/tutorial001_py39.py\ndocs_src/body_nested_models/tutorial007_py39.py\ndocs_src/body_nested_models/tutorial002_py310.py\ndocs_src/body_nested_models/tutorial002_py39.py\ndocs_src/sub_",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-91a4df570ebbc420",
+    "start_seconds": 45.74133501899996,
+    "end_seconds": 46.29242625999996,
+    "start_line": 35,
+    "end_line": 36,
+    "counted_tools": 9,
+    "arguments": {
+      "command": "ls -R docs/en/docs/tutorial/"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/en/docs/tutorial/:\nbackground-tasks.md\nbigger-applications.md\nbody-fields.md\nbody.md\nbody-multiple-params.md\nbody-nested-models.md\nbody-updates.md\ncookie-param-models.md\ncookie-params.md\ncors.md\ndebugging.md\ndependencies\nencoder.md\nextra-data-types.md\nextra-models.md\nfirst-steps.md\nhandling-errors.md\nheader-param-models.md\nheader-params.md\nindex.md\nmetadata.md\nmiddleware.md\npath-operation-configuration.md\npath-params.md\npath-params-numeric-validations.md\nquery-param-models.md\nquery-params.md\nquery-params-str-validations.md\nrequest-files.md\nrequest-form-models.md\nrequest-forms-and-files.md\nrequest-forms.md\nresponse-model.md\nresponse-status-code.md\nschema-extra-example.md\nsecurity\nsql-databases.md\nstatic-files.md\ntesting.md\n\ndocs/en/docs/tutorial/dependencies:\nclasses-as-dependencies.md\ndependencies-in-path-operation-decorators.md\ndependencies-with-yield.md\nglobal-dependencies.md\nindex.md\nsub-dependencies.md\n\ndocs/en/docs/tutorial/security:\nfirst-steps.md\nget-current-user.md\nindex.md\noauth2-jwt.md\nsimple-oauth2.md\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-80216d569af616ec",
+    "start_seconds": 49.310643636999885,
+    "end_seconds": 49.86856430500029,
+    "start_line": 39,
+    "end_line": 40,
+    "counted_tools": 10,
+    "arguments": {
+      "command": "grep -nE \"MIT|Apache\" docs/en/docs/tutorial/metadata.md"
+    },
+    "result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "",
+      "details": {
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1
+      }
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-a83237de3ae95312",
+    "start_seconds": 52.62548641300009,
+    "end_seconds": 53.18258947000004,
+    "start_line": 43,
+    "end_line": 44,
+    "counted_tools": 11,
+    "arguments": {
+      "command": "grep -r \"license\" docs/en/docs/ --include \"*.md\""
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/en/docs/release-notes.md:* 🔧 Add `license` and `license-files` to `pyproject.toml`, remove `License` from `classifiers`. PR [#14230](https://github.com/fastapi/fastapi/pull/14230) by [@YuriiMotov](https://github.com/YuriiMotov).\ndocs/en/docs/release-notes.md:* ✏️ Fix link to SPDX license identifier in `docs/en/docs/tutorial/metadata.md`. PR [#10433](https://github.com/tiangolo/fastapi/pull/10433) by [@worldworm](https://github.com/worldworm).\ndocs/en/docs/index.md:## License { #license }\ndocs/en/docs/index.md:This project is licensed under the terms of the MIT license.\ndocs/en/docs/how-to/general.md:To add metadata to your OpenAPI schema, including a license, version, contact, etc, read the docs for [Tutorial - Metadata and Docs URLs](../tutorial/metadata.md){.internal-link target=_blank}.\ndocs/en/docs/how-to/custom-docs-ui-assets.md:/*! For license information please see redoc.standalone.js.LICENSE.txt */\ndocs/en/docs/tutorial/metadata.md:| `license_info` | `dict` | The license information for the exposed API. It can contain several fields. <details><summary><code>license_info</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>REQUIRED</strong> (if a <code>license_info</code> is set). The license name used for the API.</td></tr><tr><td><code>identifier</code></td><td><code>str</code></td><td>An <a href=\"https://spdx.org/licenses/\" class=\"external-link\" target=\"_blank\">SPDX</a> license expression for the API. The <code>identifier</code> field is mutually exclusive of the <code>url</code> field. <small>Available since OpenAPI 3.1.0, FastAPI 0.99.0.</small></td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>A URL to the license used for the API. MUST be in the format of a URL.</td></tr></tbody></table></details> |\ndocs/en/docs/tutorial/metadata.md:## License identifier { #license-identifier }\ndocs/en/docs/tutorial/metadat",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "read_file",
+    "call_id": "chatcmpl-tool-9a56100f12250aa0",
+    "start_seconds": 73.22471622300009,
+    "end_seconds": 73.76865852299989,
+    "start_line": 47,
+    "end_line": 48,
+    "counted_tools": 12,
+    "arguments": {
+      "filepath": "docs/en/docs/tutorial/metadata.md"
+    },
+    "result": {
+      "status": "ok",
+      "filepath": "docs/en/docs/tutorial/metadata.md",
+      "content": "# Metadata and Docs URLs { #metadata-and-docs-urls }\n\nYou can customize several metadata configurations in your **FastAPI** application.\n\n## Metadata for API { #metadata-for-api }\n\nYou can set the following fields that are used in the OpenAPI specification and the automatic API docs UIs:\n\n| Parameter | Type | Description |\n|------------|------|-------------|\n| `title` | `str` | The title of the API. |\n| `summary` | `str` | A short summary of the API. <small>Available since OpenAPI 3.1.0, FastAPI 0.99.0.</small> |\n| `description` | `str` | A short description of the API. It can use Markdown. |\n| `version` | `string` | The version of the API. This is the version of your own application, not of OpenAPI. For example `2.5.0`. |\n| `terms_of_service` | `str` | A URL to the Terms of Service for the API. If provided, this has to be a URL. |\n| `contact` | `dict` | The contact information for the exposed API. It can contain several fields. <details><summary><code>contact</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td>The identifying name of the contact person/organization.</td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>The URL pointing to the contact information. MUST be in the format of a URL.</td></tr><tr><td><code>email</code></td><td><code>str</code></td><td>The email address of the contact person/organization. MUST be in the format of an email address.</td></tr></tbody></table></details> |\n| `license_info` | `dict` | The license information for the exposed API. It can contain several fields. <details><summary><code>license_info</code> fields</summary><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td><code>str</code></td><td><strong>REQUIRED</strong> (if a <code>license_info</code> is set). The license name used for the API.</td></tr><tr><td><code>identifier</code></td><td><code>str</code></td><td>An <a href=\"https://spdx.org/licenses/\" class=\"external-link\" target=\"_blank\">SPDX</a> license expression for the API. The <code>identifier</code> field is mutually exclusive of the <code>url</code> field. <small>Available since OpenAPI 3.1.0, FastAPI 0.99.0.</small></td></tr><tr><td><code>url</code></td><td><code>str</code></td><td>A URL to the license used for the API. MUST be in the format of a URL.</td></tr></tbody></table></details> |\n\nYou can set them as follows:\n\n{* ../../docs_src/metadata/tutorial001_py39.py hl[3:16, 19:32] *}\n\n/// tip\n\nYou can write Markdown in the `description` field and it will be rendered in the output.\n\n///\n\nWith this configuration, the automatic API docs would look like:\n\n<img src=\"/img/tutorial/metadata/image01.png\">\n\n## License identifier { #license-identifier }\n\nSince OpenAPI 3.1.0 and FastAPI 0.99.0, you can also set the `license_info` with an `identifier` instead of a `url`.\n\nFor example:\n\n{* ../../docs_src/metadata/tutorial001_1_py39.py hl[31] *}\n\n## Metadata for tags { #metadata-for-tags }\n\nYou can also add additional metadata for the different tags used to group your path operations with the parameter `openapi_tags`.\n\nIt takes a list containing one dictionary for each tag.\n\nEach dictionary can contain:\n\n* `name` (**required**): a `str` with the same tag name you use in the `tags` parameter in your *path operations* and `APIRouter`s.\n* `description`: a `str` with a short description for the tag. It can have Markdown and will be shown in the docs UI.\n* `externalDocs`: a `dict` describing external documentation with:\n    * `description`: a `str` with a short description for the external docs.\n    * `url` (**required**): a `str` with the URL for the external documentation.\n\n### Create metadata for tags { #create-metadata-for-tags }\n\nLet's try that in an example with tags for `users` and `items`.\n\nCreate metadata for your tags and pass it to the `openapi_tags` parameter:\n\n{* ../../docs_src/meta",
+      "start_line": 1,
+      "end_line": 120,
+      "total_lines": 120,
+      "is_truncated": true
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "read_file",
+    "call_id": "chatcmpl-tool-8f8954d4b23a0889",
+    "start_seconds": 77.43949070400004,
+    "end_seconds": 77.99261192599988,
+    "start_line": 51,
+    "end_line": 52,
+    "counted_tools": 13,
+    "arguments": {
+      "filepath": "docs_src/metadata/tutorial001_1_py39.py"
+    },
+    "result": {
+      "status": "ok",
+      "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+      "content": "from fastapi import FastAPI\n\ndescription = \"\"\"\nChimichangApp API helps you do awesome stuff. 🚀\n\n## Items\n\nYou can **read items**.\n\n## Users\n\nYou will be able to:\n\n* **Create users** (_not implemented_).\n* **Read users** (_not implemented_).\n\"\"\"\n\napp = FastAPI(\n    title=\"ChimichangApp\",\n    description=description,\n    summary=\"Deadpool's favorite app. Nuff said.\",\n    version=\"0.0.1\",\n    terms_of_service=\"http://example.com/terms/\",\n    contact={\n        \"name\": \"Deadpoolio the Amazing\",\n        \"url\": \"http://x-force.example.com/contact/\",\n        \"email\": \"dp@x-force.example.com\",\n    },\n    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"MIT\",\n    },\n)\n\n\n@app.get(\"/items/\")\nasync def read_items():\n    return [{\"name\": \"Katana\"}]",
+      "start_line": 1,
+      "end_line": 38,
+      "total_lines": 38,
+      "is_truncated": false
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-a1b9a01fa14d62cd",
+    "start_seconds": 81.95466712100006,
+    "end_seconds": 82.5214616860003,
+    "start_line": 55,
+    "end_line": 56,
+    "counted_tools": 14,
+    "arguments": {
+      "command": "grep -r \"\\\"identifier\\\": \\\"MIT\\\"\" docs_src/"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs_src/metadata/tutorial001_1_py39.py:        \"identifier\": \"MIT\",\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-80bacb184ad56c03",
+    "start_seconds": 84.98176936800019,
+    "end_seconds": 85.5501238490001,
+    "start_line": 59,
+    "end_line": 60,
+    "counted_tools": 15,
+    "arguments": {
+      "command": "grep -r \"Apache 2.0\" docs_src/ | grep \"MIT\""
+    },
+    "result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "",
+      "details": {
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1
+      }
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-b25494bd35823e9e",
+    "start_seconds": 88.25433990400006,
+    "end_seconds": 88.81340381200016,
+    "start_line": 63,
+    "end_line": 64,
+    "counted_tools": 16,
+    "arguments": {
+      "command": "ls docs_src/metadata/ | grep tutorial001_1"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "tutorial001_1_py39.py\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-9f35ba8cfa925d4c",
+    "start_seconds": 91.59610318500017,
+    "end_seconds": 92.15895220599987,
+    "start_line": 67,
+    "end_line": 68,
+    "counted_tools": 17,
+    "arguments": {
+      "command": "grep -r \"MIT\" docs/ --include \"*.md\" | grep \"Apache\""
+    },
+    "result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "",
+      "details": {
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1
+      }
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-b75dcd40f926e352",
+    "start_seconds": 96.41027066800007,
+    "end_seconds": 96.97014629700016,
+    "start_line": 71,
+    "end_line": 72,
+    "counted_tools": 18,
+    "arguments": {
+      "command": "grep -r \"license_info\" docs_src/"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs_src/metadata/tutorial001_py39.py:    license_info={\ndocs_src/metadata/tutorial001_1_py39.py:    license_info={\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "read_file",
+    "call_id": "chatcmpl-tool-9ed26e3a017f060e",
+    "start_seconds": 99.23729823900021,
+    "end_seconds": 99.78758730300024,
+    "start_line": 75,
+    "end_line": 76,
+    "counted_tools": 19,
+    "arguments": {
+      "filepath": "docs_src/metadata/tutorial001_py39.py"
+    },
+    "result": {
+      "status": "ok",
+      "filepath": "docs_src/metadata/tutorial001_py39.py",
+      "content": "from fastapi import FastAPI\n\ndescription = \"\"\"\nChimichangApp API helps you do awesome stuff. 🚀\n\n## Items\n\nYou can **read items**.\n\n## Users\n\nYou will be able to:\n\n* **Create users** (_not implemented_).\n* **Read users** (_not implemented_).\n\"\"\"\n\napp = FastAPI(\n    title=\"ChimichangApp\",\n    description=description,\n    summary=\"Deadpool's favorite app. Nuff said.\",\n    version=\"0.0.1\",\n    terms_of_service=\"http://example.com/terms/\",\n    contact={\n        \"name\": \"Deadpoolio the Amazing\",\n        \"url\": \"http://x-force.example.com/contact/\",\n        \"email\": \"dp@x-force.example.com\",\n    },\n    license_info={\n        \"name\": \"Apache 2.0\",\n        \"url\": \"https://www.apache.org/licenses/LICENSE-2.0.html\",\n    },\n)\n\n\n@app.get(\"/items/\")\nasync def read_items():\n    return [{\"name\": \"Katana\"}]",
+      "start_line": 1,
+      "end_line": 38,
+      "total_lines": 38,
+      "is_truncated": false
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "edit_file",
+    "call_id": "chatcmpl-tool-ba608ba911588a89",
+    "start_seconds": 108.01349915900028,
+    "end_seconds": 108.55703183600008,
+    "start_line": 79,
+    "end_line": 80,
+    "counted_tools": 20,
+    "arguments": {
+      "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+      "new_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"Apache-2.0\",\n    },",
+      "old_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"MIT\",\n    },"
+    },
+    "result": {
+      "status": "ok",
+      "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+      "occurrences": 1,
+      "strategy": "exact",
+      "diff": "--- a/docs_src/metadata/tutorial001_1_py39.py\n+++ b/docs_src/metadata/tutorial001_1_py39.py\n@@ -28,7 +28,7 @@\n     },\n     license_info={\n         \"name\": \"Apache 2.0\",\n-        \"identifier\": \"MIT\",\n+        \"identifier\": \"Apache-2.0\",\n     },\n )\n \n",
+      "is_truncated": false
+    },
+    "changed_files": [
+      "docs_src/metadata/tutorial001_1_py39.py"
+    ],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-91b1b5c5727e2dc5",
+    "start_seconds": 111.1271138850002,
+    "end_seconds": 111.68491006500017,
+    "start_line": 83,
+    "end_line": 84,
+    "counted_tools": 21,
+    "arguments": {
+      "command": "grep -r \"MIT\" docs_src/"
+    },
+    "result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "",
+      "details": {
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1
+      }
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-94197194595554b8",
+    "start_seconds": 115.03890389700018,
+    "end_seconds": 115.62205673500011,
+    "start_line": 87,
+    "end_line": 88,
+    "counted_tools": 22,
+    "arguments": {
+      "command": "grep -r \"MIT\" docs/"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "docs/pt/docs/index.md:Esse projeto é licenciado sob os termos da licença MIT.\ndocs/ja/docs/index.md:このプロジェクトは MIT ライセンスです。\ndocs/es/docs/index.md:Este proyecto tiene licencia bajo los términos de la licencia MIT.\ndocs/zh-hant/docs/index.md:該項目遵循 MIT 許可協議。\ndocs/ko/docs/index.md:이 프로젝트는 MIT 라이센스 조약에 따라 라이센스가 부여됩니다.\ndocs/en/docs/img/sponsors/docarray.svg:<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"240\" zoomAndPan=\"magnify\" viewBox=\"0 0 180 74.999997\" height=\"100\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.0\"><defs><filter x=\"0%\" y=\"0%\" width=\"100%\" height=\"100%\" id=\"id1\"><feColorMatrix values=\"0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0\" color-interpolation-filters=\"sRGB\"/></filter><filter x=\"0%\" y=\"0%\" width=\"100%\" height=\"100%\" id=\"id2\"><feColorMatrix values=\"0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.2126 0.7152 0.0722 0 0\" color-interpolation-filters=\"sRGB\"/></filter><g/><clipPath id=\"id3\"><path d=\"M 2.597656 51.75 L 44.597656 51.75 L 44.597656 74.25 L 2.597656 74.25 Z M 2.597656 51.75 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id4\"><path d=\"M 5.640625 3.550781 L 41.640625 3.550781 L 41.640625 29.050781 L 5.640625 29.050781 Z M 5.640625 3.550781 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id5\"><path d=\"M 162.617188 52.726562 L 176 52.726562 L 176 73.726562 L 162.617188 73.726562 Z M 162.617188 52.726562 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id6\"><path d=\"M 8 31.839844 L 25.984375 31.839844 L 25.984375 49.789062 L 8 49.789062 Z M 8 31.839844 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id7\"><path d=\"M 10.074219 34.125 L 23.574219 34.125 L 23.574219 47.625 L 10.074219 47.625 Z M 10.074219 34.125 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id8\"><path d=\"M 30.320312 32.046875 L 37.820312 32.046875 L 37.820312 40.296875 L 30.320312 40.296875 Z M 30.320312 32.046875 \" clip-rule=\"nonzero\"/></clipPath><clipPath id=\"id9\"><path d=\"M 160.59375 2 L 178.59375 2 L 178.59375 21.398438 L 160.59375 21.398438 Z M 160.59375 ",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "run_command",
+    "call_id": "chatcmpl-tool-817aa61f45eeb172",
+    "start_seconds": 120.38331758300001,
+    "end_seconds": 120.94167761900007,
+    "start_line": 91,
+    "end_line": 92,
+    "counted_tools": 23,
+    "arguments": {
+      "command": "git diff"
+    },
+    "result": {
+      "status": "ok",
+      "stdout": "diff --git a/docs_src/metadata/tutorial001_1_py39.py b/docs_src/metadata/tutorial001_1_py39.py\nindex a8f5b945..419232d8 100644\n--- a/docs_src/metadata/tutorial001_1_py39.py\n+++ b/docs_src/metadata/tutorial001_1_py39.py\n@@ -28,7 +28,7 @@ app = FastAPI(\n     },\n     license_info={\n         \"name\": \"Apache 2.0\",\n-        \"identifier\": \"MIT\",\n+        \"identifier\": \"Apache-2.0\",\n     },\n )\n \n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  },
+  {
+    "actor": "main_coding_agent",
+    "tool": "submit_patch",
+    "call_id": "chatcmpl-tool-97af6c55e29df791",
+    "start_seconds": 122.28711056400016,
+    "end_seconds": 122.89100858400025,
+    "start_line": 95,
+    "end_line": 96,
+    "counted_tools": 23,
+    "arguments": {},
+    "result": {
+      "status": "ok",
+      "patch_size": 391,
+      "files_changed": 1
+    },
+    "changed_files": [],
+    "production_candidate_changes": [],
+    "provenance": "nested_audit.jsonl",
+    "limitation": "Production-file delta is an edit candidate, not proof of a correct or issue-relevant repair."
+  }
+]
