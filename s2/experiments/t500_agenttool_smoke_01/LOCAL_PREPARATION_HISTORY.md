@@ -1,0 +1,1 @@
+CPU01 Notebook was prepared but never uploaded. Local admission test used311 seconds instead of the correct310-second equality boundary; failed before dispatch. Corrected test only; CPU02 is a distinct frozen preparation. No model or public-task Agent executed in CPU01. Original prepared CPU01 Notebook, protocol and hashes retained.
