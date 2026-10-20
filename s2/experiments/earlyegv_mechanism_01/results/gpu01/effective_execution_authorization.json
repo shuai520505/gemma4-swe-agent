@@ -1,0 +1,79 @@
+{
+  "authorized": true,
+  "max_runs": 4,
+  "experiment_id": "S2-T500-EARLYEGV-MECHANISM-01",
+  "granted_by": "Human user in current Codex message; explicit conditional four-run authorization.",
+  "granted_recorded_at_utc": "2026-10-20T07:07:45.089668+00:00",
+  "source_commit": "fce198a25502a8cd05f70d2f8704c21c25be84b2",
+  "candidate_freeze_commit": "272c28401a9932b0d900e40f67ff088fc7eb1c43",
+  "protocol_sha256": "86f5ce2149fbb046752173aa630701966cc4a54eb8480120f3f643dac2947df4",
+  "original_draft_protocol_sha256": "8c7560c83a5943e087739434db4bef362e4ae72171eb8174113ca7110d8b90ce",
+  "cpu_gate_sha256": "edf7b033597679a553abacb739f349a073892c4cfd1cb949e3563de03b48df8b",
+  "requested_machine_shape": "NvidiaL4",
+  "requested_notebook_window_seconds": 10000,
+  "fresh_quota_and_machine_admission_verified": true,
+  "prelaunch_resource_admission": {
+    "started_at_utc": "2026-10-20T07:03:09.138135+00:00",
+    "finished_at_utc": "2026-10-20T07:04:20.619020+00:00",
+    "quota_passed": true,
+    "remaining_reported_seconds": "87194.356",
+    "no_observed_recent_saved_session_conflict": true,
+    "recent_saved_sessions_checked": 20,
+    "duplicate_saved_execution": false,
+    "full_interactive_inventory_exposed_by_sdk": false,
+    "reservation_seconds": "0",
+    "live_machine_capacity": "PLATFORM_ADMISSION_REQUIRED",
+    "requested_machine": "NvidiaL4",
+    "required_devices": "4 NVIDIA L4",
+    "requested_window_seconds": 10000,
+    "machine_and_account_final_admission": "One authorized SaveKernel request; accepted scheduling and in-container device/window checks before model startup. No alternate machine or retry.",
+    "authorization_source": "Current user message explicitly authorizes exactly this two-task four-run experiment and one Notebook save/start request.",
+    "GPU_started": false,
+    "execution_submission_requests": 0,
+    "platform_window_contract": "CLI supports explicit session_timeout_seconds=10000; successful platform acceptance required, not inferred from an old Notebook.",
+    "limitations": "Recent saved sessions terminal and no reserved quota; not a claim of exhaustive interactive-session absence. Platform admission must reject actual allocation conflict."
+  },
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "candidate_hashes": {
+    "A": "13968b67844d1041bfb79b9f11fc21ae66fb36aee5b00d3b91c526d5d35da329",
+    "B": "d1e815e770abbcc448325ad2a3c8785c62f6d3c63bc7f95700850748c048a487"
+  },
+  "runs": [
+    {
+      "index": 1,
+      "pair": 1,
+      "batch": 1,
+      "instance_id": "rich_3676",
+      "arm": "A"
+    },
+    {
+      "index": 2,
+      "pair": 1,
+      "batch": 1,
+      "instance_id": "rich_3676",
+      "arm": "B"
+    },
+    {
+      "index": 3,
+      "pair": 2,
+      "batch": 1,
+      "instance_id": "fastapi_14492",
+      "arm": "B"
+    },
+    {
+      "index": 4,
+      "pair": 2,
+      "batch": 1,
+      "instance_id": "fastapi_14492",
+      "arm": "A"
+    }
+  ],
+  "forbidden": [
+    "additional saves/retries",
+    "extra Agent runs",
+    "changed candidates",
+    "changed tasks/order",
+    "leaderboard submission",
+    "LoRA"
+  ]
+}

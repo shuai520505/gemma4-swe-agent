@@ -1,0 +1,55 @@
+diff --git a/reproduce_notes.py b/reproduce_notes.py
+new file mode 100644
+index 00000000..01956b31
+--- /dev/null
++++ b/reproduce_notes.py
+@@ -0,0 +1,17 @@
++from rich.console import Console
++from rich.traceback import Traceback
++
++def test_notes():
++    try:
++        try:
++            raise Exception("Original Error")
++        except Exception as e:
++            e.__notes__ = "Additional information\nSecond line of notes"
++            raise e
++    except Exception:
++        console = Console(record=True)
++        console.print_exception()
++        print(console.export_text())
++
++if __name__ == "__main__":
++    test_notes()
+diff --git a/rich/traceback.py b/rich/traceback.py
+index 3bf5baa7..a554d7ea 100644
+--- a/rich/traceback.py
++++ b/rich/traceback.py
+@@ -197,6 +197,7 @@ class _SyntaxError:
+ class Stack:
+     exc_type: str
+     exc_value: str
++    notes: Optional[str] = None
+     syntax_error: Optional[_SyntaxError] = None
+     is_cause: bool = False
+     frames: List[Frame] = field(default_factory=list)
+@@ -414,6 +415,7 @@ class Traceback:
+             stack = Stack(
+                 exc_type=safe_str(exc_type.__name__),
+                 exc_value=safe_str(exc_value),
++                notes=getattr(exc_value, "__notes__", None),
+                 is_cause=is_cause,
+             )
+ 
+@@ -594,6 +596,11 @@ class Traceback:
+             else:
+                 yield Text.assemble((f"{stack.exc_type}", "traceback.exc_type"))
+ 
++            if stack.notes:
++                yield Text.assemble(("Notes:", "traceback.notes"))
++                yield highlighter(stack.notes)
++
++
+             if not last:
+                 if stack.is_cause:
+                     yield Text.from_markup(

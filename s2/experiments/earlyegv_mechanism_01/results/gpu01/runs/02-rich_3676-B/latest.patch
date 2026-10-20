@@ -1,0 +1,150 @@
+diff --git a/output.txt b/output.txt
+new file mode 100644
+index 00000000..2beb9c07
+--- /dev/null
++++ b/output.txt
+@@ -0,0 +1,37 @@
++[31m╭─[0m[31m──────────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m───────────────────────────────[0m[31m─╮[0m
++[31m│[0m [2;33m/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/02-rich_3676-B/sandb[0m [31m│[0m
++[31m│[0m [2;33mox_tmp/swegemma_sandbox_4f9bab01-4b4/workspace/[0m[1;33mreproduction.py[0m:[94m18[0m in [92m<module>[0m                    [31m│[0m
++[31m│[0m                                                                                                  [31m│[0m
++[31m│[0m   [2m15 [0m[2m│   [0m[94mwith[0m [96mopen[0m([33m"[0m[33moutput.txt[0m[33m"[0m, [33m"[0m[33mw[0m[33m"[0m) [94mas[0m f:                                                      [31m│[0m
++[31m│[0m   [2m16 [0m[2m│   │   [0mconsole = Console(file=f, width=[94m100[0m, force_terminal=[94mTrue[0m)                           [31m│[0m
++[31m│[0m   [2m17 [0m[2m│   │   [0m[94mtry[0m:                                                                                [31m│[0m
++[31m│[0m [31m❱ [0m18 [2m│   │   │   [0mfail()                                                                          [31m│[0m
++[31m│[0m   [2m19 [0m[2m│   │   [0m[94mexcept[0m [96mException[0m:                                                                   [31m│[0m
++[31m│[0m   [2m20 [0m[2m│   │   │   [0m[1;4mconsole.print_exception()[0m                                                       [31m│[0m
++[31m│[0m   [2m21 [0m                                                                                            [31m│[0m
++[31m│[0m                                                                                                  [31m│[0m
++[31m│[0m [2;33m/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/02-rich_3676-B/sandb[0m [31m│[0m
++[31m│[0m [2;33mox_tmp/swegemma_sandbox_4f9bab01-4b4/workspace/[0m[1;33mreproduction.py[0m:[94m11[0m in [92mfail[0m                        [31m│[0m
++[31m│[0m                                                                                                  [31m│[0m
++[31m│[0m   [2m 8 [0m[2m│   [0m[94mexcept[0m [96mValueError[0m [94mas[0m e:                                                                 [31m│[0m
++[31m│[0m   [2m 9 [0m[2m│   │   [0me.add_note([33m"[0m[33mNote 1[0m[33m"[0m)                                                                [31m│[0m
++[31m│[0m   [2m10 [0m[2m│   │   [0me.add_note([33m"[0m[33mNote 2[0m[33m"[0m)                                                                [31m│[0m
++[31m│[0m [31m❱ [0m11 [2m│   │   [0m[1;4;94mraise[0m[1;4m e[0m                                                                             [31m│[0m
++[31m│[0m   [2m12 [0m                                                                                            [31m│[0m
++[31m│[0m   [2m13 [0m[94mif[0m [91m__name__[0m == [33m"[0m[33m__main__[0m[33m"[0m:                                                                  [31m│[0m
++[31m│[0m   [2m14 [0m[2m│   [0m[2m# Create a console that writes to a file[0m                                                [31m│[0m
++[31m│[0m                                                                                                  [31m│[0m
++[31m│[0m [2;33m/kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/02-rich_3676-B/sandb[0m [31m│[0m
++[31m│[0m [2;33mox_tmp/swegemma_sandbox_4f9bab01-4b4/workspace/[0m[1;33mreproduction.py[0m:[94m7[0m in [92mfail[0m                         [31m│[0m
++[31m│[0m                                                                                                  [31m│[0m
++[31m│[0m   [2m 4 [0m                                                                                            [31m│[0m
++[31m│[0m   [2m 5 [0m[94mdef[0m[90m [0m[92mfail[0m():                                                                                 [31m│[0m
++[31m│[0m   [2m 6 [0m[2m│   [0m[94mtry[0m:                                                                                    [31m│[0m
++[31m│[0m [31m❱ [0m 7 [2m│   │   [0m[94mraise[0m [96mValueError[0m([33m"[0m[33mOriginal error[0m[33m"[0m)                                                  [31m│[0m
++[31m│[0m   [2m 8 [0m[2m│   [0m[94mexcept[0m [96mValueError[0m [94mas[0m e:                                                                 [31m│[0m
++[31m│[0m   [2m 9 [0m[2m│   │   [0me.add_note([33m"[0m[33mNote 1[0m[33m"[0m)                                                                [31m│[0m
++[31m│[0m   [2m10 [0m[2m│   │   [0me.add_note([33m"[0m[33mNote 2[0m[33m"[0m)                                                                [31m│[0m
++[31m╰──────────────────────────────────────────────────────────────────────────────────────────────────╯[0m
++[1;91mValueError: [0mOriginal error
++Note 1
++Note 2
+diff --git a/repro.py b/repro.py
+new file mode 100644
+index 00000000..d7855e1a
+--- /dev/null
++++ b/repro.py
+@@ -0,0 +1,14 @@
++
++from rich.console import Console
++from rich.traceback import Traceback
++
++console = Console()
++
++try:
++    try:
++        raise ValueError("Original error")
++    except ValueError as e:
++        e.add_note("This is a note")
++        raise e
++except Exception:
++    console.print(Traceback())
+diff --git a/reproduction.py b/reproduction.py
+new file mode 100644
+index 00000000..65fe747e
+--- /dev/null
++++ b/reproduction.py
+@@ -0,0 +1,20 @@
++from rich.console import Console
++from rich.traceback import install
++import sys
++
++def fail():
++    try:
++        raise ValueError("Original error")
++    except ValueError as e:
++        e.add_note("Note 1")
++        e.add_note("Note 2")
++        raise e
++
++if __name__ == "__main__":
++    # Create a console that writes to a file
++    with open("output.txt", "w") as f:
++        console = Console(file=f, width=100, force_terminal=True)
++        try:
++            fail()
++        except Exception:
++            console.print_exception()
+diff --git a/rich/traceback.py b/rich/traceback.py
+index 3bf5baa7..a819f899 100644
+--- a/rich/traceback.py
++++ b/rich/traceback.py
+@@ -197,6 +197,7 @@ class _SyntaxError:
+ class Stack:
+     exc_type: str
+     exc_value: str
++    notes: Optional[List[str]] = None
+     syntax_error: Optional[_SyntaxError] = None
+     is_cause: bool = False
+     frames: List[Frame] = field(default_factory=list)
+@@ -414,6 +415,7 @@ class Traceback:
+             stack = Stack(
+                 exc_type=safe_str(exc_type.__name__),
+                 exc_value=safe_str(exc_value),
++                notes=getattr(exc_value, "__notes__", None),
+                 is_cause=is_cause,
+             )
+ 
+@@ -591,6 +593,9 @@ class Traceback:
+                     (f"{stack.exc_type}: ", "traceback.exc_type"),
+                     highlighter(stack.exc_value),
+                 )
++                if stack.notes:
++                    for note in stack.notes:
++                        yield Text(note)
+             else:
+                 yield Text.assemble((f"{stack.exc_type}", "traceback.exc_type"))
+ 
+diff --git a/standard_traceback.py b/standard_traceback.py
+new file mode 100644
+index 00000000..ee5c110f
+--- /dev/null
++++ b/standard_traceback.py
+@@ -0,0 +1,9 @@
++import traceback
++try:
++    try:
++        raise ValueError("Original error")
++    except ValueError as e:
++        e.add_note("This is a note")
++        raise e
++except Exception:
++    traceback.print_exc()
+diff --git a/standard_traceback_multi.py b/standard_traceback_multi.py
+new file mode 100644
+index 00000000..a547f1d0
+--- /dev/null
++++ b/standard_traceback_multi.py
+@@ -0,0 +1,10 @@
++import traceback
++try:
++    try:
++        raise ValueError("Original error")
++    except ValueError as e:
++        e.add_note("Note 1")
++        e.add_note("Note 2")
++        raise e
++except Exception:
++    traceback.print_exc()

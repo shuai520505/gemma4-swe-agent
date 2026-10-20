@@ -1,0 +1,611 @@
+{
+  "infrastructure_passed": true,
+  "reasons": [],
+  "outcome": {
+    "status": "resolved",
+    "failure_stage": null,
+    "reason": "passed"
+  },
+  "official_resolved": true,
+  "official_test_exit_code": 0,
+  "HTTP_requests": 26,
+  "official_LLM_calls": 25,
+  "official_tool_calls": 23,
+  "native_tool_events": 24,
+  "usage": {
+    "prompt_tokens": 143823,
+    "completion_tokens": 3123,
+    "total_tokens": 146946
+  },
+  "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+  "finish_length": 0,
+  "agent_seconds": 123.40489106099994,
+  "worker_seconds": 152.3049544999999,
+  "first_edit_action_seconds": 107.46761960200001,
+  "first_effective_edit_seconds": null,
+  "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+  "exact_repeated_reads": 1,
+  "testing_commands": 0,
+  "explicit_submits": 1,
+  "leakage_findings": [],
+  "tools": [
+    {
+      "time": 2082.754347361,
+      "id": "chatcmpl-tool-8bd27b68150ee38d",
+      "args": {
+        "command": "grep -r \"MIT\" docs docs_src | grep -C 2 \"Apache\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2085.7345624,
+      "id": "chatcmpl-tool-be9af5d06c898bdf",
+      "args": {
+        "command": "grep -r \"MIT\" docs docs_src"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2092.032792926,
+      "id": "chatcmpl-tool-9f8c287be83c4e1b",
+      "args": {
+        "command": "grep -r \"Apache\" docs docs_src"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2096.953771095,
+      "id": "chatcmpl-tool-b03445501d9ba1f8",
+      "args": {
+        "filepath": "docs_src/metadata/tutorial001_py39.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 2102.902872742,
+      "id": "chatcmpl-tool-92a6340692b81bbf",
+      "args": {
+        "command": "grep -r \"license\" docs docs_src | grep -i \"MIT\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2107.88311295,
+      "id": "chatcmpl-tool-8d62aa74bc61799d",
+      "args": {
+        "command": "grep -r \"identifier\" docs docs_src"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2112.716918238,
+      "id": "chatcmpl-tool-b5423bab49630028",
+      "args": {
+        "command": "find docs_src -name \"*metadata.md*\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2115.80370906,
+      "id": "chatcmpl-tool-8a0a3255feb80540",
+      "args": {
+        "command": "find docs_src -maxdepth 2"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2122.202850271,
+      "id": "chatcmpl-tool-91a4df570ebbc420",
+      "args": {
+        "command": "ls -R docs/en/docs/tutorial/"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2125.763132849,
+      "id": "chatcmpl-tool-80216d569af616ec",
+      "args": {
+        "command": "grep -nE \"MIT|Apache\" docs/en/docs/tutorial/metadata.md"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2129.078389324,
+      "id": "chatcmpl-tool-a83237de3ae95312",
+      "args": {
+        "command": "grep -r \"license\" docs/en/docs/ --include \"*.md\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2149.67732361,
+      "id": "chatcmpl-tool-9a56100f12250aa0",
+      "args": {
+        "filepath": "docs/en/docs/tutorial/metadata.md"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 2153.893204875,
+      "id": "chatcmpl-tool-8f8954d4b23a0889",
+      "args": {
+        "filepath": "docs_src/metadata/tutorial001_1_py39.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 2158.405719899,
+      "id": "chatcmpl-tool-a1b9a01fa14d62cd",
+      "args": {
+        "command": "grep -r \"\\\"identifier\\\": \\\"MIT\\\"\" docs_src/"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2161.427382447,
+      "id": "chatcmpl-tool-80bacb184ad56c03",
+      "args": {
+        "command": "grep -r \"Apache 2.0\" docs_src/ | grep \"MIT\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2164.707501912,
+      "id": "chatcmpl-tool-b25494bd35823e9e",
+      "args": {
+        "command": "ls docs_src/metadata/ | grep tutorial001_1"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2168.053276519,
+      "id": "chatcmpl-tool-9f35ba8cfa925d4c",
+      "args": {
+        "command": "grep -r \"MIT\" docs/ --include \"*.md\" | grep \"Apache\""
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2172.863671559,
+      "id": "chatcmpl-tool-b75dcd40f926e352",
+      "args": {
+        "command": "grep -r \"license_info\" docs_src/"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2175.683521306,
+      "id": "chatcmpl-tool-9ed26e3a017f060e",
+      "args": {
+        "filepath": "docs_src/metadata/tutorial001_py39.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 2184.466252065,
+      "id": "chatcmpl-tool-ba608ba911588a89",
+      "args": {
+        "filepath": "docs_src/metadata/tutorial001_1_py39.py",
+        "new_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"Apache-2.0\",\n    },",
+        "old_string": "    license_info={\n        \"name\": \"Apache 2.0\",\n        \"identifier\": \"MIT\",\n    },"
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 2187.57875492,
+      "id": "chatcmpl-tool-91b1b5c5727e2dc5",
+      "args": {
+        "command": "grep -r \"MIT\" docs_src/"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2191.491264413,
+      "id": "chatcmpl-tool-94197194595554b8",
+      "args": {
+        "command": "grep -r \"MIT\" docs/"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2196.836636829,
+      "id": "chatcmpl-tool-817aa61f45eeb172",
+      "args": {
+        "command": "git diff"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 2198.740566647,
+      "id": "chatcmpl-tool-97af6c55e29df791",
+      "args": {},
+      "name": "submit_patch"
+    }
+  ],
+  "patch_bytes": 391,
+  "phase2": {
+    "exit_code": 0,
+    "stdout": "..                                                                       [100%]\n- generated xml file: /kaggle/working/s2_earlyegv_mechanism_01/gpu01/20261020T072100_699825Z/runs/04-fastapi_14492-A/sandbox_tmp/swegemma_sandbox_82eb87a9-44d/tmp/_swegemma_junit_1c0e6eea5e50.xml -\n2 passed in 0.45s\n",
+    "stderr": "",
+    "duration_seconds": 1.65726882700028,
+    "source": "official_sandbox_exec_return"
+  },
+  "raw_fields_preserved": true,
+  "structured_verifier": {
+    "category": "passed",
+    "categories": [
+      "passed"
+    ],
+    "counts": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "summary": {
+      "passed": 2
+    },
+    "events": [
+      {
+        "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+        "name": "test_items",
+        "category": "passed"
+      },
+      {
+        "classname": "tests.test_tutorial.test_metadata.test_tutorial001_1",
+        "name": "test_openapi_schema",
+        "category": "passed"
+      }
+    ],
+    "attribution": "no_test_failures",
+    "infrastructure_stop": false,
+    "confirmed_failure": false,
+    "reason": "Structured native test outcome",
+    "evidence_level": "original_JUnit",
+    "exit_code": 0,
+    "historical_only": false
+  },
+  "http_lifecycle": {
+    "passed": true,
+    "reasons": [],
+    "requests": 26,
+    "responses": 26,
+    "rows": [
+      {
+        "request_id": "a42855f710964363ba7191efcef97de3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2893,
+          "total_tokens": 3033,
+          "completion_tokens": 140,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4fbc97d865aa4df4a1902f23bec7ed4f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3086,
+          "total_tokens": 3150,
+          "completion_tokens": 64,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e43c4b8fef45417ebe9a485dc5872f55",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4395,
+          "total_tokens": 4553,
+          "completion_tokens": 158,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "2d8afb15e91149b9ab3d97773082dea5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4752,
+          "total_tokens": 4884,
+          "completion_tokens": 132,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "12d76547b5174c7e8a748a4993f7dcf3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5256,
+          "total_tokens": 5422,
+          "completion_tokens": 166,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ddd9aef4c48048dda1ef4fe08a5ee2d8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5573,
+          "total_tokens": 5680,
+          "completion_tokens": 107,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4aedab17ef874e37ae7aeb38eda74a04",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6352,
+          "total_tokens": 6466,
+          "completion_tokens": 114,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a4592527964147dfadb60f4d38d30d66",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6500,
+          "total_tokens": 6567,
+          "completion_tokens": 67,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "92e430fbfa934433852c101950a8ae45",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7494,
+          "total_tokens": 7658,
+          "completion_tokens": 164,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "99b19da456054faca1037fbceeab7a2d",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8104,
+          "total_tokens": 8177,
+          "completion_tokens": 73,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ffce5d2cee44475a8871bebcbeae2c4f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8229,
+          "total_tokens": 8302,
+          "completion_tokens": 73,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4b9145f9863e4a2abec01fa0de025b0a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2192,
+          "total_tokens": 2820,
+          "completion_tokens": 628,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "44b971fff5f745af9e1224dc0c5123e1",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2813,
+          "total_tokens": 2873,
+          "completion_tokens": 60,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4b46438b912c4522bb8aadab7e0fd5de",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4161,
+          "total_tokens": 4242,
+          "completion_tokens": 81,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "15ad359809d745f4a266f2a6f02b890c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4601,
+          "total_tokens": 4715,
+          "completion_tokens": 114,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "99415714563e4ffd83d0154468259c0a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4778,
+          "total_tokens": 4843,
+          "completion_tokens": 65,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "89f243f77e75441b90dafe3755f5a412",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4895,
+          "total_tokens": 4970,
+          "completion_tokens": 75,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5b557c831ccc4eebbf540f5617153976",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5019,
+          "total_tokens": 5097,
+          "completion_tokens": 78,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "862b461dc1684c14accf79f119c13fb6",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5149,
+          "total_tokens": 5281,
+          "completion_tokens": 132,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "49e38b579ea642778019f5e38a6c4b19",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5364,
+          "total_tokens": 5421,
+          "completion_tokens": 57,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b77842c3d10b4d1f8e2ff4235f73cbe9",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5793,
+          "total_tokens": 6062,
+          "completion_tokens": 269,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "64a2f69c55da4a5ea0413f449e21991c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6241,
+          "total_tokens": 6304,
+          "completion_tokens": 63,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "69c7b0e0d0384992a9190b5f00d6fdcc",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6356,
+          "total_tokens": 6453,
+          "completion_tokens": 97,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a2c7023f73b940c593ee0de5b2e0f99a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7698,
+          "total_tokens": 7814,
+          "completion_tokens": 116,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4526fa0b941341549cb47366d9ba93d7",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8037,
+          "total_tokens": 8055,
+          "completion_tokens": 18,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "74b1b24b097747a5abfdf004fbae2139",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8092,
+          "total_tokens": 8104,
+          "completion_tokens": 12,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 143823,
+      "completion_tokens": 3123,
+      "total_tokens": 146946
+    },
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "deadline_proof": {
+    "official_agent_deadline": false,
+    "cleanup_verified": true,
+    "official_error": "",
+    "registered_agent_seconds": 500,
+    "observed_agent_seconds": 123.40489106099994,
+    "cutoff_monotonic": 2200.4035262
+  },
+  "usage_complete": true,
+  "partial_token_usage": false,
+  "server_idle": {
+    "passed": true,
+    "consecutive_idle_snapshots": 3,
+    "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+  }
+}
