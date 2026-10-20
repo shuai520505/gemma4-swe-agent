@@ -1,0 +1,28 @@
+EE                                                                       [100%]
+=================================== ERRORS ====================================
+________________________ ERROR at setup of test_plain _________________________
+file D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\test_wrapper.py, line 1
+  def test_plain(httpbin):
+file D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\conftest.py, line 2
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, httpbin, httpbin_secure, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\conftest.py:2
+________________________ ERROR at setup of test_secure ________________________
+file D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\test_wrapper.py, line 3
+  def test_secure(httpbin_secure):
+file D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\conftest.py, line 5
+  @pytest.fixture
+  def httpbin_secure(httpbin_secure):
+E       recursive dependency involving fixture 'httpbin_secure' detected
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, httpbin, httpbin_secure, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\infrastructure\requests_7433_fixture_01\evidence\local_minimal_01\toy_project\conftest.py:5
+=========================== short test summary info ===========================
+ERROR test_wrapper.py::test_plain
+ERROR test_wrapper.py::test_secure
+2 errors in 0.19s
