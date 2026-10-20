@@ -46,3 +46,5 @@ This changes early delegation, investigation and closure together. A later2x2 ea
 +
 +Close before the hard deadline: stop new investigation, handle known counterevidence, prioritize a credible minimal repair and essential checks, remove only unrelated diagnostics you created when feasible, then run git diff --check and inspect the final diff. Preserve pre-existing files. Do not let cleanup or another delegation consume submission time. Call submit_patch() as the final successful tool action and check its result; if it fails, address the cause within budget. Then report completion and precise failed/unrun checks or unresolved risks. Never claim execution without tool evidence.
 ```
+
+Pinned model tokenizer measured on official Linux CPU:853 ->1208 standalone Main instruction tokens (+355,+41.6%). This is not measured GPU latency or full-request usage. Both old and new instruction files use LF, no CRLF conversion; member bytes/SHA and MAIN_PROMPT_LINE_ENDINGS.json bind the exact change.

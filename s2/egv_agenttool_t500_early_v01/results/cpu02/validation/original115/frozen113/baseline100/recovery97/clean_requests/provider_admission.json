@@ -1,0 +1,6 @@
+{
+  "command": "python3 -c 'import json,importlib.util,importlib.metadata as m; print(json.dumps(dict(modules={n:bool(importlib.util.find_spec(n)) for n in [\"pytest_httpbin\",\"httpbin\",\"trustme\"]},pytest11=[dict(name=e.name,value=e.value) for e in m.entry_points(group=\"pytest11\")])))'",
+  "exit_code": 0,
+  "stdout": "{\"modules\": {\"pytest_httpbin\": false, \"httpbin\": false, \"trustme\": false}, \"pytest11\": [{\"name\": \"anyio\", \"value\": \"anyio.pytest_plugin\"}, {\"name\": \"typeguard\", \"value\": \"typeguard._pytest_plugin\"}, {\"name\": \"langsmith_plugin\", \"value\": \"langsmith.pytest_plugin\"}]}\n",
+  "stderr": ""
+}
