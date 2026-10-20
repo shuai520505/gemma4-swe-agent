@@ -1,0 +1,54 @@
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox d103d011-6af, creating venv without pip: Command '['/kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/fastapi_14458/sandbox_tmp/swegemma_sandbox_d103d011-6af/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox a3803935-f95, creating venv without pip: Command '['/kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+{
+  "passed": false,
+  "proposed_tasks": 2,
+  "checked": [
+    {
+      "instance_id": "fastapi_14458",
+      "eligible": true,
+      "category": "assertion_failure",
+      "counts": {
+        "tests": 12,
+        "failures": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "clean_baseline_resolved": false,
+      "official_test_exit_code": 1,
+      "native_command_unchanged": true,
+      "agent_patch": "",
+      "model_calls": 0,
+      "reference_repair_used": false,
+      "cleanup_complete": true,
+      "JUnit_sha256": "46b2f87925d6058547424f5a35077b211bd71c8138227463a59e8add95367ae1",
+      "scope": "Evaluator-only original snapshot plus official evaluator test overlay. No Agent receives tests, outputs or repairs."
+    },
+    {
+      "instance_id": "requests_7433",
+      "eligible": false,
+      "category": "setup_error",
+      "counts": {
+        "tests": 339,
+        "failures": 0,
+        "errors": 195,
+        "skipped": 2
+      },
+      "clean_baseline_resolved": false,
+      "official_test_exit_code": 1,
+      "native_command_unchanged": true,
+      "agent_patch": "",
+      "model_calls": 0,
+      "reference_repair_used": false,
+      "cleanup_complete": true,
+      "JUnit_sha256": "9f9e637aca3ae26556041a353667ef1c12b9a4076fca555e389d172a40692b4b",
+      "scope": "Evaluator-only original snapshot plus official evaluator test overlay. No Agent receives tests, outputs or repairs."
+    }
+  ],
+  "not_run": [],
+  "GPU": false,
+  "model_inference": false,
+  "Agent_runs": 0,
+  "reference_repair_used": false,
+  "disposition": "Admission diagnostics completed; failed environment/non-discriminating endpoint blocks GPU registration without task replacement."
+}

@@ -1,0 +1,270 @@
+{
+  "real_native_Runner": true,
+  "real_official_tools": true,
+  "scripted_model_HTTP": true,
+  "Gemma_inference": false,
+  "GPU": false,
+  "error": null,
+  "native_agent_seconds": 0.8420976029999565,
+  "counted_tools": 4,
+  "tool_responses": 6,
+  "successful_edits": 1,
+  "command_responses": [
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_4",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/noegv_basic/sandboxes/swegemma_sandbox_ff5423b9-fea/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    },
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_5",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "diff --git a/app.py b/app.py\nindex 183ce90..b0cdc3c 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    }
+  ],
+  "successful_submits": 1,
+  "submit_responses": [
+    {
+      "kind": "function_response",
+      "tool": "submit_patch",
+      "id": "ure_6",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      },
+      "monotonic": null
+    }
+  ],
+  "tools_after_first_successful_submit": [],
+  "counterexample_revision_retest": false,
+  "HTTP_cancelled": false,
+  "wire_configuration": [
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    }
+  ],
+  "final_app": "def accepts(n):\n    return n >= 0\n",
+  "actual_patch_bytes": 155,
+  "final_patch_sha256": "10e4a78136c50a64becc5b86105ada2d3b8ee1bb15e1f50ff6cf9bde0667970c",
+  "HTTP_audit": {
+    "passed": true,
+    "reasons": [],
+    "requests": 7,
+    "responses": 7,
+    "rows": [
+      {
+        "request_id": "6c5e067b913d408e883f9de54fb39a1a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "124f361b9638418e87b00cde6f8a0dbd",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fda9a7a1281c49d392b013e519933f69",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4306d63c229d40eea66b60f318d69475",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5c5076a243924afd92da6eb2c6db554e",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "bb38c937998a4a7f931e7b7d73bd7100",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fb8a2098d4d84ce7a324f047fc7a7ced",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 700,
+      "completion_tokens": 56,
+      "total_tokens": 756
+    },
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "external_cancellation_propagated": false,
+  "clock_fixture": "native300-second candidate budget"
+}

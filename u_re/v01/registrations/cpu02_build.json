@@ -1,0 +1,63 @@
+{
+  "kernel": "wudangdexiaodoashi/gemma4-u-re-v01-cpu02",
+  "stage": "full",
+  "GPU": false,
+  "notebook_sha256": "b3eae33faaaa86bafb5364f7a23edcde8c1991d503f05666d59ab47137a04643",
+  "metadata_sha256": "7347812e57128b9ffb11d1a5614ff87efc5a3c1e861e7320c99f1f3e81948d23",
+  "payload_sha256": "eaac0b7aa7f51ee78a1d4a619ba49c7556702d778f560c7294973cc9a88a165f",
+  "candidate": {
+    "source_commit": "b80565a71395c4d1c012a9bfea3e561ddab255db",
+    "source_paths": [
+      "s1/egv_v01/candidate/agent.yaml",
+      "s1/egv_v01/candidate/eval_config.yaml",
+      "s1/egv_v01/candidate/prompts/system.md"
+    ],
+    "candidates": {
+      "noegv": {
+        "zip_sha256": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "05c78e9435bfe1271a25f321093f28e4baf8940b755890e20e440548ca9fba23"
+        },
+        "prompt_words": 466,
+        "agent_count": 1,
+        "GPU_status": "GPU_NOT_TESTED"
+      },
+      "full": {
+        "zip_sha256": "887da066341bb1278ba298894f488bba8e7a3bd09ae5f4417e36a1a51f8ad821",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "63c3e81ecdd5da88101f85c5746324f6e2b087a913919d02dd59cce4e51ed108"
+        },
+        "prompt_words": 588,
+        "agent_count": 1,
+        "GPU_status": "GPU_NOT_TESTED"
+      }
+    },
+    "changed_members": [
+      "prompts/system.md"
+    ],
+    "only_treatment": "EGV block inserted between identical common sections",
+    "common_prefix_sha256": "e647edc47a66adab2e692cf7096612c326b274a46eb6161083399d197ed892bb",
+    "common_suffix_sha256": "445f9688484eebe06cb271628069a5dfdd3029ee6b030db05fdf45a813d1be8a",
+    "egv_block_sha256": "45acd2b5d82cea17cb8a4b54cd8718aa0601317dc6f8417d1910c555010850d3",
+    "model": "gemma-4-31b-it-qat-w4a16-ct",
+    "budget": {
+      "agent_seconds": 300,
+      "counted_tools": 60,
+      "command_seconds": 120
+    },
+    "generation": {
+      "max_output_tokens": 16384,
+      "thinking_budget": 4096,
+      "seed": 17,
+      "include_thoughts": "omitted",
+      "sampling": "omitted"
+    },
+    "executable_submission_members": 0,
+    "external_controller": false
+  },
+  "execution_status": "NOT_RUN"
+}

@@ -1,0 +1,43 @@
+{
+  "observations": [
+    {
+      "tool": "get_status",
+      "args": {},
+      "source_sha256": "2c0d80b12ac31e5e2df0ab933ea802c01d460c9e41f9b76b5b1bd87c35c87e2a",
+      "response": {
+        "status": "ok",
+        "tool_calls_used": 0,
+        "patch_submitted": false,
+        "patch_size": 0,
+        "tool_calls_remaining": 60,
+        "max_tool_calls": 60,
+        "time_seconds_remaining": 299.909176549,
+        "max_time_minutes": 5.0,
+        "agent_elapsed_seconds": 0.09082537600011165,
+        "command_timeout_seconds": 120
+      },
+      "progress": "NOT_A_BEHAVIOR_CHECK"
+    },
+    {
+      "tool": "read_file",
+      "args": {
+        "filepath": "app.py"
+      },
+      "source_sha256": "2c0d80b12ac31e5e2df0ab933ea802c01d460c9e41f9b76b5b1bd87c35c87e2a",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "content": "def accepts(n):\n    return False",
+        "start_line": 1,
+        "end_line": 2,
+        "total_lines": 2,
+        "is_truncated": false
+      },
+      "progress": "NOT_A_BEHAVIOR_CHECK"
+    }
+  ],
+  "unchanged_command_repetitions": 0,
+  "online_enforcement": false,
+  "scripted_model": true,
+  "warning": "A first failing assertion/no-match search is NEW_EVIDENCE. Repetition may be justified by unobserved environment/hypothesis/confidence changes in real tasks; manually audit those before labeling waste."
+}

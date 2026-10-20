@@ -1,0 +1,591 @@
+{
+  "counterexample_revision_retest": [
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 910.888819547,
+      "id": "ure_1",
+      "args": {},
+      "name": "get_status"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 910.904566053,
+      "id": "ure_1",
+      "name": "get_status",
+      "response": {
+        "status": "ok",
+        "tool_calls_used": 0,
+        "patch_submitted": false,
+        "patch_size": 0,
+        "tool_calls_remaining": 60,
+        "max_tool_calls": 60,
+        "time_seconds_remaining": 299.914138869,
+        "max_time_minutes": 5.0,
+        "agent_elapsed_seconds": 0.0858627580000757,
+        "command_timeout_seconds": 120
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 910.97498231,
+      "id": "ure_2",
+      "args": {
+        "filepath": "app.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 910.991783591,
+      "id": "ure_2",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "content": "def accepts(n):\n    return False",
+        "start_line": 1,
+        "end_line": 2,
+        "total_lines": 2,
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.064764397,
+      "id": "ure_3",
+      "args": {
+        "filepath": "app.py",
+        "old_string": "def accepts(n):\n    return False\n",
+        "new_string": "def accepts(n):\n    return n > 0\n"
+      },
+      "name": "edit_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.082884955,
+      "id": "ure_3",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n > 0\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.165552116,
+      "id": "ure_4",
+      "args": {
+        "command": "python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.307287755,
+      "id": "ure_4",
+      "name": "run_command",
+      "response": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"/kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_closed_loop/sandboxes/swegemma_sandbox_d3d292fb-0e1/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_ZERO'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_ZERO\n",
+        "details": {
+          "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_closed_loop/sandboxes/swegemma_sandbox_d3d292fb-0e1/workspace/app.py ade0fec51f3f61aa2e5b090ba5f82d6d3a897c8c3c43ebaf23a03a1d80cb851b\n",
+          "stderr": "Traceback (most recent call last):\n  File \"/kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_closed_loop/sandboxes/swegemma_sandbox_d3d292fb-0e1/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_ZERO'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_ZERO\n",
+          "exit_code": 1
+        }
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.386066078,
+      "id": "ure_5",
+      "args": {
+        "filepath": "app.py",
+        "old_string": "def accepts(n):\n    return n > 0\n",
+        "new_string": "def accepts(n):\n    return n >= 0\n"
+      },
+      "name": "edit_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.404407863,
+      "id": "ure_5",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return n > 0\n+    return n >= 0\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.482433568,
+      "id": "ure_6",
+      "args": {
+        "command": "python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.628120176,
+      "id": "ure_6",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_closed_loop/sandboxes/swegemma_sandbox_d3d292fb-0e1/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.706999607,
+      "id": "ure_7",
+      "args": {
+        "command": "git diff --check && git diff"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.742284402,
+      "id": "ure_7",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "diff --git a/app.py b/app.py\nindex 183ce90..b0cdc3c 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 911.822839778,
+      "id": "ure_8",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 911.881740262,
+      "id": "ure_8",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      }
+    }
+  ],
+  "wrong_expectation": [
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.019527612,
+      "id": "ure_1",
+      "args": {},
+      "name": "get_status"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.035339683,
+      "id": "ure_1",
+      "name": "get_status",
+      "response": {
+        "status": "ok",
+        "tool_calls_used": 0,
+        "patch_submitted": false,
+        "patch_size": 0,
+        "tool_calls_remaining": 60,
+        "max_tool_calls": 60,
+        "time_seconds_remaining": 299.9104817560001,
+        "max_time_minutes": 5.0,
+        "agent_elapsed_seconds": 0.08951979299990853,
+        "command_timeout_seconds": 120
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.113395633,
+      "id": "ure_2",
+      "args": {
+        "filepath": "app.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.13334082,
+      "id": "ure_2",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "content": "def accepts(n):\n    return False",
+        "start_line": 1,
+        "end_line": 2,
+        "total_lines": 2,
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.217583873,
+      "id": "ure_3",
+      "args": {
+        "filepath": "app.py",
+        "old_string": "def accepts(n):\n    return False\n",
+        "new_string": "def accepts(n):\n    return n >= 0\n"
+      },
+      "name": "edit_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.237222307,
+      "id": "ure_3",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.330395959,
+      "id": "ure_4",
+      "args": {
+        "command": "python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.502572023,
+      "id": "ure_4",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_wrong_test/sandboxes/swegemma_sandbox_dcb9b8cf-6a7/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.590248141,
+      "id": "ure_5",
+      "args": {
+        "filepath": "wrong_probe.py",
+        "content": "import app\nassert app.accepts(0) is False, 'WRONG_EXPECTATION'\n"
+      },
+      "name": "write_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.625508827,
+      "id": "ure_5",
+      "name": "write_file",
+      "response": {
+        "status": "ok",
+        "filepath": "wrong_probe.py",
+        "size": 63
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.709619357,
+      "id": "ure_6",
+      "args": {
+        "command": "python3 wrong_probe.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.863851619,
+      "id": "ure_6",
+      "name": "run_command",
+      "response": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"/kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_wrong_test/sandboxes/swegemma_sandbox_dcb9b8cf-6a7/workspace/wrong_probe.py\", line 2, in <module>\n    assert app.accepts(0) is False, 'WRONG_EXPECTATION'\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: WRONG_EXPECTATION\n",
+        "details": {
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_wrong_test/sandboxes/swegemma_sandbox_dcb9b8cf-6a7/workspace/wrong_probe.py\", line 2, in <module>\n    assert app.accepts(0) is False, 'WRONG_EXPECTATION'\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: WRONG_EXPECTATION\n",
+          "exit_code": 1
+        }
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 913.950307236,
+      "id": "ure_7",
+      "args": {
+        "filepath": "SPEC.md"
+      },
+      "name": "read_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 913.96993119,
+      "id": "ure_7",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "SPEC.md",
+        "content": "accepts(n) is True exactly when n >= 0. Preserve negative rejection.",
+        "start_line": 1,
+        "end_line": 1,
+        "total_lines": 1,
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 914.059557913,
+      "id": "ure_8",
+      "args": {
+        "command": "rm wrong_probe.py && python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 914.2151764,
+      "id": "ure_8",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_wrong_test/sandboxes/swegemma_sandbox_dcb9b8cf-6a7/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 914.302837658,
+      "id": "ure_9",
+      "args": {
+        "command": "git diff --check && git diff"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 914.340296173,
+      "id": "ure_9",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "diff --git a/app.py b/app.py\nindex 183ce90..b0cdc3c 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 914.42872606,
+      "id": "ure_10",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 914.495686215,
+      "id": "ure_10",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      }
+    }
+  ],
+  "repeated_submission_negative": [
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 922.641217063,
+      "id": "ure_1",
+      "args": {},
+      "name": "get_status"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 922.659725356,
+      "id": "ure_1",
+      "name": "get_status",
+      "response": {
+        "status": "ok",
+        "tool_calls_used": 0,
+        "patch_submitted": false,
+        "patch_size": 0,
+        "tool_calls_remaining": 60,
+        "max_tool_calls": 60,
+        "time_seconds_remaining": 299.904148285,
+        "max_time_minutes": 5.0,
+        "agent_elapsed_seconds": 0.09585337199996502,
+        "command_timeout_seconds": 120
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 922.74390894,
+      "id": "ure_2",
+      "args": {
+        "filepath": "app.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 922.762708048,
+      "id": "ure_2",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "content": "def accepts(n):\n    return False",
+        "start_line": 1,
+        "end_line": 2,
+        "total_lines": 2,
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 922.84708255,
+      "id": "ure_3",
+      "args": {
+        "filepath": "app.py",
+        "old_string": "def accepts(n):\n    return False\n",
+        "new_string": "def accepts(n):\n    return n >= 0\n"
+      },
+      "name": "edit_file"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 922.866965197,
+      "id": "ure_3",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "app.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "is_truncated": false
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 922.946867833,
+      "id": "ure_4",
+      "args": {
+        "command": "python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 923.118623761,
+      "id": "ure_4",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_post_submit_negative/sandboxes/swegemma_sandbox_90da0828-cdd/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 923.20313541,
+      "id": "ure_5",
+      "args": {
+        "command": "git diff --check && git diff"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 923.24195833,
+      "id": "ure_5",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "diff --git a/app.py b/app.py\nindex 183ce90..b0cdc3c 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 923.341437033,
+      "id": "ure_6",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 923.415727761,
+      "id": "ure_6",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 923.506599681,
+      "id": "ure_7",
+      "args": {
+        "command": "python3 checks.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 923.670763781,
+      "id": "ure_7",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu02/20261020T132405_127293Z/validation/cases/full_post_submit_negative/sandboxes/swegemma_sandbox_90da0828-cdd/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    },
+    {
+      "kind": "function_call",
+      "recorded_monotonic": 923.776915959,
+      "id": "ure_8",
+      "args": {},
+      "name": "submit_patch"
+    },
+    {
+      "kind": "function_response",
+      "recorded_monotonic": 923.848303405,
+      "id": "ure_8",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      }
+    }
+  ],
+  "scope": "Posthoc extraction of actual native event order/timestamps, not model claims or online enforcement. Raw case summaries with null monotonic remain intact."
+}

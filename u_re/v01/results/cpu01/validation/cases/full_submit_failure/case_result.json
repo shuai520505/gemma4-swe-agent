@@ -1,0 +1,418 @@
+{
+  "real_native_Runner": true,
+  "real_official_tools": true,
+  "scripted_model_HTTP": true,
+  "Gemma_inference": false,
+  "GPU": false,
+  "error": null,
+  "native_agent_seconds": 1.252385366999988,
+  "counted_tools": 6,
+  "tool_responses": 9,
+  "successful_edits": 1,
+  "command_responses": [
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_4",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/u_re_v01/cpu01/20261020T131425_042317Z/validation/cases/full_submit_failure/sandboxes/swegemma_sandbox_b21f6737-91e/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nTARGET_AND_OLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    },
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_5",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "Deleted tag '_swegemma_baseline' (was 6b4d178)\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    },
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_7",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    },
+    {
+      "kind": "function_response",
+      "tool": "run_command",
+      "id": "ure_8",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "stdout": "diff --git a/app.py b/app.py\nindex 183ce90..b0cdc3c 100644\n--- a/app.py\n+++ b/app.py\n@@ -1,2 +1,2 @@\n def accepts(n):\n-    return False\n+    return n >= 0\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "monotonic": null
+    }
+  ],
+  "successful_submits": 2,
+  "submit_responses": [
+    {
+      "kind": "function_response",
+      "tool": "submit_patch",
+      "id": "ure_6",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      },
+      "monotonic": null
+    },
+    {
+      "kind": "function_response",
+      "tool": "submit_patch",
+      "id": "ure_9",
+      "args": null,
+      "result": {
+        "status": "ok",
+        "patch_size": 155,
+        "files_changed": 1
+      },
+      "monotonic": null
+    }
+  ],
+  "tools_after_first_successful_submit": [
+    {
+      "kind": "function_call",
+      "tool": "run_command",
+      "id": "ure_7",
+      "args": {
+        "command": "git tag _swegemma_baseline HEAD"
+      },
+      "result": null,
+      "monotonic": null
+    },
+    {
+      "kind": "function_call",
+      "tool": "run_command",
+      "id": "ure_8",
+      "args": {
+        "command": "git diff --check && git diff"
+      },
+      "result": null,
+      "monotonic": null
+    },
+    {
+      "kind": "function_call",
+      "tool": "submit_patch",
+      "id": "ure_9",
+      "args": {},
+      "result": null,
+      "monotonic": null
+    }
+  ],
+  "counterexample_revision_retest": false,
+  "HTTP_cancelled": false,
+  "wire_configuration": [
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    },
+    {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "output": 16384,
+      "thinking": 4096,
+      "seed": 17,
+      "enable_thinking": true,
+      "sampling": {}
+    }
+  ],
+  "final_app": "def accepts(n):\n    return n >= 0\n",
+  "actual_patch_bytes": 155,
+  "final_patch_sha256": "10e4a78136c50a64becc5b86105ada2d3b8ee1bb15e1f50ff6cf9bde0667970c",
+  "HTTP_audit": {
+    "passed": true,
+    "reasons": [],
+    "requests": 10,
+    "responses": 10,
+    "rows": [
+      {
+        "request_id": "8f4e93b568c0497cae93602b798f7a83",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "8bdef419f3f24f7480a3d511aa0e346a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5f918a0ba11e4a1db0ea1a8c353ce9eb",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6467a13ef4f54d3b847748501ec72ba0",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f1da03a551924c2281dcfcae906119d6",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "5c33d9b5e94e46229e3c0ad325f158c4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0f4e4178a4a2455d83de647441cc88cc",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "48e0be1d06854c86a57535cde495efc1",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a7d438dd5db5419d86df487117f62ab8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "18c2ace129a64634a51bfdb79f24f5c2",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 100,
+          "completion_tokens": 8,
+          "total_tokens": 108
+        },
+        "usage_complete": true
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 1000,
+      "completion_tokens": 80,
+      "total_tokens": 1080
+    },
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "external_cancellation_propagated": false,
+  "clock_fixture": "native300-second candidate budget"
+}
