@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="1" skipped="0" tests="2" time="0.067" timestamp="2026-10-20T05:42:50.192764+00:00" hostname="8ca7462593c3"><testcase classname="tests.test_case" name="test_a" time="0.001"><failure message="assert False">&gt;   def test_a(): assert False
+                  ^^^^^^^^^^^^
+E   assert False
+
+tests/test_case.py:4: AssertionError</failure></testcase><testcase classname="tests.test_case" name="test_b" time="0.001"><error message="failed on setup with &quot;RuntimeError: fixture failure&quot;">@pytest.fixture
+&gt;   def broken(): raise RuntimeError("fixture failure")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: fixture failure
+
+tests/test_case.py:3: RuntimeError</error></testcase></testsuite></testsuites>

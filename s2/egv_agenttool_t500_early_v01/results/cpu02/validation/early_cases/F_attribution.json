@@ -1,0 +1,77 @@
+{
+  "wrong_expectation": {
+    "classification": "invalid_custom_expectation",
+    "probe_result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: WRONG_EXPECTATION\n",
+      "details": {
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: WRONG_EXPECTATION\n",
+        "exit_code": 1
+      }
+    },
+    "immutable_contract_result": {
+      "status": "ok",
+      "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET True\nTARGET_PASSED\nOLD_PASSED\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+  },
+  "production_regression": {
+    "classification": "production_behavior_failure",
+    "probe_result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: TARGET_BOUNDARY\n",
+      "details": {
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: TARGET_BOUNDARY\n",
+        "exit_code": 1
+      }
+    },
+    "immutable_contract_result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "Traceback (most recent call last):\n  File \"/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_BOUNDARY'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_BOUNDARY\n",
+      "details": {
+        "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/app.py ade0fec51f3f61aa2e5b090ba5f82d6d3a897c8c3c43ebaf23a03a1d80cb851b\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET False\n",
+        "stderr": "Traceback (most recent call last):\n  File \"/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_BOUNDARY'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_BOUNDARY\n",
+        "exit_code": 1
+      }
+    },
+    "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+  },
+  "probe_environment": {
+    "classification": "probe_dependency_error",
+    "probe_result": {
+      "status": "error",
+      "error_type": "CommandError",
+      "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'deliberately_absent_probe_dependency'\n",
+      "details": {
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'deliberately_absent_probe_dependency'\n",
+        "exit_code": 1
+      }
+    },
+    "immutable_contract_result": {
+      "status": "ok",
+      "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET True\nTARGET_PASSED\nOLD_PASSED\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+  },
+  "unverified": {
+    "classification": "unverified",
+    "probe_result": {
+      "status": "ok",
+      "stdout": "import or exit zero is not behavior validation\n",
+      "stderr": "",
+      "exit_code": 0
+    },
+    "immutable_contract_result": null,
+    "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+  }
+}

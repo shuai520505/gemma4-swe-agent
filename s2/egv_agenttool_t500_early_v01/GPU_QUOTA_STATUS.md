@@ -1,0 +1,7 @@
+# GPU quota: NO-GO
+
+Fresh API observation in QUOTA_OBSERVATION.json (2026-10-20 13:17Beijing): total21600s,used20805.644.0s,reserved0,refresh2026-10-24T00:00Z (08:00Beijing). The SDK duration string is malformed; raw JSON retained. Interpreting the extra suffix as serialization noise gives approximately794.356 quota-seconds remaining, about13.24minutes; this interpretation is not an API-guaranteed charge unit.
+
+PR6 observed approximately2231 quota-seconds for1115 wall-seconds on4L4; an empirical accounting ratio near2, not a guaranteed universal multiplier. The proposed two-task/four-run design alone allows2000 Agent wall-seconds before setup/model/Phase2, already above current remaining quota even at1x. Conservative complete-session window10000 wall-seconds, estimated20000 quota-seconds at2x plus600 quota-seconds reserve (20600 total), must be admitted against a fresh quota and actual machine reservation before any inference. No GPU was started here. No GPU authorization was given for this development round.
+
+Fresh final recheck:2026-10-20 13:56:34 Beijing,same raw20805.644.0s used/21600s total,reserved0. EXTERNAL_STATUS_FINAL.json preserves it. Current resource decision remains NO-GO; no GPU research or formal submission was dispatched.

@@ -1,0 +1,929 @@
+{
+  "cases": {
+    "A_pre_patch": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": false,
+      "counted_tools": 3,
+      "actual_tool_events": 6,
+      "model_requests": 8,
+      "actors": {
+        "main_coding_agent": 4,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": false,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 8,
+        "responses": 8,
+        "rows": [
+          {
+            "request_id": "f6837581697445ce986c184d300b6a89",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "13d6d05321514d34b4ff67781fb0c88b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f47833b78d0b4f8c9bbb5133db9f6c37",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c1d654f8f9b8437fa37a0b93db2cfd5e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b2a0240cd91b488bb7a9479f73fb48c2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "aed26cc2280543ae82829255e322b89d",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a0818f65c70c41d08194e7027b5bebdc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "81e71bfc78844f96974af0b99a777d61",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 800,
+          "completion_tokens": 40,
+          "total_tokens": 840
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    },
+    "B_early_repair": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": true,
+      "counted_tools": 6,
+      "actual_tool_events": 10,
+      "model_requests": 12,
+      "actors": {
+        "main_coding_agent": 8,
+        "egv_verifier": 4
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": true,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 12,
+        "responses": 12,
+        "rows": [
+          {
+            "request_id": "2e47b7a274a1477a8d6010d1c8bcf7fd",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "2194606e395441ec86b31005fdbd2444",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "06fc8ca6b5f54b32877733ac16c15a6f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "12c9c639ad784070a7cbe211eacf7862",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "bbf6f3f9e37145fa8ce046ef873697bb",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b9a8757064a34b78a9c5fb8f49238dc6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c86ff9e1cb1a48628bd77647c0146ad2",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "f32a9d37389041408ce3676cd0dbe961",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "46614ab7dce94784a8155d5a030a161c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b689117e62b3482b9d563e44926c37d0",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "bdb5d8fd4e164e11821ccfb883dc6bd5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "3cdf4d309b7d45df887aad57f734642f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 1200,
+          "completion_tokens": 60,
+          "total_tokens": 1260
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    },
+    "C_post_patch": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": true,
+      "feedback_delivered": true,
+      "feedback_handled": true,
+      "counterevidence_cleared": true,
+      "closed_loop": true,
+      "explicit_submit": true,
+      "counted_tools": 8,
+      "actual_tool_events": 13,
+      "model_requests": 16,
+      "actors": {
+        "main_coding_agent": 9,
+        "egv_verifier": 7
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": true,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 16,
+        "responses": 16,
+        "rows": [
+          {
+            "request_id": "5b3b04284ddf4fc7adc08d1100a07ef8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6048683f76b44d748ecf8f6e5e37a602",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "171be1ff87464574a32c708bd338d1fd",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c54c4b67d3a048bc8ea9f720d655c7dc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8c6414fbb5904ab68c32321067903364",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "136c6488af0744efa4ba8ddce638b637",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a2283b9919d04c349bac66993729060e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "45b3d7fa917b48ce9eb217d7ab4d2dc4",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "85f5d326094e40fba8e90e2a9b79383c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ffe4a8573bef4fa182a127224f2f8823",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "ff5fa4d295f446c78cb24d39a6665a04",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "80d37eafbbbd41389f33b535da4a3c95",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "196168aa17494e2792e1a4cd190d5f03",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "c383e73641e0416394d67663de8fb732",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "db961ee06b6649faba51593db1eca3a5",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "b944393be6554e29bf49f5de439552d3",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 1600,
+          "completion_tokens": 80,
+          "total_tokens": 1680
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    },
+    "D_close": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 3,
+      "actual_tool_events": 5,
+      "model_requests": 6,
+      "actors": {
+        "main_coding_agent": 6,
+        "egv_verifier": 0
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": false,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 6,
+        "responses": 6,
+        "rows": [
+          {
+            "request_id": "169898de537345dfacac51b4349fe156",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a7420a7077f24813a891733da4d8de74",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "8e3912e150314a30b3f980a8f4889d87",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "143e4e88b60c4f7fa5142c4c0dd90ca8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "063d4211c662411392c01f557e2457dc",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "983b348c6e0e490598374ee455ef5fd6",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 30,
+          "total_tokens": 630
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    },
+    "E_cleanup": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 4,
+      "actual_tool_events": 5,
+      "model_requests": 6,
+      "actors": {
+        "main_coding_agent": 6,
+        "egv_verifier": 0
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": false,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 6,
+        "responses": 6,
+        "rows": [
+          {
+            "request_id": "df12a6c3ff1c4c1cb90b06a845d905fa",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "7b778df3f18e44da8d4ff9f3686180c9",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "751490df6f9a494ca63587f60d01f68c",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "fb52ad6f61724c25bc7f73f1edbaddc0",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "a9e0964e314b4f75b0d8066530d1aab8",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "71329a532fa74c4cbdede33fba0ede01",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 30,
+          "total_tokens": 630
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    },
+    "H_direct": {
+      "real_compiler": true,
+      "real_ADK_Runner": true,
+      "mocked_HTTP": true,
+      "Gemma_inference": false,
+      "target_counterevidence": false,
+      "feedback_delivered": false,
+      "feedback_handled": false,
+      "counterevidence_cleared": false,
+      "closed_loop": false,
+      "explicit_submit": true,
+      "counted_tools": 3,
+      "actual_tool_events": 5,
+      "model_requests": 6,
+      "actors": {
+        "main_coding_agent": 6,
+        "egv_verifier": 0
+      },
+      "child_HTTP_cancelled": false,
+      "token_scope": "Mock usage only, not Gemma token consumption",
+      "error": null,
+      "native_Harness": false,
+      "skip_summarization": false,
+      "HTTP": {
+        "passed": true,
+        "reasons": [],
+        "requests": 6,
+        "responses": 6,
+        "rows": [
+          {
+            "request_id": "d9dcf7a371bf4c78823b2c824de6e333",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "473e082c2b7a4c10bddaca3752d24d7b",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "5072c355422f4d1fb12df39a5a516e03",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "6f9ba7c8fd554f3182db6b0209d2a88f",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "da418970c2a74a9693a68870410f636e",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          },
+          {
+            "request_id": "d4221d7d8ad049749458565be8a4626a",
+            "terminal_status": "response_received",
+            "explained_cancellation": false,
+            "usage": {
+              "prompt_tokens": 100,
+              "completion_tokens": 5,
+              "total_tokens": 105
+            },
+            "usage_complete": true
+          }
+        ],
+        "observed_response_usage": {
+          "prompt_tokens": 600,
+          "completion_tokens": 30,
+          "total_tokens": 630
+        },
+        "usage_complete": true,
+        "partial_token_usage": false,
+        "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+      }
+    }
+  },
+  "wrong_expectations": {
+    "wrong_expectation": {
+      "classification": "invalid_custom_expectation",
+      "probe_result": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: WRONG_EXPECTATION\n",
+        "details": {
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: WRONG_EXPECTATION\n",
+          "exit_code": 1
+        }
+      },
+      "immutable_contract_result": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_wrong_expectation/sandboxes/swegemma_sandbox_a87ee901-eb7/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET True\nTARGET_PASSED\nOLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+    },
+    "production_regression": {
+      "classification": "production_behavior_failure",
+      "probe_result": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: TARGET_BOUNDARY\n",
+        "details": {
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nAssertionError: TARGET_BOUNDARY\n",
+          "exit_code": 1
+        }
+      },
+      "immutable_contract_result": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_BOUNDARY'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_BOUNDARY\n",
+        "details": {
+          "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/app.py ade0fec51f3f61aa2e5b090ba5f82d6d3a897c8c3c43ebaf23a03a1d80cb851b\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET False\n",
+          "stderr": "Traceback (most recent call last):\n  File \"/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_production_regression/sandboxes/swegemma_sandbox_66ae6c4c-884/workspace/checks.py\", line 5, in <module>\n    assert app.accepts(0) is True, 'TARGET_BOUNDARY'\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: TARGET_BOUNDARY\n",
+          "exit_code": 1
+        }
+      },
+      "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+    },
+    "probe_environment": {
+      "classification": "probe_dependency_error",
+      "probe_result": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'deliberately_absent_probe_dependency'\n",
+        "details": {
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'deliberately_absent_probe_dependency'\n",
+          "exit_code": 1
+        }
+      },
+      "immutable_contract_result": {
+        "status": "ok",
+        "stdout": "SOURCE /kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace/app.py 497ac99e5d2ca16ff691fd6ecbfbd91daa4d1dc7391f5449e14a6659f33f8cdc\nSYS_PATH ['/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/workspace', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload', '/kaggle/working/s2_t500_early_v01/cpu02/20261020T053409_777612Z/validation/early_cases/F_probe_environment/sandboxes/swegemma_sandbox_eb0db41b-5c3/venv/lib/python3.12/site-packages', '/usr/local/lib/python3.12/dist-packages', '/usr/lib/python3/dist-packages']\nTARGET True\nTARGET_PASSED\nOLD_PASSED\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+    },
+    "unverified": {
+      "classification": "unverified",
+      "probe_result": {
+        "status": "ok",
+        "stdout": "import or exit zero is not behavior validation\n",
+        "stderr": "",
+        "exit_code": 0
+      },
+      "immutable_contract_result": null,
+      "basis": "Controlled fixture contract: accepts(0)=True, accepts(-1)=False; original checks.py unchanged. Not a universal exit-code classifier."
+    }
+  },
+  "exact_native_seconds": 500.1000114179999,
+  "exact_60": {
+    "counted": 60,
+    "actual_tool_events": 71,
+    "explicit_submit": true
+  },
+  "prompt_tokenization": {
+    "status": "measured",
+    "tokenizer": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "old_prompt_tokens": 853,
+    "new_prompt_tokens": 1208,
+    "scope": "Standalone CPU tokenization of instruction, not full chat-template request or GPU latency"
+  },
+  "scope": "Scripted HTTP with actual official tools/edits/assertions/Patch; never Gemma autonomous behavior or latency."
+}

@@ -1,0 +1,7 @@
+{
+  "exit_code": 1,
+  "stdout": "FE                                                                       [100%]\n==================================== ERRORS ====================================\n___________________________ ERROR at setup of test_b ___________________________\n\n    @pytest.fixture\n>   def broken(): raise RuntimeError(\"fixture failure\")\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   RuntimeError: fixture failure\n\ntests/test_case.py:3: RuntimeError\n=================================== FAILURES ===================================\n____________________________________ test_a ____________________________________\n\n>   def test_a(): assert False\n                  ^^^^^^^^^^^^\nE   assert False\n\ntests/test_case.py:4: AssertionError\n- generated xml file: /tmp/tmpb4duvdry/sandbox_tmp/swegemma_sandbox_7e6d13b5-216/tmp/_swegemma_junit_a11ce.xml -\n=========================== short test summary info ============================\nFAILED tests/test_case.py::test_a - assert False\nERROR tests/test_case.py::test_b - RuntimeError: fixture failure\n1 failed, 1 error in 0.07s\n",
+  "stderr": "",
+  "duration_seconds": 1.860118901000078,
+  "source": "official_sandbox_exec_return"
+}
