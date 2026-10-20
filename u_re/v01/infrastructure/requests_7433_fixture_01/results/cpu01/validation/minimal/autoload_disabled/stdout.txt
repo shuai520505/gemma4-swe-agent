@@ -1,0 +1,29 @@
+EE                                                                       [100%]
+==================================== ERRORS ====================================
+_________________________ ERROR at setup of test_plain _________________________
+file /kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py, line 1
+  def test_plain(httpbin):
+file /kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/conftest.py, line 2
+  @pytest.fixture
+  def httpbin(httpbin):
+E       recursive dependency involving fixture 'httpbin' detected
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, httpbin, httpbin_secure, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/conftest.py:2
+________________________ ERROR at setup of test_secure _________________________
+file /kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py, line 3
+  def test_secure(httpbin_secure):
+file /kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/conftest.py, line 5
+  @pytest.fixture
+  def httpbin_secure(httpbin_secure):
+E       recursive dependency involving fixture 'httpbin_secure' detected
+>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, httpbin, httpbin_secure, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/conftest.py:5
+- generated xml file: /kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/autoload_disabled/junit.xml -
+=========================== short test summary info ============================
+ERROR test_wrapper.py::test_plain
+ERROR test_wrapper.py::test_secure
+2 errors in 0.01s
