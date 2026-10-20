@@ -1,0 +1,1751 @@
+{
+  "infrastructure_passed": true,
+  "reasons": [],
+  "outcome": {
+    "status": "resolved",
+    "failure_stage": null,
+    "reason": "passed"
+  },
+  "official_resolved": true,
+  "official_test_exit_code": 0,
+  "HTTP_requests": 56,
+  "official_LLM_calls": 50,
+  "official_tool_calls": 50,
+  "native_tool_events": 50,
+  "usage": {
+    "prompt_tokens": 301198,
+    "completion_tokens": 15796,
+    "total_tokens": 316994
+  },
+  "usage_scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed.",
+  "finish_length": 0,
+  "agent_seconds": 500.0158269159999,
+  "worker_seconds": 528.480953603,
+  "first_edit_action_seconds": 137.42920095,
+  "first_effective_edit_seconds": null,
+  "first_effective_edit_scope": "Not inferred from a tool name; requires content review",
+  "exact_repeated_reads": 3,
+  "testing_commands": 4,
+  "explicit_submits": 0,
+  "leakage_findings": [],
+  "tools": [
+    {
+      "time": 722.112185609,
+      "id": "chatcmpl-tool-af42815826ab518c",
+      "args": {
+        "command": "grep -r \"append_tokens\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 724.525135767,
+      "id": "chatcmpl-tool-aec49c4c4693d71b",
+      "args": {
+        "filepath": "rich/text.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 727.273524635,
+      "id": "chatcmpl-tool-81564c89fccb63fc",
+      "args": {
+        "command": "grep -n \"def append_tokens\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 729.363637813,
+      "id": "chatcmpl-tool-8fb1cd63870b2dda",
+      "args": {
+        "filepath": "rich/text.py",
+        "start_line": 1028,
+        "end_line": 1100
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 746.438543682,
+      "id": "chatcmpl-tool-a78dffc17eeaffd2",
+      "args": {
+        "command": "grep -n \"append_tokens\" rich/syntax.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 748.516310088,
+      "id": "chatcmpl-tool-8b0794fa30250c46",
+      "args": {
+        "end_line": 540,
+        "filepath": "rich/syntax.py",
+        "start_line": 500
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 756.813693712,
+      "id": "chatcmpl-tool-ac1a61b06a394397",
+      "args": {
+        "end_line": 400,
+        "filepath": "\u300crich/text.py\u300d",
+        "start_line": 300
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 758.675154831,
+      "id": "chatcmpl-tool-957e2dcb58c716d3",
+      "args": {
+        "end_line": 400,
+        "filepath": "rich/text.py",
+        "start_line": 300
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 761.282653104,
+      "id": "chatcmpl-tool-95cb0deb2106d9f3",
+      "args": {
+        "end_line": 250,
+        "filepath": "rich/text.py",
+        "start_line": 150
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 791.515259894,
+      "id": "chatcmpl-tool-b2484628a7a82652",
+      "args": {
+        "command": "grep -n \"def plain\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 808.298995424,
+      "id": "chatcmpl-tool-b1c9c20e5e001629",
+      "args": {
+        "end_line": 420,
+        "filepath": "rich/text.py",
+        "start_line": 400
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 814.875914305,
+      "id": "chatcmpl-tool-99b733f82eb19952",
+      "args": {
+        "command": "grep -r \"append_tokens\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 816.973361437,
+      "id": "chatcmpl-tool-9c9d082141b86daf",
+      "args": {
+        "filepath": "rich/syntax.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 819.559488497,
+      "id": "chatcmpl-tool-bda52a27dc687b41",
+      "args": {
+        "command": "grep -n \"class Syntax\" rich/syntax.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 821.396932067,
+      "id": "chatcmpl-tool-be457352378a11ce",
+      "args": {
+        "end_line": 500,
+        "filepath": "rich/syntax.py",
+        "start_line": 226
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 823.990130038,
+      "id": "chatcmpl-tool-b745410be9b999dc",
+      "args": {
+        "command": "grep -n \"append_tokens\" rich/syntax.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 826.007478967,
+      "id": "chatcmpl-tool-adfd273ac015d786",
+      "args": {
+        "end_line": 550,
+        "filepath": "rich/syntax.py",
+        "start_line": 500
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 854.88644934,
+      "id": "chatcmpl-tool-a48a20ff8b4679af",
+      "args": {
+        "content": "from rich.text import Text\n\nt = Text(\"hello\")\ntry:\n    t.append_tokens([(None, \"red\")])\nexcept Exception as e:\n    print(f\"Caught exception: {type(e).__name__}: {e}\")\n\ntry:\n    print(t.plain)\nexcept Exception as e:\n    print(f\"Caught exception during plain access: {type(e).__name__}: {e}\")\n",
+        "filepath": "reproduce_issue.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 876.362312806,
+      "id": "chatcmpl-tool-86e01281a7ee805c",
+      "args": {
+        "command": "python3 reproduce_issue.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 887.943156625,
+      "id": "chatcmpl-tool-b2904436321c9e91",
+      "args": {
+        "filepath": "rich/text.py",
+        "start_line": 400
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 890.583323857,
+      "id": "chatcmpl-tool-b10fb7c96dc59680",
+      "args": {
+        "command": "grep -n \"def append\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 892.378973051,
+      "id": "chatcmpl-tool-ab97a5139747e9d7",
+      "args": {
+        "filepath": "rich/text.py",
+        "start_line": 962,
+        "end_line": 980
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 917.914086042,
+      "id": "chatcmpl-tool-8745b53a68486a1d",
+      "args": {
+        "command": "grep -r \"append_tokens\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 951.942075595,
+      "id": "chatcmpl-tool-be4ec88af540f131",
+      "args": {
+        "command": "grep -n \"_Span\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 954.414950129,
+      "id": "chatcmpl-tool-bc60ed8cd076ad12",
+      "args": {
+        "command": "grep -n \"class Span\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 996.632862193,
+      "id": "chatcmpl-tool-a10c43d930893f2d",
+      "args": {
+        "content": "from rich.text import Text\n\ndef test_append_tokens_non_string():\n    t = Text(\"\")\n    # This should not raise TypeError if we want to fix it, \n    # or it should raise a descriptive TypeError instead of a cryptic one.\n    # According to the issue, it's an \"exception\", so let's see what it is.\n    try:\n        t.append_tokens([(None, \"red\")])\n    except TypeError as e:\n        print(f\"Caught expected TypeError: {e}\")\n    except Exception as e:\n        print(f\"Caught unexpected exception: {type(e).__name__}: {e}\")\n    \n    try:\n        t.append_tokens([(123, \"red\")])\n    except TypeError as e:\n        print(f\"Caught expected TypeError: {e}\")\n    except Exception as e:\n        print(f\"Caught unexpected exception: {type(e).__name__}: {e}\")\n\nif __name__ == \"__main__\":\n    test_append_tokens_non_string()\n",
+        "filepath": "repro.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 997.999448526,
+      "id": "chatcmpl-tool-8831b535dfc1eb2f",
+      "args": {
+        "command": "python3 repro.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1005.560717344,
+      "id": "chatcmpl-tool-b05fad36fb5d2f45",
+      "args": {
+        "filepath": "rich/text.py",
+        "start_line": 100,
+        "end_line": 150
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1007.699332229,
+      "id": "chatcmpl-tool-bfeff5cb3df5f7b5",
+      "args": {
+        "end_line": 250,
+        "filepath": "rich/text.py",
+        "start_line": 150
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1016.443930632,
+      "id": "chatcmpl-tool-b601d3e761e4287a",
+      "args": {
+        "end_line": 400,
+        "filepath": "rich/text.py",
+        "start_line": 300
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1018.844703359,
+      "id": "chatcmpl-tool-90b43d139c87f39a",
+      "args": {
+        "command": "grep -n \"def append\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1020.910836905,
+      "id": "chatcmpl-tool-8fe07f447444270a",
+      "args": {
+        "end_line": 1000,
+        "filepath": "rich/text.py",
+        "start_line": 962
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1039.698394655,
+      "id": "chatcmpl-tool-ad1480cb1576ca41",
+      "args": {
+        "command": "grep -r \"append_tokens\" ."
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1067.674747779,
+      "id": "chatcmpl-tool-a2e9c3f695f41715",
+      "args": {
+        "command": "grep -n \"append_tokens\" rich/syntax.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1069.61060281,
+      "id": "chatcmpl-tool-b408d2e86f90e506",
+      "args": {
+        "end_line": 530,
+        "filepath": "rich/syntax.py",
+        "start_line": 510
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1085.977215691,
+      "id": "chatcmpl-tool-85bee056b1564d95",
+      "args": {
+        "command": "grep -n \"def strip_control_codes\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1088.02089057,
+      "id": "chatcmpl-tool-8e37d2dfda0d34af",
+      "args": {
+        "end_line": 50,
+        "filepath": "rich/text.py",
+        "start_line": 1
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1089.901097355,
+      "id": "chatcmpl-tool-823e7e1bec9162d9",
+      "args": {
+        "filepath": "rich/control.py"
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1092.995131462,
+      "id": "chatcmpl-tool-8d3caa0c4ad7c741",
+      "args": {
+        "filepath": "rich/control.py",
+        "start_line": 121
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1102.964372085,
+      "id": "chatcmpl-tool-b4af2243eacdb318",
+      "args": {
+        "end_line": 970,
+        "filepath": "rich/text.py",
+        "start_line": 950
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1105.281791267,
+      "id": "chatcmpl-tool-ac7b3208917e0664",
+      "args": {
+        "command": "grep -n \"def append_tokens\" rich/text.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1137.016177803,
+      "id": "chatcmpl-tool-831ee45387144c47",
+      "args": {
+        "end_line": 100,
+        "filepath": "rich/text.py",
+        "start_line": 1
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1139.778807571,
+      "id": "chatcmpl-tool-859980d16d2c2469",
+      "args": {
+        "end_line": 1045,
+        "filepath": "rich/text.py",
+        "start_line": 1020
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1154.872576807,
+      "id": "chatcmpl-tool-86d3141c75e820bc",
+      "args": {
+        "end_line": 1055,
+        "filepath": "rich/text.py",
+        "start_line": 1028
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1166.312513167,
+      "id": "chatcmpl-tool-b0ee4dc530965f5c",
+      "args": {
+        "end_line": 1020,
+        "filepath": "rich/text.py",
+        "start_line": 971
+      },
+      "name": "read_file"
+    },
+    {
+      "time": 1180.813641907,
+      "id": "chatcmpl-tool-83cee7cf22896e97",
+      "args": {
+        "filepath": "rich/text.py",
+        "new_string": "        for content, style in tokens:\n            if not isinstance(content, str):\n                raise TypeError(\"Only str can be appended via append_tokens\")\n            sanitized_content = strip_control_codes(content)\n            append_text(sanitized_content)\n            if style:\n                append_span(_Span(offset, offset + len(sanitized_content), style))\n            offset += len(sanitized_content)\n        self._length = offset\n        return self",
+        "old_string": "        for content, style in tokens:\n            append_text(content)\n            if style:\n                append_span(_Span(offset, offset + len(content), style))\n            offset += len(content)\n        self._length = offset\n        return self"
+      },
+      "name": "edit_file"
+    },
+    {
+      "time": 1182.630776554,
+      "id": "chatcmpl-tool-ac408658c6a7daee",
+      "args": {
+        "command": "pytest tests/test_text_repro.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1193.543897008,
+      "id": "chatcmpl-tool-98d1a35ad86a1647",
+      "args": {
+        "content": "from rich.text import Text\nimport pytest\n\ndef test_append_tokens_none_content():\n    text = Text()\n    with pytest.raises(TypeError, match=\"Only str can be appended via append_tokens\"):\n        text.append_tokens([(None, None)])\n\ndef test_append_tokens_int_content():\n    text = Text()\n    with pytest.raises(TypeError, match=\"Only str can be appended via append_tokens\"):\n        text.append_tokens([(123, None)])\n\ndef test_append_tokens_control_codes():\n    text = Text()\n    # \\x00 is a control code and should be stripped\n    text.append_tokens([(\"\\x00hello\", None)])\n    assert text.plain == \"hello\"\n    assert len(text) == 5\n\ndef test_append_tokens_valid():\n    text = Text()\n    text.append_tokens([(\"hello\", \"red\"), (\" world\", \"blue\")])\n    assert text.plain == \"hello world\"\n    assert len(text) == 11\n",
+        "filepath": "tests/test_text_repro.py"
+      },
+      "name": "write_file"
+    },
+    {
+      "time": 1195.188568633,
+      "id": "chatcmpl-tool-b6edb9be5102d332",
+      "args": {
+        "command": "pytest tests/test_text_repro.py"
+      },
+      "name": "run_command"
+    },
+    {
+      "time": 1202.598411276,
+      "id": "chatcmpl-tool-80d49b8a585a83bb",
+      "args": {
+        "filepath": "rich/control.py"
+      },
+      "name": "read_file"
+    }
+  ],
+  "patch_bytes": 2248,
+  "phase2": {
+    "exit_code": 0,
+    "stdout": "........................................................................ [ 66%]\n....................................                                     [100%]\n- generated xml file: /kaggle/working/s2_t500_agenttool_smoke_01/gpu01/20261020T035534_398606Z/runs/01-rich_3471-B/sandbox_tmp/swegemma_sandbox_0f09a67b-dc5/tmp/_swegemma_junit_f8dc46f742f4.xml -\n108 passed in 0.29s\n",
+    "stderr": "",
+    "duration_seconds": 1.5583943710000767,
+    "source": "official_sandbox_exec_return"
+  },
+  "raw_fields_preserved": true,
+  "structured_verifier": {
+    "category": "passed",
+    "categories": [
+      "passed"
+    ],
+    "counts": {
+      "tests": 108,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "summary": {
+      "passed": 108
+    },
+    "events": [
+      {
+        "classname": "test_text",
+        "name": "test_span",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_span_split",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_span_move",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_span_right_crop",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_len",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_cell_len",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_bool",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_str",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_repr",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_add",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_eq",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_contain",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_plain_property",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_plain_property_setter",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_from_markup",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_from_ansi",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_copy",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_rstrip",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_rstrip_end",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_stylize",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_stylize_before",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_stylize_negative_index",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_highlight_regex",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_highlight_regex_callable",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_highlight_words",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_set_length",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_console_width",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_join",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_trim_spans",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_pad_left",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_pad_right",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_append",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_append_text",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_end",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_split",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_split_spans",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_divide",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_right_crop",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_3",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_4",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_wrapped_word_length_greater_than_available_width",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_cjk",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_cjk_width_mid_character",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_cjk_mixed",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_overflow",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_overflow_long",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long_words",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long_words_2",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long_words_followed_by_other_words",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long_word_preceeded_by_word_of_full_line_length",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_multiple_consecutive_spaces",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_long_words_justify_left",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_leading_and_trailing_whitespace",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_no_wrap_no_crop",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_fit",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_tabs",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_render",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_render_simple",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print[.-.\\n]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print[print_text1-. .\\n]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print[print_text2-Hello World !\\n]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print_sep_end[.-.X]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print_sep_end[print_text1-..X]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_print_sep_end[print_text2-HelloWorld!X]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[-4--expected_spans0]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[\\t-4-    -expected_spans1]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[\\tbar-4-    bar-expected_spans2]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[foo\\tbar-4-foo bar-expected_spans3]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[foo\\nbar\\nbaz-4-foo\\nbar\\nbaz-expected_spans4]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[bold]foo\\tbar-4-foo bar-expected_spans5]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[bold]\\tbar-4-    bar-expected_spans6]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[\\t[bold]bar-4-    bar-expected_spans7]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[red]foo\\tbar\\n[green]egg\\tbaz-8-foo     bar\\negg     baz-expected_spans8]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[bold]X\\tY-8-X       Y-expected_spans9]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[bold]\\U0001f4a9\\t\\U0001f4a9-8-\\U0001f4a9      \\U0001f4a9-expected_spans10]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_tabs_to_spaces_spans[[bold]\\U0001f4a9\\U0001f4a9\\U0001f4a9\\U0001f4a9\\t\\U0001f4a9-8-\\U0001f4a9\\U0001f4a9\\U0001f4a9\\U0001f4a9        \\U0001f4a9-expected_spans11]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_markup_switch",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_emoji",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_emoji_switch",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_assemble",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_assemble_meta",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_styled",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_strip_control_codes",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_get_style_at_offset",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-10-Hello]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-5-Hello]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-4-Hel\\u2026]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-3-He\\u2026]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-2-H\\u2026]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis[Hello-1-\\u2026]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis_pad[Hello-5-Hello]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis_pad[Hello-10-Hello     ]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_truncate_ellipsis_pad[Hello-3-He\\u2026]",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_pad",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_align_left",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_align_right",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_align_center",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_detect_indentation",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_indentation_guides",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_slice",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_wrap_invalid_style",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_apply_meta",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_on",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_markup_property",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_extend_style",
+        "category": "passed"
+      },
+      {
+        "classname": "test_text",
+        "name": "test_append_tokens",
+        "category": "passed"
+      }
+    ],
+    "attribution": "no_test_failures",
+    "infrastructure_stop": false,
+    "confirmed_failure": false,
+    "reason": "Structured native test outcome",
+    "evidence_level": "original_JUnit",
+    "exit_code": 0,
+    "historical_only": false
+  },
+  "http_lifecycle": {
+    "passed": true,
+    "reasons": [],
+    "requests": 56,
+    "responses": 55,
+    "rows": [
+      {
+        "request_id": "60787ad685dd44bdabaef3d67d343771",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2988,
+          "total_tokens": 3072,
+          "completion_tokens": 84,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "8b7de077ea0f4078a07e7df30b47f25b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3197,
+          "total_tokens": 3267,
+          "completion_tokens": 70,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "3a563663b67243239525b9873ea2d0ec",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4292,
+          "total_tokens": 4354,
+          "completion_tokens": 62,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e7397288f4c24ff1a468a6e86279408f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4401,
+          "total_tokens": 4462,
+          "completion_tokens": 61,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "393e8e9707e0408ea3547d51f64a74e1",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5188,
+          "total_tokens": 5761,
+          "completion_tokens": 573,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "9062083458f544faa4c7df9849184c42",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5828,
+          "total_tokens": 5887,
+          "completion_tokens": 59,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "969ed330906349f2b3224207943fcbe0",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6352,
+          "total_tokens": 6628,
+          "completion_tokens": 276,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d52f6cbb39974c19898cce8e4f389f64",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6691,
+          "total_tokens": 6741,
+          "completion_tokens": 50,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ce62a60e1cd54f06bcb7dfae9f82e10d",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7899,
+          "total_tokens": 7949,
+          "completion_tokens": 50,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "9fd3ec7c89e641d6a7773d102b54bc43",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8972,
+          "total_tokens": 10008,
+          "completion_tokens": 1036,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "dc411b1126e6407aaeb0b7df68d01f71",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2407,
+          "total_tokens": 2857,
+          "completion_tokens": 450,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "27d03b2455084afbbd9a754a3402d6b2",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4055,
+          "total_tokens": 4104,
+          "completion_tokens": 49,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "85f740d7fc0b44d59c84ec12b3bc9f64",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4388,
+          "total_tokens": 4611,
+          "completion_tokens": 223,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f663e542fd28401bbc8e723031395f4f",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4735,
+          "total_tokens": 4792,
+          "completion_tokens": 57,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "526f9ac33d0b415c844931c19d5fee23",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6089,
+          "total_tokens": 6137,
+          "completion_tokens": 48,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "6b97a5e9b7e44cdebf1bc7a3cce2e2a1",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6195,
+          "total_tokens": 6244,
+          "completion_tokens": 49,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0aa24fdd8e47430cb3b4b4a1cdda45c1",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7453,
+          "total_tokens": 7502,
+          "completion_tokens": 49,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "634e865942ca4b4891d94335df4e06b3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7569,
+          "total_tokens": 7624,
+          "completion_tokens": 55,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d491dde6b03644cab9989dc0d73b4038",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8236,
+          "total_tokens": 9238,
+          "completion_tokens": 1002,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0ff5bc4e14b643afab202ed5a25a0d6b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1913,
+          "total_tokens": 2588,
+          "completion_tokens": 675,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d76eb39a6a2a43d0aebe9d4f5661142c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3700,
+          "total_tokens": 3729,
+          "completion_tokens": 29,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "38f53604bbaf41078656bbc58c5c6890",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3804,
+          "total_tokens": 4213,
+          "completion_tokens": 409,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "c113e974e10b4bb5a28d433564341e08",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5426,
+          "total_tokens": 5478,
+          "completion_tokens": 52,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "735b71b117954da1905e21d5af51ca70",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5558,
+          "total_tokens": 5606,
+          "completion_tokens": 48,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "bde49d96c2ac4653a1d72f9f71a29231",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5853,
+          "total_tokens": 6767,
+          "completion_tokens": 914,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fa5e0016314a4bdcb443cd241cc1b815",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6940,
+          "total_tokens": 8149,
+          "completion_tokens": 1209,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0bbc0f8cf5d342158e80c017eebf2163",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8696,
+          "total_tokens": 8754,
+          "completion_tokens": 58,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b9f234e4725940b6956e3d9c4c7451d7",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3021,
+          "total_tokens": 4138,
+          "completion_tokens": 1117,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1e942c757baa43b7ac18ecda05551c6b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3994,
+          "total_tokens": 4318,
+          "completion_tokens": 324,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "51989430d9684a36bc39935df74e54b8",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4354,
+          "total_tokens": 4382,
+          "completion_tokens": 28,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "44b3e3df069947baa824fd8d948944f0",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4448,
+          "total_tokens": 4708,
+          "completion_tokens": 260,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fc29b3f3f93c42a5980e901e93f508da",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5264,
+          "total_tokens": 5314,
+          "completion_tokens": 50,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "812ec1396eeb4bd1909edcf7b328f37e",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6337,
+          "total_tokens": 6616,
+          "completion_tokens": 279,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "3c18f642c7b84fd39a217dffe59ec4cd",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7773,
+          "total_tokens": 7815,
+          "completion_tokens": 42,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f11ced42371644728127a49168272177",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7895,
+          "total_tokens": 7951,
+          "completion_tokens": 56,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "4cc6295485d8407eaa11e95ffb12237b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8404,
+          "total_tokens": 9047,
+          "completion_tokens": 643,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "ee020b737de849bfbaa1b6b1e5bd96e2",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3033,
+          "total_tokens": 3885,
+          "completion_tokens": 852,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "b7a9cc5cb87243f38e5492e9399409e5",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3606,
+          "total_tokens": 3679,
+          "completion_tokens": 73,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "a40e9b390d114b3dbfc4eba205b40645",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3746,
+          "total_tokens": 3801,
+          "completion_tokens": 55,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "adfdcf5e433744078ab1f0010fda40f7",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4077,
+          "total_tokens": 4666,
+          "completion_tokens": 589,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "d95f04890a6d4bef9da9ff434e61b518",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4718,
+          "total_tokens": 4776,
+          "completion_tokens": 58,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "10ca6c92a18c4f90970bfc6952766dbe",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5213,
+          "total_tokens": 5256,
+          "completion_tokens": 43,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7b41b315fa5d4a1e88593a440776a0c2",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6573,
+          "total_tokens": 6638,
+          "completion_tokens": 65,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "2116d54e15f346f19088d1d2fe7486f3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7594,
+          "total_tokens": 7914,
+          "completion_tokens": 320,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "27ee4f9cebd24d5c81ae275ceb7d03e3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8200,
+          "total_tokens": 8260,
+          "completion_tokens": 60,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "87d92f73b3154dd28723c57ecae20f83",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2336,
+          "total_tokens": 3350,
+          "completion_tokens": 1014,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "0bd3fc30f25646f280f5c4062545b2f0",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 2845,
+          "total_tokens": 2932,
+          "completion_tokens": 87,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "11d5bcd41f3646acbc71aee20f4e986c",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 3822,
+          "total_tokens": 3888,
+          "completion_tokens": 66,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "210a0b86939b4eb6aaf2a8af4a1a3c77",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 4204,
+          "total_tokens": 4744,
+          "completion_tokens": 540,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "3d31f7c97d1649bbb3528c573e83731d",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 5082,
+          "total_tokens": 5481,
+          "completion_tokens": 399,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "7674aa221591438084ec968d46252d6b",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6027,
+          "total_tokens": 6530,
+          "completion_tokens": 503,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "177ee98e15324ef5ae0f67c2811f44bb",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 6795,
+          "total_tokens": 6834,
+          "completion_tokens": 39,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "1847a2ecaaa045e6bdba87fb73af7ae3",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7118,
+          "total_tokens": 7442,
+          "completion_tokens": 324,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "cfcc468ad5614801920d299fc6131b9e",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 7483,
+          "total_tokens": 7519,
+          "completion_tokens": 36,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "53e67da145744d0ba959b48fee11a35a",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 8411,
+          "total_tokens": 8588,
+          "completion_tokens": 177,
+          "prompt_tokens_details": null
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "241d4d0a98094357ba511026fa4d4d03",
+        "terminal_status": "cancelled",
+        "explained_cancellation": true,
+        "usage": null,
+        "usage_complete": false
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 301198,
+      "completion_tokens": 15796,
+      "total_tokens": 316994
+    },
+    "usage_complete": false,
+    "partial_token_usage": true,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "deadline_proof": {
+    "official_agent_deadline": true,
+    "cleanup_verified": true,
+    "official_error": "Agent exceeded session timeout (8.333333333333334 min)",
+    "registered_agent_seconds": 500,
+    "observed_agent_seconds": 500.0158269159999,
+    "cutoff_monotonic": 1217.473080888
+  },
+  "usage_complete": false,
+  "partial_token_usage": true,
+  "server_idle": {
+    "passed": true,
+    "consecutive_idle_snapshots": 3,
+    "scope": "Server-reported zero running/waiting requests; no other clients permitted"
+  }
+}
