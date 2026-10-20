@@ -1,0 +1,15 @@
+# One Agent, four functions
+
+Source: S1 b80565a71395c4d1c012a9bfea3e561ddab255db. Historical references and SHA pins are in HISTORY_REFERENCES.json; remote PR1/3/8 heads are checked separately. The inherited configured Agent name remains v0_coding_agent to preserve the accepted YAML bytes; candidate identity is U-RE-NoEGV or U-RE-Full in CANDIDATES.json.
+
+The logical path is Triage → Repair → ordinary checking or EGV → Closure. A valid counterexample returns the same Agent to Repair; a changed implementation is retested. A broken check returns to investigation of its expectation or environment. Unproductive investigation changes direction or closes honestly. A successful submit result should be followed by a short final text response, with no more tools. A failed submission permits a specific corrective action and retry. These transitions are instructions interpreted by Gemma, not deterministic state transitions implemented in the scoring Harness.
+
+Triage uses focused repository/caller/test evidence to formulate a falsifiable hypothesis. Problem categories guide attention without an extra classifier or mandatory classification output. Repair changes the smallest supported source area, preserves interfaces and old behavior, and resists satisfying a self-authored assertion unsupported by the Issue. NoEGV retains normal focused and regression tests; it is not deprived of verification.
+
+Full adds the S1-supported links: a check must reach relevant behavior, execute changed workspace source, discriminate the hypothesis, inspect/assert its result, and guide a real repair/retest when contradicted. Boundaries, exceptions and relevant old behavior are candidate counterexamples, not a mandate for a large test suite. Model self-reports do not qualify as execution evidence. The treatment is the122-word EGV block as a whole; this experiment cannot isolate its individual validity/provenance/novelty/regression clauses.
+
+S1's actual fastapi_15800 chain used HTTP assertions, observed404, changed html handling and passed three narrow checks. Its official resolved remainedfalse and old regressions were omitted. U-RE inherits the general evidence requirements, not that task's code, filenames, routing expectations or evaluator answers. No reference repair is in either Prompt.
+
+S2's four later runs never called the child despite a present AgentTool schema. Its earlier editing/partial submission improvement therefore cannot be attributed to child feedback. Main also repeated successful submission and left diagnostics. U-RE removes delegation and adds shared closure/progress discipline, while testing dedicated EGV instructions as a separate matched factor. This is a research hypothesis; single-Agent superiority has not been established.
+
+No private scoring loader is available here. Public official Compiler acceptance and native Runner tests establish those interfaces only. The three YAML/Prompt files are the entire submitted architecture; audit.py, runner_cases.py, Mock HTTP, budget modeling and all tests remain research-only. No callback or controller is installed in a candidate ZIP.

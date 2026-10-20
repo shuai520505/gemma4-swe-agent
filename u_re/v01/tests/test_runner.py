@@ -110,4 +110,6 @@ class RunnerTests(unittest.IsolatedAsyncioTestCase):
     async def test_G_missing_response_usage_is_partial_not_zero(self):
         root,r,a=await self.run_case('full','missing_usage')
         self.assertFalse(r['HTTP_audit']['passed']);self.assertTrue(r['HTTP_audit']['partial_token_usage'])
-        self.assertIsNone(r['HTTP_audit']['rows'][-1]['usage'])
+        missing=[e for e in r['HTTP_audit']['rows'] if e['usage'] is None]
+        self.assertEqual(len(missing),1)
+        self.assertEqual(missing[0]['terminal_status'],'response_received')

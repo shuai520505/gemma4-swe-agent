@@ -1,0 +1,120 @@
+{
+  "trace_version": "1.0",
+  "duration_s": 1.71,
+  "num_entries": 8,
+  "entries": [
+    {
+      "timestamp": 1792502312.222225,
+      "elapsed_s": 1.249,
+      "type": "tool_call",
+      "author": "v0_coding_agent",
+      "tool": "get_status",
+      "args": {},
+      "usage": {
+        "prompt_tokens": 100,
+        "completion_tokens": 8,
+        "cached_tokens": 0,
+        "total_tokens": 108
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    },
+    {
+      "timestamp": 1792502312.23924,
+      "elapsed_s": 1.266,
+      "type": "tool_response",
+      "author": "v0_coding_agent",
+      "tool": "get_status",
+      "result": "{\"status\": \"ok\", \"tool_calls_used\": 0, \"patch_submitted\": false, \"patch_size\": 0, \"tool_calls_remaining\": 60, \"max_tool_calls\": 60, \"time_seconds_remaining\": 299.903127561, \"max_time_minutes\": 5.0, \"agent_elapsed_seconds\": 0.09687409600007868, \"command_timeout_seconds\": 120}"
+    },
+    {
+      "timestamp": 1792502312.316058,
+      "elapsed_s": 1.343,
+      "type": "tool_call",
+      "author": "v0_coding_agent",
+      "tool": "read_file",
+      "args": {
+        "filepath": "app.py"
+      },
+      "usage": {
+        "prompt_tokens": 100,
+        "completion_tokens": 8,
+        "cached_tokens": 0,
+        "total_tokens": 108
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    },
+    {
+      "timestamp": 1792502312.3358319,
+      "elapsed_s": 1.362,
+      "type": "tool_response",
+      "author": "v0_coding_agent",
+      "tool": "read_file",
+      "result": "{\"status\": \"ok\", \"filepath\": \"app.py\", \"content\": \"def accepts(n):\\n    return False\", \"start_line\": 1, \"end_line\": 2, \"total_lines\": 2, \"is_truncated\": false}"
+    },
+    {
+      "timestamp": 1792502312.4136348,
+      "elapsed_s": 1.44,
+      "type": "final",
+      "author": "v0_coding_agent",
+      "content": "No usage supplied by mock.",
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    },
+    {
+      "timestamp": 1792502312.5085747,
+      "elapsed_s": 1.535,
+      "type": "final",
+      "author": "v0_coding_agent",
+      "content": "End.",
+      "usage": {
+        "prompt_tokens": 100,
+        "completion_tokens": 8,
+        "cached_tokens": 0,
+        "total_tokens": 108
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    },
+    {
+      "timestamp": 1792502312.5937889,
+      "elapsed_s": 1.62,
+      "type": "final",
+      "author": "v0_coding_agent",
+      "content": "End.",
+      "usage": {
+        "prompt_tokens": 100,
+        "completion_tokens": 8,
+        "cached_tokens": 0,
+        "total_tokens": 108
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    },
+    {
+      "timestamp": 1792502312.6839614,
+      "elapsed_s": 1.71,
+      "type": "final",
+      "author": "v0_coding_agent",
+      "content": "End.",
+      "usage": {
+        "prompt_tokens": 100,
+        "completion_tokens": 8,
+        "cached_tokens": 0,
+        "total_tokens": 108
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct"
+    }
+  ],
+  "summary": {
+    "total_events": 8,
+    "tool_calls": 2,
+    "tool_call_breakdown": {
+      "get_status": 1,
+      "read_file": 1
+    },
+    "thinking_entries": 0,
+    "compaction_entries": 0,
+    "text_entries": 0,
+    "total_prompt_tokens": 500,
+    "total_cached_prompt_tokens": 0,
+    "total_completion_tokens": 40,
+    "total_tokens": 540
+  }
+}

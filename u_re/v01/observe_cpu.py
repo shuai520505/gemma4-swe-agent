@@ -19,7 +19,7 @@ def observe(revision,collect=False):
         assert status['status'] in ('COMPLETE','ERROR'),'Do not infer final artifacts from a running version'
         dest=HERE/'results'/revision/'download';dest.mkdir(parents=True,exist_ok=True)
         assert not list(dest.iterdir()),'Preserve original download; never overwrite'
-        result=api.kernels_output(meta['id'],path=str(dest),force=False,quiet=True)
+        result=api.kernels_output(meta['id'],path=str(dest),file_pattern=r'.*\.zip$',force=False,quiet=True)
         (out/'download_response.json').write_text(json.dumps(result,indent=2,default=str)+'\n')
         print('DOWNLOADED',dest)
 

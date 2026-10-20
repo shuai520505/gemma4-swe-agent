@@ -30,6 +30,9 @@ def archive(files):
     with zipfile.ZipFile(result, 'w', zipfile.ZIP_DEFLATED) as z:
         for name, data in sorted(files.items()):
             info = zipfile.ZipInfo(name, (2026, 10, 20, 0, 0, 0))
+            # Explicitly preserve the initially frozen Windows-created header.
+            # ZipInfo otherwise chooses0 on Windows and3 on Linux.
+            info.create_system = 0
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             z.writestr(info, data)

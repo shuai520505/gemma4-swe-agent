@@ -63,8 +63,11 @@ def plan(case):
     if case == 'post_submit_negative':
         return direct+close[:-1]+[call('run_command',command='python3 checks.py'),call('submit_patch'),'End after prohibited continuation.']
     if case == 'submit_failure':
-        return direct+[call('run_command',command='git tag -d _swegemma_baseline'),call('submit_patch'),
-            call('run_command',command='git tag _swegemma_baseline HEAD')]+close
+        # Deleting only the baseline tag does not fail official submission:
+        # the real tool legitimately falls back to git diff HEAD. Temporarily
+        # move this disposable fixture's Git metadata to exercise a real error.
+        return direct+[call('run_command',command='mv .git .git_hold'),call('submit_patch'),
+            call('run_command',command='mv .git_hold .git')]+close
     if case == 'near_closure':
         return direct+['__NEAR_END__',call('submit_patch'),'Submitted; end.']
     if case == 'exact_tools':

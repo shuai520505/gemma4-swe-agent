@@ -1,0 +1,55 @@
+test_A_basic_both_candidates (u_re.v01.tests.test_runner.RunnerTests.test_A_basic_both_candidates) ... ok
+test_B_real_counterexample_revision_same_assertion_passes (u_re.v01.tests.test_runner.RunnerTests.test_B_real_counterexample_revision_same_assertion_passes) ... ok
+test_C_wrong_test_does_not_change_correct_production (u_re.v01.tests.test_runner.RunnerTests.test_C_wrong_test_does_not_change_correct_production) ... ok
+test_D_cooperative_no_progress_and_first_no_match_is_evidence (u_re.v01.tests.test_runner.RunnerTests.test_D_cooperative_no_progress_and_first_no_match_is_evidence) ... ok
+test_D_negative_mock_can_still_repeat_unchanged_check (u_re.v01.tests.test_runner.RunnerTests.test_D_negative_mock_can_still_repeat_unchanged_check) ... ok
+test_E_failed_real_submit_can_be_repaired_and_retried (u_re.v01.tests.test_runner.RunnerTests.test_E_failed_real_submit_can_be_repaired_and_retried) ... FAIL
+test_E_negative_successful_submit_is_not_runtime_termination (u_re.v01.tests.test_runner.RunnerTests.test_E_negative_successful_submit_is_not_runtime_termination) ... ok
+test_F_external_cancellation_propagates_and_patch_survives (u_re.v01.tests.test_runner.RunnerTests.test_F_external_cancellation_propagates_and_patch_survives) ... ok
+test_F_shared_sixty_counted_real_tools_both_arms (u_re.v01.tests.test_runner.RunnerTests.test_F_shared_sixty_counted_real_tools_both_arms) ... ok
+test_F_supplemental_near_closure_ten_second_fixture (u_re.v01.tests.test_runner.RunnerTests.test_F_supplemental_near_closure_ten_second_fixture) ... ok
+test_G_missing_response_usage_is_partial_not_zero (u_re.v01.tests.test_runner.RunnerTests.test_G_missing_response_usage_is_partial_not_zero) ... FAIL
+test_prompt_size_is_bounded (u_re.v01.tests.test_static.PackageTests.test_prompt_size_is_bounded) ... ok
+test_single_agent_six_tools_no_interpolation (u_re.v01.tests.test_static.PackageTests.test_single_agent_six_tools_no_interpolation) ... ok
+test_two_packages_only_expected_factor (u_re.v01.tests.test_static.PackageTests.test_two_packages_only_expected_factor) ... FAIL
+
+======================================================================
+FAIL: test_E_failed_real_submit_can_be_repaired_and_retried (u_re.v01.tests.test_runner.RunnerTests.test_E_failed_real_submit_can_be_repaired_and_retried)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/u_re_v01/cpu01/20261020T131425_042317Z/source/u_re/v01/tests/test_runner.py", line 59, in test_E_failed_real_submit_can_be_repaired_and_retried
+    self.assertTrue(any(e['result']['status']=='error' for e in r['submit_responses']))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_G_missing_response_usage_is_partial_not_zero (u_re.v01.tests.test_runner.RunnerTests.test_G_missing_response_usage_is_partial_not_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/u_re_v01/cpu01/20261020T131425_042317Z/source/u_re/v01/tests/test_runner.py", line 113, in test_G_missing_response_usage_is_partial_not_zero
+    self.assertIsNone(r['HTTP_audit']['rows'][-1]['usage'])
+AssertionError: {'prompt_tokens': 100, 'completion_tokens': 8, 'total_tokens': 108} is not None
+
+======================================================================
+FAIL: test_two_packages_only_expected_factor (u_re.v01.tests.test_static.PackageTests.test_two_packages_only_expected_factor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/kaggle/working/u_re_v01/cpu01/20261020T131425_042317Z/source/u_re/v01/tests/test_static.py", line 23, in test_two_packages_only_expected_factor
+    self.assertEqual(raw,archive(members[arm]))
+AssertionError: b'PK\[5859 chars]14\x00\x14\x00\x00\x00\x08\x00\x00\x00T]\xfeF\[545 chars]\x00' != b'PK\[5859 chars]14\x03\x14\x00\x00\x00\x08\x00\x00\x00T]\xfeF\[545 chars]\x00'
+
+----------------------------------------------------------------------
+Ran 14 tests in 48.951s
+
+FAILED (failures=3)
