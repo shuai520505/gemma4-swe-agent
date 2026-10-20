@@ -1,0 +1,16 @@
+agent_class: LlmAgent
+name: egv_verifier
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Verify the current repair hypothesis with actual targeted assertions and relevant old behavior; return actionable evidence, never repair or submit.
+instruction: !include egv_verifier.md
+include_contents: default
+output_key: egv_latest_report
+tools:
+  - get_status
+  - read_file
+  - run_command
+generate_content_config:
+  max_output_tokens: 16384
+  seed: 17
+  thinking_config:
+    thinking_budget: 4096

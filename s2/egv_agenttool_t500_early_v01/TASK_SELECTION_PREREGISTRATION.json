@@ -1,0 +1,106 @@
+{
+  "experiment_id": "S2-T500-EARLYEGV-MECHANISM-01",
+  "selection": "First two old-pool-order CPU-eligible nonexposed/nonreserved tasks from different repositories; no reference repair used.",
+  "excluded": [
+    "fastapi_14258",
+    "fastapi_14349",
+    "fastapi_14361",
+    "fastapi_14794",
+    "fastapi_14986",
+    "fastapi_15589",
+    "fastapi_15661",
+    "fastapi_15800",
+    "fastapi_9753",
+    "httpx_3672",
+    "requests_6644",
+    "requests_7205",
+    "requests_7309",
+    "requests_7315",
+    "requests_7328",
+    "requests_7427",
+    "rich_3043",
+    "rich_3052",
+    "rich_3064",
+    "rich_3130",
+    "rich_3278",
+    "rich_3471",
+    "rich_3777",
+    "rich_3882",
+    "rich_3894",
+    "rich_3935",
+    "rich_4006"
+  ],
+  "reserved_eight_tasks": [
+    "fastapi_14986",
+    "fastapi_9753",
+    "requests_6644",
+    "requests_7205",
+    "rich_3043",
+    "rich_3064",
+    "rich_3882",
+    "rich_3935"
+  ],
+  "selected": [
+    {
+      "instance_id": "rich_3676",
+      "repo": "Textualize/rich",
+      "base_commit": "2b5d648b2c62960deb6439f4204ed8fa6eb3cf7b",
+      "issue_sha256": "a9668a4362d63ecec03005f2df78008f7d248d81b14c5929ec32a1f63187f7b4",
+      "rank": "119080ddf3d4628df20631fb193eb0af1b899b24fd09636836c5e2d979ffaa4e"
+    },
+    {
+      "instance_id": "fastapi_14492",
+      "repo": "fastapi/fastapi",
+      "base_commit": "a456e92a21d5b94a67d6d0fd070218df09444443",
+      "issue_sha256": "1f56d9154676b921b625c9dbeb7a258e4d904572d559dc3c90f726122c64cc90",
+      "rank": "2f987e8e21919fd8da8c77c17ebdb3a1203170a70ff13f39915a4607f12b2fa9"
+    }
+  ],
+  "task_inputs": {
+    "rich_3676": {
+      "instance_id": "rich_3676",
+      "repo": "Textualize/rich",
+      "base_commit": "2b5d648b2c62960deb6439f4204ed8fa6eb3cf7b",
+      "issue_sha256": "a9668a4362d63ecec03005f2df78008f7d248d81b14c5929ec32a1f63187f7b4",
+      "input_files": {
+        "snapshots/rich_3676.tgz": "1b710cece4a652416e4c635872032df7bced8b351222c9f5a19ca7d89ba74641"
+      },
+      "task_record_sha256": "2f2ad18bd0a515d6818dfaf32d851feadd590af8b569403667fa674abf6f13b6",
+      "test_patch_sha256": "41903afad5cde1752deff99e13384483984d3772e2e9be0174339556c66ca8e0"
+    },
+    "fastapi_14492": {
+      "instance_id": "fastapi_14492",
+      "repo": "fastapi/fastapi",
+      "base_commit": "a456e92a21d5b94a67d6d0fd070218df09444443",
+      "issue_sha256": "1f56d9154676b921b625c9dbeb7a258e4d904572d559dc3c90f726122c64cc90",
+      "input_files": {
+        "snapshots/fastapi_14492.tgz": "fa019abdb1ebb5197112f89b193c63d6989b9c2194ff4aefecd44325ac611ec1"
+      },
+      "task_record_sha256": "b940419105dbeab5ebb84b2b72c403723c45c270e93de096e9f3019ac73b5b4f",
+      "test_patch_sha256": "1eb8bc05bd3a42de177b841828d262afd15c1c68e319f21c799af2f43faa96f9"
+    }
+  },
+  "proposed_order": [
+    {
+      "task": "rich_3676",
+      "arms": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "task": "fastapi_14492",
+      "arms": [
+        "B",
+        "A"
+      ]
+    }
+  ],
+  "A": "frozen S2-T500",
+  "B": "Main-Prompt-only EarlyEGV-Closure",
+  "GPU_authorized": false,
+  "reference_repair_read": false,
+  "algorithm_exposure_at_selection": "CPU baselines only; no model trajectories for either task found in prior registered runs",
+  "model_and_quota_pending": true,
+  "substitution_after_selection": false
+}
