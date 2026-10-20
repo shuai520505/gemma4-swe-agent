@@ -2,6 +2,8 @@
 
 One Gemma4 31B QAT LlmAgent performs triage, repair, evidence-gated verification and closure. This is a declarative Prompt-based workflow, not four Agents or an external state controller. The NoEGV arm has ordinary tests, identical repair/closure/progress/budget guidance, and no dedicated counterexample-search block. The Full arm adds only that block.
 
+Current acceptance: **CPU_PASS,110/110** actual Linux test methods (71 legacy including38 original API/tool tests,39 new/wire/Verifier methods), plus both Compiler/empty-State gates. Actual native deadlines:300.073s/300.100s; command timeout120.073s. CPU01's14-method/3-failure smoke record remains preserved separately. GPU algorithm status: GPU_NOT_TESTED. The proposed GPU pair is blocked at clean-baseline admission for requests_7433; see TASK_ADMISSION_REPORT.md. No task was swapped.
+
 Both independent three-member ZIPs derive byte-identical agent.yaml and eval_config.yaml from frozen S1 b80565a. Model, six tools, generation settings,300s/60 counted tools/120s command ceiling are identical. CANDIDATES.json and CANDIDATE_EXACT.diff are machine-checkable. No executable research code, tests, answers, AgentTool, child Agent, Jev or LoRA is in either ZIP.
 
 Entry points:
