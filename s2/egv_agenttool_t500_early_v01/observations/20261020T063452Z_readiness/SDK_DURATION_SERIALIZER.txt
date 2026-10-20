@@ -1,0 +1,52 @@
+class TimeDeltaSerializer(ObjectSerializer):
+  # Scaling factors idea from https://github.com/protocolbuffers/protobuf/blob/master/csharp/src/Google.Protobuf/JsonParser.cs
+  SUBSECOND_SCALING_FACTORS = [
+      0,
+      100_000_000,
+      10_000_000,
+      1_000_000,
+      100_000,
+      10_000,
+      1_000,
+      100,
+      10,
+      1,
+  ]
+
+  def __init__(self):
+    """Time deltas are serialized/deserialized as a string in "<seconds>.<nanoseconds>s" format. Example: 151.500s"""
+    ObjectSerializer.__init__(
+        self,
+        lambda cls, t, _: TimeDeltaSerializer._to_dict_value(t),
+        lambda cls, v: TimeDeltaSerializer._from_dict_value(v),
+    )
+
+  @staticmethod
+  def _to_dict_value(delta):
+    seconds = delta.seconds
+    nanos_str = TimeDeltaSerializer._nanos_to_str(delta.microseconds * 1000)
+    if nanos_str is None:
+      return "{}s".format(seconds)
+    return "{}.{}s".format(seconds, nanos_str)
+
+  @staticmethod
+  def _nanos_to_str(nanos):
+    if nanos == 0:
+      return None
+    if nanos < 0:
+      nanos *= -1
+    if nanos % 1000000 == 0:
+      return "{}".format(nanos / 1000000)
+    elif nanos % 1000 == 0:
+      return "{}".format(nanos / 1000)
+    else:
+      return "{}".format(nanos)
+
+  @staticmethod
+  def _from_dict_value(value):
+    raw_value = value.rstrip("s")
+    if "." not in raw_value:
+      return timedelta(seconds=int(raw_value))
+    seconds, nanosRaw = raw_value.split(".", 1)
+    nanos = int(nanosRaw) * TimeDeltaSerializer.SUBSECOND_SCALING_FACTORS[len(nanosRaw)]
+    return timedelta(seconds=int(seconds), microseconds=int(int(nanos) / 1000))

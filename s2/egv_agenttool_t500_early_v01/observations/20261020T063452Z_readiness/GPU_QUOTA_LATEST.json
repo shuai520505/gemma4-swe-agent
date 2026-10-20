@@ -1,0 +1,78 @@
+{
+  "queried_at_utc": "2026-10-20T06:35:49.313958+00:00",
+  "raw_http": {
+    "queried_at_utc": "2026-10-20T06:35:49.313958+00:00",
+    "method": "POST",
+    "path": "/v1/kernels.KernelsApiService/GetAcceleratorQuotaStatistics",
+    "http_status": 200,
+    "response": {
+      "quotaRefreshTime": "2026-10-24T00:00:00Z",
+      "gpuQuota": {
+        "timeUsed": "20805.644s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s",
+        "minimumTimeAllowed": "108000s",
+        "hasEverRun": true
+      },
+      "tpuQuota": {
+        "timeUsed": "0s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "72000s",
+        "minimumTimeAllowed": "72000s",
+        "hasEverRun": true
+      }
+    }
+  },
+  "sdk_formatted": {
+    "quotaRefreshTime": "2026-10-24T00:00:00.000Z",
+    "gpuQuota": {
+      "timeUsed": "20805.644.0s",
+      "timeReserved": "0s",
+      "totalTimeAllowed": "21600s",
+      "minimumTimeAllowed": "21600s",
+      "isPayToScaleEnabled": false,
+      "hasEverRun": true
+    },
+    "tpuQuota": {
+      "timeUsed": "0s",
+      "timeReserved": "0s",
+      "totalTimeAllowed": "72000s",
+      "minimumTimeAllowed": "72000s",
+      "isPayToScaleEnabled": false,
+      "hasEverRun": true
+    }
+  },
+  "duration_unit": "seconds in raw protobuf Duration JSON, not device-hours or guaranteed Notebook wall-seconds",
+  "total_reported_seconds": "108000",
+  "used_reported_seconds": "20805.644",
+  "reserved_reported_seconds": "0",
+  "remaining_reported_seconds": "87194.356",
+  "required_reported_seconds": "20600",
+  "surplus_reported_seconds": "66594.356",
+  "quota_gate": "GO",
+  "quota_reset_since_prior_snapshot": false,
+  "refresh_at_utc": "2026-10-24T00:00:00Z",
+  "malformed_sdk_root_cause": "kagglesdk 0.1.35 TimeDeltaSerializer uses timedelta.seconds (drops days), and emits malformed fractional values; raw HTTP is valid.",
+  "current_accelerator_allocatability": "UNKNOWN",
+  "current_4xL4_allocatability": "UNKNOWN",
+  "prior_GPU_metadata_fresh_read": "NvidiaL4, model version 2 and pinned Docker image; metadata is prior saved version, not live capacity.",
+  "account_specific_session_window_seconds": null,
+  "published_general_window_seconds": 43200,
+  "published_general_window_evidence": "Official Kaggle docs search index; direct open yielded no body. Not an account/machine-specific admission.",
+  "notebook_status_scope": "165 saved own Notebooks enumerated; status endpoint reports latest saved session, not all interactive sessions.",
+  "saved_status_counts": {
+    "COMPLETE": 61,
+    "ERROR": 16,
+    "UNKNOWN": 88
+  },
+  "all_account_running_sessions_absent": null,
+  "status_query_errors": {
+    "ok": 77,
+    "ValueError": 1,
+    "HTTPError": 4,
+    "429": 83
+  },
+  "gpu_resource_gate": "NO_GO_PENDING_MACHINE_AND_SESSION_ADMISSION",
+  "execution_authorization": "NOT_GRANTED",
+  "GPU_started": false
+}

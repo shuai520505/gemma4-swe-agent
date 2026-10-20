@@ -1,0 +1,135 @@
+    def kernels_push(
+        self, folder: str, timeout: Optional[str] = None, acc: Optional[str] = None
+    ) -> ApiSaveKernelResponse:
+        """Pushes a kernel to Kaggle.
+
+        This method reads the metadata file and kernel files from a notebook,
+        validates both, and uses the Kernel API to push the kernel to Kaggle.
+
+        Args:
+            folder (str): The path to the folder.
+            timeout (Optional[str]): The maximum run time in seconds.
+            acc (Optional[str]): The type of accelerator to use for the kernel run. If set, this value overrides boolean
+                settings for GPU/TPU found in the metadata file.
+
+        Returns:
+            ApiSaveKernelResponse: An ApiSaveKernelResponse object.
+        """
+        if not os.path.isdir(folder):
+            raise ValueError("Invalid folder: " + folder)
+
+        meta_file = os.path.join(folder, self.KERNEL_METADATA_FILE)
+        if not os.path.isfile(meta_file):
+            raise ValueError("Metadata file not found: " + str(meta_file))
+
+        with open(meta_file) as f:
+            meta_data = json.load(f)
+
+        title = self.get_or_default(meta_data, "title", None)
+        if title and len(cast(str, title)) < 5:
+            raise ValueError("Title must be at least five characters")
+
+        code_path = self.get_or_default(meta_data, "code_file", "")
+        if not code_path:
+            raise ValueError("A source file must be specified in the metadata")
+
+        code_file = os.path.join(folder, cast(str, code_path))
+        if not os.path.isfile(code_file):
+            raise ValueError("Source file not found: " + str(code_file))
+
+        slug = meta_data.get("id")
+        id_no = meta_data.get("id_no")
+        if not slug and not id_no:
+            raise ValueError("ID or slug must be specified in the metadata")
+        if slug:
+            owner, kernel_slug, version = self.parse_kernel_string(slug)
+            if version is not None:
+                raise ValueError("Kernel metadata 'id' (slug) cannot contain a version")
+
+            if title:
+                as_slug = slugify(cast(str, title))
+                if kernel_slug.lower() != as_slug:
+                    print(
+                        "Your kernel title does not resolve to the specified "
+                        "id. This may result in surprising behavior. We "
+                        "suggest making your title something that resolves to "
+                        "the specified id. See %s for more information on "
+                        "how slugs are determined." % "https://en.wikipedia.org/wiki/Clean_URL#Slug"
+                    )
+
+        language = self.get_or_default(meta_data, "language", "")
+        if language not in self.valid_push_language_types:
+            raise ValueError(
+                "A valid language must be specified in the metadata. Valid "
+                "options are " + str(self.valid_push_language_types)
+            )
+
+        kernel_type = self.get_or_default(meta_data, "kernel_type", "")
+        if kernel_type not in self.valid_push_kernel_types:
+            raise ValueError(
+                "A valid kernel type must be specified in the metadata. Valid "
+                "options are " + str(self.valid_push_kernel_types)
+            )
+
+        if kernel_type == "notebook" and language == "rmarkdown":
+            language = "r"
+
+        dataset_sources = cast(List[str], self.get_or_default(meta_data, "dataset_sources", []))
+        for source in dataset_sources:
+            self.validate_dataset_string(source)
+
+        kernel_sources = cast(List[str], self.get_or_default(meta_data, "kernel_sources", []))
+        for source in kernel_sources:
+            self.validate_kernel_string(source)
+
+        model_sources = cast(List[str], self.get_or_default(meta_data, "model_sources", []))
+        for source in model_sources:
+            self.validate_model_instance_version_string(source)
+
+        docker_pinning_type = self.get_or_default(meta_data, "docker_image_pinning_type", None)
+        if docker_pinning_type is not None and docker_pinning_type not in self.valid_push_pinning_types:
+            raise ValueError(
+                "If specified, the docker_image_pinning_type must be " "one of " + str(self.valid_push_pinning_types)
+            )
+
+        with open(code_file) as f:
+            script_body = f.read()
+
+        if kernel_type == "notebook":
+            json_body = json.loads(script_body)
+            if "cells" in json_body:
+                for cell in json_body["cells"]:
+                    if "outputs" in cell and cell["cell_type"] == "code":
+                        cell["outputs"] = []
+                    # The spec allows a list of strings,
+                    # but the server expects just one
+                    if "source" in cell and isinstance(cell["source"], list):
+                        cell["source"] = "".join(cell["source"])
+            script_body = json.dumps(json_body)
+
+        with self.build_kaggle_client() as kaggle:
+            request = ApiSaveKernelRequest()
+            request.id = id_no
+            request.slug = slug
+            request.new_title = self.get_or_default(meta_data, "title", None)  # type: ignore[assignment]
+            request.text = script_body
+            request.language = language
+            request.kernel_type = kernel_type
+            request.is_private = self.get_bool(meta_data, "is_private", True)
+            request.enable_gpu = self.get_bool(meta_data, "enable_gpu", False)
+            request.enable_tpu = self.get_bool(meta_data, "enable_tpu", False)
+            request.enable_internet = self.get_bool(meta_data, "enable_internet", True)
+            request.dataset_data_sources = dataset_sources
+            request.competition_data_sources = self.get_or_default(meta_data, "competition_sources", [])
+            request.kernel_data_sources = kernel_sources
+            request.model_data_sources = model_sources
+            request.category_ids = self.get_or_default(meta_data, "keywords", [])
+            request.docker_image_pinning_type = docker_pinning_type  # type: ignore[assignment]
+            request.docker_image = self.get_or_default(meta_data, "docker_image", None)
+            if timeout:
+                request.session_timeout_seconds = int(timeout)
+            # The allowed names are in an enum that is not currently included in kagglesdk.
+            request.machine_shape = acc if acc else self.get_or_default(meta_data, "machine_shape", None)
+            # Without the type hint, mypy thinks save_kernel() has type Any when checking warn_return_any.
+            response: ApiSaveKernelResponse = kaggle.kernels.kernels_api_client.save_kernel(request)
+            return response
