@@ -76,6 +76,8 @@ def main(directory):
     os.environ['S2_EARLY_EVIDENCE']=str(output/'early_cases')
     early=suite(['s2.egv_agenttool_t500_early_v01.tests.test_early'],output,'early_workflow_tests')
     assert early['passed'],'New workflow failure: retain evidence and version any repair'
+    draft=suite(['s2.egv_agenttool_t500_early_v01.tests.test_draft_admission'],output,'draft_admission_guards')
+    assert draft['passed']
     # Same accepted exact-budget tests; in-memory submission binding points only
     # at the new candidate. Native tools and timing logic remain original.
     from s2.egv_agenttool_t500_v01.tests import runner_cases
@@ -96,7 +98,7 @@ def main(directory):
         except Exception as exc:tokenization=dict(status='unavailable',reason=repr(exc))
     atomic_json(output/'prompt_tokenization.json',tokenization)
     gate=dict(passed=True,original115_passed=True,original115=original,frozen_T500=legacy,
-        new_workflow=early,new_exact_budget=exact,real_Compiler=True,real_ADK_Runner=True,
+        new_workflow=early,new_exact_budget=exact,draft_admission_guards=draft,real_Compiler=True,real_ADK_Runner=True,
         real_sandbox_tools=True,mocked_HTTP=True,actual_native_500_second_wait=True,Gemma_inference=False,GPU=False,
         scope='Scripted HTTP proves execution paths; no autonomous soft-timing policy or algorithm benefit inference.')
     atomic_json(output/'cpu_gate.json',gate)

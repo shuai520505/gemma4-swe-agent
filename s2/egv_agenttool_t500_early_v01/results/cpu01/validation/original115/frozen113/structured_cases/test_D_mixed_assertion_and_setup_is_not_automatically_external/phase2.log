@@ -1,0 +1,26 @@
+STDOUT:
+FE                                                                       [100%]
+==================================== ERRORS ====================================
+___________________________ ERROR at setup of test_b ___________________________
+
+    @pytest.fixture
+>   def broken(): raise RuntimeError("fixture failure")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   RuntimeError: fixture failure
+
+tests/test_case.py:3: RuntimeError
+=================================== FAILURES ===================================
+____________________________________ test_a ____________________________________
+
+>   def test_a(): assert False
+                  ^^^^^^^^^^^^
+E   assert False
+
+tests/test_case.py:4: AssertionError
+- generated xml file: /tmp/tmpllp1c3ik/sandbox_tmp/swegemma_sandbox_41834fe7-7c6/tmp/_swegemma_junit_a11ce.xml -
+=========================== short test summary info ============================
+FAILED tests/test_case.py::test_a - assert False
+ERROR tests/test_case.py::test_b - RuntimeError: fixture failure
+1 failed, 1 error in 0.07s
+
+STDERR:

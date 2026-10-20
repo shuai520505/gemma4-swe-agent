@@ -30,7 +30,7 @@ class EarlyTests(unittest.IsolatedAsyncioTestCase):
         start=next(e for e in self.rows(p) if e['kind']=='tool_start' and e['tool']=='egv_verifier')
         self.assertEqual(start['files']['app.py'],hashlib.sha256(BAD.encode()).hexdigest())
         self.assertIn('No patch exists',start['args']['request'])
-        self.assertFalse(any(e['tool'] in ('edit_file','write_file') and e['kind']=='tool_start' for e in self.rows(p)))
+        self.assertFalse(any(e['kind']=='tool_start' and e['tool'] in ('edit_file','write_file') for e in self.rows(p)))
         # Session is created empty by the real fixture; the declared child
         # output_key legitimately adds its report after delegation.
         self.assertIn('Counterevidence: zero',json.loads((p/'state.json').read_text())['egv_latest_report'])
