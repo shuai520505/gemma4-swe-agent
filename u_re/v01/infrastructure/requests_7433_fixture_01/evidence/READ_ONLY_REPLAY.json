@@ -1,0 +1,53 @@
+{
+  "scope": "Read-only replay; not a new baseline or fix",
+  "original_junit_sha256": "9f9e637aca3ae26556041a353667ef1c12b9a4076fca555e389d172a40692b4b",
+  "counts": {
+    "tests": 339,
+    "assertion_failures": 0,
+    "setup_errors": 195,
+    "skipped": 2
+  },
+  "recursion_counts": {
+    "httpbin": 191,
+    "httpbin_secure": 4
+  },
+  "first_setup_error": {
+    "classname": "tests.test_requests.TestRequests",
+    "name": "test_no_content_length[GET]",
+    "attributes": {
+      "message": "failed on setup with \"file /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/test_requests.py, line 124\n      @pytest.mark.parametrize(\"method\", (\"GET\", \"HEAD\"))\n      def test_no_content_length(self, httpbin, method):\nfile /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py, line 34\n  @pytest.fixture\n  def httpbin(httpbin):\nE       recursive dependency involving fixture 'httpbin' detected\n>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, clean_proxy_environ, doctest_namespace, httpbin, httpbin_secure, monkeypatch, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory\n>       use 'pytest --fixtures [testpath]' for help on them.\n\n/kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py:34\""
+    },
+    "text": "file /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/test_requests.py, line 124\n      @pytest.mark.parametrize(\"method\", (\"GET\", \"HEAD\"))\n      def test_no_content_length(self, httpbin, method):\nfile /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py, line 34\n  @pytest.fixture\n  def httpbin(httpbin):\nE       recursive dependency involving fixture 'httpbin' detected\n>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, clean_proxy_environ, doctest_namespace, httpbin, httpbin_secure, monkeypatch, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory\n>       use 'pytest --fixtures [testpath]' for help on them.\n\n/kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py:34"
+  },
+  "first_secure_error": {
+    "name": "test_pyopenssl_redirect",
+    "text": "file /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/test_requests.py, line 966\n      def test_pyopenssl_redirect(self, httpbin_secure, httpbin_ca_bundle):\nfile /kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py, line 39\n  @pytest.fixture\n  def httpbin_secure(httpbin_secure):\nE       recursive dependency involving fixture 'httpbin_secure' detected\n>       available fixtures: cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, clean_proxy_environ, doctest_namespace, httpbin, httpbin_secure, monkeypatch, nosan_server, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory\n>       use 'pytest --fixtures [testpath]' for help on them.\n\n/kaggle/working/u_re_v01/cpu03/20261020T134607_402528Z/validation/requests_7433/sandbox_tmp/swegemma_sandbox_a3803935-f95/workspace/tests/conftest.py:39"
+  },
+  "historical_7328": {
+    "source": "s1/infrastructure_recovery/results/r05/validation/clean_requests/environment_gate.json",
+    "providers": {
+      "modules": {
+        "pytest_httpbin": false,
+        "httpbin": false,
+        "trustme": false
+      },
+      "pytest11": [
+        {
+          "name": "anyio",
+          "value": "anyio.pytest_plugin"
+        },
+        {
+          "name": "typeguard",
+          "value": "typeguard._pytest_plugin"
+        },
+        {
+          "name": "langsmith_plugin",
+          "value": "langsmith.pytest_plugin"
+        }
+      ]
+    },
+    "offline_provider_resolvable": false,
+    "fixture_setup_errors": 193,
+    "scope": "Older task/test set; not proof of current environment until independently reproduced"
+  }
+}

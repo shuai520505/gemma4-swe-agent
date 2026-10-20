@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "missing_provider",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py",
+        "-q",
+        "--confcutdir=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project",
+        "--junitxml=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/missing_provider/junit.xml"
+      ],
+      "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+      "pytest": "8.4.2",
+      "environment": {
+        "PYTHONPATH": null,
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTEST_PLUGINS": null,
+        "PYTEST_ADDOPTS": null
+      },
+      "exit_code": 1,
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 2,
+        "skipped": 0
+      },
+      "scope": "Synthetic name-resolution only; not a Requests provider or environment repair",
+      "expected_observed": true
+    },
+    {
+      "name": "explicit_provider",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py",
+        "-q",
+        "--confcutdir=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project",
+        "--junitxml=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/explicit_provider/junit.xml",
+        "-p",
+        "toy_provider"
+      ],
+      "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+      "pytest": "8.4.2",
+      "environment": {
+        "PYTHONPATH": "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_plugins",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTEST_PLUGINS": null,
+        "PYTEST_ADDOPTS": null
+      },
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "scope": "Synthetic name-resolution only; not a Requests provider or environment repair",
+      "expected_observed": true
+    },
+    {
+      "name": "autoload_provider",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py",
+        "-q",
+        "--confcutdir=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project",
+        "--junitxml=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/autoload_provider/junit.xml"
+      ],
+      "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+      "pytest": "8.4.2",
+      "environment": {
+        "PYTHONPATH": "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_plugins",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": null,
+        "PYTEST_PLUGINS": null,
+        "PYTEST_ADDOPTS": null
+      },
+      "exit_code": 0,
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "scope": "Synthetic name-resolution only; not a Requests provider or environment repair",
+      "expected_observed": true
+    },
+    {
+      "name": "autoload_disabled",
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "pytest",
+        "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project/test_wrapper.py",
+        "-q",
+        "--confcutdir=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_project",
+        "--junitxml=/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/autoload_disabled/junit.xml"
+      ],
+      "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+      "pytest": "8.4.2",
+      "environment": {
+        "PYTHONPATH": "/kaggle/working/u_re_fixture_01/cpu01/20261020T145702_441223Z/validation/minimal/toy_plugins",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "PYTEST_PLUGINS": null,
+        "PYTEST_ADDOPTS": null
+      },
+      "exit_code": 1,
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 2,
+        "skipped": 0
+      },
+      "scope": "Synthetic name-resolution only; not a Requests provider or environment repair",
+      "expected_observed": true
+    }
+  ],
+  "official_workspace_used": false,
+  "production_patch": false
+}

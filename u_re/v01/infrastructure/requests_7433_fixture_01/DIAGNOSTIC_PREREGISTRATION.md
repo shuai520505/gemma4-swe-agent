@@ -1,0 +1,13 @@
+# Requests fixture diagnostic 01 — CPU only
+
+Parent: PR9 head cd7fe8e19950003b59819c7accf7292ce2e151b9. New branch feat/u-re-requests-fixture-admission. One new CPU-only Notebook, no model inputs, GPU/TPU/internet disabled. No Agent runs or reference repair. Do not run FastAPI again or replace the selected Requests task.
+
+Use the same pinned CPU03 Linux image, official Wheelhouse and task-wheel hashes. Verify requests_7433 task identity exactly equals CPU03. Execute the same native verify_task path with empty Agent patch and original evaluator test overlay. Keep native TaskResult, command, stdout/stderr and JUnit before sandbox deletion. After the native result has finished, run independent diagnostics in that disposable sandbox: environment/pytest11 inventory, plugin trace, passive fixture lookup, explicit provider import, offline pip dry-run against both approved caches. Those extra commands must not pass through the Phase2 result writer or replace native evidence.
+
+The observer defines no fixture and does not change lookup returns/exceptions. It is absent from the native command and loaded only for the labelled post-native probe. Compare source, test and configuration bytes before native execution, after it and after diagnostics. Retain successful cleanup. Store actual installed official code for inspection.
+
+Run four synthetic two-test studies outside the Requests workspace: missing provider, explicitly loaded sentinel provider, pytest11-autoload sentinel provider, and autoload disabled. These are pytest name-resolution controls, not HTTP implementations, replacements, environment repairs or Requests outcomes. They also run locally on Python3.11/pytest9.0.3, separately labelled from pinned Linux Python3.12/pytest8.4.2.
+
+Do not download/install a provider into execution from PyPI or another external source. Static maintainer source/PyPI metadata may be read on the host, saved with hashes, and excluded from payload. If the required provider is not available in the approved inputs, stop environment repair and report ENVIRONMENT_BLOCKED. No extra fixture injection, test edits, deselection, task swap, verifier change or candidate change may be used to improve eligibility.
+
+Notebook COMPLETE means diagnostics finished, not baseline GO. Outcome A requires a supported unchanged native path with no fixture/collection errors and a discriminating endpoint. A research-only improvement cannot grant official admission. Any identity drift, source/test mutation or unexplained cleanup issue stops this diagnostic. No automatic Notebook retry; preserve any first failure. GPU experiment remains DRAFT_BASELINE_BLOCKED unless a separate supplement proves Outcome A. This task never authorizes GPU or a leaderboard submission.
