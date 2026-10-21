@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "kaggle": "2.2.2",
+    "kagglesdk": "0.1.35"
+  },
+  "source_hashes": {
+    "kaggle/api/kaggle_api_extended.py": "292b8cce0a4464313b6b8d42dd5de95592bae76da08b2f8461327328f49d5718",
+    "kagglesdk/kernels/services/kernels_api_service.py": "3c4fa4f570648333d71d170c6b357d6a7baae3df86d38583d86fa6fa20c79b02",
+    "kagglesdk/kernels/types/kernels_api_service.py": "a7dd65206e7fc27950385e7b163cda48a40766eb8ff7f89d7a334b9bfb151b5c"
+  },
+  "kernels_list": "SDK defaults HOTNESS;page_size clamped100,mine=True\u2192PROFILE;user default empty;wrapper returns kernels only and discards next_page_token",
+  "typed_pagination": "ApiListKernelsRequest supports page,page_size,page_token;ApiListKernelsResponse exposes next_page_token. Actual replies had no token and ended at page2 rows70.",
+  "GetKernel": "Read-only current metadata+source;ApiKernelMetadata._current_version_number preserves unknown vs getter default. No historical version-list method found in this installed kernels service.",
+  "GetKernelSessionStatus": "Previous403 on exact identity;not repeated in this reconciliation because no new version/identity information.",
+  "kernels_output": "CLI wrapper parses version but does not propagate it to ListKernelSessionOutput;do not assume exact-version retrieval from suffix alone",
+  "no_arbitrary_response_bodies_saved": true,
+  "no_guessed_endpoint_calls": true
+}
