@@ -114,11 +114,12 @@ def identity(value):
 
 
 class ReadGuard:
-    def __init__(self, directory):
+    def __init__(self, directory, maximum=30):
         self.directory = directory
         self.events = []
         self.urls = set()
         self.download_enabled = False
+        self.maximum = maximum
 
     def __enter__(self):
         self.original = requests.Session.send
@@ -129,7 +130,7 @@ class ReadGuard:
             body = json.loads(req.body or '{}') if req.method == 'POST' else {}
             if not is_download and not allowed_api(req.method, req.url, body):
                 raise PermissionError('Non-whitelisted operation blocked before transport')
-            if len(guard.events) >= 30:
+            if len(guard.events) >= guard.maximum:
                 raise RuntimeError('Read-only request cap reached')
             op = 'download existing output' if is_download else urlsplit(req.url).path.rsplit('/', 1)[-1]
             record = dict(at_utc=utc(), operation=op, method=req.method, HTTP_status=None)
@@ -154,11 +155,12 @@ class ReadGuard:
         requests.Session.send = self.original
 
 
-def run():
-    evidence = HERE / 'evidence'
+def run(*, read_latest=False):
+    evidence = HERE / ('evidence_latest' if read_latest else 'evidence')
     evidence.mkdir(exist_ok=False)  # Explicit re-entry refusal, no overwritten query evidence.
     ledger = dict(started_at_utc=utc(), target=REF, Notebook_id=ID, version=1,
-                  SaveKernel=0, reruns=0, GPU=0, Gemma=0, Agent=0, formal_submission=0)
+                  SaveKernel=0, reruns=0, GPU=0, Gemma=0, Agent=0, formal_submission=0,
+                  query_mode='latest_checked_equal_1' if read_latest else 'explicit_version_label_1')
     resource = dict(state='IDENTITY_UNKNOWN', metadata=None, source=None)
     status_record = dict(state='RUN_STATUS_UNKNOWN', official_status=None, failure_message=None)
     from kagglesdk.kaggle_creds import KaggleCredentials
@@ -168,7 +170,7 @@ def run():
     for n in originals:
         setattr(KaggleCredentials, n, refuse)
     capture = io.StringIO()
-    with ReadGuard(evidence) as guard:
+    with ReadGuard(evidence, maximum=26 if read_latest else 30) as guard:
         try:
             with contextlib.redirect_stdout(capture), contextlib.redirect_stderr(capture):
                 from kaggle import api
@@ -184,10 +186,10 @@ def run():
                     if label is not None:q.version_label = label
                     return svc.get_kernel(q)
                 try:
-                    value = get()
+                    value = get(None if read_latest else '1')
                 except requests.HTTPError:
                     # No repeat of the same denied query; complete own profile fallback.
-                    matched = [];seen = set();token = None;complete = False
+                    matched = [];seen = set();token = None;complete = False;observed = []
                     for page in range(1, 6):
                         q = ApiListKernelsRequest();q.user = OWNER;q.group = KernelsListViewType.PROFILE
                         q.sort_by = KernelsListSortType.DATE_CREATED;q.page = page;q.page_size = 100
@@ -195,16 +197,21 @@ def run():
                         if token:q.page_token = token
                         r = svc.list_kernels(q)
                         keys = {x.ref for x in r.kernels or []}
+                        observed.extend(safe_fields(x) for x in r.kernels or [])
                         matched.extend(safe_fields(x) for x in r.kernels or [] if getattr(x, 'id', None) == ID)
                         new = keys - seen;seen |= keys
                         if not r.next_page_token and len(r.kernels or []) < 100:complete = True;break
                         if not new:break
                         token = r.next_page_token or None
-                    ledger['list_fallback'] = dict(pages=page, visible_records=len(seen), complete=complete, ID_matches=matched)
+                    ledger['list_fallback'] = dict(pages=page, visible_records=len(seen), complete=complete, ID_matches=matched,
+                        records_with_positive_ID=sum(bool(x['id']) for x in observed),
+                        exact_slug_or_ref_matches=[x for x in observed if x['slug']==SLUG or x['ref']==REF],
+                        newest_metadata=observed[:5])
                     if matched:
                         resource = dict(state='RESOURCE_FOUND_IDENTITY_PARTIAL', metadata=matched, source=None)
                     raise RuntimeError('Exact version/source unavailable; no status/output queries')
                 resource = identity(value)
+                resource['version_requested'] = 'latest_checked_equal_1' if read_latest else '1'
                 write(evidence / 'RESOURCE_IDENTITY.json', resource)
                 if resource['state'] != 'IDENTITY_CONFIRMED':
                     raise RuntimeError('Identity gate not satisfied; no status/output queries')
@@ -212,19 +219,21 @@ def run():
                 (evidence / 'platform_source.ipynb').write_bytes(value.blob.source.encode())
                 latest = identity(get(None));write(evidence / 'LATEST_BEFORE_STATUS.json', latest)
                 assert latest['state'] == 'IDENTITY_CONFIRMED', 'Latest version/source drift'
-                q = ApiGetKernelSessionStatusRequest();q.user_name = OWNER;q.kernel_slug = SLUG;q.version_label = '1'
+                q = ApiGetKernelSessionStatusRequest();q.user_name = OWNER;q.kernel_slug = SLUG
+                if not read_latest:q.version_label = '1'
                 result = svc.get_kernel_session_status(q)
                 name = result.status.name
                 status_record.update(official_status=name, queried_at_utc=utc(),
                     state='RUN_COMPLETE' if name == 'COMPLETE' else 'RUN_ERROR' if name == 'ERROR' else 'RUN_IN_PROGRESS',
-                    failure_message=result.failure_message or None, version_label_sent='1',
+                    failure_message=result.failure_message or None, version_label_sent=None if read_latest else '1',
                     times_not_provided_by_endpoint=True)
                 write(evidence / 'RUN_STATUS.json', status_record)
                 if name not in ('COMPLETE', 'ERROR'):
                     return
                 files = [];token = None;raw_log = None
                 for page in range(1, 11):
-                    q = ApiListKernelSessionOutputRequest();q.user_name = OWNER;q.kernel_slug = SLUG;q.version_label = '1';q.page_size = 100
+                    q = ApiListKernelSessionOutputRequest();q.user_name = OWNER;q.kernel_slug = SLUG;q.page_size = 100
+                    if not read_latest:q.version_label = '1'
                     if token:q.page_token = token
                     result = svc.list_kernel_session_output(q)
                     files.extend(result.files or []);raw_log = raw_log or result.log;token = result.next_page_token
@@ -282,4 +291,7 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--latest-read', action='store_true', help='Distinct latest read after explicit-version404; still requires latest1/source and never saves')
+    run(read_latest=parser.parse_args().latest_read)
