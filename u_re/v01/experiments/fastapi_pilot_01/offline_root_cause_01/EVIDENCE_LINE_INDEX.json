@@ -1,0 +1,192 @@
+{
+  "Depends public export": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\fastapi\\__init__.py",
+    "sha256": "ca12fe54331fb6134c68bbdb23e41814668b8278c1bc4384f6bd1b5d6ec712b4",
+    "lines": [
+      {
+        "line": 14,
+        "text": "from .param_functions import Depends as Depends"
+      }
+    ]
+  },
+  "Depends function": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\fastapi\\param_functions.py",
+    "sha256": "e31e98e713a3166ba32e76cc0d7c6f17e91dafe975999d1b48e4c32e81d88fa4",
+    "lines": [
+      {
+        "line": 2221,
+        "text": "def Depends(  # noqa: N802"
+      },
+      {
+        "line": 2264,
+        "text": "    from fastapi import Depends, FastAPI"
+      },
+      {
+        "line": 2274,
+        "text": "    async def read_items(commons: Annotated[dict, Depends(common_parameters)]):"
+      },
+      {
+        "line": 2278,
+        "text": "    return params.Depends(dependency=dependency, use_cache=use_cache)"
+      }
+    ]
+  },
+  "Depends dataclass": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\fastapi\\params.py",
+    "sha256": "e5c224c4490ec58bb98ee9cd8a5c48e94661a086da6aae648e1018dabbeb838f",
+    "lines": [
+      {
+        "line": 766,
+        "text": "class Depends:"
+      },
+      {
+        "line": 772,
+        "text": "class Security(Depends):"
+      }
+    ]
+  },
+  "test dependency declaration": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\requirements-tests.txt",
+    "sha256": "7270f374a781c12df21fd501b200c93918abe18c67aac08283402c8e4f9a3358",
+    "lines": [
+      {
+        "line": 13,
+        "text": "inline-snapshot>=0.21.1"
+      }
+    ]
+  },
+  "test dependency import": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\tests\\utils.py",
+    "sha256": "264ae5fbf31d05cc19ec81cc29a21491e59d1e592bba925c64d89518d82173c5",
+    "lines": [
+      {
+        "line": 5,
+        "text": "from inline_snapshot import Snapshot"
+      },
+      {
+        "line": 34,
+        "text": "    inline-snapshot will create the snapshots when pytest is executed for each versions of pydantic."
+      }
+    ]
+  },
+  "project and pytest config": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\offline_root_cause_01\\base_source\\pyproject.toml",
+    "sha256": "6744712cd5823b122e7a63c69ff8afae0ff1176d4ad216540a307fcca43760f4",
+    "lines": [
+      {
+        "line": 12,
+        "text": "requires-python = \">=3.8\""
+      },
+      {
+        "line": 61,
+        "text": "[project.optional-dependencies]"
+      },
+      {
+        "line": 270,
+        "text": "[tool.inline-snapshot]"
+      }
+    ]
+  },
+  "original screen": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\screen.py",
+    "sha256": "8685a25aa356cab6fdfa26709d47a0886a66120c276b31d06debffff5075664a",
+    "lines": [
+      {
+        "line": 24,
+        "text": "def decide(audit,*,evidence_ok):"
+      },
+      {
+        "line": 25,
+        "text": "    if not evidence_ok:return 'STOP','evidence_identity_or_cleanup_failure'"
+      },
+      {
+        "line": 26,
+        "text": "    if audit['category']=='assertion_failure' and not audit['infrastructure_stop']:"
+      },
+      {
+        "line": 28,
+        "text": "    if audit['category']=='passed' and not audit['infrastructure_stop']:"
+      },
+      {
+        "line": 37,
+        "text": "    return 'STOP','unexplained_or_unsupported_native_environment_error'"
+      },
+      {
+        "line": 82,
+        "text": "        if stopped or len(selected)==2 or checked>=protocol['selection_algorithm']['max_cpu_checks']:"
+      },
+      {
+        "line": 93,
+        "text": "                if ' -m pytest ' in command and not (directory/'before_pytest_files.json').exists():"
+      },
+      {
+        "line": 94,
+        "text": "                    atomic_json(directory/'before_pytest_files.json',source_hashes(self.sandboxes[sid]['workspace']))"
+      },
+      {
+        "line": 99,
+        "text": "                    atomic_json(directory/'after_pytest_files.json',source_hashes(workspace))"
+      },
+      {
+        "line": 131,
+        "text": "        before=json.loads((directory/'before_pytest_files.json').read_text()) if (directory/'before_pytest_files.json').exists() else None"
+      },
+      {
+        "line": 132,
+        "text": "        after=json.loads((directory/'after_pytest_files.json').read_text()) if (directory/'after_pytest_files.json').exists() else None"
+      },
+      {
+        "line": 133,
+        "text": "        evidence_ok=cleanup and capture.get('status')=='captured' and before is not None and before==after"
+      },
+      {
+        "line": 134,
+        "text": "        decision,reason=decide(audit,evidence_ok=evidence_ok)"
+      },
+      {
+        "line": 143,
+        "text": "            workspace_files_unchanged=before is not None and before==after,cleanup_complete=cleanup,"
+      }
+    ]
+  },
+  "original protocol": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\SELECTION_PROTOCOL.json",
+    "sha256": "d9c775f060649d4bb176a45c672e2781087cf3d3139112fd4ceed3fbbf9c5c3f",
+    "lines": [
+      {
+        "line": 12,
+        "text": "    \"max_cpu_checks\": 8,"
+      },
+      {
+        "line": 27,
+        "text": "  \"admission\": {"
+      }
+    ]
+  },
+  "previous report": {
+    "path": "u_re\\v01\\experiments\\fastapi_pilot_01\\attempts\\cpu02\\reconciliation_01\\CPU_ADMISSION_REPORT.md",
+    "sha256": "9f770c7a678cf2cc8e98b476e9f25edff537ca6aee0281fc2ad7912f19466feb",
+    "lines": [
+      {
+        "line": 1,
+        "text": "# CPU02 native admission audit"
+      },
+      {
+        "line": 7,
+        "text": "1.tests/test_dependency_yield_scope.py:23 TypeError:Depends() got an unexpected keyword argument scope."
+      },
+      {
+        "line": 9,
+        "text": "3.tests/test_tutorial/test_dependencies/test_tutorial008e.py imports tests/utils.py:5,which imports inline_snapshot.Snapshot and raises ModuleNotFoundError:inline_snapshot."
+      },
+      {
+        "line": 11,
+        "text": "The first two errors may be a normal consequence of an unfixed API-contract task;no reference repair was read and no external-environment root cause is asserted for them. Missing inline_snapshot is directly evidenced by the import traceback"
+      },
+      {
+        "line": 13,
+        "text": "Raw JUnit SHA266a78fe40e3e921eb8d5390a263a0ab603d4e0015d7da115a442aa2316c4d2b;the capture receipt shows it was saved before native sandbox stop. Independently parsed XML counts agree with the original structured audit,and TaskResult exit2 a"
+      }
+    ]
+  }
+}

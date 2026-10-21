@@ -1,0 +1,87 @@
+{
+  "task": "fastapi_14262",
+  "base": "425a4c5bb1d1a8e00007e82e5188fc4d30585767",
+  "overall": "MIXED_CAUSES",
+  "scope_attribution": "TARGET_CAUSED_COLLECTION_CONFIRMED",
+  "base_feature": "TARGET_FEATURE_ABSENT",
+  "Depends_definition_line": 2221,
+  "Depends_parameters": [
+    "dependency",
+    "use_cache"
+  ],
+  "Depends_has_varkw": false,
+  "target_events": [
+    {
+      "file": "tests/test_dependency_yield_scope.py",
+      "first_scope_call_line": 23,
+      "category": "TARGET_CAUSED_COLLECTION_FAILURE"
+    },
+    {
+      "file": "tests/test_dependency_yield_scope_websockets.py",
+      "first_scope_call_line": 26,
+      "category": "TARGET_CAUSED_COLLECTION_FAILURE"
+    }
+  ],
+  "environment_event": {
+    "category": "ENVIRONMENT_COLLECTION_FAILURE",
+    "dependency": "inline-snapshot",
+    "module": "inline_snapshot",
+    "status": "DECLARED_BUT_NOT_INSTALLED",
+    "declaration": "requirements-tests.txt",
+    "declaration_line": 13,
+    "declared_specifier": ">=0.21.1",
+    "approved_wheels": [],
+    "availability": "APPROVED_WHEEL_UNAVAILABLE",
+    "recovery": "OFFLINE_DEPENDENCY_RECOVERY_UNAVAILABLE",
+    "Requires_Python": null,
+    "transitive_dependencies": null,
+    "ABI_tags": null,
+    "version_incompatibility_proven": false,
+    "not_installable_by_runtime_extras": true
+  },
+  "frozen_wheel_count": {
+    "official": 41,
+    "task": 124
+  },
+  "source_proof": {
+    "fastapi/__init__.py": {
+      "sha256": "ca12fe54331fb6134c68bbdb23e41814668b8278c1bc4384f6bd1b5d6ec712b4",
+      "matches_runtime_before_after": true
+    },
+    "fastapi/param_functions.py": {
+      "sha256": "e31e98e713a3166ba32e76cc0d7c6f17e91dafe975999d1b48e4c32e81d88fa4",
+      "matches_runtime_before_after": true
+    },
+    "fastapi/params.py": {
+      "sha256": "e5c224c4490ec58bb98ee9cd8a5c48e94661a086da6aae648e1018dabbeb838f",
+      "matches_runtime_before_after": true
+    },
+    "pyproject.toml": {
+      "sha256": "6744712cd5823b122e7a63c69ff8afae0ff1176d4ad216540a307fcca43760f4",
+      "matches_runtime_before_after": true
+    },
+    "requirements-tests.txt": {
+      "sha256": "7270f374a781c12df21fd501b200c93918abe18c67aac08283402c8e4f9a3358",
+      "matches_runtime_before_after": true
+    },
+    "tests/utils.py": {
+      "sha256": "264ae5fbf31d05cc19ec81cc29a21491e59d1e592bba925c64d89518d82173c5",
+      "matches_runtime_before_after": true
+    }
+  },
+  "workspace_hash_count": 1191,
+  "before_after_equal": true,
+  "old_report_missing_snapshots_statement": "INCORRECT_RAW_FILES_EXIST_AND_LEDGER_TRUE",
+  "JUnit_sha256": "266a78fe40e3e921eb8d5390a263a0ab603d4e0015d7da115a442aa2316c4d2b",
+  "TaskResult_sha256": "eae0913b87523c15d7ca40a61e62dbaee97e9cafc8b99df22952b5a2db2e6aa6",
+  "V1_original": "CPU_TASK_ADMISSION_BLOCKED",
+  "V2_draft_task_decision": "ENVIRONMENT_BLOCKED",
+  "V2_draft_target_only_decision": "CONDITIONALLY_ELIGIBLE",
+  "next_decision": "ENVIRONMENT_RECOVERY_BLOCKED",
+  "new_Kaggle_requests": 0,
+  "new_official_task_executions": 0,
+  "GPU": 0,
+  "Gemma": 0,
+  "Agent": 0,
+  "Submission": 0
+}
