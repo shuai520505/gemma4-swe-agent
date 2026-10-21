@@ -1,0 +1,138 @@
+test_403_structured_rejection_never_retries (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_403_structured_rejection_never_retries) ... FAIL
+test_429_structured_rejection_never_retries (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_429_structured_rejection_never_retries) ... FAIL
+test_GPU_TPU_or_model_input_prevents_submission (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_GPU_TPU_or_model_input_prevents_submission) ... ok
+test_connection_interrupt_preserves_exception_identity (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_connection_interrupt_preserves_exception_identity) ... FAIL
+test_crash_after_dispatch_before_receipt_and_restart (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_crash_after_dispatch_before_receipt_and_restart) ... FAIL
+test_empty_204_preserves_real_SDK_error (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_empty_204_preserves_real_SDK_error) ... FAIL
+test_json_200_real_SDK_success_and_once_only (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_json_200_real_SDK_success_and_once_only) ... FAIL
+test_missing_authorization_prevents_even_sdk_call (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_missing_authorization_prevents_even_sdk_call) ... ok
+test_non_json_502_metadata_survives (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_non_json_502_metadata_survives) ... FAIL
+test_observer_disk_failure_does_not_replace_SDK_success (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_observer_disk_failure_does_not_replace_SDK_success) ... FAIL
+test_second_SDK_send_is_blocked_before_transport (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_second_SDK_send_is_blocked_before_transport) ... FAIL
+test_secrets_and_arbitrary_headers_not_recorded (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_secrets_and_arbitrary_headers_not_recorded) ... FAIL
+test_timeout_preserves_exception_identity (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_timeout_preserves_exception_identity) ... FAIL
+test_wrong_or_existing_slug_prevents_submission (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_wrong_or_existing_slug_prevents_submission) ... ok
+
+======================================================================
+FAIL: test_403_structured_rejection_never_retries (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_403_structured_rejection_never_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 97, in test_403_structured_rejection_never_retries
+    p,c,_,e=self.perform(403,b'{"error":{"code":403,"status":"PERMISSION_DENIED"}}')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_429_structured_rejection_never_retries (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_429_structured_rejection_never_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 101, in test_429_structured_rejection_never_retries
+    p,c,_,e=self.perform(429,b'{"error":{"code":429,"status":"RESOURCE_EXHAUSTED"}}')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_connection_interrupt_preserves_exception_identity (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_connection_interrupt_preserves_exception_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 109, in test_connection_interrupt_preserves_exception_identity
+    err=requests.ConnectionError('synthetic disconnect');p,c,_,e=self.perform(transport_error=err)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_crash_after_dispatch_before_receipt_and_restart (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_crash_after_dispatch_before_receipt_and_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 159, in test_crash_after_dispatch_before_receipt_and_restart
+    self.assertEqual(r.returncode,73);self.assertTrue((path/'dispatch.claim').is_file())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 73
+
+======================================================================
+FAIL: test_empty_204_preserves_real_SDK_error (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_empty_204_preserves_real_SDK_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 92, in test_empty_204_preserves_real_SDK_error
+    p,c,_,e=self.perform(204,b'');self.assertIsNotNone(e)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_json_200_real_SDK_success_and_once_only (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_json_200_real_SDK_success_and_once_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 82, in test_json_200_real_SDK_success_and_once_only
+    p,c,result,error=self.perform();self.assertIsNone(error);self.assertEqual(result.version_number,1)
+                     ^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_non_json_502_metadata_survives (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_non_json_502_metadata_survives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 86, in test_non_json_502_metadata_survives
+    p,c,_,e=self.perform(502,b'<html>gateway</html>')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_observer_disk_failure_does_not_replace_SDK_success (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_observer_disk_failure_does_not_replace_SDK_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 113, in test_observer_disk_failure_does_not_replace_SDK_success
+    p,c,result,e=self.perform(write_failure=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_second_SDK_send_is_blocked_before_transport (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_second_SDK_send_is_blocked_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 119, in test_second_SDK_send_is_blocked_before_transport
+    _,c,_,e=self.perform(submit_fn=twice)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_secrets_and_arbitrary_headers_not_recorded (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_secrets_and_arbitrary_headers_not_recorded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 124, in test_secrets_and_arbitrary_headers_not_recorded
+    p,_,_,_=self.perform(body=payload)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_timeout_preserves_exception_identity (u_re.v01.experiments.fastapi_pilot_01.attempts.cpu02.tests.test_dispatch.DispatchTests.test_timeout_preserves_exception_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 105, in test_timeout_preserves_exception_identity
+    err=requests.Timeout('synthetic timeout');p,c,_,e=self.perform(transport_error=err)
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_dispatch.py", line 73, in perform
+    self.assertEqual(len(calls),1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.856s
+
+FAILED (failures=11)

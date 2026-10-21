@@ -1,0 +1,184 @@
+"""One client dispatch only, crash-conservative journal, metadata-first observer."""
+from datetime import datetime,timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import uuid
+from urllib.parse import urlsplit
+
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+EXECUTION_ID='U-RE-FASTAPI-PILOT-CPU02'
+SLUG='wudangdexiaodoashi/gemma4-u-re-fastapi-pilot01-cpu02'
+
+
+def utc():return datetime.now(timezone.utc).isoformat()
+
+
+def exclusive(path,data):
+    """An incomplete/torn existing file is a STOP, never permission to resend."""
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    raw=(json.dumps(data,indent=2,sort_keys=True)+'\n').encode()
+    with path.open('xb') as out:
+        out.write(raw);out.flush();os.fsync(out.fileno())
+    # Best-effort directory fsync on platforms that support it. File fsync and
+    # permanent O_EXCL claims are the minimum; no claim of hardware guarantees.
+    if os.name!='nt':
+        fd=os.open(path.parent,os.O_RDONLY)
+        try:os.fsync(fd)
+        finally:os.close(fd)
+
+
+class Journal:
+    def __init__(self,path):self.path=Path(path)
+
+    def append(self,state,**fields):
+        directory=self.path/'events';directory.mkdir(parents=True,exist_ok=True)
+        sequence=len(list(directory.glob('*.json')))
+        record=dict(fields);record.update(state=state,event_at_utc=utc())
+        exclusive(directory/f'{sequence:04d}-{state}.json',record)
+
+    def states(self):
+        return [json.loads(p.read_bytes())['state'] for p in sorted((self.path/'events').glob('*.json'))]
+
+    def claim(self,name,data):exclusive(self.path/name,data)
+
+
+def checked_config(spec):
+    assert spec['execution_id']==EXECUTION_ID and spec['slug']==SLUG,'Wrong or reused slug'
+    c=spec['configuration']
+    assert c==dict(GPU=False,TPU=False,internet=False,model_sources=[],Agent_runs=0,Gemma_calls=0,formal_submission=False),'CPU-only configuration required'
+    assert spec['max_dispatches']==1
+    for n in ('Notebook_sha256','wire_sha256','payload_sha256','selection_protocol_sha256'):
+        assert re.fullmatch('[a-f0-9]{64}',spec[n]),n
+
+
+def checked_authorization(authorization,spec):
+    if not authorization:raise PermissionError('Independent CPU02 authorization missing')
+    required=dict(execution_id=EXECUTION_ID,slug=SLUG,allow_new_CPU_only_save_and_run=True,
+        max_SaveKernel_dispatches=1,acknowledges_CPU01_may_have_been_accepted=True,
+        evidence_source='human_user_message',Notebook_sha256=spec['Notebook_sha256'],
+        wire_sha256=spec['wire_sha256'],payload_sha256=spec['payload_sha256'],
+        selection_protocol_sha256=spec['selection_protocol_sha256'])
+    for k,v in required.items():
+        if authorization.get(k)!=v:raise PermissionError('CPU02 authorization scope mismatch: '+k)
+    if not authorization.get('human_message_reference'):raise PermissionError('Missing trusted human evidence reference')
+
+
+def metadata(response,request_id):
+    kind=response.headers.get('Content-Type','').split(';')[0].lower()
+    if not re.fullmatch('[a-z0-9.+-]+/[a-z0-9.+-]+',kind):kind=None
+    length=response.headers.get('Content-Length','')
+    server_id=response.headers.get('X-Request-Id','')
+    return dict(at_utc=utc(),operation='SaveKernel',request_id=request_id,
+        HTTP_status=response.status_code,content_type=kind,
+        content_length=int(length) if length.isdigit() else None,
+        response_bytes=len(response.content),JSON_parsed=None,
+        platform_request_id=server_id if re.fullmatch('[a-fA-F0-9-]{16,64}',server_id) else None)
+
+
+def parsed_fields(response):
+    try:value=response.json()
+    except ValueError:return dict(JSON_parsed=False)
+    result=dict(JSON_parsed=True)
+    if not isinstance(value,dict):return result
+    for source,target in [('kernelId','Notebook_id'),('versionNumber','accepted_version')]:
+        v=value.get(source)
+        if type(v) is int and v>0:result[target]=v
+    if value.get('ref')==SLUG:result['Notebook_slug']=SLUG
+    if isinstance(value.get('error'),dict):
+        code=value['error'].get('code')
+        if type(code) is int and 400<=code<=599:result['error_code']=code
+    elif isinstance(value.get('error'),str) and value['error']:
+        result['error_code']='SDK_VALIDATION_ERROR'  # Never copy arbitrary error text.
+    return result
+
+
+class Controller:
+    def __init__(self,path,spec):
+        self.path=Path(path);self.spec=spec;self.journal=Journal(path)
+        self.dispatches=0;self.response=None;self.parsed=None;self.receipt_complete=False
+
+    def note(self,state,**kw):
+        try:self.journal.append(state,**kw);return True
+        except (OSError,ValueError,TypeError):return False
+
+    def execute(self,authorization,gates,sdk_submit):
+        checked_config(self.spec)
+        checked_authorization(authorization,self.spec)
+        assert gates.get('identity_confirmed') is True,'Identity gate'
+        assert gates.get('slug_conflict') is False,'Slug collision or unknown gate'
+        assert gates.get('current_readonly_GO') is True,'Read-only identity gate'
+        assert gates.get('payload_integrity') is True,'Payload gate'
+        # A permanent execution lock and dispatch claim survive process crashes.
+        # Existing/torn claims are never removed/reused by this controller.
+        if (self.path/'dispatch.claim').exists():
+            try:known=set(self.journal.states())
+            except (OSError,ValueError):known=set()
+            if not known.intersection({'ACCEPTED_CONFIRMED','REJECTED_CONFIRMED'}):
+                self.note('UNKNOWN_STOP',reason='Prior dispatch claim; read-only reconciliation only')
+            raise RuntimeError('Prior dispatch record: never resend')
+        self.journal.claim('execution.lock',dict(at_utc=utc(),execution_id=EXECUTION_ID))
+        self.journal.append('PREPARED',execution_id=EXECUTION_ID,slug=SLUG)
+        self.journal.append('AUTHORIZED',human_message_reference=authorization['human_message_reference'])
+        original=requests.Session.send
+        def send(session,request,**kwargs):
+            u=urlsplit(request.url)
+            if (request.method!='POST' or u.scheme!='https' or u.hostname!='api.kaggle.com'
+                    or u.path!='/v1/kernels.KernelsApiService/SaveKernel' or u.query):
+                raise RuntimeError('Only the unique CPU02 SaveKernel operation may dispatch here')
+            if self.dispatches:raise RuntimeError('Second HTTP dispatch blocked')
+            body=json.loads(request.body)
+            assert body.get('slug')==SLUG and body.get('enableGpu') is False and body.get('enableTpu') is False
+            assert body.get('enableInternet') is False and not body.get('modelDataSources') and not body.get('machineShape')
+            assert not body.get('id'),'Never update by existing resource ID'
+            assert hashlib.sha256(body['text'].encode()).hexdigest()==self.spec['wire_sha256']
+            request_id=uuid.uuid4().hex
+            intent=dict(execution_id=EXECUTION_ID,slug=SLUG,at_utc=utc(),request_id=request_id,
+                source_commit=gates['source_commit'],authorization_state='AUTHORIZED',
+                **{k:self.spec[k] for k in ('Notebook_sha256','wire_sha256','payload_sha256','selection_protocol_sha256','configuration','expected_candidates_in_order','sdk_versions')})
+            # Configure and verify a no-retry adapter before durable dispatch.
+            adapter=HTTPAdapter(max_retries=Retry(total=0,connect=0,read=0,status=0,redirect=0,other=0))
+            session.mount('https://api.kaggle.com/',adapter)
+            retry=session.get_adapter(request.url).max_retries
+            assert all(getattr(retry,k)==0 for k in ('total','connect','read','status','redirect','other'))
+            kwargs['timeout']=60;kwargs['allow_redirects']=False
+            self.journal.claim('dispatch.claim',intent)
+            self.journal.append('DISPATCH_STARTED',**intent)
+            self.dispatches=1
+            response=original(session,request,**kwargs)
+            self.response=response
+            # File1 must reach disk before attempting JSON. If this observer
+            # fails, return the original response unchanged to the real SDK.
+            try:
+                exclusive(self.path/'HTTP_METADATA.json',metadata(response,request_id))
+                self.journal.append('RESPONSE_RECEIVED',request_id=request_id,HTTP_status=response.status_code)
+                fields=parsed_fields(response);self.parsed=fields
+                exclusive(self.path/'HTTP_RECEIPT.json',dict(request_id=request_id,operation='SaveKernel',**fields))
+                self.receipt_complete=True
+            except (OSError,TypeError,ValueError):
+                self.note('OBSERVER_RECORDING_FAILED',request_id=request_id)
+            return response
+        requests.Session.send=send
+        try:
+            result=sdk_submit()
+            ack=dict(Notebook_slug=getattr(result,'ref',None),accepted_version=getattr(result,'version_number',None),
+                     Notebook_id=getattr(result,'kernel_id',None))
+            if (self.receipt_complete and ack['Notebook_slug']==SLUG and type(ack['accepted_version']) is int and ack['accepted_version']>0
+                    and type(ack['Notebook_id']) is int and ack['Notebook_id']>0):
+                self.journal.append('ACCEPTED_CONFIRMED',**ack,expected_new_version=ack['accepted_version']==1)
+            elif self.receipt_complete and (self.parsed or {}).get('error_code')=='SDK_VALIDATION_ERROR':
+                self.journal.append('REJECTED_CONFIRMED',error_code='SDK_VALIDATION_ERROR')
+            else:self.note('UNKNOWN_STOP',reason='No complete matching durable accepted-version evidence')
+            return result
+        except BaseException as exc:
+            code=(self.parsed or {}).get('error_code')
+            rejected=self.receipt_complete and self.response is not None and code in (400,401,403,409,422,429) and self.response.status_code==code
+            self.note('REJECTED_CONFIRMED' if rejected else 'UNKNOWN_STOP',exception_class=type(exc).__name__,
+                error_code=code if rejected else None)
+            raise  # Preserve the actual SDK exception, including cancellation.
+        finally:requests.Session.send=original
