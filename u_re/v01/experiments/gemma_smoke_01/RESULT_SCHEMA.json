@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "U-RE engineering smoke result",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "mock",
+    "GPU_inference_executed",
+    "resolved",
+    "stages",
+    "cleanup_verified"
+  ],
+  "properties": {
+    "experiment_id": {
+      "const": "U-RE-V01-GEMMA-SMOKE-01"
+    },
+    "mock": {
+      "type": "boolean"
+    },
+    "GPU_inference_executed": {
+      "type": "boolean"
+    },
+    "resolved": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "cleanup_verified": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "token_usage": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage",
+          "status"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "ERROR",
+              "NOT_RUN",
+              "NOT_OBSERVED",
+              "EVIDENCE_AVAILABLE"
+            ]
+          },
+          "start_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "end_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "elapsed_seconds": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "error_class": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

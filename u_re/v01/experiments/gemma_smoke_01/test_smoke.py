@@ -53,7 +53,7 @@ class SmokeTests(unittest.TestCase):
             toy=Toy();result=s.mock_run(d,toy)
             self.assertTrue(result['resolved']);self.assertTrue(toy.cleaned)
             self.assertEqual(set(toy.tools),set(b.TOOLS));self.assertEqual(toy.tools.count('submit_patch'),1)
-            events=json.loads((Path(d)/'STAGES.json').read_text())
+            events=json.loads((Path(d)/'STAGES.json').read_text(encoding='utf-8'))
             self.assertEqual([x['stage'] for x in events['stages']],s.STAGES)
             self.assertTrue(all(x['status']=='PASS' and x['mock'] for x in events['stages']))
             self.assertIsNone(events['stages'][0]['token_usage'])
@@ -65,7 +65,7 @@ class SmokeTests(unittest.TestCase):
                 return toy(stage,**kw)
             with self.assertRaises(ConnectionError):s.mock_run(d,broken)
             self.assertTrue(toy.cleaned)
-            self.assertEqual(json.loads((Path(d)/'STAGES.json').read_text())['stages'][1]['error_class'],'ConnectionError')
+            self.assertEqual(json.loads((Path(d)/'STAGES.json').read_text(encoding='utf-8'))['stages'][1]['error_class'],'ConnectionError')
     def test_missing_authorization_before_runtime(self):
         with tempfile.TemporaryDirectory() as d,patch.object(s,'runtime_files') as runtime:
             with self.assertRaises(PermissionError):asyncio.run(s.run_authorized({}, {},d))
@@ -96,10 +96,10 @@ class SmokeTests(unittest.TestCase):
             with self.subTest(k=k),self.assertRaises(ValueError):b.agent_input(dict(clean,**{k:'not allowed'}))
     def test_no_distribution_fetch_or_dispatch_in_runner(self):
         import ast
-        tree=ast.parse((HERE/'SMOKE_RUNNER.py').read_text())
+        tree=ast.parse((HERE/'SMOKE_RUNNER.py').read_text(encoding='utf-8'))
         attrs=[n.attr for n in ast.walk(tree) if isinstance(n,ast.Attribute)]
         self.assertFalse(set(attrs)&{'kernels_push','save_kernel','SaveKernel','submit','install'})
-        draft=json.loads((HERE/'GPU_PREFLIGHT.json').read_text())
+        draft=json.loads((HERE/'GPU_PREFLIGHT.json').read_text(encoding='utf-8'))
         self.assertFalse(draft['gpu_authorized']);self.assertFalse(draft['execute'])
 
 if __name__=='__main__':unittest.main(verbosity=2)

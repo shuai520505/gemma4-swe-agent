@@ -126,7 +126,7 @@ def runtime_files(runtime,plan):
 
 async def run_authorized(grant, runtime, output):
     protocol=HERE/'SMOKE_PLAN.json';authorize(grant,protocol)
-    plan=json.loads(protocol.read_text());output=Path(output).resolve()
+    plan=json.loads(protocol.read_text(encoding='utf-8'));output=Path(output).resolve()
     if output.is_relative_to(ROOT):raise ValueError('Raw evidence must be outside the public checkout')
     output.mkdir(parents=True,exist_ok=True)
     # Exclusive durable claim: no automatic retry after any started attempt.
@@ -169,6 +169,11 @@ async def run_authorized(grant, runtime, output):
             # Only this public projection can enter the prompt. Official worker receives a private task record.
             save(output/'public_input_identity.json',{k:hashlib.sha256(v.encode()).hexdigest() for k,v in projection.items()})
         with r.stage('LOAD_MODEL'):
+            import os
+            os.environ.update(VLLM_WORKER_MULTIPROC_METHOD='spawn',VLLM_NO_USAGE_STATS='1',
+                VLLM_ENGINE_READY_TIMEOUT_S='1200',VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS='1',
+                NCCL_DEBUG='WARN',PYTORCH_CUDA_ALLOC_CONF='expandable_segments:True',
+                LOCAL_API_KEY='EMPTY',OPENAI_API_KEY='EMPTY')
             adapters=discover_adapters(str(candidate_dir))
             if adapters.adapters:raise ValueError('No adapters permitted')
             cfg=VllmConfig(model=runtime['model_path'],host='127.0.0.1',port=8000,
@@ -211,15 +216,19 @@ async def run_authorized(grant, runtime, output):
         with r.stage('RUN_AGENT'):
             supervise([sys.executable,'-m','s1.verifier_v3.worker',str(output/'worker_spec.json'),str(directory)],
                 directory,outer_seconds=budget.outer_seconds,stage_caps=budget.stage_caps,cwd=ROOT)
-        raw=json.loads((directory/'official_result.json').read_text())
-        audit=inspect_run(directory,budget.snapshot(),runtime['model_path'],baseline=json.loads(Path(runtime['admission']).read_text()))
+        raw=json.loads((directory/'official_result.json').read_text(encoding='utf-8'))
+        audit=inspect_run(directory,budget.snapshot(),runtime['model_path'],baseline=json.loads(Path(runtime['admission']).read_text(encoding='utf-8')))
         save(output/'native_audit.json',audit)
+        from u_re.v01.experiments.gemma_smoke_01.closure_metrics import summarize
+        save(output/'closure_metrics.json',summarize(directory))
         for stage,filename in [('COLLECT_PATCH','official_result.json'),('NATIVE_VERIFY','phase2.junit.xml')]:
             r.observed(stage,'EVIDENCE_AVAILABLE' if (directory/filename).is_file() else 'NOT_OBSERVED',[str(directory/filename)])
         # Availability does not itself prove valid tools, patch quality, explicit submission or success.
         with r.stage('EXPORT'):
             save(output/'evidence_manifest.json',{str(p.relative_to(output)):digest(p) for p in output.rglob('*') if p.is_file()})
             save(output/'SMOKE_RESULT.json',dict(resolved=raw.get('resolved'),mock=False,
+                experiment_id=EXPERIMENT,GPU_inference_executed=True,cleanup_verified=None,
+                stages=r.rows,token_usage=audit.get('usage'),
                 algorithm_evidence=False,infrastructure_passed=audit['infrastructure_passed'],formal_submission=False))
         if not audit['infrastructure_passed']:raise RuntimeError('Native evidence or lifecycle audit failed')
         return raw
@@ -236,6 +245,10 @@ async def run_authorized(grant, runtime, output):
                 live=[p.pid for p in known if p.is_running() and p.status() not in (psutil.STATUS_DEAD,psutil.STATUS_ZOMBIE)]
                 save(output/'server_cleanup.json',dict(observed_pids=[p.pid for p in known],remaining_pids=live,verified=bool(known) and not live))
                 if live:raise RuntimeError('Server process cleanup failed')
+        result_path=output/'SMOKE_RESULT.json'
+        if result_path.is_file():
+            result=json.loads(result_path.read_text(encoding='utf-8'));result.update(stages=r.rows,cleanup_verified=bool(known) and not live)
+            save(result_path,result)
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--execute',action='store_true')
@@ -245,6 +258,6 @@ def main():
         print(json.dumps(dict(experiment_id=EXPERIMENT,execute=False,gpu_authorized=False,
             formal_submission=False,status='OFFLINE_PLAN_ONLY')));return
     if not all((a.grant,a.runtime,a.output)):p.error('Separate grant, runtime evidence and private output directory required')
-    asyncio.run(run_authorized(json.loads(a.grant.read_text()),json.loads(a.runtime.read_text()),a.output))
+    asyncio.run(run_authorized(json.loads(a.grant.read_text(encoding='utf-8')),json.loads(a.runtime.read_text(encoding='utf-8')),a.output))
 
 if __name__=='__main__':main()

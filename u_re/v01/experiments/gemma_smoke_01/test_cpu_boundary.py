@@ -51,7 +51,7 @@ class CPUBoundaryTests(unittest.TestCase):
             try:x.execute(a,g,submit)
             except Exception:pass
         self.assertEqual(len(calls),1);self.assertIn('UNKNOWN_STOP',x.journal.states())
-        meta=json.loads((x.path/'HTTP_METADATA.json').read_text());self.assertEqual(meta['HTTP_status'],502)
+        meta=json.loads((x.path/'HTTP_METADATA.json').read_text(encoding='utf-8'));self.assertEqual(meta['HTTP_status'],502)
     def test_receipt_slug_mismatch_unknown(self):
         x,a,g,calls,f=self.case(body=b'{"ref":"other/wrong","kernelId":123,"versionNumber":1}')
         with patch('requests.Session.send',f):x.execute(a,g,submit)

@@ -58,7 +58,7 @@ def build():
     # Avoid namespace-package ambiguity in frozen host Python.
     files['u_re/v01/experiments/__init__.py']=b''
     files['u_re/v01/experiments/gemma_smoke_01/__init__.py']=b''
-    plan=json.loads((HERE/'SMOKE_PLAN.json').read_text())
+    plan=json.loads((HERE/'SMOKE_PLAN.json').read_text(encoding='utf-8'))
     reg=dict(execution_id=EXECUTION_ID,GPU=False,Gemma_inference=False,
         files={n:sha(b) for n,b in files.items()},wheel_hashes=plan['official_wheels'])
     files['cpu_registration.json']=(json.dumps(reg,indent=2)+'\n').encode()
@@ -80,7 +80,7 @@ with zipfile.ZipFile(io.BytesIO(payload)) as z:
     assert all(not n.startswith('/') and '..' not in Path(n).parts for n in z.namelist())
     z.extractall(SOURCE)
 sys.path.insert(0,str(SOURCE))
-REG=json.loads((SOURCE/'cpu_registration.json').read_text())
+REG=json.loads((SOURCE/'cpu_registration.json').read_text(encoding='utf-8'))
 for n,h in REG['files'].items():assert hashlib.sha256((SOURCE/n).read_bytes()).hexdigest()==h,n
 WHEELHOUSE_DIR=next(Path('/kaggle/input').rglob('swegemma-0.2.11-py3-none-any.whl')).parent
 actual={{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in WHEELHOUSE_DIR.glob('*.whl') if 'cutlass' not in p.name.lower()}}

@@ -36,9 +36,17 @@ async def run(output):
     for case in ('basic','closed_loop','wrong_test','exact_tools','external_cancel','post_submit_negative'):
         directory=output/'cases'/case
         r=await exercise('noegv',case,directory)
-        assert json.loads((directory/'cleanup.json').read_text())['complete']
-        assert r['HTTP_audit']['passed'],case
-        boundary=json.loads((directory/'boundary.json').read_text())
+        assert json.loads((directory/'cleanup.json').read_text(encoding='utf-8'))['complete']
+        if case=='external_cancel':
+            # Production audit correctly refuses unproven server-side reclamation.
+            # This fixture deliberately cancels the mocked transport externally,
+            # so retain audit=false and independently check the fixture's evidence.
+            assert r['external_cancellation_propagated'] and r['HTTP_cancelled']
+            assert r['HTTP_audit']['reasons']==['unexplained_cancellation']
+            cancelled=[row for row in r['HTTP_audit']['rows'] if row['terminal_status']=='cancelled']
+            assert len(cancelled)==1 and cancelled[0]['usage'] is None
+        else:assert r['HTTP_audit']['passed'],case
+        boundary=json.loads((directory/'boundary.json').read_text(encoding='utf-8'))
         assert boundary['budget_seconds']==300 and boundary['tools_limit']==60 and boundary['command_seconds']==120
         for w in r['wire_configuration']:
             assert set(w['tool_names'])=={'get_status','run_command','read_file','edit_file','write_file','submit_patch'}
@@ -71,7 +79,7 @@ new file mode 100644
     try:
         with research_environment(audit_modules=['app']):
             result=await verify_task(manager,cfg,task,output/'cases/basic/baseline.tgz',
-                agent_patch=(output/'cases/basic/returned.patch').read_text(),start_time=time.perf_counter())
+                agent_patch=(output/'cases/basic/returned.patch').read_text(encoding='utf-8'),start_time=time.perf_counter())
         atomic_json(directory/'official_result.json',result.model_dump(mode='json',exclude={'trace'}))
     finally:manager.cleanup_all()
     audit=audit_verifier(directory)

@@ -1,0 +1,9 @@
+# Save and collection safety
+
+cpu_notebook.controller_module loads the unchanged CPU02 dispatch implementation in a separate module namespace. Only experiment/slug constants and exact configuration/authorization predicates are adapted for this independently authorized CPU interface test. Journal,exclusive O_EXCL claim,metadata-before-JSON,Retry(0),single-send guard,UNKNOWN_STOP and exception preservation are reused. No CPU02 claim,authorization,event or result is copied as new execution permission.
+
+30 local checks cover own mock stages and installed Kaggle SDK serialization plus the original CPU02 fault suite. CPU payload contains six scripted ADK toy sessions, zero Gemma calls, no model input andGPU/TPU/Internet=false. The current user's Notebook permission authorizes this CPU check, not the future GPU run.
+
+Exactly one SaveKernel returned200,id140042899,version1,ref /code/wudangdexiaodoashi/gemma4-u-re-smoke01-cpu01. The stricter dispatch guard preserved UNKNOWN_STOP. Read-only reconciliation independently confirmed full owner/ref/slug/id/private/version/config/source/payload. This adds evidence without rewriting acceptance events. collect_cpu_existing reuses CPU02's recovery code with only new identity/build directory and exact owned-archive selection. Latest remains version1 before/after status/list/download. All raw output is kept outside Git. No save retry or Notebook rerun is permitted.
+
+The first read-only slug check stopped before dispatch because pagination was incomplete. That failure is preserved. The corrected typed page/profile query found no collision. The single dispatch intent identifies commit884eb92; its launch wrapper had a subsequent uncommitted pagination-only correction. CPU Notebook and payload SHA were unchanged. This discrepancy is recorded rather than pretending the launcher bytes were all committed at dispatch.
