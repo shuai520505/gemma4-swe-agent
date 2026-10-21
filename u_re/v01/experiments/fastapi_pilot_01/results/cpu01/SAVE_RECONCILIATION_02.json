@@ -1,0 +1,21 @@
+{
+  "queried_at_utc": "2026-10-21T06:19:30.312188+00:00",
+  "scope": "final bounded read-only reconciliation; no SaveKernel retry",
+  "http": [
+    {
+      "operation": "ListKernels",
+      "http_status": 200,
+      "content_type": "application/json"
+    },
+    {
+      "operation": "GetKernelSessionStatus",
+      "http_status": 403,
+      "content_type": "application/json",
+      "redacted_error": "{\"error\": {\"code\": 403, \"message\": \"Permission 'kernels.get' was denied\", \"status\": \"PERMISSION_DENIED\"}}"
+    }
+  ],
+  "owner_listing_rows": 100,
+  "exact_matches": [],
+  "status_exception_class": "ValueError",
+  "redacted_error": "Cannot access kernel '[REDACTED]' (Permission 'kernels.get' was denied). The most likely cause is a wrong kernel slug. The benchmark_task_slug returned by get_benchmark_leaderboard differs from the actual kernel slug \u2014 use the slug from the notebook URL (kaggle.com/code/owner/KERNEL-SLUG), not from the leaderboard. It can also occur if the notebook is private."
+}

@@ -1,0 +1,7 @@
+# Future FastAPI-only paired protocol — DRAFT, NOT AUTHORIZED
+
+No tasks are bound. After first two native-baseline-eligible distinct FastAPI IDs are selected under the precommitted max8 rule:Task1 A→B,Task2 B→A. Four independent runs ABBA,not fourAgents. A=unchangedNoEGV,B=unchangedFull; both singleGemma31BQATv2,sixofficialtools,300sharedseconds/60chargedtools/120commandseconds; output16384,thinking4096,seed17,sampling/include_thoughts remain frozen omitted values. Only Full adds the EGV instructions; NoEGV can test and revise normally.
+
+Before future GPU inference bind exact Issue,base,snapshot,test-overlay/task-record and candidate/member SHA,model/tokenizer/wheels/Compiler/Runner/Verifier sources,Notebook/payload and actual request parameters. Separate clean workspaces,ADK sessions,Verifier sandboxes and evidence directories per arm. No Patch,Trace,test outputs,diagnostic findings or solution ideas transferred to another run. Evaluator-only tests stay evaluator-side. Same model service is acceptable only with independent contexts and verifiable idle/cleanup.
+
+Report same-Issue,target-path,test-contract overlap without subjective replacement after outcomes. Same-project samples do not establish cross-repository generalization. Analysis retains all assigned tasks,including noEGVbehavior,algorithm failure,unknown/not_run; no selecting only counterexample-producing runs. No current native identities or resource window are admitted. GPU execution requires separate authorization after all gates.

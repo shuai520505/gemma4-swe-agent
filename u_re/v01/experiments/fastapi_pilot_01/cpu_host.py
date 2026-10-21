@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import requests
 from u_re.v01.build import sha
+from .response_observer import capture_response
 
 HERE=Path(__file__).resolve().parent
 
@@ -46,10 +47,13 @@ def launch():
              metadata={k:v for k,v in body.items() if k not in ('text','blob','source')},
              notebook_text_sha256=sha(body['text'].encode()) if isinstance(body.get('text'),str) else None))
         response=original(self,request,**kwargs)
-        save(out/'SAVE_RESPONSE.json',dict(received_at_utc=datetime.now(timezone.utc).isoformat(),http_status=response.status_code,response=response.json()))
+        capture_response(out/'SAVE_RESPONSE.json',response)
         return response
     requests.Session.send=send
-    reply=api.kernels_push(str(folder),timeout='7200',acc=None)
+    try:
+        reply=api.kernels_push(str(folder),timeout='7200',acc=None)
+    finally:
+        requests.Session.send=original
     result=reply.to_dict(ignore_defaults=False);save(out/'SAVE_SDK_RESPONSE.json',result)
     print(json.dumps(result,indent=2));assert result.get('versionNumber')==1,'No duplicate version permitted'
 

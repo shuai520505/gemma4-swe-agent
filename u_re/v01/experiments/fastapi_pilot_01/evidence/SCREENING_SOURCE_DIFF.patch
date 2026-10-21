@@ -1,0 +1,46 @@
+--- mechanism02/screen.py
++++ fastapi_pilot01/screen.py
+@@ -1,4 +1,4 @@
+-"""CPU-only prospective screening. No Agent/model/reference repair or test edits."""
++"""FastAPI-only native baseline screening; frozen rank, max8, no Agent/model."""
+ import asyncio
+ import hashlib
+ import json
+@@ -76,12 +76,13 @@
+     source_protocol=hashlib.sha256((HERE/'SELECTION_PROTOCOL.json').read_bytes()).hexdigest()
+     selected=[];rows=[];checked=0;stopped=None
+     for row in ranked:
+-        item=dict(row,exclusion_check=True,cpu_entered=False,status='NOT_RUN')
++        item=dict(row,exclusion_check=True,cpu_entered=False,status='NOT_RUN',
++            passed=None,failed=None,errors=None,skipped=None,xfailed=None,setup_errors=None,collection_errors=None,
++            native_test_exit_code=None,eligible=None,seconds=None,JUnit_sha256=None)
+         if stopped or len(selected)==2 or checked>=protocol['selection_algorithm']['max_cpu_checks']:
+             item['reason']=stopped or ('selection_complete' if len(selected)==2 else 'max8_checks_reached');rows.append(item);continue
+-        if row['repo'] in {s['repo'] for s in selected}:
+-            item.update(status='SKIPPED_REPOSITORY_ALREADY_SELECTED',reason='Predeclared diversity skip; no CPU result observed')
+-            rows.append(item);continue
++        assert row['repo']=='fastapi/fastapi'
++        assert row['instance_id'] not in {s['instance_id'] for s in selected}
+         checked+=1;ident=row['instance_id'];directory=output/f'{checked:02d}-{ident}'
+         directory.mkdir();item.update(cpu_entered=True,check_number=checked,evidence=directory.name)
+         atomic_json(directory/'task_identity.json',identify(data,[ident])[ident])
+@@ -134,7 +135,7 @@
+         if decision=='ELIGIBLE' and not proof.get('verified'):
+             decision,reason='STOP','workspace_module_execution_provenance_missing'
+         if stopped:decision,reason='STOP',stopped
+-        item.update(status=decision,eligible=decision=='ELIGIBLE',reason=reason,native_test_exit_code=result.test_exit_code if result else None,
++        item.update(status={'ELIGIBLE':'BASELINE_ELIGIBLE','REJECT':'NON_DISCRIMINATING' if reason=='all_passing_base_not_discriminating' else 'ENVIRONMENT_BLOCKED','STOP':'UNKNOWN'}[decision],decision=decision,eligible=decision=='ELIGIBLE',reason=reason,native_test_exit_code=result.test_exit_code if result else None,
+             native_baseline_resolved=result.resolved if result else None,category=audit['category'],counts=audit.get('counts'),
+             summary=audit.get('summary'),setup_errors=sum(e['category']=='setup_error' for e in audit.get('events',[])),
+             collection_errors=sum(e['category']=='collection_error' for e in audit.get('events',[])),
+@@ -151,8 +152,8 @@
+             stop=stopped,Agent_runs=0,model_calls=0,GPU=False,screening_in_progress=True))
+         print(json.dumps(dict(task=ident,decision=decision,reason=reason,counts=item.get('counts')),indent=2),flush=True)
+     complete=len(selected)==2 and stopped is None
+-    final=dict(experiment_id='U-RE-V01-MECHANISM-02',protocol_sha256=source_protocol,checked=checked,selected=selected,rows=rows,
+-        stop=stopped if stopped else None if complete else 'max_checks_or_pool_exhausted_without_two_repositories',
++    final=dict(experiment_id='U-RE-V01-FASTAPI-PILOT-01',protocol_sha256=source_protocol,checked=checked,selected=selected,rows=rows,
++        stop=stopped if stopped else None if complete else 'max_checks_or_pool_exhausted_without_two_eligible_instance_ids',
+         Agent_runs=0,model_calls=0,GPU=False,screening_in_progress=False,
+         status='CPU_BASELINE_GO' if complete else 'TASK_ADMISSION_BLOCKED',GPU_authorized=False)
+     atomic_json(output/'TASK_SCREENING_LEDGER.json',final)

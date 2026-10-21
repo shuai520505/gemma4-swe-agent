@@ -1,0 +1,11 @@
+# Native CPU admission: no verified result
+
+Scope is now two distinct FastAPI instance IDs; all79 exclusions and exact50 ranks preserved. First8 remain14262,13537,15280,14266,14430,14487,13207,12942 with fastapi_ prefix. Max8 actual native checks,first two eligible,not easier/test-count selection. Selection commit77ad023 predates the CPU attempt.
+
+One offline CPU-only Notebook save request at2026-10-21T06:17:01.841556Z,slug wudangdexiaodoashi/gemma4-u-re-fastapi-pilot01-cpu01; GPU=false,TPU=false,model inputs absent,Agent/model calls absent. Local upload audit checked186 payload members and exact approved runtime source/wheels. At SDK2.2.2 kernels_push the Notebook JSON is reserialized; WIRE_NOTEBOOK_IDENTITY.json proves source and embedded payload match the frozen build despite byte-format hash difference.
+
+The response recorder called response.json before persisting HTTP metadata and raised JSONDecodeError. The execution-time host source is preserved at evidence/cpu_host_at_dispatch.py.txt and commit e6db9ac; HOST_SAVE_FAILURE.json is an honest terminal-status receipt,not reconstructed raw HTTP evidence. We do not know original response status/body. Search listing afterward returned[]; a bounded100-row owner listing has no exact match and direct status returned403. Neither proves absence or rejection. No repeat save or second Notebook was launched. Accepted version=null,confirmed native baselines=0,actual platform checks=null.
+
+No JUnit,TaskResult,stdout or cleanup result exists for a new native baseline. Do not manufacture them. All50 rows remain NOT_RUN/null with platform_execution_status UNKNOWN. No selected tasks or admitted identity. No sample dependence or behavior correctness inference. Two eligible tasks have NOT been obtained; actual CPU environment admission remains blocked. No GPU algorithm result.
+
+Next operational prerequisite is read-only reconciliation of this exact Notebook/owner in Kaggle UI or an authoritative accepted-version/status response. If it exists,collect that run's original outputs; do not resave. If platform confirms it was never accepted,record that evidence before planning a separately identified CPU attempt with the non-masking host observer. Do not change rank,exclusions,candidates or the max8 accounting.
