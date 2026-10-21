@@ -74,6 +74,15 @@ class ReadonlyRecoveryTests(unittest.TestCase):
     def test_missing_fields_or_changed_content_not_confirmed(self):
         v=resource();v.metadata._enable_gpu=None
         self.assertEqual(r.identity(v)['state'],'RESOURCE_FOUND_IDENTITY_PARTIAL')
+
+    def test_display_name_does_not_override_exact_resource_owner(self):
+        v=resource();v.metadata._author='The 13th Seat of The Genius Club'
+        a=r.identity(v)
+        self.assertEqual(a['state'],'IDENTITY_CONFIRMED')
+        self.assertEqual(a['owner_from_full_ref'],r.OWNER)
+        self.assertEqual(a['metadata']['author'],'The 13th Seat of The Genius Club')
+        v.metadata._ref='someoneelse/'+r.SLUG
+        self.assertEqual(r.identity(v)['state'],'IDENTITY_MISMATCH')
         v=resource();v.blob.source='{}'
         self.assertEqual(r.identity(v)['state'],'RESOURCE_FOUND_IDENTITY_PARTIAL')
 

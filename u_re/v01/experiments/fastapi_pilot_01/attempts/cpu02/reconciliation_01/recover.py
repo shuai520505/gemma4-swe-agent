@@ -101,8 +101,11 @@ def identity(value):
     conflict = ((meta['id'] not in (None, 0) and meta['id'] != ID)
                 or (canonical_ref and canonical_ref != REF)
                 or (meta['slug'] and meta['slug'] != SLUG))
+    # author is a human display name in actual server metadata. Ownership is
+    # established by the exact full ref,not by equality with that display name.
+    owner_from_ref = canonical_ref.split('/', 1)[0] if isinstance(canonical_ref, str) and '/' in canonical_ref else None
     fields_ok = (not conflict and meta['id'] == ID and canonical_ref == REF
-                 and meta['slug'] == SLUG and meta['author'] == OWNER and meta['current_version_number'] == 1
+                 and meta['slug'] == SLUG and owner_from_ref == OWNER and meta['current_version_number'] == 1
                  and meta['is_private'] is True and meta['kernel_type'] == 'notebook'
                  and meta['enable_gpu'] is False and meta['enable_tpu'] is False
                  and meta['enable_internet'] is False and meta['model_data_sources'] == [])
@@ -110,6 +113,7 @@ def identity(value):
                     or source_audit['exact_file_match'] or source_audit['semantic_JSON_match'])
     state = 'IDENTITY_MISMATCH' if conflict else 'IDENTITY_CONFIRMED' if fields_ok and content_ok else 'RESOURCE_FOUND_IDENTITY_PARTIAL'
     return dict(state=state, metadata=meta, canonical_ref_for_comparison=canonical_ref,
+                owner_from_full_ref=owner_from_ref,author_is_not_used_as_username=True,
                 source=source_audit, version_requested='1', checked_at_utc=utc())
 
 
@@ -155,8 +159,8 @@ class ReadGuard:
         requests.Session.send = self.original
 
 
-def run(*, read_latest=False):
-    evidence = HERE / ('evidence_latest' if read_latest else 'evidence')
+def run(*, read_latest=False, confirmed_read=False):
+    evidence = HERE / ('evidence_confirmed' if confirmed_read else 'evidence_latest' if read_latest else 'evidence')
     evidence.mkdir(exist_ok=False)  # Explicit re-entry refusal, no overwritten query evidence.
     ledger = dict(started_at_utc=utc(), target=REF, Notebook_id=ID, version=1,
                   SaveKernel=0, reruns=0, GPU=0, Gemma=0, Agent=0, formal_submission=0,
@@ -170,7 +174,7 @@ def run(*, read_latest=False):
     for n in originals:
         setattr(KaggleCredentials, n, refuse)
     capture = io.StringIO()
-    with ReadGuard(evidence, maximum=26 if read_latest else 30) as guard:
+    with ReadGuard(evidence, maximum=24 if confirmed_read else 26 if read_latest else 30) as guard:
         try:
             with contextlib.redirect_stdout(capture), contextlib.redirect_stderr(capture):
                 from kaggle import api
@@ -294,4 +298,6 @@ if __name__ == '__main__':
     import argparse
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--latest-read', action='store_true', help='Distinct latest read after explicit-version404; still requires latest1/source and never saves')
-    run(read_latest=parser.parse_args().latest_read)
+    parser.add_argument('--confirmed-read', action='store_true', help='Read following preserved display-name evidence; max24 more HTTP,all original evidence immutable')
+    args=parser.parse_args()
+    run(read_latest=args.latest_read or args.confirmed_read,confirmed_read=args.confirmed_read)

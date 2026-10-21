@@ -1,0 +1,7 @@
+# Observed author display name and owner identity
+
+The distinct latest GetKernel succeeded. Raw metadata ID140021966,fullrefwudangdexiaodoashi/gemma4-u-re-fastapi-pilot01-cpu02,exactslug,private,latest1 and explicitfalseGPU/TPU/internet/no-models all match. Complete Notebook parsed JSON equals the frozen object;payload SHA matches. Raw author is The 13th Seat of The Genius Club,a display name. The initial helper incorrectly required author==username and conservatively stopped before status. That local interpretation is corrected here:owner is parsed only from exact fullref;raw author remains unchanged. An actual wrong fullref still mismatches. Shortref alone cannot establish an owner from this displayname.
+
+Preserve evidence_latest partial outcome and first evidence404 records. Next bounded read uses evidence_confirmed/,fresh latest/source confirmation followed by status and downloads only if identity/terminal gates pass. Maximum24 moreHTTP gives30overall. This is a read of an already-known resource after an evidence-supported interpretation correction,not another save. Old execution/events never change.
+
+The raw last_run_time is2026-10-18 13:00:42.013000,earlier than the local saved-request timestamp2026-10-21. Preserve the discrepancy;do not infer an actual execution start/end or clock agreement from metadata. Source/ID/version can be verified independently of this timestamp.
