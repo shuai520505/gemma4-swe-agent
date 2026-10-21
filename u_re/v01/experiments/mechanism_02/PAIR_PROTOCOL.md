@@ -1,0 +1,7 @@
+# Prospective pair design — no task pair registered
+
+PAIR_PROTOCOL.json leaves all four task slots null. If a later independently reviewed/registered study can admit two distinct repositories, the intended order is task1 NoEGV→Full, task2 Full→NoEGV. This study has no qualified pair and must not fill slots silently after its blocked outcome.
+
+Both arms keep byte-identical frozen candidate configurations except the existing EGV Prompt block. Same31B QATv2,oneAgent,sixofficialtools,300s/60chargedtools/120s commands,output16384,thinking4096,seed17; sampling/include_thoughts remain omitted as frozen, not silently changed to true/default estimates. Context32768/safety1024 are planned common research admission settings. Separate sessions, working trees, evaluator sandboxes and result paths per arm; same task inputs/native tests. Agent receives only public Issue and clean source, never evaluator overlay, other arm Patch/Trace/output or reference answers. Ordinary algorithm failures continue unless actual infrastructure/integrity/resource STOP.
+
+Only two tasks are independent units, not tool calls/test counts. Report complete paired outcomes and discordant pairs with unknown/not_run retained. No population superiority claim or formal leaderboard inference from a two-task mechanism study. NoEGV can execute ordinary tests/counterexample repair; this is an EGV instruction increment comparison.
