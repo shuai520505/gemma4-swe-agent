@@ -1,0 +1,167 @@
+{
+  "started_at_utc": "2026-10-21T11:58:17.045265+00:00",
+  "target": "wudangdexiaodoashi/gemma4-u-re-fastapi-pilot01-cpu01",
+  "control": "wudangdexiaodoashi/gemma4-u-re-requests-fixture-cpu01",
+  "max_http": 24,
+  "max_list_pages": 10,
+  "sdk_version": "2.2.2",
+  "kagglesdk_version": "0.1.35",
+  "identity_confirmed": true,
+  "HTTP": [
+    {
+      "sent_at_utc": "2026-10-21T11:58:18.411904+00:00",
+      "operation": "IntrospectToken",
+      "method": "POST",
+      "query": "SDK initialization",
+      "identifiers": {},
+      "received_at_utc": "2026-10-21T11:58:19.875528+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_parsed": true,
+      "active": true,
+      "identity_matches_expected": true
+    },
+    {
+      "sent_at_utc": "2026-10-21T11:58:19.879062+00:00",
+      "operation": "ListKernels",
+      "method": "POST",
+      "query": "explicit owner PROFILE pagination",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "page": 1,
+        "page_size": 100,
+        "has_page_token": false,
+        "sort": "DATE_CREATED"
+      },
+      "received_at_utc": "2026-10-21T11:58:21.461561+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_parsed": true
+    },
+    {
+      "sent_at_utc": "2026-10-21T11:58:21.467066+00:00",
+      "operation": "ListKernels",
+      "method": "POST",
+      "query": "explicit owner PROFILE pagination",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "page": 2,
+        "page_size": 100,
+        "has_page_token": false,
+        "sort": "DATE_CREATED"
+      },
+      "received_at_utc": "2026-10-21T11:58:22.319093+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_parsed": true
+    },
+    {
+      "sent_at_utc": "2026-10-21T11:58:22.335285+00:00",
+      "operation": "GetKernel",
+      "method": "POST",
+      "query": "known own private GetKernel positive control",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "kernel_slug": "gemma4-u-re-requests-fixture-cpu01"
+      },
+      "received_at_utc": "2026-10-21T11:58:23.859253+00:00",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_parsed": true
+    },
+    {
+      "sent_at_utc": "2026-10-21T11:58:23.866776+00:00",
+      "operation": "GetKernel",
+      "method": "POST",
+      "query": "exact target GetKernel new endpoint (not repeated403 status)",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "kernel_slug": "gemma4-u-re-fastapi-pilot01-cpu01"
+      },
+      "received_at_utc": "2026-10-21T11:58:24.366198+00:00",
+      "http_status": 403,
+      "content_type": "application/json",
+      "response_parsed": true,
+      "error_code": "403",
+      "error_status": "PERMISSION_DENIED",
+      "error_message": "Permission 'kernels.get' was denied"
+    }
+  ],
+  "queries": [
+    {
+      "query": "explicit owner PROFILE pagination",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "page": 1,
+        "page_size": 100,
+        "has_page_token": false,
+        "sort": "DATE_CREATED"
+      },
+      "returned_rows": 100,
+      "newly_seen": 100,
+      "has_next_page_token": false,
+      "exact_matches": [],
+      "non_owner_refs": 1
+    },
+    {
+      "query": "explicit owner PROFILE pagination",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "page": 2,
+        "page_size": 100,
+        "has_page_token": false,
+        "sort": "DATE_CREATED"
+      },
+      "returned_rows": 70,
+      "newly_seen": 70,
+      "has_next_page_token": false,
+      "exact_matches": [],
+      "non_owner_refs": 0
+    },
+    {
+      "query": "known own private GetKernel positive control",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "kernel_slug": "gemma4-u-re-requests-fixture-cpu01"
+      },
+      "metadata": {
+        "id": 139838876,
+        "ref": "wudangdexiaodoashi/gemma4-u-re-requests-fixture-cpu01",
+        "slug": "gemma4-u-re-requests-fixture-cpu01",
+        "author": "The 13th Seat of The Genius Club",
+        "current_version_number": 1,
+        "last_run_time": "2026-10-18 11:58:22.696000",
+        "is_private": true,
+        "enable_gpu": false,
+        "enable_tpu": false,
+        "language": "python",
+        "kernel_type": "notebook"
+      }
+    },
+    {
+      "query": "exact target GetKernel new endpoint (not repeated403 status)",
+      "identifiers": {
+        "user": "wudangdexiaodoashi",
+        "kernel_slug": "gemma4-u-re-fastapi-pilot01-cpu01"
+      },
+      "exception_class": "HTTPError",
+      "redacted_error": "403 Client Error: Forbidden for url: https://api.kaggle.com/v1/kernels.KernelsApiService/GetKernel"
+    }
+  ],
+  "pagination": {
+    "pages": 2,
+    "unique_rows": 170,
+    "complete": true,
+    "exact_matches": [],
+    "scope": "explicit owner PROFILE, no search, all languages/types; pagination completeness is limited to API visibility, not proof of nonexistent resource"
+  },
+  "SaveKernel_requests": 0,
+  "resource_mutations": 0,
+  "credential_mutations": 0,
+  "request_body_or_headers_saved": false,
+  "control_private_read_confirmed": true,
+  "recovery_gate": "NO_CONFIRMED_VERSION_NO_OUTPUT_REQUESTS",
+  "credential_files_unchanged": true,
+  "captured_output_redacted": "",
+  "finished_at_utc": "2026-10-21T11:58:24.372896+00:00"
+}
