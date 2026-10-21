@@ -1,8 +1,10 @@
 import json
+import io
 from pathlib import Path
 import tempfile
 from types import SimpleNamespace
 import unittest
+import zipfile
 from unittest.mock import patch
 
 import requests
@@ -93,6 +95,44 @@ class ReadonlyRecoveryTests(unittest.TestCase):
                     guard.urls.add('https://storage.googleapis.com/example')
                     with self.assertRaises(PermissionError):requests.get('https://storage.googleapis.com/example')
                 transport.assert_not_called()
+
+    def test_newer_latest_does_not_satisfy_version_gate(self):
+        v=resource();v.metadata._current_version_number=2
+        self.assertEqual(r.identity(v)['state'],'RESOURCE_FOUND_IDENTITY_PARTIAL')
+
+    def test_request_cap_blocks_before_transport(self):
+        with tempfile.TemporaryDirectory() as folder:
+            with patch.object(requests.Session,'send',side_effect=AssertionError('TRANSPORT_FORBIDDEN')) as transport:
+                with r.ReadGuard(Path(folder),maximum=0):
+                    with self.assertRaisesRegex(RuntimeError,'cap reached'):
+                        requests.post('https://api.kaggle.com/v1/kernels.KernelsApiService/GetKernel',
+                            json=dict(userName=r.OWNER,kernelSlug=r.SLUG,versionLabel='1'))
+                transport.assert_not_called()
+
+    def test_real_evidence_directory_prevents_reentrant_live_queries(self):
+        self.assertTrue((r.HERE/'evidence').is_dir())
+        with patch.object(requests.Session,'send',side_effect=AssertionError('TRANSPORT_FORBIDDEN')) as transport:
+            with self.assertRaises(FileExistsError):r.run()
+            transport.assert_not_called()
+
+    def test_archive_manifest_tampering_rejected(self):
+        from .audit import validate_archive
+        raw=io.BytesIO()
+        with zipfile.ZipFile(raw,'w') as z:
+            z.writestr('cpu.log',b'actual')
+            z.writestr('evidence_manifest.json',json.dumps({'cpu.log':dict(bytes=6,sha256='0'*64)}))
+        with zipfile.ZipFile(raw) as z:
+            with self.assertRaises(AssertionError):validate_archive(z)
+
+    def test_archive_unsafe_paths_rejected(self):
+        from .audit import validate_archive
+        for name in ('../escape','/absolute','C:/escape','folder\\escape'):
+            with self.subTest(path=name):
+                raw=io.BytesIO()
+                with zipfile.ZipFile(raw,'w') as z:
+                    z.writestr(name,b'bad');z.writestr('evidence_manifest.json','{}')
+                with zipfile.ZipFile(raw) as z:
+                    with self.assertRaises(AssertionError):validate_archive(z)
 
 
 if __name__=='__main__':unittest.main()
