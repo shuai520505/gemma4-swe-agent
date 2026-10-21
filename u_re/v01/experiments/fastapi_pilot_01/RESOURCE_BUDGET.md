@@ -1,0 +1,7 @@
+# Resource and whole-run budget — hypothetical, not admitted
+
+Rechecked inherited8940s plan:1200 model startup+600 dependency initialization+960 two baselines+4440 four workers+240 idle checks+600 shutdown/export+900 reserve. Each worker1110=180sandbox+300Agent+60Patch+180Verifier preparation+300native Phase2+90archive/cleanup. Baseline480=150prepare+300native tests+30cleanup. Agent caps alone total1200s. Proposed10000s window would leave1060s arithmetic headroom; no platform window approval exists.
+
+Nothing measured here establishes these overhead caps. Current native CPU durations are unavailable,not zero. No current GPU quota/device/window/model/tokenizer/wheel/request routing/cleanup check was made. L4×4 device-hour proxy=9.933,not billed quota; billing units/rate unknown. Future first inference and every new arm need remaining-resource admission for all remaining registered work,including Verifier/JUnit/exports/cleanup. No shortening Phase2 to finish.
+
+Formal scoring has an independent global budget risk:300s per-task caps do not guarantee12h completion for60/80/100/120/140 hidden tasks; failures cost time too. Hidden task count and Gemma P50/P90/P95/cap-hit/explicit-submit rates remain unknown. Preserve mechanism02 WHOLE_RUN_SCENARIOS.csv as labelled sensitivity assumptions,not empirical timeout probabilities. Native patch budget and Notebook wall limit may differ; no current official whole-run clock semantics are newly verified. T50057402336 timeout score remains null,not zero. No formal Submission recommended or requested.

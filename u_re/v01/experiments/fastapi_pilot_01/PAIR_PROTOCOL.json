@@ -1,0 +1,60 @@
+{
+  "experiment_id": "U-RE-V01-FASTAPI-PILOT-01",
+  "status": "DRAFT_NO_ADMITTED_PAIR",
+  "prospective_order": [
+    {
+      "slot": 1,
+      "arm": "A",
+      "instance_id": null
+    },
+    {
+      "slot": 2,
+      "arm": "B",
+      "instance_id": null
+    },
+    {
+      "slot": 3,
+      "arm": "B",
+      "instance_id": null
+    },
+    {
+      "slot": 4,
+      "arm": "A",
+      "instance_id": null
+    }
+  ],
+  "budget": {
+    "agent_seconds": 300,
+    "counted_tools": 60,
+    "command_seconds": 120
+  },
+  "candidate_pins": {
+    "passed": true,
+    "candidates": {
+      "noegv": {
+        "zip_sha256": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "05c78e9435bfe1271a25f321093f28e4baf8940b755890e20e440548ca9fba23"
+        },
+        "CRC": true
+      },
+      "full": {
+        "zip_sha256": "887da066341bb1278ba298894f488bba8e7a3bd09ae5f4417e36a1a51f8ad821",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "63c3e81ecdd5da88101f85c5746324f6e2b087a913919d02dd59cce4e51ed108"
+        },
+        "CRC": true
+      }
+    },
+    "source_commit": "cd7fe8e19950003b59819c7accf7292ce2e151b9",
+    "same_model_tools_budget": true
+  },
+  "tasks_bound": false,
+  "execution_authorized": false,
+  "single_repository_scope": true,
+  "independence": "clean separate workspace/ADK session/Verifier sandbox for every arm; no Trace/Patch/output exchange"
+}

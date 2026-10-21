@@ -1,0 +1,97 @@
+{
+  "experiment_id": "U-RE-V01-FASTAPI-PILOT-01",
+  "status": "DRAFT_NOT_EXECUTED",
+  "base_commit": "582a016fb0c836222b6a3d653bb732e0c5e6130d",
+  "registered_at_utc": "2026-10-21T06:14:07.167979+00:00",
+  "independent_of": [
+    "U-RE-V01-MECHANISM-01",
+    "U-RE-V01-MECHANISM-02"
+  ],
+  "selection_algorithm": {
+    "rank": "reuse exact mechanism02 RANKED_POOL.json bytes; ascending SHA256 U-RE-V0.1-MECHANISM-02:17:+instance_id",
+    "max_cpu_checks": 8,
+    "select": "First two BASELINE_ELIGIBLE distinct instance_id values in frozen order; same FastAPI repository allowed",
+    "only_design_change": "Drop distinct-repository requirement in a separately registered FastAPI-only pilot",
+    "all_passing_baseline": "NON_DISCRIMINATING; do not infer repair task from exit0",
+    "environment_failures": "Record explained supported dependency/fixture blocks and continue rank; unknown errors or evidence/source/cleanup failures STOP",
+    "prohibit": [
+      "difficulty ranking",
+      "test-count ranking",
+      "reference repair",
+      "model outcome selection",
+      "candidate edits",
+      "task substitutions",
+      "extending max8"
+    ]
+  },
+  "admission": {
+    "path": "unchanged native swegemma verify_task with original snapshot/base/evaluator-only overlay and empty Agent patch",
+    "evidence": [
+      "native TaskResult",
+      "JUnit before sandbox stop",
+      "native stdout/stderr",
+      "workspace provenance",
+      "unchanged source/test hashes",
+      "process/sandbox cleanup"
+    ],
+    "dependency_installation": "approved frozen offline Wheelhouse only; no extra dependencies",
+    "provenance_scope": "Module execution confirms workspace import, not complete behavioral coverage"
+  },
+  "candidates": {
+    "passed": true,
+    "candidates": {
+      "noegv": {
+        "zip_sha256": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "05c78e9435bfe1271a25f321093f28e4baf8940b755890e20e440548ca9fba23"
+        },
+        "CRC": true
+      },
+      "full": {
+        "zip_sha256": "887da066341bb1278ba298894f488bba8e7a3bd09ae5f4417e36a1a51f8ad821",
+        "members": {
+          "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+          "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+          "prompts/system.md": "63c3e81ecdd5da88101f85c5746324f6e2b087a913919d02dd59cce4e51ed108"
+        },
+        "CRC": true
+      }
+    },
+    "source_commit": "cd7fe8e19950003b59819c7accf7292ce2e151b9",
+    "same_model_tools_budget": true
+  },
+  "budget": {
+    "agent_seconds": 300,
+    "counted_tools": 60,
+    "command_seconds": 120
+  },
+  "future_order": [
+    "A",
+    "B",
+    "B",
+    "A"
+  ],
+  "future_arms": {
+    "A": "NoEGV",
+    "B": "Full"
+  },
+  "same_repository_dependence": "Flag Issue/target/test-contract overlap after selection without subjective replacement; two tasks are not independent repository samples",
+  "execution": {
+    "execute": false,
+    "gpu_authorized": false,
+    "formal_submission": false,
+    "Agent_runs": 0,
+    "model_calls": 0
+  },
+  "source_hashes": {
+    "register.py": "16ecb489e095a2eac936fa2934cd258f5b916ff86e4d1ce2b39c58ab3661879a",
+    "screen.py": "8685a25aa356cab6fdfa26709d47a0886a66120c276b31d06debffff5075664a",
+    "gpu_execution_stub.py": "e5d537ee70e09eca5bda319c31004bd4fddb9d5d4ee17331a4d8b6139d5d30b2",
+    "EXCLUSION_AUDIT.json": "fbc3141a0dd519a58ebf9e35dd2b2738df6e251395f7bf4d707324f226c51dea",
+    "EXCLUSION_LEDGER_V02.json": "9bca03e7dd3cfd2c38da72e132854a289740771a9fbe131c2126d0d01f4981f1",
+    "RANKED_POOL.json": "ce25f04a170f980244c0adf9d765d75c0960fef6187a1cdb956cd38ac965e403",
+    "TASK_POOL_METADATA.json": "a6ec6212d841ab8f354a3d1ff67f9b7b8b5f7c45e4e515589ca7a53d0e567e0e"
+  }
+}
