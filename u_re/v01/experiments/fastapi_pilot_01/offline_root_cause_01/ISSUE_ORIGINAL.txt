@@ -1,0 +1,41 @@
+✨ Add support for dependencies with scopes, support `scope="request"` for dependencies with `yield` that exit before the response is sent
+
+✨ Add support for dependencies with scopes, support `scope="request"` for dependencies with `yield` that exit before the response is sent
+
+This adds support for
+
+* `Depends(func, scope="request")`, the default.
+* `Depends(func, scope="function")`, early exit, after the function, but before sending the response back.
+
+---
+
+I'm considering an alternative name for the `scope` parameter of `mode`, to avoid any confusion with OAuth scopes, e.g. `Security(scopes=["blah"])`, which is a completely different idea.
+
+Or a potential future `Depends(oauth_scopes=["blah"])` to replace `Security(scopes=["blah"])`.
+
+That's the only reason to consider `mode` over `scope`.
+
+---
+
+I'm also considering the values, currently they are:
+
+* `"function"`: start before the *path operation function*, exit after the function returns but **before** the response is sent.
+* `"request"`: start before the *path operation function* (same as above), exit **after** the response is sent back.
+
+I'm considering an alternative name for `"request"` of `"response"`, with the same behavior.
+
+The rationale for using `"request"` as the value is that the dependency runs around (start and end) of the *request* cycle.
+
+The rationale for using `"response"` as the value is that the main difference with `"function"` is when the exit code is run, in `"function"` it is run *after* the function is done, in this second form (`"request"` or `"response"`) it is run *after* the *response* is sent back.
+
+---
+
+I'm using this interface design because I also plan on (potentially, possibly) add a new `scope="lifespan"` that would allow using dependencies (or equivalent) functions that are run only once per app, and closed when the app ends. This way the same functionality for dependencies could be used for the app lifespan (ASGI `startup` and `shutdown` events). It should be more intuitive for users to work with. But these are future plans.
+
+---
+
+### 2025-10-03 Edit
+
+After asking in several places, I concluded to keep the parameter name as `scope`.
+
+I'll also keep the current values of `"function"`, similar to pytest, and `"request"`, to avoid confusing users who could think that the dependency will start running when the response is being sent, but it starts when the request starts.
