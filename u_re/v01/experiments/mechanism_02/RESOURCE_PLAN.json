@@ -1,0 +1,41 @@
+{
+  "scope": "Hypothetical four-run planning caps, not measured U-RE/Gemma time or approved platform allocation",
+  "seconds": {
+    "model_startup": 1200,
+    "dependency_initialization": 600,
+    "two_baselines": 960,
+    "four_workers": 4440,
+    "four_request_idle_checks": 240,
+    "final_shutdown_export": 600,
+    "safety_reserve": 900
+  },
+  "total_seconds": 8940,
+  "proposed_window_seconds": 10000,
+  "headroom_seconds": 1060,
+  "each_worker": {
+    "sandbox_prepare": 180,
+    "agent": 300,
+    "patch_save_apply": 60,
+    "verifier_prepare": 180,
+    "Phase2": 300,
+    "archive_cleanup": 90,
+    "total": 1110
+  },
+  "each_baseline": {
+    "prepare": 150,
+    "native_verification": 300,
+    "cleanup": 30,
+    "total": 480
+  },
+  "max_Agent_seconds_four": 1200,
+  "wall_hours_proxy": 2.4833333333333334,
+  "four_L4_device_hours_proxy": 9.933333333333334,
+  "quota_billing_rate": null,
+  "actual_CPU_baseline_times": null,
+  "actual_Gemma_P50": null,
+  "actual_Gemma_P90": null,
+  "actual_Gemma_P95": null,
+  "actual_GPU_session_window": null,
+  "current_quota": null,
+  "resource_admitted": false
+}

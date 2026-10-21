@@ -1,0 +1,193 @@
+"""Prospective metadata-only screening policy; never consumes repair outcomes."""
+import ast
+import hashlib
+import json
+from pathlib import Path
+import re
+import subprocess
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[3]
+BASE='794e5fc3b487b0d7a57002268fac88aa12a34851'
+PREFIX='U-RE-V0.1-MECHANISM-02:17:'
+MAX_CHECKS=8
+PATTERN=re.compile(r'\b(?:fastapi|rich|requests|httpx)_\d+\b')
+IGNORED={'source_hashes','wheel_hashes','task_wheel_hashes','model_files','ranking','complete_ranking',
+         'ranked_candidates','candidate_pool','full_pool','input_files','files','excluded_metadata_fields',
+         'problem_statement','test_patch','patch','reference_patch','gold_patch','solution','trace','stdout','stderr',
+         'request','response','response_body','payload','source_registry'}
+
+
+def sha(b):return hashlib.sha256(b).hexdigest()
+
+
+def save(name,value):
+    p=HERE/name;p.parent.mkdir(parents=True,exist_ok=True)
+    raw=value.encode() if isinstance(value,str) else (json.dumps(value,indent=2)+'\n').encode()
+    if p.exists():
+        assert p.read_bytes()==raw,'Do not overwrite pre-freeze attempt: '+str(p)
+        return
+    with p.open('xb') as f:f.write(raw)
+
+
+def rank(pool,excluded):
+    return sorted((r for r in pool if r['instance_id'] not in excluded),
+                  key=lambda r:sha((PREFIX+r['instance_id']).encode()))
+
+
+def metadata(path):
+    # No Issue difficulty, test content, reference repair, result or size read by
+    # the selector. Issue is hashed for later input matching, not interpreted.
+    rows=[]
+    for line in Path(path).read_text(encoding='utf-8').splitlines():
+        row=json.loads(line)
+        rows.append(dict(instance_id=row['instance_id'],repo=row['repo'],base_commit=row['base_commit'],
+                         issue_sha256=sha(row['problem_statement'].encode())))
+    assert len({r['instance_id'] for r in rows})==len(rows)
+    return rows
+
+
+def relevant(path):
+    if any(n in Path(path).parts for n in ('source','__pycache__','download','site-packages')):return False
+    if path.endswith('.md'):return True
+    if path.endswith('.py') and not any(n in path for n in ('/results/','/artifacts/','/files/')):return True
+    if path.endswith('.json'):
+        name=Path(path).name.lower()
+        return bool(re.search(r'protocol|registration|plan|selection|exclusion|exposure|task.identit|official_result|admission|cpu_gate|stop\.json',name))
+    return False
+
+
+def walk(value,known):
+    found=set()
+    if isinstance(value,dict):
+        for k,v in value.items():
+            if k in IGNORED:continue
+            if k in known:found.add(k)
+            found.update(walk(v,known))
+    elif isinstance(value,list):
+        for v in value:found.update(walk(v,known))
+    elif isinstance(value,str) and value in known:found.add(value)
+    return found
+
+
+def build(tasks_path):
+    assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()==BASE
+    pool=metadata(tasks_path);lookup={r['instance_id']:r for r in pool};known=set(lookup)
+    save('TASK_POOL_METADATA.json',dict(source_sha256=sha(Path(tasks_path).read_bytes()),rows=pool,
+        content_access='Only ID/repo/base and Issue hash projected. No reference repair/test content/outcome used.'))
+    old=json.loads((ROOT/'u_re/v01/EXCLUSION_LEDGER.json').read_text())
+    refs=json.loads((HERE/'REMOTE_HEADS.json').read_text())['prs']
+    sources=[];by_id={i:[] for i in old['excluded_task_ids']};catalogs=[]
+    # Retain the existing conservative exclusions even if later evidence is less
+    # restrictive. Validate their actual Git objects rather than PR prose.
+    for src in old['sources']:
+        result=subprocess.run(['git','show',src['repository_head']+':'+src['path']],cwd=ROOT,capture_output=True)
+        origin='git_blob';resolved_path=None
+        if result.returncode:
+            # Old v01 records labelled ignored local archives with a checkout
+            # commit. Preserve that provenance correction, verify exact SHA,
+            # and never pretend those files are tracked Git objects.
+            resolutions=json.loads((HERE/'evidence/HISTORICAL_ARTIFACT_RESOLUTION.json').read_text())['resolutions']
+            matches=[c for r in resolutions if r['source']['path']==src['path'] for c in r['local_copies'] if c['matches_expected']]
+            assert len(matches)==1,'Unresolved historical archive: '+src['path']
+            resolved_path=matches[0]['path'];raw=Path(resolved_path).read_bytes();origin='verified_ignored_local_archive'
+        else:raw=result.stdout
+        assert sha(raw)==src['sha256'], 'Historical source pin mismatch: '+src['path']
+        row=dict(source_commit=src['repository_head'],path=src['path'],sha256=sha(raw),origin=origin,resolved_path=resolved_path,
+                 reason='inherited_selected_used_reserved_or_uncertain',task_ids=src['task_ids'],model_executed='UNKNOWN',reserved_only='UNKNOWN',reference_answer_exposed='UNKNOWN')
+        sources.append(row)
+        for ident in src['task_ids']:
+            if ident in known:by_id.setdefault(ident,[]).append(len(sources)-1)
+    blobs={}
+    for ref in refs:
+        entries=subprocess.check_output(['git','ls-tree','-r','-z',ref['sha']],cwd=ROOT).split(b'\0')
+        for entry in entries:
+            if not entry:continue
+            info,p=entry.split(b'\t',1);path=p.decode();blob=info.split()[2].decode()
+            if relevant(path):blobs.setdefault(blob,[]).append(dict(commit=ref['sha'],path=path,pr=ref['pr']))
+    request=''.join(blob+'\n' for blob in blobs).encode()
+    rawbatch=subprocess.check_output(['git','cat-file','--batch'],input=request,cwd=ROOT)
+    position=0
+    for blob,locations in blobs.items():
+        end=rawbatch.index(b'\n',position);header=rawbatch[position:end].split();size=int(header[2])
+        content=rawbatch[end+1:end+1+size];position=end+1+size+1
+        path=locations[0]['path'];ids=set();execution='UNKNOWN';reason='historical_analysis_or_uncertain_identity_use'
+        if path.endswith('.json'):
+            try:value=json.loads(content)
+            except (ValueError,UnicodeError):continue
+            ids=walk(value,known)
+            # A full ranking is an inventory, not a reservation. The walk above
+            # excludes known ranking/hash/source/output/answer fields.
+            reason='historical_registration_identity_or_run_record'
+            if isinstance(value,dict) and ('official_result.json' in path):
+                if any(isinstance(value.get(k),(int,float)) and value[k]>0 for k in ('llm_calls','llm_calls_used','model_calls')):
+                    execution='RECORDED_MODEL_CALLS_TYPE_NOT_INFERRED'
+                elif value.get('model_calls')==0 or value.get('Agent_runs')==0:execution=False
+        elif path.endswith('.md'):
+            ids=set(PATTERN.findall(content.decode(errors='replace')))&known
+            if len(ids)>=100:
+                catalogs.append(dict(blob=blob,locations=locations,reason='complete_metadata_catalog_not_used_as_exposure',id_count=len(ids)))
+                continue
+        elif path.endswith('.py'):
+            try:tree=ast.parse(content.decode('utf-8-sig'))
+            except (SyntaxError,UnicodeError):continue
+            ids={n.value for n in ast.walk(tree) if isinstance(n,ast.Constant) and isinstance(n.value,str) and n.value in known}
+            reason='historical_source_literal_task_registration_or_test_identity'
+        if not ids:continue
+        row=dict(source_commit=locations[0]['commit'],path=path,sha256=sha(content),git_blob=blob,
+                 aliases=locations,reason=reason,task_ids=sorted(ids),model_executed=execution,
+                 reserved_only='UNKNOWN',reference_answer_exposed='UNKNOWN')
+        sources.append(row)
+        for ident in ids:by_id.setdefault(ident,[]).append(len(sources)-1)
+    # Both old U-RE-01 tasks stay reserved/observed regardless of environments.
+    for ident in ('fastapi_14458','requests_7433'):assert ident in by_id
+    entries=[]
+    for ident in sorted(by_id):
+        if ident not in lookup:continue
+        indices=sorted(set(by_id[ident]));assert indices,ident
+        src=[sources[j] for j in indices]
+        entries.append(dict(instance_id=ident,repo=lookup[ident]['repo'],reason='Conservative union of prior used/reserved/analyzed/uncertain identities',
+                            evidence_indices=indices,model_executed='RECORDED_CALLS' if any(s['model_executed']=='RECORDED_MODEL_CALLS_TYPE_NOT_INFERRED' for s in src) else 'UNKNOWN',
+                            historical_research_reserved=any(any(t in s['path'].lower() for t in ('protocol','plan','selection','registration')) for s in src),
+                            reserved_only='UNKNOWN',reference_answer_exposed='UNKNOWN',
+                            interpretation='Unknown flags do not assert no exposure. Excluded irrespective of model/reference status.'))
+    excluded={r['instance_id'] for r in entries}
+    save('EXCLUSION_LEDGER_V02.json',dict(excluded_task_ids=sorted(excluded),entries=entries,sources=sources,
+        scope='PR1–10 actual Git metadata/source/report union, plus all inherited exclusions; complete rankings/hash inventories/output/answer fields ignored. No claim about model pretraining or unrecorded work.',
+        metadata_catalogs=catalogs,unique_relevant_git_blobs_inspected=len(blobs),serious_identity_conflicts=[]))
+    ranked=rank(pool,excluded)
+    save('RANKED_POOL.json',dict(prefix=PREFIX,rows=[dict(r,rank=i+1,sort_sha256=sha((PREFIX+r['instance_id']).encode()),
+        prior_exposure='No recorded used/reserved/analyzed identity in scoped audit; unrecorded/pretraining exposure UNKNOWN') for i,r in enumerate(ranked)]))
+    protocol=dict(experiment_id='U-RE-V01-MECHANISM-02',status='DRAFT_NOT_EXECUTED',base=BASE,
+        selection_algorithm=dict(prefix=PREFIX,rank='ascending SHA256 UTF-8(prefix+instance_id)',max_cpu_checks=MAX_CHECKS,
+            select='First two eligible tasks from different repositories, in rank order. After selecting one, skip later tasks from that repository without CPU evaluation; skipped rows do not consume max checks.',
+            environment_failures='Explained ordinary setup/collection/dependency blockers are recorded rejections; continue next frozen rank. Unexplained failures or integrity/cleanup/JUnit loss cause global STOP.',
+            all_passing_baseline='Reject as non-discriminating; require at least one genuine structured behavior failure with no setup/collection/internal errors. No sorting by tests/failures/difficulty.',
+            unavailable_dependencies='No unapproved installation; known Requests missing-provider rejection does not repeat PR10 diagnosis.'),
+        admission=dict(native_verifier='swegemma0.2.11 verify_task',Agent_patch='',test_overlay='original evaluator-only',
+            evidence=['native TaskResult','native JUnit before cleanup','stdout/stderr','task/snapshot/Issue/base/test overlay hashes','workspace provenance/source-test hashes','sandbox/process cleanup'],
+            errors='Do not turn setup errors into Agent failure; inspect JUnit stages and original failure chain.'),
+        stop=['candidate/config/hash drift','input identity mismatch','reference/test leakage to Agent','native Verifier drift','unexplained exception/environment error','missing/conflicting JUnit','cleanup failure','max8 checks without two repositories'],
+        candidates=json.loads((ROOT/'u_re/v01/CANDIDATES.json').read_text()),
+        source_hashes={'select.py':sha(Path(__file__).read_bytes()),'EXCLUSION_LEDGER_V02.json':sha((HERE/'EXCLUSION_LEDGER_V02.json').read_bytes()),
+            'TASK_POOL_METADATA.json':sha((HERE/'TASK_POOL_METADATA.json').read_bytes()),'RANKED_POOL.json':sha((HERE/'RANKED_POOL.json').read_bytes())},
+        execution=dict(execute=False,gpu_authorized=False,formal_submission=False,Agent_runs=0,model_calls=0),
+        sample='two tasks/four future independent runs A→B then B→A; no effect claim from n2')
+    save('SELECTION_PROTOCOL.json',protocol)
+    save('SELECTION_PROTOCOL.md','''# Prospective selection freeze — U-RE-V01-MECHANISM-02
+
+Freeze SELECTION_PROTOCOL.json, select.py, the complete metadata pool, exclusion ledger and full deterministic ranking in Git **before any new CPU baseline**. Prefix U-RE-V0.1-MECHANISM-02:17:, ascending SHA256(prefix+ID), max8 actual CPU task checks. No Issue difficulty, model result, repair/test Patch or test count is a ranking input. Select the first two admitted distinct repositories; skip later candidates in an already-selected repo without executing them. Retain all ranked rows and skips. Stop at two repositories or8 evaluated candidates. No expansion/reordering after results.
+
+An explained missing dependency/fixture or ordinary baseline non-admission is a recorded rejection and proceeds to the next frozen candidate. Unknown environment/executor/integrity/JUnit/cleanup failure stops the entire screening. Require original task and evaluator test overlay, real native verify_task with empty Agent patch, preserved original JUnit/stdout/TaskResult and cleanup. A completely passing base is non-discriminating. Require genuine target behavior failures, no unexplained setup/collection/plugin errors, verified workspace source and original tests. No fake fixtures, test changes, dependency downloads or reference repair.
+
+Exclusions conservatively union prior ledger and actual PR1–10 Git records, reports and task literals; metadata rankings/hash inventories/answer and trace fields are excluded from exposure extraction. Uncertain model/reference history is UNKNOWN and excluded, never labelled definitely unseen. Remaining tasks have no recorded exposure in this audit, not a pretraining-contamination guarantee. Both U-RE-01 tasks remain excluded. See per-ID evidence indices and source commits in EXCLUSION_LEDGER_V02.json. Old experiment remains DRAFT_BASELINE_BLOCKED and is never edited.
+
+After CPU admission, freeze exact identities and ABBA order in a new pair draft. This does not authorize GPU. Four future runs keep the unchanged candidate ZIPs, one31B Agent,six tools,300s/60 charged tools/120s command,generation16384/thinking4096/seed17 and independent sessions/workspaces/verifiers. GPU model/current quota/window/request/cleanup identity and explicit authorization remain separate gates.
+''')
+    print(json.dumps(dict(pool=len(pool),excluded=len(excluded),remaining=len(ranked),max_cpu_checks=MAX_CHECKS,
+        first_ranks=[dict(id=r['instance_id'],repo=r['repo']) for r in ranked[:8]],source_blobs=len(blobs)),indent=2))
+
+
+if __name__=='__main__':
+    import sys
+    build(sys.argv[1])
