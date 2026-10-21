@@ -1,0 +1,24 @@
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 17c78de5-5c8, creating venv without pip: Command '['/kaggle/working/u_re_smoke_cpu01/validation/cases/basic/sandboxes/swegemma_sandbox_17c78de5-5c8/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 0c1089bd-920, creating venv without pip: Command '['/kaggle/working/u_re_smoke_cpu01/validation/cases/closed_loop/sandboxes/swegemma_sandbox_0c1089bd-920/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 1d78e24a-6bb, creating venv without pip: Command '['/kaggle/working/u_re_smoke_cpu01/validation/cases/wrong_test/sandboxes/swegemma_sandbox_1d78e24a-6bb/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox 58c42ef3-ae9, creating venv without pip: Command '['/kaggle/working/u_re_smoke_cpu01/validation/cases/exact_tools/sandboxes/swegemma_sandbox_58c42ef3-ae9/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox eec8db1f-7cc, creating venv without pip: Command '['/kaggle/working/u_re_smoke_cpu01/validation/cases/external_cancel/sandboxes/swegemma_sandbox_eec8db1f-7cc/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/u_re_smoke_cpu01/source/u_re/v01/experiments/gemma_smoke_01/cpu_interfaces.py", line 87, in <module>
+    if __name__=='__main__':asyncio.run(run(sys.argv[1]))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/u_re_smoke_cpu01/source/u_re/v01/experiments/gemma_smoke_01/cpu_interfaces.py", line 40, in run
+    assert r['HTTP_audit']['passed'],case
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: external_cancel

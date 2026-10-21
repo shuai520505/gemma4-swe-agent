@@ -1,0 +1,37 @@
+test_agent_projection_rejects_all_evaluator_fields (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_agent_projection_rejects_all_evaluator_fields) ... ok
+test_candidate_tamper (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_candidate_tamper) ... ok
+test_cleanup_after_transport_error (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_cleanup_after_transport_error) ... FAIL
+test_end_to_end_mock_six_tool_contract (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_end_to_end_mock_six_tool_contract) ... ok
+test_frozen_candidates_crc_members (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_frozen_candidates_crc_members) ... ok
+test_grant_pin_scope_expiry_and_isolation (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_grant_pin_scope_expiry_and_isolation) ... ok
+test_missing_authorization_before_runtime (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_missing_authorization_before_runtime) ... ok
+test_no_distribution_fetch_or_dispatch_in_runner (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_no_distribution_fetch_or_dispatch_in_runner) ... ERROR
+test_no_reentry (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_no_reentry) ... ok
+
+======================================================================
+ERROR: test_no_distribution_fetch_or_dispatch_in_runner (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_no_distribution_fetch_or_dispatch_in_runner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\gemma_smoke_01\test_smoke.py", line 102, in test_no_distribution_fetch_or_dispatch_in_runner
+    draft=json.loads((HERE/'GPU_PRECHECK.json').read_text())
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-u-re-v01\\u_re\\v01\\experiments\\gemma_smoke_01\\GPU_PRECHECK.json'
+
+======================================================================
+FAIL: test_cleanup_after_transport_error (u_re.v01.experiments.gemma_smoke_01.test_smoke.SmokeTests.test_cleanup_after_transport_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\gemma_smoke_01\test_smoke.py", line 68, in test_cleanup_after_transport_error
+    self.assertEqual(json.loads((Path(d)/'STAGES.json').read_text())['stages'][0]['error_class'],'ConnectionError')
+AssertionError: None != 'ConnectionError'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.171s
+
+FAILED (failures=1, errors=1)
