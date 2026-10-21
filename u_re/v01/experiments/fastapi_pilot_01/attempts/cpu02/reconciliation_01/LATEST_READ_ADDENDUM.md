@@ -1,0 +1,5 @@
+# Distinct latest read after actual version-label404
+
+Initial explicit versionLabel1 GetKernel returned404; two own PROFILE pages completed with171 entries and no exact typed numericID match. These observations remain under evidence/. No status/output request was sent. This does not prove save failure. Installed CLI kernels_pull does not use the optional version_label field; its semantics are not documented by the type. A distinct no-version-label latest GetKernel is therefore permitted as an adaptive read of the exact same authorized slug,not a repeat of a denied403 or a save.
+
+Before this distinct probe: retain original events;use new evidence_latest/ directory. Require actual latest metadata1,ID140021966,owner/ref/slug and complete source/payload gates before status. Status/output use latest semantics bracketed before/after by latest1/source checks. If denied,stop;do not retry it. One additional bounded invocation,max26HTTP so initial4 plus this invocation cannot exceed30. Fallback records positive-ID availability and only safe matching/newest metadata to distinguish absent records from missing server ID fields. No SaveKernel/rerun/GPU/Agent/Submission.
