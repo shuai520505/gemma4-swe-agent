@@ -40,7 +40,7 @@ def factory(attempt):
     runs=0 if attempt=='screen01' else 2 if attempt=='taskruntime01' else 4
     source=source.replace('Agent_runs=6','Agent_runs='+str(runs)).replace("expected_candidates_in_order=['noegv_synthetic_interfaces_only']","expected_candidates_in_order=[]")
     source=source.replace("sha((HERE/'SMOKE_PLAN.json').read_bytes())","sha((ROOT/'"+prefix+"PROTOCOL.json').read_bytes())")
-    if attempt=='taskruntime01':source=source.replace("prefix_never_matches",'') if False else source.replace(prefix+"PROTOCOL.json",prefix+"TASK_RUNTIME_PROTOCOL.json")
+    if attempt=='taskruntime01':source=source.replace(prefix+"PROTOCOL.json",prefix+"TASK_RUNTIME_PROTOCOL.json")
     source=source.replace("Path('/kaggle/working/u_re_smoke_cpu01')","Path('/kaggle/working/u_re_integrated_"+attempt+"')")
     module='screen' if attempt=='screen01' else 'taskruntime_probe' if attempt=='taskruntime01' else 'acceptance'
     source=source.replace("'u_re.v01.experiments.gemma_smoke_01.cpu_interfaces'","'u_re.v01.experiments.action_priority_01.integrated_cpu_01."+module+"'")
