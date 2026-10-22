@@ -30,6 +30,9 @@ def factory(attempt):
     files[prefix+'PROTOCOL.json']=(ROOT/prefix/'PROTOCOL.json').read_bytes()
     files[prefix+'SMOKE_PLAN.json']=(HERE/'SMOKE_PLAN.json').read_bytes()
 """
+    if attempt=='screen01':
+        extra+="\n    for name in ('CPU_GATE_PIN.json','ACCEPTED_CPU_ACCEPTANCE.json','EXPECTED_TASK_RECORDS.json'):\n        files[prefix+name]=(ROOT/prefix/name).read_bytes()\n"
+        extra+="\n    files['u_re/v01/experiments/fastapi_pilot_01/__init__.py']=b''\n    p=ROOT/'u_re/v01/experiments/fastapi_pilot_01/screen.py';files[p.relative_to(ROOT).as_posix()]=p.read_bytes()\n"
     needle="files['u_re/v01/submission_noegv.zip']=(ROOT/'u_re/v01/submission_noegv.zip').read_bytes()"
     assert source.count(needle)==1;source=source.replace(needle,needle+extra)
     runs=0 if attempt=='screen01' else 4

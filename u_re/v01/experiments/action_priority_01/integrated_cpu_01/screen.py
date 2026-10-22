@@ -53,7 +53,45 @@ async def run(output):
     from s1.verifier_v3.audit import audit_verifier
     output=Path(output);output.mkdir(parents=True,exist_ok=False)
     assert ctypes.CDLL(None,use_errno=True).prctl(36,1,0,0,0)==0
+    atomic_json(output/'TASK_ADMISSION_LEDGER.json',dict(checked=0,selected=[],rows=[dict(r,status='NOT_RUN',eligible=None,counts=None) for r in ranked],
+        stop=None,screening_in_progress=True,GPU=False,Agent_runs=0,model_calls=0))
     data=find_data();tasks={t.instance_id:t for t in load_tasks(data/'tasks.jsonl')}
+    expected=json.loads((HERE/'EXPECTED_TASK_RECORDS.json').read_bytes())
+    identities=identify(data,[r['instance_id'] for r in ranked])
+    for ident,value in identities.items():
+        for key,wanted in expected[ident].items():assert value[key]==wanted,('Task identity drift before any native check',ident,key)
+    atomic_json(output/'INPUT_IDENTITIES_BEFORE_EXECUTION.json',identities)
+    # Functional third-party dependency check on the accepted runtime,without
+    # any real task/evaluator data or model. Fail before native screening.
+    from .CHROOT_TASK_RUNTIME import SubprocessManager as Isolated
+    dependency=output/'dependency_smoke';dependency.mkdir()
+    runtime=Isolated(journal=Journal(dependency),base_dir=dependency/'roots',task_wheels=data/'wheels')
+    sid=runtime.start()
+    try:
+        import shlex
+        code='from fastapi import FastAPI;from fastapi.testclient import TestClient;app=FastAPI();app.get("/owned")(lambda:{"ok":True});client=TestClient(app);r=client.get("/owned");assert r.status_code==200 and r.json()=={"ok":True};print("ISOLATED_ASGI_HTTP_ASSERTION_OK")'
+        execution=runtime.exec(sid,'python3 -c '+shlex.quote(code),timeout=120)
+        atomic_json(dependency/'result.json',dict(exit_code=execution.exit_code,stdout=execution.stdout,stderr=execution.stderr))
+        assert execution.exit_code==0 and 'ISOLATED_ASGI_HTTP_ASSERTION_OK' in execution.stdout
+        # Explicitly observe successful setsid,not just an attempted call.
+        daemon='import os,pathlib,time,json;\nif os.fork()==0:\n os.setsid();pathlib.Path("owned_session.json").write_text(json.dumps(dict(pid=os.getpid(),sid=os.getsid(0),pgid=os.getpgrp())));time.sleep(30)\nelse:time.sleep(30)'
+        timed=await asyncio.to_thread(runtime.exec,sid,'python3 -c '+shlex.quote(daemon),timeout=2)
+        marker=runtime.sandboxes[sid]['workspace']/'owned_session.json'
+        observed=json.loads(marker.read_bytes());assert observed['pid']==observed['sid']==observed['pgid']
+        assert timed.timed_out and not psutil.pid_exists(observed['pid'])
+        marker.unlink()
+        job=asyncio.create_task(asyncio.to_thread(runtime.exec,sid,'python3 -c '+shlex.quote(daemon),timeout=60))
+        until=time.monotonic()+15
+        while not marker.exists():
+            assert time.monotonic()<until;await asyncio.sleep(.05)
+        second=json.loads(marker.read_bytes());assert second['pid']==second['sid']==second['pgid']
+        assert psutil.Process(second['pid']).uids().real==runtime.sandboxes[sid]['uid']
+        await asyncio.to_thread(runtime.stop,sid);await job
+        assert not psutil.pid_exists(second['pid'])
+        atomic_json(dependency/'DETACHED_SESSION_PROOF.json',dict(timeout_session=observed,abort_session=second,
+            timeout_detached_PID_gone=True,abort_detached_PID_gone=True,UID_ownership_verified=True))
+    finally:runtime.cleanup_all()
+    atomic_json(dependency/'cleanup.json',dict(complete=not runtime.sandboxes))
     dependency_presence={'inline_snapshot':importlib.util.find_spec('inline_snapshot') is not None}
     atomic_json(output/'dependency_presence.json',dependency_presence)
     atomic_json(output/'official_source_hashes.json',{n:hashlib.sha256(Path(inspect.getfile(importlib.import_module(n))).read_bytes()).hexdigest()
@@ -66,7 +104,7 @@ async def run(output):
         ident=row['instance_id'];task=tasks[ident]
         assert task.repo==row['repo'] and task.base_commit==row['base_commit']
         assert hashlib.sha256(task.problem_statement.encode()).hexdigest()==row['issue_sha256']
-        identity=identify(data,[ident])[ident]
+        identity=identities[ident]
         checked+=1;directory=output/f'{rank:02d}-{ident}';directory.mkdir()
         atomic_json(directory/'task_identity.json',identity)
         snapshot,base,overlay=resolve_task_snapshot_paths(data/'snapshots',ident,task.repo)
