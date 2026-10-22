@@ -1,0 +1,78 @@
+{
+  "experiment_id": "U-RE-V01-ACTION-FIRST-01",
+  "status": "GPU_NO_GO",
+  "execute": false,
+  "gpu_authorized": false,
+  "formal_submission": false,
+  "GPU_requests": 0,
+  "real_Gemma_requests": 0,
+  "gates": {
+    "G1_candidate_integrity": "PASS_ALL_THREE_ZIPS_RAW_SHA_AND_CRC",
+    "G2_task_admission": "PENDING_NO_NATIVE_TASK_CHECKS",
+    "G3_isolation": "CPU_SYNTHETIC_OFFICIAL_TOOL_CANARIES_PASS_FULL_RUNNER_GPU_PROMOTION_PENDING",
+    "G4_model": "STATIC_MODEL8_AND_OFFICIAL_WHEEL41_PINS_RUNTIME_RECHECK_REQUIRED",
+    "G5_resources": "RAW_QUOTA_THRESHOLD_PASS_CAPACITY_WINDOW_AND_GPU_ENV_UNCONFIRMED",
+    "G6_observability": "REUSED_HTTP_SAVE_READ_RECOVERY_PASS_FULL_GPU_INTEGRATION_PENDING",
+    "G7_human_GPU_authorization": "NOT_AUTHORIZED"
+  },
+  "model": {
+    "source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "files": {
+      "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+      "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+      "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+      "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+      "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+      "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+      "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+    },
+    "official_wheels_manifest_sha256": "b81f8d1957e628f66c18e2ee257a910d9a7b5668996075a213defb41119be4b5",
+    "gpu": "NVIDIA L4 x4",
+    "TP": 4,
+    "historical_cuda": "12.8",
+    "historical_vllm": "0.19.1",
+    "context": 32768,
+    "context_safety": 1024,
+    "weight_files_currently_rehashed_on_GPU": false
+  },
+  "runtime_budget": {
+    "Agent_seconds": 300,
+    "charged_tools": 60,
+    "command_seconds": 120,
+    "max_output_tokens": 16384,
+    "thinking_budget": 4096,
+    "seed": 17,
+    "planned_Notebook_seconds": 10000,
+    "planned_component_seconds": 8640,
+    "planning_only": true
+  },
+  "fresh_quota": {
+    "total": "108000",
+    "used": "24955.714",
+    "reserved": "0",
+    "remaining": "83044.286",
+    "units": "raw protobuf Duration seconds, not SDK timedelta.seconds",
+    "planning_threshold": 20600,
+    "quota_passed": true,
+    "live_4L4_capacity": "RUNTIME_RECHECK_REQUIRED",
+    "window_seconds_requested": 10000,
+    "window_approved": false,
+    "allocation_requested": false
+  },
+  "selected_admitted_tasks": [],
+  "new_SaveKernel_dispatches": 2,
+  "new_CPU_Notebooks": [
+    {
+      "id": 140209916,
+      "version": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "id": 140211037,
+      "version": 1,
+      "status": "COMPLETE"
+    }
+  ],
+  "next": "Integrated chroot official Runner/task dependencies and max8 frozen task baselines; then complete identity/resource/runtime checks and separate scoped GPU authorization"
+}

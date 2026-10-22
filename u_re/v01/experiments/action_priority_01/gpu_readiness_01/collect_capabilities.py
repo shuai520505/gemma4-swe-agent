@@ -6,7 +6,9 @@ import types
 from .cpu_probe_notebook import CPU,ROOT,SLUG
 
 
-def collect(private_root):
+def collect(private_root, *,cpu=CPU,slug=SLUG,archive='u_re_isolation_cap01.zip'):
+    CPU=cpu;SLUG=slug
+    assert archive in ('u_re_isolation_cap01.zip','u_re_isolation_canary01.zip')
     private_root=Path(private_root).resolve();assert not private_root.is_relative_to(ROOT)
     receipt=json.loads((CPU/'execution/HTTP_RECEIPT.json').read_bytes())
     identity=receipt['Notebook_id'];assert type(identity) is int and receipt['accepted_version']==1
@@ -15,7 +17,7 @@ def collect(private_root):
     original=ROOT/'u_re/v01/experiments/fastapi_pilot_01/attempts/cpu02/reconciliation_01/recover.py'
     text=original.read_text(encoding='utf-8')
     needle="item.file_name.endswith('.zip') and 'cpu02/' in item.file_name and '/source/' not in item.file_name"
-    assert text.count(needle)==1;text=text.replace(needle,"item.file_name == 'u_re_isolation_cap01.zip'")
+    assert text.count(needle)==1;text=text.replace(needle,"item.file_name == "+repr(archive))
     m=types.ModuleType('isolation_cap_readonly');m.__file__=str(original)
     exec(compile(text,str(original),'exec'),m.__dict__)
     n=len(list((CPU/'read_observations').glob('read-*')))+1;assert n<=5
@@ -31,4 +33,7 @@ def collect(private_root):
 
 if __name__=='__main__':
     import sys
-    collect(sys.argv[1])
+    if sys.argv[1:2]==['--canary']:
+        from .cpu_canary_notebook import CPU,SLUG
+        collect(sys.argv[2],cpu=CPU,slug=SLUG,archive='u_re_isolation_canary01.zip')
+    else:collect(sys.argv[1])
