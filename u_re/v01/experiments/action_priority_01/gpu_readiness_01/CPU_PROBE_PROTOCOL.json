@@ -1,0 +1,21 @@
+{
+  "experiment_id": "U-RE-ACTION-FIRST-ISOLATION-CAP01",
+  "slug": "wudangdexiaodoashi/gemma4-u-re-isolation-cap01",
+  "purpose": "Minimum actual Kaggle capability probe; not an Agent, task admission or Gemma experiment",
+  "authorization_source": "User Kaggle Notebook execution rules explicitly allow active CPU isolation capability probes",
+  "max_SaveKernel_dispatches": 1,
+  "CPU": true,
+  "GPU": false,
+  "TPU": false,
+  "internet": false,
+  "Agent_runs": 0,
+  "Gemma_calls": 0,
+  "task_baselines": 0,
+  "approved_wheels": "../../gemma_smoke_01/SMOKE_PLAN.json official_wheels, unchanged",
+  "capabilities": ["Docker/proxy ping and preseeded approved image identity only; never pull", "owned child-only chroot", "owned child-only UID/DAC probe", "owned child-only mount/user namespace probe"],
+  "child_timeout_seconds": 30,
+  "SaveKernel_timeout_requested_seconds": 3600,
+  "unknown_save_response": "Stop dispatch; independent bounded read-only identity/version recovery; never resend",
+  "promotion": "Positive capability alone is NOT ISOLATION_VERIFIED; actual official-tool boundary canaries remain required",
+  "output_archive": "u_re_isolation_cap01.zip"
+}
