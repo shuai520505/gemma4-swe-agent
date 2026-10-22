@@ -8,7 +8,7 @@ SMOKE=ROOT/'u_re/v01/experiments/gemma_smoke_01'
 
 
 def identity(attempt):
-    assert attempt in ('runner01','runner02','runner03','screen01')
+    assert attempt in ('runner01','runner02','runner03','screen01','taskruntime01')
     return HERE/attempt,'U-RE-ACTION-FIRST-INTEGRATED-'+attempt.upper(),'wudangdexiaodoashi/gemma4-u-re-integrated-'+attempt
 
 
@@ -33,13 +33,16 @@ def factory(attempt):
     if attempt=='screen01':
         extra+="\n    for name in ('CPU_GATE_PIN.json','ACCEPTED_CPU_ACCEPTANCE.json','EXPECTED_TASK_RECORDS.json'):\n        files[prefix+name]=(ROOT/prefix/name).read_bytes()\n"
         extra+="\n    files['u_re/v01/experiments/fastapi_pilot_01/__init__.py']=b''\n    p=ROOT/'u_re/v01/experiments/fastapi_pilot_01/screen.py';files[p.relative_to(ROOT).as_posix()]=p.read_bytes()\n"
+    if attempt=='taskruntime01':
+        extra+="\n    for name in ('SELECTED_TASKS.json','APPROVED_RUNTIME_FINGERPRINT.json','TASK_RUNTIME_PROTOCOL.json'):\n        files[prefix+name]=(ROOT/prefix/name).read_bytes()\n"
     needle="files['u_re/v01/submission_noegv.zip']=(ROOT/'u_re/v01/submission_noegv.zip').read_bytes()"
     assert source.count(needle)==1;source=source.replace(needle,needle+extra)
-    runs=0 if attempt=='screen01' else 4
+    runs=0 if attempt=='screen01' else 2 if attempt=='taskruntime01' else 4
     source=source.replace('Agent_runs=6','Agent_runs='+str(runs)).replace("expected_candidates_in_order=['noegv_synthetic_interfaces_only']","expected_candidates_in_order=[]")
     source=source.replace("sha((HERE/'SMOKE_PLAN.json').read_bytes())","sha((ROOT/'"+prefix+"PROTOCOL.json').read_bytes())")
+    if attempt=='taskruntime01':source=source.replace("prefix_never_matches",'') if False else source.replace(prefix+"PROTOCOL.json",prefix+"TASK_RUNTIME_PROTOCOL.json")
     source=source.replace("Path('/kaggle/working/u_re_smoke_cpu01')","Path('/kaggle/working/u_re_integrated_"+attempt+"')")
-    module='screen' if attempt=='screen01' else 'acceptance'
+    module='screen' if attempt=='screen01' else 'taskruntime_probe' if attempt=='taskruntime01' else 'acceptance'
     source=source.replace("'u_re.v01.experiments.gemma_smoke_01.cpu_interfaces'","'u_re.v01.experiments.action_priority_01.integrated_cpu_01."+module+"'")
     source=source.replace('timeout=1800)\nprint','timeout=6500)\nprint')
     # Runtime rehash all124 approved task wheels before any task or dependency copy.
