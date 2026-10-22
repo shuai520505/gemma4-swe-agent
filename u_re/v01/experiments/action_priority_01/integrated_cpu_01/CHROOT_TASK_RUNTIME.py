@@ -26,6 +26,8 @@ def kill_owned(entry):
     """Only this journal's freshly reserved non-root UID, including setsid."""
     import psutil
     assert 20000<=entry['uid']<60000
+    lease=Path(entry['lease']);assert lease.stat().st_uid==0 and lease.stat().st_mode&0o077==0
+    assert json.loads(lease.read_bytes())['token']==entry['token'],'Stale UID ownership record'
     killed=[]
     for process in psutil.process_iter(['pid','uids','create_time','status']):
         try:
@@ -133,6 +135,20 @@ def extra_binaries(root):
     return copied
 
 
+def dependency_libraries(root):
+    import re
+    copied={}
+    for extension in (root/'opt/approved').rglob('*.so'):
+        result=subprocess.run(['ldd',str(extension)],capture_output=True,text=True,timeout=20)
+        if result.returncode:raise RuntimeError('Cannot inspect approved dependency ELF: '+str(extension))
+        assert 'not found' not in result.stdout,('Host ELF dependency unavailable',str(extension))
+        for name in re.findall(r'(?:=>\s*)?(/[^\s()]+)',result.stdout):
+            source=Path(name);target=root/name.lstrip('/');target.parent.mkdir(parents=True,exist_ok=True)
+            if not target.exists():shutil.copyfile(source.resolve(),target);target.chmod(0o755)
+            copied[name]=hashlib.sha256(target.read_bytes()).hexdigest()
+    return copied
+
+
 class SubprocessManager(BaseSandboxManager):
     """Literal organizer dispatch name; tools operate only via confined children."""
     def __init__(self,*,journal,base_dir,timeout_seconds=120,task_wheels=None,**unused):
@@ -168,13 +184,25 @@ class SubprocessManager(BaseSandboxManager):
         import psutil
         occupied={p.info['uids'].real for p in psutil.process_iter(['uids']) if p.info['uids']}
         used=occupied|{e['uid'] for e in self.entries}
-        uid=next(n for n in range(20000,60000) if n not in used)
+        leases=Path('/tmp/ure_owned_uid_leases');leases.mkdir(mode=0o700,exist_ok=True)
+        assert leases.stat().st_uid==0 and leases.stat().st_mode&0o077==0
+        uid=next(n for n in range(20000,60000) if n not in used and not (leases/str(n)).exists())
         sid=uuid.uuid4().hex[:12];root=self.base_dir/sid
-        entry=dict(uid=uid,started_epoch=time.time(),sid=sid,root=str(root.resolve()))
+        entry=dict(uid=uid,started_epoch=time.time(),sid=sid,root=str(root.resolve()),token=uuid.uuid4().hex,lease=str(leases/str(uid)))
+        with (leases/str(uid)).open('x') as stream:json.dump(entry,stream);stream.flush();os.fsync(stream.fileno())
+        (leases/str(uid)).chmod(0o600)
         self.entries.append(entry);atomic_json(self.registry,dict(kind='URE_OWNED_UID_REGISTRY_V1',entries=self.entries));self.registry.chmod(0o600)
         runtime=prepare_runtime(root);runtime['extra_binaries']=extra_binaries(root)
         if not (root/'bin/sh').exists():(root/'bin/sh').symlink_to('/usr/bin/sh')
+        # Kaggle host instrumentation is not part of task dependencies and must
+        # not execute in the Agent interpreter. Preserve its identity only.
+        removed=[]
+        for name in ('sitecustomize.py','usercustomize.py'):
+            for p in list(root.rglob(name)):
+                removed.append(dict(path=str(p.relative_to(root)),sha256=hashlib.sha256(p.read_bytes()).hexdigest()));p.unlink()
+        runtime['excluded_host_python_customization']=removed
         dependencies=dependency_copy(root,self.task_wheels)
+        runtime['dependency_ELF_libraries']=dependency_libraries(root)
         for name in ('workspace','tmp'):os.chown(root/name,uid,uid)
         if self.task_wheels:
             (root/'wheels').mkdir()
@@ -200,11 +228,13 @@ class SubprocessManager(BaseSandboxManager):
             try:stdout,stderr=p.communicate(data,timeout=timeout or self.timeout_seconds)
             except subprocess.TimeoutExpired:
                 timed=True
-                with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
+                if p.poll() is None:
+                    with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
                 kill_owned(paths['entry']);stdout,stderr=p.communicate(timeout=5)
             return stdout,stderr,p.returncode,timed,time.monotonic()-begin
         finally:
-            with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
+            if p.poll() is None:
+                with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
             killed=kill_owned(paths['entry'])
             with self._lock:self.popens[sid].discard(p)
             self.journal.append(dict(kind='chroot_process_cleanup',sid=sid,wrapper_pid=p.pid,killed_owned_uid_pids=killed))
@@ -229,7 +259,8 @@ class SubprocessManager(BaseSandboxManager):
         with self._lock:
             self.closed.add(sid)
             for p in self.popens[sid]:
-                with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
+                if p.poll() is None:
+                    with contextlib.suppress(ProcessLookupError):os.killpg(p.pid,signal.SIGKILL)
             entry=self._sandboxes[sid]['entry']
         killed=kill_owned(entry)
         for p in list(self.popens[sid]):
