@@ -1,0 +1,65 @@
+{
+  "Notebook_id": 140228050,
+  "version": 1,
+  "dispatches": 1,
+  "devices": [
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    }
+  ],
+  "runtime": {
+    "versions": {
+      "swegemma": "0.2.11",
+      "adk-submission": "0.2.13",
+      "google-adk": "1.36.1",
+      "google-genai": "2.11.0",
+      "litellm": "1.82.4",
+      "pytest": "8.4.2",
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128"
+    },
+    "torch_cuda": "12.8",
+    "driver": "580.178.04\n580.178.04\n580.178.04\n580.178.04\n",
+    "requested_window": 10000,
+    "window_basis": "Platform accepted SaveKernel sessionTimeoutSeconds=10000; elapsed clock begins in first Notebook cell; SDK exposes no independent effective-window field",
+    "session_started": 1249.320320659
+  },
+  "model_files": null,
+  "VLLM_config": null,
+  "isolation": null,
+  "cleanup": {
+    "observed_pids": [],
+    "remaining": [],
+    "confirmed": false,
+    "idle_error": null
+  },
+  "cost": {
+    "session_elapsed_seconds": 140.98130167600016,
+    "actual_Gemma_requests": 0,
+    "request_count_source": "Actual http_request records",
+    "GPU_billed_seconds": null
+  },
+  "STOP": {
+    "error_type": "FileNotFoundError",
+    "reason": "[Errno 2] No such file or directory: '/kaggle/working/u_re_actionfirst_abba01/source/u_re/v01/experiments/action_priority_01/integrated_cpu_01/CPU_GATE_PIN.json'",
+    "traceback": "Traceback (most recent call last):\n  File \"/kaggle/working/u_re_actionfirst_abba01/source/u_re/v01/experiments/action_priority_01/real_gemma_abba01/session.py\", line 109, in run\n    for n,h in lock['source_pins'].items():assert digest(PRIOR/n)==h,('CPU accepted source drift',n)\n                                                  ^^^^^^^^^^^^^^^\n  File \"/kaggle/working/u_re_actionfirst_abba01/source/u_re/v01/experiments/action_priority_01/real_gemma_abba01/session.py\", line 24, in digest\n    with Path(path).open('rb') as f:\n         ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/u_re_actionfirst_abba01/source/u_re/v01/experiments/action_priority_01/integrated_cpu_01/CPU_GATE_PIN.json'\n",
+    "completed": 0
+  },
+  "execution": null,
+  "raw_archive_sha256": "73b8780a4f7deac1c15e76318a337a2bfc004d40c90c99a0f98b95e3f4309cc5",
+  "CRC_valid": true,
+  "formal_submission_requests": 0
+}

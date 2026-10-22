@@ -1,0 +1,13 @@
+# U-RE-V01-ACTION-FIRST-01 — real Gemma ABBA01
+
+Source baseline: unmerged PR21,804681b1cb546d629c750096ea9e6b371e1d0a4c. The current human instruction explicitly grants one GPU Notebook,4×L4/TP4,Gemma31BQATv2 and four frozen300s sessions in9425A→9425B→14786B→14786A order. No extra task,Prompt change,Full arm,whole-run retry or formal Submission.
+
+P0 bounded formal investigation is in FORMAL_SCORE_COMPARISON.md;the formal0.12/0.13 difference cannot be attributed from aggregate scores. P1 admission.py verifies actual private native TaskResult/JUnit/source/cleanup and produces ADMISSION_RECONCILIATION.json without rewriting the stale original ledger or repeating a baseline.
+
+GPU_NOTEBOOK.py reuses exact CPU-accepted payload/shared source and the original one-shot controller,with narrowly reviewed GPU body/scope checks. session.py rehashes devices/model/wheels/tasks/accepted code,uses the actual chroot runtime fingerprint and owned synthetic canaries,reruns two already-preregistered environment baselines in the assigned GPU environment,and then starts the established vLLM service. worker.py invokes the unchanged CPU-accepted agent_phase.run with live vLLM token counting/Guard,an independently stripped Task,independent root/UID/session and separate trusted original native verification. Passive safe-descriptor production hashes and traces do not control Agent decisions.
+
+No READY inference,CPU scripted reply or reference repair is used in GPU execution. collect.py is an independent source/version-pinned read-only recovery path;UNKNOWN_STOP is preserved. Competition evaluator raw originals and model/tool transcripts stay in private-evidence outside this public checkout. Public results are safe derived metrics/hashes. Exact hardware/window/model/runtime drift causes STOP before inference. Ordinary algorithm failures remain observations and do not replace tasks.
+
+The10000s request is the maximum authorized platform window. Elapsed budgeting starts in the first Notebook cell. The SDK exposes no separate effective-window value;acceptance of that explicit sessionTimeoutSeconds request is the window evidence,with the original request retained. Remaining-resource checks reserve all pending workers plus export/cleanup. GPU billed time is not inferred from quota or elapsed time.
+
+Build-time validation corrected an offline-only event-loop wrapper to top-level await before dispatch;the unsent initial notebook is preserved in offline_build_01.9 local boundary/identity/no-retry tests pass. Real execution status and null/NOT_RUN results must be derived from actual output,not from those tests.
