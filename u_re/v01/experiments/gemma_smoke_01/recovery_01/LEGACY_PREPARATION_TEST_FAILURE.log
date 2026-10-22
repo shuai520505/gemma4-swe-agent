@@ -1,0 +1,35 @@
+COMMAND ['python', '-m', 'unittest', 'discover', '-s', 'u_re/v01/experiments/fastapi_pilot_01/attempts/cpu02/tests', '-v']
+test_403_structured_rejection_never_retries (test_dispatch.DispatchTests.test_403_structured_rejection_never_retries) ... ok
+test_429_structured_rejection_never_retries (test_dispatch.DispatchTests.test_429_structured_rejection_never_retries) ... ok
+test_GPU_TPU_or_model_input_prevents_submission (test_dispatch.DispatchTests.test_GPU_TPU_or_model_input_prevents_submission) ... ok
+test_connection_interrupt_preserves_exception_identity (test_dispatch.DispatchTests.test_connection_interrupt_preserves_exception_identity) ... ok
+test_crash_after_dispatch_before_receipt_and_restart (test_dispatch.DispatchTests.test_crash_after_dispatch_before_receipt_and_restart) ... ok
+test_empty_204_preserves_real_SDK_error (test_dispatch.DispatchTests.test_empty_204_preserves_real_SDK_error) ... ok
+test_json_200_real_SDK_success_and_once_only (test_dispatch.DispatchTests.test_json_200_real_SDK_success_and_once_only) ... ok
+test_missing_authorization_prevents_even_sdk_call (test_dispatch.DispatchTests.test_missing_authorization_prevents_even_sdk_call) ... ok
+test_non_json_502_metadata_survives (test_dispatch.DispatchTests.test_non_json_502_metadata_survives) ... ok
+test_observer_disk_failure_does_not_replace_SDK_success (test_dispatch.DispatchTests.test_observer_disk_failure_does_not_replace_SDK_success) ... ok
+test_second_SDK_send_is_blocked_before_transport (test_dispatch.DispatchTests.test_second_SDK_send_is_blocked_before_transport) ... ok
+test_secrets_and_arbitrary_headers_not_recorded (test_dispatch.DispatchTests.test_secrets_and_arbitrary_headers_not_recorded) ... ok
+test_timeout_preserves_exception_identity (test_dispatch.DispatchTests.test_timeout_preserves_exception_identity) ... ok
+test_torn_dispatch_claim_never_authorizes_another_send (test_dispatch.DispatchTests.test_torn_dispatch_claim_never_authorizes_another_send) ... ok
+test_unexpected_version_preserves_known_acceptance_but_not_new_resource_gate (test_dispatch.DispatchTests.test_unexpected_version_preserves_known_acceptance_but_not_new_resource_gate) ... ok
+test_wrong_or_existing_slug_prevents_submission (test_dispatch.DispatchTests.test_wrong_or_existing_slug_prevents_submission) ... ok
+test_collector_refuses_when_no_accepted_version (test_preparation.PreparationTests.test_collector_refuses_when_no_accepted_version) ... ok
+test_live_launcher_without_authorization_stops_without_network (test_preparation.PreparationTests.test_live_launcher_without_authorization_stops_without_network) ... FAIL
+test_payload_and_screening_protocol_are_identical (test_preparation.PreparationTests.test_payload_and_screening_protocol_are_identical) ... ok
+test_real_SDK_request_is_CPU_only_and_wire_bound (test_preparation.PreparationTests.test_real_SDK_request_is_CPU_only_and_wire_bound) ... ok
+
+======================================================================
+FAIL: test_live_launcher_without_authorization_stops_without_network (test_preparation.PreparationTests.test_live_launcher_without_authorization_stops_without_network)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v01\experiments\fastapi_pilot_01\attempts\cpu02\tests\test_preparation.py", line 50, in test_live_launcher_without_authorization_stops_without_network
+    self.assertFalse((HERE/'execution').exists());self.assertFalse((HERE/'HTTP_RECEIPT.json').exists())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.596s
+
+FAILED (failures=1)
