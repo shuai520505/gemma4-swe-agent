@@ -1,0 +1,49 @@
+{
+  "status": "INTEGRATED_RUNNER_CPU_PASS",
+  "official_Compiler_ADK_Runner": true,
+  "official_six_tools": true,
+  "chroot_canaries": true,
+  "third_party_dependencies": true,
+  "cases": [
+    {
+      "case": "integrated",
+      "tools": 9,
+      "edits": 1,
+      "submits": 1,
+      "error": null
+    },
+    {
+      "case": "exact_tools",
+      "tools": 60,
+      "edits": 1,
+      "submits": 1,
+      "error": null
+    },
+    {
+      "case": "external_cancel",
+      "tools": 3,
+      "edits": 1,
+      "submits": 1,
+      "error": "CancelledError propagated"
+    },
+    {
+      "case": "deadline",
+      "tools": 3,
+      "edits": 1,
+      "submits": 1,
+      "error": "Agent exceeded session timeout (5.0 min)"
+    }
+  ],
+  "command_timeout_120": true,
+  "external_abort": true,
+  "detached_child_cleanup": true,
+  "worker_crash_recovery": true,
+  "actual_platform_kernel_restart": "NOT_RUN",
+  "native_TaskResult": true,
+  "native_JUnit": true,
+  "native_resolved": true,
+  "cleanup": true,
+  "model": "SCRIPTED_HTTP_ONLY",
+  "real_Gemma": 0,
+  "GPU": false
+}
