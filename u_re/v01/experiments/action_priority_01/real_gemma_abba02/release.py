@@ -49,9 +49,18 @@ def run():
     for claim in HERE.rglob('dispatch.claim'):
         events=list((claim.parent/'events').glob('*DISPATCH_STARTED.json'));assert len(events)==1
         dispatches[str(claim.relative_to(HERE))]=1
+    archives=json.loads((HERE/'RAW_ARCHIVES.json').read_bytes())
+    for item in archives.values():
+        if not isinstance(item,dict) or 'private_path' not in item:continue
+        raw=__import__('pathlib').Path(item['private_path']).read_bytes();assert sha(raw)==item['sha256']
+        with zipfile.ZipFile(io.BytesIO(raw)) as z:
+            assert z.testzip() is None
+            registration=next((n for n in ('source/gpu_registration.json','source/repair_registration.json') if n in z.namelist()),None)
+            if registration:
+                for name,h in json.loads(z.read(registration))['files'].items():assert sha(z.read('source/'+name))==h
     result=dict(base_PR22_commit=base,historical_tracked_changes=[],candidates=candidates,
         frozen_tasks=lock['tasks'],actual_GPU_task_hashes_verified=True,frozen_source_pins=lock['source_pins'],builds=builds,dispatches=dispatches,
-        publication=dict(scanned_files_and_decoded_members=len(scan),known_credential_matches=0,signed_URL_matches=0,full_competition_overlay_matches=0),
+        raw_archives=archives,publication=dict(scanned_files_and_decoded_members=len(scan),known_credential_matches=0,signed_URL_matches=0,full_competition_overlay_matches=0),
         files={n:dict(bytes=len(b),sha256=sha(b)) for n,b in files.items()},self_hash_excluded=True)
     (HERE/'INTEGRITY_MANIFEST.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(dict(status='INTEGRITY_PASS',publication_scanned=len(scan),dispatches=dispatches)))

@@ -1,0 +1,116 @@
+{
+  "Notebook_id": 140237627,
+  "version": 1,
+  "status": "CPU_PRODUCTION_WORKER_REPAIR_PASS",
+  "official_six_tools_schema": [
+    "get_status",
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "submit_patch"
+  ],
+  "actual_tool_activities": [
+    "get_status()",
+    "read_file(fastapi/owned.py)",
+    "edit_file(fastapi/owned.py)",
+    "run_command(python3 checks.py && git di...)",
+    "submit_patch()"
+  ],
+  "agent_result": {
+    "error": null,
+    "patch_bytes": 207,
+    "agent_seconds": 2.6071096220000527,
+    "charged_tools": 3,
+    "patch_submitted": true,
+    "model_calls": 6
+  },
+  "actual_source_change_observed": true,
+  "source_change_operations": 2,
+  "patch_bytes": 207,
+  "native_TaskResult": {
+    "resolved": true,
+    "test_exit_code": 0
+  },
+  "JUnit": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "cleanup_complete": true,
+  "integrity_complete": true,
+  "scripted_HTTP_requests": 6,
+  "synthetic_Agent_sessions": 1,
+  "real_Gemma_requests": 0,
+  "real_SWE_Agent_sessions": 0,
+  "GPU": false,
+  "archive_sha256": "89c968b41e625c1bad440c81a12ca05578bcbae802f19c69707679cbc9fbb537",
+  "CRC_valid": true,
+  "safe_extracts": [
+    {
+      "member": "validation/CPU_ACCEPTANCE.json",
+      "bytes": 535,
+      "sha256": "bf4b07c752a81afdf7cc808bddc0497564bcee9ed65fea6b205633ac2aa6fb9e"
+    },
+    {
+      "member": "validation/synthetic/official_result.json",
+      "bytes": 888,
+      "sha256": "9aa51c80d01e2218ae853477a88831f06c89cbf62c858b2671d69cb505f695c6"
+    },
+    {
+      "member": "validation/synthetic/native_summary.json",
+      "bytes": 272,
+      "sha256": "0cec545d53c7e9583ab76be12ee66fcb7f881dc478eba573ace7c387571cf69d"
+    },
+    {
+      "member": "validation/synthetic/HTTP_AUDIT.json",
+      "bytes": 2155,
+      "sha256": "297d068b5d2eec8f365fee5f224ba49d21faced5ddbd206ab4a75fae12bd1d8a"
+    },
+    {
+      "member": "validation/synthetic/worker_done.json",
+      "bytes": 84,
+      "sha256": "341bb6792418cd97f77a4a5c740c8f3a629dc92a85e8b67f94d895fc2246d087"
+    },
+    {
+      "member": "validation/synthetic/final.patch",
+      "bytes": 207,
+      "sha256": "9cb5084245055e33a676b3b0189a866adf60a3dd3cabcc28d85f4e8d18151060"
+    },
+    {
+      "member": "validation/synthetic/verifier/phase2.junit.xml",
+      "bytes": 314,
+      "sha256": "2573f185fb4231bea5b9b91691d611a38fb597f5a13382bae55c0c974dc5615a"
+    },
+    {
+      "member": "validation/synthetic/agent/agent_result.json",
+      "bytes": 150,
+      "sha256": "5c095a98af0fe0e7657c2553192eb287e9a9005021f43c8ba58c29bdce60a418"
+    },
+    {
+      "member": "validation/synthetic/agent/cleanup.json",
+      "bytes": 54,
+      "sha256": "bf00a0524748603e3c9e25e109fa9d5f870870a6f31e86212ff22ea727e2197a"
+    },
+    {
+      "member": "validation/synthetic/agent/events.jsonl",
+      "bytes": 17070,
+      "sha256": "ea6bdacf30f444cff18805f6b12d0057e1b62fc03b1bc7493756d0df3e00db44"
+    },
+    {
+      "member": "validation/synthetic/events.jsonl",
+      "bytes": 3052,
+      "sha256": "81bf9e7d294c1043bd4bb390c979a1761ebfb03d329210f1e33277088540d450"
+    },
+    {
+      "member": "validation/synthetic/runtime_config.json",
+      "bytes": 454,
+      "sha256": "1b6ac0c9fdb0c5488ea6a52090fcd762a2a99727eb382e37ff02c391be9096d0"
+    }
+  ],
+  "limitations": [
+    "Scripted CPU model responses/usage are not Gemma inference or real GPU token cost.",
+    "Generic original runtime_config real_model=true is not factual proof of a real model. This transport is explicitly CPU SCRIPTED ONLY.",
+    "No vLLM startup or real Agent behavior was validated."
+  ]
+}

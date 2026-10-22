@@ -10,6 +10,6 @@ No model was loaded, no Gemma HTTP request occurred, and all four Agent sessions
 
 `import_closure.py` traverses local Import/ImportFrom nodes including function bodies from the real session and worker entrypoints. `cpu_repair.py` reuses the established CPU single-dispatch controller. Its independent CPU Notebook rechecks both frozen trusted native baselines and executes the exact production worker with one owned synthetic task and a scripted local HTTP model boundary. No real Gemma, GPU, reference patch, or extra research sample is involved.
 
-The CPU probe is not yet executed at this preparation commit. CPU acceptance must come from its real output, not these local tests. The earlier unsent CPU build is retained under `repair_cpu01/offline_build_01/`.
+CPU repair01 (140236395/v1 ERROR) passed both exact native baseline rechecks, then exposed a passive HTTP observer/Runner directory-creation collision. Independent CPU repair02 (140237627/v1 COMPLETE) passed the production worker on an owned synthetic task after the observation-only fix:207-byte patch, explicit submit, native TaskResult/JUnit,6scripted HTTP exchanges and complete cleanup. None is real Gemma evidence. The earlier unsent CPU build remains under `repair_cpu01/offline_build_01/`.
 
 Raw task/evaluator evidence remains in private-evidence outside Git. Public files contain source code, integrity hashes, and derived execution metadata only.
