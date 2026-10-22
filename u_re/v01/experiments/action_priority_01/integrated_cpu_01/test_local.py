@@ -35,6 +35,29 @@ class Checks(unittest.TestCase):
             self.assertFalse(any(any(x in n for x in ('tasks.jsonl','evaluator_test_text','phase2.junit','gold.patch','reference.patch')) for n in z.namelist()))
         self.assertIn('Task wheel drift',nb['cells'][1]['source'])
         self.assertIn('integrated_cpu_01.acceptance',nb['cells'][1]['source'])
+    def test_all_attempts_cpu_scope(self):
+        for attempt,agents in [('runner01',4),('runner02',4),('screen01',0),('taskruntime01',2)]:
+            cpu,_,slug=build.identity(attempt);spec=json.loads((cpu/'BUILD.json').read_bytes())
+            meta=json.loads((cpu/'notebook/kernel-metadata.json').read_bytes())
+            self.assertEqual(meta['id'],slug)
+            self.assertTrue(all(meta[k] is False for k in ('enable_gpu','enable_tpu','enable_internet')))
+            self.assertEqual(meta['model_sources'],[])
+            self.assertEqual(spec['configuration']['Agent_runs'],agents)
+            self.assertEqual(spec['configuration']['Gemma_calls'],0)
+            self.assertEqual(hashlib.sha256((cpu/'notebook/study.ipynb').read_bytes()).hexdigest(),spec['Notebook_sha256'])
+    def test_frozen_screening_results(self):
+        d=json.loads((build.HERE/'TASK_ADMISSION_LEDGER.json').read_bytes())
+        self.assertEqual(d['checked'],4);self.assertIsNone(d['stop'])
+        self.assertEqual([r['instance_id'] for r in d['selected']],['fastapi_9425','fastapi_14786'])
+        self.assertEqual([r['status'] for r in d['rows'][:4]],['BASELINE_ELIGIBLE','ENVIRONMENT_BLOCKED','ENVIRONMENT_BLOCKED','BASELINE_ELIGIBLE'])
+        for r in d['rows'][4:]:
+            self.assertEqual(r['status'],'NOT_RUN');self.assertIsNone(r['counts'])
+    def test_registration_is_not_execution_authorization(self):
+        p=json.loads((build.HERE/'ABBA_EXPERIMENT_LOCK.json').read_bytes())
+        self.assertEqual([r['arm'] for r in p['order']],list('ABBA'))
+        self.assertEqual([r['instance_id'] for r in p['order']],['fastapi_9425','fastapi_9425','fastapi_14786','fastapi_14786'])
+        for k in ('execute','gpu_authorized','formal_submission'):self.assertIs(p[k],False)
+        self.assertEqual((p['budget']['Agent_seconds'],p['budget']['charged_tools'],p['budget']['command_seconds']),(300,60,120))
 
 
 if __name__=='__main__':unittest.main()
