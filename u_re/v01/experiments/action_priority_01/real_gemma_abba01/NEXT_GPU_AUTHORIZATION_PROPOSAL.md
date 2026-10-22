@@ -1,0 +1,11 @@
+# A separate GPU retry is required
+
+GPU01 authorization has been consumed by the single SaveKernel for140228050/v1. That attempt allocated4L4 but stopped before loading a model because CPU_GATE_PIN.json was omitted from the payload. Its ERROR,original source/claim/UNKNOWN_STOP/ZIP remain immutable. There is no algorithm result to retry selectively.
+
+The minimal fix is repair.corrected_files():stage every file declared by the frozen source_pins and verify every SHA before Notebook construction. CPU Notebook140229303/v1 actually passed that closure,official Compiler for both frozen candidates,original verifier hashes,accepted chroot runtime fingerprint,owned canary,source observer and cleanup. It ran zero Agents,native task baselines or Gemma calls. The original failed GPU Notebook was not edited or resaved.
+
+A future explicit grant may authorize exactly one NEW private GPU save/run,with a new resource identity such as wudangdexiaodoashi/gemma4-u-re-actionfirst-abba02. Fixed experiment/tasks/order/candidates remain9425A→9425B→14786B→14786A,Gemma31BQATv2,4×L4/TP4,vLLM0.19.1,each300s/60charged/120command,original generation and context32768/safety1024,maximum10000s platform window. No extra arm,Full,task substitution,training,Prompt tuning or formal Submission. A new request must not reuse the consumed GPU01 grant/claim.
+
+Build the successor from the CPU-proven corrected closure,seal source/Notebook/wire/payload SHA at a committed revision and rerun local closure/no-retry tests. Refresh quota (minimum20600 report seconds),account/slug/model input,then validate actual4L4/memory,model eight-file hashes,versions,remaining complete window and canary in the assigned GPU environment before inference. Original two native environment rechecks remain part of the frozen pre-inference plan;they did not run in GPU01. The10000s request is platform acceptance evidence;SDK does not expose a separate effective-window field.
+
+Current post-GPU account snapshot:82709.410 report seconds,0 reserved;must refresh at dispatch. Missing model-load,real inference,GPU canary and native ABBA evidence cannot be replaced by the CPU repair PASS. No new GPU request is issued by this proposal.
