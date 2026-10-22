@@ -1,0 +1,11 @@
+# U-RE-NoEGV-ActionFirst-V0.1
+
+Source: verified,unmerged PR18 HEADb0e4ed05eb64fb0b52759ea63e18db8980723f0b; parentPR17 is also unmerged. The prior untracked dependency_security_review_01 directory is untouched/excluded. This candidate is not an update of either frozen U-RE ZIP or the officially submitted Full.
+
+The0.20result is user-reported context. No original Notebook/source link or independent score artifact was supplied for that solution in this request; no0.20result is reproduced or verified here. Only the four specifically described generic strategies are independently rephrased. None has an isolated ablation result. The experiment compares the joint inserted instruction block,not four separately identified mechanisms.
+
+Transfer: extract stated identifiers/API/error/behavior contracts before search; locate specific identifiers/callers/API analogues first; once a justified repair and location are known,edit rather than expanding exploration; run compact relevant checks and close promptly. The119-word block sits immediately before the unchanged Triage heading. Deeper diagnosis remains allowed when it resolves a named uncertainty; correctness retains priority over editing. First-half budget goal is soft,not an edit deadline or an instruction to create arbitrary/nonempty patches.
+
+Reject:28tool cap,8minute declaration,240sYAML,threeadditional retrieval tools,different sampling,mandatory nonempty patch,12thcall edit deadline,two-test/two-search ceilings. Keep300s/60chargedtools/120scommand,output16384/thinking4096/seed17,omitted sampling/include_thoughts,sixofficialtools and oneGemmaAgent. No Full EGV counterexample-search stage is added; ordinary tests and sound code revisions remain available to both arms.
+
+Tradeoffs: more explicit ordering may shorten exploration,or prematurely narrow the hypothesis. Small tests can miss regressions; concrete-risk expansion and all original protections remain. The appended wording repeats only a short closure reminder,not a new closure controller. Normal tests,wrong-test caution,protected tests,unknown-risk reporting and successful-submit termination stay verbatim.119extra words may increase prefill/context cost; real token/time costs and strategy compliance are unmeasured. Prompt rules still do not hard-stop Runtime after submit.
