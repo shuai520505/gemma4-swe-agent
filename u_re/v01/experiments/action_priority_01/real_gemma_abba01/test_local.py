@@ -80,6 +80,12 @@ class Dispatch(unittest.TestCase):
 
 
 class Build(unittest.TestCase):
+    def test_repaired_payload_contains_every_declared_pin(self):
+        from .repair import corrected_files
+        files=corrected_files();lock=json.loads((PRIOR/'ABBA_EXPERIMENT_LOCK.json').read_bytes())
+        for name,wanted in lock['source_pins'].items():
+            self.assertEqual(sha(files[(PRIOR/name).relative_to(ROOT).as_posix()]),wanted)
+
     def test_payload_no_scripted_model_and_frozen_sources(self):
         import ast,base64
         nb=json.loads((HERE/'notebook/study.ipynb').read_bytes())
