@@ -1,0 +1,47 @@
+{
+  "experiment_id": "U-RE-ACTION-FIRST-ISOLATION-CANARY01",
+  "started_utc": "2026-10-22T12:30:58.428283+00:00",
+  "GPU": false,
+  "Gemma_calls": 0,
+  "Agent_runs": 0,
+  "task_baselines": 0,
+  "checks": {
+    "workspace_read_write": true,
+    "absolute_research_evaluator_other_arm_denied": true,
+    "traversal_denied": true,
+    "symlink_denied": true,
+    "subprocess_denied": true,
+    "inheritable_fd_closed": true,
+    "proc_not_exposed": true,
+    "parent_memory_denied": true,
+    "network_denied": true,
+    "official_read_file_symlink_denied": true,
+    "six_official_tools_edit_test_diff_submit": true,
+    "host_canaries_unchanged": true
+  },
+  "isolation_verified": true,
+  "tool_names_exercised": [
+    "edit_file",
+    "get_status",
+    "read_file",
+    "run_command",
+    "submit_patch",
+    "write_file"
+  ],
+  "charged_tools": 12,
+  "runtime": {
+    "binary_sha256": {
+      "/bin/bash": "59474588a312b6b6e73e5a42a59bf71e62b55416b6c9d5e4a6e1c630c2a9ecd4",
+      "/usr/bin/git": "587ef21868c948b883993e23209b86a72a6ddc06aab1545c697ffc31075acd4a",
+      "/usr/bin/mkdir": "bd2f081ac37d653181332bd27f35a6041dbf215a7957f65838a9cbec9e64928b",
+      "/usr/bin/cat": "210ffa7daedb3ef6e9230d391e9a10043699ba81080ebf40c6de70ed77e278ba",
+      "/usr/bin/python3": "185be5c01624944b5c422a8d1e4995a7df010036a99c9f9d84a80a09ae1bd72d"
+    },
+    "stdlib_source": "/usr/lib/python3.12",
+    "host_mounts": [],
+    "proc_mounted": false
+  },
+  "scope": "Actual CPU deployment synthetic official tools only; no full task dependencies,ADK/GPU integration or kernel exploit containment claim",
+  "cleanup_complete": true,
+  "ended_utc": "2026-10-22T12:31:06.050755+00:00"
+}

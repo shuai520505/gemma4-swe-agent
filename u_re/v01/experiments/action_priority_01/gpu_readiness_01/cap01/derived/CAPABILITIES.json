@@ -1,0 +1,62 @@
+{
+  "experiment_id": "U-RE-ACTION-FIRST-ISOLATION-CAP01",
+  "started_utc": "2026-10-22T12:22:08.690939+00:00",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "uid": 0,
+  "gid": 0,
+  "GPU": false,
+  "Gemma_calls": 0,
+  "Agent_runs": 0,
+  "task_baselines": 0,
+  "Landlock": "NOT_REPEATED_PRIOR_ENOSYS",
+  "actual_tool_canaries": "NOT_RUN_CAPABILITY_PROBE_ONLY",
+  "children": {
+    "chroot": {
+      "returncode": 0,
+      "stderr": "",
+      "supported": true,
+      "inside_read": true,
+      "root_changed": true
+    },
+    "uid": {
+      "returncode": 0,
+      "stderr": "",
+      "supported": true,
+      "uid": 65534,
+      "private_denied": true,
+      "workspace_write": true,
+      "parent_cleanup": true
+    },
+    "mount": {
+      "returncode": 0,
+      "stderr": "",
+      "supported": false,
+      "errno": 1,
+      "errno_name": "EPERM"
+    },
+    "user": {
+      "returncode": 0,
+      "stderr": "",
+      "supported": false,
+      "errno": 1,
+      "errno_name": "EPERM"
+    }
+  },
+  "kernel_controls": {
+    "CapEff": "00000000a80425fb",
+    "CapBnd": "00000000a80425fb",
+    "NoNewPrivs": "0",
+    "Seccomp": "2",
+    "Seccomp_filters": "1"
+  },
+  "docker_package": "7.1.0",
+  "docker_error": {
+    "exception_class": "DockerException",
+    "errno": null
+  },
+  "docker_ping": false,
+  "ended_utc": "2026-10-22T12:22:09.698032+00:00",
+  "elapsed_seconds": 1.0071157419999963,
+  "cleanup": "OWNED_CHILD_TEMP_DIRECTORIES_REMOVED",
+  "isolation_verified": false
+}
