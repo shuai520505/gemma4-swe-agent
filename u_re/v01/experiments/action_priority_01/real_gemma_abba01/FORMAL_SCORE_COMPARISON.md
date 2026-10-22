@@ -1,0 +1,9 @@
+# Full score regression: cause undetermined
+
+Observed by current ListSubmissions: S0 57261002 COMPLETE,0.13; Full57505115 COMPLETE,0.12,errorDescription null. Difference -0.01. See readonly/FORMAL_STATUS.json and READ_LEDGER. The earlier private20261022T141111Z snapshot agrees. Full ZIP887da066341bb1278ba298894f488bba8e7a3bd09ae5f4417e36a1a51f8ad821 is independently CRC/member verified in u_re/v01/official/full_first_score_01/PACKAGING_VERIFIED.json. Human explicitly confirmed submitting that packaging Notebook as57505115; API submission listing itself does not expose its Notebook association,so this final association uses human provenance rather than a fabricated API field.
+
+Bounded observed-output investigation: existing packaging Notebook140121936/v1 is still version1. Explicit versionLabel output listing returned404 (retained); one distinct latest-output query bracketed by latest1 metadata succeeded,with only packaging.json and submission.zip. Existing notebook.log prints frozen ZIP packaging confirmation;it is not official hidden-task inference. No repeated failed query or new Notebook was issued.
+
+FORMAL_TRAJECTORY_NOT_AVAILABLE. The SDK ListSubmissions record exposes aggregate score/status/time/error,not per-task traces. No formal per-task native result,model usage,first edit,empty patch,repeat search/test,verification time,deadline/tool exhaustion or post-submit event is observable in the accessible packaging outputs/private formal-score snapshots. These metrics remain null/NOT_OBSERVABLE,not inferred from0.12. Packaging ZIP identity is observed;the submitted identity uses the human confirmation. No causal claim that EGV caused regression,and no inference of a specific number of lost repairs.
+
+FULL_SCORE_REGRESSION_CAUSE_UNDETERMINED. This separate NoEGV/Action-First ABBA study is not a Full/S0 ablation and cannot explain that score difference. Candidate prompts and formal submissions remain unchanged.
