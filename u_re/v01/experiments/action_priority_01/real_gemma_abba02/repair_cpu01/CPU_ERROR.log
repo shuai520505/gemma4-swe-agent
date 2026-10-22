@@ -1,0 +1,28 @@
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox bfca1f49-4f4, creating venv without pip: Command '['/kaggle/working/u_re_abba02_import_repair01/validation/baselines/fastapi_9425/roots/swegemma_sandbox_bfca1f49-4f4/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+WARNING:swegemma.sandbox.subprocess:ensurepip unavailable in sandbox dd8b2b69-f3c, creating venv without pip: Command '['/kaggle/working/u_re_abba02_import_repair01/validation/baselines/fastapi_14786/roots/swegemma_sandbox_dd8b2b69-f3c/venv/bin/python3', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/kaggle/working/u_re_abba02_import_repair01/source/u_re/v01/experiments/action_priority_01/real_gemma_abba02/cpu_probe.py", line 77, in <module>
+    if __name__=='__main__':asyncio.run(run(sys.argv[1]))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/kaggle/working/u_re_abba02_import_repair01/source/u_re/v01/experiments/action_priority_01/real_gemma_abba02/cpu_probe.py", line 65, in run
+    await evaluate(dict(instance_id=record['instance_id'],data=str(toy),agent_dir=str(ROOT/'u_re/v01/candidate_noegv'),
+  File "/kaggle/working/u_re_abba02_import_repair01/source/u_re/v01/experiments/action_priority_01/real_gemma_abba01/worker.py", line 109, in evaluate
+    patch_text,agent_error,context=await agent_phase.run(cfg,task,snapshot,directory/'agent',base_snapshot=base,incremental_patch=overlay)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/u_re_abba02_import_repair01/source/u_re/v01/experiments/action_priority_01/integrated_cpu_01/agent_phase.py", line 34, in run
+    output=Path(output);output.mkdir(parents=True,exist_ok=False);journal=Journal(output)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: '/kaggle/working/u_re_abba02_import_repair01/validation/synthetic/agent'

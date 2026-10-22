@@ -4,6 +4,9 @@ import io
 import json
 import unittest
 import zipfile
+import tempfile
+from pathlib import Path
+from contextlib import contextmanager
 from . import cpu_repair
 from .notebook import ROOT,sha
 
@@ -29,5 +32,19 @@ class RuntimeClosure(unittest.TestCase):
         self.assertEqual(spec['configuration']['Agent_runs'],1);check(spec)
         for key,value in [('GPU',True),('Gemma_calls',1),('Agent_runs',2),('model_sources',['forbidden'])]:
             with self.assertRaises(AssertionError):check(dict(spec,configuration=dict(spec['configuration'],**{key:value})))
+
+    def test_http_observer_does_not_precreate_runner_directory(self):
+        # Actual observer and filesystem; official Runner is exercised in Kaggle.
+        from s1.infrastructure_recovery.wire import observe_http
+        tree=ast.parse((cpu_repair.HERE/'runtime_worker.py').read_bytes())
+        function=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='observe_without_precreating_agent')
+        ns=dict(Path=Path,contextmanager=contextmanager,_observe=observe_http)
+        exec(compile(ast.Module(body=[function],type_ignores=[]),'<observer-boundary>','exec'),ns)
+        with tempfile.TemporaryDirectory() as temp:
+            agent=Path(temp)/'agent'
+            with ns[function.name](agent):
+                self.assertFalse(agent.exists());agent.mkdir(exist_ok=False)
+                for name in ('http_wire.jsonl','http_lifecycle.jsonl'):(Path(temp)/'model_transport'/name).write_bytes(b'owned unchanged event\n')
+            for name in ('http_wire.jsonl','http_lifecycle.jsonl'):self.assertEqual((agent/name).read_bytes(),b'owned unchanged event\n')
 
 if __name__=='__main__':unittest.main()
