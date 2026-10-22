@@ -16,7 +16,7 @@ Words:466→585 (+119,including heading);119is within100–140. Current exact Ge
 
 There is no semantic timing conflict: early edit is a soft first-half goal and original correctness-priority remains. The original45–170scorepairstrategy allows complex investigation beyond150s. Existing tests must still address relevant risks. Added final sentence briefly reinforces unchanged closure; it introduces no new callback/hardstop. No EGV-specific counterexample search is inserted. Source/schema visibility is judged by the actual scripted request capture,not a custom string-only request constructor.
 
-Exact unified diff:
+Unified diff preview (canonical byte-exact diff: CANDIDATE_EXACT.diff):
 ```diff
 --- Frozen-NoEGV/prompts/system.md
 +++ ActionFirst-V0.1/prompts/system.md
@@ -25,7 +25,7 @@ Exact unified diff:
 +
 +Action-first priority:
 +Before searching, extract the Issue's stated contract: named functions or classes, parameters, exceptions or exact errors, return values, boundaries, defaults, and compatibility obligations. Start with its most specific identifiers; inspect their implementation and relevant callers, using existing API analogues when relevant. Broaden only to resolve a named uncertainty. Once location and a justified minimal repair are clear, edit production code rather than extending exploration; aim for a supported first edit within the first half of the budget, never an arbitrary change. Then run the smallest relevant discriminating test; expand regression checks for concrete risks. Separate target failures, missing dependencies, and unexplained errors. Reuse unchanged results. Preserve supported work, reserve closure time, and submit promptly; end after success.
- 
+
  Triage and repair:
  Read the Issue, relevant development instructions and working tree. Locate focused implementation, callers and tests. State a short, falsifiable repair hypothesis from available evidence. Classify the problem only as useful: logic and boundaries; API contracts and old behavior; cross-module data flow; or executable documentation/configuration. Revise the hypothesis when evidence changes. Make a small, testable implementation change once supported; avoid broad searches after locating the relevant code. Correctness takes priority over early editing.
 ```
