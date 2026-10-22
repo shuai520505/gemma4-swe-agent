@@ -1,0 +1,59 @@
+{
+  "experiment_id": "U-RE-V01-ACTION-FIRST-01",
+  "status": "DRAFT_NOT_EXECUTED",
+  "arms": {
+    "A": {
+      "name": "Frozen NoEGV",
+      "zip_sha256": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608"
+    },
+    "B": {
+      "name": "U-RE-NoEGV-ActionFirst-V0.1",
+      "zip_sha256": "70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8"
+    }
+  },
+  "only_factor": "119-word ACTION_FIRST_INSTRUCTION_BLOCK; joint strategy plus its length cost,not individual mechanism ablations",
+  "source_pins": {
+    "u_re/v01/experiments/mechanism_02/EXCLUSION_LEDGER_V02.json": "9bca03e7dd3cfd2c38da72e132854a289740771a9fbe131c2126d0d01f4981f1",
+    "u_re/v01/experiments/mechanism_02/TASK_POOL_METADATA.json": "a6ec6212d841ab8f354a3d1ff67f9b7b8b5f7c45e4e515589ca7a53d0e567e0e",
+    "u_re/v01/experiments/fastapi_pilot_01/SELECTION_PROTOCOL.json": "d9c775f060649d4bb176a45c672e2781087cf3d3139112fd4ceed3fbbf9c5c3f",
+    "u_re/v01/experiments/fastapi_pilot_01/attempts/cpu02/reconciliation_01/TASK_SCREENING_LEDGER.json": "a7d99e285f0313ba0dd33f847e0585ecab02748530bca981bcdfa00b57b239f4"
+  },
+  "selection": {
+    "pool": "Inherit129metadata IDs,never reread repair/reference/test content for ranking",
+    "exclusions": "Retain all79historical conservative exclusions; add fastapi_14262 as analyzed rule-development task. Honor all other used/analyzed/reserved/uncertain identities from PR1\u201318. Unknown or conflicting reservation means excluded,not free.",
+    "prefix": "U-RE-V01-ACTION-FIRST-01:17:",
+    "rank": "ascending SHA256 UTF-8(prefix+instance_id),ID tie-break",
+    "max_future_CPU_checks": 8,
+    "select": "First2environment-eligible distinct IDs; same repository allowed,not a cross-project generalization study",
+    "no_task_selected_this_round": true,
+    "freeze": "Before future task baselines,commit exact pool,updated exclusion provenance,reservation releases,rankedIDs,selectorSHA,environmentruleversion. No outcome-based edits.",
+    "baseline": "Unchanged native verify_task,emptyAgentPatch,originalsnapshots/overlay,TaskResult/JUnit/source/cleanup identity. Ordinary assertion failure eligible. Independent environment error rejected. Unexplained/integrity/cleanuperror globalSTOP. Allpassing baseline non-discriminating. Target-caused collection failure conditional only,not autoeligible.",
+    "fail": "If8checks insufficient,STOP; no expanding or task replacement under same experiment"
+  },
+  "proposed_runs": 4,
+  "proposed_tasks": 2,
+  "order": [
+    "task1:A",
+    "task1:B",
+    "task2:B",
+    "task2:A"
+  ],
+  "task_identity_freeze": "After admission bind ID/repo/IssueSHA/base/snapshot/overlay/nativeversions; still no GPU until separately authorized",
+  "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "agent_seconds": 300,
+  "charged_tools": 60,
+  "command_seconds": 120,
+  "GPU": "4L4/TP4 prospective; fresh quota/window/weight and strong filesystem-isolation proof required",
+  "primary": [
+    "Native official resolved",
+    "Resolved count within precommitted total platform/patch budget"
+  ],
+  "masks": "Independent sessions/workspaces/verifier sandboxes,ABBA; no prior-armPatch/trace/tests/results to laterarm; research verifier/evaluator data never in Agentinput",
+  "execute": false,
+  "gpu_authorized": false,
+  "formal_submission": false,
+  "real_Gemma_runs": 0,
+  "CPU_acceptance_scope": "One separately user-authorized CPU-only synthetic Compiler/ADK Notebook; not task screening or research effect data",
+  "selector_source_sha256": "00322d12211bc16ac0bec5d03060b337300330f3ad0ff61e447613e89f9997b3",
+  "metrics_source_sha256": "2d94ff23faa7ecb18f6ef424ab63073f8fcd20c4e550029d9257c3b4bd75b737"
+}

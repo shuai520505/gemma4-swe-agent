@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "compiled": {
+    "noegv": {
+      "real_official_Compiler": true,
+      "real_ADK_agent": true,
+      "tool_count": 6,
+      "agent_count": 1,
+      "instruction_sha256": "05c78e9435bfe1271a25f321093f28e4baf8940b755890e20e440548ca9fba23",
+      "budget": [
+        300,
+        60,
+        120
+      ]
+    },
+    "action_v01": {
+      "real_official_Compiler": true,
+      "real_ADK_agent": true,
+      "tool_count": 6,
+      "agent_count": 1,
+      "instruction_sha256": "405a0bb38523c26ac8350660cceff17a6e5bd5a5e07dd7065f9e84d31ae2e9bc",
+      "budget": [
+        300,
+        60,
+        120
+      ]
+    }
+  },
+  "cases": [
+    {
+      "arm": "noegv",
+      "passed": true,
+      "real_tools": [
+        "edit_file",
+        "get_status",
+        "read_file",
+        "run_command",
+        "submit_patch",
+        "write_file"
+      ],
+      "new_block_visible": false,
+      "tools_after_submit": 0,
+      "successful_submits": 1,
+      "cleanup": true
+    },
+    {
+      "arm": "action_v01",
+      "passed": true,
+      "real_tools": [
+        "edit_file",
+        "get_status",
+        "read_file",
+        "run_command",
+        "submit_patch",
+        "write_file"
+      ],
+      "new_block_visible": true,
+      "tools_after_submit": 0,
+      "successful_submits": 1,
+      "cleanup": true
+    }
+  ],
+  "versions": {
+    "swegemma": "0.2.11",
+    "adk-submission": "0.2.13",
+    "google-adk": "1.36.1",
+    "litellm": "1.82.4"
+  },
+  "real_official_Runner": true,
+  "scripted_HTTP_model": true,
+  "Gemma_inference": false,
+  "GPU": false,
+  "actual300_second_boundary_rerun": false,
+  "algorithm_validated": false
+}

@@ -1,0 +1,20 @@
+# ACTION_FIRST_CANDIDATE_OFFLINE_READY
+
+This means candidate/config and real scripted official CPU integration are accepted. It does not mean real Gemma compliance,algorithm improvement,task admission or GPU execution authorization. Frozen NoEGV and Full,including the formally submitted Full,are unchanged.
+
+|Question|Answer and evidence|
+|---|---|
+|Q1 transfer/reject|Transfer contract extraction,specific localization,justified earlier editing,compact checks/closure. Reject altered budgets/tools/sampling,hard12call/twotest ceilings and mandatory nonempty patches.0.20is user-reported context,not independent evidence. ACTION_FIRST_DESIGN.md.|
+|Q2 instruction changes|Exactly one119wordblock before original Triage. No rewrite; removing it+separator restores NoEGV bytes. CANDIDATE_EXACT.diff,ACTION_FIRST_INSTRUCTION_BLOCK.md.|
+|Q3 same exceptPrompt|Yes: agent.yaml7ebd41cd... and eval_config4336195f... byte-identical. Same1Agent/model/6tools/300s/60/120/generation. Full member hashes in CANDIDATE_AUDIT.json.|
+|Q4 deeperdiagnosis|Allowed to resolve named uncertainty; firsthalfedit is soft and original correctness-priority remains. No arbitrary edits or search ceiling. candidate_action_v01/prompts/system.md.|
+|Q5 test/closureprotections|Original ordinary tests,wrongexpectation/testprotection,diff/cleanup/successfulsubmitend verbatim. Added compact checking does not discard genuine failures. Actual scripted6toolcases passed; Runtimehardtermination still not guaranteed. LOCAL_VALIDATION.md.|
+|Q6 tokencost|466→585words,+119. New exactGemmatokens and tokenincrement UNKNOWN; local exacttokenizer unavailable. Historical NoEGV643tokens remains separately attributed. PROMPT_LENGTHS.json,PROMPT_FACTOR_AUDIT.md.|
+|Q7 officialCompiler/ADK|Localimports BLOCKED by missing packages,recorded. Later expressly authorized KaggleCPU ID140205298/v1 COMPLETE: both actualofficialCompiler/ADK/6tools/requestvisibility/patch/submit/cleanup passed with scriptedHTTP. cpu01/derived/validation/CPU_GATE.json.|
+|Q8 measurableevents|Observed production before/afterSHA and savedtimestamp; separately applicablecheckpoint and locallysupported exactcheckpoint after discriminatingchecks. NativeResolved independent. Repeat candidates require command/source/input/env/result identities; null for missingevidence. metrics.py,tests,EXPERIMENT_PROTOCOL_DRAFT.md.|
+|Q9 independenttaskselection|Keep79conservativeexclusions and laterexposures/reservations;14262explicitruledevelopmentsample excluded,14492andhistoricalS2 excluded. Freeze refreshed pool/ledger/rank before futureCPUbaselines;SHA256prefixrank,max8checks,first2eligibleIDs,ABBA.0tasksselected here. selection.py,protocolJSON.|
+|Q10 fixedbudgetNativeResolved|Yes as a prospective fair paired design,not actual data. ExactA/BZIPpins,same300/60/model/tools/Verifier,and isolatedsessions/workspaces. Two tasks cannot prove general improvement; preserve failures/unknowns/timeouts/zeroPatch and cost. Protocol remains DRAFT.|
+|Q11 integrity/execution|Both frozen ZIPs unchanged; only new action_priority_01 files differ fromPR18. Initial local-only request was later expanded by explicit Notebook permission:1CPU-onlySaveKernel,2scriptedtoyAgent sessions,0realSWEbaselines,0GPU,0realGemma,0formalSubmissions this round. cpu01/DISPATCH_SUMMARY.json,HISTORY_INTEGRITY.json.|
+|Q12 GPUadmission|Candidate can be reviewed for a future independentGPU experiment; current execution is NO-GO. Need actual filesystem boundary proof(PR18LandlockENOSYS unresolved),selected admitted taskidentities,updated exposure/reservation ledger,model/weights/environment pins,fresh quota/4L4/fullwindow/cleanupgates and separatehumanGPUauthorization. No booleanisolationbypass.|
+
+New ZIP:70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8. Source parent PR18 is unmerged;b0e4ed05eb64fb0b52759ea63e18db8980723f0b. Preparation commit4f3c7c1 precedes CPUdispatch. Original failure records stay unchanged. Submission57505115 is the separate frozenFull attempt,lastknownPENDING/null; this experiment did not query or submit to that scoring process.
