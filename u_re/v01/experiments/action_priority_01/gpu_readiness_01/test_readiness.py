@@ -10,6 +10,14 @@ from u_re.v01.experiments.action_priority_01.gpu_readiness_01 import cpu_probe_n
 
 
 class Readiness(unittest.TestCase):
+    def test_nested_canary_program_compiles(self):
+        import ast
+        tree=ast.parse((builder.HERE/'canary_probe.py').read_text())
+        node=next(n for n in ast.walk(tree) if isinstance(n,ast.Assign) and any(isinstance(a,ast.Name) and a.id=='probe' for a in n.targets))
+        text=node.value.func.value.value.replace('TARGETS',repr(['/owned/private']))
+        nested=ast.parse(text)
+        code=next(n.value.value for n in nested.body if isinstance(n,ast.Assign) and any(isinstance(a,ast.Name) and a.id=='code' for a in n.targets))
+        compile(code,'descendant-canary','exec')
     def test_build_scope_and_payload(self):
         spec=json.loads((builder.CPU/'BUILD.json').read_bytes())
         notebook=(builder.CPU/'notebook/study.ipynb').read_bytes()
