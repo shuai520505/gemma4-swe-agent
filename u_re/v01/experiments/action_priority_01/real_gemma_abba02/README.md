@@ -1,7 +1,15 @@
-# U-RE Action-First GPU02
+# GPU02 — independent authorized ABBA attempt
 
-Independent human GPU02 authorization;one private SaveKernel/version,4L4 TP4,Gemma31BQATv2,four frozen ABBA sessions,300s/60charged/120command,maximum10000s platform window. No formal Submission. GPU01 ERROR and CPU repair evidence remain immutable.
+Base PR #22: 5598178f4dbf3fdae543ae41e8328f70c0b2b908. GPU02 dispatch used frozen build commit 3500eb8.
 
-notebook.factory reuses repair.corrected_files(),the actual CPU140229303/v1 proven exhaustive source-pin closure. All payload files and registered source pins are checked,not merely CPU_GATE_PIN. Only the separately granted authorization differs from that corrected closure. The unchanged session/worker/official Agent phase/model guard/native Verifier run in the original code namespace inside a fresh GPU02 output directory;no prior run outputs or context are included. New claim/slug/output identity is independent. Original candidate ZIPs and Task identities/order are unchanged. Existing one-dispatch metadata-first/no-retry and source/version-pinned read-only collection are reused.
+Actual Notebook 140233779/v1: ERROR. Four NVIDIA L4 devices were assigned. All frozen model file hashes and both task identities matched. GPU chroot canary passed. The original `native_baseline` lazy import then failed because the packaged repository import closure omitted `fastapi_pilot_01.screen`.
 
-Current hardware/model/window/chroot admission is checked inside the GPU session before model generation. Actual endpoint responses/tool/filesystem/patch/native results determine outcomes. Missing usage remains null;unrun sessions remain NOT_RUN. One failed GPU02 does not authorize a GPU03.
+No model was loaded, no Gemma HTTP request occurred, and all four Agent sessions remain NOT_RUN. This is an engineering failure, not an algorithm failure. The original GPU01 and GPU02 records remain immutable. No GPU retry is authorized.
+
+## Targeted CPU repair
+
+`import_closure.py` traverses local Import/ImportFrom nodes including function bodies from the real session and worker entrypoints. `cpu_repair.py` reuses the established CPU single-dispatch controller. Its independent CPU Notebook rechecks both frozen trusted native baselines and executes the exact production worker with one owned synthetic task and a scripted local HTTP model boundary. No real Gemma, GPU, reference patch, or extra research sample is involved.
+
+The CPU probe is not yet executed at this preparation commit. CPU acceptance must come from its real output, not these local tests. The earlier unsent CPU build is retained under `repair_cpu01/offline_build_01/`.
+
+Raw task/evaluator evidence remains in private-evidence outside Git. Public files contain source code, integrity hashes, and derived execution metadata only.

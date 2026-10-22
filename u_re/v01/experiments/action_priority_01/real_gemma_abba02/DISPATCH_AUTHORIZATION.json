@@ -1,0 +1,49 @@
+{
+  "experiment_id": "U-RE-V01-ACTION-FIRST-01",
+  "execution_id": "U-RE-V01-ACTION-FIRST-01-GPU02",
+  "slug": "wudangdexiaodoashi/gemma4-u-re-actionfirst-abba02",
+  "GPU_authorized": true,
+  "max_SaveKernel_dispatches": 1,
+  "max_Agent_runs": 4,
+  "Agent_seconds": 300,
+  "charged_tools": 60,
+  "command_seconds": 120,
+  "platform_window_seconds": 10000,
+  "GPU_type": "NVIDIA L4",
+  "GPU_count": 4,
+  "TP": 4,
+  "model_source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "order": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_9425",
+      "arm": "A"
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_9425",
+      "arm": "B"
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_14786",
+      "arm": "B"
+    },
+    {
+      "run": 4,
+      "instance_id": "fastapi_14786",
+      "arm": "A"
+    }
+  ],
+  "candidate_sha256": {
+    "A": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608",
+    "B": "70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8"
+  },
+  "quota_at_dispatch_report_seconds": "82709.410",
+  "formal_submission": false,
+  "human_message_reference": "Current explicit human instruction: U-RE Action-First GPU02 \u72ec\u7acb\u91cd\u8bd5\u6388\u6743\u4e0e\u6267\u884c\u4efb\u52a1. Independent grant for exactly one NEW GPU02 save/run,4xL4 TP4 Gemma31BQATv2,four frozen ABBA300s/60tools/120command sessions,window<=10000s. GPU01 unchanged;no GPU03,Prompt/task/model changes or formal Submission.",
+  "recorded_utc": "2026-10-22T15:25:07.299162+00:00",
+  "Notebook_sha256": "60d70b63b07d8a1640b093031cd2d2d7d5675bfff2394387ef0178508a1d939b",
+  "wire_sha256": "0d7ade17e37bd82e61b98d71d469df92d349ac4bd73dc6040aabd1307dbe7cdc",
+  "payload_sha256": "46dafc2c522c75dcc0687061d86c1f0741844f60a0b8e07b2622f4609a8681ed"
+}
