@@ -1,0 +1,121 @@
+{
+  "experiment_id": "U-RE-V02-ACTION-FIRST-REPLICATION",
+  "status": "PREREGISTERED_BEFORE_NEW_BASELINES",
+  "seed": 17,
+  "ranking": "SHA256('U-RE-V02-ACTION-FIRST-REPLICATION:17:' + instance_id), ascending, instance_id tie break",
+  "max_checks": 16,
+  "target_tasks": 4,
+  "selection": "First four BASELINE_ELIGIBLE in frozen order; stop immediately at four; no outcome-based replacement",
+  "primary": "Native Resolved",
+  "hypotheses": {
+    "H1": "Higher paired Native Resolved probability",
+    "H2": "More production edits before stop",
+    "H3": "More valid submits and fewer post-submit operations",
+    "H4": "Fewer context stops without production repair",
+    "H5": "Possible extra Token/tools cost"
+  },
+  "eligibility": "Original empty patch native verify_task, discriminating Issue-related assertion failure, no independent environment error, matching identities, source provenance, JUnit/TaskResult agreement, cleanup complete",
+  "reject_continue": [
+    "Known independent missing inline_snapshot or pytest-httpbin",
+    "Non-discriminating all-pass base"
+  ],
+  "conditional": "Target-caused collection failure is not formally eligible without separate validation; no baseline reclassification",
+  "stop": [
+    "Unknown collection/setup/internal error",
+    "Identity/snapshot alias conflict",
+    "JUnit/TaskResult conflict",
+    "Source/provenance drift",
+    "Isolation or cleanup failure"
+  ],
+  "run_order": [
+    {
+      "run": 1,
+      "task": "T1",
+      "arm": "A",
+      "batch": 1
+    },
+    {
+      "run": 2,
+      "task": "T1",
+      "arm": "B",
+      "batch": 1
+    },
+    {
+      "run": 3,
+      "task": "T2",
+      "arm": "B",
+      "batch": 1
+    },
+    {
+      "run": 4,
+      "task": "T2",
+      "arm": "A",
+      "batch": 1
+    },
+    {
+      "run": 5,
+      "task": "T3",
+      "arm": "A",
+      "batch": 2
+    },
+    {
+      "run": 6,
+      "task": "T3",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 7,
+      "task": "T4",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 8,
+      "task": "T4",
+      "arm": "A",
+      "batch": 2
+    }
+  ],
+  "budget": {
+    "agent_seconds": 300,
+    "charged_tools": 60,
+    "command_seconds": 120,
+    "context": 32768,
+    "max_output_tokens": 16384,
+    "safety": 1024,
+    "input_cap": 15360,
+    "thinking": 4096,
+    "seed": 17
+  },
+  "GPU_authorization": {
+    "max_Notebooks": 2,
+    "max_sessions": 8,
+    "each_batch_sessions": 4,
+    "each_platform_seconds": 10000,
+    "GPU": "4xL4",
+    "TP": 4,
+    "model": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "vllm": "0.19.1",
+    "retry_authorized": false,
+    "formal_submission": false
+  },
+  "secondary_metrics": [
+    "First production source hash change (operation-end upper bound)",
+    "First locally supported assertion with matching production revision",
+    "First observed applicable production patch (not merely nonempty)",
+    "Explicit successful submit and post-submit tools",
+    "Final production patch SHA and diagnostic-only changes",
+    "Agent and Worker wall time",
+    "Charged tools and actual HTTP requests/responses",
+    "Received prompt/completion tokens; missing remains null",
+    "Repeated unchanged tests/searches with input/source epoch",
+    "Context guard request input growth and stop state",
+    "Native TaskResult/JUnit",
+    "Infrastructure errors and cleanup"
+  ],
+  "context_guard": "Unchanged; independently record guard stop and resolved; correctness at guard only supported by unchanged production patch plus native result, otherwise null",
+  "analysis": "Task-level paired descriptive counts Both/A-only/B-only/Neither/Unknown. Four tasks, same-repository dependence. No statistical proof, score conversion or single-mechanism claims. GPU03 is separate exploratory cohort; show independent and combined summaries. Token costs include failures and unknown usage flags.",
+  "partial": "At16 insufficient preserve actual2-3 tasks; only predeclared task batches with available admitted tasks may run, report deviation. No historic fill-in or enlarged pool.",
+  "publication": "Raw evaluator, patches, private traces and signed links outside Git; public safe derived metadata only"
+}
