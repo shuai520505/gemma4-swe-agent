@@ -28,4 +28,16 @@ class PolicyTests(unittest.TestCase):
     def test_gpu_rejects_scripted_before_imports(self):
         from .session import run
         with self.assertRaises(AssertionError):asyncio.run(run('unused',0,mode='GPU',cpu_transport=object(),authorization={}))
+    def test_exact_CPU_archive_and_GPU_policy_binding(self):
+        from .notebook import verify_cpu
+        self.assertEqual(verify_cpu()['Notebook_id'],140394362)
+        self.assertTrue(validate('gpu01'))
+    def test_second_dispatch_blocked_before_SDK(self):
+        from .notebook import gpu_launch
+        with self.assertRaises(AssertionError):gpu_launch()
+    def test_prior_UNKNOWN_not_reclassified(self):
+        old=ROOT/'u_re/v02/experiments/real_gemma_replication_01/BATCH_02_EXECUTION.json'
+        value=json.loads(old.read_bytes())
+        self.assertEqual(value['status'],'SAVE_STATUS_UNKNOWN')
+        self.assertIsNone(value['Notebook_id'])
 if __name__=='__main__':unittest.main()

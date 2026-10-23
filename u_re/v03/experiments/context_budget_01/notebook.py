@@ -123,6 +123,12 @@ def collect_gpu(private):
     ns=dict(HERE=HERE/'gpu01',ROOT=ROOT,SLUG=SLUG,__name__='v03_readonly',__file__=str(old));exec(compile(code,str(old),'exec'),ns)
     ns['collect'](private)
 
+def status():
+    """Reuse bounded read-only light status after independent identity confirmation."""
+    from u_re.v02.experiments.real_gemma_replication_01 import notebook as prior
+    namespace=dict(prior.__dict__,location=lambda batch:(HERE/'gpu01',SLUG,ID))
+    return types.FunctionType(prior.status.__code__,namespace)(1)
+
 def verify_cpu():
     from .audit import audit_cpu
     proof=json.loads((HERE/'CPU_END_TO_END_ACCEPTANCE.json').read_bytes())
@@ -140,3 +146,4 @@ if __name__=='__main__':
     elif cmd=='gpu-build':make('GPU','gpu01',json.loads(sorted((HERE/'gpu01/preflight').glob('read-*/DYNAMIC_PRECHECK.json'))[-1].read_bytes())['remaining_report_seconds'])
     elif cmd=='gpu-launch':gpu_launch()
     elif cmd=='gpu-collect':collect_gpu(sys.argv[2])
+    elif cmd=='status':status()

@@ -1,0 +1,24 @@
+test_actual_caps_and_received_finish_reasons (u_re.v03.experiments.context_budget_01.test_results.ActualResultsTests.test_actual_caps_and_received_finish_reasons) ... ok
+test_cancelled_usage_is_not_zero (u_re.v03.experiments.context_budget_01.test_results.ActualResultsTests.test_cancelled_usage_is_not_zero) ... ok
+test_native_and_guard_independent (u_re.v03.experiments.context_budget_01.test_results.ActualResultsTests.test_native_and_guard_independent) ... ok
+test_source_edits_exclude_workspace_initialization (u_re.v03.experiments.context_budget_01.test_results.ActualResultsTests.test_source_edits_exclude_workspace_initialization) ... FAIL
+
+======================================================================
+FAIL: test_source_edits_exclude_workspace_initialization (u_re.v03.experiments.context_budget_01.test_results.ActualResultsTests.test_source_edits_exclude_workspace_initialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v03\experiments\context_budget_01\test_results.py", line 7, in test_source_edits_exclude_workspace_initialization
+    self.assertEqual([m['production_edit_operations'] for m in rows],[2,2,3,0])
+AssertionError: Lists differ: [3, 3, 4, 1] != [2, 2, 3, 0]
+
+First differing element 0:
+3
+2
+
+- [3, 3, 4, 1]
++ [2, 2, 3, 0]
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=1)
