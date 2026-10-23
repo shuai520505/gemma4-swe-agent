@@ -1,5 +1,6 @@
 """Reuse durable CPU dispatch and version-bound read-only collector."""
 import ast,base64,io,json,types,zipfile,importlib.metadata
+from pathlib import Path
 from .selection import HERE,ROOT,ID,sha,write
 from u_re.v01.experiments.action_priority_01.real_gemma_abba03 import notebook as proven
 
@@ -26,7 +27,7 @@ def build_screen(attempt='screen01'):
     payload=stream.getvalue();write_bytes(HERE/attempt/'screen_payload.zip',payload)
     from s1.prepare import INSTALL,IMAGE
     run_name='v02-'+attempt;slug='wudangdexiaodoashi/gemma4-u-re-v02-'+attempt
-    setup=f'''import os,sys,json,hashlib,zipfile,io,subprocess,time
+    setup=f'''import os,sys,json,hashlib,zipfile,io,subprocess,shutil,time
 from pathlib import Path
 RUN_DIR=Path('/kaggle/working/{run_name}');RUN_DIR.mkdir(parents=True,exist_ok=False)
 SOURCE=RUN_DIR/'source'
@@ -70,7 +71,7 @@ def factory(attempt='screen01',agent_runs=0):
     # identity, authorization, SDK retries=0 and exclusive durable dispatch.
     source=Path(repair.__file__).read_text(encoding='utf-8')
     source=source.replace('from .GPU_NOTEBOOK import HERE,ROOT,PRIOR,sha,write','')
-    m=types.ModuleType('v02_cpu_controller');m.__file__=repair.__file__
+    m=types.ModuleType('v02_cpu_controller');m.__file__=repair.__file__;m.HERE=HERE
     exec(compile(source,m.__file__,'exec'),m.__dict__)
     m.HERE=HERE;m.ROOT=ROOT;m.PRIOR=proven.PRIOR;m.CPU=cpu;m.ID=execution_id;m.SLUG=slug;m.sha=sha;m.write=proven.write
     if agent_runs:
