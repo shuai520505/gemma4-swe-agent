@@ -86,6 +86,8 @@ def validate_attempt(attempt):
         assert sha(z.read(prefix+name))==b['selection_protocol_sha256']
         if name=='V02B_PROTOCOL_LOCK.json':
             protocol=json.loads(z.read(prefix+name))
+            environment=json.loads(z.read(prefix+'V02B_ENVIRONMENT_LOCK.json'))
+            assert environment['build_script_sha256']==sha(Path(__file__).read_bytes()),'Builder changed after environment lock'
             assert sha(z.read(prefix+'V02B_ENVIRONMENT_LOCK.json'))==protocol['environment_lock_sha256']
             assert sha(z.read(prefix+'TASK_POOL_FREEZE.json'))==protocol['pool_sha256']
             for n,h in protocol['execution_sources'].items():assert sha(z.read(prefix+n))==h,n
