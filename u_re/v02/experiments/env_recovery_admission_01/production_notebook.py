@@ -40,6 +40,11 @@ def build(attempt='e2e01'):
             info=zipfile.ZipInfo(n,(2026,10,23,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,v)
     payload=stream.getvalue();(PRODUCTION/'payload.zip').write_bytes(payload)
     write(PRODUCTION/'GPU03_PAYLOAD_MANIFEST.json',dict(payload_sha256=sha(payload),bytes=len(payload),**registration_data,CPU_transport_in_payload=False,frozen_tasks=lock['tasks'],frozen_order=lock['order'],source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()))
+    build_cpu_notebook(attempt)
+
+def build_cpu_notebook(attempt):
+    assert not (HERE/attempt/'execution/dispatch.claim').exists()
+    assert not (HERE/attempt/'BUILD.json').exists(),'Use a new CPU attempt identity instead of overwriting a sealed Notebook'
     make=inspect.getsource(proven.make_notebook)
     make=make.replace("else directory.name","else 'v02b-'+directory.name").replace("gemma4-u-re-abba03-","gemma4-u-re-v02b-")
     make=make.replace("aux=(HERE/'cpu_transport.py').read_bytes()","aux=CPU_TRANSPORT_FILE.read_bytes()")
@@ -78,5 +83,6 @@ if __name__=='__main__':
     import sys
     cmd=sys.argv[1];attempt=sys.argv[2] if len(sys.argv)>2 else 'e2e01'
     if cmd=='build':build(attempt)
+    elif cmd=='build-cpu':build_cpu_notebook(attempt)
     elif cmd=='launch':factory(attempt).launch()
     elif cmd=='collect':factory(attempt).collect(sys.argv[3])
