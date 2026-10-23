@@ -109,12 +109,39 @@ def launch(batch):
 
 def collect(batch,private_root):
     directory,slug,_=location(batch)
-    old=ROOT/'u_re/v01/experiments/action_priority_01/gpu_readiness_01/collect_capabilities.py'
-    source=old.read_text(encoding='utf8').replace('from .cpu_probe_notebook import CPU,ROOT,SLUG','CPU=None;ROOT=None;SLUG=None')
+    old=ROOT/'u_re/v01/experiments/action_priority_01/real_gemma_abba01/collect.py'
+    source=old.read_text(encoding='utf8').replace('from .GPU_NOTEBOOK import HERE,ROOT,SLUG','')
     archive='v02b-gemma-batch'+f'{batch:02d}'+'.zip'
-    source=source.replace("('u_re_isolation_cap01.zip','u_re_isolation_canary01.zip')",repr((archive,)))
+    source=source.replace('u_re_actionfirst_abba01.zip',archive)
+    # Exact approved model-source identity, in addition to GPU shape/owner/ZIP.
+    source=source.replace("len(meta['model_data_sources'] or []) == 1",repr(MODEL_SOURCE)+" in (meta['model_data_sources'] or []) and len(meta['model_data_sources'] or []) == 1")
     m=types.ModuleType('V02b_version_bound_readonly');m.__file__=str(old);exec(compile(source,str(old),'exec'),m.__dict__);m.ROOT=ROOT
-    m.collect(private_root,cpu=directory,slug=slug,archive=archive)
+    m.HERE=directory;m.SLUG=slug;m.collect(private_root)
+
+def status(batch):
+    """Light bounded latest-status read; never substitutes for version-bound output."""
+    from urllib.parse import urlsplit
+    import requests
+    directory,slug,_=location(batch)
+    assert any(json.loads(p.read_bytes()).get('state')=='IDENTITY_CONFIRMED' for p in (directory/'read_observations').glob('read-*/RESOURCE_IDENTITY.json'))
+    count=len(list((directory/'status_reads').glob('*.json')))+1;assert count<=40
+    ledger=[];original=requests.Session.send
+    def send(session,request,**kw):
+        op=urlsplit(request.url).path.rsplit('/',1)[-1]
+        assert op in ('IntrospectToken','GetKernelSessionStatus') and len(ledger)<3
+        kw.update(timeout=45,allow_redirects=False);response=original(session,request,**kw)
+        ledger.append(dict(operation=op,HTTP_status=response.status_code,utc=datetime.now(timezone.utc).isoformat()))
+        return response
+    requests.Session.send=send
+    try:
+        from kaggle import api
+        from kagglesdk.kernels.types.kernels_api_service import ApiGetKernelSessionStatusRequest
+        with api.build_kaggle_client() as client:
+            q=ApiGetKernelSessionStatusRequest();q.user_name=slug.split('/')[0];q.kernel_slug=slug.split('/')[1]
+            value=client.kernels.kernels_api_client.get_kernel_session_status(q)
+        record=dict(status=value.status.name,HTTP=ledger,scope='Latest status hint only; source/version reverified before any output acceptance',SaveKernel=0,GPU_allocation_requests=0)
+        write(directory/'status_reads'/f'{count:02d}.json',record);print(json.dumps(record))
+    finally:requests.Session.send=original
 
 if __name__=='__main__':
     import sys
@@ -127,3 +154,4 @@ if __name__=='__main__':
         elif cmd=='validate':print(validate(batch))
         elif cmd=='launch':launch(batch)
         elif cmd=='collect':collect(batch,sys.argv[3])
+        elif cmd=='status':status(batch)
