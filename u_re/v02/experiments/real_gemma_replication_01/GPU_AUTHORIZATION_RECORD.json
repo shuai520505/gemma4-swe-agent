@@ -1,0 +1,103 @@
+{
+  "execution_experiment_id": "U-RE-V02B-REAL-GEMMA-REPLICATION",
+  "experiment_id": "U-RE-V02B-ENV-RECOVERY-ADMISSION",
+  "GPU_authorized": true,
+  "evidence_source": "human_user_message",
+  "human_message_reference": "Current explicit V02b two-batch GPU instruction: max2 new private GPU Notebooks,8 total genuine Agent Sessions; exact four tasks and ABBAABBA order; no GPU retry or Competition Submission.",
+  "source_base": "def9c7a46c95a852f48feeafeb7017a00fb8a489",
+  "environment_lock_sha256": "452c0d9afdf7c21edcd43a6a67e69cca6c67aba640eb526f50aa9835169dc7d9",
+  "production_payload_sha256": "815d51b0528934283823c7469f42503fb6f388fc406c9e0870a46276be398e63",
+  "CPU_acceptance_raw_sha256": "3e8cd885b02ef787a94513e29f9ced1f677c5e498c0e2dff4ef2de2d470c1659",
+  "task_lock_sha256": "854c7562360ef3d6d795fdf2952a0e77769aa0f6e7aa99e84cf4ac1e00fb5a80",
+  "selected_tasks_sha256": "906b99eec5fd2ee667b262e142ccff72a3a1edcdc8823f28e35c6869bcf79639",
+  "frozen_order": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_5077",
+      "arm": "A",
+      "batch": 1
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_5077",
+      "arm": "B",
+      "batch": 1
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_11355",
+      "arm": "B",
+      "batch": 1
+    },
+    {
+      "run": 4,
+      "instance_id": "fastapi_11355",
+      "arm": "A",
+      "batch": 1
+    },
+    {
+      "run": 5,
+      "instance_id": "fastapi_14463",
+      "arm": "A",
+      "batch": 2
+    },
+    {
+      "run": 6,
+      "instance_id": "fastapi_14463",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 7,
+      "instance_id": "fastapi_9555",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 8,
+      "instance_id": "fastapi_9555",
+      "arm": "A",
+      "batch": 2
+    }
+  ],
+  "arms": {
+    "A": {
+      "name": "Frozen NoEGV",
+      "ZIP_sha256": "2705679a74456937d8c63127fc34df9c99a28446f9bd23c23d56650b91602608"
+    },
+    "B": {
+      "name": "Action-First",
+      "ZIP_sha256": "70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8"
+    }
+  },
+  "model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "model_source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "GPU": "4xNVIDIA L4",
+  "GPU_type": "NVIDIA L4",
+  "GPU_count": 4,
+  "TP": 4,
+  "Agent_seconds": 300,
+  "max_batches": 2,
+  "max_sessions_per_batch": 4,
+  "max_Agent_sessions": 8,
+  "platform_window_seconds": 10000,
+  "charged_tools": 60,
+  "command_seconds": 120,
+  "context": 32768,
+  "max_output_tokens": 16384,
+  "thinking": 4096,
+  "safety": 1024,
+  "input_cap": 15360,
+  "seed": 17,
+  "retries_authorized": false,
+  "formal_submission": false
+}

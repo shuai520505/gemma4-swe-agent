@@ -1,0 +1,82 @@
+{
+  "execution_experiment_id": "U-RE-V02B-REAL-GEMMA-REPLICATION",
+  "batch": 2,
+  "source_commit": "f5a369ea31795495c727c4a4a0bbd40ffe81606a",
+  "shared_payload_sha256": "815d51b0528934283823c7469f42503fb6f388fc406c9e0870a46276be398e63",
+  "external_authorization_sha256": "1e629526629a8303bfd45dc66faf0d52dc0d15ac32302f264a4e8748af642f7a",
+  "order": [
+    {
+      "run": 5,
+      "instance_id": "fastapi_14463",
+      "arm": "A",
+      "batch": 2
+    },
+    {
+      "run": 6,
+      "instance_id": "fastapi_14463",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 7,
+      "instance_id": "fastapi_9555",
+      "arm": "B",
+      "batch": 2
+    },
+    {
+      "run": 8,
+      "instance_id": "fastapi_9555",
+      "arm": "A",
+      "batch": 2
+    }
+  ],
+  "preflight_snapshot": {
+    "identity_confirmed": true,
+    "current_readonly_GO": true,
+    "slug_conflict": false,
+    "payload_integrity": true,
+    "raw_quota": {
+      "totalTimeAllowed": "108000s",
+      "timeUsed": "31790.900s",
+      "timeReserved": "0s"
+    },
+    "remaining_report_seconds": "76209.100",
+    "account_GPU_sessions": [],
+    "model_source_readable": true,
+    "model_files": [
+      "README.md",
+      "chat_template.jinja",
+      "config.json",
+      "generation_config.json",
+      "model.safetensors",
+      "processor_config.json",
+      "tokenizer.json",
+      "tokenizer_config.json"
+    ],
+    "machine_request": "NvidiaL4;actual4L4 allocation checked before inference",
+    "requested_window": 10000,
+    "source_commit": "3ce87d96a4e4887315df02f2ebd602b92738747e",
+    "HTTP": [
+      {
+        "operation": "ListKernels",
+        "status": 200,
+        "utc": "2026-10-23T09:22:27.053521+00:00"
+      },
+      {
+        "operation": "ListKernels",
+        "status": 200,
+        "utc": "2026-10-23T09:22:30.752581+00:00"
+      },
+      {
+        "operation": "GetAcceleratorQuotaStatistics",
+        "status": 200,
+        "utc": "2026-10-23T09:22:33.772038+00:00"
+      },
+      {
+        "operation": "ListModelInstanceVersionFiles",
+        "status": 200,
+        "utc": "2026-10-23T09:22:36.326335+00:00"
+      }
+    ]
+  }
+}

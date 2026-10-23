@@ -1,0 +1,40 @@
+{
+  "analysis_only": true,
+  "raw_archive_sha256": "6ecb9bfceb0b230ea3f4a2281b219d1e94c1ff2e50d4b0960b8701b4e7af2e45",
+  "runs": [
+    {
+      "run": 1,
+      "production_repair_edit_observed": false,
+      "review": "No production hash changes; final patch contains only diagnostic scripts."
+    },
+    {
+      "run": 2,
+      "production_file_changed": true,
+      "production_change": "DEBUG_PRINT_ONLY",
+      "production_repair_edit_observed": false,
+      "local_assertion_review": "Created pytest testcase had pass body and no explicit behavior assertion; it already passed before the production edit. A later green pytest after adding DEBUG print is not discriminating repair evidence.",
+      "evidence_ADK_indices": {
+        "testcase_written": 24,
+        "pre_edit_test_passed": [
+          26,
+          30
+        ],
+        "production_debug_edit": 32,
+        "post_edit_test_passed": 34
+      }
+    },
+    {
+      "run": 3,
+      "production_repair_edit_observed": false,
+      "review": "No fastapi production hash change; final patch contains two diagnostics, including one C-quoted Unicode filename."
+    },
+    {
+      "run": 4,
+      "production_file_changed": true,
+      "production_change": "BEHAVIORAL_CANDIDATE",
+      "production_repair_edit_observed": true,
+      "review": "Actual annotation-evaluation conditional changed, but original native contract still fails. Candidate edit is not a successful repair."
+    }
+  ],
+  "scope": "Derived categories/hash-bound event references only. Raw model/tool content and patch remain private; no Agent or future candidate receives this review."
+}
