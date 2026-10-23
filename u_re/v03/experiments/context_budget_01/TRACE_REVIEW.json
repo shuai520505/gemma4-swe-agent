@@ -1,0 +1,43 @@
+{
+  "archive_sha256": "05bbbe3626123f1c4dbc7ce01382867e2d84affca942314fda733b3692d50580",
+  "scope": "Offline private actual Agent changes and tool outputs against original normal Issue; no reference/gold patch. Nothing supplied to Agent.",
+  "measurement_repair": "Original aggregate counted a pre-Agent workspace materialization as a production edit. Regression failure preserved in METRIC_TEST_FAILURE_01.log; counts now exclude all observations before agent_started. No raw evidence or production execution changed.",
+  "runs": [
+    {
+      "run": 1,
+      "first_meaningful_edit_observation_index": 0,
+      "classification": "Target-related behavioral edit,final native-positive; no explicit submit before guard",
+      "local_support_status": "NO_DISCRIMINATING_LOCAL_ASSERTION; diagnostic repro catches exceptions; final native verifier supplies repair proof"
+    },
+    {
+      "run": 2,
+      "first_meaningful_edit_observation_index": 0,
+      "classification": "Target-related behavioral edit,final native-positive; explicit submit and immediate closure",
+      "first_local_regression_pass_seconds": 228.9218305070001,
+      "local_support_status": "RELATED_EXISTING_REGRESSION_ONLY: 4 wrapped-dependency tests and1 signature test passed; no observed same-test pre/post discriminating target proof"
+    },
+    {
+      "run": 3,
+      "first_meaningful_edit_observation_index": 1,
+      "classification": "First source edit adds an import only; first behavioral edit occurs at second observed operation. Final native-negative; no post-edit test before300s timeout.",
+      "local_support_status": "NO_OBSERVED_POST_EDIT_ASSERTION; extra context used by repeated search and diagnostic scripts before late repair attempt"
+    },
+    {
+      "run": 4,
+      "first_meaningful_edit_observation_index": null,
+      "classification": "Diagnostic scripts only; no Agent production edit before context guard",
+      "local_support_status": "NO_PRODUCTION_REPAIR"
+    }
+  ],
+  "agent_local_environment": {
+    "run2_full_pytest": "collected702 items /162 collection errors, includes missing optional pydantic_settings; broad whole-project test is not the trusted native suite",
+    "run2_targeted_tests": "4+1 passed in existing allowed workspace tests",
+    "classification": "Frozen Agent-side full-suite availability limitation and inefficient test selection; trusted native environment unchanged and0 errors in all four native runs. No dependency installed or test modified. Not a model API/schema failure."
+  },
+  "cancellation": {
+    "run": 3,
+    "reason": "Official300s Agent deadline; one actual HTTP request cancelled with no response/usage",
+    "not_output_truncation": true,
+    "received_usage_only": true
+  }
+}

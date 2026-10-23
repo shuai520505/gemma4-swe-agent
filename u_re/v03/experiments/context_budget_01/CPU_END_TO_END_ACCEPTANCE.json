@@ -1,0 +1,202 @@
+{
+  "status": "V03_PAYLOAD_END_TO_END_CPU_PASS",
+  "attempt": "cpu-e2e03",
+  "Notebook_id": 140394362,
+  "version": 1,
+  "platform_status": "COMPLETE",
+  "CPU_MODEL": "SCRIPTED_ONLY",
+  "real_Gemma_requests": 0,
+  "payload_sha256": "0ab04d368e5f911ca7d6c83c3ea2275858abcb4128babd727d14938901466186",
+  "all_production_file_hashes_match": true,
+  "raw_archive_path": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\private-evidence\\u_re_v03_cpu_e2e03\\read-03\\evidence_confirmed\\output\\v03-cpu-e2e03.zip",
+  "raw_archive_sha256": "f088eb1377eab33a423277078990e90ba425f75df6d40b6e87897dbf1bb40228",
+  "raw_bytes": 1408448,
+  "CRC_valid": true,
+  "baselines": [
+    {
+      "task": "fastapi_5077",
+      "TaskResult_sha256": "766269beaf90feb8a1272be4ca2c4ecd8c308c6a4862c5dfba4309684ea7e3ab",
+      "JUnit_sha256": "a5677d8dc5cc45a8e793fda97589ef6f4bf084a807641e09d6db9800f71a8d9c",
+      "counts": {
+        "tests": 1,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "task": "fastapi_11355",
+      "TaskResult_sha256": "0139c640763eb67e917e9b7846533d02351a30990cf562d92bcd61fffc09a9a0",
+      "JUnit_sha256": "82ae45b45c4db00996b3d6c34300b74baac9eee10c38a5d874517f913ed6d280",
+      "counts": {
+        "tests": 1,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "synthetic_runs": [
+    {
+      "policy": "A",
+      "output_cap": 16384,
+      "resolved": true,
+      "TaskResult_sha256": "6203fdfd097688996fc615281d405333114fefb8117ecaa650c70f3e31b87a45",
+      "JUnit_sha256": "44d3b0ebd49d9f3bb228301a0ae94546a5616bc9543cdb37c76f79c3280eb384",
+      "runtime_sha256": "5b93f3a8fbf6afccd2ec3e5213a423b5f2148158480b01074ab7ee5dfb446d35",
+      "HTTP_requests": 6,
+      "guard_and_compiler_and_wire_equal": true,
+      "cleanup_complete": true
+    },
+    {
+      "policy": "B",
+      "output_cap": 8192,
+      "resolved": true,
+      "TaskResult_sha256": "3453c296b99984ce637bdc7c6dc480a4e935b101ebee1c024cc9434a67a9a401",
+      "JUnit_sha256": "4c0345f8a632a92d63a6ebc91599270d633634712e7ede43b158ca8ae416f7cc",
+      "runtime_sha256": "7691ab808783514c8b79a9761f5527debf2594d2fb3ac26627fb0f45ddd071e7",
+      "HTTP_requests": 6,
+      "guard_and_compiler_and_wire_equal": true,
+      "cleanup_complete": true
+    }
+  ],
+  "boundary_cases": [
+    {
+      "policy": "A",
+      "input": 15360,
+      "input_cap": 15360,
+      "rejected": false,
+      "generation_requests": 1,
+      "events": [
+        {
+          "kind": "research_parameters",
+          "output_tokens": 16384,
+          "thinking_budget": 4096,
+          "include_thoughts": null,
+          "seed": 17,
+          "uncapped_summary": false
+        },
+        {
+          "kind": "context_admission",
+          "core_restored": false,
+          "input_tokens": 15360,
+          "output_reserved": 16384,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 32768,
+          "decision": "allow"
+        }
+      ]
+    },
+    {
+      "policy": "A",
+      "input": 15361,
+      "input_cap": 15360,
+      "rejected": true,
+      "generation_requests": 0,
+      "events": [
+        {
+          "kind": "research_parameters",
+          "output_tokens": 16384,
+          "thinking_budget": 4096,
+          "include_thoughts": null,
+          "seed": 17,
+          "uncapped_summary": false
+        },
+        {
+          "kind": "context_admission",
+          "core_restored": false,
+          "decision": "reject",
+          "input_tokens": 15361,
+          "max_model_len": 32768,
+          "output_reserved": 16384,
+          "safety_tokens": 1024,
+          "total_reserved": 32769
+        }
+      ]
+    },
+    {
+      "policy": "B",
+      "input": 15361,
+      "input_cap": 23552,
+      "rejected": false,
+      "generation_requests": 1,
+      "events": [
+        {
+          "kind": "research_parameters",
+          "output_tokens": 8192,
+          "thinking_budget": 4096,
+          "include_thoughts": null,
+          "seed": 17,
+          "uncapped_summary": false
+        },
+        {
+          "kind": "context_admission",
+          "core_restored": false,
+          "input_tokens": 15361,
+          "output_reserved": 8192,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 24577,
+          "decision": "allow"
+        }
+      ]
+    },
+    {
+      "policy": "B",
+      "input": 23552,
+      "input_cap": 23552,
+      "rejected": false,
+      "generation_requests": 1,
+      "events": [
+        {
+          "kind": "research_parameters",
+          "output_tokens": 8192,
+          "thinking_budget": 4096,
+          "include_thoughts": null,
+          "seed": 17,
+          "uncapped_summary": false
+        },
+        {
+          "kind": "context_admission",
+          "core_restored": false,
+          "input_tokens": 23552,
+          "output_reserved": 8192,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 32768,
+          "decision": "allow"
+        }
+      ]
+    },
+    {
+      "policy": "B",
+      "input": 23553,
+      "input_cap": 23552,
+      "rejected": true,
+      "generation_requests": 0,
+      "events": [
+        {
+          "kind": "research_parameters",
+          "output_tokens": 8192,
+          "thinking_budget": 4096,
+          "include_thoughts": null,
+          "seed": 17,
+          "uncapped_summary": false
+        },
+        {
+          "kind": "context_admission",
+          "core_restored": false,
+          "decision": "reject",
+          "input_tokens": 23553,
+          "max_model_len": 32768,
+          "output_reserved": 8192,
+          "safety_tokens": 1024,
+          "total_reserved": 32769
+        }
+      ]
+    }
+  ],
+  "environment_unchanged": true,
+  "isolation_and_cleanup_passed": true
+}

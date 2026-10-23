@@ -1,0 +1,89 @@
+{
+  "all195_guard_counts_match_received_prompt_usage": true,
+  "rows": [
+    {
+      "cohort": "GPU03",
+      "task": "fastapi_9425",
+      "candidate": "NoEGV",
+      "requests": 26,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "GPU03",
+      "task": "fastapi_9425",
+      "candidate": "Action-First",
+      "requests": 39,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "GPU03",
+      "task": "fastapi_14786",
+      "candidate": "Action-First",
+      "requests": 17,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "GPU03",
+      "task": "fastapi_14786",
+      "candidate": "NoEGV",
+      "requests": 24,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "V02B_BATCH1",
+      "task": "fastapi_5077",
+      "candidate": "NoEGV",
+      "requests": 22,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "V02B_BATCH1",
+      "task": "fastapi_5077",
+      "candidate": "Action-First",
+      "requests": 22,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "V02B_BATCH1",
+      "task": "fastapi_11355",
+      "candidate": "Action-First",
+      "requests": 22,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    },
+    {
+      "cohort": "V02B_BATCH1",
+      "task": "fastapi_11355",
+      "candidate": "NoEGV",
+      "requests": 23,
+      "guard_counter_minus_actual_usage_values": [
+        0
+      ]
+    }
+  ],
+  "generation_path": [
+    "Frozen Action-First agent.yaml",
+    "Trusted research_candidate byte-only max_output override (P1)",
+    "Official compile_submission generate_content_config",
+    "Official Runner compiles same research directory",
+    "ADK LiteLlm mapping to max_completion_tokens",
+    "s1.guard.Guard enforces same Config.output_tokens",
+    "RequestGuard live vLLM tokenize + ContextPolicy",
+    "Observed local vLLM HTTP request max_completion_tokens"
+  ],
+  "CPU_proof": "Raw 140394362/v1 both policies have matching compiler/runtime/guard/HTTP caps, unchanged thinking4096/seed17",
+  "thinking": "Actual HTTP thinking_token_budget=4096 and reasoning text present. No independent reasoning_tokens supplied in historical usage; no numeric thinking allocation inferred."
+}

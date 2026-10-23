@@ -1,0 +1,12 @@
+{
+  "version": "0.19.1",
+  "official_source": "https://github.com/vllm-project/vllm/blob/v0.19.1/vllm/entrypoints/openai/chat_completion/serving.py",
+  "nonstream_usage_lines": "1474-1485",
+  "source_fact": "completion_tokens is sum(len(output.token_ids) for output in final_res.outputs); prompt_tokens is actual prompt token ID length. No separate reasoning split is constructed in this usage object.",
+  "inference": "Reported completion includes generated reasoning rather than requiring an extra4096 added on top; exact per-response reasoning share remains UNKNOWN. Thinking budget is a ceiling passed to server, not a measured extra token charge.",
+  "runtime_evidence": "Historical actual HTTP includes thinking_token_budget4096, chat_template_kwargs.enable_thinking=true, server reasoning fields; all responses have prompt+completion=total",
+  "responses": 195,
+  "responses_with_reasoning": 189,
+  "reasoning_token_values": null,
+  "source_scope": "Public tagged source audit, not a new model request or modification; installed version was recorded in actual original archives."
+}

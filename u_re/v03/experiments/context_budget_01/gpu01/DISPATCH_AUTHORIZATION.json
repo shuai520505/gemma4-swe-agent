@@ -1,0 +1,99 @@
+{
+  "experiment_id": "U-RE-V03-CONTEXT-BUDGET-01",
+  "GPU_authorized": true,
+  "evidence_source": "human_user_message",
+  "human_message_reference": "Current V03 explicit authorization: one private GPU Notebook,4xL4 TP4 Gemma4 QATv2,exact P0/P1 four sessions,max10000seconds; no retries or Submission",
+  "max_SaveKernel_dispatches": 1,
+  "max_Agent_runs": 4,
+  "Agent_seconds": 300,
+  "platform_window_seconds": 10000,
+  "GPU_type": "NVIDIA L4",
+  "GPU_count": 4,
+  "TP": 4,
+  "model_source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "order": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_5077",
+      "arm": "A"
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_5077",
+      "arm": "B"
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_11355",
+      "arm": "B"
+    },
+    {
+      "run": 4,
+      "instance_id": "fastapi_11355",
+      "arm": "A"
+    }
+  ],
+  "policy_freeze_sha256": "5291419d830fd2b4e8c099bc59bb6d74707ea3bee8f4f5749275a90e07dd948a",
+  "payload_sha256": "0ab04d368e5f911ca7d6c83c3ea2275858abcb4128babd727d14938901466186",
+  "environment_lock_sha256": "452c0d9afdf7c21edcd43a6a67e69cca6c67aba640eb526f50aa9835169dc7d9",
+  "model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "task_identities": [
+    {
+      "instance_id": "fastapi_5077",
+      "repo": "fastapi/fastapi",
+      "base_commit": "930b27e5fa32ce150ddcea61f0c913435ae71c83",
+      "issue_sha256": "07fa3ca85eb583233bf5bb64c84480645d3c8b27afcd105cbe679a9f204d0a7e",
+      "input_files": {
+        "snapshots/fastapi_5077.tgz": "3dd1240032ef7253cb3de857a68167eebfae91ae573f30d5366ee3d52c78a2cc"
+      },
+      "task_record_sha256": "5bfdab851dd0462946cddaf7aa2aa03cc2acb7b742130036939c9ae94b9ae2a8",
+      "test_patch_sha256": "f4a6857c266bed1ee92afe04fbcd2edca7dc3015663f702bbf4c2485d39f365b",
+      "native_baseline_counts": {
+        "tests": 1,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      },
+      "native_baseline_exit_code": 1,
+      "role": "CARRIED_FORWARD_NOT_NEW",
+      "JUnit_sha256": "c1dbaf21050b38023c090c265233fdaddc6e7b18a6c6761519227dd9c0cf292a",
+      "native_TaskResult_sha256": "ef11634fa5894726ac34a6eb0e911e374282395c015001d3627d093398968cae"
+    },
+    {
+      "instance_id": "fastapi_11355",
+      "repo": "fastapi/fastapi",
+      "base_commit": "811fa898752e7f5697733a2958ff79ad8dfb5276",
+      "issue_sha256": "a0befe396e4c57ae07f1e3f5a5973c717c48c899f1eb043bb46f1f3fb0804bee",
+      "input_files": {
+        "snapshots/fastapi_11355.tgz": "221c813ac48ec99474ff8c2805e0f4e8f86a978be78760b609f0c15e25c5ec18"
+      },
+      "task_record_sha256": "58763ecaecff39f0b9664b7f7d7fd2a613a6e0fb20e0c4c72c1ebb061b929525",
+      "test_patch_sha256": "57622afdd78c2432b41cd30547d8367e1518177494f57685bc38a8e08ee0d40e",
+      "native_baseline_counts": {
+        "tests": 1,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      },
+      "native_baseline_exit_code": 1,
+      "role": "PROSPECTIVE_NEW",
+      "JUnit_sha256": "c89369005129795b5384b25a4c85bd91493722ac00634a107d6cf7e1b3dee4b8",
+      "native_TaskResult_sha256": "896212e92e960e9b78f587ffec288e464068c2bcb4f4be43328357c43a03a95c"
+    }
+  ],
+  "retries_authorized": false,
+  "formal_submission": false,
+  "execution_id": "U-RE-V03-CONTEXT-BUDGET-01",
+  "slug": "wudangdexiaodoashi/gemma4-u-re-v03-context01",
+  "Notebook_sha256": "dd8e7c2373d0c2c13fe5e3bef2b31ac359c5e5b3275061e7ab779a415e518f30",
+  "wire_sha256": "53958e8435a68ce89df22852ad3705a79ae90bc5cdc77e40db585ef5381f0335"
+}
