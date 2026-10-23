@@ -1,0 +1,1 @@
+Frozen EGR V0.4 first official score. User authorization: 你把当前EGR提交并且取得分数. Exactly one CPU packaging SaveKernel and one CreateCodeSubmission; no research GPU. Original ZIP bytes are embedded unchanged. Raw Notebook logs and downloads remain in private-evidence. Unknown dispatches are reconciled read-only, never retried.
