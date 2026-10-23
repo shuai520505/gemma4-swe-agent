@@ -1,4 +1,4 @@
-import io,json,tarfile,tempfile,unittest,zipfile
+import asyncio,io,json,tarfile,tempfile,unittest,zipfile
 from pathlib import Path
 from .common import HERE,ROOT,PRIOR,sha
 from .identity import tree_digest,overlay_content_digest,conflicts
@@ -35,5 +35,36 @@ class AdmissionTests(unittest.TestCase):
         b=json.loads((HERE/'screen01/BUILD.json').read_bytes())
         self.assertEqual(b['configuration']['Agent_runs'],0);self.assertFalse(b['configuration']['GPU'])
         self.assertTrue(b['entry'].endswith('prospective_admission_01.screen'))
+    def test_raw_snapshot_pairing_not_blanket_error_waiver(self):
+        from .audit import native_counts
+        from u_re.v02.experiments.env_recovery_admission_01.junit_audit import parse_snapshot_phases
+        record=json.loads((HERE/'SELECTED_TASKS.json').read_bytes())['tasks'][1]
+        with zipfile.ZipFile(record['source_archive']['private_path']) as z:
+            root='validation/03-fastapi_14459/'
+            self.assertEqual(native_counts(z,root),dict(tests=8,failures=2,errors=2,skipped=0))
+            raw=z.read(root+'phase2.junit.xml')
+            with self.assertRaises(AssertionError):parse_snapshot_phases(raw.replace(b'some snapshots in this test have incorrect values.',b'independent environment failure'))
+    def test_preserved_stop_and_derived_admission(self):
+        original=json.loads((HERE/'TASK_ADMISSION_RESULTS.json').read_bytes())
+        final=json.loads((HERE/'NORMALIZED_ADMISSION_VIEW.json').read_bytes())
+        selected=json.loads((HERE/'SELECTED_TASKS.json').read_bytes())['tasks']
+        self.assertEqual(original['status'],'V04_ADMISSION_BLOCKED')
+        self.assertEqual(final['original_screen_status'],original['status'])
+        self.assertEqual([r['instance_id'] for r in selected],['fastapi_14297','fastapi_14459'])
+        self.assertEqual(selected[1]['snapshot_duplicate_teardown_count'],2)
+        self.assertEqual(selected[1]['independent_environment_errors'],0)
+    def test_final_production_and_CPU_only_authorization(self):
+        from .production import validate
+        from .session import coordinator,run
+        self.assertTrue(validate('cpu-e2e02'))
+        lock=json.loads((HERE/'ABBA_EXPERIMENT_LOCK.json').read_bytes())
+        f=coordinator(lock,{})
+        self.assertEqual(f.__globals__['__package__'],'u_re.v04.experiments.prospective_admission_01')
+        self.assertEqual([r['arm'] for r in lock['order']],list('ABBA'))
+        with self.assertRaises(AssertionError):asyncio.run(run('unused',0,mode='GPU'))
+        with zipfile.ZipFile(HERE/'payload.zip') as z:
+            for n,h in json.loads((HERE/'GPU03_PAYLOAD_MANIFEST.json').read_bytes())['files'].items():
+                if n.startswith(HERE.relative_to(ROOT).as_posix()+'/'):self.assertEqual(sha((ROOT/n).read_bytes()),h)
+            self.assertFalse(any(n.endswith('cpu_transport.py') for n in z.namelist()))
 
 if __name__=='__main__':unittest.main()
