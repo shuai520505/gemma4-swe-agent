@@ -21,6 +21,7 @@ def coordinator(lock,grant):
     assert code.count(anchor)==1
     code=code.replace(anchor,"    code=code.replace(\"['fastapi_5077','fastapi_11355']\",repr([t['instance_id'] for t in lock['tasks']]))\n"+anchor)
     code=code.replace('V04_EGR_PAYLOAD_END_TO_END_CPU_PASS','V04_PROSPECTIVE_PAYLOAD_END_TO_END_CPU_PASS')
+    code=code.replace('V04_EGR_GPU_NOT_AUTHORIZED','V04_EGR_REAL_GEMMA_ABBA_COMPLETE')
     namespace=dict(accepted.__dict__,HERE=HERE,ROOT=ROOT,PACKAGE=PACKAGE)
     exec(compile(code,'<Reused-EGR-new-admitted-task-coordinator>','exec'),namespace)
     fn=namespace['coordinator'](lock,grant);fn.__globals__['native_baseline']=native_baseline

@@ -56,7 +56,7 @@ class AdmissionTests(unittest.TestCase):
     def test_final_production_and_CPU_only_authorization(self):
         from .production import validate
         from .session import coordinator,run
-        self.assertTrue(validate('cpu-e2e02'))
+        self.assertTrue(validate('cpu-e2e03'))
         lock=json.loads((HERE/'ABBA_EXPERIMENT_LOCK.json').read_bytes())
         f=coordinator(lock,{})
         self.assertEqual(f.__globals__['__package__'],'u_re.v04.experiments.prospective_admission_01')
@@ -66,5 +66,11 @@ class AdmissionTests(unittest.TestCase):
             for n,h in json.loads((HERE/'GPU03_PAYLOAD_MANIFEST.json').read_bytes())['files'].items():
                 if n.startswith(HERE.relative_to(ROOT).as_posix()+'/'):self.assertEqual(sha((ROOT/n).read_bytes()),h)
             self.assertFalse(any(n.endswith('cpu_transport.py') for n in z.namelist()))
+    def test_future_GPU_status_is_not_old_development_denial(self):
+        from .session import coordinator
+        lock=json.loads((HERE/'ABBA_EXPERIMENT_LOCK.json').read_bytes())
+        fn=coordinator(lock,{})
+        self.assertNotIn('V04_EGR_GPU_NOT_AUTHORIZED',fn.__code__.co_consts)
+        self.assertIn('V04_EGR_REAL_GEMMA_ABBA_COMPLETE',fn.__code__.co_consts)
 
 if __name__=='__main__':unittest.main()
