@@ -15,6 +15,8 @@ def inherited_files():
 
 def build_screen(attempt='screen01'):
     files=inherited_files()
+    catalog=ROOT/'u_re/v01/experiments/mechanism_02/TASK_POOL_METADATA.json'
+    files[catalog.relative_to(ROOT).as_posix()]=catalog.read_bytes()
     for parent in ('u_re/v02','u_re/v02/experiments'):files[parent+'/__init__.py']=b''
     for name in ('__init__.py','selection.py','screen.py','REPLICATION_PROTOCOL.json','TASK_POOL_FREEZE.json'):
         p=HERE/name;files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
