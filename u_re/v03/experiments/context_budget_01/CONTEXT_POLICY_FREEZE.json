@@ -1,0 +1,74 @@
+{
+  "experiment_id": "U-RE-V03-CONTEXT-BUDGET-01",
+  "primary": "Native Resolved",
+  "sample": "MECHANISM_PILOT_PREVIOUSLY_OBSERVED_TWO_FASTAPI_TASKS",
+  "single_factor": "max_output_tokens",
+  "candidate_ZIP_sha256": "70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8",
+  "policies": {
+    "A": {
+      "name": "P0",
+      "output": 16384,
+      "input_cap": 15360
+    },
+    "B": {
+      "name": "P1",
+      "output": 8192,
+      "input_cap": 23552
+    }
+  },
+  "context": 32768,
+  "safety": 1024,
+  "thinking": 4096,
+  "seed": 17,
+  "agent_seconds": 300,
+  "tools": 60,
+  "command_seconds": 120,
+  "order": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_5077",
+      "arm": "A"
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_5077",
+      "arm": "B"
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_11355",
+      "arm": "B"
+    },
+    {
+      "run": 4,
+      "instance_id": "fastapi_11355",
+      "arm": "A"
+    }
+  ],
+  "P2": "4096 offline sensitivity only; not an executable candidate",
+  "secondary": [
+    "Guard/time/input",
+    "Output length/finish/truncation",
+    "Actual HTTP and received usage",
+    "Production edits excluding diagnostics",
+    "Supported repair and explicit submit",
+    "Native TaskResult/JUnit",
+    "Time/tool/token cost including failures"
+  ],
+  "stop": [
+    "Identity/environment/isolation/native evidence inconsistency",
+    "Insufficient window or quota",
+    "Unresolved active-resource conflict"
+  ],
+  "ordinary_failure": "Continue frozen order; no task/prompt/policy hotfix",
+  "GPU": {
+    "max_Notebooks": 1,
+    "max_sessions": 4,
+    "GPUs": "4xL4",
+    "TP": 4,
+    "window": 10000,
+    "retry": false,
+    "formal_submission": false
+  },
+  "history": "PR27 Batch2 remains UNKNOWN; this is a distinct pilot, never its retry"
+}
