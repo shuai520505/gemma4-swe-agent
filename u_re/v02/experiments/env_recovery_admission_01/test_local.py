@@ -71,4 +71,24 @@ class SnapshotPhases(unittest.TestCase):
         from .junit_audit import parse_snapshot_phases
         with self.assertRaises(AssertionError):parse_snapshot_phases(self.raw().replace(b'tests="1"',b'tests="999"'))
 
+class Production(unittest.TestCase):
+    def test_new_GPU_route_requires_matching_authorization_before_environment_or_model(self):
+        import asyncio
+        from .production.session import run
+        with self.assertRaisesRegex(AssertionError,'GPU NOT_AUTHORIZED'):
+            asyncio.run(run('OWNED_NOT_CREATED',0,mode='GPU'))
+    def test_real_GPU03_coordinator_adapts_without_rewriting_worker(self):
+        from .production.session import adapted_session
+        lock=json.loads((HERE/'production/ABBA_EXPERIMENT_LOCK.json').read_bytes())
+        grant=json.loads((HERE/'production/GPU_AUTHORIZATION.json').read_bytes())
+        f=adapted_session(lock,grant)
+        self.assertEqual(len(f.__globals__['V02B_LOCK']['tasks']),4)
+        self.assertEqual(f.__globals__['__package__'],'u_re.v01.experiments.action_priority_01.real_gemma_abba03')
+        self.assertEqual([r['arm'] for r in lock['order']],list('ABBAABBA'))
+    def test_production_precheck_failure_precedes_auth_and_dispatch(self):
+        from .production_notebook import factory
+        m=factory('e2e01')
+        m.launch.__globals__['validate']=lambda _:(_ for _ in ()).throw(ValueError('OWNED_FINAL_PAYLOAD_INVALID'))
+        with self.assertRaisesRegex(ValueError,'OWNED_FINAL_PAYLOAD_INVALID'):m.launch()
+
 if __name__=='__main__':unittest.main()
