@@ -1,0 +1,90 @@
+{
+  "queried_at_utc": "2026-10-23T07:58:02.638410+00:00",
+  "python_version": "3.11.9",
+  "sdk_version": "2.2.2",
+  "kagglesdk_version": "0.1.35",
+  "cli_distribution_version": "2.2.2",
+  "cli_entrypoint": "kaggle.cli:main",
+  "cli_uses_same_import_auth": true,
+  "sources": [
+    {
+      "source": "config",
+      "credential_source_present": true,
+      "readable": true,
+      "credential_format_valid": true,
+      "account_matches_expected": true,
+      "permissions": "Windows ACL not assessed",
+      "has_legacy_key": false,
+      "has_token": true,
+      "has_refresh_token": false
+    },
+    {
+      "source": "access_token",
+      "credential_source_present": true,
+      "readable": true,
+      "credential_format_valid": true,
+      "account_matches_expected": null,
+      "permissions": "Windows ACL not assessed"
+    },
+    {
+      "source": "access_token_txt",
+      "credential_source_present": false,
+      "readable": null,
+      "credential_format_valid": null,
+      "account_matches_expected": null,
+      "permissions": "Windows ACL not assessed"
+    },
+    {
+      "source": "oauth_credentials",
+      "credential_source_present": false,
+      "readable": null,
+      "credential_format_valid": null,
+      "account_matches_expected": null,
+      "permissions": "Windows ACL not assessed"
+    }
+  ],
+  "environment": {
+    "credential_source_present": true,
+    "config_dir_override_present": false,
+    "credential_format_valid": true,
+    "source_is_file": false
+  },
+  "read_only_requests": [
+    {
+      "operation": "IntrospectToken",
+      "method": "POST",
+      "hostname": "api.kaggle.com",
+      "authentication_stage": "token_introspection",
+      "http_status": 200,
+      "content_type": "application/json",
+      "token_active": true,
+      "account_matches_expected": true
+    },
+    {
+      "operation": "ListKernels",
+      "method": "POST",
+      "hostname": "api.kaggle.com",
+      "authentication_stage": "owner_read_only_listing",
+      "http_status": 200,
+      "content_type": "application/json"
+    }
+  ],
+  "SDK_initialized": true,
+  "identity_confirmed": true,
+  "read_only_request_succeeded": true,
+  "credential_files_changed": false,
+  "credential_values_logged": false,
+  "credential_mutation_attempted": false,
+  "SaveKernel_requests": 0,
+  "status": "AUTH_READONLY_GO",
+  "category": null,
+  "owner_notebook_count_in_page": 1,
+  "captured_output_redacted": "Warning: Looks like you're using an outdated `kaggle` version (installed: 2.2.2), please consider upgrading to the latest version (2.2.5)\n",
+  "sdk_source_hashes": {
+    "kaggle/__init__.py": "6aa6e0322278f16f922e41c7ecb638c92edb6b358728da89e709279c04191ff2",
+    "kaggle/cli.py": "60c0631bd691088861e7b69dba6378793c55af0adc550eb8674198b5e18bbd5e",
+    "kaggle/api/kaggle_api_extended.py": "292b8cce0a4464313b6b8d42dd5de95592bae76da08b2f8461327328f49d5718",
+    "kagglesdk/kaggle_env.py": "161d3181c199e35db84525818ca6266ffe7734c71d7ae47d1a529f0ef57955c1",
+    "kagglesdk/kaggle_creds.py": "277c0a19b1d6a325d23d9ce2890c95bbdfb68ef01ccdcd5bc1a60c51c6c0953a"
+  }
+}

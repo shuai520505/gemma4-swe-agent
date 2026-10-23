@@ -90,5 +90,30 @@ class Production(unittest.TestCase):
         m=factory('e2e01')
         m.launch.__globals__['validate']=lambda _:(_ for _ in ()).throw(ValueError('OWNED_FINAL_PAYLOAD_INVALID'))
         with self.assertRaisesRegex(ValueError,'OWNED_FINAL_PAYLOAD_INVALID'):m.launch()
+    def test_final_payload_and_all_frozen_files_validate(self):
+        from .production_notebook import validate
+        self.assertTrue(validate('e2e02'))
+    def test_GPU_route_rejects_scripted_transport_even_with_claimed_authorization(self):
+        import asyncio
+        from .production.session import run
+        with self.assertRaisesRegex(AssertionError,'Scripted transport forbidden'):
+            asyncio.run(run('OWNED_NOT_CREATED',0,mode='GPU',cpu_transport=object(),authorization={'GPU_authorized':True}))
+
+class ActualEvidence(unittest.TestCase):
+    def test_final_CPU_acceptance_is_rederived_from_exact_private_raw_archive(self):
+        from .production_audit import audit
+        proof=json.loads((HERE/'CPU_END_TO_END_ACCEPTANCE.json').read_bytes())
+        self.assertEqual(audit(proof['raw_archive_path'],proof['attempt']),proof)
+    def test_prospective_prefix_and_carry_are_not_relabelled_as_four_new(self):
+        ledger=json.loads((HERE/'TASK_ADMISSION_LEDGER.json').read_bytes())
+        selected=json.loads((HERE/'SELECTED_TASKS.json').read_bytes())
+        self.assertEqual((ledger['checked_new'],selected['carry_count'],selected['new_count']),(3,1,3))
+        self.assertEqual([r['instance_id'] for r in ledger['rows'][:3]],['fastapi_11355','fastapi_14463','fastapi_9555'])
+        self.assertTrue(all(r['status']=='NOT_RUN' for r in ledger['rows'][3:]))
+        self.assertEqual(len(selected['tasks']),4)
+    def test_screened_environment_and_protocol_files_remain_frozen(self):
+        p=json.loads((HERE/'V02B_PROTOCOL_LOCK.json').read_bytes())
+        self.assertEqual(sha((HERE/'V02B_ENVIRONMENT_LOCK.json').read_bytes()),p['environment_lock_sha256'])
+        for name,h in p['execution_sources'].items():self.assertEqual(sha((HERE/name).read_bytes()),h)
 
 if __name__=='__main__':unittest.main()
