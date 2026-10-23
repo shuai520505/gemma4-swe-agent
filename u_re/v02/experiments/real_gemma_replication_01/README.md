@@ -42,3 +42,10 @@ Public JSON files contain derived metrics, identities, source hashes and redacte
 errors. Failed local analysis tests are retained alongside their corrected pass.
 Historical GPU03 data are used only as a separate descriptive cohort and for
 offline parser regression checks, never as new Agent input.
+
+Final observed state: **V02B_REAL_GEMMA_REPLICATION_PARTIAL**. Batch1
+140361137/v1 COMPLETE produced4 genuine Sessions,89 successful model responses
+and native A0/2,B0/2. All4 hit Context Guard. Batch2's unique SaveKernel returned
+empty499; owner/source identity and actual execution remain unknown after bounded
+read-only checks. Runs5–8 are null/UNKNOWN_UNOBSERVED, not failures or proven
+not-run. FINAL_DECISION.md contains complete Q1–Q20, costs and limitations.

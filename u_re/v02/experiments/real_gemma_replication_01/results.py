@@ -58,6 +58,11 @@ def enrich(z,metric,result):
         if line.startswith('diff --git '):keep=git_destination(line.rstrip('\r\n')) in production_paths
         if keep:production_sections.append(line)
     metric.update(final_production_patch_sha256=sha(''.join(production_sections).encode()) if production_sections else None,production_patch_paths=production_paths,nonproduction_patch_paths=diagnostic_paths,diagnostic_only_patch=bool(patch and patch.strip() and not production_paths),ever_production_modified=bool(edits),final_production_patch_present=bool(production_paths))
+    additions=[line[1:].strip() for line in production_sections if line.startswith('+') and not line.startswith('+++') and line[1:].strip()]
+    removals=[line[1:].strip() for line in production_sections if line.startswith('-') and not line.startswith('---') and line[1:].strip()]
+    debug_only=bool(additions and not removals and all(line.startswith('print(') and 'DEBUG:' in line for line in additions))
+    metric.update(production_change_is_only_debug_print=debug_only,first_source_edit_is_not_necessarily_a_repair=True)
+    if debug_only:metric['diagnostic_only_patch']=True
     if not production_paths:metric['first_observed_applicable_patch_seconds']=None
     tests=[];searches=[];scripts={};test_epoch=0;seen_test=set();seen_search=set();repeated_test=0;repeated_search=0;support=[]
     for call in calls:
@@ -83,6 +88,9 @@ def enrich(z,metric,result):
             prior_edits=[e for e in edits if e['end_monotonic']<=observation['start_monotonic']]
             if observation['exit_code']==0 and prior_edits and reply and reply['response'].get('status')=='ok':support.append(dict(row,completed_seconds=observation['end_monotonic']-start,review='PENDING_ISSUE_RELATION_REVIEW'))
     metric.update(repeated_unchanged_test_count=repeated_test if result['status']!='NOT_RUN' else None,repeated_search_count=repeated_search if result['status']!='NOT_RUN' else None,observed_assertion_tests=tests,local_assertion_candidates=support,first_locally_supported_assertion_seconds=None,first_locally_supported_patch_seconds=None,local_support_status='PENDING_PRIVATE_TRACE_REVIEW' if support else 'NO_OBSERVED_PASSING_ASSERTION_ON_MODIFIED_PRODUCTION',strict_repeat_definition='Exact assertion command+observed production hashes+observed test/script edit epoch; conservative proxy, not complete filesystem equivalence.')
+    if debug_only:
+        metric['local_support_status']='NO_LOCAL_REPAIR_EVIDENCE_DEBUG_INSTRUMENTATION_ONLY'
+        for c in metric['local_assertion_candidates']:c['review']='REJECTED_AS_REPAIR_SUPPORT: only added production DEBUG print; private testcase had no explicit behavior assertion and already passed before the production edit'
     # Guard emits on the trusted Worker's journal; tool/source events are on
     # the Agent journal. Both use the same host monotonic clock, not sequence ID.
     admissions=sorted([e for e in rows('events.jsonl')+events if e.get('kind')=='context_admission'],key=lambda e:e['recorded_monotonic'])
@@ -141,6 +149,7 @@ def analyze(batch,archive):
         full=len(integrity)==4 and not execution.get('STOP') and clean.get('confirmed') and clean.get('idle_error') is None and environment_complete
         if full:
             assert len(execution['devices'])==4 and all(d['name']=='NVIDIA L4' and d['memory_bytes']>=22*1024**3 for d in execution['devices'])
+            assert execution['isolation']['exit_code']==0 and 'INTEGRATED_CANARY_AND_DEPENDENCIES_OK' in execution['isolation']['stdout']
             ids=load('results/TASK_IDENTITIES.json')
             assert set(ids)=={r['instance_id'] for r in lock['order'] if r['batch']==batch}
             for task in lock['tasks']:
@@ -151,7 +160,7 @@ def analyze(batch,archive):
                     assert load(p+'audit.json')['counts']==task['native_baseline_counts']
                     assert z.read(p+'before.json')==z.read(p+'after.json')
                     assert load(p+'cleanup.json')['complete'] and load(p+'provenance.json')['verified']
-        resource=dict(batch=batch,Notebook_id=receipt['Notebook_id'],version=1,status=manifest['status'],completed_sessions=len(integrity),integrity_complete=bool(full),shared_payload_sha256=load('PAYLOAD_IDENTITY.json')['payload_sha256'],environment_before_after_matches=environment_complete,devices=execution.get('devices'),runtime=execution.get('runtime'),model_files=execution.get('model_files'),VLLM_config=execution.get('VLLM_config'),cleanup=clean,cost=execution.get('cost'),STOP=execution.get('STOP'),execution=status,private_archive=str(archive),archive_sha256=sha(archive.read_bytes()),archive_bytes=archive.stat().st_size,CRC_valid=True,formal_submission_requests=0)
+        resource=dict(batch=batch,Notebook_id=receipt['Notebook_id'],version=1,status=manifest['status'],completed_sessions=len(integrity),integrity_complete=bool(full),shared_payload_sha256=load('PAYLOAD_IDENTITY.json')['payload_sha256'],environment_before_after_matches=environment_complete,devices=execution.get('devices'),runtime=execution.get('runtime'),model_files=execution.get('model_files'),VLLM_config=execution.get('VLLM_config'),isolation=execution.get('isolation'),cleanup=clean,cost=execution.get('cost'),STOP=execution.get('STOP'),execution=status,private_archive=str(archive),archive_sha256=sha(archive.read_bytes()),archive_bytes=archive.stat().st_size,CRC_valid=True,formal_submission_requests=0)
         events=[json.loads(v) for v in z.read('results/events.jsonl').splitlines()] if 'results/events.jsonl' in z.namelist() else []
         start=(execution.get('runtime') or {}).get('session_started')
         load_stage=next((e['recorded_monotonic'] for e in events if e.get('stage')=='load_model'),None)
@@ -191,11 +200,16 @@ def aggregate():
         d,_,_=location(batch)
         if not (HERE/f'BATCH_{batch:02d}_EXECUTION.json').exists():continue
         execution=json.loads((HERE/f'BATCH_{batch:02d}_EXECUTION.json').read_bytes());batches.append(execution)
+        if not execution.get('archive_sha256'):
+            batches.pop();continue
         runs+=json.loads((d/'ABBA_RESULTS.json').read_bytes())['runs'];metrics+=json.loads((d/'AGENT_BEHAVIOR_METRICS.json').read_bytes())['runs'];native+=json.loads((d/'NATIVE_VERIFIER_RESULTS.json').read_bytes())['runs']
         archives.append({k:execution[k] for k in ('batch','Notebook_id','version','status','private_archive','archive_sha256','archive_bytes','CRC_valid')})
     observed={r['run'] for r in runs}
     for r in lock['order']:
-        if r['run'] not in observed:runs.append(dict(r,status='NOT_RUN',resolved=None,patch_sha256=None))
+        if r['run'] not in observed:
+            d,_,_=location(r['batch']);sent=(d/'execution/dispatch.claim').exists()
+            runs.append(dict(r,status='UNKNOWN_UNOBSERVED' if sent else 'NOT_RUN',Session_executed=None if sent else False,resolved=None,patch_sha256=None,reason='SaveKernel dispatched but no confirmed result available; cannot assert platform did not run' if sent else 'Batch not dispatched'))
+            native.append(dict(r,status='UNKNOWN_UNOBSERVED' if sent else 'NOT_RUN',resolved=None,test_exit_code=None,counts=None,JUnit_sha256=None,native_TaskResult_sha256=None))
     runs.sort(key=lambda r:r['run']);metrics.sort(key=lambda r:r['run'])
     ids=[t['instance_id'] for t in lock['tasks']]
     comparison=dict(overall=paired(runs,ids),carry=paired(runs,ids[:1]),new_prospective=paired(runs,ids[1:]),scope='Four FastAPI tasks, one predeclared carry and three new; task/repository dependence, no significance or cross-repository generality claim')
@@ -217,9 +231,23 @@ def aggregate():
             p[key+'_B_minus_A']=b[key]-a[key] if a and b and a.get(key) is not None and b.get(key) is not None else None
     total_agent=sum(m.get('Agent_wall_seconds') or 0 for m in metrics);total_worker=sum(m.get('Worker_wall_seconds') or 0 for m in metrics)
     total_elapsed=sum((b.get('cost') or {}).get('session_elapsed_seconds',0) for b in batches)
-    resource=dict(batches=[dict(batch=b['batch'],Notebook_id=b['Notebook_id'],session_elapsed_seconds=(b.get('cost') or {}).get('session_elapsed_seconds'),model_start_to_first_worker_upper_bound_seconds=b.get('model_start_to_first_worker_upper_bound_seconds')) for b in batches],actual_GPU_Notebooks=len(batches),actual_Agent_sessions=sum(r['status']!='NOT_RUN' for r in runs),actual_HTTP_model_requests=sum(m.get('actual_HTTP_requests') or 0 for m in metrics),actual_HTTP_model_responses=sum(m.get('actual_HTTP_responses') or 0 for m in metrics),sum_Notebook_code_elapsed_seconds=total_elapsed,sum_Agent_wall_seconds=total_agent,sum_Worker_wall_seconds=total_worker,observed_non_Agent_code_seconds=total_elapsed-total_agent,observed_outside_Worker_seconds=total_elapsed-total_worker,independent_billed_GPU_seconds=None,peak_memory_by_run=None,limitations='Code wall time is observed, not a billing meter. Account quota deltas are not a per-Notebook bill. Pure model load time/individual GPU active time and unreturned cancelled usage may be unobservable.',formal_Submissions=0)
+    unknown_batches=[i for i in (1,2) if (location(i)[0]/'execution/dispatch.claim').exists() and not any(b['batch']==i for b in batches)]
+    resource=dict(batches=[dict(batch=b['batch'],Notebook_id=b['Notebook_id'],session_elapsed_seconds=(b.get('cost') or {}).get('session_elapsed_seconds'),model_start_to_first_worker_upper_bound_seconds=b.get('model_start_to_first_worker_upper_bound_seconds')) for b in batches],GPU_SaveKernel_dispatch_attempts=sum((location(i)[0]/'execution/dispatch.claim').exists() for i in (1,2)),confirmed_GPU_Notebooks=len(batches),actual_GPU_Notebooks=None if unknown_batches else len(batches),unknown_dispatch_batches=unknown_batches,confirmed_Agent_sessions=sum(r['status']=='COMPLETE' for r in runs),actual_Agent_sessions=None if unknown_batches else sum(r['status']=='COMPLETE' for r in runs),observed_HTTP_model_requests=sum(m.get('actual_HTTP_requests') or 0 for m in metrics),observed_HTTP_model_responses=sum(m.get('actual_HTTP_responses') or 0 for m in metrics),total_including_unknown_batches_complete=not unknown_batches,sum_confirmed_Notebook_code_elapsed_seconds=total_elapsed,sum_observed_Agent_wall_seconds=total_agent,sum_observed_Worker_wall_seconds=total_worker,observed_non_Agent_code_seconds=total_elapsed-total_agent,observed_outside_Worker_seconds=total_elapsed-total_worker,independent_billed_GPU_seconds=None,peak_memory_by_run=None,limitations='Code wall time is observed, not a billing meter. An ambiguous dispatch may have run and is never counted as zero. Account quota deltas are not a per-Notebook bill. Pure model load time/individual GPU active time and unreturned cancelled usage may be unobservable.',formal_Submissions=0)
+    snapshots=[]
+    for batch in (1,2):
+        d,_,_=location(batch);paths=sorted((d/'preflight').glob('read-*/DYNAMIC_PRECHECK.json'))
+        if paths:
+            q=json.loads(paths[-1].read_bytes());snapshots.append(dict(phase='before_batch'+str(batch),remaining_report_seconds=q['remaining_report_seconds'],raw=q['raw_quota'],UTC=next(e['utc'] for e in q['HTTP'] if e['operation']=='GetAcceleratorQuotaStatistics')))
+    after=HERE/'resources_after_dispatches/RAW_GPU_QUOTA.json'
+    if after.exists():
+        from decimal import Decimal
+        q=json.loads(after.read_bytes());raw=q['response'];remaining=Decimal(raw['totalTimeAllowed'][:-1])-Decimal(raw['timeUsed'][:-1])-Decimal(raw['timeReserved'][:-1])
+        snapshots.append(dict(phase='after_two_dispatches',remaining_report_seconds=str(remaining),raw=raw,UTC=q['utc']))
+        if snapshots[0]['raw']['totalTimeAllowed']==raw['totalTimeAllowed']:
+            resource['account_timeUsed_change_report_seconds']=str(Decimal(raw['timeUsed'][:-1])-Decimal(snapshots[0]['raw']['timeUsed'][:-1]))
+    resource['quota_snapshots']=snapshots
     final='V02B_REAL_GEMMA_REPLICATION_COMPLETE' if len(batches)==2 and all(b['integrity_complete'] for b in batches) and len(metrics)==8 else 'V02B_REAL_GEMMA_REPLICATION_PARTIAL'
-    for name,value in [('ABBA_RESULTS.json',dict(experiment_id=ID,status=final,runs=runs)),('AGENT_BEHAVIOR_METRICS.json',dict(runs=metrics,arm_totals=arm_totals,analysis_only=True)),('NATIVE_VERIFIER_RESULTS.json',dict(runs=native)),('CONTEXT_GUARD_ANALYSIS.json',dict(runs=[{k:m.get(k) for k in ('run','instance_id','arm','context_guard_triggered','context_guard_events','context_admissions','max_measured_input_tokens','received_prompt_tokens_per_request','failure_classification')} for m in metrics],native_and_stop_independent=True)),('PAIRED_ANALYSIS.json',comparison),('RESOURCE_ACCOUNTING.json',resource),('RAW_ARCHIVES.json',dict(archives=archives))]:write(HERE/name,value)
+    for name,value in [('ABBA_RESULTS.json',dict(experiment_id=ID,status=final,runs=runs)),('AGENT_BEHAVIOR_METRICS.json',dict(runs=metrics,arm_totals=arm_totals,analysis_only=True)),('NATIVE_VERIFIER_RESULTS.json',dict(runs=native)),('CONTEXT_GUARD_ANALYSIS.json',dict(runs=[{k:m.get(k) for k in ('run','instance_id','arm','context_guard_triggered','context_guard_events','context_admissions','max_measured_input_tokens','received_prompt_tokens_per_request','failure_classification')} for m in metrics],native_and_stop_independent=True)),('PAIRED_ANALYSIS.json',comparison),('RESOURCE_ACCOUNTING.json',resource),('RAW_ARCHIVES.json',dict(archives=archives,unknown_dispatches=[dict(batch=i,private_archive=None,archive_sha256=None,reason='No confirmed resource/version/output; dispatch claim and HTTP metadata preserved') for i in unknown_batches]))]:write(HERE/name,value)
     print(json.dumps(dict(status=final,paired=comparison['overall'],arm_totals=arm_totals)))
 
 if __name__=='__main__':

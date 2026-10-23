@@ -5,6 +5,28 @@ from .notebook import ROOT,HERE
 from .results import paired,enrich,_assertion_command,git_destination
 
 class Metrics(unittest.TestCase):
+    def test_actual_batch1_export_preserves_every_historical_file(self):
+        import contextlib,hashlib,io
+        from .results import analyze
+        history=ROOT/'u_re/v01/experiments/action_priority_01/real_gemma_abba01'
+        names=('ABBA_RESULTS.json','AGENT_BEHAVIOR_METRICS.json','GPU_EXECUTION_RECORD.json','NATIVE_VERIFIER_RESULTS.json')
+        before={n:hashlib.sha256((history/n).read_bytes()).hexdigest() for n in names}
+        raw=json.loads((HERE/'BATCH_01_EXECUTION.json').read_bytes())['private_archive']
+        with contextlib.redirect_stdout(io.StringIO()):analyze(1,raw)
+        self.assertEqual(before,{n:hashlib.sha256((history/n).read_bytes()).hexdigest() for n in names})
+    def test_ambiguous_second_dispatch_not_reported_as_zero_or_algorithm_failure(self):
+        from .results import aggregate
+        import contextlib,io
+        with contextlib.redirect_stdout(io.StringIO()):aggregate()
+        r=json.loads((HERE/'RESOURCE_ACCOUNTING.json').read_bytes())
+        self.assertEqual(r['confirmed_Agent_sessions'],4);self.assertIsNone(r['actual_Agent_sessions'])
+        self.assertEqual(r['GPU_SaveKernel_dispatch_attempts'],2);self.assertIsNone(r['actual_GPU_Notebooks'])
+        p=json.loads((HERE/'PAIRED_ANALYSIS.json').read_bytes())['overall']
+        self.assertEqual((p['counts']['Neither_Resolved'],p['counts']['Unknown']),(2,2))
+    def test_debug_only_source_change_not_reported_as_behavioral_repair(self):
+        r=json.loads((HERE/'batch01/AGENT_BEHAVIOR_METRICS.json').read_bytes())['runs'][1]
+        self.assertTrue(r['ever_production_modified']);self.assertTrue(r['production_change_is_only_debug_print'])
+        self.assertTrue(r['diagnostic_only_patch']);self.assertIsNone(r['first_locally_supported_patch_seconds'])
     def test_quoted_unicode_diagnostic_filename_is_not_production(self):
         path=git_destination(r'diff --git "a/\343\200\214owned.py\343\200\215" "b/\343\200\214owned.py\343\200\215"')
         self.assertEqual(path,'\u300cowned.py\u300d');self.assertFalse(path.startswith('fastapi/'))

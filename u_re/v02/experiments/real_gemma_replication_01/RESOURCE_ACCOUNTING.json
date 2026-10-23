@@ -7,17 +7,57 @@
       "model_start_to_first_worker_upper_bound_seconds": 308.818358741
     }
   ],
-  "actual_GPU_Notebooks": 1,
-  "actual_Agent_sessions": 4,
-  "actual_HTTP_model_requests": 89,
-  "actual_HTTP_model_responses": 89,
-  "sum_Notebook_code_elapsed_seconds": 1468.4943310560002,
-  "sum_Agent_wall_seconds": 681.6239760160003,
-  "sum_Worker_wall_seconds": 795.0612544970003,
+  "GPU_SaveKernel_dispatch_attempts": 2,
+  "confirmed_GPU_Notebooks": 1,
+  "actual_GPU_Notebooks": null,
+  "unknown_dispatch_batches": [
+    2
+  ],
+  "confirmed_Agent_sessions": 4,
+  "actual_Agent_sessions": null,
+  "observed_HTTP_model_requests": 89,
+  "observed_HTTP_model_responses": 89,
+  "total_including_unknown_batches_complete": false,
+  "sum_confirmed_Notebook_code_elapsed_seconds": 1468.4943310560002,
+  "sum_observed_Agent_wall_seconds": 681.6239760160003,
+  "sum_observed_Worker_wall_seconds": 795.0612544970003,
   "observed_non_Agent_code_seconds": 786.8703550399999,
   "observed_outside_Worker_seconds": 673.4330765589999,
   "independent_billed_GPU_seconds": null,
   "peak_memory_by_run": null,
-  "limitations": "Code wall time is observed, not a billing meter. Account quota deltas are not a per-Notebook bill. Pure model load time/individual GPU active time and unreturned cancelled usage may be unobservable.",
-  "formal_Submissions": 0
+  "limitations": "Code wall time is observed, not a billing meter. An ambiguous dispatch may have run and is never counted as zero. Account quota deltas are not a per-Notebook bill. Pure model load time/individual GPU active time and unreturned cancelled usage may be unobservable.",
+  "formal_Submissions": 0,
+  "account_timeUsed_change_report_seconds": "2986.424",
+  "quota_snapshots": [
+    {
+      "phase": "before_batch1",
+      "remaining_report_seconds": "79195.524",
+      "raw": {
+        "totalTimeAllowed": "108000s",
+        "timeUsed": "28804.476s",
+        "timeReserved": "0s"
+      },
+      "UTC": "2026-10-23T08:49:50.938805+00:00"
+    },
+    {
+      "phase": "before_batch2",
+      "remaining_report_seconds": "76209.100",
+      "raw": {
+        "totalTimeAllowed": "108000s",
+        "timeUsed": "31790.900s",
+        "timeReserved": "0s"
+      },
+      "UTC": "2026-10-23T09:22:33.772038+00:00"
+    },
+    {
+      "phase": "after_two_dispatches",
+      "remaining_report_seconds": "76209.100",
+      "raw": {
+        "timeUsed": "31790.900s",
+        "timeReserved": "0s",
+        "totalTimeAllowed": "108000s"
+      },
+      "UTC": "2026-10-23T09:29:49.300576+00:00"
+    }
+  ]
 }

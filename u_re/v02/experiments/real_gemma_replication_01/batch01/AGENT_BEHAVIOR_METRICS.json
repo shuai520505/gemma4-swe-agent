@@ -313,6 +313,8 @@
       "diagnostic_only_patch": true,
       "ever_production_modified": false,
       "final_production_patch_present": false,
+      "production_change_is_only_debug_print": false,
+      "first_source_edit_is_not_necessarily_a_repair": true,
       "repeated_search_count": 0,
       "observed_assertion_tests": [
         {
@@ -579,7 +581,7 @@
       "first_observed_applicable_patch_seconds": 177.1502511980002,
       "applicable_patch_semantics": "First observed successful native application of returned patch;earlier checkpoints not independently applied",
       "first_locally_supported_patch_seconds": null,
-      "local_support_status": "PENDING_PRIVATE_TRACE_REVIEW",
+      "local_support_status": "NO_LOCAL_REPAIR_EVIDENCE_DEBUG_INSTRUMENTATION_ONLY",
       "final_nonempty_patch": true,
       "successful_submit_count": 0,
       "successful_submit": false,
@@ -876,9 +878,11 @@
         "app_module.py",
         "wrapper_module.py"
       ],
-      "diagnostic_only_patch": false,
+      "diagnostic_only_patch": true,
       "ever_production_modified": true,
       "final_production_patch_present": true,
+      "production_change_is_only_debug_print": true,
+      "first_source_edit_is_not_necessarily_a_repair": true,
       "repeated_search_count": 0,
       "observed_assertion_tests": [
         {
@@ -931,7 +935,7 @@
           "exit_code": 0,
           "production_revision_sha256": "7c90473d411e535a6657f792f419ccca7c77fce677fbec46f1309e19e1b72edc",
           "completed_seconds": 156.6689778660002,
-          "review": "PENDING_ISSUE_RELATION_REVIEW"
+          "review": "REJECTED_AS_REPAIR_SUPPORT: only added production DEBUG print; private testcase had no explicit behavior assertion and already passed before the production edit"
         }
       ],
       "first_locally_supported_assertion_seconds": null,
@@ -1483,6 +1487,8 @@
       "diagnostic_only_patch": true,
       "ever_production_modified": false,
       "final_production_patch_present": false,
+      "production_change_is_only_debug_print": false,
+      "first_source_edit_is_not_necessarily_a_repair": true,
       "repeated_search_count": 0,
       "observed_assertion_tests": [
         {
@@ -2076,6 +2082,8 @@
       "diagnostic_only_patch": false,
       "ever_production_modified": true,
       "final_production_patch_present": true,
+      "production_change_is_only_debug_print": false,
+      "first_source_edit_is_not_necessarily_a_repair": true,
       "repeated_search_count": 1,
       "observed_assertion_tests": [
         {
