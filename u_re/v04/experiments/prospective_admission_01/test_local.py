@@ -45,7 +45,7 @@ class AdmissionTests(unittest.TestCase):
             raw=z.read(root+'phase2.junit.xml')
             with self.assertRaises(AssertionError):parse_snapshot_phases(raw.replace(b'some snapshots in this test have incorrect values.',b'independent environment failure'))
     def test_preserved_stop_and_derived_admission(self):
-        original=json.loads((HERE/'TASK_ADMISSION_RESULTS.json').read_bytes())
+        original=json.loads((HERE/'SCREEN01_RAW_SUMMARY.json').read_bytes())
         final=json.loads((HERE/'NORMALIZED_ADMISSION_VIEW.json').read_bytes())
         selected=json.loads((HERE/'SELECTED_TASKS.json').read_bytes())['tasks']
         self.assertEqual(original['status'],'V04_ADMISSION_BLOCKED')
@@ -72,5 +72,13 @@ class AdmissionTests(unittest.TestCase):
         fn=coordinator(lock,{})
         self.assertNotIn('V04_EGR_GPU_NOT_AUTHORIZED',fn.__code__.co_consts)
         self.assertIn('V04_EGR_REAL_GEMMA_ABBA_COMPLETE',fn.__code__.co_consts)
+    def test_final_actual_CPU_archive_and_corruption_rejection(self):
+        from .acceptance import audit
+        proof=json.loads((HERE/'CPU_END_TO_END_ACCEPTANCE.json').read_bytes())
+        self.assertEqual(audit(proof['raw_archive_path'],proof['attempt']),proof)
+        with tempfile.TemporaryDirectory() as tmp:
+            broken=Path(tmp)/'bad.zip';raw=Path(proof['raw_archive_path']).read_bytes()
+            broken.write_bytes(raw[:-1]+bytes([raw[-1]^1]))
+            with self.assertRaises(AssertionError):audit(broken,proof['attempt'])
 
 if __name__=='__main__':unittest.main()

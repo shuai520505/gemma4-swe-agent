@@ -43,6 +43,12 @@ def normalize(archive):
         assert [r['instance_id'] for r in selected]==[r['instance_id'] for r in rows if r.get('eligible')][:2]
     write(HERE/'NORMALIZED_ADMISSION_VIEW.json',dict(experiment_id=ID,status='TWO_TASKS_FORMALLY_ADMITTED',source_archive=binding,original_screen_ledger_sha256=sha(raw),original_screen_status=ledger['status'],original_stop_preserved=ledger['stop'],classifier_path='u_re/v02/experiments/env_recovery_admission_01/policy.py',classifier_sha256=sha((ROOT/'u_re/v02/experiments/env_recovery_admission_01/policy.py').read_bytes()),classification_changes=deltas,rows=rows,checked=3,stop=None,historical_files_or_native_results_modified=False,threshold_change=False))
     write(HERE/'SELECTED_TASKS.json',dict(experiment_id=ID,status='TWO_TASKS_FORMALLY_ADMITTED',selection='First two eligible under unchanged inherited classifier plus raw Issue-contract review',tasks=selected,GPU_authorized=False))
+    categories={'TARGET_BEHAVIOR_FAILURE':'TARGET_BEHAVIOR_FAILURE','NON_DISCRIMINATING':'NON_DISCRIMINATING','A':'ENVIRONMENT_BLOCKED','B':'CONDITIONAL_TARGET_FAILURE','C':'ENVIRONMENT_BLOCKED','D':'UNKNOWN_FAILURE','E':'INTEGRITY_FAILURE'}
+    canonical=[]
+    for row in rows:
+        decision=row.get('frozen_classifier_decision')
+        canonical.append(dict(instance_id=row['instance_id'],rank=row['rank'],status=row['status'],category=categories[decision['category']] if decision else None,eligible=row['eligible'],native_resolved=row.get('native_resolved'),counts=row.get('counts'),TaskResult_sha256=row.get('TaskResult_sha256'),JUnit_sha256=row.get('JUnit_sha256'),cleanup=row.get('cleanup'),Issue_relation_verified=row['instance_id'] in CONTRACTS if row.get('eligible') else None))
+    write(HERE/'TASK_ADMISSION_RESULTS.json',dict(experiment_id=ID,status='TWO_TASKS_FORMALLY_ADMITTED',checked=3,rows=canonical,selected_ids=[t['instance_id'] for t in selected],source_archive=binding,raw_original_record=dict(path='SCREEN01_RAW_SUMMARY.json',status=ledger['status'],stop=ledger['stop'],raw_ledger_sha256=sha(raw)),normalization='Frozen PR26 classifier + exact snapshot-phase proof + Issue review. Original output bytes/status retained; no native result or threshold altered.',GPU_authorized=False))
     print(json.dumps(dict(selected=[t['instance_id'] for t in selected],errors_preserved=[t['native_baseline_counts']['errors'] for t in selected],independent_environment_errors=0,original_STOP_preserved=True)))
 
 if __name__=='__main__':

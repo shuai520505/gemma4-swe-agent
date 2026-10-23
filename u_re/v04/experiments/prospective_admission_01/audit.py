@@ -80,7 +80,7 @@ def screen(archive,attempt='screen01'):
     write(HERE/'TASK_IDENTITY_LOCK.json',dict(identity,source_archive=binding))
     write(HERE/'NATIVE_BASELINE_RESULTS.json',dict(experiment_id=ID,source_archive=binding,rows=baselines,environment_lock_sha256=sha((HERE/'ENVIRONMENT_LOCK.json').read_bytes()),Gemma_calls=0,Agent_runs=0))
     safe_rows=[next((b for b in baselines if b['instance_id']==r['instance_id']),dict(instance_id=r['instance_id'],rank=r['rank'],status='NOT_RUN',eligible=None,reason=r['reason'])) for r in ledger['rows']]
-    write(HERE/'TASK_ADMISSION_RESULTS.json',dict(experiment_id=ID,status=ledger['status'],checked=len(checked),rows=safe_rows,selected_provisional=ledger['selected_provisional'],stop=ledger['stop'],source_archive=binding,formal_admission='ISSUE_RELATION_REVIEW_REQUIRED',historical_inputs_unchanged=True))
+    write(HERE/'SCREEN01_RAW_SUMMARY.json',dict(experiment_id=ID,status=ledger['status'],checked=len(checked),rows=safe_rows,selected_provisional=ledger['selected_provisional'],stop=ledger['stop'],source_archive=binding,formal_admission='ISSUE_RELATION_REVIEW_REQUIRED',historical_inputs_unchanged=True))
     print(json.dumps(dict(status=ledger['status'],Notebook_id=binding['Notebook_id'],checked=len(checked),provisional=ledger['selected_provisional'],aliases=identity['conflicts'])))
 
 if __name__=='__main__':
