@@ -1,0 +1,67 @@
+{
+  "experiment_id": "U-RE-V04-EVIDENCE-GUIDED-REPAIR-01",
+  "source_base": "cc432feb8de585bd976fa3e0b676365e60b18603",
+  "control_ZIP_sha256": "70af6921a3366e3801efe58fe06586d13189fdf044d4fd998faa62ea7e0fb1c8",
+  "treatment_ZIP_sha256": "07263740c5ee22bf6611d7fa31dafbc84d7fb50288d22355b9201cd6954a6840",
+  "old_block_sha256": "aac3a57276ae68ec44f033c7d4d25d19057aefc938439f60f73a039b056d5691",
+  "new_block_sha256": "08f41a8c1cb9742c95c45489ce5fbfff7c4b54849c42154f4ab0fa9b4d76005f",
+  "control_prompt_sha256": "405a0bb38523c26ac8350660cceff17a6e5bd5a5e07dd7065f9e84d31ae2e9bc",
+  "treatment_prompt_sha256": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+  "control_prompt_words": 585,
+  "treatment_prompt_words": 703,
+  "old_block_words": 119,
+  "new_block_words": 237,
+  "tokens": null,
+  "token_status": "NO_VERIFIED_LOCAL_GEMMA_TOKENIZER; not estimated with another tokenizer",
+  "single_factor": "System instruction: replace Action-First strategy block with Evidence-Guided Repair; all other prompt bytes retained",
+  "unchanged_sections": [
+    "Opening constraints",
+    "Triage and repair",
+    "Budget and progress",
+    "Closure"
+  ],
+  "runtime_controller_added": false,
+  "evaluator_or_task_specific_content": false,
+  "ZIP_bytes": 3018,
+  "members": {
+    "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+    "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0"
+  },
+  "control_members": {
+    "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+    "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+    "prompts/system.md": "405a0bb38523c26ac8350660cceff17a6e5bd5a5e07dd7065f9e84d31ae2e9bc"
+  },
+  "changed_members": [
+    "prompts/system.md"
+  ],
+  "agent_count": 1,
+  "model": "gemma-4-31b-it-qat-w4a16-ct",
+  "tools": [
+    "get_status",
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "submit_patch"
+  ],
+  "generation": {
+    "max_output_tokens": 16384,
+    "thinking_budget": 4096,
+    "seed": 17,
+    "include_thoughts": "omitted",
+    "sampling": "omitted"
+  },
+  "budget": {
+    "context": 32768,
+    "safety": 1024,
+    "input_cap": 15360,
+    "Agent_seconds": 300,
+    "charged_tools": 60,
+    "command_seconds": 120
+  },
+  "CPU_acceptance": "NOT_RUN",
+  "GPU_authorized": false,
+  "formal_submission": false
+}
