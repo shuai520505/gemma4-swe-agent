@@ -1,0 +1,160 @@
+{
+  "analysis_only": true,
+  "raw_archive_sha256": "72030f1833ee6a8588087836bf281ae3aafae4c5a327b4f1d5651482aed7bea6",
+  "reviews": [
+    {
+      "run": 1,
+      "local_support": [],
+      "final_patch_paths": [
+        "check_annotation.py",
+        "check_lenient.py",
+        "repro.py"
+      ],
+      "test_edit_attempts": [],
+      "final_patch_contains_tests": false,
+      "command_failure_categories": [
+        {
+          "event_index": 4,
+          "command_sha256": "81b04f304f9aa3a1cf9378bf2eb1ff925fab1f97c81260991d8b18723b759a94",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 1
+        },
+        {
+          "event_index": 26,
+          "command_sha256": "5c74f5276fe4f543543cfda2e19f3bae3984ecb533643c78dac8a2207620fb39",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 1
+        }
+      ],
+      "notes": "Run4 adds two positive public regression cases;official final patch excludes test edits. No weakened assertion observed. Run1 leaves three diagnostic files and no production edit."
+    },
+    {
+      "run": 2,
+      "local_support": [
+        {
+          "command_sha256": "828b99d7d536348796013701ba929a3cbacfa25b3cce335da9435c76b9a6cebf",
+          "call_event_index": 51,
+          "response_event_index": 52,
+          "seconds": 161.20949911399998
+        }
+      ],
+      "final_patch_paths": [
+        "fastapi/dependencies/utils.py"
+      ],
+      "test_edit_attempts": [],
+      "final_patch_contains_tests": false,
+      "command_failure_categories": [
+        {
+          "event_index": 8,
+          "command_sha256": "7621315c31fada681eb2ec3d4f62e5ad2bb08a9fe7ca5fafd48654ab8e3f50c8",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 1
+        },
+        {
+          "event_index": 10,
+          "command_sha256": "81b04f304f9aa3a1cf9378bf2eb1ff925fab1f97c81260991d8b18723b759a94",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 1
+        }
+      ],
+      "notes": "Temporary diagnostics were removed before final patch."
+    },
+    {
+      "run": 3,
+      "local_support": [
+        {
+          "command_sha256": "666e941f8575c6135c682ef5a662678f15faff9584ff564140dcfbe3fd2bd69a",
+          "call_event_index": 10,
+          "response_event_index": 11,
+          "seconds": 32.9114131419999
+        }
+      ],
+      "final_patch_paths": [
+        "fastapi/security/utils.py"
+      ],
+      "test_edit_attempts": [],
+      "final_patch_contains_tests": false,
+      "command_failure_categories": [
+        {
+          "event_index": 6,
+          "command_sha256": "666e941f8575c6135c682ef5a662678f15faff9584ff564140dcfbe3fd2bd69a",
+          "category": "ASSERTION_COUNTEREXAMPLE",
+          "exit_code": 1
+        },
+        {
+          "event_index": 12,
+          "command_sha256": "2b01214d32c382dbc73bf6b493bedb7926324af27bad3ee888f66774b9b114c8",
+          "category": "DEPENDENCY_COLLECTION_ERROR",
+          "exit_code": 2
+        },
+        {
+          "event_index": 14,
+          "command_sha256": "760a2f97c9108cb5fdd9b9de59869cb569d2293df7ab0ff18f71389c674deb01",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 1
+        },
+        {
+          "event_index": 18,
+          "command_sha256": "07870eb3d71e83f52227e93dfeea00389250b8a22f1fd619b54b0cdaefcd3327",
+          "category": "NEGATIVE_SEARCH_OR_PATH_RESULT",
+          "exit_code": 2
+        },
+        {
+          "event_index": 22,
+          "command_sha256": "46fee507154e9c3d0efd727463ce7057ecbd06aa4927a4225c0a2de8d8e6381d",
+          "category": "DEPENDENCY_COLLECTION_ERROR",
+          "exit_code": 2
+        }
+      ],
+      "notes": "Temporary diagnostics were removed before final patch."
+    },
+    {
+      "run": 4,
+      "local_support": [
+        {
+          "command_sha256": "660255714c8d5a876759123e62fffb23f0e3331f2ced84242acc5262912829dd",
+          "call_event_index": 10,
+          "response_event_index": 11,
+          "seconds": 32.23633726799994
+        }
+      ],
+      "final_patch_paths": [
+        "fastapi/security/utils.py"
+      ],
+      "test_edit_attempts": [
+        {
+          "path": "tests/test_security_http_bearer.py",
+          "event_index": 24,
+          "status": "ok"
+        },
+        {
+          "path": "tests/test_security_http_bearer.py",
+          "event_index": 26,
+          "status": "ok"
+        }
+      ],
+      "final_patch_contains_tests": false,
+      "command_failure_categories": [
+        {
+          "event_index": 6,
+          "command_sha256": "660255714c8d5a876759123e62fffb23f0e3331f2ced84242acc5262912829dd",
+          "category": "ASSERTION_COUNTEREXAMPLE",
+          "exit_code": 1
+        },
+        {
+          "event_index": 16,
+          "command_sha256": "4c5918d41259e63199932d55826fcc41b21accfabfcbfef57f5f19ec8af0b75d",
+          "category": "DEPENDENCY_COLLECTION_ERROR",
+          "exit_code": 2
+        },
+        {
+          "event_index": 36,
+          "command_sha256": "1ff92b0a12bf5a2d4450e246874eb0aa175ffba0cf13ab8158e7ea5d51c0f2d0",
+          "category": "DEPENDENCY_COLLECTION_ERROR",
+          "exit_code": 2
+        }
+      ],
+      "notes": "Run4 adds two positive public regression cases;official final patch excludes test edits. No weakened assertion observed. Run1 leaves three diagnostic files and no production edit."
+    }
+  ]
+}
