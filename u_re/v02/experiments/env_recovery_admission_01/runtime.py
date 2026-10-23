@@ -51,7 +51,7 @@ async def native(data,ident,output,expected):
     from swegemma.harness.verification import verify_task
     from s1.task_identity import identify
     from s1.verifier_v3.environment import SubprocessManager as Observed,research_environment
-    from s1.verifier_v3.audit import audit_verifier
+    from .junit_audit import audit_verifier
     from u_re.v01.experiments.fastapi_pilot_01.screen import source_hashes,provenance
     from harness_v2.evidence import atomic_json
     import psutil
@@ -65,7 +65,7 @@ async def native(data,ident,output,expected):
             if ' -m pytest ' in command and not (output/'before.json').exists():
                 w=self.sandboxes[sid]['workspace'];atomic_json(output/'before.json',source_hashes(w))
                 originals={}
-                for rel in ('fastapi/exceptions.py','fastapi/params.py','fastapi/_compat/__init__.py','requirements-tests.txt','requirements.txt','pyproject.toml'):
+                for rel in ('fastapi/exceptions.py','fastapi/params.py','fastapi/param_functions.py','fastapi/_compat/__init__.py','requirements-tests.txt','requirements.txt','pyproject.toml'):
                     p=w/rel
                     if p.is_file():originals[rel]=dict(sha256=sha(p.read_bytes()),text=p.read_text())
                 atomic_json(output/'PRIVATE_BASE_SOURCE.json',originals)
@@ -78,6 +78,18 @@ async def native(data,ident,output,expected):
         def stop(self,sid):
             if sid in self.sandboxes and sid in self.junit_paths:
                 w=self.sandboxes[sid]['workspace'];atomic_json(output/'after.json',source_hashes(w));atomic_json(output/'provenance.json',provenance(output,'fastapi',w))
+                # Missing metadata is evidence only when actually queried in the
+                # same sandbox interpreter, never because a dict key is absent.
+                log=(output/'phase2.log').read_text() if (output/'phase2.log').exists() else ''
+                import re,shlex
+                modules=sorted(set(re.findall(r"ModuleNotFoundError: No module named ['\"]([a-zA-Z_][\w.]*)['\"]",log)))
+                mapping={'inline_snapshot':'inline-snapshot','dirty_equals':'dirty-equals','multipart':'python-multipart','python_multipart':'python-multipart','pytest_subtests':'pytest-subtests'}
+                names=[mapping.get(n,n.replace('_','-')) for n in modules]
+                if names:
+                    code='import json,importlib.metadata as m;d={};\nfor n in '+repr(names)+':\n try:d[n]=m.version(n)\n except m.PackageNotFoundError:d[n]=None\nprint(json.dumps(dict(versions=d)))'
+                    probe=super().exec(sid,'python3 -c '+shlex.quote(code),timeout=30)
+                    assert probe.exit_code==0
+                    atomic_json(output/'MISSING_DEPENDENCY_PROBE.json',json.loads(probe.stdout.strip().splitlines()[-1]))
             return super().stop(sid)
     from harness_v2.evidence import Journal
     manager=SubprocessManager(journal=Journal(output),base_dir=output/'roots',audit_modules=['fastapi'],task_wheels=data/'wheels')

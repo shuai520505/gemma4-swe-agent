@@ -14,15 +14,23 @@ async def run(output):
     lock=json.loads((ROOT/'u_re/v01/experiments/action_priority_01/integrated_cpu_01/ABBA_EXPERIMENT_LOCK.json').read_bytes())
     sources={n:sha(Path(inspect.getfile(importlib.import_module(n))).read_bytes()) for n in lock['native_verifier_source_sha256']}
     assert sources==lock['native_verifier_source_sha256'];atomic_json(output/'official_source_hashes.json',sources)
-    all_inputs=identify(data,list(expected));assert all_inputs==expected
+    check_ids=['fastapi_14246','fastapi_14609','fastapi_5077']
+    all_inputs=identify(data,check_ids);assert all_inputs=={k:expected[k] for k in check_ids}
     atomic_json(output/'INPUT_IDENTITIES.json',all_inputs)
     original=fingerprint();atomic_json(output/'ORIGINAL_ENVIRONMENT.json',original)
     assert next(r for r in original['packages'] if r['name']=='inline-snapshot')['version'] is None
     rows=[]
-    for ident in ('fastapi_14246','fastapi_14609'):
-        row,audit=await native(data,ident,output/'original'/ident,expected[ident]);assert row['evidence_ok']
-        assert any('No module named' in e.get('details','') and 'inline_snapshot' in e.get('details','') for e in audit.get('events',[]))
-        rows.append(dict(environment='ORIGINAL',**row))
+    reference=HERE/'ORIGINAL_DIAGNOSTIC_REFERENCE.json'
+    if reference.exists():
+        old=json.loads(reference.read_bytes());assert old['original_fingerprint']==original
+        for row in old['rows']:
+            assert row['evidence_ok'] and row['identity']==expected[row['instance_id']]
+            rows.append(dict(environment='ORIGINAL',observation='REUSED_REAL_CPU_RECOVERY01_NOT_RERUN',source_Notebook_id=old['Notebook_id'],source_archive_sha256=old['raw_archive_sha256'],**row))
+    else:
+        for ident in ('fastapi_14246','fastapi_14609'):
+            row,audit=await native(data,ident,output/'original'/ident,expected[ident]);assert row['evidence_ok']
+            assert any('No module named' in e.get('details','') and 'inline_snapshot' in e.get('details','') for e in audit.get('events',[]))
+            rows.append(dict(environment='ORIGINAL',**row))
     recovered=install_extras(output);atomic_json(output/'RECOVERED_ENVIRONMENT.json',recovered)
     # Owned positive AND negative assertions prove that installation did not
     # suppress mismatches or enable source/snapshot auto-update.

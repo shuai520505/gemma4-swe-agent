@@ -14,7 +14,7 @@ def build(attempt,entry='recovery'):
         files={n:z.read(n) for n in z.namelist() if n!='gpu_registration.json'}
     for p in HERE.glob('*.py'):
         if p.name not in ('notebook.py','release.py','test_local.py','audit.py'):files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
-    for name in ('NEW_DEPENDENCIES.json','TASK_POOL_FREEZE.json','RECOVERY_PROTOCOL.json','APPROVED_INPUT_IDENTITIES.json','V02B_PROTOCOL_LOCK.json','V02B_ENVIRONMENT_LOCK.json'):
+    for name in ('NEW_DEPENDENCIES.json','TASK_POOL_FREEZE.json','RECOVERY_PROTOCOL.json','APPROVED_INPUT_IDENTITIES.json','ORIGINAL_DIAGNOSTIC_REFERENCE.json','V02B_PROTOCOL_LOCK.json','V02B_ENVIRONMENT_LOCK.json'):
         p=HERE/name
         if p.exists():files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
     extra=json.loads((HERE/'NEW_DEPENDENCIES.json').read_bytes())
