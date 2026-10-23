@@ -67,6 +67,9 @@ def validate(attempt):
         assert not any(n.endswith('cpu_transport.py') for n in z.namelist())
     if b['configuration']['GPU']:
         assert 'cpu_transport=' not in nb['cells'][1]['source'] and 'CPU_SCRIPTED' not in nb['cells'][1]['source']
+        call=next(n for n in ast.walk(ast.parse(nb['cells'][1]['source'])) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='run')
+        args={k.arg:ast.literal_eval(k.value) for k in call.keywords}
+        assert args['mode']=='GPU' and args['authorization']==authorization()
     return True
 
 def cpu_factory(attempt):
@@ -92,7 +95,7 @@ def preflight():
     source=inspect.getsource(prior.preflight)
     source=source.replace("directory=HERE/'preflight';directory.mkdir(exist_ok=True)","directory=HERE/'preflight'/('read-'+str(len(list((HERE/'preflight').glob('read-*')))+1));directory.mkdir(parents=True,exist_ok=False)")
     source=source.replace("HERE.parent/'integrated_cpu_01/ABBA_EXPERIMENT_LOCK.json'","STUDY/'ABBA_EXPERIMENT_LOCK.json'")
-    source=source.replace("remaining=Decimal(quota['totalTimeAllowed']", "assert quota.get('timeReserved')=='0s','Unresolved active resource reservation; no GPU dispatch'\n        remaining=Decimal(quota['totalTimeAllowed']")
+    source=source.replace("remaining=Decimal(quota['totalTimeAllowed']", "assert Decimal(quota['timeReserved'].removesuffix('s'))==0,'Unresolved active resource reservation; no GPU dispatch'\n        remaining=Decimal(quota['totalTimeAllowed']")
     ns=dict(prior.__dict__,HERE=d,STUDY=HERE,ROOT=ROOT,SLUG=SLUG,write=write)
     exec(compile(source,'<Reused-V03-GPU-dynamic-preflight>','exec'),ns)
     result=ns['preflight']()
