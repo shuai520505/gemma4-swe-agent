@@ -2,9 +2,12 @@
 import copy,json,unittest,zipfile
 from pathlib import Path
 from .notebook import ROOT,HERE
-from .results import paired,enrich,_assertion_command
+from .results import paired,enrich,_assertion_command,git_destination
 
 class Metrics(unittest.TestCase):
+    def test_quoted_unicode_diagnostic_filename_is_not_production(self):
+        path=git_destination(r'diff --git "a/\343\200\214owned.py\343\200\215" "b/\343\200\214owned.py\343\200\215"')
+        self.assertEqual(path,'\u300cowned.py\u300d');self.assertFalse(path.startswith('fastapi/'))
     def test_unknown_native_never_becomes_neither_or_false(self):
         p=paired([dict(instance_id='owned',arm='A',resolved=False)],['owned'])
         self.assertEqual(p['counts']['Unknown'],1);self.assertIsNone(p['pairs'][0]['Action_First'])

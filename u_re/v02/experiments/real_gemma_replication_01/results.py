@@ -22,6 +22,18 @@ def _assertion_command(command,scripts):
         except SyntaxError:return False
     return False
 
+def git_destination(header):
+    """Decode Git's C-quoted UTF-8 path tokens without executing workspace code."""
+    tokens=re.findall(r'"(?:\\.|[^"\\])*"|\S+',header.removeprefix('diff --git '))
+    assert len(tokens)==2,('Unparsed Git diff header',sha(header.encode()))
+    value=tokens[1]
+    if value.startswith('"'):
+        value=ast.literal_eval(value)
+        try:value=value.encode('latin1').decode('utf8')
+        except (UnicodeEncodeError,UnicodeDecodeError):pass
+    assert value.startswith('b/')
+    return value[2:]
+
 def enrich(z,metric,result):
     prefix=f"results/runs/{metric['run']:02d}-{metric['instance_id']}-{metric['arm']}/"
     names=set(z.namelist())
@@ -38,12 +50,12 @@ def enrich(z,metric,result):
     observations=[e for e in events if e.get('kind')=='source_boundary_observation' and start is not None and e['start_monotonic']>=start]
     edits=[e for e in observations if e['production_changed']]
     patch=z.read(prefix+'final.patch') if prefix+'final.patch' in names else None
-    paths=[line.split(' b/',1)[1] for line in patch.decode(errors='replace').splitlines() if line.startswith('diff --git ')] if patch else []
+    paths=[git_destination(line) for line in patch.decode(errors='replace').splitlines() if line.startswith('diff --git ')] if patch else []
     production_paths=[p for p in paths if p.startswith('fastapi/') and p.endswith('.py')]
     diagnostic_paths=[p for p in paths if not p.startswith('fastapi/')]
     production_sections=[];keep=False
     for line in patch.decode(errors='replace').splitlines(keepends=True) if patch else []:
-        if line.startswith('diff --git '):keep=line.rstrip('\r\n').split(' b/',1)[-1] in production_paths
+        if line.startswith('diff --git '):keep=git_destination(line.rstrip('\r\n')) in production_paths
         if keep:production_sections.append(line)
     metric.update(final_production_patch_sha256=sha(''.join(production_sections).encode()) if production_sections else None,production_patch_paths=production_paths,nonproduction_patch_paths=diagnostic_paths,diagnostic_only_patch=bool(patch and patch.strip() and not production_paths),ever_production_modified=bool(edits),final_production_patch_present=bool(production_paths))
     if not production_paths:metric['first_observed_applicable_patch_seconds']=None
@@ -100,7 +112,7 @@ def analyze(batch,archive):
     source=inspect.getsource(proven.analyze).replace("HERE.parent/'integrated_cpu_01/ABBA_EXPERIMENT_LOCK.json'","PRODUCTION/'ABBA_EXPERIMENT_LOCK.json'")
     source=source.replace("for frozen in lock['order']:","for frozen in [r for r in lock['order'] if r['batch']==BATCH]:")
     source=source.replace('Notebook_id=140228050','Notebook_id='+str(receipt['Notebook_id']))
-    namespace=dict(proven.__dict__,HERE=directory,ROOT=ROOT,PRODUCTION=PRODUCTION,BATCH=batch)
+    namespace=dict(proven.__dict__,HERE=directory,ROOT=ROOT,PRODUCTION=PRODUCTION,BATCH=batch,write=lambda name,value:write(directory/name,value))
     exec(compile(source,'<Reused-GPU03-offline-metrics>','exec'),namespace)
     namespace['analyze'](archive)
     metrics=json.loads((directory/'AGENT_BEHAVIOR_METRICS.json').read_bytes());results=json.loads((directory/'ABBA_RESULTS.json').read_bytes());execution=json.loads((directory/'GPU_EXECUTION_RECORD.json').read_bytes())
@@ -128,6 +140,7 @@ def analyze(batch,archive):
         environment_complete=env_before==env_after==expected_env
         full=len(integrity)==4 and not execution.get('STOP') and clean.get('confirmed') and clean.get('idle_error') is None and environment_complete
         if full:
+            assert len(execution['devices'])==4 and all(d['name']=='NVIDIA L4' and d['memory_bytes']>=22*1024**3 for d in execution['devices'])
             ids=load('results/TASK_IDENTITIES.json')
             assert set(ids)=={r['instance_id'] for r in lock['order'] if r['batch']==batch}
             for task in lock['tasks']:
