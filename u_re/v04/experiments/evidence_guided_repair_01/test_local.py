@@ -28,4 +28,21 @@ class CandidateTests(unittest.TestCase):
         from .session import coordinator
         f=coordinator(json.loads((HERE/'ABBA_EXPERIMENT_LOCK.json').read_bytes()),{})
         self.assertEqual(f.__globals__['__package__'],'u_re.v04.experiments.evidence_guided_repair_01')
+    def test_real_CPU_evidence_and_corruption_rejected(self):
+        import tempfile
+        from .audit import audit_cpu
+        proof=json.loads((HERE/'CPU_END_TO_END_ACCEPTANCE.json').read_bytes())
+        self.assertEqual(audit_cpu(proof['raw_archive_path'],'cpu-e2e01')['status'],'V04_EGR_CPU_READY')
+        with tempfile.TemporaryDirectory() as tmp:
+            broken=Path(tmp)/'corrupt.zip';raw=Path(proof['raw_archive_path']).read_bytes()
+            broken.write_bytes(raw[:-1]+bytes([raw[-1]^1]))
+            with self.assertRaises(AssertionError):audit_cpu(broken,'cpu-e2e01')
+    def test_future_samples_exclude_development_and_reservations(self):
+        protocol=json.loads((HERE/'GPU_REPLICATION_PROTOCOL.json').read_bytes())
+        ids={r['instance_id'] for r in protocol['ranked_candidates']}
+        self.assertFalse(ids & set(protocol['excluded_ids']))
+        self.assertFalse(ids & set(protocol['preserved_prior_reservations']))
+        self.assertFalse(ids & {'fastapi_5077','fastapi_11355','fastapi_9425','fastapi_14786'})
+        self.assertIsNone(protocol['selected_tasks']);self.assertFalse(protocol['GPU_authorized'])
+        self.assertTrue(all(r['admission']=='NOT_ADMITTED' for r in protocol['ranked_candidates']))
 if __name__=='__main__':unittest.main()
