@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v04\experiments\evidence_guided_repair_01\release.py", line 60, in <module>
+    if __name__=='__main__':seal()
+                            ^^^^^^
+  File "D:\kaggle\Gemma 4 Developer Agent Competition\gemma4-u-re-v01\u_re\v04\experiments\evidence_guided_repair_01\release.py", line 23, in seal
+    for name,h in production['files'].items():assert sha((ROOT/name).read_bytes())==h,('Accepted runtime changed after CPU',name)
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python311\Lib\pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\kaggle\\Gemma 4 Developer Agent Competition\\gemma4-u-re-v01\\experiments\\__init__.py'
