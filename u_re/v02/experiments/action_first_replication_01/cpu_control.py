@@ -17,6 +17,16 @@ def build_screen(attempt='screen01'):
     files=inherited_files()
     catalog=ROOT/'u_re/v01/experiments/mechanism_02/TASK_POOL_METADATA.json'
     files[catalog.relative_to(ROOT).as_posix()]=catalog.read_bytes()
+    prior=proven.PRIOR
+    gate=json.loads((prior/'CPU_GATE_PIN.json').read_bytes())
+    acceptance=(prior/'ACCEPTED_CPU_ACCEPTANCE.json').read_bytes()
+    assert sha(acceptance)==gate['CPU_ACCEPTANCE_sha256']
+    files[(prior/'ACCEPTED_CPU_ACCEPTANCE.json').relative_to(ROOT).as_posix()]=acceptance
+    for name,h in gate['accepted_execution_sources'].items():
+        p=(prior/name).resolve()
+        raw=files[p.relative_to(ROOT).as_posix()] if p.relative_to(ROOT).as_posix() in files else p.read_bytes()
+        assert sha(raw)==h
+        files[p.relative_to(ROOT).as_posix()]=raw
     for parent in ('u_re/v02','u_re/v02/experiments'):files[parent+'/__init__.py']=b''
     for name in ('__init__.py','selection.py','screen.py','REPLICATION_PROTOCOL.json','TASK_POOL_FREEZE.json'):
         p=HERE/name;files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
@@ -86,6 +96,7 @@ def factory(attempt='screen01',agent_runs=0):
             c.checked_config=checked;return c
         m.controller_module=controller_module
     def launch():
+        if attempt.startswith('screen'):validate_screen(attempt)
         from u_re.v01.experiments.fastapi_pilot_01 import auth_diagnose
         (cpu/'preflight').mkdir(parents=True,exist_ok=True);auth_diagnose.HERE=cpu/'preflight';auth_diagnose.diagnose()
         p=ROOT/'u_re/v01/experiments/gemma_smoke_01/cpu_launch_once.py'
@@ -102,6 +113,23 @@ def factory(attempt='screen01',agent_runs=0):
         t=types.ModuleType('v02_cpu_read');t.__file__=str(p);exec(compile(text,str(p),'exec'),t.__dict__);t.ROOT=ROOT
         t.collect(private_root,cpu=cpu,slug=slug,archive='v02-'+attempt+'.zip')
     m.launch=launch;m.collect=collect;return m
+
+def validate_screen(attempt):
+    spec=json.loads((HERE/attempt/'BUILD.json').read_bytes())
+    payload=(HERE/attempt/'screen_payload.zip').read_bytes();assert sha(payload)==spec['payload_sha256']
+    with zipfile.ZipFile(io.BytesIO(payload)) as z:
+        assert z.testzip() is None
+        for n,h in spec['payload_members'].items():assert sha(z.read(n))==h,n
+        prior=proven.PRIOR.relative_to(ROOT)
+        gate=json.loads(z.read((prior/'CPU_GATE_PIN.json').as_posix()))
+        assert sha(z.read((prior/'ACCEPTED_CPU_ACCEPTANCE.json').as_posix()))==gate['CPU_ACCEPTANCE_sha256']
+        for name,h in gate['accepted_execution_sources'].items():
+            n=(proven.PRIOR/name).resolve().relative_to(ROOT).as_posix()
+            assert sha(z.read(n))==h,n
+        assert 'u_re/v01/experiments/mechanism_02/TASK_POOL_METADATA.json' in z.namelist()
+    nb=json.loads((HERE/attempt/'notebook/study.ipynb').read_bytes())
+    assert 'shutil' in nb['cells'][0]['source'].splitlines()[0]
+    return True
 
 if __name__=='__main__':
     import sys

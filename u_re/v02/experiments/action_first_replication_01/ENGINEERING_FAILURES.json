@@ -29,6 +29,19 @@
       "raw_archive_sha256": "197fa38bfc2de88e2dc2cad68e8b8edf63ef8c9de5976de52b1c8d2e1db806e4",
       "raw_archive_private_path": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\private-evidence\\u_re_v02_screen02\\read-01\\evidence_confirmed\\output\\v02-screen02.zip",
       "fix": "Add exact preregistered metadata catalog; screen03 retains original task order"
+    },
+    {
+      "attempt": "screen03",
+      "SaveKernel_dispatches": 1,
+      "HTTP_status": 499,
+      "response_bytes": 0,
+      "state": "UNKNOWN_STOP",
+      "Notebook_id": null,
+      "version": null,
+      "actual_baseline_count": null,
+      "read_only_reconciliation": "Full owned list190 records no match; exact slug GetKernel403; preserve UNKNOWN",
+      "local_validation_failure_before_dispatch": "ACCEPTED_CPU_ACCEPTANCE.json absent; prior shell command did not stop after failed Python test",
+      "fix": "CPU launch now calls validate_screen itself before authentication/dispatch. Exact accepted gate data and every pinned source hash required. screen04 is a changed input-closure repair, never a resend of screen03. Original missing gate makes screening unreachable under screen03 sealed bytes."
     }
   ]
 }
