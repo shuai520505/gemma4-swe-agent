@@ -82,6 +82,13 @@ def validate_attempt(attempt):
         if b['entry'].endswith('.screen'):required+=['V02B_PROTOCOL_LOCK.json','V02B_ENVIRONMENT_LOCK.json']
         for n in required:assert prefix+n in z.namelist(),n
         for r in json.loads(z.read(prefix+'NEW_DEPENDENCIES.json'))['packages']:assert sha(z.read(prefix+'wheels/'+r['filename']))==r['sha256']
+        name='V02B_PROTOCOL_LOCK.json' if b['entry'].endswith('.screen') else 'RECOVERY_PROTOCOL.json'
+        assert sha(z.read(prefix+name))==b['selection_protocol_sha256']
+        if name=='V02B_PROTOCOL_LOCK.json':
+            protocol=json.loads(z.read(prefix+name))
+            assert sha(z.read(prefix+'V02B_ENVIRONMENT_LOCK.json'))==protocol['environment_lock_sha256']
+            assert sha(z.read(prefix+'TASK_POOL_FREEZE.json'))==protocol['pool_sha256']
+            for n,h in protocol['execution_sources'].items():assert sha(z.read(prefix+n))==h,n
     return True
 
 def factory(attempt):
