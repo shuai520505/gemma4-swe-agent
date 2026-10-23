@@ -1,0 +1,27 @@
+{
+  "failures": [
+    {
+      "attempt": "recovery01",
+      "Notebook_id": 140344081,
+      "version": 1,
+      "status": "ERROR",
+      "source_archive_sha256": "e0198daeb0caed03efb4692cdac696842b3b02992ad0fe5e8913cf08651d15a4",
+      "reason": "Legacy research JUnit parser expects unique testcase rows; pytest emits duplicate teardown records for inline-snapshot mismatch. Native tests really ran; no source mutation or cleanup failure. Dependency install and positive/negative snapshot canaries passed.",
+      "raw_native_calls": 3,
+      "reader_only_reassessment": {
+        "official_native_resolved": false,
+        "official_native_exit_code": 1,
+        "counts": {
+          "tests": 15,
+          "failures": 2,
+          "errors": 2,
+          "skipped": 0
+        },
+        "JUnit_records": 17,
+        "duplicate_snapshot_finalizer_errors": 2
+      },
+      "historical_audit_and_verdict_untouched": true,
+      "next": "Versioned recovery02 with strict research-only duplicate-phase reader; no official Verifier or tests changed"
+    }
+  ]
+}
