@@ -1,0 +1,16 @@
+{
+  "failures": [
+    {
+      "stage": "Public secret scan self-test",
+      "cause": "Initial signature detector matched its own rule string",
+      "correction": "Require an actual signature assignment with hex value; no files or credentials exempted"
+    },
+    {
+      "stage": "Frozen manifest rebuild",
+      "cause": "Immutable writer correctly rejected LF-vs-existing-CRLF byte difference after all candidate ZIP checks passed",
+      "correction": "Preserve existing manifest bytes and verify exact JSON semantics; ZIP/member bytes remain immutable"
+    }
+  ],
+  "Notebook_requests": 0,
+  "candidate_artifact_changes": 0
+}

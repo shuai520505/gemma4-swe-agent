@@ -46,6 +46,13 @@ def archive(files):
     return stream.getvalue()
 
 
+def frozen_write(path,raw):
+    if path.exists():
+        assert path.read_bytes()==raw,"Frozen artifact differs; create a new version rather than overwrite"
+    else:
+        path.write_bytes(raw)
+
+
 def build():
     raw=EGR.read_bytes();assert sha(raw)==EXPECTED
     with zipfile.ZipFile(io.BytesIO(raw)) as z:
@@ -63,9 +70,9 @@ def build():
     for arm,files in variants.items():
         target=HERE/'candidates'/arm;target.mkdir(parents=True,exist_ok=True)
         for name,content in files.items():
-            dest=target/name;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(content)
+            dest=target/name;dest.parent.mkdir(parents=True,exist_ok=True);frozen_write(dest,content)
         packaged=raw if arm=='A' else archive(files)
-        out=HERE/f'submission_{arm}.zip';out.write_bytes(packaged)
+        out=HERE/f'submission_{arm}.zip';frozen_write(out,packaged)
         with zipfile.ZipFile(io.BytesIO(packaged)) as z:assert z.testzip() is None
         records[arm]=dict(ZIP_sha256=sha(packaged),bytes=len(packaged),members={n:sha(b) for n,b in files.items()})
     assert variants['B']['agent.yaml']==variants['C']['agent.yaml']
@@ -74,7 +81,11 @@ def build():
               main_mechanism_contrast='B vs C: only skill script implementation differs',
               EGR_contrast_limitation='A vs B adds official SkillToolset declarations/instructions as well as script; not a pure script-only contrast',
               GPU_authorized=False,formal_submission_authorized=False)
-    (HERE/'CANDIDATE_MANIFEST.json').write_text(json.dumps(lock,indent=2)+'\n',encoding='utf-8')
+    manifest=HERE/'CANDIDATE_MANIFEST.json'
+    if manifest.exists():
+        assert json.loads(manifest.read_bytes())==lock,'Frozen manifest semantics changed'
+    else:
+        frozen_write(manifest,(json.dumps(lock,indent=2)+'\n').encode())
     print(json.dumps({k:v['ZIP_sha256'] for k,v in records.items()}))
     return lock
 

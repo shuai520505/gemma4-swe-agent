@@ -1,0 +1,7 @@
+{
+  "phase": "Offline corrupt-archive rejection self-test",
+  "exception": "ValueError: negative seek value -9",
+  "cause": "A deliberately damaged ZIP raised ValueError instead of BadZipFile; the evidence was rejected, but the negative-test harness omitted this legitimate rejection exception.",
+  "fix": "Recognize ValueError as a rejection only inside the deliberately corrupted-archive negative test; valid archive assertions unchanged",
+  "Notebook_requests": 0
+}
