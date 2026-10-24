@@ -8,7 +8,7 @@ Source `72030f1833ee6a8588087836bf281ae3aafae4c5a327b4f1d5651482aed7bea6` / `res
 
 Relevant inspection: 42.84116936200007 (e18); first observed file edit: None; first behavioral edit: None (eNone). Checks: [32, 36, 44]. All subsequent edit acknowledgements: [].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=26; received usage={'prompt_tokens': 170535, 'completion_tokens': 8730, 'total_tokens': 179265}; tools=26; Agent seconds=264.2835607799998.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=26; received usage={'completion_tokens': 8730, 'prompt_tokens': 170535, 'total_tokens': 179265}; tools=26; Agent seconds=264.2835607799998.
 
 e30/32 reproduction tests a neighboring annotation case, not the stringified case in the Issue; no production edit before guard.
 
@@ -18,7 +18,7 @@ Source `72030f1833ee6a8588087836bf281ae3aafae4c5a327b4f1d5651482aed7bea6` / `res
 
 Relevant inspection: 34.187445492999814 (e20); first observed file edit: 138.952519509; first behavioral edit: 139.005810784 (e43). Checks: [28, 36, 39, 45, 51, 55, 59]. All subsequent edit acknowledgements: [{'event_index': 43, 'seconds': 139.005810784, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=39; received usage={'prompt_tokens': 363210, 'completion_tokens': 6949, 'total_tokens': 370159}; tools=37; Agent seconds=229.72936826.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=39; received usage={'completion_tokens': 6949, 'prompt_tokens': 363210, 'total_tokens': 370159}; tools=37; Agent seconds=229.72936826.
 
 e26/28 distinguishes annotation representations; e43 edits; e45/e51 check changed behavior; e73 submits. Native passes.
 
@@ -28,7 +28,7 @@ Source `72030f1833ee6a8588087836bf281ae3aafae4c5a327b4f1d5651482aed7bea6` / `res
 
 Relevant inspection: 7.3068977059999725 (e2); first observed file edit: 30.34073965599987; first behavioral edit: 30.391664900000023 (e8). Checks: [6, 10, 12, 22, 24]. All subsequent edit acknowledgements: [{'event_index': 8, 'seconds': 30.391664900000023, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=17; received usage={'prompt_tokens': 122146, 'completion_tokens': 1922, 'total_tokens': 124068}; tools=16; Agent seconds=79.08459343999994.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=17; received usage={'completion_tokens': 1922, 'prompt_tokens': 122146, 'total_tokens': 124068}; tools=16; Agent seconds=79.08459343999994.
 
 e6 fails an assertion, e8 edits, e10 passes the same check. Later unscoped pytest and nonexistent path are unnecessary detours, despite native success.
 
@@ -38,7 +38,7 @@ Source `72030f1833ee6a8588087836bf281ae3aafae4c5a327b4f1d5651482aed7bea6` / `res
 
 Relevant inspection: 7.5254501310000705 (e2); first observed file edit: 29.647917860999996; first behavioral edit: 29.6987821350001 (e8). Checks: [6, 10, 16, 18, 20, 30, 36]. All subsequent edit acknowledgements: [{'event_index': 8, 'seconds': 29.6987821350001, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=2; post-submit tools=4; stop=CONTEXT_RESERVATION_STOP. Model requests=24; received usage={'prompt_tokens': 184372, 'completion_tokens': 3103, 'total_tokens': 187475}; tools=24; Agent seconds=116.11263909799982.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=2; post-submit tools=4; stop=CONTEXT_RESERVATION_STOP. Model requests=24; received usage={'completion_tokens': 3103, 'prompt_tokens': 184372, 'total_tokens': 187475}; tools=24; Agent seconds=116.11263909799982.
 
 Fail/edit/pass sequence precedes successful submission. e38 submit, e40/e42 reads, e44 repeat submit, e46 status; guard stops a natively correct patch.
 
@@ -48,7 +48,7 @@ Source `6ecb9bfceb0b230ea3f4a2281b219d1e94c1ff2e50d4b0960b8701b4e7af2e45` / `res
 
 Relevant inspection: 18.219300843000042 (e6); first observed file edit: None; first behavioral edit: None (eNone). Checks: [10, 18, 22, 40]. All subsequent edit acknowledgements: [].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'prompt_tokens': 212774, 'completion_tokens': 6848, 'total_tokens': 219622}; tools=22; Agent seconds=211.79704634100005.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'completion_tokens': 6848, 'prompt_tokens': 212774, 'total_tokens': 219622}; tools=22; Agent seconds=211.79704634100005.
 
 Self-authored reproduction initially fails on assignment to a read-only attribute. Later printed success coexists with unresolved annotation output; no production edit. Whether the model accepted that output is unknown.
 
@@ -58,7 +58,7 @@ Source `6ecb9bfceb0b230ea3f4a2281b219d1e94c1ff2e50d4b0960b8701b4e7af2e45` / `res
 
 Relevant inspection: 28.080248885000174 (e10); first observed file edit: 153.13347459500005; first behavioral edit: None (eNone). Checks: [14, 18, 26, 30, 34]. All subsequent edit acknowledgements: [{'event_index': 32, 'seconds': 153.18518964400005, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'prompt_tokens': 235056, 'completion_tokens': 5280, 'total_tokens': 240336}; tools=22; Agent seconds=170.96932643200012.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'completion_tokens': 5280, 'prompt_tokens': 235056, 'total_tokens': 240336}; tools=22; Agent seconds=170.96932643200012.
 
 e24 creates a test body containing pass without a discriminating assertion; e26/e30 green. e32 changes production only to add debug output, not repair behavior.
 
@@ -68,7 +68,7 @@ Source `6ecb9bfceb0b230ea3f4a2281b219d1e94c1ff2e50d4b0960b8701b4e7af2e45` / `res
 
 Relevant inspection: 118.11517714399997 (e40); first observed file edit: None; first behavioral edit: None (eNone). Checks: [10, 14, 20, 24]. All subsequent edit acknowledgements: [].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'prompt_tokens': 167741, 'completion_tokens': 4548, 'total_tokens': 172289}; tools=22; Agent seconds=144.63653178000004.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=22; received usage={'completion_tokens': 4548, 'prompt_tokens': 167741, 'total_tokens': 172289}; tools=22; Agent seconds=144.63653178000004.
 
 Multiple self-authored examples and caught errors precede relevant helper inspection; no production edit. Issue lacks a complete executable contract. Exact causal misunderstanding is unobservable.
 
@@ -78,7 +78,7 @@ Source `6ecb9bfceb0b230ea3f4a2281b219d1e94c1ff2e50d4b0960b8701b4e7af2e45` / `res
 
 Relevant inspection: 57.76839410499997 (e28); first observed file edit: 135.3766634179999; first behavioral edit: 135.4275266479999 (e42). Checks: [32, 36, 40]. All subsequent edit acknowledgements: [{'event_index': 42, 'seconds': 135.4275266479999, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=23; received usage={'prompt_tokens': 198441, 'completion_tokens': 4834, 'total_tokens': 203275}; tools=23; Agent seconds=154.22107146300004.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=23; received usage={'completion_tokens': 4834, 'prompt_tokens': 198441, 'total_tokens': 203275}; tools=23; Agent seconds=154.22107146300004.
 
 e40 fails an annotation assertion, e42 changes its handling, e44 reads modified code; guard prevents any later execution. Local hypothesis relevance to the entire Issue remains unproven.
 
@@ -88,7 +88,7 @@ Source `05bbbe3626123f1c4dbc7ce01382867e2d84affca942314fda733b3692d50580` / `res
 
 Relevant inspection: 22.210091650000095 (e6); first observed file edit: 149.52988632799998; first behavioral edit: 149.58394697099993 (e36). Checks: [10, 16, 34, 40]. All subsequent edit acknowledgements: [{'event_index': 36, 'seconds': 149.58394697099993, 'basis': ['source_boundary_hash_change']}, {'event_index': 38, 'seconds': 154.6961013749999, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=23; received usage={'prompt_tokens': 204363, 'completion_tokens': 5042, 'total_tokens': 209405}; tools=23; Agent seconds=164.45550196400018.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=23; received usage={'completion_tokens': 5042, 'prompt_tokens': 204363, 'total_tokens': 209405}; tools=23; Agent seconds=164.45550196400018.
 
 Cross-module reproducer output changes after e36/e38; native passes. Guard stops the session before explicit submit; official fallback retains a correct patch.
 
@@ -98,7 +98,7 @@ Source `05bbbe3626123f1c4dbc7ce01382867e2d84affca942314fda733b3692d50580` / `res
 
 Relevant inspection: 16.225588238 (e6); first observed file edit: 182.51259361400002; first behavioral edit: 182.56596997499992 (e28). Checks: [10, 18, 22, 26, 32, 36, 38, 48, 50]. All subsequent edit acknowledgements: [{'event_index': 28, 'seconds': 182.56596997499992, 'basis': ['source_boundary_hash_change']}, {'event_index': 30, 'seconds': 190.11844005800003, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=29; received usage={'prompt_tokens': 344816, 'completion_tokens': 7911, 'total_tokens': 352727}; tools=28; Agent seconds=259.80592150000007.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=29; received usage={'completion_tokens': 7911, 'prompt_tokens': 344816, 'total_tokens': 352727}; tools=28; Agent seconds=259.80592150000007.
 
 e28/e30 behavior edits; e32 changed reproduction output. e36 unscoped pytest collects 702 cases/162 errors, e38 invalid path; e48/e50 relevant tests pass and e54 submits.
 
@@ -108,7 +108,7 @@ Source `05bbbe3626123f1c4dbc7ce01382867e2d84affca942314fda733b3692d50580` / `res
 
 Relevant inspection: 65.87111504999984 (e36); first observed file edit: 274.97391656900004; first behavioral edit: 288.1304769569999 (e74). Checks: [48, 56, 60, 64, 68]. All subsequent edit acknowledgements: [{'event_index': 72, 'seconds': 275.02345961599985, 'basis': ['source_boundary_hash_change']}, {'event_index': 74, 'seconds': 288.1304769569999, 'basis': ['source_boundary_hash_change']}, {'event_index': 76, 'seconds': 298.79206737799996, 'basis': ['source_boundary_hash_change']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=40; received usage={'prompt_tokens': 443394, 'completion_tokens': 9199, 'total_tokens': 452593}; tools=40; Agent seconds=299.9996319329998.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=40; received usage={'completion_tokens': 9199, 'prompt_tokens': 443394, 'total_tokens': 452593}; tools=40; Agent seconds=299.9996319329998.
 
 e18 and e70 repeat a negative query; many ordinary examples do not distinguish the intended defect. e72 import-only edit, e74 first behavioral edit near 288s, e76 another edit near 299s; no post-edit execution. F6 is interpretation, not proof all exploration was waste.
 
@@ -118,7 +118,7 @@ Source `05bbbe3626123f1c4dbc7ce01382867e2d84affca942314fda733b3692d50580` / `res
 
 Relevant inspection: 77.72288727900013 (e42); first observed file edit: None; first behavioral edit: None (eNone). Checks: [30, 60]. All subsequent edit acknowledgements: [].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=32; received usage={'prompt_tokens': 251255, 'completion_tokens': 4526, 'total_tokens': 255781}; tools=32; Agent seconds=145.96720866300006.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=CONTEXT_RESERVATION_STOP. Model requests=32; received usage={'completion_tokens': 4526, 'prompt_tokens': 251255, 'total_tokens': 255781}; tools=32; Agent seconds=145.96720866300006.
 
 Relevant implementation was inspected; ordinary examples and searches continue until guard. No production edit; no observable proof of a correct causal explanation.
 
@@ -128,7 +128,7 @@ Source `37c81c3cc89ddca69f8858f28015522f2f48af6e1781e1d44689885619c70639` / `run
 
 Relevant inspection: 12.641967802999943 (e2); first observed file edit: 47.895414315999915; first behavioral edit: 47.895414315999915 (e14). Checks: [12, 20, 22]. All subsequent edit acknowledgements: [{'event_index': 14, 'seconds': 47.895414315999915, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 16, 'seconds': 49.998584851999794, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=14; received usage={'prompt_tokens': 48353, 'completion_tokens': 2629, 'total_tokens': 50982}; tools=13; Agent seconds=76.00156711699992.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=14; received usage={'completion_tokens': 2629, 'prompt_tokens': 48353, 'total_tokens': 50982}; tools=13; Agent seconds=76.00156711699992.
 
 Owned synthetic migration task; reads implementation/caller, adds compatible API/export, checks and submits. Not independent SWE evidence.
 
@@ -138,7 +138,7 @@ Source `4108828cc749f81bb631bbfa2eab42138f794112e7def39daaff435300fe6e09` / `run
 
 Relevant inspection: 13.757593644000053 (e4); first observed file edit: 45.916159044000096; first behavioral edit: 45.916159044000096 (e14). Checks: [10, 20, 22]. All subsequent edit acknowledgements: [{'event_index': 14, 'seconds': 45.916159044000096, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 16, 'seconds': 48.02004971800011, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=2; post-submit tools=2; stop=None. Model requests=16; received usage={'prompt_tokens': 58616, 'completion_tokens': 2747, 'total_tokens': 61363}; tools=15; Agent seconds=79.56359842200004.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=2; post-submit tools=2; stop=None. Model requests=16; received usage={'completion_tokens': 2747, 'prompt_tokens': 58616, 'total_tokens': 61363}; tools=15; Agent seconds=79.56359842200004.
 
 Owned synthetic task; repeat submission follows removal of own scratch file, so post-submit work is not automatically waste.
 
@@ -148,7 +148,7 @@ Source `4108828cc749f81bb631bbfa2eab42138f794112e7def39daaff435300fe6e09` / `run
 
 Relevant inspection: 17.34478332499998 (e2); first observed file edit: 59.45791856400001; first behavioral edit: 59.45791856400001 (e14). Checks: [8, 18, 20, 22, 24]. All subsequent edit acknowledgements: [{'event_index': 14, 'seconds': 59.45791856400001, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 16, 'seconds': 61.464027922000014, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=15; received usage={'prompt_tokens': 62838, 'completion_tokens': 3147, 'total_tokens': 65985}; tools=14; Agent seconds=90.87413504999995.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=15; received usage={'completion_tokens': 3147, 'prompt_tokens': 62838, 'total_tokens': 65985}; tools=14; Agent seconds=90.87413504999995.
 
 Same owned synthetic repair. Model JSON declarations are advisory; no global state controller was executed.
 
@@ -158,7 +158,7 @@ Source `d51735ad43a2d6318c1ec7fb10bd607b7ba9906d268b3b87924d547445f08b68` / `run
 
 Relevant inspection: 13.81703496299997 (e4); first observed file edit: 259.6267578679999; first behavioral edit: 259.63080838299993 (e78). Checks: [86, 90, 94]. All subsequent edit acknowledgements: [{'event_index': 78, 'seconds': 259.63080838299993, 'basis': ['nested_tool_file_hash_change']}, {'event_index': 80, 'seconds': 264.83646006000004, 'basis': ['nested_tool_file_hash_change']}, {'event_index': 84, 'seconds': 385.360821492, 'basis': ['nested_tool_file_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=TOOL_BUDGET_EXHAUSTED. Model requests=67; received usage={'prompt_tokens': 375649, 'completion_tokens': 15860, 'total_tokens': 391509}; tools=60; Agent seconds=491.4555337359999.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=TOOL_BUDGET_EXHAUSTED. Model requests=67; received usage={'completion_tokens': 15860, 'prompt_tokens': 375649, 'total_tokens': 391509}; tools=60; Agent seconds=491.4555337359999.
 
 500s/60-tool experiment; production repair late, original tests pass. Tool cap prevents explicit submission; fallback patch succeeds. No AgentTool delegation.
 
@@ -168,7 +168,7 @@ Source `d51735ad43a2d6318c1ec7fb10bd607b7ba9906d268b3b87924d547445f08b68` / `run
 
 Relevant inspection: 12.362558651999962 (e4); first observed file edit: 164.64151293500004; first behavioral edit: 164.6454776789999 (e46). Checks: [14, 18, 40, 44, 52, 56, 60, 64, 68, 72, 80, 90, 110, 112, 114, 116]. All subsequent edit acknowledgements: [{'event_index': 46, 'seconds': 164.6454776789999, 'basis': ['nested_tool_file_hash_change']}, {'event_index': 48, 'seconds': 188.53062019000004, 'basis': ['nested_tool_file_hash_change']}, {'event_index': 50, 'seconds': 193.75982216700004, 'basis': ['nested_tool_file_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=68; received usage={'prompt_tokens': 375486, 'completion_tokens': 15202, 'total_tokens': 390688}; tools=61; Agent seconds=473.56862093400014.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=68; received usage={'completion_tokens': 15202, 'prompt_tokens': 375486, 'total_tokens': 390688}; tools=61; Agent seconds=473.56862093400014.
 
 500s experiment; earlier behavioral edits and explicit submission. Reproduction/API mistakes occur but native passes. No AgentTool delegation.
 
@@ -178,7 +178,7 @@ Source `d51735ad43a2d6318c1ec7fb10bd607b7ba9906d268b3b87924d547445f08b68` / `run
 
 Relevant inspection: 24.208885925000004 (e8); first observed file edit: 39.63080612199997; first behavioral edit: 39.63708702400004 (e12). Checks: [22]. All subsequent edit acknowledgements: [{'event_index': 12, 'seconds': 39.63708702400004, 'basis': ['nested_tool_file_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=3; post-submit tools=6; stop=None. Model requests=33; received usage={'prompt_tokens': 180088, 'completion_tokens': 5834, 'total_tokens': 185922}; tools=30; Agent seconds=209.49474139599988.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=3; post-submit tools=6; stop=None. Model requests=33; received usage={'completion_tokens': 5834, 'prompt_tokens': 180088, 'total_tokens': 185922}; tools=30; Agent seconds=209.49474139599988.
 
 Task target is executable docs_src example, not fastapi library. Edits that example; native passes. Three successful submits and six post-submit tools. Visible workspace test edit is not a trusted verifier modification.
 
@@ -188,7 +188,7 @@ Source `d51735ad43a2d6318c1ec7fb10bd607b7ba9906d268b3b87924d547445f08b68` / `run
 
 Relevant inspection: 77.99878528599993 (e24); first observed file edit: 108.55703854600006; first behavioral edit: 108.56334260299991 (e38). Checks: []. All subsequent edit acknowledgements: [{'event_index': 38, 'seconds': 108.56334260299991, 'basis': ['nested_tool_file_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=26; received usage={'prompt_tokens': 143823, 'completion_tokens': 3123, 'total_tokens': 146946}; tools=24; Agent seconds=123.40489106099994.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=1; post-submit tools=0; stop=None. Model requests=26; received usage={'completion_tokens': 3123, 'prompt_tokens': 143823, 'total_tokens': 146946}; tools=24; Agent seconds=123.40489106099994.
 
 Reads and edits target docs_src example, submits without running pytest; native passes. Absence of local test does not imply incorrect patch.
 
@@ -198,7 +198,7 @@ Source `ee3651b4ca76b8a226a9f48ddb7e614add3bd32d3a77bcf32d37b13dd01425e0` / `run
 
 Relevant inspection: 12.205213116999971 (e6); first observed file edit: 463.6658497970001; first behavioral edit: 463.669908382 (e90). Checks: [36, 52, 92, 96]. All subsequent edit acknowledgements: [{'event_index': 90, 'seconds': 463.669908382, 'basis': ['nested_tool_file_hash_change']}].
 
-Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=56; received usage={'prompt_tokens': 301198, 'completion_tokens': 15796, 'total_tokens': 316994}; tools=50; Agent seconds=500.0158269159999.
+Native raw=True, assessed=True (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=56; received usage={'completion_tokens': 15796, 'prompt_tokens': 301198, 'total_tokens': 316994}; tools=50; Agent seconds=500.0158269159999.
 
 Production edit after ~464s; a self-authored check has 3 pass/1 fail based on an unsupported control-character expectation. Native 108 pass. Deadline prevents submission; no AgentTool invocation.
 
@@ -208,7 +208,7 @@ Source `6f7ce7cec7979921e8cfae11e3f80411f6398281f1c5a2e461b42a5a57b03128` / `run
 
 Relevant inspection: 6.48387571100011 (e2); first observed file edit: 258.496797219; first behavioral edit: 258.496797219 (e36). Checks: [12, 16, 34, 38, 42]. All subsequent edit acknowledgements: [{'event_index': 36, 'seconds': 258.496797219, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=None (VERIFIER_ERRORS_ASSESSMENT_CONFOUNDED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=25; received usage={'prompt_tokens': 123109, 'completion_tokens': 9662, 'total_tokens': 132771}; tools=23; Agent seconds=299.99773174200004.
+Native raw=False, assessed=None (VERIFIER_ERRORS_ASSESSMENT_CONFOUNDED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=25; received usage={'completion_tokens': 9662, 'prompt_tokens': 123109, 'total_tokens': 132771}; tools=23; Agent seconds=299.99773174200004.
 
 Post-edit reproduction still reports the investigated symptom; replacement mock yields a vacuous-looking history result. Native has 194 fixture errors, so repair outcome is unknown, not an algorithm failure.
 
@@ -218,7 +218,7 @@ Source `9279f95aadab5b4802c12bd4546ed78db44374173a451eb80bb9b66ce39c0159` / `run
 
 Relevant inspection: 10.188523983000096 (e2); first observed file edit: 72.83948971500013; first behavioral edit: 72.83948971500013 (e8). Checks: [6, 10, 14, 18, 29]. All subsequent edit acknowledgements: [{'event_index': 8, 'seconds': 72.83948971500013, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=20; received usage={'prompt_tokens': 101572, 'completion_tokens': 8966, 'total_tokens': 110538}; tools=17; Agent seconds=300.04294081399996.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=20; received usage={'completion_tokens': 8966, 'prompt_tokens': 101572, 'total_tokens': 110538}; tools=17; Agent seconds=300.04294081399996.
 
 Final native summary is 4 failed/19 passed, zero errors. Historical observer confused a test data string saying 4 errors with an environment failure; its suppression of the next arm is infrastructure error, not this task classification.
 
@@ -228,7 +228,7 @@ Source `a5e062da220fb9c0b0912006c5c1a82e3a7fd98eb75048614379cd0dfe07a2d5` / `run
 
 Relevant inspection: 9.635340387999804 (e2); first observed file edit: 165.70051438199994; first behavioral edit: 165.70051438199994 (e44). Checks: [22, 46, 48, 52, 54, 56, 60]. All subsequent edit acknowledgements: [{'event_index': 44, 'seconds': 165.70051438199994, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=48; received usage={'prompt_tokens': 237790, 'completion_tokens': 9296, 'total_tokens': 247086}; tools=44; Agent seconds=300.01000096300004.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=48; received usage={'completion_tokens': 9296, 'prompt_tokens': 237790, 'total_tokens': 247086}; tools=44; Agent seconds=300.01000096300004.
 
 e22 reproduction calls nonexistent API; e44 behavioral edit; e52/e54/e56 repeat the same failing targeted pytest with no intervening edit, then no revision. This supports failure to use feedback, not an inferred internal belief.
 
@@ -238,7 +238,7 @@ Source `a5e062da220fb9c0b0912006c5c1a82e3a7fd98eb75048614379cd0dfe07a2d5` / `run
 
 Relevant inspection: 10.093688246000056 (e4); first observed file edit: 78.64269636000017; first behavioral edit: 178.43363251000005 (e54). Checks: [16, 20, 24, 28, 58, 62, 80, 84, 86]. All subsequent edit acknowledgements: [{'event_index': 22, 'seconds': 78.64269636000017, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 54, 'seconds': 178.43363251000005, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 56, 'seconds': 191.19947407900008, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 60, 'seconds': 199.168731771, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=48; received usage={'prompt_tokens': 252778, 'completion_tokens': 10054, 'total_tokens': 262832}; tools=44; Agent seconds=299.999052915.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=48; received usage={'completion_tokens': 10054, 'prompt_tokens': 252778, 'total_tokens': 262832}; tools=44; Agent seconds=299.999052915.
 
 Initial ~79s edit is debug only. e54/e56 behavioral edits introduce an AttributeError observed at e58; e60 fixes it, e62 runs. Later inclusion-only assertions pass but native fails. This is actual revision, not F4 failure.
 
@@ -248,7 +248,7 @@ Source `fdb36179f46921b4d61362c2ecb406afb8167e8decfdfa6b44b60930347a73c5` / `run
 
 Relevant inspection: 12.504938804000062 (e2); first observed file edit: 160.08501475699995; first behavioral edit: 160.08501475699995 (e38). Checks: [36, 42, 48, 52]. All subsequent edit acknowledgements: [{'event_index': 38, 'seconds': 160.08501475699995, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 40, 'seconds': 196.08649380200006, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 44, 'seconds': 228.21035446200005, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 46, 'seconds': 234.755148707, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=30; received usage={'prompt_tokens': 167878, 'completion_tokens': 9263, 'total_tokens': 177141}; tools=27; Agent seconds=300.0111992609999.
+Native raw=False, assessed=False (NATIVE_RESULT_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=30; received usage={'completion_tokens': 9263, 'prompt_tokens': 167878, 'total_tokens': 177141}; tools=27; Agent seconds=300.0111992609999.
 
 e42 targeted HTTP assertions fail; e44/e46 revise; e48 three checks pass; e52 repeats unchanged checks. Native 18 pass/42 fail: feedback-driven local correction is insufficient for complete repair.
 
@@ -258,6 +258,6 @@ Source `fdb36179f46921b4d61362c2ecb406afb8167e8decfdfa6b44b60930347a73c5` / `run
 
 Relevant inspection: 15.961961792000011 (e4); first observed file edit: 268.3158810489999; first behavioral edit: 268.3158810489999 (e84). Checks: [60, 70]. All subsequent edit acknowledgements: [{'event_index': 84, 'seconds': 268.3158810489999, 'basis': ['tool_ack_only_hash_unavailable']}, {'event_index': 92, 'seconds': 284.843141222, 'basis': ['tool_ack_only_hash_unavailable']}].
 
-Native raw=False, assessed=False (NATIVE_AGENT_REGRESSION_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=51; received usage={'prompt_tokens': 272184, 'completion_tokens': 9510, 'total_tokens': 281694}; tools=47; Agent seconds=300.01403737300006.
+Native raw=False, assessed=False (NATIVE_AGENT_REGRESSION_OBSERVED); submits=0; post-submit tools=None; stop=AGENT_TIMEOUT. Model requests=51; received usage={'completion_tokens': 9510, 'prompt_tokens': 272184, 'total_tokens': 281694}; tools=47; Agent seconds=300.01403737300006.
 
 Late production edits introduce literal escaped docstring quotes. No execution after edits. Original native JUnit reports SyntaxError at the changed applications.py location; algorithm-generated regression, not missing dependency.

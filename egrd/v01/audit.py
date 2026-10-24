@@ -41,7 +41,7 @@ def digest(value):
 
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='\n')
 
 def production(path):
     return path.endswith('.py') and path.startswith(('fastapi/', 'rich/', 'src/requests/', 'requests/', 'lumen/', 'docs_src/'))
@@ -63,7 +63,7 @@ def candidate_identity(a, spec):
     directory = str(spec.get('agent_dir','')).split('/source/',1)
     if len(directory)!=2:return None, None
     prefix='source/'+directory[1].rstrip('/')+'/'
-    members={n[len(prefix):]:sha(a.raw(n)) for n in a.names if n.startswith(prefix) and not n.endswith('/')}
+    members={n[len(prefix):]:sha(a.raw(n)) for n in sorted(a.names) if n.startswith(prefix) and not n.endswith('/')}
     if not members:return None, None
     for n in sorted(a.names):
         if not (n.startswith('source/') and n.endswith('.zip')):continue
