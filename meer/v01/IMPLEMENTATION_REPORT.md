@@ -1,0 +1,11 @@
+# Implementation and reproducibility
+
+Production: verify.py, packaged only as candidates/B/skills/meer-evidence/scripts/verify.py. build.py creates deterministic ZIPs with fixed timestamps; A copies the frozen ZIP bytes unchanged; C has identical schema/skill metadata but an explicitly non-executing advisory script. CANDIDATE_MANIFEST.json binds members and artifacts. No historical file is edited.
+
+Execution: official run_skill_script materializes the skill inside the sandbox; verify.py explicitly inspects /workspace, hashes tracked and untracked files (excluding Git-discovered caches and the organizer's transient .adk_exec script), then runs an Agent-owned scratch .py reproducer outside the repository. AST instrumentation is in memory only; original test/config files are not changed. It counts actual evaluated assertions, not strings, unused function definitions or pytest exit0. Constant assertions do not qualify. Meaningful semantics cannot be decided syntactically; an expression involving a Name/Call can still be tautological.
+
+After the check, source and reproducer hashes must match. A later invocation rehashes the tree and cannot reuse old positive evidence after an edit. The small /tmp receipt suppresses identical source/check reruns; it is convenience state, not trusted host memory. Checks time out after at most15s; a POSIX child process group is killed on timeout and completion. Official chroot UID cleanup is the final fallback for detached descendants. Unavailable identities/errors fail as UNKNOWN and cannot fabricate Native Resolved.
+
+Test/CPU orchestration files (cpu_acceptance.py, owned_transport.py, notebook.py, research_audit.py, test_mechanism.py) are NOT in competitor ZIPs. They reuse the prior sealed EGR payload, official Compiler/Runner/Verifier, accepted chroot adapter, and owned synthetic fixture/HTTP transport. This avoids confusing a host observer with a deployed mechanism. CPU build extracts and rehashes all payload members before execution. New data, evaluator overlays and historical traces are never introduced to the Agent chroot.
+
+No GPU route exists in this CPU controller. No Competition Submission API is called. Scripted CPU metrics cannot establish model behavior, token cost under real Gemma, or repair superiority.

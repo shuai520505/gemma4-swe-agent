@@ -1,0 +1,317 @@
+{
+  "status": "MEER_CPU_ENGINEERING_PASS",
+  "CPU_MODEL": "SCRIPTED_ONLY",
+  "attempt": "cpu02",
+  "payload_sha256": "f062b7570f3004fc2b6e14317ff72b89bb9356777e497468f78972ef2d1b77fa",
+  "archive_sha256": "703d3fc44f8361622171f8323d0ada8fb36b0346275e5ef3b4c15a17aafb7e5a",
+  "archive_bytes": 1061738,
+  "CRC_valid": true,
+  "source_members_verified": 196,
+  "records": [
+    {
+      "arm": "A",
+      "CPU_MODEL": "SCRIPTED_ONLY",
+      "real_Gemma_requests": 0,
+      "compiled": [
+        {
+          "class_name": "LlmAgent",
+          "instruction_sha256": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+          "generation": {
+            "max_output_tokens": 16384,
+            "seed": 17,
+            "thinking_config": {
+              "thinking_budget": 4096
+            }
+          },
+          "code_executor_provided": true,
+          "tool_entries": [
+            "get_status",
+            "run_command",
+            "read_file",
+            "edit_file",
+            "write_file",
+            "submit_patch"
+          ]
+        }
+      ],
+      "empty_state_compile": true,
+      "tool_names": [
+        "edit_file",
+        "get_status",
+        "read_file",
+        "run_command",
+        "submit_patch",
+        "write_file"
+      ],
+      "schemas": [
+        [
+          "edit_file",
+          "get_status",
+          "read_file",
+          "run_command",
+          "submit_patch",
+          "write_file"
+        ]
+      ],
+      "HTTP_requests": 9,
+      "charged_tools": 6,
+      "agent_wall_seconds": 2.762941278000028,
+      "worker_wall_seconds": 13.330577611000024,
+      "patch_bytes": 207,
+      "patch_sha256": "9cb5084245055e33a676b3b0189a866adf60a3dd3cabcc28d85f4e8d18151060",
+      "explicit_submit": true,
+      "native_resolved": true,
+      "TaskResult_sha256": "e94261e509f21c6447f947239fe582c119b221cf0fac741f50e45f1acde75a77",
+      "JUnit_sha256": "d0bf32e5be7e89f0a9d7b484da2f303ff7e63578bb469fd88be1031eaec8d9c4",
+      "mechanism_evidence": [],
+      "cleanup_complete": true,
+      "agent_error": null
+    },
+    {
+      "arm": "B",
+      "CPU_MODEL": "SCRIPTED_ONLY",
+      "real_Gemma_requests": 0,
+      "compiled": [
+        {
+          "class_name": "LlmAgent",
+          "instruction_sha256": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+          "generation": {
+            "max_output_tokens": 16384,
+            "seed": 17,
+            "thinking_config": {
+              "thinking_budget": 4096
+            }
+          },
+          "code_executor_provided": true,
+          "tool_entries": [
+            "get_status",
+            "run_command",
+            "read_file",
+            "edit_file",
+            "write_file",
+            "submit_patch",
+            "SkillToolset"
+          ]
+        }
+      ],
+      "empty_state_compile": true,
+      "tool_names": [
+        "edit_file",
+        "get_status",
+        "load_skill",
+        "read_file",
+        "run_command",
+        "run_skill_script",
+        "submit_patch",
+        "write_file"
+      ],
+      "schemas": [
+        [
+          "edit_file",
+          "get_status",
+          "list_skills",
+          "load_skill",
+          "load_skill_resource",
+          "read_file",
+          "run_command",
+          "run_skill_script",
+          "submit_patch",
+          "write_file"
+        ]
+      ],
+      "HTTP_requests": 13,
+      "charged_tools": 9,
+      "agent_wall_seconds": 3.995497190999913,
+      "worker_wall_seconds": 10.905032527000003,
+      "patch_bytes": 207,
+      "patch_sha256": "9cb5084245055e33a676b3b0189a866adf60a3dd3cabcc28d85f4e8d18151060",
+      "explicit_submit": true,
+      "native_resolved": true,
+      "TaskResult_sha256": "8c62ed978b0c0f7138459805ac982a8a0f6b3f73b679cdadc89b313cba87afb4",
+      "JUnit_sha256": "e003b7fda6ca116d415ff65560d90ae1176ceddbbe50115f040bb4d559597e86",
+      "mechanism_evidence": [
+        {
+          "captured_output_bytes": 134,
+          "check_sha256": "f63bede050055c7843f5c08553a3a74f0d1a5cfa462757099ed5ab91b1366c7a",
+          "check_timeout_seconds": 10.0,
+          "child_exit_code": 1,
+          "exception_type": "AssertionError",
+          "executed_assertions": 1,
+          "failed_assertions": 1,
+          "global_submit_gate": false,
+          "global_tool_gate": false,
+          "native_resolved": null,
+          "new_evidence": true,
+          "nonconstant_assertions": 1,
+          "reason": "LOCAL_CHECK_FAILED",
+          "schema": "MEER_EVIDENCE_V1",
+          "scope": "OPT_IN_ASSERTION_REPRODUCER_ONLY",
+          "semantic_correctness": "UNKNOWN",
+          "source_bytes": 497,
+          "source_files": 6,
+          "source_sha256": "aecb1fb689a4698ba57693a43cd812cd330e034a0d1d8319e9b1dc7c7f400bdf",
+          "source_unchanged_during_check": true,
+          "subprocess_invocations": 1,
+          "timed_out": false,
+          "verdict": "CONTRADICTED",
+          "wall_seconds": 0.32821826899998996
+        },
+        {
+          "captured_output_bytes": 122,
+          "check_sha256": "f63bede050055c7843f5c08553a3a74f0d1a5cfa462757099ed5ab91b1366c7a",
+          "check_timeout_seconds": 10.0,
+          "child_exit_code": 0,
+          "evidence_fresh": true,
+          "exception_type": null,
+          "executed_assertions": 3,
+          "failed_assertions": 0,
+          "global_submit_gate": false,
+          "global_tool_gate": false,
+          "native_resolved": null,
+          "new_evidence": true,
+          "nonconstant_assertions": 3,
+          "reason": "THIS_ASSERTION_CHECK_PASSED",
+          "schema": "MEER_EVIDENCE_V1",
+          "scope": "OPT_IN_ASSERTION_REPRODUCER_ONLY",
+          "semantic_correctness": "UNKNOWN",
+          "source_bytes": 498,
+          "source_files": 6,
+          "source_sha256": "b18d425652976837b3362194b4da916aa33a25c9e19782db88a51400b38d6d59",
+          "source_unchanged_during_check": true,
+          "subprocess_invocations": 1,
+          "timed_out": false,
+          "verdict": "SUPPORTED",
+          "wall_seconds": 0.32793141100000867
+        },
+        {
+          "check_sha256": "f63bede050055c7843f5c08553a3a74f0d1a5cfa462757099ed5ab91b1366c7a",
+          "check_timeout_seconds": 10.0,
+          "evidence_fresh": false,
+          "executed_assertions": null,
+          "failed_assertions": null,
+          "global_submit_gate": false,
+          "global_tool_gate": false,
+          "native_resolved": null,
+          "new_evidence": false,
+          "nonconstant_assertions": null,
+          "prior_verdict": "SUPPORTED",
+          "reason": "REPEATED_UNCHANGED_CHECK_NOT_EXECUTED",
+          "schema": "MEER_EVIDENCE_V1",
+          "scope": "OPT_IN_ASSERTION_REPRODUCER_ONLY",
+          "semantic_correctness": "UNKNOWN",
+          "source_bytes": 498,
+          "source_files": 6,
+          "source_sha256": "b18d425652976837b3362194b4da916aa33a25c9e19782db88a51400b38d6d59",
+          "source_unchanged_during_check": null,
+          "subprocess_invocations": 0,
+          "timed_out": false,
+          "verdict": "OBSERVED",
+          "wall_seconds": 0.005783701000041219
+        }
+      ],
+      "cleanup_complete": true,
+      "agent_error": null
+    },
+    {
+      "arm": "C",
+      "CPU_MODEL": "SCRIPTED_ONLY",
+      "real_Gemma_requests": 0,
+      "compiled": [
+        {
+          "class_name": "LlmAgent",
+          "instruction_sha256": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+          "generation": {
+            "max_output_tokens": 16384,
+            "seed": 17,
+            "thinking_config": {
+              "thinking_budget": 4096
+            }
+          },
+          "code_executor_provided": true,
+          "tool_entries": [
+            "get_status",
+            "run_command",
+            "read_file",
+            "edit_file",
+            "write_file",
+            "submit_patch",
+            "SkillToolset"
+          ]
+        }
+      ],
+      "empty_state_compile": true,
+      "tool_names": [
+        "edit_file",
+        "get_status",
+        "load_skill",
+        "read_file",
+        "run_command",
+        "run_skill_script",
+        "submit_patch",
+        "write_file"
+      ],
+      "schemas": [
+        [
+          "edit_file",
+          "get_status",
+          "list_skills",
+          "load_skill",
+          "load_skill_resource",
+          "read_file",
+          "run_command",
+          "run_skill_script",
+          "submit_patch",
+          "write_file"
+        ]
+      ],
+      "HTTP_requests": 13,
+      "charged_tools": 9,
+      "agent_wall_seconds": 2.9861096560000533,
+      "worker_wall_seconds": 9.542257419000066,
+      "patch_bytes": 207,
+      "patch_sha256": "9cb5084245055e33a676b3b0189a866adf60a3dd3cabcc28d85f4e8d18151060",
+      "explicit_submit": true,
+      "native_resolved": true,
+      "TaskResult_sha256": "c0b080ccd81c138ca32740aaa4e7f006f0e5c21cdd8b5c6869072f50dd0bf8a2",
+      "JUnit_sha256": "00c783b81fd3d2fe6add6d77cfb111d8bc4b6de08ba1cb475c64a96706c5d2d2",
+      "mechanism_evidence": [
+        {
+          "schema": "MEER_PROMPT_ONLY_CONTROL",
+          "verdict": "UNKNOWN",
+          "observed": false,
+          "subprocess_invocations": 0,
+          "guidance": "Use official tools to run your Issue-relevant assertion reproducer. Check that it executed after the latest source edit; do not repeat unchanged diagnostics. Passing an assertion does not prove the whole repair. Review the diff and submit when justified."
+        },
+        {
+          "schema": "MEER_PROMPT_ONLY_CONTROL",
+          "verdict": "UNKNOWN",
+          "observed": false,
+          "subprocess_invocations": 0,
+          "guidance": "Use official tools to run your Issue-relevant assertion reproducer. Check that it executed after the latest source edit; do not repeat unchanged diagnostics. Passing an assertion does not prove the whole repair. Review the diff and submit when justified."
+        },
+        {
+          "schema": "MEER_PROMPT_ONLY_CONTROL",
+          "verdict": "UNKNOWN",
+          "observed": false,
+          "subprocess_invocations": 0,
+          "guidance": "Use official tools to run your Issue-relevant assertion reproducer. Check that it executed after the latest source edit; do not repeat unchanged diagnostics. Passing an assertion does not prove the whole repair. Review the diff and submit when justified."
+        }
+      ],
+      "cleanup_complete": true,
+      "agent_error": null
+    }
+  ],
+  "mechanism_tests": {
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "real_Gemma_requests": 0,
+  "global_gate_claimed": false,
+  "Notebook_id": 140510843,
+  "version": 1,
+  "platform_status": "COMPLETE",
+  "raw_archive_path": "D:\\kaggle\\Gemma 4 Developer Agent Competition\\private-evidence\\meer_v01_cpu02\\read-02\\evidence_confirmed\\output\\meer-v01-cpu02.zip",
+  "corrupted_archive_rejected": true
+}
