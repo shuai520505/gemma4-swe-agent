@@ -1,0 +1,41 @@
+{
+  "experiment": "MEER-V01",
+  "base_EGR_sha256": "07263740c5ee22bf6611d7fa31dafbc84d7fb50288d22355b9201cd6954a6840",
+  "arms": {
+    "A": {
+      "ZIP_sha256": "07263740c5ee22bf6611d7fa31dafbc84d7fb50288d22355b9201cd6954a6840",
+      "bytes": 3018,
+      "members": {
+        "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0"
+      }
+    },
+    "B": {
+      "ZIP_sha256": "d962044f264d8f36aea6263abf4dcdb118d5755e82a91cb9b2bd0bc1f6f7c9cd",
+      "bytes": 7736,
+      "members": {
+        "agent.yaml": "5e5fbafca6ea09c9cb38137aff54ddcd5fc1e2678afd166b95c0c88294a62b04",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+        "skills/meer-evidence/SKILL.md": "bdb2719c8f1768a5f8f90626ed7f28d32133a06bbb59afbef46686047b0af8dc",
+        "skills/meer-evidence/scripts/verify.py": "dae959c8068e6d320c7fc5c37f719ccd928f56dd19f4335af0d33193ea3f499c"
+      }
+    },
+    "C": {
+      "ZIP_sha256": "8dd48fee0c96424a40ed47512f0d788d9b13518e7d73395bd89d2fb07204eb83",
+      "bytes": 4226,
+      "members": {
+        "agent.yaml": "5e5fbafca6ea09c9cb38137aff54ddcd5fc1e2678afd166b95c0c88294a62b04",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+        "skills/meer-evidence/SKILL.md": "bdb2719c8f1768a5f8f90626ed7f28d32133a06bbb59afbef46686047b0af8dc",
+        "skills/meer-evidence/scripts/verify.py": "8e7802ec2033b7e438300a32c0c3181eadae81814f8ded650452ba25addbef1d"
+      }
+    }
+  },
+  "main_mechanism_contrast": "B vs C: only skill script implementation differs",
+  "EGR_contrast_limitation": "A vs B adds official SkillToolset declarations/instructions as well as script; not a pure script-only contrast",
+  "GPU_authorized": false,
+  "formal_submission_authorized": false
+}
