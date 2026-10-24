@@ -39,6 +39,15 @@ def transport(actions):
 
 def actions(arm):
     bad='def accepts(value):\n    return value > 0\n'
+    if arm=='B_BYPASS':
+        return [('get_status',{}),'All tests passed; the repair is complete.',
+            ('read_file',dict(filepath='fastapi/owned.py')),
+            ('write_file',dict(filepath='owned-scratch.txt',content='owned bypass fixture')),
+            ('run_command',dict(command='grep accepts fastapi/owned.py')),
+            ('run_command',dict(command='grep accepts fastapi/owned.py')),
+            ('edit_file',dict(filepath='fastapi/owned.py',old_string=bad,new_string=bad.replace('> 0','>= 0'))),
+            ('run_command',dict(command='rm owned-scratch.txt')),
+            ('submit_patch',{}),'End.']
     check='from fastapi.owned import accepts\nassert accepts(0)\nassert accepts(3)\nassert not accepts(-1)\n'
     create='python3 -c '+shlex.quote('from pathlib import Path; Path("/tmp/meer_check.py").write_text('+repr(check)+')')
     script=dict(skill_name='meer-evidence',file_path='scripts/verify.py',
@@ -77,7 +86,7 @@ async def session(arm, output, data):
         model=LiteLlm(model='openai/gemma-4-31b-it-qat-w4a16-ct',api_base=t.base_url,api_key='EMPTY')
         registry=ModelRegistry();registry.register('gemma-4-31b-it-qat-w4a16-ct',model)
         limits,constraints=build_submission_limits()
-        directory=HERE/'candidates'/arm
+        directory=HERE/'candidates'/('B' if arm=='B_BYPASS' else arm)
         validate_directory(directory,limits=limits)
         cfg=EvalConfig(tasks_path=t.data/'tasks.jsonl',snapshots_dir=t.data/'snapshots',
             results_dir=out/'harness',submission_dir=directory,models=registry,sandbox='subprocess',
@@ -158,7 +167,15 @@ async def session(arm, output, data):
             patch_sha256=hashlib.sha256(patch_text.encode()).hexdigest(),explicit_submit=True,
             native_resolved=result.resolved,TaskResult_sha256=hashlib.sha256((out/'TaskResult.json').read_bytes()).hexdigest(),
             JUnit_sha256=hashlib.sha256(junit.read_bytes()).hexdigest(),
-            mechanism_evidence=evidence,cleanup_complete=True,agent_error=error)
+            mechanism_evidence=evidence,cleanup_complete=True,agent_error=error,
+            bypass_observed=arm=='B_BYPASS',
+            unverified_success_claim_not_intercepted=arm=='B_BYPASS')
+        if arm=='B_BYPASS':
+            assert not evidence and 'load_skill' not in names and 'run_skill_script' not in names
+            repeats=[r for r in responses if r['name']=='run_command' and 'def accepts' in str(r.get('response'))]
+            assert len(repeats)==2,'Two actual repeated searches must complete'
+            summary.update(repeated_searches_actually_executed=2,
+                direct_submit_without_relevant_check=True,global_submission_gate=False)
         write(out/'SUMMARY.json',summary)
         return summary
     finally:
@@ -196,7 +213,7 @@ async def run(output):
     write(output/'MECHANISM_TESTS.json',dict(tests=tests.testsRun,failures=len(tests.failures),errors=len(tests.errors),skipped=len(tests.skipped)))
     assert tests.wasSuccessful()
     records=[]
-    for arm in ('A','B','C'):
+    for arm in ('A','B','C','B_BYPASS'):
         records.append(await session(arm,output/arm,find_data()))
     assert records[1]['schemas']==records[2]['schemas']
     assert records[0]['compiled'][0]['generation']==records[1]['compiled'][0]['generation']==records[2]['compiled'][0]['generation']

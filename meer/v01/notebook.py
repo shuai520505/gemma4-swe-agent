@@ -78,7 +78,7 @@ assert r.returncode==0,'CPU acceptance failed; original output preserved'
     write(directory/'BUILD.json',dict(execution_id=ID+'-'+attempt,slug=slug,max_dispatches=1,
         Notebook_sha256=sha(notebook),wire_sha256=sha(json.dumps(nb).encode()),payload_sha256=sha(payload),
         selection_protocol_sha256=sha((HERE/'CANDIDATE_MANIFEST.json').read_bytes()),
-        configuration=dict(GPU=False,TPU=False,internet=False,model_sources=[],Agent_runs=3,Gemma_calls=0,formal_submission=False),
+        configuration=dict(GPU=False,TPU=False,internet=False,model_sources=[],Agent_runs=4,Gemma_calls=0,formal_submission=False),
         expected_candidates_in_order=['A','B','C'],sdk_versions={n:importlib.metadata.version(n) for n in ('kaggle','kagglesdk')},payload_members=reg['files']))
     print('SEALED_CPU_PAYLOAD',sha(payload),len(files))
 
@@ -97,13 +97,13 @@ def factory(attempt):
     from u_re.v02.experiments.action_first_replication_01 import cpu_control as prior
     source=inspect.getsource(prior.factory)
     source=source.replace('gemma4-u-re-v02-','meer-v01-').replace("'v02-'+attempt","'meer-v01-'+attempt")
-    source=source.replace('agent_runs==1','agent_runs==3')
+    source=source.replace('agent_runs==1','agent_runs==4')
     source=source.replace("if attempt.startswith('screen'):validate_screen(attempt)",'validate(attempt)')
     source=source.replace('Current V02 replication human task explicitly authorizes CPU native screening max16 first4 and final production-payload CPU acceptance. No Gemma/GPU/formal Submission in this CPU dispatch.',
         'Current human MEER V0.1 task authorizes CPU development, owned adversarial tests and official Compiler/ADK/Runner/Skill/native Verifier acceptance. Exactly one CPU save per version. No GPU/Gemma/formal Submission.')
     ns=dict(prior.__dict__,HERE=HERE,ROOT=ROOT,ID=ID,validate=validate)
     exec(compile(source,'<reused-CPU-controller>','exec'),ns)
-    return ns['factory'](attempt,agent_runs=3)
+    return ns['factory'](attempt,agent_runs=4)
 
 
 if __name__=='__main__':
