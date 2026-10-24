@@ -103,7 +103,8 @@ async def session(arm, output, data):
         empty=native_compile(directory,SwegemmaContext().create_tools(),registry,limits=limits,generation_constraints=constraints)
         assert empty.instruction==expected
         start=time.perf_counter()
-        with patch.object(adk_submission,'compile_submission',observe):
+        from swegemma.harness import agent_runner as native_runner
+        with patch.object(adk_submission,'compile_submission',observe), patch.object(native_runner,'compile_submission',observe):
             patch_text,error,context=await agent_phase.run(cfg,task,t.data/'snapshots/ure_gpu03_owned.tgz',out/'agent')
         assert context.patch_submitted and patch_text and 'owned-scratch' not in patch_text
         (out/'final.patch').write_text(patch_text)
