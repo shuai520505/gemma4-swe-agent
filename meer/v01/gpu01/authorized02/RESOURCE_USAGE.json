@@ -1,0 +1,66 @@
+{
+  "GPU_SaveKernel_requests": 2,
+  "CPU_SaveKernel_requests": 1,
+  "real_Gemma_sessions": 3,
+  "formal_Competition_Submissions": 0,
+  "selective_reruns": 0,
+  "totals": {
+    "real_HTTP_requests": 40,
+    "HTTP_responses": 40,
+    "HTTP_200": 40,
+    "observed_prompt_tokens": 303244,
+    "observed_completion_tokens": 11090,
+    "observed_received_tokens": 314334,
+    "charged_tools": 40,
+    "agent_wall_seconds": 353.0296522620001,
+    "model_HTTP_seconds": 336.58851077100064
+  },
+  "worker_wall_seconds": 445.0801633509999,
+  "GPU_batch2_observed_Notebook_seconds": 1010.147899121,
+  "worker_minus_Agent_seconds": 92.05051108899977,
+  "common_Notebook_seconds_outside_workers": 565.0677357700001,
+  "GPU_batch1_Gemma_requests": 0,
+  "GPU_batch1_actual_devices": null,
+  "GPU_billed_seconds": null,
+  "account_level_quota_note": "POST_RUN_QUOTA_CLI.json is rounded account-wide usage, not an attributable Notebook bill",
+  "per_candidate": [
+    {
+      "arm": "C",
+      "requests": 8,
+      "prompt_tokens": 49990,
+      "completion_tokens": 4075,
+      "received_tokens": 54065,
+      "agent_seconds": 130.35572511500004,
+      "model_HTTP_seconds": 127.25355878300024,
+      "charged_tools": 8
+    },
+    {
+      "arm": "B",
+      "requests": 12,
+      "prompt_tokens": 96284,
+      "completion_tokens": 2527,
+      "received_tokens": 98811,
+      "agent_seconds": 80.65477077499997,
+      "model_HTTP_seconds": 77.33990764200007,
+      "charged_tools": 12
+    },
+    {
+      "arm": "A",
+      "requests": 20,
+      "prompt_tokens": 156970,
+      "completion_tokens": 4488,
+      "received_tokens": 161458,
+      "agent_seconds": 142.0191563720001,
+      "model_HTTP_seconds": 131.99504434600033,
+      "charged_tools": 20
+    }
+  ],
+  "cost_per_success": null,
+  "cost_per_success_reason": "No actual native repair succeeded; division by zero is undefined",
+  "measurement_limits": [
+    "First-cell elapsed clock omits earlier platform provisioning/queue.",
+    "HTTP latency includes backend service/transport; it is not isolated GPU compute time.",
+    "Worker-minus-Agent includes setup, trusted native verification and cleanup, not verifier-only cost.",
+    "Two GPU billing totals, per-device active compute and separately attributed thinking usage are unavailable."
+  ]
+}

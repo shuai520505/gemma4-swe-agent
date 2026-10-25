@@ -1,0 +1,59 @@
+{
+  "batch": 1,
+  "slug": "wudangdexiaodoashi/meer-v01-gpu-batch01",
+  "Notebook_sha256": "b6d468e6bd96dd2d99baa799b6afda05a43dd3aa06d037be11305ba47434403a",
+  "wire_sha256": "e579132102c3abd53ccce3704dfe60426dcd3264909e43a41a08b5db635352f4",
+  "payload_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+  "grant_sha256": "265420a034e1e2fa796148d4f2d98bc1e3725c74096d001665014ce52d298b56",
+  "order": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_14297",
+      "arm": "A"
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_14297",
+      "arm": "B"
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_14297",
+      "arm": "C"
+    }
+  ],
+  "configuration": {
+    "GPU": true,
+    "TPU": false,
+    "internet": false,
+    "model_sources": [
+      "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2"
+    ],
+    "Agent_runs": 3,
+    "formal_submission": false,
+    "machine_shape": "NvidiaL4",
+    "session_seconds": 10000
+  },
+  "template_changes": [
+    "External human grant insertion",
+    "Cell IDs from final bytes",
+    "Metadata title and explicit frozen machine shape"
+  ],
+  "production_source_changed": false,
+  "SaveKernel": 0,
+  "status": "SEALED_NOT_DISPATCHED",
+  "quota_is_historical_at_build": true,
+  "live_conflict_quota_slug_recheck_required": true,
+  "execution_id": "MEER-V01-MATCHED-PILOT-BATCH01",
+  "max_dispatches": 1,
+  "selection_protocol_sha256": "b4edc760d25674c649ff18c8f341b9fe83e0442979387cd4a4348edd158de68b",
+  "expected_candidates_in_order": [
+    "A",
+    "B",
+    "C"
+  ],
+  "sdk_versions": {
+    "kaggle": "2.2.2",
+    "kagglesdk": "0.1.35"
+  }
+}

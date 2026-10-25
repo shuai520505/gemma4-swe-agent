@@ -1,0 +1,263 @@
+{
+  "archive_sha256": "90226b7ce83979a40890434b8a0c626be440e84a00da927b16d88e4d70b811d3",
+  "archive_bytes": 2531531,
+  "CRC_valid": true,
+  "original_shared_source_files_verified": 206,
+  "shared_payload_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+  "model_files_verified": 8,
+  "devices": [
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    },
+    {
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360
+    }
+  ],
+  "runtime": {
+    "versions": {
+      "swegemma": "0.2.11",
+      "adk-submission": "0.2.13",
+      "google-adk": "1.36.1",
+      "google-genai": "2.11.0",
+      "litellm": "1.82.4",
+      "pytest": "8.4.2",
+      "vllm": "0.19.1",
+      "torch": "2.10.0+cu128"
+    },
+    "torch_cuda": "12.8",
+    "driver": "580.178.04\n580.178.04\n580.178.04\n580.178.04\n",
+    "requested_window": 10000,
+    "window_basis": "Platform accepted SaveKernel sessionTimeoutSeconds=10000; elapsed clock begins in first Notebook cell; SDK exposes no independent effective-window field",
+    "session_started": 149.354773874
+  },
+  "model_loaded_and_real_HTTP_proven": true,
+  "trusted_environment_before_after_matches_frozen": true,
+  "task_identities_verified": true,
+  "B_C_tool_schema_equal": true,
+  "official_six_schema_equal_across_arms": true,
+  "chroot_canary_and_cleanup": true,
+  "model_process_cleanup": {
+    "observed_pids": [
+      887,
+      1253,
+      1254,
+      1415,
+      1416,
+      1417,
+      1418
+    ],
+    "remaining": [],
+    "confirmed": true,
+    "idle_error": null
+  },
+  "native_results": [
+    {
+      "run": 4,
+      "arm": "C",
+      "instance_id": "fastapi_14459",
+      "native_resolved": false,
+      "TaskResult_sha256": "4354275d4521b6dc4f38fcb6715bbb9ba97e484e4abd392a7c51283a6670447a",
+      "JUnit_sha256": "9bca2a2aca9a23d1b19fd5521a8ba7c810ccdcab9eca76778518687fc05b0b56",
+      "counts": {
+        "tests": 8,
+        "failures": 2,
+        "errors": 2,
+        "skipped": 0
+      },
+      "environment_errors": 0,
+      "exact_paired_snapshot_teardown_records": 2,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_bytes": 0,
+      "native_infrastructure_stop": false,
+      "worker_integrity_complete": true,
+      "worker_cleanup_complete": true,
+      "worker_seconds": 160.88258765699993,
+      "supervised_process_seconds": 158.79823400099997
+    },
+    {
+      "run": 5,
+      "arm": "B",
+      "instance_id": "fastapi_14459",
+      "native_resolved": false,
+      "TaskResult_sha256": "a2c74295d6dabf953d2db57c7d3c5a909237cbcc60aafd7c633ca91185b9857f",
+      "JUnit_sha256": "fcf4014a17e31e4e07bf5c2807df31de05dad55eb030078d22c8076e42548666",
+      "counts": {
+        "tests": 8,
+        "failures": 2,
+        "errors": 2,
+        "skipped": 0
+      },
+      "environment_errors": 0,
+      "exact_paired_snapshot_teardown_records": 2,
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "patch_bytes": 0,
+      "native_infrastructure_stop": false,
+      "worker_integrity_complete": true,
+      "worker_cleanup_complete": true,
+      "worker_seconds": 111.29238499300004,
+      "supervised_process_seconds": 109.20430059299997
+    },
+    {
+      "run": 6,
+      "arm": "A",
+      "instance_id": "fastapi_14459",
+      "native_resolved": false,
+      "TaskResult_sha256": "74590ed30f3d1dcead41b90860a70a0913fa5c5dd38e07126b528281502947f2",
+      "JUnit_sha256": "15925f3a9e7ccd99ce304debdac302671a3a7ad3817e790036a3f83168be3eb6",
+      "counts": {
+        "tests": 8,
+        "failures": 2,
+        "errors": 2,
+        "skipped": 0
+      },
+      "environment_errors": 0,
+      "exact_paired_snapshot_teardown_records": 2,
+      "patch_sha256": "3ada73a8aca6bd968da460e699fac666823ffe955efcb5a39152f7fe28f06fd8",
+      "patch_bytes": 887,
+      "native_infrastructure_stop": false,
+      "worker_integrity_complete": true,
+      "worker_cleanup_complete": true,
+      "worker_seconds": 172.90519070099992,
+      "supervised_process_seconds": 170.81851502100005
+    }
+  ],
+  "request_bindings": [
+    {
+      "arm": "C",
+      "actual_model_requests": 8,
+      "compiled_generation": {
+        "max_output_tokens": 16384,
+        "seed": 17,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch",
+        "list_skills",
+        "load_skill",
+        "load_skill_resource",
+        "run_skill_script"
+      ],
+      "first_request_message_roles": [
+        "system",
+        "user"
+      ],
+      "Context_Guard_rejections": [
+        {
+          "recorded_monotonic": 854.658078012,
+          "input_tokens": 15989,
+          "output_reserved": 16384,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 33397,
+          "decision": "reject"
+        }
+      ]
+    },
+    {
+      "arm": "B",
+      "actual_model_requests": 12,
+      "compiled_generation": {
+        "max_output_tokens": 16384,
+        "seed": 17,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch",
+        "list_skills",
+        "load_skill",
+        "load_skill_resource",
+        "run_skill_script"
+      ],
+      "first_request_message_roles": [
+        "system",
+        "user"
+      ],
+      "Context_Guard_rejections": [
+        {
+          "recorded_monotonic": 966.021072595,
+          "input_tokens": 15684,
+          "output_reserved": 16384,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 33092,
+          "decision": "reject"
+        }
+      ]
+    },
+    {
+      "arm": "A",
+      "actual_model_requests": 20,
+      "compiled_generation": {
+        "max_output_tokens": 16384,
+        "seed": 17,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "tool_names": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "first_request_message_roles": [
+        "system",
+        "user"
+      ],
+      "Context_Guard_rejections": [
+        {
+          "recorded_monotonic": 1138.674803659,
+          "input_tokens": 15607,
+          "output_reserved": 16384,
+          "safety_tokens": 1024,
+          "max_model_len": 32768,
+          "total_reserved": 33015,
+          "decision": "reject"
+        }
+      ]
+    }
+  ],
+  "GPU_cost": {
+    "session_elapsed_seconds": 1010.147899121,
+    "actual_Gemma_requests": 40,
+    "scripted_HTTP_requests": 0,
+    "request_count_source": "Actual http_request records;CPU transport explicitly separated",
+    "GPU_billed_seconds": null
+  },
+  "scripted_transport_requests": 0,
+  "initial_counted_input_tokens": {
+    "C": 2999,
+    "B": 2999,
+    "A": 2199
+  },
+  "B_C_first_request_messages_identical": true,
+  "all_first_task_user_input_identical": true,
+  "registered_file_pins_verified": 205,
+  "registration_manifest_additional_members": 1
+}
