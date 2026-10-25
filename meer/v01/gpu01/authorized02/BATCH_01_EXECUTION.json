@@ -1,0 +1,49 @@
+{
+  "batch": 1,
+  "Notebook_id": 140782899,
+  "version": 1,
+  "platform_status": "ERROR",
+  "actual_GPU_allocation": "UNOBSERVED_ENTRY_NOT_REACHED",
+  "model_loaded": false,
+  "completed_Agent_sessions": 0,
+  "real_Gemma_requests": 0,
+  "production_sources_verified": 205,
+  "archive_sha256": "99f6eef9ff95d8894fa9d20cf4ba5e12ecb2fd1ec84384fdf4dcc0b04e2c3403",
+  "first_failure": "RuntimeError: asyncio.run() cannot be called from a running event loop",
+  "failure_layer": "Outer Jupyter invocation before model/Agent/Verifier",
+  "runs": [
+    {
+      "run": 1,
+      "instance_id": "fastapi_14297",
+      "arm": "A",
+      "status": "NOT_RUN",
+      "Agent_executed": false,
+      "native_resolved": null,
+      "real_model_requests": 0,
+      "reason": "Notebook140782899/v1 outer asyncio.run failed before production coordinator entered"
+    },
+    {
+      "run": 2,
+      "instance_id": "fastapi_14297",
+      "arm": "B",
+      "status": "NOT_RUN",
+      "Agent_executed": false,
+      "native_resolved": null,
+      "real_model_requests": 0,
+      "reason": "Notebook140782899/v1 outer asyncio.run failed before production coordinator entered"
+    },
+    {
+      "run": 3,
+      "instance_id": "fastapi_14297",
+      "arm": "C",
+      "status": "NOT_RUN",
+      "Agent_executed": false,
+      "native_resolved": null,
+      "real_model_requests": 0,
+      "reason": "Notebook140782899/v1 outer asyncio.run failed before production coordinator entered"
+    }
+  ],
+  "authorization_consumed_GPU_dispatches": 1,
+  "GPU_retry_authorized": false,
+  "Batch2_is_distinct_original_task_not_Batch1_retry": true
+}
