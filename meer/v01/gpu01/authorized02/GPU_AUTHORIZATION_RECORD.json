@@ -1,0 +1,114 @@
+{
+  "GPU_authorized": true,
+  "evidence_source": "explicit_human_owner_message_in_this_thread",
+  "owner_authorization_reference": "Current owner message: 我明确授权GPU推理. This is the separate explicit grant for the exact six-session/two-batch experiment specified in the accompanying pasted task.",
+  "source_commit": "f8b63e9db3d97760d1798fe12dfd5139871dcdc0",
+  "experiment_id": "MEER-V01-MATCHED-PILOT",
+  "manifest_sha256": "69616f1ceae3613118699793ee8d61e723bb3a32c09302a68891fb714453c059",
+  "payload_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+  "arms": {
+    "A": {
+      "ZIP_sha256": "07263740c5ee22bf6611d7fa31dafbc84d7fb50288d22355b9201cd6954a6840",
+      "members": {
+        "agent.yaml": "7ebd41cd35a20ae46aaa8dba1db23bb528250e285a4a4cdc9dc1ea67eceaaf15",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0"
+      }
+    },
+    "B": {
+      "ZIP_sha256": "d962044f264d8f36aea6263abf4dcdb118d5755e82a91cb9b2bd0bc1f6f7c9cd",
+      "members": {
+        "agent.yaml": "5e5fbafca6ea09c9cb38137aff54ddcd5fc1e2678afd166b95c0c88294a62b04",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+        "skills/meer-evidence/SKILL.md": "bdb2719c8f1768a5f8f90626ed7f28d32133a06bbb59afbef46686047b0af8dc",
+        "skills/meer-evidence/scripts/verify.py": "dae959c8068e6d320c7fc5c37f719ccd928f56dd19f4335af0d33193ea3f499c"
+      }
+    },
+    "C": {
+      "ZIP_sha256": "8dd48fee0c96424a40ed47512f0d788d9b13518e7d73395bd89d2fb07204eb83",
+      "members": {
+        "agent.yaml": "5e5fbafca6ea09c9cb38137aff54ddcd5fc1e2678afd166b95c0c88294a62b04",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "b1dceeca98db3353d1f0055c7ddd26be9fdcde61a57f0dc22f43f0e9aed0a7e0",
+        "skills/meer-evidence/SKILL.md": "bdb2719c8f1768a5f8f90626ed7f28d32133a06bbb59afbef46686047b0af8dc",
+        "skills/meer-evidence/scripts/verify.py": "8e7802ec2033b7e438300a32c0c3181eadae81814f8ded650452ba25addbef1d"
+      }
+    }
+  },
+  "batches": {
+    "1": [
+      {
+        "run": 1,
+        "instance_id": "fastapi_14297",
+        "arm": "A"
+      },
+      {
+        "run": 2,
+        "instance_id": "fastapi_14297",
+        "arm": "B"
+      },
+      {
+        "run": 3,
+        "instance_id": "fastapi_14297",
+        "arm": "C"
+      }
+    ],
+    "2": [
+      {
+        "run": 4,
+        "instance_id": "fastapi_14459",
+        "arm": "C"
+      },
+      {
+        "run": 5,
+        "instance_id": "fastapi_14459",
+        "arm": "B"
+      },
+      {
+        "run": 6,
+        "instance_id": "fastapi_14459",
+        "arm": "A"
+      }
+    ]
+  },
+  "environment_lock_sha256": "452c0d9afdf7c21edcd43a6a67e69cca6c67aba640eb526f50aa9835169dc7d9",
+  "model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "budget": {
+    "Agent_seconds": 300,
+    "charged_tools": 60,
+    "command_seconds": 120,
+    "context": 32768,
+    "max_output_tokens": 16384,
+    "safety_reserve": 1024,
+    "thinking_budget": 4096,
+    "seed": 17
+  },
+  "maximum_GPU_batches": 2,
+  "maximum_Agent_sessions": 6,
+  "GPU_type": "NVIDIA L4",
+  "GPU_count": 4,
+  "TP": 4,
+  "maximum_window_seconds_per_batch": 10000,
+  "no_selective_reruns": true,
+  "formal_submission_authorized": false,
+  "required_dynamic_gates": "Model/tokenizer, allocation, runtime window, conflict clearance, task/environment integrity must pass before inference",
+  "consumed_GPU_dispatches": 0,
+  "consumed_real_Gemma_sessions": 0,
+  "authorization_renewal_date": "2026-10-25",
+  "human_message_quote": "我明确授权GPU推理",
+  "attachment_sha256": "10ad72dbb51ea457fd87255d23c17865a631eb9890a967e8795705b758602b99",
+  "prior_authorization_record_sha256": "c1fd00ec4ccbc4f5288cfe44ba7f2a2fa75ecb55abf6dd378d3edf57780d3b75",
+  "authorization_budget_semantics": "Resumes the same unconsumed frozen experiment; cumulative ceiling remains two GPU saves and six Agent sessions, not two additional saves.",
+  "previous_dispatch_record_check": "No dispatch.claim exists under meer/v01/gpu01/authorized01; refresh global slug/account gates before any save.",
+  "previous_preflight_status": "GPU_PREFLIGHT_BLOCKED; not relabeled rejected or dispatched"
+}

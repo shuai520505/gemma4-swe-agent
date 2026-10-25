@@ -1,0 +1,96 @@
+{
+  "source_commit": "f8b63e9db3d97760d1798fe12dfd5139871dcdc0",
+  "execution_branch": "feat/meer-v01-authorized-gpu-execution",
+  "shared_production_members": 205,
+  "shared_production_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+  "authorization_scope": "Same unconsumed two-batch/six-session experiment, no extra retry",
+  "batches": [
+    {
+      "batch": 1,
+      "slug": "wudangdexiaodoashi/meer-v01-gpu-batch01",
+      "Notebook_sha256": "b6d468e6bd96dd2d99baa799b6afda05a43dd3aa06d037be11305ba47434403a",
+      "wire_sha256": "e579132102c3abd53ccce3704dfe60426dcd3264909e43a41a08b5db635352f4",
+      "payload_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+      "grant_sha256": "265420a034e1e2fa796148d4f2d98bc1e3725c74096d001665014ce52d298b56",
+      "order": [
+        {
+          "run": 1,
+          "instance_id": "fastapi_14297",
+          "arm": "A"
+        },
+        {
+          "run": 2,
+          "instance_id": "fastapi_14297",
+          "arm": "B"
+        },
+        {
+          "run": 3,
+          "instance_id": "fastapi_14297",
+          "arm": "C"
+        }
+      ],
+      "configuration": {
+        "GPU": true,
+        "GPU_count": 4,
+        "TP": 4,
+        "Agent_runs": 3,
+        "session_seconds": 10000
+      },
+      "template_changes": [
+        "External human grant insertion",
+        "Cell IDs from final bytes",
+        "Metadata title and explicit frozen machine shape"
+      ],
+      "production_source_changed": false,
+      "SaveKernel": 0,
+      "status": "SEALED_NOT_DISPATCHED",
+      "quota_is_historical_at_build": true,
+      "live_conflict_quota_slug_recheck_required": true
+    },
+    {
+      "batch": 2,
+      "slug": "wudangdexiaodoashi/meer-v01-gpu-batch02",
+      "Notebook_sha256": "85fd91d326d8829f17748c49018713afbc09e45eab60ba907a88a4af7a0882a9",
+      "wire_sha256": "6b485ae47c9a8035aaa95a416a6b6abae79d95b4dd58d234109bede907a41068",
+      "payload_sha256": "38170bc0d6684ea09097d106cb0a4fbcf5fbc67a0b7c061f139ae99bccc558b5",
+      "grant_sha256": "6e57e162e4581e5673e2dbead99bb2f2ddf3277e396ea341c49d3fa55dbd6549",
+      "order": [
+        {
+          "run": 4,
+          "instance_id": "fastapi_14459",
+          "arm": "C"
+        },
+        {
+          "run": 5,
+          "instance_id": "fastapi_14459",
+          "arm": "B"
+        },
+        {
+          "run": 6,
+          "instance_id": "fastapi_14459",
+          "arm": "A"
+        }
+      ],
+      "configuration": {
+        "GPU": true,
+        "GPU_count": 4,
+        "TP": 4,
+        "Agent_runs": 3,
+        "session_seconds": 10000
+      },
+      "template_changes": [
+        "External human grant insertion",
+        "Cell IDs from final bytes",
+        "Metadata title and explicit frozen machine shape"
+      ],
+      "production_source_changed": false,
+      "SaveKernel": 0,
+      "status": "SEALED_NOT_DISPATCHED",
+      "quota_is_historical_at_build": true,
+      "live_conflict_quota_slug_recheck_required": true
+    }
+  ],
+  "dispatches": 0,
+  "GPU_runtime_checks": "NOT_RUN",
+  "conflict_gate": "NOT_ESTABLISHED"
+}
