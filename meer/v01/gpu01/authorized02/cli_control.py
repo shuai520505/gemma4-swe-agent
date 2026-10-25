@@ -126,24 +126,33 @@ def launch(batch):
     gates_path=sorted((directory/'cli-preflight').glob('*/DYNAMIC_PRECHECK.json'))[-1]
     gates=json.loads(gates_path.read_bytes())
     assert (datetime.now(timezone.utc)-datetime.fromisoformat(gates['HTTP'][-1]['utc'])).total_seconds()<600
-    assert gates['current_readonly_GO'] and not (directory/'execution/dispatch.claim').exists()
+    assert gates['current_readonly_GO'] and not list(directory.glob('execution*/dispatch.claim'))
     import subprocess
     gates['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
     grant=json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
     assert grant['quota_at_dispatch_report_seconds']==gates['remaining_report_seconds'],'Quota changed: freeze a new outer grant, do not alter shared payload'
     grant.update(execution_id=eid,slug=slug,model_source='google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2',
                  **{k:spec[k] for k in ('Notebook_sha256','wire_sha256','payload_sha256')})
-    save(directory/'DISPATCH_AUTHORIZATION.json',grant);save(directory/'DISPATCH_BUILD.json',spec)
-    c=controller(batch).Controller(directory/'execution',spec)
+    # Authenticate/read identity BEFORE entering the SaveKernel-only transport.
+    # An earlier local attempt stopped here with zero dispatches; retain its lock/journal.
+    from kaggle import api
+    from kaggle.cli import main
+    assert api.get_config_value('username')==OWNER
+    attempt=1+len([p for p in directory.glob('execution*') if p.is_dir()])
+    execution='execution' if attempt==1 else f'execution{attempt:02d}'
+    suffix='' if attempt==1 else f'-attempt{attempt:02d}'
+    save(directory/f'DISPATCH_AUTHORIZATION{suffix}.json',grant);save(directory/f'DISPATCH_BUILD{suffix}.json',spec)
+    save(directory/f'DISPATCH_ATTEMPT{suffix}.json',dict(execution_directory=execution,scope='Local pre-send failures do not consume a GPU SaveKernel; existing claims always block',batch=batch))
+    c=controller(batch).Controller(directory/execution,spec)
     def submit_cli():
         # Same official CLI entrypoint, in-process so inherited transport guard
         # persists HTTP metadata before the SDK/CLI parses a response.
         result=cli(['kernels','push','--path',str(directory/'notebook'),'--timeout','10000','--accelerator','NvidiaL4'])
-        save(directory/'CLI_PUSH_RESULT.json',result)
+        save(directory/f'CLI_PUSH_RESULT{suffix}.json',result)
         if result['exit_code']:raise RuntimeError('CLI push failed; never repeat a claimed request')
         return None # CLI prints instead of returning SDK identity; reconcile source/version read-only.
     try:c.execute(grant,gates,submit_cli)
-    finally:save(directory/'DISPATCH_SUMMARY.json',dict(dispatches=c.dispatches,states=c.journal.states(),GPU=True,batch=batch,formal_submission=False))
+    finally:save(directory/f'DISPATCH_SUMMARY{suffix}.json',dict(dispatches=c.dispatches,states=c.journal.states(),GPU=True,batch=batch,formal_submission=False,execution_directory=execution))
 
 if __name__=='__main__':
     mode=sys.argv[1];batch=int(sys.argv[2])
