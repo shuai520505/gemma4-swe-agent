@@ -49,7 +49,9 @@ def validate(batch):
     encoded=ast.literal_eval(line.split('b64decode(',1)[1][:-1])
     assert sha(base64.b64decode(encoded))==b['payload_sha256']
     grant_line=next(l for l in source.splitlines() if l.startswith('AUTHORIZATION='))
-    assert ast.literal_eval(grant_line.split('=',1)[1])==json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
+    runtime_grant=json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
+    assert ast.literal_eval(grant_line.split('=',1)[1])==runtime_grant
+    assert runtime_grant['authorization_record_sha256']==sha((HERE/'GPU_AUTHORIZATION_RECORD.json').read_bytes())
     spec=dict(b,execution_id=eid,slug=slug,max_dispatches=1,
         selection_protocol_sha256=json.loads((GPU/'EXECUTION_MANIFEST.json').read_bytes())['preregistration_sha256'],
         configuration=dict(GPU=True,TPU=False,internet=False,model_sources=['google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2'],
