@@ -109,8 +109,61 @@ def audit_cpu(private_read):
     save(HERE/'CPU_AWAIT_FIX_ACCEPTANCE.json',proof)
     print(json.dumps(proof));return proof
 
+def build_batch2():
+    from decimal import Decimal
+    from datetime import datetime,timezone
+    from urllib.parse import urlsplit
+    import requests
+    from kaggle import api
+    proof_raw=(HERE/'CPU_AWAIT_FIX_ACCEPTANCE.json').read_bytes();proof=json.loads(proof_raw)
+    assert proof['status']=='TOP_LEVEL_AWAIT_OFFICIAL_WORKER_CPU_PASS' and proof['cleanup']
+    assert proof['shared_production_members_verified']==205
+    directory=HERE/'batch02';assert not list(directory.glob('execution*/dispatch.claim'))
+    assert len(list((HERE/'batch01').glob('execution*/dispatch.claim')))==1
+    before=requests.Session.send;raw_quota={}
+    def observe(session,request,**kwargs):
+        op=urlsplit(request.url).path.rsplit('/',1)[-1];assert op=='GetAcceleratorQuotaStatistics'
+        kwargs.update(timeout=45,allow_redirects=False);r=before(session,request,**kwargs)
+        r.raise_for_status();raw_quota.update(r.json()['gpuQuota']);return r
+    requests.Session.send=observe
+    try:api.quota_view()
+    finally:requests.Session.send=before
+    remaining=Decimal(raw_quota['totalTimeAllowed'].removesuffix('s'))-Decimal(raw_quota['timeUsed'].removesuffix('s'))-Decimal(raw_quota['timeReserved'].removesuffix('s'))
+    assert remaining>=20600 and Decimal(raw_quota['timeReserved'].removesuffix('s'))==0
+    save(directory/'QUOTA_AT_AWAITFIX_BUILD.json',dict(UTC=datetime.now(timezone.utc).isoformat(),raw_quota=raw_quota,remaining_report_seconds=str(remaining)))
+    grant=json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
+    grant['quota_at_dispatch_report_seconds']=str(remaining)
+    nb=json.loads((directory/'notebook/study.ipynb').read_bytes())
+    setup=nb['cells'][0]['source'];line=next(x for x in setup.splitlines() if x.startswith('AUTHORIZATION='))
+    nb['cells'][0]['source']=setup.replace(line,'AUTHORIZATION='+repr(grant))
+    source=nb['cells'][1]['source']
+    bad="asyncio.run(run(RUN_DIR/'execution',SESSION_STARTED,batch=2,authorization=AUTHORIZATION,quota_at_dispatch=AUTHORIZATION['quota_at_dispatch_report_seconds']))"
+    good="await run(RUN_DIR/'execution',SESSION_STARTED,batch=2,authorization=AUTHORIZATION,quota_at_dispatch=AUTHORIZATION['quota_at_dispatch_report_seconds'])"
+    assert source.count(bad)==1;nb['cells'][1]['source']=source.replace(bad,good)
+    for cell in nb['cells']:
+        compile(cell['source'],'<exact-second-batch-top-level-await>','exec',flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
+        cell['id']=sha(cell['source'].encode())[:12]
+    raw=(json.dumps(nb,indent=1)+'\n').encode();path=directory/'notebook-awaitfix01';path.mkdir()
+    (path/'study.ipynb').write_bytes(raw)
+    meta=json.loads((directory/'notebook/kernel-metadata.json').read_bytes());meta['title']=meta['id'].split('/')[1]
+    save(path/'kernel-metadata.json',meta)
+    save(directory/'RUNTIME_AUTHORIZATION-awaitfix01.json',grant)
+    b=json.loads((directory/'BUILD.json').read_bytes())
+    b.update(Notebook_sha256=sha(raw),wire_sha256=sha(json.dumps(nb).encode()),grant_sha256=sha((directory/'RUNTIME_AUTHORIZATION-awaitfix01.json').read_bytes()),
+         notebook_directory='notebook-awaitfix01',runtime_authorization_file='RUNTIME_AUTHORIZATION-awaitfix01.json',
+         CPU_await_fix_proof_sha256=sha(proof_raw),outer_revision='Top-level await only; fresh quota binding and title resolves to intended slug',
+         original_outer_Notebook_sha256=sha((directory/'notebook/study.ipynb').read_bytes()))
+    save(directory/'BUILD-awaitfix01.json',b)
+    save(directory/'OUTER_REVISION_SELECTION.json',dict(build_file='BUILD-awaitfix01.json',CPU_acceptance_sha256=sha(proof_raw),
+          original_shared_production_unchanged=True,original_batch2_tasks_and_CBA_order_unchanged=True,
+          no_Batch1_retry=True,exact_authorization_still_max2GPU_Notebooks=True))
+    from .cli_control import validate
+    validate(2)
+    print(json.dumps(dict(batch=2,Notebook_sha256=sha(raw),shared_payload_sha256=b['payload_sha256'],quota=str(remaining),order=b['order'])))
+
 if __name__=='__main__':
     if sys.argv[1]=='build':build_cpu()
     elif sys.argv[1]=='launch':launch_cpu()
     elif sys.argv[1]=='collect':collect_cpu()
     elif sys.argv[1]=='audit':audit_cpu(sys.argv[2])
+    elif sys.argv[1]=='batch2':build_batch2()

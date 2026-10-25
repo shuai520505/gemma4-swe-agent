@@ -39,8 +39,15 @@ def controller(batch):
 
 def validate(batch):
     directory,slug,eid=location(batch)
-    b=json.loads((directory/'BUILD.json').read_bytes())
-    raw=(directory/'notebook/study.ipynb').read_bytes();nb=json.loads(raw)
+    selection=directory/'OUTER_REVISION_SELECTION.json'
+    revision=json.loads(selection.read_bytes()) if selection.exists() else {}
+    if revision:
+        proof=(HERE/'CPU_AWAIT_FIX_ACCEPTANCE.json').read_bytes()
+        assert sha(proof)==revision['CPU_acceptance_sha256']
+        assert json.loads(proof)['status']=='TOP_LEVEL_AWAIT_OFFICIAL_WORKER_CPU_PASS'
+    b=json.loads((directory/revision.get('build_file','BUILD.json')).read_bytes())
+    nbdir=directory/b.get('notebook_directory','notebook')
+    raw=(nbdir/'study.ipynb').read_bytes();nb=json.loads(raw)
     assert sha(raw)==b['Notebook_sha256'] and sha(json.dumps(nb).encode())==b['wire_sha256']
     assert sha((GPU/'payload.zip').read_bytes())==b['payload_sha256']
     source=nb['cells'][0]['source']
@@ -49,7 +56,7 @@ def validate(batch):
     encoded=ast.literal_eval(line.split('b64decode(',1)[1][:-1])
     assert sha(base64.b64decode(encoded))==b['payload_sha256']
     grant_line=next(l for l in source.splitlines() if l.startswith('AUTHORIZATION='))
-    runtime_grant=json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
+    runtime_grant=json.loads((directory/b.get('runtime_authorization_file','RUNTIME_AUTHORIZATION.json')).read_bytes())
     assert ast.literal_eval(grant_line.split('=',1)[1])==runtime_grant
     assert runtime_grant['authorization_record_sha256']==sha((HERE/'GPU_AUTHORIZATION_RECORD.json').read_bytes())
     spec=dict(b,execution_id=eid,slug=slug,max_dispatches=1,
@@ -65,8 +72,12 @@ def preflight(batch):
     directory,slug,eid=location(batch);spec=validate(batch)
     assert not (directory/'execution/dispatch.claim').exists(),'Existing dispatch: readonly recovery only'
     if batch==2:
-        proof=json.loads((HERE/'BATCH_01_COMPLETION.json').read_bytes())
-        assert proof['integrity_complete'] and proof['completed_sessions']==3
+        proof=json.loads((HERE/'CPU_AWAIT_FIX_ACCEPTANCE.json').read_bytes())
+        prior=json.loads((HERE/'BATCH_01_EXECUTION.json').read_bytes())
+        assert proof['status']=='TOP_LEVEL_AWAIT_OFFICIAL_WORKER_CPU_PASS' and proof['shared_production_members_verified']==205
+        assert prior['completed_Agent_sessions']==0 and prior['real_Gemma_requests']==0
+        assert prior['first_failure']=='RuntimeError: asyncio.run() cannot be called from a running event loop'
+        assert validate(2)['expected_candidates_in_order']==list('CBA')
     dest=directory/'cli-preflight'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');dest.mkdir(parents=True)
     ledger=[];quota={};original=requests.Session.send;recent_raw=[]
     def send(session,request,**kwargs):
@@ -129,7 +140,7 @@ def launch(batch):
     assert gates['current_readonly_GO'] and not list(directory.glob('execution*/dispatch.claim'))
     import subprocess
     gates['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-    grant=json.loads((directory/'RUNTIME_AUTHORIZATION.json').read_bytes())
+    grant=json.loads((directory/spec.get('runtime_authorization_file','RUNTIME_AUTHORIZATION.json')).read_bytes())
     assert grant['quota_at_dispatch_report_seconds']==gates['remaining_report_seconds'],'Quota changed: freeze a new outer grant, do not alter shared payload'
     grant.update(execution_id=eid,slug=slug,model_source='google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2',
                  **{k:spec[k] for k in ('Notebook_sha256','wire_sha256','payload_sha256')})
@@ -147,7 +158,7 @@ def launch(batch):
     def submit_cli():
         # Same official CLI entrypoint, in-process so inherited transport guard
         # persists HTTP metadata before the SDK/CLI parses a response.
-        result=cli(['kernels','push','--path',str(directory/'notebook'),'--timeout','10000','--accelerator','NvidiaL4'])
+        result=cli(['kernels','push','--path',str(directory/spec.get('notebook_directory','notebook')),'--timeout','10000','--accelerator','NvidiaL4'])
         save(directory/f'CLI_PUSH_RESULT{suffix}.json',result)
         if result['exit_code']:raise RuntimeError('CLI push failed; never repeat a claimed request')
         return None # CLI prints instead of returning SDK identity; reconcile source/version read-only.
