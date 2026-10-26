@@ -1,0 +1,77 @@
+{
+  "archive_sha256": "90226b7ce83979a40890434b8a0c626be440e84a00da927b16d88e4d70b811d3",
+  "index_basis": "Zero-based ADK event index; actions and responses remain in the private original archive",
+  "review_scope": "Retrospective, anchored to original PR33 outcome-blind review; alternatives use only then-visible Issue/source/tool evidence",
+  "opportunities": [
+    {
+      "id": "A_REPRO_VALIDITY",
+      "session": "06-fastapi_14459-A",
+      "member": "execution/runs/06-fastapi_14459-A/agent/adk_events.jsonl",
+      "information_event_indices": [4, 6, 8, 10, 11],
+      "decision_event_index": 12,
+      "information_available": "Self-written scratch graph, an earlier construction error and its outer declaration correction, then printed missing security metadata; inner dependency is still declared in a function body rather than its signature",
+      "actual_action": "Reorder routes and print schema again",
+      "defensible_alternative": "Validate the scratch dependency graph/signature before testing route order; correct the reproducer and make its expectation explicit",
+      "potential_information": "Separate a malformed public reproducer from an actual framework scope/order defect",
+      "unknown": "Whether a corrected graph would expose the full Issue and enable a correct production edit",
+      "earlier_production_edit_justified": null,
+      "classification": "SUPPORTED_DIAGNOSTIC_CONFOUND_NOT_A_PROVEN_MISSED_REPAIR"
+    },
+    {
+      "id": "A_PRINT_TO_DISCRIMINATING_CHECK",
+      "session": "06-fastapi_14459-A",
+      "member": "execution/runs/06-fastapi_14459-A/agent/adk_events.jsonl",
+      "information_event_indices": [20, 22, 23, 24],
+      "decision_event_index": 26,
+      "information_available": "A corrected scratch dependency graph displays expected values; emitted text proposes a closer inherited-scope variant",
+      "actual_action": "Execute the next print-only variant",
+      "defensible_alternative": "Express the normal Issue's declared expectation as an assertion on the same graph, with an explicit counterexample criterion",
+      "potential_information": "Turn a visual observation into a reproducible decision boundary while retaining uncertainty about corner-case coverage",
+      "unknown": "It may pass and still fail to reproduce the actual defect; assertions alone do not establish adequate coverage",
+      "earlier_production_edit_justified": null,
+      "classification": "PLAUSIBLE_DIAGNOSTIC_IMPROVEMENT"
+    },
+    {
+      "id": "B_CACHE_LAYER_DISCRIMINATION",
+      "session": "05-fastapi_14459-B",
+      "member": "execution/runs/05-fastapi_14459-B/agent/adk_events.jsonl",
+      "information_event_indices": [6, 10, 12, 14, 15],
+      "decision_event_index": 16,
+      "information_available": "Issue is OpenAPI-specific; new cache search points both to flattening identity and a runtime-solving region",
+      "actual_action": "Read a150line runtime dependency-solving window",
+      "defensible_alternative": "Check the relevant call path or a smaller definition window before reading the full runtime region",
+      "potential_information": "Distinguish OpenAPI construction from request-time solving at lower possible context cost",
+      "unknown": "The actual read did provide layer-disambiguating information; the alternative is not proven cheaper in rendered tokens or sufficient for repair",
+      "earlier_production_edit_justified": null,
+      "classification": "PLAUSIBLE_CONTEXT_COST_REDUCTION_NOT_PROVEN_USELESS_ACTION"
+    },
+    {
+      "id": "C_HYPOTHESIS_TO_PROBE",
+      "session": "04-fastapi_14459-C",
+      "member": "execution/runs/04-fastapi_14459-C/agent/adk_events.jsonl",
+      "information_event_indices": [10, 11, 12, 13, 14],
+      "decision_event_index": 14,
+      "information_available": "Emitted text develops conditional scope/cache identity but also notices per-call visitation and new dependency construction, leaving sharing/reuse unresolved",
+      "actual_action": "Read another150line source window",
+      "defensible_alternative": "Construct a compact public dependency graph probe testing the proposed identity/sharing premise before a production change",
+      "potential_information": "Discriminate between the stated competing causal explanations",
+      "unknown": "The probe may not reproduce the defect; its input-size saving and repair benefit are unmeasured, and already generated reasoning may itself use much headroom",
+      "earlier_production_edit_justified": null,
+      "classification": "PLAUSIBLE_HYPOTHESIS_TEST_NOT_A_JUSTIFIED_EARLIER_PATCH"
+    },
+    {
+      "id": "B_HYPOTHESIS_TO_PROBE",
+      "session": "05-fastapi_14459-B",
+      "member": "execution/runs/05-fastapi_14459-B/agent/adk_events.jsonl",
+      "information_event_indices": [18, 20, 21, 22],
+      "decision_event_index": 22,
+      "information_available": "Scope-dependent identity is visible; model text questions whether visitation is actually global and whether the same object is reused",
+      "actual_action": "Search flattening callers",
+      "defensible_alternative": "A small graph/identity observation can test the suspected reuse premise, then guide the next source read or repair",
+      "potential_information": "Replace an unverified causal assumption with an execution observation",
+      "unknown": "Caller search is also a legitimate way to resolve the uncertainty; no unique best action or known correct patch is established",
+      "earlier_production_edit_justified": null,
+      "classification": "ALTERNATIVE_VALID_DIAGNOSTIC_NOT_DEMONSTRATED_WASTE"
+    }
+  ]
+}
