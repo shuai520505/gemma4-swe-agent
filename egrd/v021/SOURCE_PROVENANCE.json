@@ -1,0 +1,2127 @@
+{
+  "base_PR34": "31511563da988634825d8148da1d2f0624303f03",
+  "existing_MEER_verifier_source_sha256": "dae959c8068e6d320c7fc5c37f719ccd928f56dd19f4335af0d33193ea3f499c",
+  "frozen_ABC_SHA256": {
+    "A": "07263740c5ee22bf6611d7fa31dafbc84d7fb50288d22355b9201cd6954a6840",
+    "B": "d962044f264d8f36aea6263abf4dcdb118d5755e82a91cb9b2bd0bc1f6f7c9cd",
+    "C": "8dd48fee0c96424a40ed47512f0d788d9b13518e7d73395bd89d2fb07204eb83"
+  },
+  "frozen_B_verifier_member_sha256": "dae959c8068e6d320c7fc5c37f719ccd928f56dd19f4335af0d33193ea3f499c",
+  "guide_sha256": "445000219b803942c469391ec8b69791a31e9cec2f934738c767e34b5ca0aa1f",
+  "historical_CPU_bypass": {
+    "CPU_MODEL": "SCRIPTED_ONLY",
+    "CRC_valid": true,
+    "Notebook_id": 140511729,
+    "archive_bytes": 1197172,
+    "archive_sha256": "77cdb2fa13284621290cdeed3f3e269c5ea8c6fbe440af6e47bcf9001cdd2a9a",
+    "observations": [
+      {
+        "JUnit_sha256": "b6c50dec976e1a0c3c1f1ae7fdfb4f3c6ffe4f76be0db6b7558d4fb4f33657e3",
+        "TaskResult_sha256": "2b085f2bcfc87fe04b88cb1b68168c9f5cd4080dbfb9fe08e7c728ef784d6971",
+        "arm": "B",
+        "explicit_submit_calls": 1,
+        "native_synthetic_resolved": true,
+        "script_calls": 3
+      },
+      {
+        "JUnit_sha256": "042447144c611b22d635c3e2a9a70efe1f8130b9e44c3d20800b0fa3d2c238be",
+        "TaskResult_sha256": "b265ab7c068f4d1112141e32f0404b094ec1741642af6f62453e165c0c43e43c",
+        "arm": "B_BYPASS",
+        "explicit_submit_calls": 1,
+        "native_synthetic_resolved": true,
+        "script_calls": 0
+      }
+    ],
+    "scope": "Rechecked existing original records; no new Runner or model execution",
+    "version": 1
+  },
+  "limits": [
+    "Full official ADK/Compiler packages are not installed in the local interpreter; no full SDK compilation claimed",
+    "Complete scripts/inference.py loader is not present locally; pinned guide is the available competition-loader evidence",
+    "No current private-platform or future Gemma adoption guarantee"
+  ],
+  "operations": {
+    "GPU": 0,
+    "Notebook_saves": 0,
+    "formal_submissions": 0,
+    "new_Agent_sessions": 0,
+    "new_model_requests": 0
+  },
+  "prior_audit": {
+    "ARCHITECTURE_DECISION.md": "7998c763a57224c36ce28297af984bdccdd4dcfa309b61a353305332cc79c048",
+    "CONTEXT_GROWTH_ANALYSIS.md": "f09fcfd7187aa3960fecec087399527c76ad61bd8dff157b7a5a74d3f991ac05",
+    "EVIDENCE_TO_PATCH_FAILURES.md": "434a72a6093638fc7cfa88284b8819bdacbba23ef5933cd5af118b7b14d05d8b",
+    "FINAL_DECISION.md": "21217d4a574a7d6f0e4fb0dd981a1c255b10b29120f74a796e190d9c78583648",
+    "NEXT_EXPERIMENT_PROTOCOL.md": "b5b3a60fc51c82a28374eb12038f0e26a6d677c381dedb5f476c255d3e236aec",
+    "OFFICIAL_INTERFACE_AUDIT.md": "ad078389b943653cd5e4b600d034c2b544fca835959a41c9027c5f5ed46ebf4f"
+  },
+  "source_member_count": 27,
+  "wheels": {
+    "adk_eval_core-0.1.0-py3-none-any.whl": {
+      "members": {
+        "adk_eval_core/sandbox/base.py": {
+          "lines": 223,
+          "sha256": "da53e3bb0dfb7d2490d63195740d94560291c37001c4ebae4d12733cf4856007",
+          "symbols": {
+            "AdkSandboxCodeExecutor": [
+              [
+                164,
+                223
+              ]
+            ],
+            "BaseSandbox": [
+              [
+                51,
+                161
+              ]
+            ],
+            "ExecutionResult": [
+              [
+                25,
+                48
+              ]
+            ],
+            "__enter__": [
+              [
+                149,
+                152
+              ]
+            ],
+            "__exit__": [
+              [
+                154,
+                161
+              ]
+            ],
+            "close": [
+              [
+                141,
+                142
+              ]
+            ],
+            "copy_from": [
+              [
+                120,
+                130
+              ]
+            ],
+            "copy_to": [
+              [
+                107,
+                117
+              ]
+            ],
+            "execute_code": [
+              [
+                176,
+                223
+              ]
+            ],
+            "initialize": [
+              [
+                55,
+                62
+              ]
+            ],
+            "read_file": [
+              [
+                93,
+                104
+              ]
+            ],
+            "reset": [
+              [
+                133,
+                138
+              ]
+            ],
+            "run_command": [
+              [
+                65,
+                81
+              ]
+            ],
+            "timed_out": [
+              [
+                35,
+                37
+              ]
+            ],
+            "to_json": [
+              [
+                39,
+                48
+              ]
+            ],
+            "work_dir": [
+              [
+                146,
+                147
+              ]
+            ],
+            "write_file": [
+              [
+                84,
+                90
+              ]
+            ]
+          }
+        }
+      },
+      "sha256": "e614e1b2fe8d886a634871e4c57f9887e1cc66e8c27300f8503a43c6e3ca82f3"
+    },
+    "adk_submission-0.2.13-py3-none-any.whl": {
+      "members": {
+        "adk_submission/builders/llm.py": {
+          "lines": 102,
+          "sha256": "97c27324ce60ac6dc466941bcc19f5482f7693af9fc02fb760a40526c84c10b5",
+          "symbols": {
+            "_get_agent_cls": [
+              [
+                27,
+                30
+              ]
+            ],
+            "compile_llm_agent": [
+              [
+                33,
+                96
+              ]
+            ]
+          }
+        },
+        "adk_submission/builders/sub_agents.py": {
+          "lines": 78,
+          "sha256": "ba6162832b1ca4e023e2848c6391242c18cbe9dadcfd560a6ebef81108c35b5a",
+          "symbols": {
+            "compile_sub_agents": [
+              [
+                17,
+                75
+              ]
+            ]
+          }
+        },
+        "adk_submission/builders/workflows.py": {
+          "lines": 152,
+          "sha256": "d8d7ccf9a51d57daec58c7231e2a62621a3ecca269e71ee64c57062cadadf980",
+          "symbols": {
+            "_get_loop_agent_cls": [
+              [
+                34,
+                37
+              ]
+            ],
+            "_get_parallel_agent_cls": [
+              [
+                28,
+                31
+              ]
+            ],
+            "_get_sequential_agent_cls": [
+              [
+                22,
+                25
+              ]
+            ],
+            "compile_loop_agent": [
+              [
+                102,
+                142
+              ]
+            ],
+            "compile_parallel_agent": [
+              [
+                71,
+                99
+              ]
+            ],
+            "compile_sequential_agent": [
+              [
+                40,
+                68
+              ]
+            ]
+          }
+        },
+        "adk_submission/compiler.py": {
+          "lines": 245,
+          "sha256": "39cc4884699faf147ca1b326664e888c1861f750fe36525b840b5f812d593eed",
+          "symbols": {
+            "_compile_agent": [
+              [
+                208,
+                242
+              ]
+            ],
+            "compile_submission": [
+              [
+                59,
+                205
+              ]
+            ]
+          }
+        },
+        "adk_submission/context.py": {
+          "lines": 187,
+          "sha256": "3c77519415b1dd2cc97b42bcbe29d32dd85f8188ca7eba5b5fb8636bce92c908",
+          "symbols": {
+            "AgentClassFactory": [
+              [
+                19,
+                28
+              ]
+            ],
+            "CompilationContext": [
+              [
+                32,
+                124
+              ]
+            ],
+            "__post_init__": [
+              [
+                77,
+                83
+              ]
+            ],
+            "check_description_length": [
+              [
+                156,
+                179
+              ]
+            ],
+            "check_instruction_length": [
+              [
+                127,
+                153
+              ],
+              [
+                85,
+                96
+              ]
+            ],
+            "resolve_sub_config_path": [
+              [
+                98,
+                124
+              ]
+            ]
+          }
+        },
+        "adk_submission/errors.py": {
+          "lines": 290,
+          "sha256": "7e121e7c6581288788500cd1a8deceb003a74ec150d5477c37f794971a5f4818",
+          "symbols": {
+            "AdapterNotFoundError": [
+              [
+                142,
+                167
+              ]
+            ],
+            "CallbackNotFoundError": [
+              [
+                170,
+                227
+              ]
+            ],
+            "LimitExceededError": [
+              [
+                60,
+                70
+              ]
+            ],
+            "ModelNotFoundError": [
+              [
+                113,
+                139
+              ]
+            ],
+            "PathTraversalError": [
+              [
+                73,
+                81
+              ]
+            ],
+            "ServerStartupError": [
+              [
+                272,
+                290
+              ]
+            ],
+            "SkillNotFoundError": [
+              [
+                230,
+                256
+              ]
+            ],
+            "SubmissionError": [
+              [
+                35,
+                43
+              ]
+            ],
+            "SubmissionSchemaError": [
+              [
+                259,
+                269
+              ]
+            ],
+            "SubmissionValidationError": [
+              [
+                46,
+                57
+              ]
+            ],
+            "ToolNotFoundError": [
+              [
+                84,
+                110
+              ]
+            ],
+            "__init__": [
+              [
+                96,
+                110
+              ],
+              [
+                125,
+                139
+              ],
+              [
+                153,
+                167
+              ],
+              [
+                189,
+                227
+              ],
+              [
+                242,
+                256
+              ],
+              [
+                280,
+                290
+              ]
+            ]
+          }
+        },
+        "adk_submission/limits.py": {
+          "lines": 440,
+          "sha256": "afde5056f2df1fd77b53e0495712d03f60b3e246d4393617dd800d970f7482e2",
+          "symbols": {
+            "GenerationConstraints": [
+              [
+                263,
+                440
+              ]
+            ],
+            "NumericRange": [
+              [
+                32,
+                96
+              ]
+            ],
+            "SubmissionLimits": [
+              [
+                150,
+                220
+              ]
+            ],
+            "__post_init__": [
+              [
+                50,
+                69
+              ],
+              [
+                198,
+                220
+              ]
+            ],
+            "check": [
+              [
+                71,
+                96
+              ]
+            ],
+            "validate_config": [
+              [
+                309,
+                440
+              ]
+            ]
+          }
+        },
+        "adk_submission/paths.py": {
+          "lines": 219,
+          "sha256": "7c4b7050141bdb05a9e6849be11f6440f2a18082a364623226c4343649b2f59f",
+          "symbols": {
+            "ensure_no_traversal_components": [
+              [
+                22,
+                56
+              ]
+            ],
+            "handle_schema_validation_error": [
+              [
+                180,
+                219
+              ]
+            ],
+            "validate_sandboxed_path": [
+              [
+                59,
+                177
+              ]
+            ]
+          }
+        },
+        "adk_submission/registry.py": {
+          "lines": 323,
+          "sha256": "c17f9770c2f3663309dd61807d2ae4e7d75bbd06b7c674847f655d218e82cf7a",
+          "symbols": {
+            "CallbackRegistry": [
+              [
+                217,
+                323
+              ]
+            ],
+            "CallbackType": [
+              [
+                197,
+                214
+              ]
+            ],
+            "ModelRegistry": [
+              [
+                142,
+                161
+              ]
+            ],
+            "Registry": [
+              [
+                30,
+                110
+              ]
+            ],
+            "SkillRegistry": [
+              [
+                169,
+                189
+              ]
+            ],
+            "ToolRegistry": [
+              [
+                118,
+                134
+              ]
+            ],
+            "__contains__": [
+              [
+                93,
+                102
+              ],
+              [
+                306,
+                315
+              ]
+            ],
+            "__init__": [
+              [
+                41,
+                43
+              ],
+              [
+                237,
+                240
+              ]
+            ],
+            "__len__": [
+              [
+                104,
+                110
+              ],
+              [
+                317,
+                323
+              ]
+            ],
+            "get": [
+              [
+                59,
+                75
+              ],
+              [
+                264,
+                296
+              ]
+            ],
+            "get_all": [
+              [
+                85,
+                91
+              ]
+            ],
+            "list_available": [
+              [
+                77,
+                83
+              ],
+              [
+                298,
+                304
+              ]
+            ],
+            "list_skills": [
+              [
+                187,
+                189
+              ]
+            ],
+            "register": [
+              [
+                45,
+                57
+              ],
+              [
+                242,
+                262
+              ]
+            ]
+          }
+        },
+        "adk_submission/resolvers/callbacks.py": {
+          "lines": 104,
+          "sha256": "332ce0732aa3eb1b555630c57683f51e59d5caee3f519371d376210e9ae33e29",
+          "symbols": {
+            "resolve_base_callbacks": [
+              [
+                46,
+                62
+              ]
+            ],
+            "resolve_callback_fields": [
+              [
+                65,
+                95
+              ]
+            ],
+            "resolve_callbacks": [
+              [
+                27,
+                43
+              ]
+            ]
+          }
+        },
+        "adk_submission/resolvers/generation.py": {
+          "lines": 466,
+          "sha256": "ba0d58d1dce4395d656416522855cab07d43b7ed0cd61898234dc35e9b92ecc6",
+          "symbols": {
+            "_enrich_completion_inputs": [
+              [
+                270,
+                285
+              ]
+            ],
+            "_extract_include_thoughts": [
+              [
+                93,
+                116
+              ]
+            ],
+            "_get_genai_types": [
+              [
+                13,
+                16
+              ]
+            ],
+            "_normalize_reasoning_message": [
+              [
+                65,
+                77
+              ]
+            ],
+            "_normalize_schema_dict": [
+              [
+                146,
+                192
+              ]
+            ],
+            "_patched_content_to_message_param": [
+              [
+                236,
+                238
+              ],
+              [
+                243,
+                245
+              ]
+            ],
+            "_patched_ensure_tool_results": [
+              [
+                257,
+                260
+              ]
+            ],
+            "_patched_generate_content_async": [
+              [
+                316,
+                331
+              ]
+            ],
+            "_patched_get_completion_inputs": [
+              [
+                290,
+                292
+              ],
+              [
+                297,
+                299
+              ]
+            ],
+            "_patched_schema_to_dict": [
+              [
+                221,
+                223
+              ]
+            ],
+            "_strip_reasoning_from_messages": [
+              [
+                80,
+                90
+              ]
+            ],
+            "_strip_thought_parts_from_response": [
+              [
+                119,
+                143
+              ]
+            ],
+            "apply_thinking_config_to_model": [
+              [
+                359,
+                458
+              ]
+            ],
+            "install_litellm_reasoning_patch": [
+              [
+                195,
+                353
+              ]
+            ],
+            "resolve_generation_config": [
+              [
+                19,
+                58
+              ]
+            ]
+          }
+        },
+        "adk_submission/resolvers/tools.py": {
+          "lines": 272,
+          "sha256": "ae44a5ca815a05edfd763b92283d0444c77755afbd827fc35bcb87eb2633259e",
+          "symbols": {
+            "_get_agent_tool_cls": [
+              [
+                26,
+                29
+              ]
+            ],
+            "_get_skill_toolset_cls": [
+              [
+                32,
+                35
+              ]
+            ],
+            "_wrapped_alias": [
+              [
+                81,
+                82
+              ]
+            ],
+            "_wrapped_ro": [
+              [
+                74,
+                75
+              ]
+            ],
+            "resolve_skills": [
+              [
+                129,
+                264
+              ]
+            ],
+            "resolve_tool_item": [
+              [
+                38,
+                126
+              ]
+            ]
+          }
+        },
+        "adk_submission/schema.py": {
+          "lines": 413,
+          "sha256": "6554de60cfa208dcb0b095f4236271795b2955adf87f3be3c40dfa3d62521c5d",
+          "symbols": {
+            "AgentToolEntry": [
+              [
+                121,
+                137
+              ]
+            ],
+            "AgentToolRef": [
+              [
+                84,
+                118
+              ]
+            ],
+            "GenerateContentConfig": [
+              [
+                179,
+                227
+              ]
+            ],
+            "SandboxedAgentConfig": [
+              [
+                400,
+                412
+              ]
+            ],
+            "SandboxedLlmAgentConfig": [
+              [
+                257,
+                323
+              ]
+            ],
+            "SandboxedLoopAgentConfig": [
+              [
+                350,
+                366
+              ]
+            ],
+            "SandboxedParallelAgentConfig": [
+              [
+                338,
+                347
+              ]
+            ],
+            "SandboxedSequentialAgentConfig": [
+              [
+                326,
+                335
+              ]
+            ],
+            "SubAgentRef": [
+              [
+                45,
+                76
+              ]
+            ],
+            "ThinkingConfig": [
+              [
+                155,
+                176
+              ]
+            ],
+            "_BaseAgentFields": [
+              [
+                235,
+                254
+              ]
+            ],
+            "_default_null_agent_class": [
+              [
+                303,
+                304
+              ]
+            ],
+            "_reject_bool_nan_inf": [
+              [
+                145,
+                152
+              ]
+            ],
+            "_validate_max_iterations": [
+              [
+                365,
+                366
+              ]
+            ],
+            "_validate_numeric_fields": [
+              [
+                226,
+                227
+              ]
+            ],
+            "_validate_thinking_budget": [
+              [
+                175,
+                176
+              ]
+            ],
+            "agent_class_discriminator": [
+              [
+                374,
+                391
+              ]
+            ],
+            "validate_no_path_traversal": [
+              [
+                63,
+                76
+              ],
+              [
+                105,
+                118
+              ]
+            ],
+            "validate_skills_paths": [
+              [
+                308,
+                323
+              ]
+            ]
+          }
+        }
+      },
+      "sha256": "f156f0bd84580ccb9334726d114d7a5481f16d3a6e2887cc4d276ced0ef8d99d"
+    },
+    "google_adk-1.36.1-py3-none-any.whl": {
+      "members": {
+        "google/adk/agents/llm_agent.py": {
+          "lines": 1027,
+          "sha256": "7d0a8b71724536898ca7f347038dbbc1cf0eeb38d1d6f9e1077b8cfeb9461c0b",
+          "symbols": {
+            "LlmAgent": [
+              [
+                195,
+                1024
+              ]
+            ],
+            "__get_agent_to_run": [
+              [
+                773,
+                791
+              ]
+            ],
+            "__get_transfer_to_agent_or_none": [
+              [
+                814,
+                828
+              ]
+            ],
+            "__maybe_save_output_to_state": [
+              [
+                830,
+                871
+              ]
+            ],
+            "__model_validator_after": [
+              [
+                874,
+                875
+              ]
+            ],
+            "_convert_tool_union_to_tools": [
+              [
+                139,
+                192
+              ]
+            ],
+            "_get_available_agent_names": [
+              [
+                793,
+                812
+              ]
+            ],
+            "_get_subagent_to_resume": [
+              [
+                728,
+                771
+              ]
+            ],
+            "_llm_flow": [
+              [
+                718,
+                726
+              ]
+            ],
+            "_parse_config": [
+              [
+                974,
+                1024
+              ]
+            ],
+            "_resolve_default_model": [
+              [
+                546,
+                551
+              ]
+            ],
+            "_resolve_tools": [
+              [
+                915,
+                969
+              ]
+            ],
+            "_run_async_impl": [
+              [
+                468,
+                505
+              ]
+            ],
+            "_run_live_impl": [
+              [
+                508,
+                516
+              ]
+            ],
+            "canonical_after_model_callbacks": [
+              [
+                650,
+                659
+              ]
+            ],
+            "canonical_after_tool_callbacks": [
+              [
+                690,
+                701
+              ]
+            ],
+            "canonical_before_model_callbacks": [
+              [
+                636,
+                647
+              ]
+            ],
+            "canonical_before_tool_callbacks": [
+              [
+                676,
+                687
+              ]
+            ],
+            "canonical_global_instruction": [
+              [
+                577,
+                609
+              ]
+            ],
+            "canonical_instruction": [
+              [
+                553,
+                575
+              ]
+            ],
+            "canonical_model": [
+              [
+                519,
+                534
+              ]
+            ],
+            "canonical_on_model_error_callbacks": [
+              [
+                662,
+                673
+              ]
+            ],
+            "canonical_on_tool_error_callbacks": [
+              [
+                704,
+                715
+              ]
+            ],
+            "canonical_tools": [
+              [
+                611,
+                633
+              ]
+            ],
+            "collect_agents": [
+              [
+                805,
+                809
+              ]
+            ],
+            "model_post_init": [
+              [
+                897,
+                911
+              ]
+            ],
+            "set_default_model": [
+              [
+                537,
+                543
+              ]
+            ],
+            "validate_generate_content_config": [
+              [
+                879,
+                894
+              ]
+            ]
+          }
+        },
+        "google/adk/agents/loop_agent.py": {
+          "lines": 167,
+          "sha256": "5dca82265bf51f11019a6418a9d3ac726dc47f1141eaa54bccdb40e3cb959911",
+          "symbols": {
+            "LoopAgent": [
+              [
+                52,
+                167
+              ]
+            ],
+            "LoopAgentState": [
+              [
+                42,
+                49
+              ]
+            ],
+            "_get_start_state": [
+              [
+                126,
+                147
+              ]
+            ],
+            "_parse_config": [
+              [
+                159,
+                167
+              ]
+            ],
+            "_run_async_impl": [
+              [
+                70,
+                124
+              ]
+            ],
+            "_run_live_impl": [
+              [
+                150,
+                154
+              ]
+            ]
+          }
+        },
+        "google/adk/agents/parallel_agent.py": {
+          "lines": 216,
+          "sha256": "184146546fdbe2368aa4c2cae2e614cba654894dc025926774fb90ab22da0b7f",
+          "symbols": {
+            "ParallelAgent": [
+              [
+                150,
+                216
+              ]
+            ],
+            "_create_branch_ctx_for_sub_agent": [
+              [
+                35,
+                48
+              ]
+            ],
+            "_merge_agent_run": [
+              [
+                51,
+                85
+              ]
+            ],
+            "_merge_agent_run_pre_3_11": [
+              [
+                89,
+                147
+              ]
+            ],
+            "_run_async_impl": [
+              [
+                164,
+                209
+              ]
+            ],
+            "_run_live_impl": [
+              [
+                212,
+                216
+              ]
+            ],
+            "process_an_agent": [
+              [
+                60,
+                69
+              ],
+              [
+                116,
+                125
+              ]
+            ],
+            "propagate_exceptions": [
+              [
+                106,
+                112
+              ]
+            ]
+          }
+        },
+        "google/adk/agents/sequential_agent.py": {
+          "lines": 159,
+          "sha256": "10fb38007cd8f5ecea23df9311ef1fedbc72b9511ad3040c1b571785a6aad769",
+          "symbols": {
+            "SequentialAgent": [
+              [
+                48,
+                159
+              ]
+            ],
+            "SequentialAgentState": [
+              [
+                41,
+                45
+              ]
+            ],
+            "_get_start_index": [
+              [
+                94,
+                117
+              ]
+            ],
+            "_run_async_impl": [
+              [
+                55,
+                92
+              ]
+            ],
+            "_run_live_impl": [
+              [
+                120,
+                159
+              ]
+            ],
+            "task_completed": [
+              [
+                140,
+                145
+              ]
+            ]
+          }
+        },
+        "google/adk/apps/app.py": {
+          "lines": 88,
+          "sha256": "8dae9cc7706574989595094e4572145bf8e39977216b195b51825b6f396c6ec9",
+          "symbols": {
+            "App": [
+              [
+                48,
+                88
+              ]
+            ],
+            "_validate_name": [
+              [
+                86,
+                88
+              ]
+            ],
+            "validate_app_name": [
+              [
+                37,
+                45
+              ]
+            ]
+          }
+        },
+        "google/adk/flows/llm_flows/contents.py": {
+          "lines": 890,
+          "sha256": "f0441e4903e0f9f41cd99b6f8fdbfdac9843923dabc1d998e19112d20d2ce6fa",
+          "symbols": {
+            "_ContentLlmRequestProcessor": [
+              [
+                37,
+                95
+              ]
+            ],
+            "_add_instructions_to_user_content": [
+              [
+                850,
+                890
+              ]
+            ],
+            "_contains_empty_content": [
+              [
+                273,
+                296
+              ]
+            ],
+            "_content_contains_function_response": [
+              [
+                840,
+                847
+              ]
+            ],
+            "_get_contents": [
+              [
+                421,
+                539
+              ]
+            ],
+            "_get_current_turn_contents": [
+              [
+                542,
+                582
+              ]
+            ],
+            "_is_adk_framework_event": [
+              [
+                788,
+                790
+              ]
+            ],
+            "_is_auth_event": [
+              [
+                778,
+                780
+              ]
+            ],
+            "_is_event_belongs_to_branch": [
+              [
+                748,
+                763
+              ]
+            ],
+            "_is_function_call_event": [
+              [
+                766,
+                775
+              ]
+            ],
+            "_is_live_model_media_event_with_inline_data": [
+              [
+                798,
+                837
+              ]
+            ],
+            "_is_other_agent_reply": [
+              [
+                585,
+                613
+              ]
+            ],
+            "_is_part_invisible": [
+              [
+                244,
+                270
+              ]
+            ],
+            "_is_request_confirmation_event": [
+              [
+                783,
+                785
+              ]
+            ],
+            "_is_request_input_event": [
+              [
+                793,
+                795
+              ]
+            ],
+            "_is_timestamp_compacted": [
+              [
+                403,
+                407
+              ]
+            ],
+            "_merge_function_response_events": [
+              [
+                684,
+                745
+              ]
+            ],
+            "_present_other_agent_message": [
+              [
+                616,
+                681
+              ]
+            ],
+            "_process_compaction_events": [
+              [
+                325,
+                418
+              ]
+            ],
+            "_rearrange_events_for_async_function_responses_in_history": [
+              [
+                101,
+                145
+              ]
+            ],
+            "_rearrange_events_for_latest_function_response": [
+              [
+                148,
+                241
+              ]
+            ],
+            "_should_include_event_in_context": [
+              [
+                299,
+                322
+              ]
+            ],
+            "run_async": [
+              [
+                41,
+                95
+              ]
+            ]
+          }
+        },
+        "google/adk/flows/llm_flows/instructions.py": {
+          "lines": 136,
+          "sha256": "69718feb6f446bb0ba1f716e71dccd3ea9d520d8ce3e68eb478d662e4a8933a0",
+          "symbols": {
+            "_InstructionsLlmRequestProcessor": [
+              [
+                122,
+                133
+              ]
+            ],
+            "_build_instructions": [
+              [
+                62,
+                119
+              ]
+            ],
+            "_process_agent_instruction": [
+              [
+                35,
+                59
+              ]
+            ],
+            "run_async": [
+              [
+                126,
+                133
+              ]
+            ]
+          }
+        },
+        "google/adk/tools/skill_toolset.py": {
+          "lines": 1105,
+          "sha256": "fa3267855239bf6951ddbd40671b5385c6f60962ee4fbd5b9ac04b51c53a9fc6",
+          "symbols": {
+            "ListSkillsTool": [
+              [
+                92,
+                118
+              ]
+            ],
+            "LoadSkillResourceTool": [
+              [
+                254,
+                439
+              ]
+            ],
+            "LoadSkillTool": [
+              [
+                185,
+                250
+              ]
+            ],
+            "RunSkillScriptTool": [
+              [
+                714,
+                874
+              ]
+            ],
+            "SearchSkillsTool": [
+              [
+                122,
+                181
+              ]
+            ],
+            "SkillToolset": [
+              [
+                878,
+                1092
+              ]
+            ],
+            "_SkillScriptCodeExecutor": [
+              [
+                442,
+                710
+              ]
+            ],
+            "__getattr__": [
+              [
+                1095,
+                1105
+              ]
+            ],
+            "__init__": [
+              [
+                95,
+                102
+              ],
+              [
+                125,
+                136
+              ],
+              [
+                188,
+                193
+              ],
+              [
+                257,
+                265
+              ],
+              [
+                448,
+                450
+              ],
+              [
+                717,
+                722
+              ],
+              [
+                881,
+                945
+              ]
+            ],
+            "_build_wrapper_code": [
+              [
+                571,
+                710
+              ]
+            ],
+            "_get_declaration": [
+              [
+                104,
+                112
+              ],
+              [
+                138,
+                153
+              ],
+              [
+                195,
+                209
+              ],
+              [
+                267,
+                289
+              ],
+              [
+                724,
+                774
+              ]
+            ],
+            "_get_or_fetch_skill": [
+              [
+                1016,
+                1056
+              ]
+            ],
+            "_get_skill": [
+              [
+                1012,
+                1014
+              ]
+            ],
+            "_list_skills": [
+              [
+                1058,
+                1060
+              ]
+            ],
+            "_resolve_additional_tools_from_state": [
+              [
+                956,
+                1010
+              ]
+            ],
+            "close": [
+              [
+                1085,
+                1092
+              ]
+            ],
+            "execute_script_async": [
+              [
+                452,
+                569
+              ]
+            ],
+            "get_tools": [
+              [
+                947,
+                954
+              ]
+            ],
+            "process_llm_request": [
+              [
+                365,
+                439
+              ],
+              [
+                1062,
+                1082
+              ]
+            ],
+            "run_async": [
+              [
+                114,
+                118
+              ],
+              [
+                155,
+                181
+              ],
+              [
+                211,
+                250
+              ],
+              [
+                291,
+                362
+              ],
+              [
+                776,
+                874
+              ]
+            ]
+          }
+        }
+      },
+      "sha256": "1a2f6868c509e3151fb0de3575a7d18b45c338be86f420924dad74e7193631a0"
+    },
+    "swegemma-0.2.11-py3-none-any.whl": {
+      "members": {
+        "swegemma/config.py": {
+          "lines": 215,
+          "sha256": "0cf65965d713a883eaf779652979e281f1fbd3d24707f1bd7e91e054c5069f0b",
+          "symbols": {
+            "EvalConfig": [
+              [
+                89,
+                214
+              ]
+            ],
+            "__post_init__": [
+              [
+                125,
+                214
+              ]
+            ],
+            "build_submission_limits": [
+              [
+                34,
+                68
+              ]
+            ]
+          }
+        },
+        "swegemma/context.py": {
+          "lines": 604,
+          "sha256": "272168834495f424dac54cfcc3d470c1b8e42b75a1125e7501586eb5f4fb73c0",
+          "symbols": {
+            "DisplaySnapshot": [
+              [
+                30,
+                40
+              ]
+            ],
+            "SwegemmaContext": [
+              [
+                43,
+                604
+              ]
+            ],
+            "__init__": [
+              [
+                46,
+                148
+              ]
+            ],
+            "_update_sandbox": [
+              [
+                161,
+                172
+              ]
+            ],
+            "agent_elapsed_seconds": [
+              [
+                436,
+                445
+              ]
+            ],
+            "candidate_id": [
+              [
+                350,
+                352
+              ]
+            ],
+            "check_budget": [
+              [
+                468,
+                551
+              ]
+            ],
+            "container_id": [
+              [
+                151,
+                153
+              ],
+              [
+                156,
+                159
+              ]
+            ],
+            "create_tools": [
+              [
+                599,
+                604
+              ]
+            ],
+            "elapsed_seconds": [
+              [
+                453,
+                457
+              ]
+            ],
+            "exec": [
+              [
+                577,
+                583
+              ]
+            ],
+            "exec_async": [
+              [
+                585,
+                597
+              ]
+            ],
+            "get_display_snapshot": [
+              [
+                553,
+                575
+              ]
+            ],
+            "graph_repo_key": [
+              [
+                335,
+                347
+              ]
+            ],
+            "handle_adk_event": [
+              [
+                211,
+                321
+              ]
+            ],
+            "metrics": [
+              [
+                402,
+                408
+              ]
+            ],
+            "record_llm_call": [
+              [
+                196,
+                199
+              ]
+            ],
+            "remaining_time_seconds": [
+              [
+                460,
+                466
+              ]
+            ],
+            "sandbox": [
+              [
+                175,
+                177
+              ],
+              [
+                180,
+                182
+              ]
+            ],
+            "set_activity": [
+              [
+                201,
+                204
+              ]
+            ],
+            "set_phase": [
+              [
+                206,
+                209
+              ]
+            ],
+            "start_agent_session": [
+              [
+                184,
+                188
+              ]
+            ],
+            "status": [
+              [
+                355,
+                357
+              ]
+            ],
+            "stop_agent_session": [
+              [
+                190,
+                194
+              ]
+            ],
+            "task_elapsed_seconds": [
+              [
+                448,
+                450
+              ]
+            ],
+            "task_id": [
+              [
+                324,
+                332
+              ]
+            ],
+            "to_status_dict": [
+              [
+                410,
+                433
+              ]
+            ],
+            "token_budget": [
+              [
+                365,
+                367
+              ],
+              [
+                370,
+                371
+              ]
+            ],
+            "tool_calls": [
+              [
+                360,
+                362
+              ]
+            ],
+            "total_cost_usd": [
+              [
+                374,
+                381
+              ],
+              [
+                384,
+                385
+              ]
+            ],
+            "total_tokens": [
+              [
+                388,
+                395
+              ],
+              [
+                398,
+                399
+              ]
+            ]
+          }
+        },
+        "swegemma/harness/agent_runner.py": {
+          "lines": 1120,
+          "sha256": "4d7eccabd203c26f7c39e882684d2fd851f383f6a5c76c4a75b0e559cd5d6a18",
+          "symbols": {
+            "ToolErrorPlugin": [
+              [
+                244,
+                281
+              ]
+            ],
+            "__init__": [
+              [
+                247,
+                248
+              ]
+            ],
+            "_extract_declared_tools": [
+              [
+                192,
+                241
+              ]
+            ],
+            "_has_tool": [
+              [
+                336,
+                337
+              ]
+            ],
+            "_on_event": [
+              [
+                661,
+                665
+              ]
+            ],
+            "_sanitize_skill_tool_args": [
+              [
+                97,
+                129
+              ]
+            ],
+            "_walk": [
+              [
+                204,
+                238
+              ]
+            ],
+            "_wrap_skill_toolset_tools": [
+              [
+                132,
+                189
+              ]
+            ],
+            "_wrapped_run_async": [
+              [
+                158,
+                181
+              ]
+            ],
+            "before_tool_callback": [
+              [
+                250,
+                259
+              ]
+            ],
+            "build_agent_prompt": [
+              [
+                317,
+                475
+              ]
+            ],
+            "build_workspace_tree_command": [
+              [
+                300,
+                314
+              ]
+            ],
+            "on_tool_error_callback": [
+              [
+                261,
+                281
+              ]
+            ],
+            "resolve_swegemma_adapter": [
+              [
+                64,
+                94
+              ]
+            ],
+            "run_agent_sandbox": [
+              [
+                478,
+                1120
+              ]
+            ]
+          }
+        },
+        "swegemma/sandbox/base.py": {
+          "lines": 281,
+          "sha256": "aab491aabc84105963bead16dab4d3d5745e31727ba248fd5a568d8f4e0c7dc1",
+          "symbols": {
+            "BaseSandboxManager": [
+              [
+                43,
+                100
+              ]
+            ],
+            "ExecResult": [
+              [
+                19,
+                40
+              ]
+            ],
+            "ManagedSandbox": [
+              [
+                103,
+                211
+              ]
+            ],
+            "__init__": [
+              [
+                22,
+                40
+              ],
+              [
+                106,
+                115
+              ]
+            ],
+            "cleanup_all": [
+              [
+                92,
+                94
+              ]
+            ],
+            "close": [
+              [
+                209,
+                211
+              ]
+            ],
+            "copy_from": [
+              [
+                75,
+                82
+              ],
+              [
+                195,
+                202
+              ]
+            ],
+            "copy_to": [
+              [
+                66,
+                73
+              ],
+              [
+                184,
+                193
+              ]
+            ],
+            "exec": [
+              [
+                54,
+                58
+              ],
+              [
+                142,
+                146
+              ]
+            ],
+            "exec_async": [
+              [
+                60,
+                64
+              ],
+              [
+                148,
+                156
+              ]
+            ],
+            "get_sandbox": [
+              [
+                96,
+                100
+              ]
+            ],
+            "initialize": [
+              [
+                121,
+                125
+              ]
+            ],
+            "read_file": [
+              [
+                173,
+                182
+              ]
+            ],
+            "reset": [
+              [
+                204,
+                207
+              ]
+            ],
+            "run_command": [
+              [
+                127,
+                140
+              ]
+            ],
+            "sandbox_exec": [
+              [
+                252,
+                268
+              ]
+            ],
+            "sandbox_start": [
+              [
+                214,
+                228
+              ]
+            ],
+            "sandbox_stop": [
+              [
+                231,
+                249
+              ]
+            ],
+            "start": [
+              [
+                46,
+                48
+              ]
+            ],
+            "start_async": [
+              [
+                50,
+                52
+              ]
+            ],
+            "stop": [
+              [
+                84,
+                86
+              ]
+            ],
+            "stop_async": [
+              [
+                88,
+                90
+              ]
+            ],
+            "work_dir": [
+              [
+                118,
+                119
+              ]
+            ],
+            "write_file": [
+              [
+                158,
+                171
+              ]
+            ]
+          }
+        },
+        "swegemma/submission.py": {
+          "lines": 104,
+          "sha256": "d387b402223300d06eb6f4f960faf82e997098050f5317961c64e6b95365974a",
+          "symbols": {
+            "ParticipantVisibleError": [
+              [
+                12,
+                15
+              ]
+            ],
+            "generate_standard_submission": [
+              [
+                35,
+                104
+              ]
+            ],
+            "get_eval_root": [
+              [
+                18,
+                32
+              ]
+            ]
+          }
+        }
+      },
+      "sha256": "9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3"
+    }
+  }
+}
