@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "CPU_MODEL", "records", "actual_Gemma_requests", "GPU_devices_observed", "real_model_token_usage", "new_independent_tasks_admitted", "source_members_verified"],
+  "properties": {
+    "status": {"const": "COMPILER_FULL_PASS"},
+    "CPU_MODEL": {"const": "SCRIPTED_ONLY"},
+    "actual_Gemma_requests": {"const": 0},
+    "GPU_devices_observed": {"const": 0},
+    "new_independent_tasks_admitted": {"const": 0},
+    "real_model_token_usage": {"type": "null"},
+    "source_members_verified": {"const": 202},
+    "records": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["arm", "full_compiler", "package_sha256", "generation", "direct_without_list_load", "skill_responses", "scripted_HTTP_requests", "synthetic_native_resolved", "cleanup", "local_receipts"],
+        "properties": {
+          "arm": {"enum": ["N", "D"]},
+          "full_compiler": {"const": true},
+          "package_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "direct_without_list_load": {"const": true},
+          "skill_responses": {"const": 14},
+          "scripted_HTTP_requests": {"const": 22},
+          "synthetic_native_resolved": {"const": true},
+          "cleanup": {"type": "object", "required": ["complete", "owned_roots_removed"], "properties": {"complete": {"const": true}, "owned_roots_removed": {"const": true}}},
+          "local_receipts": {"type": "array", "minItems": 11, "maxItems": 11}
+        }
+      }
+    }
+  }
+}
