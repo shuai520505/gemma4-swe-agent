@@ -1,0 +1,45 @@
+{
+  "harness_commit": "02e7a74ffd0b707aab73d203fe87bdc7c76afc8e",
+  "commit_source": "git ls-remote upstream HEAD; public GitHub API rate-limited 403",
+  "files": {
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/LICENSE",
+      "sha256": "2bd2e08df7147f67a69b42c10efae09bd4bf119df397371036187d5dd1b02f57",
+      "bytes": 1159
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/README.md",
+      "sha256": "06841624d7b5130dfe3cc6714642e9a8fd2a608c95c66ae0180e409f12b73aaa",
+      "bytes": 13302
+    },
+    "pyproject.toml": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/pyproject.toml",
+      "sha256": "58c4f4f283c6f214166376f83dad8b18bc85f9a7c2c66216343de0498fd9fe19",
+      "bytes": 2816
+    },
+    "swebench/harness/run_evaluation.py": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/swebench/harness/run_evaluation.py",
+      "sha256": "04b5dab584fbe62ae9d1ff025edf52d714e584102d587c7e647805d1efb37d84",
+      "bytes": 31442
+    },
+    "swebench/harness/docker_utils.py": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/swebench/harness/docker_utils.py",
+      "sha256": "f1c3941d24580df56a8e2346df86d34e658319b9a70d4d05c504504b541d431e",
+      "bytes": 6161
+    },
+    "swebench/harness/utils.py": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/swebench/harness/utils.py",
+      "sha256": "c22f38fdd4ffd34301da7f837b82926cf261d81ca0387d92dd2990b393517c79",
+      "bytes": 9794
+    },
+    "swebench/harness/grading.py": {
+      "url": "https://raw.githubusercontent.com/SWE-bench/SWE-bench/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/swebench/harness/grading.py",
+      "sha256": "a095273010175001a6779e365b3b77abb8657c7ac2e4f80b4bc360faa6f09483",
+      "bytes": 14144
+    }
+  },
+  "license": "MIT publisher LICENSE/README; dataset card has no separate license tag; underlying source licenses still apply",
+  "baseline_executed": false,
+  "reference_patches_read": false,
+  "investigation_failure": "Historical docker_build.py path returned 404; actual pinned run_evaluation imports docker_utils and harness.utils, now hash recorded"
+}
