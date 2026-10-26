@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline repair-development observation; not an Agent mechanism",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["task_id", "source_sha256", "patch_sha256", "hypothesis", "edit_kind", "verification", "usage", "termination"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "source_sha256": {"$ref": "#/$defs/sha"},
+    "patch_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+    "hypothesis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim_sha256", "classification", "review_evidence_sha256"],
+      "properties": {
+        "claim_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+        "classification": {"enum": ["SUPPORTED_BY_OBSERVED_DISCRIMINATION", "CONTRADICTED", "UNSUPPORTED", "UNKNOWN"]},
+        "review_evidence_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]}
+      },
+      "allOf": [{"if": {"properties": {"classification": {"enum": ["SUPPORTED_BY_OBSERVED_DISCRIMINATION", "CONTRADICTED"]}}},
+        "then": {"properties": {"review_evidence_sha256": {"$ref": "#/$defs/sha"}}}}]
+    },
+    "edit_kind": {"enum": ["NONE", "PRODUCTION_BEHAVIOR_REVIEWED", "SCRATCH", "DEBUG_ONLY", "IMPORT_ONLY", "UNKNOWN"]},
+    "verification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["program_sha256", "tested_source_sha256", "receipt_sha256", "returncode", "assertions_executed", "classification", "issue_relevance", "freshness", "post_edit"],
+      "properties": {
+        "program_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+        "tested_source_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+        "receipt_sha256": {"anyOf": [{"$ref": "#/$defs/sha"}, {"type": "null"}]},
+        "returncode": {"type": ["integer", "null"]},
+        "assertions_executed": {"type": ["integer", "null"], "minimum": 0},
+        "classification": {"enum": ["TARGET_BEHAVIOR_FAILURE", "ENVIRONMENT_BLOCKED", "UNKNOWN_FAILURE", "PASS", "NOT_RUN"]},
+        "issue_relevance": {"enum": ["REVIEWED_RELEVANT", "REVIEWED_IRRELEVANT", "UNKNOWN"]},
+        "freshness": {"enum": ["CURRENT_SOURCE_MATCH", "STALE", "UNKNOWN"]},
+        "post_edit": {"type": ["boolean", "null"]}
+      }
+    },
+    "usage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["model_requests", "tool_requests", "prompt_tokens", "completion_tokens", "wall_seconds"],
+      "properties": {
+        "model_requests": {"type": ["integer", "null"], "minimum": 0},
+        "tool_requests": {"type": ["integer", "null"], "minimum": 0},
+        "prompt_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "completion_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "wall_seconds": {"type": ["number", "null"], "minimum": 0}
+      }
+    },
+    "termination": {"enum": ["CHECK_COMPLETED", "ENVIRONMENT_ERROR", "CONTEXT_GUARD", "DEADLINE", "TOOL_LIMIT", "MODEL_ERROR", "NOT_RUN", "UNKNOWN"]}
+  },
+  "$defs": {"sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

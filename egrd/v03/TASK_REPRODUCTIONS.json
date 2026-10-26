@@ -1,0 +1,522 @@
+{
+  "GPU": false,
+  "Notebook_id": 141004018,
+  "Notebook_version": 1,
+  "all_cleanup": true,
+  "environment_verified": 3,
+  "formal_submission": false,
+  "genuine_issue_failures": 3,
+  "model_requests": 0,
+  "official_native_resolved": null,
+  "raw_archive_sha256": "fbb5fc1b8dddfdad2243b3c5dcfe77e7ad01fbb7e35e8f37d424f9906a8ec228",
+  "records": [
+    {
+      "base_commit": "60a7bd89860e504c0c33b02c78edcac87f6d1b5a",
+      "canonical_SWEbench_evaluation": false,
+      "classification": "TARGET_BEHAVIOR_FAILURE",
+      "cleanup": true,
+      "commands": {
+        "diagnostic_execution": {
+          "owned_process_reaped": true,
+          "returncode": 1,
+          "seconds": 1.0679948309999645,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 856,
+          "stdout_sha256": "c8c60f29c554909741b32b62ddb0b466e7c732e56b4d1d790288ecce92a153b4",
+          "timed_out": false
+        },
+        "import_smoke": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.16486176899996963,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 733,
+          "stdout_sha256": "d557327c0044103d6ed262dd584b393b1c02c84eeea782443c2cc7ad2927853b",
+          "timed_out": false
+        },
+        "installation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 2.6225593100000424,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 941,
+          "stdout_sha256": "2b2b3c494079fc4bb6d0481d019200ab8a26de9e432598e38cd3f5a51504c8b2",
+          "timed_out": false
+        },
+        "pip_check": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.716974099999959,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 30,
+          "stdout_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+          "timed_out": false
+        },
+        "venv_creation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.16505022799998414,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false
+        }
+      },
+      "completion_tokens": null,
+      "environment_verified": true,
+      "environment_warning": "Nonfatal sitecustomize startup reports missing wrapt; probe controls and import succeed. Isolation is venv-level, not a hardened sandbox.",
+      "evaluation_kind": "ISSUE_GROUNDED_DEVELOPMENT_PROBE",
+      "executed_check_count": 4,
+      "exposure": "V03_ISSUE_AND_PROBE_REVIEWED",
+      "failed_target_assertions": 1,
+      "genuine_issue_failure": true,
+      "independent_confirmation_eligible": false,
+      "instance_id": "django__django-16333",
+      "issue_sha256": "603fcbce6271954ca24171d4ae19dcaba962abf158fc04f53d3fd18dbcd20cb3",
+      "model_requests": 0,
+      "official_native_resolved": null,
+      "passed_control_count": 3,
+      "positive_controls_passed": true,
+      "probe_receipt_sha256": "3dd5fd7de14087d6482fce6200acdb6da0a6d126a1e9b120cbf57931f2721657",
+      "probe_sha256": "1467627a7ac075979f16bbd0d1a6cb070d61f4619e43d74f523ac89d9391015e",
+      "prompt_tokens": null,
+      "raw_result_sha256": "7f43989e0c3f45a325c0e6f7b3b9fbf6a51634c04c9cf357798c3fda9fc3a279",
+      "repo": "django/django",
+      "requirements_sha256": "a1e63709635583bb0e7e1112960d1500b787b6f7f8e2114412138e22ff530ec0",
+      "runtime": {
+        "installed_RECORD_sha256": {
+          "asgiref": "f7696003ea3940ebf28dab50e477744de8188ae1ffc1ba93e9afc6900d2be506",
+          "setuptools": "0a8aff9fb42a4bdb9b794800342f184ffee4f49a08dafc7ad258a455c062c2fe",
+          "sqlparse": "5417791c3a1cb5280f42c934679917c8f86f042f69f97fb82ac04bc47668f0da"
+        },
+        "module_version": "4.2",
+        "packages": [
+          [
+            "asgiref",
+            "3.8.1"
+          ],
+          [
+            "setuptools",
+            "75.8.0"
+          ],
+          [
+            "sqlparse",
+            "0.5.3"
+          ]
+        ],
+        "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]"
+      },
+      "snapshot_sha256": "af973fb1d53c6b1674e7bd156fba722c5f7ad3194d2f257459fb37c247a54fb0",
+      "source_import_verified": true,
+      "source_tree_after": "542af0a58f5391245a3e82a435ae49a328def6b8f6428856e3016bc163b7dfa9",
+      "source_tree_before": "542af0a58f5391245a3e82a435ae49a328def6b8f6428856e3016bc163b7dfa9",
+      "source_unchanged": true,
+      "split": "EXTERNAL_DEVELOPMENT_EXPOSED",
+      "status": "BUG_REPRODUCED",
+      "swebench_resolved": null,
+      "target_exception_type": "AssertionError",
+      "termination_reason": "CHECK_COMPLETED",
+      "tool_requests": null,
+      "wall_seconds": 12.202875714000015
+    },
+    {
+      "base_commit": "1757dffac2fa493d7b9a074b84cf8c830a706688",
+      "canonical_SWEbench_evaluation": false,
+      "classification": "TARGET_BEHAVIOR_FAILURE",
+      "cleanup": true,
+      "commands": {
+        "diagnostic_execution": {
+          "owned_process_reaped": true,
+          "returncode": 1,
+          "seconds": 0.9176875449999784,
+          "stderr_bytes": 333,
+          "stderr_sha256": "cffbb2ec9a276bddd091c69e8696e7cb60f523732477a94170ee1daf676e5643",
+          "stdout_bytes": 766,
+          "stdout_sha256": "9c35f32a12dd0b9027e38246a861b5b5fc49a8e55b9d7584ee4c51224840fbf3",
+          "timed_out": false
+        },
+        "import_smoke": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.9676085690000491,
+          "stderr_bytes": 333,
+          "stderr_sha256": "cffbb2ec9a276bddd091c69e8696e7cb60f523732477a94170ee1daf676e5643",
+          "stdout_bytes": 2936,
+          "stdout_sha256": "5d38294f16b3c6967d15e530cb426e319ede83faf0960452337e8887384379d4",
+          "timed_out": false
+        },
+        "installation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 11.45823950099998,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 2358,
+          "stdout_sha256": "6afb40adc0db97d690cb13cea1eb8c9b9b8b32b62af055fef6201e6f29600d57",
+          "timed_out": false
+        },
+        "pip_check": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.717062865999992,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 30,
+          "stdout_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+          "timed_out": false
+        },
+        "venv_creation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.16513733100003947,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false
+        }
+      },
+      "completion_tokens": null,
+      "environment_verified": true,
+      "environment_warning": "Nonfatal sitecustomize startup reports missing wrapt; probe controls and import succeed. Isolation is venv-level, not a hardened sandbox.",
+      "evaluation_kind": "ISSUE_GROUNDED_DEVELOPMENT_PROBE",
+      "executed_check_count": 3,
+      "exposure": "V03_ISSUE_AND_PROBE_REVIEWED",
+      "failed_target_assertions": 1,
+      "genuine_issue_failure": true,
+      "independent_confirmation_eligible": false,
+      "instance_id": "pydata__xarray-3095",
+      "issue_sha256": "3d8f2d8422b56bd5980ec478be1413ef87805484446fc15dbd482342a59abb25",
+      "model_requests": 0,
+      "official_native_resolved": null,
+      "passed_control_count": 2,
+      "positive_controls_passed": true,
+      "probe_receipt_sha256": "e608f2db717e647607bee61324d05c338fe5ad51dc95fa7bd020706b9afb66ef",
+      "probe_sha256": "1d9326959f26fd8f25c4f5bc55d65bcec6227bebdd7fadd1fe6673cd59be4780",
+      "prompt_tokens": null,
+      "raw_result_sha256": "1227b3f1b94900659568002889eb548bee30e7c79653481ac9b1104acbbff2e0",
+      "repo": "pydata/xarray",
+      "requirements_sha256": "84f5596bac94900d6d252d63edcc6660313f1037060e1b54cf2ad1da0a012394",
+      "runtime": {
+        "installed_RECORD_sha256": {
+          "autocommand": "c26cd4ee13c055a79f9a94df9608838a9f12e5f530738b66b8c5d8d7436e85a6",
+          "backports.tarfile": "7a10f8beb51f2d81de83651970d36655be2a071e65d1a0ecb6d6738d439c2a9c",
+          "importlib_metadata": "aa6ebf9f9bc8f79edd6e571db0a45f08160b2b7b14c90e107062ef22722b8ed9",
+          "inflect": "176aa909a0c0e81e22d85d6b09ebd152054021808a6fed13185c88f24cb99e52",
+          "jaraco.collections": "37c4aca0d3e21b87f24fef28894f8a224a709c81ee038a1a9962d28a55448ad9",
+          "jaraco.context": "ec68980bb8a9a24976b8fb1ebf97ec37e0aede9dd943fde452ad7c0fd06d6ca3",
+          "jaraco.functools": "11650cfb5b02cda51fa456650b35917ed3af176ab02dea0ba30e89fac6acf6f0",
+          "jaraco.text": "a5ffd27cbd1786264a4164daedad4473ffcda3bce40fbd6ecb07d620f6c71eb1",
+          "more-itertools": "01e69a0b455e3531c60efd54afde550abe4cc9399866df1faf4ce93430cc756a",
+          "numpy": "d5f29b182d0defabd8de1754e0ffbacb9efa9f9ac547be9d23cd46302081b6c5",
+          "packaging": "6380eb5ccd0a63402b7f385b0046b52d814fc16dd612011e2f8882a977be03e3",
+          "pandas": "6c3484b7b0c83152bcf0337638bd0eaf8389de8f3a5617f6b60aca51171d8e55",
+          "platformdirs": "dbbe1ed171919ed23c6c33ffd7dae36da1a058d317c780c64ebba190a576548a",
+          "python-dateutil": "485473d3f6ef7760608ce10f98394283bdf165e76f2016289dc9e116996d660b",
+          "pytz": "a89c7e6fa2dd9ce8ab225c4d6cf122db0da52cc7be7f68311b0e4d2e7ae1bdd7",
+          "setuptools": "0a8aff9fb42a4bdb9b794800342f184ffee4f49a08dafc7ad258a455c062c2fe",
+          "six": "15fbe6d7ed6c0da64d32aefabc11ada6b97507a61496c0f56173a8e865f2d5f3",
+          "tomli": "ba8e0845ee9f4b5eb678e585b9a0fed16ed4147314e360194701575433207146",
+          "typeguard": "8711b5cdde50751ff49d2c27f9b1f0525a8d0d1ae1a0732031de45c527e2e98f",
+          "typing_extensions": "c68fe34e01468a182d13422ad9acf42bf86d85d7ed3ad3d47c747062e989072a",
+          "tzdata": "49a6ad65de42a7f9773e7185a6336261a1a479132fb8af115d37b59d373f0ef5",
+          "wheel": "a5f388d4e32636802a3f071b4604ff96cc08d105cdb1d8418aaa296a48955172",
+          "zipp": "0be540ae0f76535271204bffc66bfc83c9ebf9da0dd54555396184cd2578ede3"
+        },
+        "module_version": "0+unknown",
+        "packages": [
+          [
+            "autocommand",
+            "2.2.2"
+          ],
+          [
+            "backports.tarfile",
+            "1.2.0"
+          ],
+          [
+            "importlib_metadata",
+            "8.0.0"
+          ],
+          [
+            "inflect",
+            "7.3.1"
+          ],
+          [
+            "jaraco.collections",
+            "5.1.0"
+          ],
+          [
+            "jaraco.context",
+            "5.3.0"
+          ],
+          [
+            "jaraco.functools",
+            "4.0.1"
+          ],
+          [
+            "jaraco.text",
+            "3.12.1"
+          ],
+          [
+            "more-itertools",
+            "10.3.0"
+          ],
+          [
+            "numpy",
+            "1.26.4"
+          ],
+          [
+            "packaging",
+            "24.2"
+          ],
+          [
+            "packaging",
+            "24.2"
+          ],
+          [
+            "pandas",
+            "2.2.3"
+          ],
+          [
+            "platformdirs",
+            "4.2.2"
+          ],
+          [
+            "python-dateutil",
+            "2.9.0.post0"
+          ],
+          [
+            "pytz",
+            "2025.2"
+          ],
+          [
+            "setuptools",
+            "75.8.0"
+          ],
+          [
+            "six",
+            "1.17.0"
+          ],
+          [
+            "tomli",
+            "2.0.1"
+          ],
+          [
+            "typeguard",
+            "4.3.0"
+          ],
+          [
+            "typing_extensions",
+            "4.12.2"
+          ],
+          [
+            "tzdata",
+            "2025.2"
+          ],
+          [
+            "wheel",
+            "0.43.0"
+          ],
+          [
+            "zipp",
+            "3.19.2"
+          ]
+        ],
+        "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]"
+      },
+      "snapshot_sha256": "6cf6c469444fb89b05ad35de96ff21e4146f7bd9d50073f739f8f209f0a55754",
+      "source_import_verified": true,
+      "source_tree_after": "be94184e1fd9461fcbe39ab70476a5991cfb29a76b030b4f58ee86f693cfc16f",
+      "source_tree_before": "be94184e1fd9461fcbe39ab70476a5991cfb29a76b030b4f58ee86f693cfc16f",
+      "source_unchanged": true,
+      "split": "EXTERNAL_DEVELOPMENT_EXPOSED",
+      "status": "BUG_REPRODUCED",
+      "swebench_resolved": null,
+      "target_exception_type": "AssertionError",
+      "termination_reason": "CHECK_COMPLETED",
+      "tool_requests": null,
+      "wall_seconds": 14.63586531300001
+    },
+    {
+      "base_commit": "3c54a8f07b70cdd40e3d81ea319e9fcccd2481d2",
+      "canonical_SWEbench_evaluation": false,
+      "classification": "TARGET_BEHAVIOR_FAILURE",
+      "cleanup": true,
+      "commands": {
+        "diagnostic_execution": {
+          "owned_process_reaped": true,
+          "returncode": 1,
+          "seconds": 0.7170000070000242,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 685,
+          "stdout_sha256": "0693fdc50a0f1ce4d962e0645f9a3e4d7c1546f002fae3335a561c25fcdee9ac",
+          "timed_out": false
+        },
+        "import_smoke": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.6667109439999876,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 2021,
+          "stdout_sha256": "18658f82e287fd6936dcfc9a72d9d22fb915b050987a213408d0a74cd002cb35",
+          "timed_out": false
+        },
+        "installation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 2.473075678999976,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 4266,
+          "stdout_sha256": "1e201331f8de473edabd1ee118c1264a1782015f943d2d138bd03bc4fd0b1319",
+          "timed_out": false
+        },
+        "pip_check": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.7168557670000268,
+          "stderr_bytes": 102,
+          "stderr_sha256": "50e31b712644548df2ea205f2e49aed62d938a59070d48f36338db20c2753895",
+          "stdout_bytes": 30,
+          "stdout_sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+          "timed_out": false
+        },
+        "venv_creation": {
+          "owned_process_reaped": true,
+          "returncode": 0,
+          "seconds": 0.16510924800002158,
+          "stderr_bytes": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "timed_out": false
+        }
+      },
+      "completion_tokens": null,
+      "environment_verified": true,
+      "environment_warning": "Nonfatal sitecustomize startup reports missing wrapt; probe controls and import succeed. Isolation is venv-level, not a hardened sandbox.",
+      "evaluation_kind": "ISSUE_GROUNDED_DEVELOPMENT_PROBE",
+      "executed_check_count": 2,
+      "exposure": "PREVIOUSLY_USED_AND_ANALYZED",
+      "failed_target_assertions": 0,
+      "genuine_issue_failure": true,
+      "independent_confirmation_eligible": false,
+      "instance_id": "fastapi_14297",
+      "issue_sha256": "55c911d665e9b00a79f5db7c5a1bb75ded6307f7719b061ef0799bacd0b6fdd5",
+      "model_requests": 0,
+      "official_native_resolved": null,
+      "passed_control_count": 2,
+      "positive_controls_passed": true,
+      "probe_receipt_sha256": "ea889ba4daed7f0682aa72f524818f060e5b17367715ced998fc6f91b944bd1b",
+      "probe_sha256": "193992a010408490aa685e232560669f0def9cb13f8b39d44c07b18f64a97a88",
+      "prompt_tokens": null,
+      "raw_result_sha256": "01fe9f61f2bcb5f20d596c39314e0ed5ee72e8c0073c1416fc499fedc8dbdb48",
+      "repo": "fastapi/fastapi",
+      "requirements_sha256": "6872c6af69f325b8f4b50bebad14b6c17377c0a3cc1f5df4e05408f47087173d",
+      "runtime": {
+        "installed_RECORD_sha256": {
+          "annotated-doc": "bdbdbce93c54f13b84e0c2b00633e23703741c776a780553f84c661aee16be23",
+          "annotated-types": "575858289f3f4a4058d3ece6c6f1a87dcd9c74a38b3ab858f11ac550e80a3f71",
+          "anyio": "7f47ab50ac21d11e8461e01fd32d9db5bdbfe163a63939049bb7ade9b74fdd69",
+          "certifi": "94de8899937e689e4a8bee9d2c35c1dc07dad4c507eca0d59b480f0f4a8b8ffc",
+          "h11": "fa83fcec506310ef27455d776ed1b5a86b14746f2c48bc7fd29f41d2320630ea",
+          "httpcore": "34eb3d2e270764d5b764e0bb2c9a319899865973bd5feaa26ee8dd093e0775ac",
+          "httpx": "f5e559c793662289456675b9d235a8b74b6ebfe2f1e513ef233e8502221c69fa",
+          "idna": "a9297672d77adf9cc33871458adc1b9aa66039480fe85649229db430c82d57e7",
+          "pydantic": "d87b33bbb79de44779e3d2f8e47e2e86e6be66385d6fa10d890596b0da31bd4c",
+          "pydantic_core": "3803cc20a89c85b8691bda35fd404fde83a6f2de9c3a09271e3a5618d62554de",
+          "python-multipart": "e3931991d5c0895eaced721edc5a8f87481567b60417a1bf9fb0f27b048420d6",
+          "sniffio": "747c67836e0ca5069d5ffb702111f4943b54d4a33906eb02ebf61f009cc0bfba",
+          "starlette": "791ead4423da214f47af738614ea4b7b317c1003c14645197cb9c31a1234e33a",
+          "typing-inspection": "b2eb3c83d84c64d59eecaaff6920f170e6eb46472b2a3fe4879173b297bf2026",
+          "typing_extensions": "cdcafb95ab52451f9cd07ef771e343541cbb2de3753abcdf119c76d9e42f5298"
+        },
+        "module_version": "0.123.2",
+        "packages": [
+          [
+            "annotated-doc",
+            "0.0.2"
+          ],
+          [
+            "annotated-types",
+            "0.7.0"
+          ],
+          [
+            "anyio",
+            "4.9.0"
+          ],
+          [
+            "certifi",
+            "2025.8.3"
+          ],
+          [
+            "h11",
+            "0.16.0"
+          ],
+          [
+            "httpcore",
+            "1.0.9"
+          ],
+          [
+            "httpx",
+            "0.28.1"
+          ],
+          [
+            "idna",
+            "3.10"
+          ],
+          [
+            "pydantic",
+            "2.11.7"
+          ],
+          [
+            "pydantic_core",
+            "2.33.2"
+          ],
+          [
+            "python-multipart",
+            "0.0.20"
+          ],
+          [
+            "sniffio",
+            "1.3.1"
+          ],
+          [
+            "starlette",
+            "0.48.0"
+          ],
+          [
+            "typing-inspection",
+            "0.4.1"
+          ],
+          [
+            "typing_extensions",
+            "4.14.1"
+          ]
+        ],
+        "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]"
+      },
+      "snapshot_sha256": "0fdf3b9978e7bb8381110e47c75cc12378dcb050aced0cb6479eb600021a4901",
+      "source_import_verified": true,
+      "source_tree_after": "6304ff74513a606655c79c43ff81d98a0a79f953f7eccf55b09275f4f4f414ad",
+      "source_tree_before": "6304ff74513a606655c79c43ff81d98a0a79f953f7eccf55b09275f4f4f414ad",
+      "source_unchanged": true,
+      "split": "HISTORICAL_DEVELOPMENT_ONLY",
+      "status": "BUG_REPRODUCED",
+      "swebench_resolved": null,
+      "target_exception_type": "TypeError",
+      "termination_reason": "CHECK_COMPLETED",
+      "tool_requests": null,
+      "wall_seconds": 7.202476224999998
+    }
+  ],
+  "schema": "EGRD_DEV_RESULTS_PUBLIC_V1",
+  "swebench_resolved": null
+}
