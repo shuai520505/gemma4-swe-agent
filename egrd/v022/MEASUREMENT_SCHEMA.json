@@ -1,0 +1,31 @@
+{
+  "experiment": "EGRD-V022-MEER-ADOPTION",
+  "competitive_primary": "Official Native Resolved",
+  "unit": "Independent task-by-arm Session; requests/tools are repeated observations, not independent repair trials",
+  "missing_data": "Unknown/unrun results and usage stay null with reason; never replace with zero/false",
+  "per_session_fields": {
+    "identity": ["run", "task_id", "arm", "candidate_sha256", "Issue_sha256", "snapshot_sha256", "overlay_sha256", "environment_sha256", "source_commit", "raw_archive_sha256"],
+    "native": ["actually_started", "native_resolved", "TaskResult_sha256", "JUnit_sha256", "final_patch_sha256", "explicit_submit", "cleanup", "failure_class"],
+    "adoption": ["Skill_exposed_in_actual_request", "list_skills_calls", "load_skill_calls", "load_skill_resource_calls", "run_skill_script_calls", "direct_script_calls_without_prior_discovery", "valid_verifier_receipts", "probe_subprocesses_started", "probe_assertions_executed", "failed_invocations", "unconditional_bypass", "first_prerequisite_probe_available_event", "calls_after_prerequisite_available"],
+    "evidence": ["source_sha256", "check_sha256", "Agent_declared_contract", "actual_exception", "executed_assertions", "nonconstant_assertions", "failed_assertions", "verdict", "source_unchanged_during_check", "freshness", "independent_relevance_review", "target_vs_environment_review", "review_lock_sha256"],
+    "repair": ["first_relevant_source_read", "first_observable_hypothesis", "first_production_behavior_edit", "meaningful_revisions", "source_bound_post_edit_check", "submission_time", "Context_Guard", "deadline_stop", "tool_budget_stop"],
+    "cost": ["generation_HTTP_requests", "tokenizer_requests_separately", "prompt_tokens", "completion_tokens", "received_tokens", "usage_complete", "Skill_calls", "official_charged_tools", "Skill_wall_seconds", "Agent_wall_seconds", "Worker_wall_seconds", "measurable_GPU_billing"]
+  },
+  "definitions": {
+    "invocation": "Observed exact tool event names matching the existing Skill/script, independent of success or Native Resolved",
+    "direct_script_call": "Matching run_skill_script before any prior list/load event in that Session; preserve order and source refs",
+    "valid_verifier_receipt": "Original MEER_EVIDENCE_V1 response with source/check identity; record early UNKNOWN separately",
+    "probe_subprocess_started": "Receipt subprocess_invocations=1 even if assertion/dependency/timeout fails; this is not useful evidence by itself",
+    "unconditional_bypass": "Actually observed exposed Session with zero matching script calls; no claim about awareness or deliberate refusal",
+    "unconditional_rates": "Numerator over every actually started observed arm Session, including failed repairs; report missing exposure/traces separately",
+    "prerequisite_available": "Prior actual successful creation of a Python probe outside the repo, path existence/source and executable content verified from trace; semantic relevance reviewed blind to native outcome",
+    "opportunity_adjusted_rates": "Secondary only, predeclared criterion above; if prerequisite never exists, report that fact and do not infer refusal",
+    "meaningful_edit": "Actual production-file hash change plus outcome-blinded behavioral classification; diagnostic files/prints do not count",
+    "relevance": "Independent Issue/public-source/probe review, hash-locked before native outcome reveal; assertion count/pass is not a semantic oracle",
+    "blinding_limit": "Mask arm/cue labels where possible; reviewer may recognize the interface. Do not claim perfect treatment blinding",
+    "target_vs_environment": "Classify exceptions using Issue/setup evidence; original CONTRADICTED may include ModuleNotFoundError and is not Native Resolved=false",
+    "time_origin": "Recorded monotonic Agent start; event references and tool completion/source observation support timings",
+    "cost_totals": "Include failed/incomplete/bypassed Sessions; sum received usage separately from unknown unreturned usage; no account-quota delta treated as a per-job bill"
+  },
+  "current_results": "NOT_RUN_NO_REAL_MODEL_OR_ADMITTED_TASKS"
+}
