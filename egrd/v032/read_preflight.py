@@ -50,8 +50,12 @@ def run():
         for row in rows:
             owner,slug=row['ref'].split('/');request=ApiGetKernelSessionStatusRequest()
             request.user_name=owner;request.kernel_slug=slug
-            status=client.kernels.kernels_api_client.get_kernel_session_status(request)
-            states.append(dict(ref=row['ref'],status=status.status.name))
+            try:
+                status=client.kernels.kernels_api_client.get_kernel_session_status(request)
+                states.append(dict(ref=row['ref'],status=status.status.name))
+            except Exception as exc:
+                states.append(dict(ref=row['ref'],status=None,error_type=type(exc).__name__,
+                    HTTP_status=getattr(getattr(exc,'response',None),'status_code',None)))
     result['recent_states']=states
     result['conflict_gate']=all(r['status'] in ('COMPLETE','ERROR','CANCELLED') for r in states)
     files=api.model_instance_version_files(MODEL_REF,page_size=100)

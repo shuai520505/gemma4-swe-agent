@@ -24,6 +24,11 @@ class Preflight(unittest.TestCase):
         self.assertEqual(duration_seconds(timedelta(days=1,seconds=21600,microseconds=744000)),Decimal('108000.744'))
         with self.assertRaises(AssertionError):duration_seconds(None)
 
+    def test_unknown_or_queued_state_must_not_pass_conflict_gate(self):
+        terminal=('COMPLETE','ERROR','CANCELLED')
+        for status in (None,'QUEUED','RUNNING','CANCEL_ACKNOWLEDGED'):
+            self.assertFalse(all(r['status'] in terminal for r in [dict(status='COMPLETE'),dict(status=status)]))
+
     def test_original_S0_bytes_and_members(self):
         raw=(ROOT/'candidates/s0/submission.zip').read_bytes()
         self.assertEqual(sha(raw),S0_SHA)
