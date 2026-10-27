@@ -1,0 +1,32 @@
+{
+  "actual_checks_executed": 4,
+  "canonical_swebench_resolved": null,
+  "controls": [
+    "Plain ModelForm validity",
+    "Plain ModelForm persists selected relation",
+    "Creation form validity"
+  ],
+  "diagnostic_program_sha256": "1467627a7ac075979f16bbd0d1a6cb070d61f4619e43d74f523ac89d9391015e",
+  "environment_requirements_sha256": "a1e63709635583bb0e7e1112960d1500b787b6f7f8e2114412138e22ff530ec0",
+  "execution_returncode": 1,
+  "expected_related_count": 1,
+  "issue_sha256": "603fcbce6271954ca24171d4ae19dcaba962abf158fc04f53d3fd18dbcd20cb3",
+  "limitations": [
+    "Owned development probe using built-in User.groups, not the complete custom-user application.",
+    "No complete repair correctness or official evaluation outcome is established.",
+    "Nonfatal sitecustomize/wrapt startup warning retained in original evidence."
+  ],
+  "observation": "In this scoped check, a valid creation form did not persist the selected ManyToMany relation after save.",
+  "observed_related_count": 0,
+  "official_native_resolved": null,
+  "original_receipt_sha256": "3dd5fd7de14087d6482fce6200acdb6da0a6d126a1e9b120cbf57931f2721657",
+  "positive_control_assertions_passed": 3,
+  "schema": "EGRD_SOURCE_BOUND_FAILURE_OBSERVATION_V1",
+  "source_base_commit": "60a7bd89860e504c0c33b02c78edcac87f6d1b5a",
+  "source_snapshot_sha256": "af973fb1d53c6b1674e7bd156fba722c5f7ad3194d2f257459fb37c247a54fb0",
+  "source_unchanged": true,
+  "target_assertions_failed": 1,
+  "target_exception": "AssertionError",
+  "task_id": "django__django-16333",
+  "tested_source_tree_sha256": "542af0a58f5391245a3e82a435ae49a328def6b8f6428856e3016bc163b7dfa9"
+}
