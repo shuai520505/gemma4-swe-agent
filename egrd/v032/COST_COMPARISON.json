@@ -1,31 +1,73 @@
 {
-  "A": {
-    "Agent_seconds": null,
-    "charged_tools": null,
-    "completion_tokens": null,
-    "prompt_tokens": null,
-    "received_tokens": null,
-    "worker_seconds": null
+  "B_initial_overhead_tokens": 678,
+  "GPU_money_cost": null,
+  "HTTP_200": 42,
+  "HTTP_400": 1,
+  "HTTP_requests": 44,
+  "Notebook_log_archive_emission_seconds": 1323.315130851,
+  "arms": {
+    "A": {
+      "Agent_seconds": 300.008406897,
+      "HTTP_200": 22,
+      "HTTP_400": 0,
+      "HTTP_requests": 23,
+      "HTTP_responses": 22,
+      "charged_tools": 20,
+      "emitted_tool_calls": 21,
+      "executed_tool_function_responses": 21,
+      "missing_usage_reason": "Last in-flight request canceled at deadline",
+      "native_completed_LLM_calls": 22,
+      "observed_received_usage": {
+        "completion_tokens": 4577,
+        "prompt_tokens": 219122,
+        "total_tokens": 223699
+      },
+      "reasoning_tokens": null,
+      "received_response_transport_seconds": 281.91535813500104,
+      "source_observer_seconds": 4.829050759999973,
+      "usage_complete": false,
+      "worker_seconds": 314.8315675460001
+    },
+    "B": {
+      "Agent_seconds": 277.61093387799997,
+      "HTTP_200": 20,
+      "HTTP_400": 1,
+      "HTTP_requests": 21,
+      "HTTP_responses": 21,
+      "charged_tools": 20,
+      "emitted_tool_calls": 20,
+      "executed_tool_function_responses": 20,
+      "missing_usage_reason": "Server HTTP400 has no generation usage",
+      "native_completed_LLM_calls": 20,
+      "observed_received_usage": {
+        "completion_tokens": 4235,
+        "prompt_tokens": 216944,
+        "total_tokens": 221179
+      },
+      "reasoning_tokens": null,
+      "received_response_transport_seconds": 268.6693587309999,
+      "source_observer_seconds": 4.6363915119993635,
+      "usage_complete": false,
+      "worker_seconds": 292.4047097989999
+    }
   },
-  "B": {
-    "Agent_seconds": null,
-    "charged_tools": null,
-    "completion_tokens": null,
-    "prompt_tokens": null,
-    "received_tokens": null,
-    "worker_seconds": null
-  },
-  "B_frozen_input_overhead_bytes": 1575,
-  "B_token_overhead": null,
-  "actual_Notebook_seconds": null,
-  "actual_startup_seconds": null,
-  "allocated_research_GPUs": 0,
   "billed_GPU_seconds": null,
-  "caution": "Account usage is not experimental consumption; bytes are not token counts",
-  "initial_tokenized_counts": null,
-  "real_Gemma_requests": 0,
-  "reason_billing_unknown": "No study dispatch; no separate billing statement queried",
-  "remaining_account_quota_report_seconds": "105730.256",
-  "research_GPU_dispatches": 0,
-  "status": "NO_COMPARISON: both sessions NOT_RUN"
+  "canceled_inflight_requests": 1,
+  "caveat": "Received usage excludes unknown canceled generation and the server rejection. Response latency includes HTTP overhead, not independently measured GPU inference. No separate billing statement available.",
+  "charged_tools_total": 40,
+  "complete_inference_cost_known": false,
+  "exact_platform_total_runtime_seconds": null,
+  "first_cell_to_coordinator_final_record_seconds": 1292.656943204,
+  "initial_input_tokens": {
+    "A": 3430,
+    "B": 4108
+  },
+  "model_startup_seconds": 295.36351855400005,
+  "real_Agent_sessions": 2,
+  "total_observed_received_usage": {
+    "completion_tokens": 8812,
+    "prompt_tokens": 436066,
+    "total_tokens": 444878
+  },
+  "unobserved_usage_imputed": false
 }

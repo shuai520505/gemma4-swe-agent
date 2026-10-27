@@ -49,5 +49,7 @@ All private raw task/input, model-boundary and evaluation data remains outside
 Git. No trusted test, reference solution, hidden material or model reasoning is
 included in these public reports. The public competition input is only the
 historically established host-side L4 environment mount; no files are read or
-staged from it. The Agent chroot has no Kaggle input mount. Actual dynamic
-isolation tests and model bytes must still be observed if a future dispatch runs.
+staged from it. The Agent chroot has no Kaggle input mount. The later single
+authorized execution did observe model-byte checks, isolation and cleanup; see
+RUNTIME_AUDIT.json and RAW_ARCHIVES.json. Earlier failed resource checks remain
+historical observations, superseded by the owner's parallel-job clarification.

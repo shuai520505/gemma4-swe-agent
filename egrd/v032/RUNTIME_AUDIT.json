@@ -1,0 +1,95 @@
+{
+  "Compiler_both_arms_pass": true,
+  "Compiler_preload_pass": true,
+  "Native_and_SWEbench_NOT_EVALUATED": true,
+  "all_required_cleanup_observed": true,
+  "compiled": {
+    "S0_sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+    "custom_Context_Guard": false,
+    "generation": {
+      "max_output_tokens": 16384,
+      "thinking_config": {
+        "thinking_budget": 4096
+      }
+    },
+    "include_thoughts_explicit": false,
+    "instruction_sha256": "04ec91bdecda3d50e78b56bd3b33547d531fbc4b59c1809c4380b52cbb7ce6df",
+    "model_registry_resolved": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "seed_explicit": false,
+    "source_package_model_label": "gemma-4-31b-it-qat-w4a16-ct",
+    "tools": [
+      "get_status",
+      "run_command",
+      "read_file",
+      "edit_file",
+      "write_file",
+      "submit_patch"
+    ]
+  },
+  "compiled_configurations_equal": true,
+  "context32768": true,
+  "devices": [
+    {
+      "memory_bytes": 23659151360,
+      "name": "NVIDIA L4"
+    },
+    {
+      "memory_bytes": 23659151360,
+      "name": "NVIDIA L4"
+    },
+    {
+      "memory_bytes": 23659151360,
+      "name": "NVIDIA L4"
+    },
+    {
+      "memory_bytes": 23659151360,
+      "name": "NVIDIA L4"
+    }
+  ],
+  "engine_seed_source": "backend_logs/before_stop-log_file_handle.log: Initializing a V1 LLM engine",
+  "explicit_request_seed": false,
+  "include_thoughts_override": false,
+  "initial_context": {
+    "B_overhead_tokens": 678,
+    "additional_guard_or_safety_reserve": false,
+    "arms": {
+      "A": {
+        "headroom": 12954,
+        "input_tokens": 3430,
+        "model_context": 32768,
+        "output_reservation": 16384
+      },
+      "B": {
+        "headroom": 12276,
+        "input_tokens": 4108,
+        "model_context": 32768,
+        "output_reservation": 16384
+      }
+    },
+    "counter": "Actual serving vLLM /tokenize with its exact mounted tokenizer/template and tools",
+    "generation_requests": 0
+  },
+  "prefix_cache_disabled_observed": true,
+  "research_Guard_installed": false,
+  "runtime": {
+    "Python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "driver": "580.178.04\n580.178.04\n580.178.04\n580.178.04\n",
+    "historical_serving_equivalence": "UNVERIFIED",
+    "requested_window": 10000,
+    "torch_cuda": "12.8",
+    "versions": {
+      "adk-eval-core": "0.1.0",
+      "adk-submission": "0.2.13",
+      "google-adk": "1.36.1",
+      "google-genai": "2.11.0",
+      "litellm": "1.82.4",
+      "pytest": "8.4.2",
+      "swegemma": "0.2.11",
+      "torch": "2.10.0+cu128",
+      "vllm": "0.19.1"
+    }
+  },
+  "seed17_not_inserted": true,
+  "server_seed_observed": 0,
+  "supervisor_generic_official_result": "UNKNOWN/official_result_missing, preserved: this development worker does not run an official benchmark TaskResult"
+}

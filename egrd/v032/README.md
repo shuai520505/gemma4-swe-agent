@@ -1,40 +1,26 @@
-# EGRD V0.3.2 — frozen S0 evidence-to-patch A/B
+# EGRD V0.3.2 — real Gemma evidence-to-patch A/B
 
-Development mechanism study, based on PR40 commit
-`d2a09cb114df4621885f437bf04c4b7d919d47de`. One owner-authorized private
-GPU Notebook, A then B, at most one real Agent invocation per arm. No retries,
-extra inference probes, candidate changes, or competition submission.
+Final status: **EGRD_V032_NEITHER_REPAIRS**. Private Kaggle141100028/v1 COMPLETE;
+one GPU dispatch, exactly A→B real Agent sessions, four L4 GPUs and frozen S0.
+Neither produced a submitted verified repair. A made a late unverified production
+edit; B edited tests/scratch only. Neither fallback was evaluated as a submitted
+patch. See FINAL_DECISION.md and AB_RESULT_ANALYSIS.md for the key limitations.
 
-The exact S0 ZIP and Django source are unchanged. B receives the original frozen
-failure supplement; A receives only the original Issue. The owned development
-probe is not official Native or canonical SWE-bench evaluation. Both official
-outcomes remain null. Historical S0 serving equivalence is unverified.
+Reproduction: validate archive using inspect_results.py (private verified-output
+must not already exist), then `python -m egrd.v032.finalize_results`. Run
+`python -m unittest egrd.v032.test_preflight egrd.v032.test_results -v` for offline
+integrity and missing-data/endpoint checks. No analysis utility performs model
+inference, Notebook dispatch or competition submission.
 
-`EXPERIMENT_FREEZE.json` and `GPU_ENVIRONMENT_LOCK.json` bind the common settings.
-`BUILD.json` binds the private executable payload and Notebook. Raw requests,
-responses, patches and evaluator files remain outside Git. No model weights are
-included in the payload; the immutable Kaggle model instance version 2 is mounted
-and every model/tokenizer/template file is hashed before loading.
+The exact original S0 ZIP, task, receipt, generation settings and tools remain
+unchanged. The only A/B input intervention was the frozen B receipt. Real serving
+token overhead678; no seed17, later research Guard, compaction or new Skill.
+No official Native/SWE-bench evaluation or new Public Score. Historical S0
+serving equivalence remains unverified. S0 remains the formal0.13 baseline.
 
-Local checks: `python -m unittest egrd.v032.test_preflight -v`. The 17 applicable
-PR40 regression checks also pass; its old branch-specific scope test is replaced
-by this branch's historical-integrity check. These are CPU engineering tests,
-not new Gemma observations.
-
-Execution uses the pinned official Compiler, S0 Runner and six tools. The PR40
-research filesystem adapter connects the external Django task to that path;
-it is not a competitor-deployable controller. Passive HTTP/source observers do
-not change messages, generation, tool decisions or trusted test expectations.
-The first-request identity gate stops unexpected input before forwarding it.
-
-No later research Guard, seed, safety reserve, history projection, compaction,
-thought filter, Skill or Prompt change is added. Both arms share one read-only
-model server with prefix caching disabled, and have independent workers, source
-trees, chroots, histories and trusted post-session evaluations. This common
-server setting is an explicit experimental choice, not a historical S0 claim.
-
-The predeclared primary requires a defensible submitted behavioral patch,
-applicability, fresh target/positive-control/regression evidence and independent
-review. Missing, failed, timed-out and unsubmitted outcomes are retained.
-
-See `FINAL_DECISION.md` for observed execution and interpretation after collection.
+The earlier no-dispatch stop is preserved in PRECLARIFICATION_STOP.json and Git;
+the owner clarified that unrelated concurrent jobs are permitted. A single
+subsequent dispatch was accepted; no duplicate, rerun, cancellation of another
+job or additional Session occurred. Candidate and historical artifacts were not
+altered. Raw task, reasoning, tool/HTTP traces, evaluator files and patches remain
+in the controlled private archive; Git contains safe derived records only.
