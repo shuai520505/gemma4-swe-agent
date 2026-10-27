@@ -13,6 +13,11 @@ def duration_seconds(value):
     return Decimal(value.days*86400+value.seconds)+Decimal(value.microseconds)/1000000
 
 
+def independent_dispatch_allowed(states,study_ref,claim_exists):
+    """Owner permits unrelated concurrent jobs; duplicate study jobs remain blocked."""
+    return not claim_exists and not any(row['ref']==study_ref for row in states)
+
+
 def run():
     binding=verify_history()
     os.environ.update(HTTPS_PROXY='http://127.0.0.1:7890',PYTHONIOENCODING='utf-8')
@@ -34,7 +39,7 @@ def run():
     result=dict(queried_UTC=datetime.now(timezone.utc).isoformat(),source_binding=binding,raw_gpu_quota=gpu,
                 remaining_report_seconds=str(remaining),GPU_reserved_seconds=str(seconds(q.time_reserved)),
                 requested_window_seconds=WINDOW,planned_resource_floor_report_seconds=4*WINDOW+1200,
-                quota_gate=remaining>=4*WINDOW+1200 and seconds(q.time_reserved)==0,
+                quota_gate=remaining>=4*WINDOW+1200,
                 actual_GPU_allocation='NOT_YET_ALLOCATED',max_dispatches=1,planned_sessions=2)
     write(HERE/'DYNAMIC_PREFLIGHT.json',result)
     print(json.dumps(dict(remaining_report_seconds=str(remaining),reserved_report_seconds=str(seconds(q.time_reserved)),quota_gate=result['quota_gate'])),flush=True)
@@ -57,7 +62,9 @@ def run():
                 states.append(dict(ref=row['ref'],status=None,error_type=type(exc).__name__,
                     HTTP_status=getattr(getattr(exc,'response',None),'status_code',None)))
     result['recent_states']=states
-    result['conflict_gate']=all(r['status'] in ('COMPLETE','ERROR','CANCELLED') for r in states)
+    result['parallel_jobs_owner_permitted']=True
+    result['concurrency_capacity']='Platform admission and actual isolated 4xL4 allocation are checked at dispatch/runtime; no account capacity count is exposed by quota_view'
+    result['conflict_gate']=independent_dispatch_allowed(states,REF,(PRIVATE/'GPU_DISPATCH.json').exists())
     files=api.model_instance_version_files(MODEL_REF,page_size=100)
     write(dest/'MODEL_METADATA.json',json.loads(files.to_json()))
     expected=json.loads((ROOT/'u_re/v01/experiments/gemma_smoke_01/MODEL_RUNTIME_CONFIG.json').read_bytes())

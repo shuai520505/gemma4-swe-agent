@@ -11,7 +11,7 @@ import unittest
 import zipfile
 
 from .prepare import HERE,ROOT,PRIVATE,BASE,S0_SHA,sha,verify_history
-from .read_preflight import duration_seconds
+from .read_preflight import duration_seconds,independent_dispatch_allowed
 from .observe import check_initial,InitialInputMismatch
 from .source_observer import scan,Tracker
 from egrd.v0311.boundary_audit import compare
@@ -24,10 +24,12 @@ class Preflight(unittest.TestCase):
         self.assertEqual(duration_seconds(timedelta(days=1,seconds=21600,microseconds=744000)),Decimal('108000.744'))
         with self.assertRaises(AssertionError):duration_seconds(None)
 
-    def test_unknown_or_queued_state_must_not_pass_conflict_gate(self):
-        terminal=('COMPLETE','ERROR','CANCELLED')
+    def test_owner_permits_unrelated_parallel_jobs_but_not_duplicate_study(self):
+        study='owner/frozen-study'
         for status in (None,'QUEUED','RUNNING','CANCEL_ACKNOWLEDGED'):
-            self.assertFalse(all(r['status'] in terminal for r in [dict(status='COMPLETE'),dict(status=status)]))
+            self.assertTrue(independent_dispatch_allowed([dict(ref='owner/other',status=status)],study,False))
+            self.assertFalse(independent_dispatch_allowed([dict(ref=study,status=status)],study,False))
+        self.assertFalse(independent_dispatch_allowed([],study,True))
 
     def test_original_S0_bytes_and_members(self):
         raw=(ROOT/'candidates/s0/submission.zip').read_bytes()
