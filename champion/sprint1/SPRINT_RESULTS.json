@@ -1,0 +1,111 @@
+{
+  "A_fallback": {
+    "canonical_swebench_resolved": null,
+    "classification": "VALIDATED_REPAIR",
+    "evidence_origin": "LOCAL_CPU_COMPLETED_BEFORE_OWNER_LOCATION_CHANGE",
+    "formal_Native_Resolved": null,
+    "scope": "Owned development target/controls/regression + independent review"
+  },
+  "CPU_dispatch": "One requested after location change; HTTP499 UNKNOWN",
+  "Compiler_gate": "COMPILER_BLOCKED",
+  "Public_Score_improvement_evidence": false,
+  "S0": {
+    "Submission_ID": 57261002,
+    "observed_Public_Score": 0.13,
+    "sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+    "unchanged": true
+  },
+  "candidates": {
+    "C1_BUDGET": {
+      "bytes": 2719,
+      "changed_members": [
+        "prompts/system.md"
+      ],
+      "compiler_blocker": "CPU_KAGGLE_DISPATCH_UNKNOWN_HTTP499; no new full Compiler result",
+      "evaluation": {
+        "max_time_minutes": 5.0,
+        "max_tool_calls": 60,
+        "timeout_seconds": 120
+      },
+      "generation_expected": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "mechanism": "Prompt adoption/decision guidance only",
+      "members": {
+        "agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "4dbd7805eda19736f50f7c82ec80859b03ce593fc27eddd010a8e68e3548743f"
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "official_Compiler": "COMPILER_BLOCKED",
+      "sha256": "01ee5458d89797708356e44711d829d9e0b37e898442312a0e7f473513a59749"
+    },
+    "C2_CONTEXT": {
+      "bytes": 1941,
+      "changed_members": [
+        "agent.yaml"
+      ],
+      "compiler_blocker": "CPU_KAGGLE_DISPATCH_UNKNOWN_HTTP499; no new full Compiler result",
+      "evaluation": {
+        "max_time_minutes": 5.0,
+        "max_tool_calls": 60,
+        "timeout_seconds": 120
+      },
+      "generation_expected": {
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "mechanism": "Output cap only; no custom Guard",
+      "members": {
+        "agent.yaml": "48a86f499d62517e3c02fff744cfb3f7ab07c91b5fcb84040049a9d190e6a257",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "5f43c3a546c4c21765aff5e09a92126b1bb104b6e8423b269364a0b8f286a7ce"
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "official_Compiler": "COMPILER_BLOCKED",
+      "sha256": "3259761b9650ee4852041a4c42880c05156d4d8b27c8d77ebbd45708419e9a13"
+    },
+    "C3_TEST_AWARE": {
+      "bytes": 2688,
+      "changed_members": [
+        "prompts/system.md"
+      ],
+      "compiler_blocker": "CPU_KAGGLE_DISPATCH_UNKNOWN_HTTP499; no new full Compiler result",
+      "evaluation": {
+        "max_time_minutes": 5.0,
+        "max_tool_calls": 60,
+        "timeout_seconds": 120
+      },
+      "generation_expected": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "mechanism": "Prompt adoption/decision guidance only",
+      "members": {
+        "agent.yaml": "9f3631984cb80bf1dadc4758adb2edf2cb1cb38474ebb35908ae6b49207eb7ad",
+        "eval_config.yaml": "4336195f5a2c63071dd2ee2448d13f6630c4a9f81ba4afc399dedb8312785861",
+        "prompts/system.md": "a6f50f99b22ae2c27670eb5bdfbec244f4c74c4dbd4f038d830f552c6f970e2e"
+      },
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "official_Compiler": "COMPILER_BLOCKED",
+      "sha256": "574843eb3d168c301d22af9cc6fdcb1389a494d7d68adf06e9d35968e3a03772"
+    }
+  },
+  "next": "Read-only recover CPU request, obtain Compiler acceptance, admit3 stratified development tasks; then separately authorize S0/C1 GPU comparison",
+  "no_formal_competition_submission": true,
+  "no_new_GPU_dispatch": true,
+  "no_new_Gemma_inference": true,
+  "reference": {
+    "scored_artifact_identity": "SCORED_ARTIFACT_IDENTITY_UNVERIFIED",
+    "version_score_link_observed": true
+  },
+  "static_construction_checks": "Original S0 hash/member set, intended single-member differences and generated hashes asserted during pre-change build; full runtime checks are in Kaggle payload but unobserved",
+  "status": "SPRINT1_PARTIAL"
+}
