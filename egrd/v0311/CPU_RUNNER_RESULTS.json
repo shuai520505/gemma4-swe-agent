@@ -1,0 +1,151 @@
+{
+  "CPU_MODEL": "SCRIPTED_ONLY",
+  "GPU": 0,
+  "Notebook_id": 141087018,
+  "Notebook_version": 1,
+  "SDK": {
+    "adk-eval-core": "0.1.0",
+    "adk-submission": "0.2.13",
+    "google-adk": "1.36.1",
+    "swegemma": "0.2.11"
+  },
+  "algorithm_efficacy": "NOT_TESTED",
+  "all_new_CPU_evidence": true,
+  "boundary": {
+    "context_policy": "Unmodified S0 and native Runner; no research Guard/compaction override",
+    "differing_top_level_fields": [
+      "messages"
+    ],
+    "instructions_equal": true,
+    "only_B_has_receipt": true,
+    "only_supplement_differs": true,
+    "ordering_and_roles_equal": true,
+    "original_issue_exact": true,
+    "parameters_equal": true,
+    "private_full_diff_sha256": "a6efa751db54d421982ef042d8b486fa05de428f18a088351cf273cb60566386",
+    "raw_request_bytes": {
+      "A": 13612,
+      "B": 15269
+    },
+    "raw_request_sha256": {
+      "A": "bd8d362f776a6fc38756e4a01f51134df2dbb2c8ba08cb2b051110323f29b3df",
+      "B": "7baed97fb0d5363d22cd197f4e10e1a29296e3b2219b78e1f505dc4069accad2"
+    },
+    "supplement_bytes": 1575,
+    "supplement_occurrences": 1,
+    "token_overhead": null,
+    "token_overhead_status": "UNKNOWN_NO_EXACT_TOKENIZER_TEMPLATE",
+    "tools_equal": true
+  },
+  "engineering_readiness": true,
+  "formal_submissions": 0,
+  "gates": {
+    "A_Compiler": true,
+    "A_boundary": true,
+    "A_tools": true,
+    "B_Compiler": true,
+    "B_boundary": true,
+    "B_tools": true,
+    "Git": true,
+    "S0_identity": true,
+    "cleanup": true,
+    "isolation": true,
+    "native_submit": true,
+    "null_device": true,
+    "patch_applicability": true,
+    "task_identity": true,
+    "trusted_evaluator": true,
+    "zero_GPU": true,
+    "zero_real_Gemma": true
+  },
+  "historical_serving_equivalence": "HISTORICAL_SERVING_EQUIVALENCE_UNVERIFIED",
+  "model_authorization": false,
+  "old_partial_results_not_reused_for_gates": true,
+  "real_Gemma_requests": 0,
+  "records": [
+    {
+      "actual_model_tokens": null,
+      "agent_cleanup": true,
+      "agent_seconds": 3.2455772350000416,
+      "arm": "A",
+      "canonical_swebench_resolved": null,
+      "charged_tools": 8,
+      "compiled_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "full_compiler": true,
+      "generation": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "git_diff_check": true,
+      "initial_request_bytes": 13612,
+      "initial_request_sha256": "bd8d362f776a6fc38756e4a01f51134df2dbb2c8ba08cb2b051110323f29b3df",
+      "instruction_loading": "Native text read normalizes CRLF to LF; original member unchanged",
+      "instruction_sha256": "04ec91bdecda3d50e78b56bd3b33547d531fbc4b59c1809c4380b52cbb7ce6df",
+      "isolation": true,
+      "official_native_resolved": null,
+      "package_sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+      "patch_bytes": 398,
+      "patch_sha256": "a53facb1e7cc7a17a71af61940222c0b39063721e6aad51f5897b9d5042a570f",
+      "patch_submitted": true,
+      "prompt_original_CRLF_count": 13,
+      "scripted_requests": 11,
+      "status": "SCRIPTED_CPU_PASS",
+      "worker_seconds": 24.332102443999986
+    },
+    {
+      "actual_model_tokens": null,
+      "agent_cleanup": true,
+      "agent_seconds": 1.9204260559999966,
+      "arm": "B",
+      "canonical_swebench_resolved": null,
+      "charged_tools": 8,
+      "compiled_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "full_compiler": true,
+      "generation": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "git_diff_check": true,
+      "initial_request_bytes": 15269,
+      "initial_request_sha256": "7baed97fb0d5363d22cd197f4e10e1a29296e3b2219b78e1f505dc4069accad2",
+      "instruction_loading": "Native text read normalizes CRLF to LF; original member unchanged",
+      "instruction_sha256": "04ec91bdecda3d50e78b56bd3b33547d531fbc4b59c1809c4380b52cbb7ce6df",
+      "isolation": true,
+      "official_native_resolved": null,
+      "package_sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+      "patch_bytes": 398,
+      "patch_sha256": "a53facb1e7cc7a17a71af61940222c0b39063721e6aad51f5897b9d5042a570f",
+      "patch_submitted": true,
+      "prompt_original_CRLF_count": 13,
+      "scripted_requests": 11,
+      "status": "SCRIPTED_CPU_PASS",
+      "worker_seconds": 22.843781206000017
+    }
+  ],
+  "status": "EGRD_V0311_CPU_READY_GPU_NOT_AUTHORIZED",
+  "task_input_bytes": {
+    "A": 559,
+    "B": 2134
+  },
+  "task_supplement_bytes": 1575,
+  "token_overhead": null,
+  "total_scripted_HTTP_requests": 22
+}

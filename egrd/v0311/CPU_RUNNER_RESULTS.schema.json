@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "CPU_MODEL", "GPU", "real_Gemma_requests", "formal_submissions", "gates", "records"],
+  "properties": {
+    "status": {"enum": ["EGRD_V0311_CPU_READY_GPU_NOT_AUTHORIZED", "EGRD_V0311_NULL_DEVICE_UNAVAILABLE", "EGRD_V0311_GIT_SUBMISSION_BLOCKED", "EGRD_V0311_AB_BOUNDARY_BLOCKED", "EGRD_V0311_TRUSTED_EVALUATOR_BLOCKED", "EGRD_V0311_CPU_PREPARATION_INCOMPLETE"]},
+    "CPU_MODEL": {"const": "SCRIPTED_ONLY"},
+    "GPU": {"const": 0},
+    "real_Gemma_requests": {"const": 0},
+    "formal_submissions": {"const": 0},
+    "gates": {
+      "type": "object",
+      "required": ["null_device", "Git", "S0_identity", "task_identity", "A_Compiler", "B_Compiler", "A_tools", "B_tools", "native_submit", "patch_applicability", "A_boundary", "B_boundary", "isolation", "trusted_evaluator", "cleanup", "zero_GPU", "zero_real_Gemma"],
+      "additionalProperties": {"type": ["boolean", "null"]}
+    },
+    "records": {"type": "array", "minItems": 2, "maxItems": 2,
+      "items": {"type": "object", "required": ["arm", "status", "official_native_resolved", "canonical_swebench_resolved"],
+        "properties": {"arm": {"enum": ["A", "B"]}, "status": {"enum": ["SCRIPTED_CPU_PASS", "NOT_RUN", "ERROR"]},
+          "official_native_resolved": {"type": "null"}, "canonical_swebench_resolved": {"type": "null"},
+          "actual_model_tokens": {"type": "null"}}}}
+  },
+  "allOf": [{"if": {"properties": {"status": {"const": "EGRD_V0311_CPU_READY_GPU_NOT_AUTHORIZED"}}},
+    "then": {"properties": {"gates": {"additionalProperties": {"const": true}}}}}]
+}
