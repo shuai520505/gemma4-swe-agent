@@ -41,7 +41,7 @@ def report():
         (HERE/f'PATCH_{arm}_AUDIT.md').write_text(
             f'# Arm {arm} patch audit\n\nNOT_RUN. No Agent Session, submitted patch, source edit or post-edit result exists for this study. '
             'All patch/evaluation fields remain null. This is not a failed repair outcome. '
-            'The PR40 synthetic comment-only patch is engineering evidence and is not an Arm '+arm+' Gemma repair.\n',encoding='utf8')
+            'The PR40 synthetic comment-only patch is engineering evidence and is not an Arm '+arm+' Gemma repair.\n',encoding='utf8',newline='\n')
     write(HERE/'TRUSTED_EVALUATION_RESULTS.json',dict(status='NOT_RUN',
         A=dict(status='NOT_RUN',target=None,positive_controls=None,regression=None),
         B=dict(status='NOT_RUN',target=None,positive_controls=None,regression=None),
@@ -69,7 +69,7 @@ The sealed implementation preserves actual initial requests before forwarding,
 HTTP responses and cancellation events, native trace/patch outputs, observed
 source-version changes, independent trusted checks and cleanup. This pathway
 was prepared but was not exercised by Gemma in this study.
-''',encoding='utf8')
+''',encoding='utf8',newline='\n')
     (HERE/'AB_RESULT_ANALYSIS.md').write_text('''# A/B result analysis
 
 **No comparative result exists.** The required resource/conflict gate failed
@@ -92,7 +92,7 @@ revalidate current resources, dependencies and the exact bound Notebook before
 executing the same A→B study under applicable owner permission. Do not change the
 receipt or candidate, cancel unrelated jobs, or dispatch while conflict remains.
 This task has no automatic monitoring or future dispatch scheduled.
-''',encoding='utf8')
+''',encoding='utf8',newline='\n')
     (HERE/'FINAL_DECISION.md').write_text(f'''# EGRD V0.3.2 final decision
 
 **EGRD_V032_GPU_ENVIRONMENT_BLOCKED**
@@ -157,7 +157,7 @@ Formal Kaggle submission: NOT_RUN.** S0 remains the best-observed formal baselin
 Source base: `{BASE}`. Frozen runtime payload:
 `{build['payload_sha256']}`. Final quota-bound Notebook was not generated because
 the fresh gate failed; there is no actual execution identity or result archive.
-''',encoding='utf8')
+''',encoding='utf8',newline='\n')
     update_manifest()
 
 
