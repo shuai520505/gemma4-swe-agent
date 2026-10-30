@@ -467,7 +467,17 @@
     "explicit_submissions": 1,
     "caveat": "Locked minimal research sandbox lacks python alias, pytest/pip and some Unix commands. Matching environments do not establish official-serving equivalence. Environment errors confound interpreting model timeouts.",
     "parser_attribution": "Missing old_string observed in native tool arguments and rejection records. Whether generated syntax, serving parser, or their interaction caused it is unresolved.",
-    "next_priority": "Repair/validate research environment command and test surface on CPU first; then test a single prompt change for repeated tool-error recovery and timely finalization on an independent cohort. Do not rerun/select old outcomes or change official tools."
+    "next_priority": "Use the CPU-validated basic runtime surface; configure full project dependencies separately; then test a single prompt change for repeated tool-error recovery and timely finalization on an independent cohort. Do not rerun/select old outcomes or change official tools.",
+    "runtime_surface_repair": {
+      "CPU_only": true,
+      "passed": true,
+      "checks_passed": 24,
+      "checks_total": 24,
+      "actual_ref": "/code/wudangdexiaodoashi/gemma-pair-01-env-20261030",
+      "actual_version": 2,
+      "full_project_dependencies": "NOT_ESTABLISHED",
+      "new_model_sessions": 0
+    }
   },
   "supplementary_xarray": {
     "scope": "Supplementary xarray public Issue copy cases; primary study unchanged; no official score",
@@ -530,5 +540,211 @@
     ],
     "GPU_devices": 0,
     "Gemma_requests": 0
+  },
+  "research_runtime_repair": {
+    "passed": true,
+    "phase": "GREEN",
+    "base_code_digest": "beebb27e4f6a9b6d27ece4723555d8a3e54d665b3730eb32e0775210940a192c",
+    "contract_sha256": "a01a38fb30681b4bfcf8160e731d8c6ebd7c960fb7f26fbe0d93a02ec8575e6f",
+    "notebook_sha256": "8feaa2a5870860a9db2f62a2de6c30c3609583e52e6188b2ad4210c16af9700f",
+    "actual_log_sha256": "be2abec9e1b52326cd1494121632ce48653eebcc3bffd884cd8a6b5a5adec9dc",
+    "actual_ref": "/code/wudangdexiaodoashi/gemma-pair-01-env-20261030",
+    "actual_version": 2,
+    "host_distribution_versions": {
+      "pytest": "8.4.2",
+      "pip": "24.1.2",
+      "packaging": "26.1",
+      "pluggy": "1.6.0",
+      "iniconfig": "2.3.0",
+      "pygments": "2.20.0"
+    },
+    "sessions": [
+      {
+        "task": "django__django-16333",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "26.1",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 28
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 942,
+          "manifest_sha256": "aeda465d6c97ede58cb97adfd99aa893f3e393c66d22f35d4b4a0adab90f388a",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      },
+      {
+        "task": "pydata__xarray-3095",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "24.2",
+              "source": "Unmodified locked task wheel",
+              "metadata_sha256": "a211fceacea4e6621f4316364d2d0b7127c00de3856b8062082f9bc5957ea4db"
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 914,
+          "manifest_sha256": "19531c73bd41bde43eb33f6bb4fa14d83b4c4db75e0d5240fcb1d7a1b25b1dc2",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      },
+      {
+        "task": "fastapi_14297",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "26.1",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 28
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 942,
+          "manifest_sha256": "aeda465d6c97ede58cb97adfd99aa893f3e393c66d22f35d4b4a0adab90f388a",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      }
+    ],
+    "GPU_devices": 0,
+    "Gemma_requests": 0,
+    "scope": "Research sandbox executable entrypoints and generic pytest fixtures only; full project regression not claimed",
+    "RED_notebook_version": 1,
+    "original_issue_regressions": {
+      "django__django-16333": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      },
+      "pydata__xarray-3095": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      },
+      "fastapi_14297": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      }
+    }
   }
 }
