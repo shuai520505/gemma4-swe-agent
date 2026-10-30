@@ -1,0 +1,56 @@
+{
+  "archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+  "recorded_UTC": "2026-10-30T11:24:11.514903+00:00",
+  "method": "Manual review of exact retained diffs against original public Issue and observed base-source context; no reference repair or hidden tests",
+  "limitation": "Source review plus scoped probes; not full regression or official grading",
+  "sessions": [
+    {
+      "index": 1,
+      "task": "django__django-16333",
+      "candidate": "S0",
+      "patch_sha256": "4ced93a49e11be2d981dabd39444d7dbcd56c623005c0d121e17d1ae99c6c7b9",
+      "verdict": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "notes": "在 user.save() 后、commit=True 分支中调用 save_m2m，保留密码设置及延迟保存分支；与原问题一致。包含额外复现文件，未做完整项目回归。"
+    },
+    {
+      "index": 2,
+      "task": "django__django-16333",
+      "candidate": "SUPERAGENT",
+      "patch_sha256": "5d3b31313c98dfa9ac84a2190f97c4ee7d50b17c25f23f5cf2ee378003e0bab2",
+      "verdict": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "notes": "生产代码与 S0 相同，补上条件内的 save_m2m；保留 commit=False 行为。另有未完成的复现脚本，主检查通过不能证明全项目回归。"
+    },
+    {
+      "index": 3,
+      "task": "pydata__xarray-3095",
+      "candidate": "SUPERAGENT",
+      "patch_sha256": null,
+      "verdict": "NO_PATCH",
+      "notes": "13 次 edit_file 调用缺少必需的 old_string，均未成功执行；没有回收到补丁，不评价未落地的修复设想。"
+    },
+    {
+      "index": 4,
+      "task": "pydata__xarray-3095",
+      "candidate": "S0",
+      "patch_sha256": "7072ddd0c446fb5ec86636e2b60f7154d8f26a93dcccecf5f539883d3db593b7",
+      "verdict": "NO_PRODUCTION_FIX",
+      "notes": "补丁只有复现脚本，未改 xarray 生产代码，原始目标检查仍失败。"
+    },
+    {
+      "index": 5,
+      "task": "fastapi_14297",
+      "candidate": "S0",
+      "patch_sha256": "61405d2ac54277ebfe713e5b3236393c30a00a59d0e2b0fe568a64e4be84b49f",
+      "verdict": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "notes": "可选序列先解开 Union，选取非 None 类型，保留普通序列路径；原问题及非可选上传控制通过。另有复现脚本，复杂多分支联合类型与完整回归未验证。"
+    },
+    {
+      "index": 6,
+      "task": "fastapi_14297",
+      "candidate": "SUPERAGENT",
+      "patch_sha256": "713a2e1489fd10d1efcb384f7205202b5e6c78d1bec219883b3ec25b0c3fc2da",
+      "verdict": "ISSUE_ALIGNED_LIMITED_VALIDATION",
+      "notes": "从 Union 参数中选择序列类型，保留普通序列回退，使用项目现有类型辅助函数；仅改生产文件并主动提交。原问题和正向控制通过，完整回归未执行。"
+    }
+  ]
+}

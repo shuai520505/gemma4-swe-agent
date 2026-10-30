@@ -1,0 +1,750 @@
+{
+  "experiment": "Gemma paired development comparison 01",
+  "archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+  "archive_CRC_valid": true,
+  "code_digest": "beebb27e4f6a9b6d27ece4723555d8a3e54d665b3730eb32e0775210940a192c",
+  "frozen_build_revision": "2",
+  "outer_controller": {
+    "controller_error": null,
+    "controller_failure_stage": null,
+    "process_exit_code": 0,
+    "process_tree_stopped": true,
+    "cleanup_complete": true,
+    "duration_seconds": 3078.175375981
+  },
+  "source_file_hashes_verified": true,
+  "actual_GPU_runtime": {
+    "CUDA": "12.8",
+    "Python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+    "devices": [
+      {
+        "memory": 23659151360,
+        "name": "NVIDIA L4"
+      },
+      {
+        "memory": 23659151360,
+        "name": "NVIDIA L4"
+      },
+      {
+        "memory": 23659151360,
+        "name": "NVIDIA L4"
+      },
+      {
+        "memory": 23659151360,
+        "name": "NVIDIA L4"
+      }
+    ],
+    "versions": {
+      "adk-eval-core": "0.1.0",
+      "adk-submission": "0.2.13",
+      "google-adk": "1.36.1",
+      "google-genai": "2.11.0",
+      "litellm": "1.82.4",
+      "pytest": "8.4.2",
+      "swegemma": "0.2.11",
+      "torch": "2.10.0+cu128",
+      "vllm": "0.19.1"
+    }
+  },
+  "actual_model_identity": {
+    "files": {
+      "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+      "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+      "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+      "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+      "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+      "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+      "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+    },
+    "model_path": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2"
+  },
+  "actual_server_configuration": {
+    "command": [
+      "/usr/bin/python3",
+      "-m",
+      "vllm.entrypoints.openai.api_server",
+      "--model",
+      "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8000",
+      "--max-model-len",
+      "32768",
+      "--dtype",
+      "bfloat16",
+      "--gpu-memory-utilization",
+      "0.9",
+      "--tensor-parallel-size",
+      "4",
+      "--enable-auto-tool-choice",
+      "--tool-call-parser",
+      "gemma4",
+      "--reasoning-parser",
+      "gemma4",
+      "--reasoning-config",
+      "{\"reasoning_start_str\": \"<|channel>\", \"reasoning_end_str\": \"<channel|>\"}",
+      "--no-scheduler-reserve-full-isl",
+      "--no-enable-prefix-caching"
+    ],
+    "config": {
+      "default_chat_template_kwargs": null,
+      "dtype": "bfloat16",
+      "enable_auto_tool_choice": true,
+      "enable_lora": false,
+      "extra_args": [
+        "--no-enable-prefix-caching"
+      ],
+      "gpu_memory_utilization": 0.9,
+      "health_check_interval": 1.0,
+      "host": "127.0.0.1",
+      "kv_cache_dtype": null,
+      "limit_mm_per_prompt": null,
+      "max_lora_rank": 128,
+      "max_loras": 1,
+      "max_model_len": 32768,
+      "model": "/kaggle/input/models/google/gemma-4/other/gemma-4-31b-it-qat-w4a16-ct/2",
+      "nvidia_lib_dir": "/usr/local/nvidia/lib64",
+      "port": 8000,
+      "reasoning_config": null,
+      "reasoning_parser": "gemma4",
+      "scheduler_reserve_full_isl": false,
+      "speculative_config": null,
+      "startup_timeout": 1200,
+      "tensor_parallel_size": 4,
+      "tool_call_parser": "gemma4"
+    },
+    "context_policy": "Pinned guide compaction15/overlap2/threshold14336/retain5 for both arms",
+    "generation_probes_outside_sessions": 0,
+    "historical_serving_equivalence": "UNVERIFIED"
+  },
+  "model_load": {
+    "seconds": 271.33959405100006
+  },
+  "completed": true,
+  "sessions": [
+    {
+      "index": 1,
+      "task": "django__django-16333",
+      "candidate": "S0",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 19,
+      "HTTP200_responses": 18,
+      "non200_responses": [],
+      "cancelled_requests": 1,
+      "observed_response_tokens": {
+        "prompt_tokens": 173598,
+        "completion_tokens": 5814,
+        "total_tokens": 179412
+      },
+      "token_usage_complete": false,
+      "agent_seconds": 300.00565298899994,
+      "charged_tools": 18,
+      "llm_calls": 18,
+      "patch_kind": "fallback",
+      "patch_submitted": false,
+      "patch_bytes": 2988,
+      "patch_sha256": "4ced93a49e11be2d981dabd39444d7dbcd56c623005c0d121e17d1ae99c6c7b9",
+      "agent_error": "Agent exceeded session timeout (5.0 min)",
+      "patch_applicable": true,
+      "scoped_target_pass": true,
+      "positive_controls_passed": true,
+      "scoped_development_pass": true,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [
+        "django/contrib/auth/forms.py",
+        "repro/__init__.py",
+        "repro/models.py",
+        "repro_issue.py"
+      ],
+      "semantic_review": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "在 user.save() 后、commit=True 分支中调用 save_m2m，保留密码设置及延迟保存分支；与原问题一致。包含额外复现文件，未做完整项目回归。"
+    },
+    {
+      "index": 2,
+      "task": "django__django-16333",
+      "candidate": "SUPERAGENT",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 29,
+      "HTTP200_responses": 28,
+      "non200_responses": [],
+      "cancelled_requests": 1,
+      "observed_response_tokens": {
+        "prompt_tokens": 249786,
+        "completion_tokens": 8619,
+        "total_tokens": 258405
+      },
+      "token_usage_complete": false,
+      "agent_seconds": 480.002371713,
+      "charged_tools": 27,
+      "llm_calls": 27,
+      "patch_kind": "fallback",
+      "patch_submitted": false,
+      "patch_bytes": 1771,
+      "patch_sha256": "5d3b31313c98dfa9ac84a2190f97c4ee7d50b17c25f23f5cf2ee378003e0bab2",
+      "agent_error": "Agent exceeded session timeout (8 min)",
+      "patch_applicable": true,
+      "scoped_target_pass": true,
+      "positive_controls_passed": true,
+      "scoped_development_pass": true,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [
+        "django/contrib/auth/forms.py",
+        "repro.py"
+      ],
+      "semantic_review": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "生产代码与 S0 相同，补上条件内的 save_m2m；保留 commit=False 行为。另有未完成的复现脚本，主检查通过不能证明全项目回归。"
+    },
+    {
+      "index": 3,
+      "task": "pydata__xarray-3095",
+      "candidate": "SUPERAGENT",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 39,
+      "HTTP200_responses": 38,
+      "non200_responses": [],
+      "cancelled_requests": 1,
+      "observed_response_tokens": {
+        "prompt_tokens": 361758,
+        "completion_tokens": 7186,
+        "total_tokens": 368944
+      },
+      "token_usage_complete": false,
+      "agent_seconds": 480.01015235700015,
+      "charged_tools": 24,
+      "llm_calls": 37,
+      "patch_kind": "fallback",
+      "patch_submitted": false,
+      "patch_bytes": 0,
+      "patch_sha256": null,
+      "agent_error": "Agent exceeded session timeout (8 min)",
+      "patch_applicable": null,
+      "scoped_target_pass": false,
+      "positive_controls_passed": true,
+      "scoped_development_pass": false,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [],
+      "semantic_review": "NO_PATCH",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "13 次 edit_file 调用缺少必需的 old_string，均未成功执行；没有回收到补丁，不评价未落地的修复设想。"
+    },
+    {
+      "index": 4,
+      "task": "pydata__xarray-3095",
+      "candidate": "S0",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 23,
+      "HTTP200_responses": 22,
+      "non200_responses": [],
+      "cancelled_requests": 1,
+      "observed_response_tokens": {
+        "prompt_tokens": 215249,
+        "completion_tokens": 4436,
+        "total_tokens": 219685
+      },
+      "token_usage_complete": false,
+      "agent_seconds": 300.017286324,
+      "charged_tools": 22,
+      "llm_calls": 22,
+      "patch_kind": "fallback",
+      "patch_submitted": false,
+      "patch_bytes": 1167,
+      "patch_sha256": "7072ddd0c446fb5ec86636e2b60f7154d8f26a93dcccecf5f539883d3db593b7",
+      "agent_error": "Agent exceeded session timeout (5.0 min)",
+      "patch_applicable": true,
+      "scoped_target_pass": false,
+      "positive_controls_passed": true,
+      "scoped_development_pass": false,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [
+        "reproduce_issue.py"
+      ],
+      "semantic_review": "NO_PRODUCTION_FIX",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "补丁只有复现脚本，未改 xarray 生产代码，原始目标检查仍失败。"
+    },
+    {
+      "index": 5,
+      "task": "fastapi_14297",
+      "candidate": "S0",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 25,
+      "HTTP200_responses": 24,
+      "non200_responses": [],
+      "cancelled_requests": 1,
+      "observed_response_tokens": {
+        "prompt_tokens": 198762,
+        "completion_tokens": 5386,
+        "total_tokens": 204148
+      },
+      "token_usage_complete": false,
+      "agent_seconds": 300.00245731899986,
+      "charged_tools": 23,
+      "llm_calls": 23,
+      "patch_kind": "fallback",
+      "patch_submitted": false,
+      "patch_bytes": 1822,
+      "patch_sha256": "61405d2ac54277ebfe713e5b3236393c30a00a59d0e2b0fe568a64e4be84b49f",
+      "agent_error": "Agent exceeded session timeout (5.0 min)",
+      "patch_applicable": true,
+      "scoped_target_pass": true,
+      "positive_controls_passed": true,
+      "scoped_development_pass": true,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [
+        "fastapi/_compat/v2.py",
+        "reproduce_issue.py"
+      ],
+      "semantic_review": "ISSUE_ALIGNED_WITH_REPRO_DEBRIS",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "可选序列先解开 Union，选取非 None 类型，保留普通序列路径；原问题及非可选上传控制通过。另有复现脚本，复杂多分支联合类型与完整回归未验证。"
+    },
+    {
+      "index": 6,
+      "task": "fastapi_14297",
+      "candidate": "SUPERAGENT",
+      "worker_complete": true,
+      "actual_model_HTTP_attempts": 26,
+      "HTTP200_responses": 26,
+      "non200_responses": [],
+      "cancelled_requests": 0,
+      "observed_response_tokens": {
+        "prompt_tokens": 251999,
+        "completion_tokens": 8775,
+        "total_tokens": 260774
+      },
+      "token_usage_complete": true,
+      "agent_seconds": 430.7149733209999,
+      "charged_tools": 23,
+      "llm_calls": 25,
+      "patch_kind": "submitted",
+      "patch_submitted": true,
+      "patch_bytes": 1556,
+      "patch_sha256": "713a2e1489fd10d1efcb384f7205202b5e6c78d1bec219883b3ec25b0c3fc2da",
+      "agent_error": null,
+      "patch_applicable": true,
+      "scoped_target_pass": true,
+      "positive_controls_passed": true,
+      "scoped_development_pass": true,
+      "check_integrity": true,
+      "cleanup": true,
+      "changed_files": [
+        "fastapi/_compat/v2.py"
+      ],
+      "semantic_review": "ISSUE_ALIGNED_LIMITED_VALIDATION",
+      "broader_regression": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "semantic_review_notes": "从 Union 参数中选择序列类型，保留普通序列回退，使用项目现有类型辅助函数；仅改生产文件并主动提交。原问题和正向控制通过，完整回归未执行。"
+    }
+  ],
+  "not_run": [],
+  "stop": null,
+  "notebook_first_cell_elapsed_seconds": 3158.478011298,
+  "summed_agent_seconds": 2290.752894023,
+  "real_sessions_with_received_model_output": 6,
+  "model_HTTP_attempts": 161,
+  "scoped_passes": {
+    "S0": 2,
+    "SUPERAGENT": 2
+  },
+  "task_cohort": "EXPOSED_DEVELOPMENT_ONLY",
+  "independent_confirmation": false,
+  "new_competition_submissions": 0,
+  "new_public_score": null,
+  "official_native_resolved": null,
+  "canonical_swebench_resolved": null,
+  "trace_findings": {
+    "archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+    "sessions": [
+      {
+        "index": 1,
+        "candidate": "S0",
+        "task": "django__django-16333",
+        "observed_tool_call_attempts": 18,
+        "native_charged_tools": 18,
+        "missing_environment_entry_errors": {
+          "touch": 1
+        },
+        "edit_missing_old_string_rejections": 0,
+        "production_files": [
+          "django/contrib/auth/forms.py"
+        ]
+      },
+      {
+        "index": 2,
+        "candidate": "SUPERAGENT",
+        "task": "django__django-16333",
+        "observed_tool_call_attempts": 27,
+        "native_charged_tools": 27,
+        "missing_environment_entry_errors": {
+          "python_alias": 2,
+          "pytest": 2,
+          "which": 1
+        },
+        "edit_missing_old_string_rejections": 0,
+        "production_files": [
+          "django/contrib/auth/forms.py"
+        ]
+      },
+      {
+        "index": 3,
+        "candidate": "SUPERAGENT",
+        "task": "pydata__xarray-3095",
+        "observed_tool_call_attempts": 37,
+        "native_charged_tools": 24,
+        "missing_environment_entry_errors": {},
+        "edit_missing_old_string_rejections": 13,
+        "production_files": []
+      },
+      {
+        "index": 4,
+        "candidate": "S0",
+        "task": "pydata__xarray-3095",
+        "observed_tool_call_attempts": 22,
+        "native_charged_tools": 22,
+        "missing_environment_entry_errors": {},
+        "edit_missing_old_string_rejections": 0,
+        "production_files": []
+      },
+      {
+        "index": 5,
+        "candidate": "S0",
+        "task": "fastapi_14297",
+        "observed_tool_call_attempts": 23,
+        "native_charged_tools": 23,
+        "missing_environment_entry_errors": {
+          "pytest": 2,
+          "pip": 3,
+          "which": 1
+        },
+        "edit_missing_old_string_rejections": 0,
+        "production_files": [
+          "fastapi/_compat/v2.py"
+        ]
+      },
+      {
+        "index": 6,
+        "candidate": "SUPERAGENT",
+        "task": "fastapi_14297",
+        "observed_tool_call_attempts": 24,
+        "native_charged_tools": 23,
+        "missing_environment_entry_errors": {
+          "python_alias": 1,
+          "pytest": 3,
+          "pip": 1
+        },
+        "edit_missing_old_string_rejections": 0,
+        "production_files": [
+          "fastapi/_compat/v2.py"
+        ]
+      }
+    ],
+    "completed_sessions": 6,
+    "HTTP_attempts": 161,
+    "HTTP200_responses": 156,
+    "cancelled_requests": 5,
+    "timeouts": 5,
+    "explicit_submissions": 1,
+    "caveat": "Locked minimal research sandbox lacks python alias, pytest/pip and some Unix commands. Matching environments do not establish official-serving equivalence. Environment errors confound interpreting model timeouts.",
+    "parser_attribution": "Missing old_string observed in native tool arguments and rejection records. Whether generated syntax, serving parser, or their interaction caused it is unresolved.",
+    "next_priority": "Use the CPU-validated basic runtime surface; configure full project dependencies separately; then test a single prompt change for repeated tool-error recovery and timely finalization on an independent cohort. Do not rerun/select old outcomes or change official tools.",
+    "runtime_surface_repair": {
+      "CPU_only": true,
+      "passed": true,
+      "checks_passed": 24,
+      "checks_total": 24,
+      "actual_ref": "/code/wudangdexiaodoashi/gemma-pair-01-env-20261030",
+      "actual_version": 2,
+      "full_project_dependencies": "NOT_ESTABLISHED",
+      "new_model_sessions": 0
+    }
+  },
+  "supplementary_xarray": {
+    "scope": "Supplementary xarray public Issue copy cases; primary study unchanged; no official score",
+    "actual_Notebook_ref": "/code/wudangdexiaodoashi/gemma-pair-01-additional-issue-cases-20261030",
+    "actual_Notebook_version": 4,
+    "notebook_sha256": "f22f0bd3d6089e78416adc6fcc25af6680b4c153f543f1ea6085fd2a1e765239",
+    "actual_log_sha256": "9742ba610eb0fa9007d9e08e8df80470a5ea980f4af483c02e3cd8a48675018a",
+    "GPU_archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+    "plan": {
+      "recorded_UTC": "2026-10-30T10:24:53.314363+00:00",
+      "frozen_before_observing_GPU_model_outputs": true,
+      "probe_sha256": "f4d2851fc0c8ef9aa77624536b2798f9b0c20977e61bfcc9eb517a19ce763354",
+      "scope": "Only eight copy variants stated in xarray-3095 plus original and shallow-Dataset controls; supplementary, not primary; no model use",
+      "previous_probe_sha256": "e415eaadf5d22fa8ec51e6439f682d9f767dc6a732b64c402d9b554583c7caf2",
+      "protocol_correction": "Set target-failure classification for aggregated assertions; all eight cases, controls and expected values unchanged; new model outputs still unobserved"
+    },
+    "baseline_controls_passed": true,
+    "baseline_copy_cases": 8,
+    "baseline_failed_copy_cases": [
+      "Dataset.copy(deep=True)",
+      "DataArray.copy(deep=True)",
+      "copy.deepcopy(Dataset)",
+      "copy.deepcopy(DataArray)"
+    ],
+    "sessions": [
+      {
+        "index": 3,
+        "candidate": "SUPERAGENT",
+        "patch_sha256": null,
+        "patch_available": false,
+        "copy_cases": 8,
+        "copy_cases_passed": 4,
+        "failed_copy_cases": [
+          "Dataset.copy(deep=True)",
+          "DataArray.copy(deep=True)",
+          "copy.deepcopy(Dataset)",
+          "copy.deepcopy(DataArray)"
+        ],
+        "positive_controls_passed": true,
+        "all_supplementary_cases_passed": false,
+        "integrity_and_cleanup": true
+      },
+      {
+        "index": 4,
+        "candidate": "S0",
+        "patch_sha256": "7072ddd0c446fb5ec86636e2b60f7154d8f26a93dcccecf5f539883d3db593b7",
+        "patch_available": true,
+        "copy_cases": 8,
+        "copy_cases_passed": 4,
+        "failed_copy_cases": [
+          "Dataset.copy(deep=True)",
+          "DataArray.copy(deep=True)",
+          "copy.deepcopy(Dataset)",
+          "copy.deepcopy(DataArray)"
+        ],
+        "positive_controls_passed": true,
+        "all_supplementary_cases_passed": false,
+        "integrity_and_cleanup": true
+      }
+    ],
+    "GPU_devices": 0,
+    "Gemma_requests": 0
+  },
+  "research_runtime_repair": {
+    "passed": true,
+    "phase": "GREEN",
+    "base_code_digest": "beebb27e4f6a9b6d27ece4723555d8a3e54d665b3730eb32e0775210940a192c",
+    "contract_sha256": "a01a38fb30681b4bfcf8160e731d8c6ebd7c960fb7f26fbe0d93a02ec8575e6f",
+    "notebook_sha256": "8feaa2a5870860a9db2f62a2de6c30c3609583e52e6188b2ad4210c16af9700f",
+    "actual_log_sha256": "be2abec9e1b52326cd1494121632ce48653eebcc3bffd884cd8a6b5a5adec9dc",
+    "actual_ref": "/code/wudangdexiaodoashi/gemma-pair-01-env-20261030",
+    "actual_version": 2,
+    "host_distribution_versions": {
+      "pytest": "8.4.2",
+      "pip": "24.1.2",
+      "packaging": "26.1",
+      "pluggy": "1.6.0",
+      "iniconfig": "2.3.0",
+      "pygments": "2.20.0"
+    },
+    "sessions": [
+      {
+        "task": "django__django-16333",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "26.1",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 28
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 942,
+          "manifest_sha256": "aeda465d6c97ede58cb97adfd99aa893f3e393c66d22f35d4b4a0adab90f388a",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      },
+      {
+        "task": "pydata__xarray-3095",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "24.2",
+              "source": "Unmodified locked task wheel",
+              "metadata_sha256": "a211fceacea4e6621f4316364d2d0b7127c00de3856b8062082f9bc5957ea4db"
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 914,
+          "manifest_sha256": "19531c73bd41bde43eb33f6bb4fa14d83b4c4db75e0d5240fcb1d7a1b25b1dc2",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      },
+      {
+        "task": "fastapi_14297",
+        "before_passed": 0,
+        "before_total": 8,
+        "after_passed": 8,
+        "after_total": 8,
+        "cleanup": true,
+        "confinement_retained": true,
+        "repair_manifest": {
+          "distributions": {
+            "pytest": {
+              "version": "8.4.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 83
+            },
+            "iniconfig": {
+              "version": "2.3.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 12
+            },
+            "packaging": {
+              "version": "26.1",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 28
+            },
+            "pluggy": {
+              "version": "1.6.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 16
+            },
+            "pygments": {
+              "version": "2.20.0",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 347
+            },
+            "pip": {
+              "version": "24.1.2",
+              "source": "Pinned image installed distribution; no .pth or external entrypoints",
+              "files": 450
+            }
+          },
+          "files_hashed": 942,
+          "manifest_sha256": "aeda465d6c97ede58cb97adfd99aa893f3e393c66d22f35d4b4a0adab90f388a",
+          "python_alias": true,
+          "pytest_entrypoint": true,
+          "pip_entrypoint": true,
+          "touch": true,
+          "which": true,
+          "network_policy_unchanged": true,
+          "readonly_packages": true
+        }
+      }
+    ],
+    "GPU_devices": 0,
+    "Gemma_requests": 0,
+    "scope": "Research sandbox executable entrypoints and generic pytest fixtures only; full project regression not claimed",
+    "RED_notebook_version": 1,
+    "original_issue_regressions": {
+      "django__django-16333": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      },
+      "pydata__xarray-3095": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      },
+      "fastapi_14297": {
+        "target_failed": true,
+        "positive_controls_passed": true,
+        "cleanup": true,
+        "check_write_denied": true,
+        "check_unchanged": true,
+        "source_unchanged_by_checks": true
+      }
+    }
+  }
+}

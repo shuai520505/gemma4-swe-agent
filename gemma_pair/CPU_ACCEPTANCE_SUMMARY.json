@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "code_digest": "beebb27e4f6a9b6d27ece4723555d8a3e54d665b3730eb32e0775210940a192c",
+  "payload_sha256": "950fbba801883ffe2693b53056b5ceddd17222f92467c04418c0a9aa691c8c8e",
+  "notebook_sha256": "be4d5145ac5ef2628cdd37f16f74574808abe9d297aeebb02eb60db18e466738",
+  "actual_CPU_ref": "wudangdexiaodoashi/gemma-pair-01-cpu-20261030",
+  "actual_CPU_version": 6,
+  "actual_log_sha256": "888a22a58d681ee067a5f88090bd88bb4265d785eff87dd65826afca055f1714",
+  "baselines": {
+    "django__django-16333": {
+      "target_failed": true,
+      "positive_controls_passed": true,
+      "cleanup": true,
+      "check_write_denied": true,
+      "check_unchanged": true,
+      "source_unchanged_by_checks": true
+    },
+    "pydata__xarray-3095": {
+      "target_failed": true,
+      "positive_controls_passed": true,
+      "cleanup": true,
+      "check_write_denied": true,
+      "check_unchanged": true,
+      "source_unchanged_by_checks": true
+    },
+    "fastapi_14297": {
+      "target_failed": true,
+      "positive_controls_passed": true,
+      "cleanup": true,
+      "check_write_denied": true,
+      "check_unchanged": true,
+      "source_unchanged_by_checks": true
+    }
+  },
+  "configurations": {
+    "S0": {
+      "passed": true,
+      "budget": {
+        "timeout_seconds": 120,
+        "max_tool_calls": 60,
+        "max_time_minutes": 5.0
+      },
+      "actual_budget": "EvaluationBudget(time_minutes=5.0, tool_calls=60, turns=None, cost_usd=None, total_tokens=None)",
+      "tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "generation": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "actual_turns": null,
+      "context_compaction": "summarizer=None compaction_interval=15 overlap_size=2 token_threshold=14336 event_retention_size=5"
+    },
+    "SUPERAGENT": {
+      "passed": true,
+      "budget": {
+        "timeout_seconds": 240,
+        "max_tool_calls": 28,
+        "max_time_minutes": 8,
+        "max_turns": 80
+      },
+      "actual_budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)",
+      "tools": [
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "get_status",
+        "submit_patch",
+        "get_code_neighbors",
+        "search_similar_code",
+        "get_code_subgraph"
+      ],
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "actual_turns": 80,
+      "context_compaction": "summarizer=None compaction_interval=15 overlap_size=2 token_threshold=14336 event_retention_size=5"
+    }
+  },
+  "precreated_supervisor_directory_regression": true,
+  "private_archive_verification": {
+    "verified": true,
+    "revision": "6",
+    "archive_CRC_valid": true,
+    "archive_sha256": "782cb945902cdbb2464d64203b07c7986665f4082f2095149a072ddea2f93793",
+    "archive_bytes": 103518391,
+    "code_digest": "beebb27e4f6a9b6d27ece4723555d8a3e54d665b3730eb32e0775210940a192c",
+    "all_frozen_source_hashes_verified": true,
+    "results_equal_accepted_log": true,
+    "supervisor_entry_reached_GPU_gate": true,
+    "Gemma_requests": 0
+  }
+}
