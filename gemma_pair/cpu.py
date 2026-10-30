@@ -16,6 +16,21 @@ def run(out):
     write(out/'EVAL_CONFIG_API.json',dict(signature=str(inspect.signature(EvalConfig)),source=inspect.getsource(EvalConfig)))
     print('EVAL_CONFIG_SIGNATURE',str(inspect.signature(EvalConfig)),flush=True)
     try:
+        # Regression for the actual supervisor contract: it precreates output.
+        # This CPU-only negative gate must reach the GPU-allocation assertion,
+        # never fail on mkdir and never load a model or make a request.
+        import subprocess,time
+        entry=out/'precreated-supervisor-entry';entry.mkdir()
+        probe=subprocess.run([sys.executable,'-m','gemma_pair.coordinator',str(entry),str(time.monotonic())],
+                             cwd=ROOT,capture_output=True,text=True,timeout=180)
+        (entry/'entry.stdout.log').write_text(probe.stdout,encoding='utf8')
+        (entry/'entry.stderr.log').write_text(probe.stderr,encoding='utf8')
+        assert probe.returncode!=0,'CPU must be rejected by the four-L4 gate'
+        stop=json.loads((entry/'STOP.json').read_bytes())
+        assert stop['type']=='AssertionError' and not (entry/'MODEL_LOAD_COMPLETED.json').exists()
+        assert 'devices' in stop['traceback'] and 'FileExistsError' not in stop['traceback']
+        result['precreated_supervisor_directory_regression']=True
+        print('SUPERVISOR_ENTRY_REGRESSION_PASS; rejected CPU before model load',flush=True)
         data=prepare(out/'data')
         for ident,binding in data.items():
             row=evaluate(binding,out/'baseline'/ident)

@@ -27,7 +27,11 @@ async def run(out,started):
     from harness_v2.supervisor import supervise
     from s1.experiments.e3_localize_smoke_03.idle import require_idle
     from s1.verifier_v3.backend_logs import capture_logs
-    out=Path(out);out.mkdir(parents=True,exist_ok=False);journal=Journal(out)
+    # The supervisor owns the exclusive controller_started.json claim and
+    # creates this directory before starting us. Accept that fresh directory.
+    out=Path(out);out.mkdir(parents=True,exist_ok=True)
+    assert not (out/'PAIR_RESULTS.json').exists(),'Do not overwrite an earlier study'
+    journal=Journal(out)
     runtime=json.loads((HERE/'GPU_ENVIRONMENT_LOCK.json').read_bytes())
     results=[];server=None;known=[];completed=False
     try:

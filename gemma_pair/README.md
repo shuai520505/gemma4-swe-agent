@@ -29,6 +29,16 @@ fixes use locked wheel members, disable background GC in fresh synthetic Git
 snapshots and expose setuptools' vendored distutils through a confined alias.
 No reference repair/test overlay, Agent prompt or candidate archive is changed.
 
+GPU attempt 1 stopped before model load: the supervisor precreated its output
+directory, whereas the coordinator required it not to exist. Zero model HTTP
+requests and zero repair sessions occurred; GPU allocation/setup may still be
+billed. The corrected coordinator accepts the supervisor-owned fresh directory
+and rejects existing results. CPU preflight now exercises this entry in a
+separate subprocess and verifies rejection at the four-L4 gate without loading
+a model. CPU revision 5 exposed a nested notebook asyncio issue in the new test;
+revision 6 uses the same process boundary as the GPU entry. All attempts remain
+preserved. A corrected batch is an infrastructure recovery, not an Agent rerun.
+
 Private operational inputs are intentionally excluded: ISSUES.json contains only
 instance_id/repo/base_commit/problem_statement selected from legitimate public
 sources; paired_candidates/ contains exact S0 and scored SuperAgent archives;
