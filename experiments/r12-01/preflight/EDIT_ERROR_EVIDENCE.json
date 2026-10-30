@@ -1,0 +1,1187 @@
+{
+  "archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+  "source_paths": {
+    "wire": "execution/sessions/03_SUPERAGENT_pydata__xarray-3095/model_transport/http_wire.jsonl",
+    "adk": "execution/sessions/03_SUPERAGENT_pydata__xarray-3095/adk_events.jsonl",
+    "native": "execution/sessions/03_SUPERAGENT_pydata__xarray-3095/native_trace.json"
+  },
+  "source_sha256": {
+    "wire": "5c9bf6c2575f7e3979bbbcbbfc47f882c31fb5d23cdeb5d47d0416ed9d257b59",
+    "adk": "a72e9f79b0e35b76b027e8e5d78e2f4329023f0bbadd7ac2ddf48f5b8251bf9a",
+    "native": "74b62a81a517a0212c72c410f833a47a7ae311ebcec0ae6eb03913f16392ac94"
+  },
+  "available_tool_schema": {
+    "name": "edit_file",
+    "description": "Replace a contiguous block of text in an existing file.\n\n        More token-efficient than write_file for targeted changes. Provide 2-4 lines of unique\n        surrounding context in old_string to ensure an unambiguous match.\n\n        Args:\n            filepath: Relative path to the target file.\n            old_string: Text block to replace.\n            new_string: Replacement text block.\n            allow_multiple: Replace all occurrences of old_string if True.\n\n        Returns:\n            Dictionary containing file status, occurrences count, match strategy, and unified diff.\n        ",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "filepath": {
+          "type": "string"
+        },
+        "old_string": {
+          "type": "string"
+        },
+        "new_string": {
+          "type": "string"
+        },
+        "allow_multiple": {
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "filepath",
+        "old_string",
+        "new_string"
+      ]
+    }
+  },
+  "preparser_output_available": false,
+  "model_rerun": false,
+  "tools_modified": false,
+  "server_parsed_calls_missing_old_string": 13,
+  "ADK_unchanged_calls": 13,
+  "schema_rejections": 13,
+  "clear_error_in_following_request": 13,
+  "clear_error_with_following_HTTP_200": 12,
+  "distinct_argument_values": 2,
+  "exact_duplicate_calls": 11,
+  "changed_arguments_between_edit_attempts": 1,
+  "repeated_same_missing_argument_shape_after_first": 12,
+  "origin_UNKNOWN": 13,
+  "server_log_inventory": [
+    {
+      "path": "execution/backend_logs/before_stop-log_file_handle.log",
+      "sha256": "74642de64987702d1463c248a10d21b61cb444d15eb11c763ad2c3c40fbc30d7",
+      "bytes": 107404,
+      "old_string_mentions": 0
+    },
+    {
+      "path": "execution/backend_logs/before_stop-log_path.log",
+      "sha256": "74642de64987702d1463c248a10d21b61cb444d15eb11c763ad2c3c40fbc30d7",
+      "bytes": 107404,
+      "old_string_mentions": 0
+    }
+  ],
+  "records": [
+    {
+      "index": 1,
+      "tool_call_id": "chatcmpl-tool-b778e3c3e86c4bd8",
+      "http_request_id": "863b005715c341a79bac6fc18ace52e7",
+      "wire_record_index": 51,
+      "wire_response_sha256": "472157438e0838bb1ea3d1ec3af50a2b5e283448d186effa6c9ab737396c18e0",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 48,
+      "ADK_response_event_index": 49,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "190347a4dd3b4b3ca30adcd762fe94ca",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "46946fbc42074d3c8c577eaafe6749cc",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74b945dc27d34e5dab0a35f03ca27b56",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ce360b31da994fd4877a443a7b5ab5a4",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": false,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 2,
+      "tool_call_id": "chatcmpl-tool-beb0c19059fb0ab2",
+      "http_request_id": "190347a4dd3b4b3ca30adcd762fe94ca",
+      "wire_record_index": 53,
+      "wire_response_sha256": "a0462ee3143ca56af3a9fab8c1b6ddecddbe2d2d160043dc491f70f32f681b06",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 50,
+      "ADK_response_event_index": 51,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "46946fbc42074d3c8c577eaafe6749cc",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74b945dc27d34e5dab0a35f03ca27b56",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ce360b31da994fd4877a443a7b5ab5a4",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 3,
+      "tool_call_id": "chatcmpl-tool-8dddf8d43700c21a",
+      "http_request_id": "46946fbc42074d3c8c577eaafe6749cc",
+      "wire_record_index": 55,
+      "wire_response_sha256": "a916c851d56c2ebd811e938a31d83b33ae4e2b45b3f025636f1596d4025a2ba1",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 52,
+      "ADK_response_event_index": 53,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "74b945dc27d34e5dab0a35f03ca27b56",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ce360b31da994fd4877a443a7b5ab5a4",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 4,
+      "tool_call_id": "chatcmpl-tool-ac0780fbb62040db",
+      "http_request_id": "74b945dc27d34e5dab0a35f03ca27b56",
+      "wire_record_index": 57,
+      "wire_response_sha256": "3f9c6666dcb785655caec4fb7426b559ab4fbbc2516c973ec0ffa72abebb2c1c",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 54,
+      "ADK_response_event_index": 55,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "ce360b31da994fd4877a443a7b5ab5a4",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 5,
+      "tool_call_id": "chatcmpl-tool-8ddcb27377f1f594",
+      "http_request_id": "ce360b31da994fd4877a443a7b5ab5a4",
+      "wire_record_index": 59,
+      "wire_response_sha256": "55b5d637a9028e157e1bc47a6c1b8cdec42827e962992a6366ecda310ffd1f55",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 56,
+      "ADK_response_event_index": 57,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 6,
+      "tool_call_id": "chatcmpl-tool-b9cada94bd373b00",
+      "http_request_id": "e71ba0129d4a45e9ad8e0f6c805ddc8b",
+      "wire_record_index": 61,
+      "wire_response_sha256": "3a5b0e538340bc98d72408c32efe32cffc3ecb57e002d9e9fbe83096e801d379",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 58,
+      "ADK_response_event_index": 59,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "60d6baafd2b74ff49ad63915f09656b1",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 7,
+      "tool_call_id": "chatcmpl-tool-9627ba036f1b159a",
+      "http_request_id": "60d6baafd2b74ff49ad63915f09656b1",
+      "wire_record_index": 63,
+      "wire_response_sha256": "0303054a8db5b11f8e84abb58408f088756a67717fc8bc3a928b9883ef22b7a6",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 60,
+      "ADK_response_event_index": 61,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "83bdc1376f13402fb85997556e15bc1c",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 8,
+      "tool_call_id": "chatcmpl-tool-bd0cc8f2846e9091",
+      "http_request_id": "83bdc1376f13402fb85997556e15bc1c",
+      "wire_record_index": 65,
+      "wire_response_sha256": "67ce6b9386610bc0cc2703f8174a851fe9c0ac31375689e005b49bac61cc132b",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 62,
+      "ADK_response_event_index": 63,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "b85cda973d8d4763bfcf0b23f1610332",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 9,
+      "tool_call_id": "chatcmpl-tool-b44ca0632cdb22ae",
+      "http_request_id": "b85cda973d8d4763bfcf0b23f1610332",
+      "wire_record_index": 67,
+      "wire_response_sha256": "7705db496348cd08fda999560a902c0edfc9d57e9ab88c0cd1809cc31c01d4c1",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 64,
+      "ADK_response_event_index": 65,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 10,
+      "tool_call_id": "chatcmpl-tool-9b026542542d2bbd",
+      "http_request_id": "74e9b975a23f43ec91c1dbc4002c4c38",
+      "wire_record_index": 69,
+      "wire_response_sha256": "ea6c2d40bd130b36e23510bba31806736d9850be084fe1014b019934fb0cb5fa",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 66,
+      "ADK_response_event_index": 67,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 11,
+      "tool_call_id": "chatcmpl-tool-af4b48bc7c459c96",
+      "http_request_id": "ab9aea1cf3f743f19d898e7fdd535b1f",
+      "wire_record_index": 71,
+      "wire_response_sha256": "186076d0a99c0a68930917479c071e976f8396af80e7a02a6652e6cf3748f183",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 68,
+      "ADK_response_event_index": 69,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 12,
+      "tool_call_id": "chatcmpl-tool-b57241e0af368c78",
+      "http_request_id": "1af1f6fe9b954a88a2c377a241c2a66f",
+      "wire_record_index": 73,
+      "wire_response_sha256": "7dd62ded3db392493118e91735fb1f5e04ccaeea021d7751d135d6d27d789117",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "4769e36df37ddded3fdb8f1ecff9d1c1e8bef39578860617691ae35dbb0cddd9",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 70,
+      "ADK_response_event_index": 71,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "2c52f493de1543babdd2a26e5c857e45",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": 200,
+          "response_received": true
+        },
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": false,
+      "exact_duplicate_of_any_prior_edit": true,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    },
+    {
+      "index": 13,
+      "tool_call_id": "chatcmpl-tool-bde9d94cfcc23c9e",
+      "http_request_id": "2c52f493de1543babdd2a26e5c857e45",
+      "wire_record_index": 75,
+      "wire_response_sha256": "50794fcc7daf571704bbac16697efd7f849e8a37d9e5f5de45505d589532d1f4",
+      "server_parsed_arguments_keys": [
+        "filepath",
+        "new_string"
+      ],
+      "server_arguments_sha256": "b6760dd9365bec3a4369dc0f902f46e5e4e946fc12d9444e94ce775c64261904",
+      "original_model_preparser_output": "UNAVAILABLE",
+      "server_parser_output": "AVAILABLE_IN_HTTP_RESPONSE",
+      "ADK_call_event_index": 72,
+      "ADK_response_event_index": 73,
+      "ADK_arguments_identical_to_HTTP": true,
+      "missing_argument": "old_string",
+      "new_string_contains_old_string_literal": true,
+      "schema_rejection": true,
+      "error_sha256": "e51eb51b3459db0d4648113ab4891d112bd14ea7c3a11108c7f920b118d60dcb",
+      "error_feedback_in_subsequent_HTTP_requests": [
+        {
+          "request_id": "a5ba7668636a47f195bd20da19ebeed0",
+          "content_sha256": "7c0866017d0fc5243cb0e929b3aed712725e5a5278371a4195df883699999efc",
+          "contains_exact_error": true,
+          "mentions_missing_old_string": true,
+          "HTTP_response_status": null,
+          "response_received": false
+        }
+      ],
+      "raw_arguments_changed_since_previous": true,
+      "exact_duplicate_of_any_prior_edit": false,
+      "proximate_classification": "TOOL_SCHEMA_REJECTION",
+      "origin_classification": "UNKNOWN",
+      "MODEL_GENERATED_MISSING_ARGUMENT": "UNKNOWN",
+      "PARSER_DROPPED_ARGUMENT": "UNKNOWN",
+      "ADK_ARGUMENT_TRANSFORMATION": "NOT_OBSERVED_ON_AVAILABLE_HTTP_TO_ADK_BOUNDARY"
+    }
+  ]
+}
