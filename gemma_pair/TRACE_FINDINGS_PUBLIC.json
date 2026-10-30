@@ -1,0 +1,96 @@
+{
+  "archive_sha256": "328dda4a3084f306f7fec75e7e207b4a5f26292dea9ba3853f9e6a57e73396c6",
+  "sessions": [
+    {
+      "index": 1,
+      "candidate": "S0",
+      "task": "django__django-16333",
+      "observed_tool_call_attempts": 18,
+      "native_charged_tools": 18,
+      "missing_environment_entry_errors": {
+        "touch": 1
+      },
+      "edit_missing_old_string_rejections": 0,
+      "production_files": [
+        "django/contrib/auth/forms.py"
+      ]
+    },
+    {
+      "index": 2,
+      "candidate": "SUPERAGENT",
+      "task": "django__django-16333",
+      "observed_tool_call_attempts": 27,
+      "native_charged_tools": 27,
+      "missing_environment_entry_errors": {
+        "python_alias": 2,
+        "pytest": 2,
+        "which": 1
+      },
+      "edit_missing_old_string_rejections": 0,
+      "production_files": [
+        "django/contrib/auth/forms.py"
+      ]
+    },
+    {
+      "index": 3,
+      "candidate": "SUPERAGENT",
+      "task": "pydata__xarray-3095",
+      "observed_tool_call_attempts": 37,
+      "native_charged_tools": 24,
+      "missing_environment_entry_errors": {},
+      "edit_missing_old_string_rejections": 13,
+      "production_files": []
+    },
+    {
+      "index": 4,
+      "candidate": "S0",
+      "task": "pydata__xarray-3095",
+      "observed_tool_call_attempts": 22,
+      "native_charged_tools": 22,
+      "missing_environment_entry_errors": {},
+      "edit_missing_old_string_rejections": 0,
+      "production_files": []
+    },
+    {
+      "index": 5,
+      "candidate": "S0",
+      "task": "fastapi_14297",
+      "observed_tool_call_attempts": 23,
+      "native_charged_tools": 23,
+      "missing_environment_entry_errors": {
+        "pytest": 2,
+        "pip": 3,
+        "which": 1
+      },
+      "edit_missing_old_string_rejections": 0,
+      "production_files": [
+        "fastapi/_compat/v2.py"
+      ]
+    },
+    {
+      "index": 6,
+      "candidate": "SUPERAGENT",
+      "task": "fastapi_14297",
+      "observed_tool_call_attempts": 24,
+      "native_charged_tools": 23,
+      "missing_environment_entry_errors": {
+        "python_alias": 1,
+        "pytest": 3,
+        "pip": 1
+      },
+      "edit_missing_old_string_rejections": 0,
+      "production_files": [
+        "fastapi/_compat/v2.py"
+      ]
+    }
+  ],
+  "completed_sessions": 6,
+  "HTTP_attempts": 161,
+  "HTTP200_responses": 156,
+  "cancelled_requests": 5,
+  "timeouts": 5,
+  "explicit_submissions": 1,
+  "caveat": "Locked minimal research sandbox lacks python alias, pytest/pip and some Unix commands. Matching environments do not establish official-serving equivalence. Environment errors confound interpreting model timeouts.",
+  "parser_attribution": "Missing old_string observed in native tool arguments and rejection records. Whether generated syntax, serving parser, or their interaction caused it is unresolved.",
+  "next_priority": "Repair/validate research environment command and test surface on CPU first; then test a single prompt change for repeated tool-error recovery and timely finalization on an independent cohort. Do not rerun/select old outcomes or change official tools."
+}

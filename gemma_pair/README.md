@@ -23,6 +23,15 @@ Checks cover owned Issue-grounded targets/controls; broader regression and
 canonical SWE-bench/official Native grading are not run. Semantic review remains
 required. A local probe pass is not a competition score.
 
+Before observing the new model outputs, an additional xarray probe was frozen
+for all eight Dataset/DataArray copy/deepcopy cases named in the public Issue.
+In the locked environment, the baseline passed four shallow cases and failed
+four deep cases while controls passed. These supplementary cases are separate
+from primary checks and do not change Agent inputs or candidate selection.
+The supplementary CPU wrapper retained two failures: an input-path error and
+a missing aggregate target-failure classification. Case expectations stayed
+unchanged; the corrected baseline completed as supplementary Notebook v3.
+
 CPU setup failures are retained: wheel-local NumPy ELF resolution, asynchronous
 Git-gc during archive creation, and old-xarray distutils availability. Runtime
 fixes use locked wheel members, disable background GC in fresh synthetic Git
@@ -49,3 +58,7 @@ Run `python -m gemma_pair.cpu <new_output>` before any GPU use; the real entry i
 `python -m gemma_pair.coordinator <new_output> <first_cell_monotonic>`.
 Every attempt uses a fresh evidence directory. No selective model reruns or
 automatic competition submissions are part of this study.
+
+## Completed observation
+
+Six real-model sessions completed. Both S0 and SuperAgent retained patches passed 2/3 primary development checks; xarray was not repaired. Five sessions timed out and one explicitly submitted. Raw requests show 161 HTTP attempts, 156 HTTP-200 responses and five cancellations; cancelled usage is unknown. Minimal-runtime omissions and 13 repeated missing-old_string edit rejections confound capability interpretation. See RESULTS.md, TRACE_FINDINGS_PUBLIC.json and semantic review notes. No new competition submission or public score.
