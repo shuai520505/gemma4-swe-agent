@@ -20,7 +20,8 @@ def main():
     os.close(0);assert os.open('/dev/null',os.O_RDONLY)==0
     env=dict(PATH='/usr/local/bin:/usr/bin:/bin',HOME='/tmp',LANG='C.UTF-8',PYTHONPATH='/workspace:/opt/approved',
         PYTHONNOUSERSITE='1',PYTHONDONTWRITEBYTECODE='1',PYTHONIOENCODING='utf-8',GIT_CONFIG_GLOBAL='/dev/null',GIT_CONFIG_NOSYSTEM='1',TMPDIR='/tmp',
-        GIT_AUTHOR_NAME='Research',GIT_AUTHOR_EMAIL='cpu@example.invalid',GIT_COMMITTER_NAME='Research',GIT_COMMITTER_EMAIL='cpu@example.invalid',PIP_NO_INDEX='1')
+        GIT_AUTHOR_NAME='Research',GIT_AUTHOR_EMAIL='cpu@example.invalid',GIT_COMMITTER_NAME='Research',GIT_COMMITTER_EMAIL='cpu@example.invalid',PIP_NO_INDEX='1',
+        LD_LIBRARY_PATH=':'.join(str(p) for p in Path('/opt/approved').glob('*.libs') if p.is_dir()))
     os.execve('/bin/bash',['/bin/bash','-c',argument],env)
 
 
