@@ -21,7 +21,7 @@ def file_sha(path):
         for b in iter(lambda:stream.read(8388608),b''):h.update(b)
     return h.hexdigest()
 
-async def run(out,started):
+async def run(out,started,plan=None):
     import torch,psutil,httpx
     from adk_submission import VllmConfig,VllmServer,discover_adapters
     from harness_v2.supervisor import supervise
@@ -48,10 +48,14 @@ async def run(out,started):
         assets={p.relative_to(model).as_posix():file_sha(p) for p in model.rglob('*') if p.is_file()}
         assert assets==runtime['model_files']
         write(out/'MODEL_IDENTITY.json',dict(model_path=str(model),source=runtime['model_source'],files=assets))
-        data=prepare(out/'data')
-        for ident,binding in data.items():
-            row=evaluate(binding,out/'baseline'/ident)
-            assert row['target_failed'] and row['positive_controls_passed'] and row['cleanup'],ident
+        data=prepare(out/'data') if plan is None else plan['bindings']
+        if plan is None:
+            for ident,binding in data.items():
+                row=evaluate(binding,out/'baseline'/ident)
+                assert row['target_failed'] and row['positive_controls_passed'] and row['cleanup'],ident
+        order=ORDER if plan is None else plan['order']
+        window=10800 if plan is None else plan['window_seconds']
+        seconds_for=lambda name:480 if plan is not None or name=='SUPERAGENT' else 300
         os.environ.update(VLLM_WORKER_MULTIPROC_METHOD='spawn',VLLM_NO_USAGE_STATS='1',VLLM_ENGINE_READY_TIMEOUT_S='1200',
             VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS='1',NCCL_DEBUG='WARN',PYTORCH_CUDA_ALLOC_CONF='expandable_segments:True',
             LOCAL_API_KEY='EMPTY',OPENAI_API_KEY='EMPTY')
@@ -67,25 +71,31 @@ async def run(out,started):
         async with httpx.AsyncClient(trust_env=False,timeout=30) as client:
             r=await client.get(server.base_url+'/models');r.raise_for_status();write(out/'SERVED_MODELS.json',r.json())
             assert str(model) in {m['id'] for m in r.json()['data']}
-        for index,(ident,name) in enumerate(ORDER):
+        for index,(ident,name) in enumerate(order):
             # Reserve full remaining schedule before starting each independent worker.
-            remaining=sum((480 if n=='SUPERAGENT' else 300)+240 for _,n in ORDER[index:])+300
+            remaining=sum((seconds_for(n)+240 if plan is None else 1080+120) for _,n in order[index:])+(300 if plan is None else 900)
             elapsed=time.monotonic()-started
-            assert 10800-elapsed>=remaining,'Insufficient complete remaining study window'
+            assert window-elapsed>=remaining,'Insufficient complete remaining study window'
             await require_idle(server.base_url,out/f'idle_before_{index+1}',seconds=60)
             journal.stage('session_'+str(index+1))
             spec=dict(binding=data[ident],candidate=name,model_path=str(model),real_Gemma=True)
+            if plan is not None:spec['new_explicit_GPU_authorization']=plan['new_explicit_GPU_authorization']
+            if plan is not None and plan.get('CPU_simulation'):
+                spec.update(CPU_simulation=True,real_Gemma=False,simulation_case=plan['simulation_cases'][index])
             specfile=out/'specs'/f'{index+1}.json';write(specfile,spec)
             directory=out/'sessions'/f'{index+1:02d}_{name}_{ident}'
             print('PAIRED_SESSION_START',index+1,ident,name,flush=True)
-            seconds=480 if name=='SUPERAGENT' else 300
-            outcome=await asyncio.to_thread(supervise,[sys.executable,'-m','gemma_pair.worker',str(specfile),str(directory)],directory,
+            seconds=seconds_for(name)
+            outcome=await asyncio.to_thread(supervise,[sys.executable,'-m','gemma_pair.worker' if plan is None else plan.get('worker_module','r12_adapter'),str(specfile),str(directory)],directory,
                 outer_seconds=seconds+600,stage_caps=dict(prepare_agent=240,agent=seconds+45,save_patch=60,
                     verification=240,persist=60,cleanup=120),cwd=ROOT)
             row=json.loads((directory/'SESSION_RESULT.json').read_bytes()) if (directory/'SESSION_RESULT.json').exists() else None
             results.append(dict(index=index+1,task=ident,candidate=name,worker=outcome,result=row))
-            write(out/'PAIR_RESULTS.json',dict(records=results,not_run=ORDER[len(results):]))
+            write(out/'PAIR_RESULTS.json',dict(records=results,not_run=order[len(results):]))
             assert outcome['allow_next_run'] and row is not None,'Worker integrity/cleanup failure; stop admission'
+            if plan is not None:
+                from r12_final_cpu import admission
+                assert admission(row,outcome)=='CONTINUE','R12 infrastructure/trust/backend stop condition'
             await require_idle(server.base_url,out/f'idle_after_{index+1}',seconds=60)
             print('PAIRED_SESSION_END',index+1,json.dumps(dict(submitted=row['patch_submitted'],patch_bytes=row['patch_bytes'],
                   scoped_pass=row['evaluation'].get('scoped_development_pass'),agent_seconds=row['agent_seconds'])),flush=True)
@@ -110,7 +120,7 @@ async def run(out,started):
                     if p.is_running() and p.status()!=psutil.STATUS_ZOMBIE:live.append(p.pid)
                 except psutil.NoSuchProcess:pass
             clean=not live;write(out/'SERVER_CLEANUP.json',dict(complete=clean,live=live))
-        write(out/'PAIR_RESULTS.json',dict(records=results,not_run=ORDER[len(results):],complete=completed and clean,
+        write(out/'PAIR_RESULTS.json',dict(records=results,not_run=(ORDER if plan is None else plan['order'])[len(results):],complete=completed and clean,
               scoped_development_only=True,official_native_resolved=None,canonical_swebench_resolved=None,
               first_cell_elapsed_seconds=time.monotonic()-started))
         if completed and clean:write(out/'worker_done.json',dict(cleanup_complete=True))

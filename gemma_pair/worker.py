@@ -30,7 +30,7 @@ async def run(spec,out):
     context=DurableContext(journal=journal,docker_manager=manager,task=task,budget=cfg.budget,harness=cfg.harness)
     manager.context=context
     result=dict(task_id=task.instance_id,candidate=name,cleanup=False,official_native_resolved=None,
-                canonical_swebench_resolved=None,model_transport='REAL_GEMMA')
+                canonical_swebench_resolved=None,model_transport='SIMULATED_CPU' if spec.get('CPU_simulation') is True else 'REAL_GEMMA')
     try:
         with observe_http(out/'model_transport'):
             patch,error,trace=await run_agent_sandbox(manager,cfg,task,Path(binding['snapshot']),context=context)
