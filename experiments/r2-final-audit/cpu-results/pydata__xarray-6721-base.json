@@ -1,0 +1,91 @@
+{
+  "task": "pydata__xarray-6721",
+  "variant": "base",
+  "evidence": "CPU_VERIFIED",
+  "method": "Expanded owned checks; no reference patch, hidden tests or trusted historical expectations changed",
+  "python": "3.12.12 (main, Feb  3 2026, 22:54:57) [MSC v.1944 64 bit (AMD64)]",
+  "source": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pydata__xarray-6721\\selected-base",
+  "checks": [
+    {
+      "name": "numpy_dataset",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "dask_dataset_metadata",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "dask_aggregation",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "inconsistent_chunks_exception",
+      "kind": "control",
+      "status": "PASS",
+      "detail": "Object has inconsistent chunks along dimension x. This can be fixed by calling unify_chunks()."
+    },
+    {
+      "name": "zarr_lazy_chunks_none",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "AssertionError",
+      "error": "['v/0', 'v/1', 'v/2']",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 69, in <lambda>\n    check('zarr_lazy_chunks_none',lambda:zarr_case(None),'target')\n                                         ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 65, in zarr_case\n    result=dict(ds.chunks);assert not store.reads,store.reads\n                                  ^^^^^^^^^^^^^^^\nAssertionError: ['v/0', 'v/1', 'v/2']\n"
+    },
+    {
+      "name": "zarr_dask_chunks",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "chunks": {
+          "x": [
+            2,
+            2,
+            2
+          ]
+        },
+        "materialization_on_metadata": false,
+        "values_read_counter_active": true
+      }
+    },
+    {
+      "name": "duck_array_without_chunks",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "materializations": 0
+      }
+    },
+    {
+      "name": "duck_array_with_chunks",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "materializations": 0
+      }
+    },
+    {
+      "name": "lazy_backend_no_getitem",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "AssertionError",
+      "error": "",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 91, in lazy\n    b=Lazy();v=Variable('x',indexing.LazilyIndexedArray(b),fastpath=True);assert dict(get_chunksizes([v]))=={};assert b.reads==0;return dict(reads=b.reads)\n                                                                                                                      ^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "loaded_source_identity",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "loaded_file": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pydata__xarray-6721\\selected-base\\xarray\\__init__.py",
+        "sha256": "b69885960d6782998682aafc58719f0fca2b7ab1afffc11b2e373a9869bcb700"
+      }
+    }
+  ]
+}

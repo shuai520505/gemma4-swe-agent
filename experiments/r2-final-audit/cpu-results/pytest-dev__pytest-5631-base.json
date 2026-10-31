@@ -1,0 +1,79 @@
+{
+  "task": "pytest-dev__pytest-5631",
+  "variant": "base",
+  "evidence": "CPU_VERIFIED",
+  "method": "Expanded owned checks; no reference patch, hidden tests or trusted historical expectations changed",
+  "python": "3.12.12 (main, Feb  3 2026, 22:54:57) [MSC v.1944 64 bit (AMD64)]",
+  "source": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base",
+  "checks": [
+    {
+      "name": "numpy_array_replacement",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "ValueError",
+      "error": "The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 106, in <lambda>\n    check('numpy_array_replacement',lambda:assert_(count_([item(np.array([-5.5,3.0]))])==0),'target')\n                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 103, in count_\n    return count(f)\n           ^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py\", line 71, in num_mock_patch_args\n    [p for p in patchings if not p.attribute_name and p.new in sentinels]\n                                                      ^^^^^^^^^^^^^^^^^^\nValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\n"
+    },
+    {
+      "name": "default_auto_argument",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "plain_no_patchings",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "empty_patchings",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "explicit_mock_replacement",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "attribute_name_excluded",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "mixed_parameter_count",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "ValueError",
+      "error": "The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 112, in <lambda>\n    check('mixed_parameter_count',lambda:assert_(count_([item(mock.DEFAULT),item(np.array([1,2])),item(mock.DEFAULT),item(mock.DEFAULT,'attr')])==2),'target')\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 103, in count_\n    return count(f)\n           ^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py\", line 71, in num_mock_patch_args\n    [p for p in patchings if not p.attribute_name and p.new in sentinels]\n                                                      ^^^^^^^^^^^^^^^^^^\nValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\n"
+    },
+    {
+      "name": "no_custom_equality_side_effect",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "AssertionError",
+      "error": "Comparison must use identity",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 115, in <lambda>\n    check('no_custom_equality_side_effect',lambda:assert_(count_([item(EqTrap())])==0),'target')\n                                                          ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 103, in count_\n    return count(f)\n           ^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py\", line 71, in num_mock_patch_args\n    [p for p in patchings if not p.attribute_name and p.new in sentinels]\n                                                      ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 114, in __eq__\n    def __eq__(self,other):raise AssertionError('Comparison must use identity')\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Comparison must use identity\n"
+    },
+    {
+      "name": "both_mock_module_sentinels",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "loaded_source_identity",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "loaded_file": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py",
+        "sha256": "ef94b6bffa4d46b678830e705caa855dc0dbc0edd3f819f0e6d52a50b081d524"
+      }
+    }
+  ]
+}
