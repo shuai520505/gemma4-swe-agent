@@ -1,0 +1,251 @@
+{
+  "rankings": [
+    {
+      "rank": 1,
+      "name": "Source-backed hypotheses are followed by long additional inference/read/simulation chains before production edits",
+      "raw_evidence": [
+        {
+          "session": 3,
+          "first_edit_interval": {
+            "lower_seconds": 256.1799857509998,
+            "upper_seconds": 256.4039531679998,
+            "source_event_line": 81
+          },
+          "observed_hypothesis_proxy": {
+            "seconds": 70.90259166300007,
+            "adk_event_line": 9,
+            "text_sha256": "b34631012d1be67467bfbda2e0a22a9362a5fcf8c1c3914cca6dfb53c649e196",
+            "summary": "Enum.__str__ rather than primitive conversion explains name-valued strings; override Choices is considered alongside field-conversion alternatives.",
+            "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+          },
+          "gap_to_first_edit": {
+            "lower": 185.2773940879997,
+            "upper": 185.50136150499975
+          }
+        },
+        {
+          "session": 5,
+          "first_edit_interval": {
+            "lower_seconds": 326.29517773299995,
+            "upper_seconds": 326.3645331920002,
+            "source_event_line": 117
+          },
+          "observed_hypothesis_proxy": {
+            "seconds": 15.596712067000226,
+            "adk_event_line": 1,
+            "text_sha256": "1a237009ed18a9ee5739d708a02a5448bd322621e31195438bf1a0d7ebe9f34f",
+            "summary": "Inspecting v.data invokes Variable.values/backend materialization; this is a source-testable causal claim, not yet a verified patch.",
+            "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+          },
+          "gap_to_first_edit": {
+            "lower": 310.6984656659997,
+            "upper": 310.76782112499995
+          }
+        },
+        {
+          "session": 7,
+          "first_edit_interval": {
+            "lower_seconds": 133.66766078599994,
+            "upper_seconds": 133.75127994600007,
+            "source_event_line": 69
+          },
+          "observed_hypothesis_proxy": {
+            "seconds": 17.72237306199986,
+            "adk_event_line": 1,
+            "text_sha256": "b21e73ac7037115173eb2fa9943114a41c92c44e5d113e9f1e4f92560ff70df5",
+            "summary": "Membership comparison with a NumPy replacement can produce an array truth-value error; identity is a later candidate fix.",
+            "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+          },
+          "gap_to_first_edit": {
+            "lower": 115.94528772400008,
+            "upper": 116.02890688400021
+          }
+        }
+      ],
+      "R2_sessions_affected": 3,
+      "causality": "Outcome association only. R1 xarray never edits; BASELINE Django/xarray fail to repair. Earlier internal readiness is not known.",
+      "potential_intervention": "Candidate A evidence-gated minimal edit decision; never a mandatory blind edit.",
+      "guaranteed_savings_seconds": null,
+      "risk": "Premature edit with wrong mechanism or untested assumptions; loss of repair correctness."
+    },
+    {
+      "rank": 2,
+      "name": "Malformed or misbound verification and repeated diagnostic construction consume inference rounds without a passing target check",
+      "raw_evidence": [
+        {
+          "session": 3,
+          "ordinals": [
+            3,
+            10,
+            13
+          ],
+          "observed_tool_envelope_seconds": 1.8177724970003055,
+          "associated_HTTP_roundtrip_seconds": 82.57309899799975,
+          "call_ids": [
+            "chatcmpl-tool-8136416783a4b645",
+            "chatcmpl-tool-b5311c8c53dacb52",
+            "chatcmpl-tool-9eee76ca47172176"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        },
+        {
+          "session": 5,
+          "ordinals": [
+            24,
+            28
+          ],
+          "observed_tool_envelope_seconds": 6.069523503000255,
+          "associated_HTTP_roundtrip_seconds": 31.450306343999728,
+          "call_ids": [
+            "chatcmpl-tool-a59b612701820a8f",
+            "chatcmpl-tool-b5fa6b0d2b6d51dd"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        },
+        {
+          "session": 7,
+          "ordinals": [
+            15
+          ],
+          "observed_tool_envelope_seconds": 0.9038889740004379,
+          "associated_HTTP_roundtrip_seconds": 8.92700442900059,
+          "call_ids": [
+            "chatcmpl-tool-985f0ed8e31d0e85"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        }
+      ],
+      "R2_failed_test_operations": 6,
+      "additional_misbound_operations": [
+        {
+          "session": 7,
+          "ordinals": [
+            3,
+            10
+          ],
+          "observed_tool_envelope_seconds": 1.1373156050003672,
+          "associated_HTTP_roundtrip_seconds": 33.86201672399966,
+          "call_ids": [
+            "chatcmpl-tool-9e4aa9b87e092dd8",
+            "chatcmpl-tool-b6fc1506e7f467a6"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        }
+      ],
+      "potential_intervention": "Ground the smallest discriminating probe in the actual production path and preserve required controls; fixture and target failures must be distinct.",
+      "guaranteed_savings_seconds": null,
+      "risk": "Deleting a failing command that actually reproduces the bug, or suppressing legitimate environment/compatibility evidence."
+    },
+    {
+      "rank": 3,
+      "name": "Recovery and finalization rework: malformed edits, production reversals and premature mixed-scope/empty submissions",
+      "R2_counterfactual_edit_cycle": {
+        "session": 3,
+        "ordinals": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "observed_tool_envelope_seconds": 2.980023001999598,
+        "associated_HTTP_roundtrip_seconds": 60.516928408000695,
+        "call_ids": [
+          "chatcmpl-tool-a6bb2b5d342f6d4a",
+          "chatcmpl-tool-8edc6db4a4d87302",
+          "chatcmpl-tool-8f637b57592b8079",
+          "chatcmpl-tool-8a9ae235b2efb47a"
+        ],
+        "savings_if_removed_seconds": null,
+        "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+      },
+      "R2_optional_control_and_cycle_window": {
+        "session": 3,
+        "ordinals": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "observed_tool_envelope_seconds": 5.025309379999726,
+        "associated_HTTP_roundtrip_seconds": 91.1689235570002,
+        "call_ids": [
+          "chatcmpl-tool-bd4ca1dd972b4920",
+          "chatcmpl-tool-a61cc0e00c937f88",
+          "chatcmpl-tool-a6bb2b5d342f6d4a",
+          "chatcmpl-tool-8edc6db4a4d87302",
+          "chatcmpl-tool-8f637b57592b8079",
+          "chatcmpl-tool-8a9ae235b2efb47a"
+        ],
+        "savings_if_removed_seconds": null,
+        "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+      },
+      "BASELINE_schema_failures": [
+        {
+          "session": 1,
+          "ordinals": [
+            23,
+            24,
+            25,
+            26
+          ],
+          "observed_tool_envelope_seconds": 0.045867056000133744,
+          "associated_HTTP_roundtrip_seconds": 45.475375103999795,
+          "call_ids": [
+            "chatcmpl-tool-b83db33534794b53",
+            "chatcmpl-tool-af7de7729823adad",
+            "chatcmpl-tool-85702022df598984",
+            "chatcmpl-tool-966233e5778df928"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        },
+        {
+          "session": 6,
+          "ordinals": [
+            29
+          ],
+          "observed_tool_envelope_seconds": 0.010226213000350981,
+          "associated_HTTP_roundtrip_seconds": 23.548056250000172,
+          "call_ids": [
+            "chatcmpl-tool-915f3996c9701c28"
+          ],
+          "savings_if_removed_seconds": null,
+          "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+        }
+      ],
+      "R1_scope_correction": {
+        "session": 2,
+        "ordinals": [
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "observed_tool_envelope_seconds": 1.7582968309995977,
+        "associated_HTTP_roundtrip_seconds": 48.19226774300023,
+        "call_ids": [
+          "chatcmpl-tool-83bbf0603bea7013",
+          "chatcmpl-tool-94529a97d54f7b3b",
+          "chatcmpl-tool-887595bb9f13c496",
+          "chatcmpl-tool-92525371794c19c4",
+          "chatcmpl-tool-b0591ac8aa5e9b44"
+        ],
+        "savings_if_removed_seconds": null,
+        "caveat": "Measured exposure, not counterfactual savings. Additional inference/tests would replace some work; these sets can overlap phase windows and must not be summed as total removable time."
+      },
+      "potential_intervention": "Candidate B version-bound verification and scope-aware one-time finalization, after necessary checks; retain a corrective submit when the patch truly changes.",
+      "guaranteed_savings_seconds": null,
+      "risk": "Skipping necessary revalidation after a real source/test-input change or failing to remove diagnostic files."
+    }
+  ],
+  "R2_agent_HTTP_fraction": 0.9743733923831726,
+  "R2_agent_tool_envelope_fraction": 0.022716983462073948,
+  "note": "This ordering is a research priority, not a statistically estimated causal ranking. SDK compaction overhead is measured but remains a frozen infrastructure setting, not a third proposed candidate."
+}
