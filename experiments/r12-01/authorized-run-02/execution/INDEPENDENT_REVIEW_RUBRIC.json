@@ -1,0 +1,35 @@
+{
+  "written_at_utc": "2026-10-31T05:39:50.716128+00:00",
+  "written_before_any_returned_model_patch": true,
+  "observed_Notebook_state": "KernelWorkerStatus.QUEUED",
+  "source": "Only frozen original Issue statements and already-frozen endpoint requirements; no reference patch/test patch or linked commit consulted",
+  "not_a_trusted_test_change": true,
+  "common": [
+    "Real production behavior must change; tests/diagnostics/comments-only edits are not repairs.",
+    "Original Issue target and required positive controls must pass in the independent evaluator.",
+    "Protected checks, isolation, evidence and cleanup must remain trustworthy.",
+    "Reject hardcoded reproduction-only shortcuts and hidden regression of necessary controls."
+  ],
+  "tasks": {
+    "django__django-11964": [
+      "Freshly assigned TextChoices/IntegerChoices string conversion must reflect the underlying value consistently with the database-readback representation.",
+      "Do not require removal of enum subclasses merely because the title mentions differing types; the demonstrated failure is incorrect string conversion.",
+      "Preserve supported choices/labels/value semantics and ordinary str/int behavior; no class/member-name special cases."
+    ],
+    "pydata__xarray-6721": [
+      "Reading chunks metadata must not materialize a lazy non-dask/zarr-backed array through data/values/array conversion or array item reads.",
+      "Real chunk metadata for genuinely chunked variables must remain correct and existing inconsistency checks must be preserved.",
+      "Do not accept unconditional empty chunks or suppressed errors that hide required behavior; do not impose a new return type beyond the frozen API/check requirements."
+    ],
+    "pytest-dev__pytest-5631": [
+      "Collection of a mock patch with new=numpy array must not trigger ambiguous array equality/truth evaluation.",
+      "Explicit non-DEFAULT replacement arrays must not be miscounted as automatically injected mock parameters.",
+      "Preserve genuine DEFAULT sentinel injection counting, attribute-name handling and necessary collection/fixture behavior; do not hide unrelated errors with a blanket catch."
+    ]
+  },
+  "issue_sha256": {
+    "django__django-11964": "9f510b2ad7d3833f07816f18dfa6dbb8dacf72061c288cfe399418bfe4da25ab",
+    "pydata__xarray-6721": "8885a8e303e07d8e74f13a24134ecd7d051a2e2ded38ac313d6667e68b93a021",
+    "pytest-dev__pytest-5631": "1e9120fbb21d881c388af3596eaa479bad2f604703eb79bd19898b5d7b18af03"
+  }
+}

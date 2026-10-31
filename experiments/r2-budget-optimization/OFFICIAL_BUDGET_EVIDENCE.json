@@ -1,0 +1,52 @@
+{
+  "read_at_utc": "2026-10-31T09:16:10.961616+00:00",
+  "sources": [
+    {
+      "url": "https://www.kaggle.com/competitions/gemma-4-developer-agent/overview",
+      "claim": "All tasks share 12h to submit patches, inclusive of sandbox setup and exclusive of patch validation. Exact private implementation boundaries are not disclosed by this wording."
+    },
+    {
+      "url": "https://www.kaggle.com/code/ryanholbrook/getting-started-gemma-4-developer-agent",
+      "claim": "Fresh CLI source downloaded read-only; explicitly parses per-task eval settings then runs two published examples. That sample loop is not the hidden scoring controller."
+    },
+    {
+      "url": "https://www.kaggle.com/code/ryanholbrook/getting-started-gemma-4-developer-agent/input",
+      "claim": "Organizer description says about 120 hidden tasks split evenly. Exact N remains unknown; local 129 is development data."
+    },
+    {
+      "url": "https://www.kaggle.com/competitions/gemma-4-developer-agent/data",
+      "claim": "Fresh HARNESS_README read via authenticated CLI, not hidden task contents. Section 7.1 documents inference keys, session timing and fixed scorer verification timeout."
+    }
+  ],
+  "source_sha256": {
+    "official-source\\HARNESS_README.md": "445000219b803942c469391ec8b69791a31e9cec2f934738c767e34b5ca0aa1f",
+    "official-source\\starter\\getting-started-gemma-4-developer-agent.ipynb": "8e7d84a326acae509fb596163ba085831961b588b86d51af31e037c5319b917c",
+    "pinned_sdk/swegemma/config.py": "0cf65965d713a883eaf779652979e281f1fbd3d24707f1bd7e91e054c5069f0b",
+    "pinned_sdk/swegemma/context.py": "272168834495f424dac54cfcc3d470c1b8e42b75a1125e7501586eb5f4fb73c0",
+    "pinned_sdk/swegemma/tools/base.py": "535a0e6d121549b41906685d0e440e8709c4b8b434bc31dcc82fa7740ec66281",
+    "pinned_sdk/swegemma/tools/execution.py": "ff4df981ae1070334665ce8ab726c231e139ac5cf34bb5ebc4660eada28a7b2d",
+    "pinned_sdk/swegemma/harness/agent_runner.py": "4d7eccabd203c26f7c39e882684d2fd851f383f6a5c76c4a75b0e559cd5d6a18"
+  },
+  "official_exact_tasks": null,
+  "task_count_status": "OFFICIAL_TASK_COUNT_UNKNOWN",
+  "fields": {
+    "timeout_seconds": "Supported per-command ceiling; actual execution clamps to current session remaining time with the documented minimum-floor behavior.",
+    "max_time_minutes": "Supported per-task Agent loop minutes; starts after sandbox preparation.",
+    "max_tool_calls": "Supported charged-tool count; excludes get_status and submit_patch.",
+    "max_turns": "Supported per-task model-turn cap; not a global clock.",
+    "verification_timeout_seconds": "Local EvalConfig/Starter Phase 2 setting; fixed 300 seconds on scorer, not a submission-controlled Stage 1 field."
+  },
+  "global_clock": {
+    "total_seconds": 43200,
+    "sandbox_preparation_included": true,
+    "verification_excluded": true,
+    "all_tasks_scope": true,
+    "model_server_start_charge_boundary": null,
+    "precise_start_event": null,
+    "precise_end_event": null,
+    "private_timer_source": null,
+    "task_order": null,
+    "global_budget_in_get_status": false
+  },
+  "source_caveat": "Web search excerpts have their reported crawl age; fresh CLI sources and pinned official SDK are separately hashed. No third-party estimates, leaderboard reverse-engineering or hidden solution data are used."
+}

@@ -21,7 +21,7 @@ def evaluate(binding,out,patch_text=None):
         extract_snapshot(manager,sid,Path(binding['snapshot']))
         original=source_identity(workspace);assert original==binding['base_source_identity']
         protected=entry['root']/'evaluation';protected.mkdir(mode=0o755)
-        programs={'probe.py':(data/task['diagnostic_path']).read_bytes(),'common.py':(data/'diagnostics/common.py').read_bytes()}
+        programs={n:Path(p).read_bytes() for n,p in binding['evaluation_programs'].items()} if 'evaluation_programs' in binding else {'probe.py':(data/task['diagnostic_path']).read_bytes(),'common.py':(data/'diagnostics/common.py').read_bytes()}
         expected={n:sha(b) for n,b in programs.items()}
         for n,b in programs.items():(protected/n).write_bytes(b);(protected/n).chmod(0o444)
         protected.chmod(0o555)
@@ -33,9 +33,9 @@ def evaluate(binding,out,patch_text=None):
                 result['apply_error']=asdict(checked);return result
             applied=manager.exec(sid,'git apply /tmp/candidate.patch',timeout=30);assert applied.exit_code==0
         before=source_identity(workspace)
-        probe=manager.exec(sid,'EGRD_SOURCE=/workspace EGRD_RESULT_PATH=/tmp/probe.json python3 /evaluation/probe.py',timeout=90)
+        probe=manager.exec(sid,binding.get('evaluation_command','EGRD_SOURCE=/workspace EGRD_RESULT_PATH=/tmp/probe.json python3 /evaluation/probe.py'),timeout=90)
         result['execution']=asdict(probe)
-        try:receipt=json.loads(manager.read_file('/tmp/probe.json'))
+        try:receipt=json.loads(manager.read_file(binding.get('evaluation_receipt','/tmp/probe.json')))
         except Exception as exc:receipt={};result['receipt_error']=type(exc).__name__
         result['receipt']=receipt
         result['target_passed']=receipt.get('classification')=='CHECK_PASS_NON_DISCRIMINATING' and probe.exit_code==0
@@ -50,7 +50,7 @@ def evaluate(binding,out,patch_text=None):
         names=manager.exec(sid,'git add -N . && git diff --name-only HEAD',timeout=30)
         result['changed_files']=names.stdout.strip().splitlines()
         result['scoped_development_pass']=bool(patch_text and result['target_passed'] and result['positive_controls_passed'])
-        result['scope']='Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required'
+        result['scope']=binding.get('evaluation_scope','Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required')
         return result
     finally:
         manager.cleanup_all()

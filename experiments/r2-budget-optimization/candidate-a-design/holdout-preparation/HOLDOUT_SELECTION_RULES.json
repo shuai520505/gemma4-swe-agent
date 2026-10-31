@@ -1,0 +1,25 @@
+{
+  "status": "RULES_FROZEN_NO_ELIGIBLE_TASKS",
+  "seed": 20261031,
+  "seed_use": "Metadata task ranking and session order only; never model generation",
+  "candidate_policy_spec_sha256": "f46b3204c4225047ea3b778885455c4b8eef12ea410302beaf3cdc7ea7f0ce0a",
+  "control_zip_sha256": "af918c1a65aeb211298f13a69b5b789ae6b086974922c80469df87d902eb98d5",
+  "input_pool_sha256": "e4b3fd60f69dbc2b9213e54eeb9636db78aefe92c1d06269d73d9f5f8f3c8ad6",
+  "required_tasks": 4,
+  "available_eligible_tasks": 0,
+  "selection_keys": [
+    "instance_id",
+    "repo",
+    "base_commit",
+    "issue_sha256"
+  ],
+  "exposure_policy": "Exclude actual, screened, analyzed, historically reserved/planned or uncertain identities. Metadata-only pool registration is not itself exposure. Prior frozen exclusions are not silently relaxed.",
+  "alias_policy": "Exclude same normalized repo+base_commit+issue_sha256 under any ID; add known equivalent Issue URLs if available. Nonidentical Issue paraphrase equivalence remains UNKNOWN; no guarantee of global absence of exposure.",
+  "ranking": "SHA256(UTF8(\"R2A-v1|20261031|\" + repo.lower() + \"|\" + instance_id + \"|\" + base_commit + \"|\" + issue_sha256)); ascending hex, instance_id tie-break",
+  "repository_blocking": "Choose the minimum-ranked eligible task per repository, rank repository representatives by the same digest and take four. If fewer than four repository blocks exist, round-robin the remaining within-repository ranks to maximize available diversity; disclose reduced scope before execution.",
+  "issue_type_stratification": "UNKNOWN_NOT_USED; no task-content/ease/outcome ranking",
+  "selection_execution": "NOT_RUN_ZERO_ELIGIBLE",
+  "selected_task_ids": [],
+  "new_sources": "Any additional cohort/source requires a versioned amendment, metadata exposure audit and official-native compatibility evidence before selection; never swap after outcomes.",
+  "primary_endpoint": "Actual official native result plus separate effective-production/semantic validation; generated XML contract fixtures are not repairs."
+}
