@@ -1,0 +1,15 @@
+{
+  "before_any_real_model_run": true,
+  "tasks_and_candidate_hashes_unchanged": true,
+  "host_python_and_official_SDK": "Pinned original host Python 3.12 and unmodified SDK/tools/model service",
+  "task_interpreter": "Managed pinned CPython 3.11.9 copied inside the same non-root chroot for both arms",
+  "basis": "CPU native results reproduce original targets but expose unrelated SymPy factorial-parser failures on Python 3.12 and a changed xarray/Dask numeric dependency surface",
+  "task_numeric_dependencies": {"numpy": "1.23.5", "pandas": "1.5.3", "scipy": "1.10.1", "dask": "2022.9.2"},
+  "test_identity_audit": "Exact parameter IDs and exact function names; remove only erroneous prefix conflation in the observational auditor, not the official verifier",
+  "malformed_metadata": "Original Pylint PASS_TO_PASS contains a truncated parameter ID. Preserve it unchanged as UNKNOWN in metadata auditing. Require all unambiguous necessary positive controls and the full unchanged native test file; final official SDK result still requires the whole file to pass. Do not claim every raw metadata node was independently confirmed.",
+  "trusted_test_expected_results_modified": false,
+  "gold_reference_patch_accessed": false,
+  "CPU_internet": "Enabled solely for pinned public interpreter/runtime distribution staging; every Agent and verifier child remains network-denied by existing seccomp",
+  "GPU_internet": false,
+  "limitations": "New paired results use a declared compatible task-runtime surface, not a claim of exact R12 runtime or hidden-scorer equivalence. Original CPU failures remain archived."
+}
