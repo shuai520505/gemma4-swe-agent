@@ -26,7 +26,7 @@ remote=D/'remote-identity/R2A_BUNDLE_IDENTITY.json'
 if remote.exists():
     pinned=json.loads(remote.read_bytes())['bundle_sha256']
     code=code.replace('BUNDLE_SHA='+repr(manifest['bundle_sha256']),'BUNDLE_SHA='+repr(pinned))
-overlays={n:base64.b64encode((D/n).read_bytes()).decode() for n in ('r2a_runtime.py','r2a_worker.py','r2a_coordinator.py','cpu_worker_replay.py','verify_source_trees.py','OFFICIAL_COMMIT_IDENTITIES.json','XARRAY_ARCHIVAL_ORIGINAL.json')}
+overlays={n:base64.b64encode((D/n).read_bytes()).decode() for n in ('r2a_runtime.py','r2a_worker.py','r2a_coordinator.py','cpu_worker_replay.py','verify_source_trees.py','OFFICIAL_COMMIT_IDENTITIES.json','XARRAY_ARCHIVAL_ORIGINAL.json','independent_exact_evaluator.py')}
 for name in ('R2','A'):overlays['candidates/'+name+'.zip']=base64.b64encode((D/'candidates'/(name+'.zip')).read_bytes()).decode()
 code+='OVERLAYS='+repr(overlays)+'\n'
 expected_root={n:sha((D/n).read_bytes()) for n in names if n!='r2a_runtime.py'}

@@ -1,0 +1,47 @@
+diff --git a/sympy/parsing/sympy_parser.py b/sympy/parsing/sympy_parser.py
+index 52711d1..774314d 100644
+--- a/sympy/parsing/sympy_parser.py
++++ b/sympy/parsing/sympy_parser.py
+@@ -1186,6 +1186,42 @@ def visit_BinOp(self, node):
+             return new_node
+         return node
+ 
++    def visit_Compare(self, node):
++        op_map = {
++            ast.Lt: 'Lt',
++            ast.LtE: 'Le',
++            ast.Gt: 'Gt',
++            ast.GtE: 'Ge',
++            ast.NotEq: 'Ne',
++            ast.Eq: 'Eq',
++        }
++        comparisons = []
++        left = self.visit(node.left)
++        for op, comp in zip(node.ops, node.comparators):
++            sympy_class = op_map.get(op.__class__)
++            if not sympy_class:
++                return node
++            right = self.visit(comp)
++            comparisons.append(ast.Call(
++                func=ast.Name(id=sympy_class, ctx=ast.Load()),
++                args=[left, right],
++                keywords=[ast.keyword(arg='evaluate', value=ast.NameConstant(value=False, ctx=ast.Load()))],
++                starargs=None,
++                kwargs=None
++            ))
++            left = right
++        if len(comparisons) == 1:
++            return comparisons[0]
++        elif len(comparisons) > 1:
++            return ast.Call(
++                func=ast.Name(id='And', ctx=ast.Load()),
++                args=comparisons,
++                keywords=[ast.keyword(arg='evaluate', value=ast.NameConstant(value=False, ctx=ast.Load()))],
++                starargs=None,
++                kwargs=None
++            )
++        return node
++
+     def visit_Call(self, node):
+         new_node = self.generic_visit(node)
+         if isinstance(node.func, ast.Name) and node.func.id in self.functions:

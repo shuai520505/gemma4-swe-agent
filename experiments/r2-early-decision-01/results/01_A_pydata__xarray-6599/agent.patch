@@ -1,0 +1,61 @@
+diff --git a/repro.py b/repro.py
+new file mode 100644
+index 0000000..00c5c44
+--- /dev/null
++++ b/repro.py
+@@ -0,0 +1,19 @@
++import xarray as xr
++import numpy as np
++
++ds = xr.Dataset({"a": (("x",), [1, 2, 3]), "b": (("x",), [4, 5, 6])})
++print("Original ds:\n", ds)
++
++try:
++    zeros = xr.zeros_like(ds, dtype=float)
++    print("\nzeros_like with dtype=float:\n", zeros)
++    print("\nzeros dtype:\n", zeros.dtypes)
++except Exception as e:
++    print("\nError calling zeros_like: ", e)
++
++try:
++    ones = xr.ones_like(ds, dtype=float)
++    print("\nones_like with dtype=float:\n", ones)
++    print("\nones dtype:\n", ones.dtypes)
++except Exception as e:
++    print("\nError calling ones_like: ", e)
+diff --git a/repro_dict.py b/repro_dict.py
+new file mode 100644
+index 0000000..dff5ddb
+--- /dev/null
++++ b/repro_dict.py
+@@ -0,0 +1,17 @@
++import xarray as xr
++import numpy as np
++
++ds = xr.Dataset({"a": (("x",), [1, 2, 3]), "b": (("x",), [4, 5, 6])})
++print("Original ds:\n", ds)
++
++try:
++    zeros = xr.zeros_like(ds, dtype={"a": float, "b": int})
++    print("\nzeros_like with dtype=dict:\n", zeros)
++except Exception as e:
++    print("\nError calling zeros_like: ", e)
++
++try:
++    ones = xr.ones_like(ds, dtype={"a": float, "b": int})
++    print("\nones_like with dtype=dict:\n", ones)
++except Exception as e:
++    print("\nError calling ones_like: ", e)
+diff --git a/xarray/core/common.py b/xarray/core/common.py
+index 7551871..1d1fa8f 100644
+--- a/xarray/core/common.py
++++ b/xarray/core/common.py
+@@ -1765,7 +1765,7 @@ def _full_like_variable(other, fill_value, dtype: DTypeLike = None):
+     return Variable(dims=other.dims, data=data, attrs=other.attrs)
+ 
+ 
+-def zeros_like(other, dtype: DTypeLike = None):
++def zeros_like(other, dtype: DTypeLike | Mapping[Any, DTypeLike] = None):
+     """Return a new object of zeros with the same shape and
+     type as a given dataarray or dataset.
+ 

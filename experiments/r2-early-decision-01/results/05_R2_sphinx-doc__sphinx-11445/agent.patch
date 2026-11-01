@@ -1,0 +1,18 @@
+diff --git a/sphinx/util/rst.py b/sphinx/util/rst.py
+index 7a15383..a5449cc 100644
+--- a/sphinx/util/rst.py
++++ b/sphinx/util/rst.py
+@@ -79,8 +79,12 @@ def prepend_prolog(content: StringList, prolog: str) -> None:
+     """Prepend a string to content body as prolog."""
+     if prolog:
+         pos = 0
+-        for line in content:
++        for i, line in enumerate(content):
+             if docinfo_re.match(line):
++                if i + 1 < len(content):
++                    next_line = content[i+1]
++                    if next_line.strip() and all(c in SECTIONING_CHARS + [' '] for c in next_line.strip()):
++                        break
+                 pos += 1
+             else:
+                 break

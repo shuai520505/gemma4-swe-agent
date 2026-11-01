@@ -1,5 +1,5 @@
 """Deterministic localhost tool replay; no real model and no repair-capability evidence."""
-import asyncio,http.server,json,tarfile,threading
+import asyncio,http.server,json,tarfile,threading,time
 from pathlib import Path
 from r2a_runtime import HERE,write
 
@@ -35,9 +35,9 @@ async def run(out):
             expected=json.loads((HERE/'EXECUTION_PLAN.json').read_bytes())['sessions']
             assert plan['order']==[(r['task'],r['candidate']) for r in expected] and len(plan['order'])==8
             observed=supervision.supervise('CPU_CONTRACT_ONLY',stage_caps=dict(verification=240))
-            assert observed['stage_caps']['verification']==600
+            assert observed['stage_caps']['verification']==600 and observed['outer_seconds']==1680
         with patch.object(prior,'run',scheduler_probe),patch.object(supervision,'supervise',lambda *a,**k:k):
-            await r2a_coordinator.run(Path(out)/'coordinator-contract',0.0)
+            await r2a_coordinator.run(Path(out)/'coordinator-contract',time.monotonic())
         from r2a_worker import run as worker
         version=next(r['version'] for r in json.loads((HERE/'TASK_IDENTITY_LOCK.json').read_bytes())['rows'] if r['instance_id']==ident)
         spec=dict(binding=dict(issue=issue,snapshot=str(snapshot),wheels=str(HERE/'assets/wheels'),version=version),candidate='A',model_path='SIMULATED_CPU_NO_MODEL',CPU_simulation=True,new_explicit_GPU_authorization=False)
@@ -46,6 +46,8 @@ async def run(out):
         events=[json.loads(l) for l in (Path(out)/'events.jsonl').read_text().splitlines()]
         assert row['model_transport']=='CPU_SCRIPTED_NOT_REPAIR_EVIDENCE' and row['patch_submitted'] and row['patch_bytes']>0 and row['cleanup']
         assert row['sdk_native_resolved'] is False
+        assert row['independent_test_pass'] is False and row['evidence_complete']
+        assert row['evaluation']['sdk_native']['verification_source_guard']['unchanged']
         assert any(e.get('first_production_edit_observed') for e in events)
         write(Path(out)/'CPU_REPLAY_CONTRACT.json',dict(status='PASS_PLUMBING_ONLY',real_Gemma_requests=0,GPU_devices=0,repair_capability_evidence=False,marker_patch_is_not_a_fix=True,native_repair=False,localhost_mock_requests=len(calls),missing_usage='UNKNOWN',source_change_observer=True,submit_capture=True,native_evaluator=True,cleanup=True))
     finally:server.shutdown();server.server_close();thread.join(timeout=5)

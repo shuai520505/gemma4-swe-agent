@@ -1,0 +1,84 @@
+{
+  "status": "CPU_CONTRACT_PASS",
+  "cases": 15,
+  "coordinator_sha256": "6f3d53f952a7388ea26b3e10a88fe7a9e5165b7947dfa5ac6ee9312b686fe806",
+  "independent_evaluator_sha256": "c6287607c17162565af0c645cced5b34208c96cb646454c396985c6bc47de291",
+  "repair_capability_evidence": false,
+  "rows": [
+    {
+      "case": "ordinary incorrect/no patch with intact controls",
+      "expected": "CONTINUE",
+      "actual": "CONTINUE"
+    },
+    {
+      "case": "Agent timeout with retained fallback evidence",
+      "expected": "CONTINUE",
+      "actual": "CONTINUE"
+    },
+    {
+      "case": "inapplicable Agent patch ordinary failure",
+      "expected": "CONTINUE",
+      "actual": "CONTINUE"
+    },
+    {
+      "case": "backend/context error",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "cleanup failure",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "evidence_complete failure",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "necessary positive control failure",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "checks or production changed during verification",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "approved exact-node exception retains raw SDK failure",
+      "expected": "CONTINUE",
+      "actual": "CONTINUE"
+    },
+    {
+      "case": "no broad SDK-error bypass",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "host supervisor/cleanup failed",
+      "expected": "STOP",
+      "actual": "STOP"
+    },
+    {
+      "case": "known original co-failure is ordinary unresolved repair, not infra drift",
+      "expected": "CONTINUE",
+      "actual": "CONTINUE"
+    },
+    {
+      "case": "unrelated failed control is never waived",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "case": "undeclared missing metadata is never waived",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "case": "original co-target must pass for repair success",
+      "expected": "FAIL",
+      "actual": "FAIL"
+    }
+  ]
+}

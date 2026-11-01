@@ -1,0 +1,669 @@
+[
+  {
+    "t": 28.280627288000005,
+    "id": "chatcmpl-tool-b24b7378fffcb34c",
+    "args": {
+      "command": "python -c '\nimport xarray as xr\nimport numpy as np\n\nvalues = np.array(\n    [\n        \"2021-04-01T05:25:19.000000000\",\n        \"2021-04-01T05:25:29.000000000\",\n        \"2021-04-01T05:25:39.000000000\",\n        \"2021-04-01T05:25:49.000000000\",\n        \"2021-04-01T05:25:59.000000000\",\n        \"2021-04-01T05:26:09.000000000\",\n    ],\n    dtype=\"datetime64[ns]\",\n)\nazimuth_time = xr.DataArray(\n    values, name=\"azimuth_time\", coords={\"azimuth_time\": values - values[0]}\n)\n\npolyfit_coefficients = xr.DataArray(\n    [\n        [2.33333335e-43, 1.62499999e-43, 2.79166678e-43],\n        [-1.15316667e-30, 1.49518518e-31, 9.08833333e-31],\n        [-2.50272583e-18, -1.23851062e-18, -2.99098229e-18],\n        [5.83965193e-06, -1.53321770e-07, -4.84640242e-06],\n        [4.44739216e06, 1.45053974e06, 5.29960857e06],\n    ],\n    dims=(\"degree\", \"axis\"),\n    coords={\"axis\": [0, 1, 2], \"degree\": [4, 3, 2, 1, 0]},\n)\n\nprint(xr.polyval(azimuth_time, polyfit_coefficients))\n'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 32.08988020100003,
+      "id": "chatcmpl-tool-b24b7378fffcb34c",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "<xarray.DataArray (axis: 3, azimuth_time: 6)>\narray([[1.59620685e+30, 1.59620689e+30, 1.59620693e+30, 1.59620697e+30,\n        1.59620700e+30, 1.59620704e+30],\n       [1.11164807e+30, 1.11164810e+30, 1.11164812e+30, 1.11164815e+30,\n        1.11164818e+30, 1.11164821e+30],\n       [1.90975722e+30, 1.90975727e+30, 1.90975732e+30, 1.90975736e+30,\n        1.90975741e+30, 1.90975746e+30]])\nCoordinates:\n  * axis          (axis) int64 0 1 2\n  * azimuth_time  (azimuth_time) timedelta64[ns] 00:00:00 00:00:10 ... 00:00:50\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    }
+  },
+  {
+    "t": 66.30024004300003,
+    "id": "chatcmpl-tool-a05a122b058d702c",
+    "args": {
+      "command": "git grep -n \"def polyval\" -- '*.py'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 66.378269897,
+      "id": "chatcmpl-tool-a05a122b058d702c",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "xarray/core/computation.py:1850:def polyval(coord: DataArray, coeffs: DataArray, degree_dim: Hashable) -> DataArray:\nxarray/core/computation.py:1855:def polyval(coord: DataArray, coeffs: Dataset, degree_dim: Hashable) -> Dataset:\nxarray/core/computation.py:1860:def polyval(coord: Dataset, coeffs: DataArray, degree_dim: Hashable) -> Dataset:\nxarray/core/computation.py:1865:def polyval(coord: Dataset, coeffs: Dataset, degree_dim: Hashable) -> Dataset:\nxarray/core/computation.py:1869:def polyval(\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    }
+  },
+  {
+    "t": 75.033389016,
+    "id": "chatcmpl-tool-972caf504e894a7f",
+    "args": {
+      "filepath": "xarray/core/computation.py",
+      "start_line": 1840,
+      "end_line": 1950
+    },
+    "name": "read_file",
+    "response": {
+      "t": 75.10364835799999,
+      "id": "chatcmpl-tool-972caf504e894a7f",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/computation.py",
+        "content": "        x,\n        y,\n        join=\"exact\",\n        dataset_join=\"exact\",\n        dask=\"allowed\",\n        keep_attrs=keep_attrs,\n    )\n\n\n@overload\ndef polyval(coord: DataArray, coeffs: DataArray, degree_dim: Hashable) -> DataArray:\n    ...\n\n\n@overload\ndef polyval(coord: DataArray, coeffs: Dataset, degree_dim: Hashable) -> Dataset:\n    ...\n\n\n@overload\ndef polyval(coord: Dataset, coeffs: DataArray, degree_dim: Hashable) -> Dataset:\n    ...\n\n\n@overload\ndef polyval(coord: Dataset, coeffs: Dataset, degree_dim: Hashable) -> Dataset:\n    ...\n\n\ndef polyval(\n    coord: Dataset | DataArray,\n    coeffs: Dataset | DataArray,\n    degree_dim: Hashable = \"degree\",\n) -> Dataset | DataArray:\n    \"\"\"Evaluate a polynomial at specific values\n\n    Parameters\n    ----------\n    coord : DataArray or Dataset\n        Values at which to evaluate the polynomial.\n    coeffs : DataArray or Dataset\n        Coefficients of the polynomial.\n    degree_dim : Hashable, default: \"degree\"\n        Name of the polynomial degree dimension in `coeffs`.\n\n    Returns\n    -------\n    DataArray or Dataset\n        Evaluated polynomial.\n\n    See Also\n    --------\n    xarray.DataArray.polyfit\n    numpy.polynomial.polynomial.polyval\n    \"\"\"\n\n    if degree_dim not in coeffs._indexes:\n        raise ValueError(\n            f\"Dimension `{degree_dim}` should be a coordinate variable with labels.\"\n        )\n    if not np.issubdtype(coeffs[degree_dim].dtype, int):\n        raise ValueError(\n            f\"Dimension `{degree_dim}` should be of integer dtype. Received {coeffs[degree_dim].dtype} instead.\"\n        )\n    max_deg = coeffs[degree_dim].max().item()\n    coeffs = coeffs.reindex(\n        {degree_dim: np.arange(max_deg + 1)}, fill_value=0, copy=False\n    )\n    coord = _ensure_numeric(coord)  # type: ignore # https://github.com/python/mypy/issues/1533 ?\n\n    # using Horner's method\n    # https://en.wikipedia.org/wiki/Horner%27s_method\n    res = coeffs.isel({degree_dim: max_deg}, drop=True) + zeros_like(coord)\n    for deg in range(max_deg - 1, -1, -1):\n        res *= coord\n        res += coeffs.isel({degree_dim: deg}, drop=True)\n\n    return res\n\n\ndef _ensure_numeric(data: T_Xarray) -> T_Xarray:\n    \"\"\"Converts all datetime64 variables to float64\n\n    Parameters\n    ----------\n    data : DataArray or Dataset\n        Variables with possible datetime dtypes.\n\n    Returns\n    -------\n    DataArray or Dataset\n        Variables with datetime64 dtypes converted to float64.\n    \"\"\"\n    from .dataset import Dataset\n\n    def to_floatable(x: DataArray) -> DataArray:\n        if x.dtype.kind in \"mM\":\n            return x.copy(\n                data=datetime_to_numeric(\n                    x.data,\n                    offset=np.datetime64(\"1970-01-01\"),\n                    datetime_unit=\"ns\",\n                ),\n            )\n        return x\n\n    if isinstance(data, Dataset):\n        return data.map(to_floatable)\n    else:\n        return to_floatable(data)\n",
+        "start_line": 1840,
+        "end_line": 1950,
+        "total_lines": 2070,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 94.37236796699995,
+    "id": "chatcmpl-tool-82ce5f524e077a97",
+    "args": {
+      "command": "git grep -n \"def datetime_to_numeric\" -- '*.py'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 94.44988843700003,
+      "id": "chatcmpl-tool-82ce5f524e077a97",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "xarray/core/duck_array_ops.py:398:def datetime_to_numeric(array, offset=None, datetime_unit=None, dtype=float):\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    }
+  },
+  {
+    "t": 104.32018562099995,
+    "id": "chatcmpl-tool-aa5571b6cd433e83",
+    "args": {
+      "end_line": 420,
+      "filepath": "xarray/core/duck_array_ops.py",
+      "start_line": 390
+    },
+    "name": "read_file",
+    "response": {
+      "t": 104.38834042999997,
+      "id": "chatcmpl-tool-aa5571b6cd433e83",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/duck_array_ops.py",
+        "content": "    array = where(pandas_isnull(array), np.nan, array.astype(float))\n    array = min(array, skipna=True)\n    if isinstance(array, float):\n        array = np.array(array)\n    # ...but (NaN).astype(\"M8\") does produce NaT\n    return array.astype(dtype)\n\n\ndef datetime_to_numeric(array, offset=None, datetime_unit=None, dtype=float):\n    \"\"\"Convert an array containing datetime-like data to numerical values.\n    Convert the datetime array to a timedelta relative to an offset.\n    Parameters\n    ----------\n    array : array-like\n        Input data\n    offset : None, datetime or cftime.datetime\n        Datetime offset. If None, this is set by default to the array's minimum\n        value to reduce round off errors.\n    datetime_unit : {None, Y, M, W, D, h, m, s, ms, us, ns, ps, fs, as}\n        If not None, convert output to a given datetime unit. Note that some\n        conversions are not allowed due to non-linear relationships between units.\n    dtype : dtype\n        Output dtype.\n    Returns\n    -------\n    array\n        Numerical representation of datetime object relative to an offset.\n    Notes\n    -----\n    Some datetime unit conversions won't work, for example from days to years, even\n    though some calendars would allow for them (e.g. no_leap). This is because there",
+        "start_line": 390,
+        "end_line": 420,
+        "total_lines": 635,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 114.29366804799997,
+    "id": "chatcmpl-tool-930b131352bafda5",
+    "args": {
+      "end_line": 460,
+      "filepath": "xarray/core/duck_array_ops.py",
+      "start_line": 420
+    },
+    "name": "read_file",
+    "response": {
+      "t": 114.36414266400004,
+      "id": "chatcmpl-tool-930b131352bafda5",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/duck_array_ops.py",
+        "content": "    though some calendars would allow for them (e.g. no_leap). This is because there\n    is no `cftime.timedelta` object.\n    \"\"\"\n    # TODO: make this function dask-compatible?\n    # Set offset to minimum if not given\n    if offset is None:\n        if array.dtype.kind in \"Mm\":\n            offset = _datetime_nanmin(array)\n        else:\n            offset = min(array)\n\n    # Compute timedelta object.\n    # For np.datetime64, this can silently yield garbage due to overflow.\n    # One option is to enforce 1970-01-01 as the universal offset.\n    array = array - offset\n\n    # Scalar is converted to 0d-array\n    if not hasattr(array, \"dtype\"):\n        array = np.array(array)\n\n    # Convert timedelta objects to float by first converting to microseconds.\n    if array.dtype.kind in \"O\":\n        return py_timedelta_to_float(array, datetime_unit or \"ns\").astype(dtype)\n\n    # Convert np.NaT to np.nan\n    elif array.dtype.kind in \"mM\":\n\n        # Convert to specified timedelta units.\n        if datetime_unit:\n            array = array / np.timedelta64(1, datetime_unit)\n        return np.where(isnull(array), np.nan, array.astype(dtype))\n\n\ndef timedelta_to_numeric(value, datetime_unit=\"ns\", dtype=float):\n    \"\"\"Convert a timedelta-like object to numerical values.\n\n    Parameters\n    ----------\n    value : datetime.timedelta, numpy.timedelta64, pandas.Timedelta, str\n        Time delta representation.\n    datetime_unit : {Y, M, W, D, h, m, s, ms, us, ns, ps, fs, as}",
+        "start_line": 420,
+        "end_line": 460,
+        "total_lines": 635,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 132.69407941199995,
+    "id": "chatcmpl-tool-8bce4e9e11f67b2b",
+    "args": {
+      "command": "python -c 'import numpy as np; print(np.timedelta64(10, \"s\") - np.datetime64(\"1970-01-01\"))'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 133.326032962,
+      "id": "chatcmpl-tool-8bce4e9e11f67b2b",
+      "name": "run_command",
+      "response": {
+        "status": "error",
+        "error_type": "CommandError",
+        "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nnumpy.core._exceptions._UFuncBinaryResolutionError: ufunc 'subtract' cannot use operands with types dtype('<m8[s]') and dtype('<M8[D]')\n",
+        "details": {
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nnumpy.core._exceptions._UFuncBinaryResolutionError: ufunc 'subtract' cannot use operands with types dtype('<m8[s]') and dtype('<M8[D]')\n",
+          "exit_code": 1
+        }
+      }
+    }
+  },
+  {
+    "t": 165.30379296599995,
+    "id": "chatcmpl-tool-a38b6dd3fe77622e",
+    "args": {
+      "end_line": 1830,
+      "filepath": "xarray/core/computation.py",
+      "start_line": 1800
+    },
+    "name": "read_file",
+    "response": {
+      "t": 165.37603939099995,
+      "id": "chatcmpl-tool-a38b6dd3fe77622e",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/computation.py",
+        "content": "           [0.3, 0.4, 0.5],\n           [0.6, 0.7, 0.8]])\n    Coordinates:\n      * lat      (lat) int64 0 1 2\n      * lon      (lon) int64 10 11 12\n\n    >>> xr.where(y.lat < 1, y, -1)\n    <xarray.DataArray (lat: 3, lon: 3)>\n    array([[ 0. ,  0.1,  0.2],\n           [-1. , -1. , -1. ],\n           [-1. , -1. , -1. ]])\n    Coordinates:\n      * lat      (lat) int64 0 1 2\n      * lon      (lon) int64 10 11 12\n\n    >>> cond = xr.DataArray([True, False], dims=[\"x\"])\n    >>> x = xr.DataArray([1, 2], dims=[\"y\"])\n    >>> xr.where(cond, x, 0)\n    <xarray.DataArray (x: 2, y: 2)>\n    array([[1, 2],\n           [0, 0]])\n    Dimensions without coordinates: x, y\n\n    See Also\n    --------\n    numpy.where : corresponding numpy function\n    Dataset.where, DataArray.where :\n        equivalent methods\n    \"\"\"\n    if keep_attrs is None:\n        keep_attrs = _get_keep_attrs(default=False)",
+        "start_line": 1800,
+        "end_line": 1830,
+        "total_lines": 2070,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 176.843157947,
+    "id": "chatcmpl-tool-8478f89fca9f8fee",
+    "args": {
+      "command": "git grep -n \"def zeros_like\" -- '*.py'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 176.92066455600002,
+      "id": "chatcmpl-tool-8478f89fca9f8fee",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "xarray/core/common.py:1768:def zeros_like(other, dtype: DTypeLike = None):\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    }
+  },
+  {
+    "t": 188.86596205399997,
+    "id": "chatcmpl-tool-9555d24362224dea",
+    "args": {
+      "end_line": 1780,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1760
+    },
+    "name": "read_file",
+    "response": {
+      "t": 188.93659095299995,
+      "id": "chatcmpl-tool-9555d24362224dea",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "            other.shape, fill_value, dtype=dtype, chunks=other.data.chunks\n        )\n    else:\n        data = np.full_like(other.data, fill_value, dtype=dtype)\n\n    return Variable(dims=other.dims, data=data, attrs=other.attrs)\n\n\ndef zeros_like(other, dtype: DTypeLike = None):\n    \"\"\"Return a new object of zeros with the same shape and\n    type as a given dataarray or dataset.\n\n    Parameters\n    ----------\n    other : DataArray, Dataset or Variable\n        The reference object. The output will have the same dimensions and coordinates as this object.\n    dtype : dtype, optional\n        dtype of the new array. If omitted, it defaults to other.dtype.\n\n    Returns\n    -------",
+        "start_line": 1760,
+        "end_line": 1780,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 201.31300892399997,
+    "id": "chatcmpl-tool-be0f7de270264b24",
+    "args": {
+      "end_line": 1775,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1750
+    },
+    "name": "read_file",
+    "response": {
+      "t": 201.38369288399997,
+      "id": "chatcmpl-tool-be0f7de270264b24",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "\n    if fill_value is dtypes.NA:\n        fill_value = dtypes.get_fill_value(dtype if dtype is not None else other.dtype)\n\n    if is_duck_dask_array(other.data):\n        import dask.array\n\n        if dtype is None:\n            dtype = other.dtype\n        data = dask.array.full(\n            other.shape, fill_value, dtype=dtype, chunks=other.data.chunks\n        )\n    else:\n        data = np.full_like(other.data, fill_value, dtype=dtype)\n\n    return Variable(dims=other.dims, data=data, attrs=other.attrs)\n\n\ndef zeros_like(other, dtype: DTypeLike = None):\n    \"\"\"Return a new object of zeros with the same shape and\n    type as a given dataarray or dataset.\n\n    Parameters\n    ----------\n    other : DataArray, Dataset or Variable\n        The reference object. The output will have the same dimensions and coordinates as this object.",
+        "start_line": 1750,
+        "end_line": 1775,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 211.41961879099995,
+    "id": "chatcmpl-tool-973d17704a04fcb7",
+    "args": {
+      "end_line": 1790,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1768
+    },
+    "name": "read_file",
+    "response": {
+      "t": 211.49013755800001,
+      "id": "chatcmpl-tool-973d17704a04fcb7",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "def zeros_like(other, dtype: DTypeLike = None):\n    \"\"\"Return a new object of zeros with the same shape and\n    type as a given dataarray or dataset.\n\n    Parameters\n    ----------\n    other : DataArray, Dataset or Variable\n        The reference object. The output will have the same dimensions and coordinates as this object.\n    dtype : dtype, optional\n        dtype of the new array. If omitted, it defaults to other.dtype.\n\n    Returns\n    -------\n    out : DataArray, Dataset or Variable\n        New object of zeros with the same shape and type as other.\n\n    Examples\n    --------\n    >>> x = xr.DataArray(\n    ...     np.arange(6).reshape(2, 3),\n    ...     dims=[\"lat\", \"lon\"],\n    ...     coords={\"lat\": [1, 2], \"lon\": [0, 1, 2]},\n    ... )",
+        "start_line": 1768,
+        "end_line": 1790,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 215.61000207799998,
+    "id": "chatcmpl-tool-a649f0727b7e0e17",
+    "args": {
+      "end_line": 1810,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1790
+    },
+    "name": "read_file",
+    "response": {
+      "t": 215.67931595999994,
+      "id": "chatcmpl-tool-a649f0727b7e0e17",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "    ... )\n    >>> x\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0, 1, 2],\n           [3, 4, 5]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.zeros_like(x)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0, 0, 0],\n           [0, 0, 0]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.zeros_like(x, dtype=float)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0., 0., 0.],\n           [0., 0., 0.]])",
+        "start_line": 1790,
+        "end_line": 1810,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 220.12637269000004,
+    "id": "chatcmpl-tool-8246955be6bf4401",
+    "args": {
+      "end_line": 1830,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1810
+    },
+    "name": "read_file",
+    "response": {
+      "t": 220.19586176999996,
+      "id": "chatcmpl-tool-8246955be6bf4401",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "           [0., 0., 0.]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    See Also\n    --------\n    ones_like\n    full_like\n\n    \"\"\"\n    return full_like(other, 0, dtype)\n\n\ndef ones_like(other, dtype: DTypeLike = None):\n    \"\"\"Return a new object of ones with the same shape and\n    type as a given dataarray or dataset.\n\n    Parameters\n    ----------\n    other : DataArray, Dataset, or Variable",
+        "start_line": 1810,
+        "end_line": 1830,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 225.43384171499997,
+    "id": "chatcmpl-tool-8b15ad3a2f1f4fa1",
+    "args": {
+      "end_line": 1767,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1730
+    },
+    "name": "read_file",
+    "response": {
+      "t": 225.50362444100006,
+      "id": "chatcmpl-tool-8b15ad3a2f1f4fa1",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "            for k, v in other.data_vars.items()\n        }\n        return Dataset(data_vars, coords=other.coords, attrs=other.attrs)\n    elif isinstance(other, DataArray):\n        return DataArray(\n            _full_like_variable(other.variable, fill_value, dtype),\n            dims=other.dims,\n            coords=other.coords,\n            attrs=other.attrs,\n            name=other.name,\n        )\n    elif isinstance(other, Variable):\n        return _full_like_variable(other, fill_value, dtype)\n    else:\n        raise TypeError(\"Expected DataArray, Dataset, or Variable\")\n\n\ndef _full_like_variable(other, fill_value, dtype: DTypeLike = None):\n    \"\"\"Inner function of full_like, where other must be a variable\"\"\"\n    from .variable import Variable\n\n    if fill_value is dtypes.NA:\n        fill_value = dtypes.get_fill_value(dtype if dtype is not None else other.dtype)\n\n    if is_duck_dask_array(other.data):\n        import dask.array\n\n        if dtype is None:\n            dtype = other.dtype\n        data = dask.array.full(\n            other.shape, fill_value, dtype=dtype, chunks=other.data.chunks\n        )\n    else:\n        data = np.full_like(other.data, fill_value, dtype=dtype)\n\n    return Variable(dims=other.dims, data=data, attrs=other.attrs)\n\n",
+        "start_line": 1730,
+        "end_line": 1767,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 230.253826806,
+    "id": "chatcmpl-tool-a75736428128d251",
+    "args": {
+      "command": "git grep -n \"def full_like\" -- '*.py'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 230.331800661,
+      "id": "chatcmpl-tool-a75736428128d251",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "xarray/core/common.py:1581:def full_like(\nxarray/core/common.py:1590:def full_like(other: DataArray, fill_value, dtype: DTypeLike = None) -> DataArray:\nxarray/core/common.py:1595:def full_like(other: Variable, fill_value, dtype: DTypeLike = None) -> Variable:\nxarray/core/common.py:1599:def full_like(other, fill_value, dtype=None):\n",
+        "stderr": "",
+        "exit_code": 0
+      }
+    }
+  },
+  {
+    "t": 235.68626131199994,
+    "id": "chatcmpl-tool-ac86698205c8355b",
+    "args": {
+      "end_line": 1620,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1580
+    },
+    "name": "read_file",
+    "response": {
+      "t": 235.75717529400004,
+      "id": "chatcmpl-tool-ac86698205c8355b",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "@overload\ndef full_like(\n    other: Dataset,\n    fill_value,\n    dtype: DTypeLike | Mapping[Any, DTypeLike] = None,\n) -> Dataset:\n    ...\n\n\n@overload\ndef full_like(other: DataArray, fill_value, dtype: DTypeLike = None) -> DataArray:\n    ...\n\n\n@overload\ndef full_like(other: Variable, fill_value, dtype: DTypeLike = None) -> Variable:\n    ...\n\n\ndef full_like(other, fill_value, dtype=None):\n    \"\"\"Return a new object with the same shape and type as a given object.\n\n    Parameters\n    ----------\n    other : DataArray, Dataset or Variable\n        The reference object in input\n    fill_value : scalar or dict-like\n        Value to fill the new object with before returning it. If\n        other is a Dataset, may also be a dict-like mapping data\n        variables to fill values.\n    dtype : dtype or dict-like of dtype, optional\n        dtype of the new array. If a dict-like, maps dtypes to\n        variables. If omitted, it defaults to other.dtype.\n\n    Returns\n    -------\n    out : same as object\n        New object with the same shape and type as other, with the data\n        filled with fill_value. Coords will be copied from other.\n        If other is based on dask, the new one will be as well, and will be\n        split in the same chunks.",
+        "start_line": 1580,
+        "end_line": 1620,
+        "total_lines": 1927,
+        "is_truncated": false
+      }
+    }
+  },
+  {
+    "t": 241.20242943900007,
+    "id": "chatcmpl-tool-af37676ddce84766",
+    "args": {
+      "end_line": 1730,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1620
+    },
+    "name": "read_file",
+    "response": {
+      "t": 241.272682282,
+      "id": "chatcmpl-tool-af37676ddce84766",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "        split in the same chunks.\n\n    Examples\n    --------\n    >>> x = xr.DataArray(\n    ...     np.arange(6).reshape(2, 3),\n    ...     dims=[\"lat\", \"lon\"],\n    ...     coords={\"lat\": [1, 2], \"lon\": [0, 1, 2]},\n    ... )\n    >>> x\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0, 1, 2],\n           [3, 4, 5]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.full_like(x, 1)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[1, 1, 1],\n           [1, 1, 1]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.full_like(x, 0.5)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0, 0, 0],\n           [0, 0, 0]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.full_like(x, 0.5, dtype=np.double)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0.5, 0.5, 0.5],\n           [0.5, 0.5, 0.5]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.full_like(x, np.nan, dtype=np.double)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[nan, nan, nan],\n           [nan, nan, nan]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> ds = xr.Dataset(\n    ...     {\"a\": (\"x\", [3, 5, 2]), \"b\": (\"x\", [9, 1, 0])}, coords={\"x\": [2, 4, 6]}\n    ... )\n    >>> ds\n    <xarray.Dataset>\n    Dimensions:  (x: 3)\n    Coordinates:\n      * x        (x) int64 2 4 6\n    Data variables:\n        a        (x) int64 3 5 2\n        b        (x) int64 9 1 0\n    >>> xr.full_like(ds, fill_value={\"a\": 1, \"b\": 2})\n    <xarray.Dataset>\n    Dimensions:  (x: 3)\n    Coordinates:\n      * x        (x) int64 2 4 6\n    Data variables:\n        a        (x) int64 1 1 1\n        b        (x) int64 2 2 2\n    >>> xr.full_like(ds, fill_value={\"a\": 1, \"b\": 2}, dtype={\"a\": bool, \"b\": float})\n    <xarray.Dataset>\n    Dimensions:  (x: 3)\n    Coordinates:\n      * x        (x) int64 2 4 6\n    Data variables:\n        a        (x) bool True True True\n        b        (x) float64 2.0 2.0 2.0\n\n    See Also\n    --------\n    zeros_like\n    ones_like\n\n    \"\"\"\n    from .dataarray import DataArray\n    from .dataset import Dataset\n    from .variable import Variable\n\n    if not is_scalar(fill_value) and not (\n        isinstance(other, Dataset) and isinstance(fill_value, dict)\n    ):\n        raise ValueError(\n            f\"fill_value must be scalar or, for datasets, a dict-like. Received {fill_value} instead.\"\n        )\n\n    if not isinstance(other, Dataset) and isinstance(dtype, Mapping):\n        raise ValueError(\n            \"'dtype' cannot be dict-like when passing a DataArray or Variable\"\n        )\n\n    if isinstance(other, Dataset):\n        if not isinstance(fill_value, dict):\n            fill_value = {k: fill_value for k in other.data_vars.keys()}\n\n        if not isinstance(dtype, Mapping):\n            dtype_ = {k: dtype for k in other.data_vars.keys()}\n        else:\n            dtype_ = dtype\n\n        data_vars = {\n            k: _full_like_variable(v, fill_value.get(k, dtypes.NA), dtype_.get(k, None))\n            for k, v in other.data_vars.items()",
+        "start_line": 1620,
+        "end_line": 1730,
+        "total_lines": 1927,
+        "is_truncated": false,
+        "budget_warning": "Only 10 tool call(s) remaining (18/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 275.73670266,
+    "id": "chatcmpl-tool-83624fc2f7fef510",
+    "args": {
+      "content": "import xarray as xr\nimport numpy as np\n\nds = xr.Dataset({\"a\": ((\"x\",), [1, 2, 3]), \"b\": ((\"x\",), [4, 5, 6])})\nprint(\"Original ds:\\n\", ds)\n\ntry:\n    zeros = xr.zeros_like(ds, dtype=float)\n    print(\"\\nzeros_like with dtype=float:\\n\", zeros)\n    print(\"\\nzeros dtype:\\n\", zeros.dtypes)\nexcept Exception as e:\n    print(\"\\nError calling zeros_like: \", e)\n\ntry:\n    ones = xr.ones_like(ds, dtype=float)\n    print(\"\\nones_like with dtype=float:\\n\", ones)\n    print(\"\\nones dtype:\\n\", ones.dtypes)\nexcept Exception as e:\n    print(\"\\nError calling ones_like: \", e)\n",
+      "filepath": "repro.py"
+    },
+    "name": "write_file",
+    "response": {
+      "t": 275.870370094,
+      "id": "chatcmpl-tool-83624fc2f7fef510",
+      "name": "write_file",
+      "response": {
+        "status": "ok",
+        "filepath": "repro.py",
+        "size": 559,
+        "budget_warning": "Only 9 tool call(s) remaining (19/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 282.39124394600003,
+    "id": "chatcmpl-tool-be7ea0f3cf3afa78",
+    "args": {
+      "command": "python repro.py"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 285.65002243899994,
+      "id": "chatcmpl-tool-be7ea0f3cf3afa78",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "Original ds:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) int64 1 2 3\n    b        (x) int64 4 5 6\n\nzeros_like with dtype=float:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) float64 0.0 0.0 0.0\n    b        (x) float64 0.0 0.0 0.0\n\nError calling zeros_like:  'Dataset' object has no attribute 'dtypes'\n\nones_like with dtype=float:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) float64 1.0 1.0 1.0\n    b        (x) float64 1.0 1.0 1.0\n\nError calling ones_like:  'Dataset' object has no attribute 'dtypes'\n",
+        "stderr": "",
+        "exit_code": 0,
+        "budget_warning": "Only 8 tool call(s) remaining (20/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 311.24862501999996,
+    "id": "chatcmpl-tool-93ac19af473f0f4b",
+    "args": {
+      "content": "import xarray as xr\nimport numpy as np\n\nds = xr.Dataset({\"a\": ((\"x\",), [1, 2, 3]), \"b\": ((\"x\",), [4, 5, 6])})\nprint(\"Original ds:\\n\", ds)\n\ntry:\n    zeros = xr.zeros_like(ds, dtype={\"a\": float, \"b\": int})\n    print(\"\\nzeros_like with dtype=dict:\\n\", zeros)\nexcept Exception as e:\n    print(\"\\nError calling zeros_like: \", e)\n\ntry:\n    ones = xr.ones_like(ds, dtype={\"a\": float, \"b\": int})\n    print(\"\\nones_like with dtype=dict:\\n\", ones)\nexcept Exception as e:\n    print(\"\\nError calling ones_like: \", e)\n",
+      "filepath": "repro_dict.py"
+    },
+    "name": "write_file",
+    "response": {
+      "t": 311.37952682800005,
+      "id": "chatcmpl-tool-93ac19af473f0f4b",
+      "name": "write_file",
+      "response": {
+        "status": "ok",
+        "filepath": "repro_dict.py",
+        "size": 505,
+        "budget_warning": "Only 7 tool call(s) remaining (21/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 318.73114239100005,
+    "id": "chatcmpl-tool-a2c2331a95a8fcd9",
+    "args": {
+      "command": "python repro_dict.py"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 321.99106088100007,
+      "id": "chatcmpl-tool-a2c2331a95a8fcd9",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "Original ds:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) int64 1 2 3\n    b        (x) int64 4 5 6\n\nzeros_like with dtype=dict:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) float64 0.0 0.0 0.0\n    b        (x) int64 0 0 0\n\nones_like with dtype=dict:\n <xarray.Dataset>\nDimensions:  (x: 3)\nDimensions without coordinates: x\nData variables:\n    a        (x) float64 1.0 1.0 1.0\n    b        (x) int64 1 1 1\n",
+        "stderr": "",
+        "exit_code": 0,
+        "budget_warning": "Only 6 tool call(s) remaining (22/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 341.55243302400004,
+    "id": "chatcmpl-tool-beeb0883aa202197",
+    "args": {
+      "end_line": 1840,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1830
+    },
+    "name": "read_file",
+    "response": {
+      "t": 341.624247364,
+      "id": "chatcmpl-tool-beeb0883aa202197",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "    other : DataArray, Dataset, or Variable\n        The reference object. The output will have the same dimensions and coordinates as this object.\n    dtype : dtype, optional\n        dtype of the new array. If omitted, it defaults to other.dtype.\n\n    Returns\n    -------\n    out : same as object\n        New object of ones with the same shape and type as other.\n\n    Examples",
+        "start_line": 1830,
+        "end_line": 1840,
+        "total_lines": 1927,
+        "is_truncated": false,
+        "budget_warning": "Only 5 tool call(s) remaining (23/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 350.51660887599996,
+    "id": "chatcmpl-tool-83f5e2f431184f6e",
+    "args": {
+      "end_line": 1860,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1840
+    },
+    "name": "read_file",
+    "response": {
+      "t": 350.58653778200005,
+      "id": "chatcmpl-tool-83f5e2f431184f6e",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "    Examples\n    --------\n    >>> x = xr.DataArray(\n    ...     np.arange(6).reshape(2, 3),\n    ...     dims=[\"lat\", \"lon\"],\n    ...     coords={\"lat\": [1, 2], \"lon\": [0, 1, 2]},\n    ... )\n    >>> x\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[0, 1, 2],\n           [3, 4, 5]])\n    Coordinates:\n      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    >>> xr.ones_like(x)\n    <xarray.DataArray (lat: 2, lon: 3)>\n    array([[1, 1, 1],\n           [1, 1, 1]])\n    Coordinates:\n      * lat      (lat) int64 1 2",
+        "start_line": 1840,
+        "end_line": 1860,
+        "total_lines": 1927,
+        "is_truncated": false,
+        "budget_warning": "Only 4 tool call(s) remaining (24/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 359.6813652430001,
+    "id": "chatcmpl-tool-b30a191ad964565b",
+    "args": {
+      "end_line": 1880,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1860
+    },
+    "name": "read_file",
+    "response": {
+      "t": 359.75072337999995,
+      "id": "chatcmpl-tool-b30a191ad964565b",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "      * lat      (lat) int64 1 2\n      * lon      (lon) int64 0 1 2\n\n    See Also\n    --------\n    zeros_like\n    full_like\n\n    \"\"\"\n    return full_like(other, 1, dtype)\n\n\ndef get_chunksizes(\n    variables: Iterable[Variable],\n) -> Mapping[Any, tuple[int, ...]]:\n\n    chunks: dict[Any, tuple[int, ...]] = {}\n    for v in variables:\n        if hasattr(v.data, \"chunks\"):\n            for dim, c in v.chunksizes.items():\n                if dim in chunks and c != chunks[dim]:",
+        "start_line": 1860,
+        "end_line": 1880,
+        "total_lines": 1927,
+        "is_truncated": false,
+        "budget_warning": "Only 3 tool call(s) remaining (25/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 383.99648283500005,
+    "id": "chatcmpl-tool-9f53430dc6bd58c4",
+    "args": {
+      "command": "git grep -n \"def zeros_like\" -- '*.py'"
+    },
+    "name": "run_command",
+    "response": {
+      "t": 384.073580322,
+      "id": "chatcmpl-tool-9f53430dc6bd58c4",
+      "name": "run_command",
+      "response": {
+        "status": "ok",
+        "stdout": "xarray/core/common.py:1768:def zeros_like(other, dtype: DTypeLike = None):\n",
+        "stderr": "",
+        "exit_code": 0,
+        "budget_warning": "Only 2 tool call(s) remaining (26/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 400.05428241899995,
+    "id": "chatcmpl-tool-8df660bcdf404987",
+    "args": {
+      "end_line": 50,
+      "filepath": "xarray/core/common.py",
+      "start_line": 1
+    },
+    "name": "read_file",
+    "response": {
+      "t": 400.12518638100005,
+      "id": "chatcmpl-tool-8df660bcdf404987",
+      "name": "read_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "content": "from __future__ import annotations\n\nimport warnings\nfrom contextlib import suppress\nfrom html import escape\nfrom textwrap import dedent\nfrom typing import (\n    TYPE_CHECKING,\n    Any,\n    Callable,\n    Hashable,\n    Iterable,\n    Iterator,\n    Mapping,\n    TypeVar,\n    overload,\n)\n\nimport numpy as np\nimport pandas as pd\n\nfrom . import dtypes, duck_array_ops, formatting, formatting_html, ops\nfrom .npcompat import DTypeLike\nfrom .options import OPTIONS, _get_keep_attrs\nfrom .pycompat import is_duck_dask_array\nfrom .rolling_exp import RollingExp\nfrom .utils import Frozen, either_dict_or_kwargs, is_scalar\n\ntry:\n    import cftime\nexcept ImportError:\n    cftime = None\n\n# Used as a sentinel value to indicate a all dimensions\nALL_DIMS = ...\n\n\nif TYPE_CHECKING:\n    from .dataarray import DataArray\n    from .dataset import Dataset\n    from .types import T_DataWithCoords, T_Xarray\n    from .variable import Variable\n    from .weighted import Weighted\n\n\nC = TypeVar(\"C\")\nT = TypeVar(\"T\")\n\n\nclass ImplementsArrayReduce:",
+        "start_line": 1,
+        "end_line": 50,
+        "total_lines": 1927,
+        "is_truncated": false,
+        "budget_warning": "Only 1 tool call(s) remaining (27/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 417.81499174600003,
+    "id": "chatcmpl-tool-b9da4b192defa033",
+    "args": {
+      "filepath": "xarray/core/common.py",
+      "new_string": "def zeros_like(other, dtype: DTypeLike | Mapping[Any, DTypeLike] = None):",
+      "old_string": "def zeros_like(other, dtype: DTypeLike = None):"
+    },
+    "name": "edit_file",
+    "response": {
+      "t": 417.947543881,
+      "id": "chatcmpl-tool-b9da4b192defa033",
+      "name": "edit_file",
+      "response": {
+        "status": "ok",
+        "filepath": "xarray/core/common.py",
+        "occurrences": 1,
+        "strategy": "exact",
+        "diff": "--- a/xarray/core/common.py\n+++ b/xarray/core/common.py\n@@ -1765,7 +1765,7 @@\n     return Variable(dims=other.dims, data=data, attrs=other.attrs)\n \n \n-def zeros_like(other, dtype: DTypeLike = None):\n+def zeros_like(other, dtype: DTypeLike | Mapping[Any, DTypeLike] = None):\n     \"\"\"Return a new object of zeros with the same shape and\n     type as a given dataarray or dataset.\n \n",
+        "is_truncated": false,
+        "budget_warning": "Only 0 tool call(s) remaining (28/28 used). Finalize your edits and call submit_patch soon."
+      }
+    }
+  },
+  {
+    "t": 429.68565225399993,
+    "id": "chatcmpl-tool-b7f71cda913d9efe",
+    "args": {
+      "filepath": "xarray/core/common.py",
+      "new_string": "def ones_like(other, dtype: DTypeLike | Mapping[Any, DTypeLike] = None):",
+      "old_string": "def ones_like(other, dtype: DTypeLike = None):"
+    },
+    "name": "edit_file",
+    "response": {
+      "t": 429.69760030399993,
+      "id": "chatcmpl-tool-b7f71cda913d9efe",
+      "name": "edit_file",
+      "response": {
+        "status": "error",
+        "error_type": "BudgetExceeded",
+        "error_message": "Tool call budget exhausted (28 calls)"
+      }
+    }
+  },
+  {
+    "t": 444.9106243460001,
+    "id": "chatcmpl-tool-bd093c3797d13db9",
+    "args": {},
+    "name": "submit_patch",
+    "response": {
+      "t": 445.05381564899994,
+      "id": "chatcmpl-tool-bd093c3797d13db9",
+      "name": "submit_patch",
+      "response": {
+        "status": "ok",
+        "patch_size": 1899,
+        "files_changed": 3
+      }
+    }
+  }
+]

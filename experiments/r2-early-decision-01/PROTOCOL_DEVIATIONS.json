@@ -1,0 +1,21 @@
+{
+  "status": "STRICT_STOP_RULE_DEVIATION",
+  "first_detected_session": 6,
+  "first_tool_elapsed_seconds": 47.16585621200011,
+  "errors": [
+    "sphinx-build: command not found",
+    "locale.Error: unsupported locale setting"
+  ],
+  "evidence": "results/06_A_sphinx-doc__sphinx-11445/TOOL_ACTIONS.json",
+  "cause": "CPU admission checked trusted Python tests but not the Issue CLI path/locale. Stop classifier inspected verifier/environment receipts but did not classify infrastructure errors embedded in Agent tool responses.",
+  "required_frozen_action": "Stop the remainder immediately on environment/infrastructure errors; sessions 7/8 should not have started.",
+  "actual_action": "Runtime continued and physically executed sessions 7/8. Preserve actual records; do not falsely relabel them NOT_RUN.",
+  "analysis_action": "Session6 is environment-affected and sessions6-8 excluded from confirmatory interpretation. All-eight comparisons below are descriptive/exploratory. Remaining strict-prefix observations are unbalanced and cannot establish candidate superiority.",
+  "additional_limitations": [
+    "Same-analyst unblinded semantic review",
+    "Post-run extra cases are exploratory, not a preregistered enlarged test endpoint",
+    "A temporarily wrote test_regex.py then removed it; prompt instruction violation, no trusted test mutation observed",
+    "Raw reused outer supervisor unknown/official_result_missing schema mismatch retained"
+  ],
+  "reruns": 0
+}

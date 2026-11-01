@@ -1,0 +1,111 @@
+{
+  "reviewer": "Codex, separate post-run semantic audit stage; same analyst, unblinded, not an independent external human or second reviewer",
+  "endpoint": "User-approved exact required-test + effective production fix + semantic approval",
+  "post_run_diagnostics": "Exploratory CPU source-based counterexamples. Frozen tests/expectations and SDK results are unchanged. Both Sphinx arms are treated consistently as partial.",
+  "rows": [
+    {
+      "index": 1,
+      "candidate": "A",
+      "task_id": "pydata__xarray-6599",
+      "sdk_native_resolved": false,
+      "independent_test_pass": false,
+      "review_classification": "INVALID_REPAIR",
+      "semantic_approved": false,
+      "rationale": "Only zeros_like annotation changes; no runtime change to polyval/timedelta conversion. Added diagnostic scripts are unrelated to the requested fix. Frozen target and original co-target still fail.",
+      "strict_protocol_eligible": true,
+      "post_stop_observation": false,
+      "raw_patch_sha256": "d85998a29693e5f20f8ef824b8b2731db20c2de20b5d6ad99801a2bdb9ac6dd7"
+    },
+    {
+      "index": 2,
+      "candidate": "R2",
+      "task_id": "pydata__xarray-6599",
+      "sdk_native_resolved": false,
+      "independent_test_pass": false,
+      "review_classification": "NO_PATCH",
+      "semantic_approved": false,
+      "rationale": "480-second Agent deadline; recovered patch is empty. Reproduction/analysis without a production change does not repair the Issue.",
+      "strict_protocol_eligible": true,
+      "post_stop_observation": false,
+      "raw_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "index": 3,
+      "candidate": "R2",
+      "task_id": "pylint-dev__pylint-8898",
+      "sdk_native_resolved": false,
+      "independent_test_pass": false,
+      "review_classification": "INVALID_REPAIR",
+      "semantic_approved": false,
+      "rationale": "Only new .pylintrc and dummy.py. No regexp CSV parser implementation change; bad-names configuration does not fix commas inside quantifiers.",
+      "strict_protocol_eligible": true,
+      "post_stop_observation": false,
+      "raw_patch_sha256": "360411c7b4a44d57970a1b6e5cb440451ee6d01c84d57f606aef7c4666210a3b"
+    },
+    {
+      "index": 4,
+      "candidate": "A",
+      "task_id": "pylint-dev__pylint-8898",
+      "sdk_native_resolved": false,
+      "independent_test_pass": false,
+      "review_classification": "INVALID_REPAIR",
+      "semantic_approved": false,
+      "rationale": "Only new .pylintrc and foo.py reproducer. No change to argument regexp tokenization; the trusted target still fails.",
+      "strict_protocol_eligible": true,
+      "post_stop_observation": false,
+      "raw_patch_sha256": "f8c6f3d6a1d1e391558e44b830a50d8bfeb78a2c634484afc0652cfcfd3063b2"
+    },
+    {
+      "index": 5,
+      "candidate": "R2",
+      "task_id": "sphinx-doc__sphinx-11445",
+      "sdk_native_resolved": true,
+      "independent_test_pass": true,
+      "review_classification": "PARTIAL_REPAIR",
+      "semantic_approved": false,
+      "rationale": "Timeout fallback changes actual prepend_prolog and passes all 10 frozen tests. However it recognizes only =,-,~ through SECTIONING_CHARS; ^,*,+,# still split role heading and underline. Post-run CPU counterexamples demonstrate an incomplete Issue-level fix.",
+      "strict_protocol_eligible": true,
+      "post_stop_observation": false,
+      "raw_patch_sha256": "f134355c6f64501bb4aaa8a96a4817bf251c11b8df4e99789f532a5d651ab1d2"
+    },
+    {
+      "index": 6,
+      "candidate": "A",
+      "task_id": "sphinx-doc__sphinx-11445",
+      "sdk_native_resolved": true,
+      "independent_test_pass": true,
+      "review_classification": "PARTIAL_REPAIR",
+      "semantic_approved": false,
+      "rationale": "Actual production regex change passes all 10 frozen tests and preserves simple docinfo. It distinguishes :mod:`...`, but :py:mod:`...` and :std:ref:`...` still match the first colon word and split headings. CPU diagnostics reproduce this independent of underline choice. New test_regex.py was temporarily created then removed: an additional prompt-level test-file instruction violation, not tampering with trusted tests.",
+      "strict_protocol_eligible": false,
+      "post_stop_observation": true,
+      "raw_patch_sha256": "65b905de12702177cde926fb5c94c28ec2e76c2cb4faa7e1e4d0af170a96d412"
+    },
+    {
+      "index": 7,
+      "candidate": "A",
+      "task_id": "sympy__sympy-24661",
+      "sdk_native_resolved": true,
+      "independent_test_pass": true,
+      "review_classification": "VALIDATED_REPAIR",
+      "semantic_approved": true,
+      "rationale": "Actual EvaluateFalseTransformer adds all six relational AST operators with evaluate=False, recursively transforms operands and handles chained relations. 29/29 frozen tests; CPU source-based checks confirm all six operators, chained and nested expressions and unchanged evaluate=True. New compare_operators mapping before the later visitor is a first edit but not yet a functional repair. Bounded approval, not universal equivalence; unusual custom globals/local dictionaries and all unsupported operator mixtures have not been exhaustively tested.",
+      "strict_protocol_eligible": false,
+      "post_stop_observation": true,
+      "raw_patch_sha256": "99c2227f60afccb37ec798e9501d916794d341febc3042739e39a476bc563075"
+    },
+    {
+      "index": 8,
+      "candidate": "R2",
+      "task_id": "sympy__sympy-24661",
+      "sdk_native_resolved": true,
+      "independent_test_pass": true,
+      "review_classification": "VALIDATED_REPAIR",
+      "semantic_approved": true,
+      "rationale": "Actual visit_Compare handles six relations and recursive operands, and constructs And for chains. 29/29 frozen tests and same additional CPU checks pass; evaluate=True path remains intact. ast.NameConstant is consistent with this pinned source but deprecated in newer Python. Bounded approval; arbitrary custom namespace behavior and unsupported operator mixtures are not exhaustively established.",
+      "strict_protocol_eligible": false,
+      "post_stop_observation": true,
+      "raw_patch_sha256": "51b32eb2b46c4c2cee8fcaafc3c7ff3ccd7175fa2e219e8e27c5344b5d2e49e7"
+    }
+  ]
+}

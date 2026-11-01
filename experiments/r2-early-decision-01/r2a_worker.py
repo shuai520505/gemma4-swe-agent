@@ -5,7 +5,7 @@ from harness_v2.evidence import Journal
 from harness_v2.official import DurableContext
 from swegemma.models import Task
 from swegemma.harness.agent_runner import run_agent_sandbox
-from s1.infrastructure_recovery.wire import observe_http
+from s1.infrastructure_recovery.wire import observe_http,audit_requests
 from r2a_runtime import HERE,SubprocessManager,context_config,native_verify,sha,write
 
 async def run(spec,out):
@@ -30,10 +30,17 @@ async def run(spec,out):
         label='submitted' if context.patch_submitted else 'fallback';(out/(label+'.patch')).write_text(patch,encoding='utf8')
         result.update(agent_error=error,patch_submitted=context.patch_submitted,patch_bytes=len(patch.encode()),patch_kind=label,patch_sha256=sha(patch.encode()) if patch else None,agent_seconds=context.agent_elapsed_seconds,charged_tools=context.tool_calls_used,llm_calls=context.llm_calls_used)
         manager.cleanup_all();assert not manager.sandboxes and all(not Path(e['lease']).exists() for e in manager.entries)
+        deadline=str(error or '').startswith('Agent exceeded session timeout') and context.agent_elapsed_seconds>=479
+        http_audit=audit_requests(out/'model_transport',deadline_evidence=dict(official_agent_deadline=deadline,cleanup_verified=True,cutoff_monotonic=context.agent_start_time+480 if deadline else None))
+        expected_files=('events.jsonl','adk_events.jsonl','native_trace.json',label+'.patch','model_transport/http_wire.jsonl','model_transport/http_lifecycle.jsonl')
+        missing=[n for n in expected_files if not (out/n).is_file()]
+        reasons=[r for r in http_audit['reasons'] if not (simulation and r=='missing_response_usage')]
+        evidence_complete=not missing and not reasons
+        write(out/'HTTP_EVIDENCE_AUDIT.json',dict(http_audit,CPU_simulation=simulation,missing_files=missing,missing_usage='UNKNOWN' if not http_audit['usage_complete'] else None,evidence_complete=evidence_complete))
         journal.stage('verification')
         trusted=next(t for t in json.loads((HERE/'TRUSTED_TEST_SPEC.private.json').read_bytes()) if t['instance_id']==task.instance_id)
         checked=await native_verify(issue,trusted,binding['snapshot'],binding['wheels'],out/'trusted',patch)
-        result.update(sdk_native_resolved=checked['resolved'],semantic_review='PENDING',cleanup=True,worker_seconds=time.monotonic()-start,
+        result.update(sdk_native_resolved=checked['resolved'],independent_test_pass=checked.get('independent_exact',{}).get('status')=='INDEPENDENT_TEST_PASS' and bool((checked.get('verification_source_guard') or {}).get('unchanged')),evidence_complete=evidence_complete,http_audit=http_audit,semantic_review='PENDING',cleanup=True,worker_seconds=time.monotonic()-start,
             evaluation=dict(sdk_native=checked,scoped_development_pass=None,legacy_field_not_a_repair_claim=True))
         write(out/'SESSION_RESULT.json',result);journal.stage('persist');write(out/'worker_done.json',dict(cleanup_complete=True))
     except BaseException as exc:

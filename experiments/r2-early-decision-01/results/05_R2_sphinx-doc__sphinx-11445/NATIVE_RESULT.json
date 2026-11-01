@@ -1,0 +1,127 @@
+{
+  "agent_patch": "diff --git a/sphinx/util/rst.py b/sphinx/util/rst.py\nindex 7a15383..a5449cc 100644\n--- a/sphinx/util/rst.py\n+++ b/sphinx/util/rst.py\n@@ -79,8 +79,12 @@ def prepend_prolog(content: StringList, prolog: str) -> None:\n     \"\"\"Prepend a string to content body as prolog.\"\"\"\n     if prolog:\n         pos = 0\n-        for line in content:\n+        for i, line in enumerate(content):\n             if docinfo_re.match(line):\n+                if i + 1 < len(content):\n+                    next_line = content[i+1]\n+                    if next_line.strip() and all(c in SECTIONING_CHARS + [' '] for c in next_line.strip()):\n+                        break\n                 pos += 1\n             else:\n                 break\n",
+  "cost_usd": 0.0,
+  "duration_seconds": 17.183792969000024,
+  "endpoint": "Unmodified swegemma SDK on selected public SWE-bench; not hidden competition or canonical harness score",
+  "error": null,
+  "error_message": null,
+  "independent_exact": {
+    "all_raw_metadata_confirmed": true,
+    "ambiguous_nodes": [],
+    "nodes": {
+      "tests/test_util_rst.py::test_append_epilog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_escape": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_heading": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_with_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_without_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_without_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_textwidth": [
+        "pass"
+      ]
+    },
+    "official_sdk_resolved_override": false,
+    "production_fix": "REQUIRED_SEPARATELY",
+    "reason": null,
+    "semantic_review": "REQUIRED_SEPARATELY",
+    "status": "INDEPENDENT_TEST_PASS"
+  },
+  "infrastructure_controls": {
+    "all_original_controls_still_required_for_repair": true,
+    "original_co_targets": {},
+    "passed": true,
+    "raw_positive_controls_passed": true,
+    "success_criterion_relaxed": false,
+    "unknown_nodes": []
+  },
+  "junit_artifacts": [
+    {
+      "path": "/kaggle/working/r2a-real-gpu-01/execution/sessions/05_R2_sphinx-doc__sphinx-11445/trusted/native-junit-0.xml",
+      "sha256": "cfb84edf0910a5d8c7add153c659d04b27228974727d1c77bd5c6f8b3b293219"
+    }
+  ],
+  "metadata": {},
+  "observed_junit": {
+    "ambiguous_metadata_nodes": [],
+    "ambiguous_metadata_outcome": "NONE",
+    "controls": {
+      "tests/test_util_rst.py::test_append_epilog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_escape": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_heading": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_without_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_textwidth": [
+        "pass"
+      ]
+    },
+    "errors": 0,
+    "matching": "Exact full parameter ID or exact function name; no prefix matching. Malformed metadata preserved as UNKNOWN. Official verifier and all test expectations remain unchanged.",
+    "original_target_failure": false,
+    "passed": 10,
+    "positive_controls_passed": true,
+    "raw_all_positive_nodes_confirmed": true,
+    "targets": {
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_with_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_without_newline": [
+        "pass"
+      ]
+    },
+    "tests": 10
+  },
+  "repo": "sphinx-doc/sphinx",
+  "resolved": true,
+  "status": "SUCCESS",
+  "task_id": "sphinx-doc__sphinx-11445",
+  "task_index": null,
+  "test_exit_code": 0,
+  "test_output": "STDOUT:\n..........                                                               [100%]\n---------- generated xml file: /tmp/_swegemma_junit_47eacf3fcb9e.xml -----------\n10 passed in 1.70s\n\nSTDERR:\nCannot read termcap database;\nusing dumb terminal settings.\n",
+  "tool_calls": 0,
+  "total_llm_calls": 0,
+  "total_tokens": 0,
+  "trace_path": null,
+  "verification_source_guard": {
+    "after_sha256": "0fdc933844246947613662f52480a95decb9067d9e42fe769649371a317f3bbb",
+    "before_sha256": "0fdc933844246947613662f52480a95decb9067d9e42fe769649371a317f3bbb",
+    "changed_files": [],
+    "scope": "All Python production and test files in fresh trusted workspace; observed postcondition, no write-denial claim",
+    "unchanged": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "classification": "REAL_CPU_BASELINE_METADATA_ANOMALY_NOT_AGENT_OUTCOME",
+  "task": "pydata__xarray-6599",
+  "raw_metadata_role": "PASS_TO_PASS",
+  "node": "xarray/tests/test_computation.py::test_polyval[timedelta-True]",
+  "raw_outcome": [
+    "failure"
+  ],
+  "original_FAIL_TO_PASS_outcomes": {
+    "xarray/tests/test_computation.py::test_polyval[timedelta-False]": [
+      "failure"
+    ]
+  },
+  "other_unambiguous_controls_pass": 263,
+  "collection_errors": 0,
+  "original_checks_or_expected_results_modified": false,
+  "repair_success_still_requires_this_node_and_all_original_controls": true,
+  "admission_and_stop_attribution": "This preobserved co-failure of the original timedelta Issue does not imply runtime drift; other passing controls remain mandatory. No final repair success criterion is weakened.",
+  "evidence_sha256": "af41e937d8b16c5d5d929abb8625081b7a294886a48c1fa63d3a3bd63879a4a8",
+  "reason": "Original Dask timedelta input reaches subtraction of a numpy.datetime64 offset; same original Issue occurs on both ndarray and Dask cases across the two recorded dependency surfaces. No reference repair inspected."
+}

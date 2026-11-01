@@ -1,0 +1,235 @@
+{
+  "agent_patch": "diff --git a/sympy/parsing/sympy_parser.py b/sympy/parsing/sympy_parser.py\nindex 52711d1..3cbf863 100644\n--- a/sympy/parsing/sympy_parser.py\n+++ b/sympy/parsing/sympy_parser.py\n@@ -1110,6 +1110,14 @@ class EvaluateFalseTransformer(ast.NodeTransformer):\n         ast.BitAnd: 'And',\n         ast.BitXor: 'Not',\n     }\n+    compare_operators = {\n+        ast.Eq: 'Eq',\n+        ast.NotEq: 'Ne',\n+        ast.Lt: 'Lt',\n+        ast.LtE: 'Le',\n+        ast.Gt: 'Gt',\n+        ast.GtE: 'Ge',\n+    }\n     functions = (\n         'Abs', 'im', 're', 'sign', 'arg', 'conjugate',\n         'acos', 'acot', 'acsc', 'asec', 'asin', 'atan',\n@@ -1186,6 +1194,36 @@ def visit_BinOp(self, node):\n             return new_node\n         return node\n \n+    def visit_Compare(self, node):\n+        left = self.visit(node.left)\n+        ops = [self.compare_operators.get(op.__class__) for op in node.ops]\n+        comparators = [self.visit(comp) for comp in node.comparators]\n+\n+        if any(op is None for op in ops):\n+            return node\n+\n+        comparisons = []\n+        current_left = left\n+        for i in range(len(ops)):\n+            comparisons.append(ast.Call(\n+                func=ast.Name(id=ops[i], ctx=ast.Load()),\n+                args=[current_left, comparators[i]],\n+                keywords=[ast.keyword(arg='evaluate', value=ast.NameConstant(value=False, ctx=ast.Load()))],\n+                starargs=None,\n+                kwargs=None\n+            ))\n+            current_left = comparators[i]\n+\n+        if len(comparisons) > 1:\n+            return ast.Call(\n+                func=ast.Name(id='And', ctx=ast.Load()),\n+                args=comparisons,\n+                keywords=[],\n+                starargs=None,\n+                kwargs=None\n+            )\n+        return comparisons[0]\n+\n     def visit_Call(self, node):\n         new_node = self.generic_visit(node)\n         if isinstance(node.func, ast.Name) and node.func.id in self.functions:\n",
+  "cost_usd": 0.0,
+  "duration_seconds": 18.71210689199961,
+  "endpoint": "Unmodified swegemma SDK on selected public SWE-bench; not hidden competition or canonical harness score",
+  "error": null,
+  "error_message": null,
+  "independent_exact": {
+    "all_raw_metadata_confirmed": true,
+    "ambiguous_nodes": [],
+    "nodes": {
+      "test_builtins": [
+        "pass"
+      ],
+      "test_convert_equals_signs": [
+        "pass"
+      ],
+      "test_factorial_fail": [
+        "pass"
+      ],
+      "test_function_evaluate_false": [
+        "pass"
+      ],
+      "test_functional_exponent": [
+        "pass"
+      ],
+      "test_global_dict": [
+        "pass"
+      ],
+      "test_issue_10773": [
+        "pass"
+      ],
+      "test_issue_19501": [
+        "pass"
+      ],
+      "test_issue_24288": [
+        "pass"
+      ],
+      "test_issue_2515": [
+        "pass"
+      ],
+      "test_issue_7663": [
+        "pass"
+      ],
+      "test_local_dict": [
+        "pass"
+      ],
+      "test_local_dict_split_implmult": [
+        "pass"
+      ],
+      "test_local_dict_symbol_to_fcn": [
+        "pass"
+      ],
+      "test_match_parentheses_implicit_multiplication": [
+        "pass"
+      ],
+      "test_no_globals": [
+        "pass"
+      ],
+      "test_parse_function_issue_3539": [
+        "pass"
+      ],
+      "test_parsing_definitions": [
+        "pass"
+      ],
+      "test_python3_features": [
+        "pass"
+      ],
+      "test_rationalize": [
+        "pass"
+      ],
+      "test_recursive_evaluate_false_10560": [
+        "pass"
+      ],
+      "test_repeated_dot_only": [
+        "pass"
+      ],
+      "test_repeated_fail": [
+        "pass"
+      ],
+      "test_split_symbols": [
+        "pass"
+      ],
+      "test_split_symbols_function": [
+        "pass"
+      ],
+      "test_split_symbols_numeric": [
+        "pass"
+      ],
+      "test_sympy_parser": [
+        "pass"
+      ],
+      "test_unicode_names": [
+        "pass"
+      ]
+    },
+    "official_sdk_resolved_override": false,
+    "production_fix": "REQUIRED_SEPARATELY",
+    "reason": null,
+    "semantic_review": "REQUIRED_SEPARATELY",
+    "status": "INDEPENDENT_TEST_PASS"
+  },
+  "infrastructure_controls": {
+    "all_original_controls_still_required_for_repair": true,
+    "original_co_targets": {},
+    "passed": true,
+    "raw_positive_controls_passed": true,
+    "success_criterion_relaxed": false,
+    "unknown_nodes": []
+  },
+  "junit_artifacts": [
+    {
+      "path": "/kaggle/working/r2a-real-gpu-01/execution/sessions/07_A_sympy__sympy-24661/trusted/native-junit-0.xml",
+      "sha256": "3ceccc55228ce093d16bbd29af9bedae893293f35f2db0350f9d40603be35a7c"
+    }
+  ],
+  "metadata": {},
+  "observed_junit": {
+    "ambiguous_metadata_nodes": [],
+    "ambiguous_metadata_outcome": "NONE",
+    "controls": {
+      "test_builtins": [
+        "pass"
+      ],
+      "test_convert_equals_signs": [
+        "pass"
+      ],
+      "test_factorial_fail": [
+        "pass"
+      ],
+      "test_function_evaluate_false": [
+        "pass"
+      ],
+      "test_functional_exponent": [
+        "pass"
+      ],
+      "test_global_dict": [
+        "pass"
+      ],
+      "test_issue_10773": [
+        "pass"
+      ],
+      "test_issue_19501": [
+        "pass"
+      ],
+      "test_issue_2515": [
+        "pass"
+      ],
+      "test_issue_7663": [
+        "pass"
+      ],
+      "test_local_dict": [
+        "pass"
+      ],
+      "test_local_dict_split_implmult": [
+        "pass"
+      ],
+      "test_local_dict_symbol_to_fcn": [
+        "pass"
+      ],
+      "test_match_parentheses_implicit_multiplication": [
+        "pass"
+      ],
+      "test_no_globals": [
+        "pass"
+      ],
+      "test_parse_function_issue_3539": [
+        "pass"
+      ],
+      "test_parsing_definitions": [
+        "pass"
+      ],
+      "test_python3_features": [
+        "pass"
+      ],
+      "test_rationalize": [
+        "pass"
+      ],
+      "test_recursive_evaluate_false_10560": [
+        "pass"
+      ],
+      "test_repeated_dot_only": [
+        "pass"
+      ],
+      "test_repeated_fail": [
+        "pass"
+      ],
+      "test_split_symbols": [
+        "pass"
+      ],
+      "test_split_symbols_function": [
+        "pass"
+      ],
+      "test_split_symbols_numeric": [
+        "pass"
+      ],
+      "test_sympy_parser": [
+        "pass"
+      ],
+      "test_unicode_names": [
+        "pass"
+      ]
+    },
+    "errors": 0,
+    "matching": "Exact full parameter ID or exact function name; no prefix matching. Malformed metadata preserved as UNKNOWN. Official verifier and all test expectations remain unchanged.",
+    "original_target_failure": false,
+    "passed": 29,
+    "positive_controls_passed": true,
+    "raw_all_positive_nodes_confirmed": true,
+    "targets": {
+      "test_issue_24288": [
+        "pass"
+      ]
+    },
+    "tests": 29
+  },
+  "repo": "sympy/sympy",
+  "resolved": true,
+  "status": "SUCCESS",
+  "task_id": "sympy__sympy-24661",
+  "task_index": null,
+  "test_exit_code": 0,
+  "test_output": "STDOUT:\n.............................                                            [100%]\n---------- generated xml file: /tmp/_swegemma_junit_bc17f96b2a60.xml -----------\n29 passed in 1.40s\n\nSTDERR:\nCannot read termcap database;\nusing dumb terminal settings.\n",
+  "tool_calls": 0,
+  "total_llm_calls": 0,
+  "total_tokens": 0,
+  "trace_path": null,
+  "verification_source_guard": {
+    "after_sha256": "12f2e47ecb29a0b42891e2d49f977197e4406c21180e6edbfa81f4424600a3d8",
+    "before_sha256": "12f2e47ecb29a0b42891e2d49f977197e4406c21180e6edbfa81f4424600a3d8",
+    "changed_files": [],
+    "scope": "All Python production and test files in fresh trusted workspace; observed postcondition, no write-denial claim",
+    "unchanged": true
+  }
+}
