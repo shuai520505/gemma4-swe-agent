@@ -1,0 +1,33 @@
+FF
+======================================================================
+FAIL: test_original_missing_sphinx_entrypoint (__main__.Regression.test_original_missing_sphinx_entrypoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\r2-infra-hardening-01\test_stop_policy.py", line 20, in test_original_missing_sphinx_entrypoint
+    def test_original_missing_sphinx_entrypoint(self):self.check_original('sphinx-build: command not found')
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\r2-infra-hardening-01\test_stop_policy.py", line 19, in check_original
+    self.assertEqual(actual,'STOP')
+AssertionError: 'CONTINUE' != 'STOP'
+- CONTINUE
++ STOP
+
+
+======================================================================
+FAIL: test_original_unsupported_locale (__main__.Regression.test_original_unsupported_locale)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\r2-infra-hardening-01\test_stop_policy.py", line 21, in test_original_unsupported_locale
+    def test_original_unsupported_locale(self):self.check_original('unsupported locale setting')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\r2-infra-hardening-01\test_stop_policy.py", line 19, in check_original
+    self.assertEqual(actual,'STOP')
+AssertionError: 'CONTINUE' != 'STOP'
+- CONTINUE
++ STOP
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.018s
+
+FAILED (failures=2)

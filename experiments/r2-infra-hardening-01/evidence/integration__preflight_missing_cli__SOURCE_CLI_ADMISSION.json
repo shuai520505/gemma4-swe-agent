@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "rows": [
+    {
+      "command": "python3 -c 'import locale,os;assert locale.setlocale(locale.LC_ALL,'\"'\"''\"'\"')=='\"'\"'C'\"'\"';assert os.getuid()!=0;print('\"'\"'LOCALE_NONROOT_PASS'\"'\"')'",
+      "result": {
+        "status": "ok",
+        "stdout": "LOCALE_NONROOT_PASS\n",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 0.15756193100003202
+      }
+    },
+    {
+      "command": "command -v sphinx-build && sphinx-build --version",
+      "result": {
+        "status": "error",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 1,
+        "duration_seconds": 0.04551246300002276
+      }
+    }
+  ]
+}
