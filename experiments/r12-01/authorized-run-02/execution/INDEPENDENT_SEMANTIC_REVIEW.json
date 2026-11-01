@@ -1,0 +1,72 @@
+{
+  "1": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "ecb6f44b4b21f7102aa9b15d078028d1e0aa140a858a4bc6ab0e60030e763b64",
+    "repair_approved": false,
+    "valid_production_change": false,
+    "issue_semantics_satisfied": false,
+    "rationale": "Only adds a reproduction temp_app; no Django production source changes. Original fresh TextChoices/IntegerChoices targets fail.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "2": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "1dbcf8d912ff043a8b346f17d20ecb8d866a962b3e54b86cabc6c9810488c941",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Adds Choices.__str__ returning str(self.value), shared by TextChoices and IntegerChoices. Resolves fresh-value representation while leaving choice values, labels, equality and database conversion intact; both targets and controls pass.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "3": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "c3e98ac1eb684dbe179cca30e75591aa31ba940eec14e01373cbdafbd1547bd7",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Adds Choices.__str__ returning str(self.value), shared by TextChoices and IntegerChoices. Resolves fresh-value representation while leaving choice values, labels, equality and database conversion intact; both targets and controls pass.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "5": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "ef4314608a59544f417505abfef4949dc4e283f21344e76f8451c24a7c6c1c41",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Replaces eager v.data attribute inspection with v._data inspection. Lazy backend wrappers without chunks are skipped without materialization; existing chunksizes aggregation and inconsistent-chunk exception remain. Existing real chunk metadata is retained. Original lazy targets and required controls pass; broader backend coverage was not run.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "7": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Compares p.new with DEFAULT sentinels by identity instead of array equality, preventing ambiguous NumPy truth evaluation. Preserves attribute_name filtering, real DEFAULT argument counting and plain/default-mock collection controls. Original array collection target passes.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "8": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Compares p.new with DEFAULT sentinels by identity instead of array equality, preventing ambiguous NumPy truth evaluation. Preserves attribute_name filtering, real DEFAULT argument counting and plain/default-mock collection controls. Original array collection target passes.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  },
+  "9": {
+    "reviewer": "Codex post-run independent semantic review; same orchestrating agent, separate from tested Gemma sessions",
+    "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+    "repair_approved": true,
+    "valid_production_change": true,
+    "issue_semantics_satisfied": true,
+    "rationale": "Compares p.new with DEFAULT sentinels by identity instead of array equality, preventing ambiguous NumPy truth evaluation. Preserves attribute_name filtering, real DEFAULT argument counting and plain/default-mock collection controls. Original array collection target passes.",
+    "inputs": "Frozen original Issue, pre-return rubric, retained model diff, locked base source context and independent evaluator receipts; no reference solution or test patch used",
+    "broader_regression": "NOT_RUN"
+  }
+}

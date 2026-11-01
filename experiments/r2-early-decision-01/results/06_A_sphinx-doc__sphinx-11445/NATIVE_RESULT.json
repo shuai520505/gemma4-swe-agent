@@ -1,0 +1,127 @@
+{
+  "agent_patch": "diff --git a/sphinx/util/rst.py b/sphinx/util/rst.py\nindex 7a15383..050b207 100644\n--- a/sphinx/util/rst.py\n+++ b/sphinx/util/rst.py\n@@ -25,7 +25,7 @@ except ImportError:\n \n logger = logging.getLogger(__name__)\n \n-docinfo_re = re.compile(':\\\\w+:.*?')\n+docinfo_re = re.compile(r':\\w+:(?!`)')\n symbols_re = re.compile(r'([!-\\-/:-@\\[-`{-~])')  # symbols without dot(0x2e)\n SECTIONING_CHARS = ['=', '-', '~']\n \n",
+  "cost_usd": 0.0,
+  "duration_seconds": 17.166514575999827,
+  "endpoint": "Unmodified swegemma SDK on selected public SWE-bench; not hidden competition or canonical harness score",
+  "error": null,
+  "error_message": null,
+  "independent_exact": {
+    "all_raw_metadata_confirmed": true,
+    "ambiguous_nodes": [],
+    "nodes": {
+      "tests/test_util_rst.py::test_append_epilog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_escape": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_heading": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_with_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_without_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_without_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_textwidth": [
+        "pass"
+      ]
+    },
+    "official_sdk_resolved_override": false,
+    "production_fix": "REQUIRED_SEPARATELY",
+    "reason": null,
+    "semantic_review": "REQUIRED_SEPARATELY",
+    "status": "INDEPENDENT_TEST_PASS"
+  },
+  "infrastructure_controls": {
+    "all_original_controls_still_required_for_repair": true,
+    "original_co_targets": {},
+    "passed": true,
+    "raw_positive_controls_passed": true,
+    "success_criterion_relaxed": false,
+    "unknown_nodes": []
+  },
+  "junit_artifacts": [
+    {
+      "path": "/kaggle/working/r2a-real-gpu-01/execution/sessions/06_A_sphinx-doc__sphinx-11445/trusted/native-junit-0.xml",
+      "sha256": "13480aaa0ea118f77f29bc7c028c86a1d38e40bce89dffc9549a4a6e32efc987"
+    }
+  ],
+  "metadata": {},
+  "observed_junit": {
+    "ambiguous_metadata_nodes": [],
+    "ambiguous_metadata_outcome": "NONE",
+    "controls": {
+      "tests/test_util_rst.py::test_append_epilog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_escape": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_heading": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_without_CR": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_textwidth": [
+        "pass"
+      ]
+    },
+    "errors": 0,
+    "matching": "Exact full parameter ID or exact function name; no prefix matching. Malformed metadata preserved as UNKNOWN. Official verifier and all test expectations remain unchanged.",
+    "original_target_failure": false,
+    "passed": 10,
+    "positive_controls_passed": true,
+    "raw_all_positive_nodes_confirmed": true,
+    "targets": {
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_with_newline": [
+        "pass"
+      ],
+      "tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_without_newline": [
+        "pass"
+      ]
+    },
+    "tests": 10
+  },
+  "repo": "sphinx-doc/sphinx",
+  "resolved": true,
+  "status": "SUCCESS",
+  "task_id": "sphinx-doc__sphinx-11445",
+  "task_index": null,
+  "test_exit_code": 0,
+  "test_output": "STDOUT:\n..........                                                               [100%]\n---------- generated xml file: /tmp/_swegemma_junit_647a97711d0d.xml -----------\n10 passed in 1.71s\n\nSTDERR:\nCannot read termcap database;\nusing dumb terminal settings.\n",
+  "tool_calls": 0,
+  "total_llm_calls": 0,
+  "total_tokens": 0,
+  "trace_path": null,
+  "verification_source_guard": {
+    "after_sha256": "c0c246fdd3e6c11849403a9f2f979b9569a0109c140b9e13545fb6832df2d054",
+    "before_sha256": "c0c246fdd3e6c11849403a9f2f979b9569a0109c140b9e13545fb6832df2d054",
+    "changed_files": [],
+    "scope": "All Python production and test files in fresh trusted workspace; observed postcondition, no write-denial claim",
+    "unchanged": true
+  }
+}

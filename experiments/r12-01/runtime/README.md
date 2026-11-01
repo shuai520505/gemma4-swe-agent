@@ -1,0 +1,9 @@
+# R12 minimal runtime binding
+
+These files bind PR43's existing native Worker/Runner, supervisor, sandbox, HTTP observer, evaluator and Coordinator schedule to the frozen R12 inputs. They contain no new Agent design, candidate or task selection. `r12_final_cpu.py` is deterministic transport/fault-injection infrastructure only; its `admission` function is also used by the Coordinator. It does not start a mock server on import.
+
+The private, SHA-verified CPU output bundle supplies `extension/` on PYTHONPATH (including the already accepted environment helper, runtime repair alias, COHORT_LOCK and exact candidate ZIPs) and the prepared `R12_DISPATCH_INPUTS.zip`. Raw Issues, generated trusted checks, model responses and patches are intentionally excluded from Git. The final manifest pins those private inputs and every overlaid module. Preserve the existing repository root on PYTHONPATH as well. The exact tested byte payload is retained in the CPU artifact; these review copies match it.
+
+`python -m r12_coordinator <final-manifest> <dispatch-inputs.zip> <fresh-output> <human-authorization-receipt> <first-cell-monotonic>` is the prepared entry inside a future authorized offline four-L4 Notebook. It rejects a gate other than R12_GPU_READY and requires the explicit authorization receipt. The JSON flag is an accident guard, not human permission. Fresh external resource admission and explicit human GPU authorization are prerequisites. No GPU Notebook is launched by importing these modules.
+
+The CPU replay executes the existing Coordinator schedule AST with its allocation prelude and idle wait excluded, then runs the original native Worker in separate supervised processes. Real GPU/server startup remains unexecuted. Sentinel checks verify only patch transport; the byte-identical original Issue checks are bound separately for authorized independent evaluation. Completed original Issue acceptance is not rerun.

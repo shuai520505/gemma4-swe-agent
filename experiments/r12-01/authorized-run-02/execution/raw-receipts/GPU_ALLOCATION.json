@@ -1,0 +1,59 @@
+{
+  "status": "GPU_ALLOCATION_CONFIRMED",
+  "model_loaded": false,
+  "list": {
+    "command": [
+      "nvidia-smi",
+      "-L"
+    ],
+    "exit_code": 0,
+    "stdout": "GPU 0: NVIDIA L4 (UUID: GPU-c4dd648b-542c-161b-b7c1-b990bdd2a752)\nGPU 1: NVIDIA L4 (UUID: GPU-9fbc291b-9c48-5a64-6655-c3dfad2f9846)\nGPU 2: NVIDIA L4 (UUID: GPU-f367026e-0e4e-0b6d-6a28-06721b2c9810)\nGPU 3: NVIDIA L4 (UUID: GPU-d1cc7dc0-ccd6-77c5-4dac-400919095739)\n",
+    "stderr": ""
+  },
+  "memory": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=name,memory.total",
+      "--format=csv,noheader"
+    ],
+    "exit_code": 0,
+    "stdout": "NVIDIA L4, 23034 MiB\nNVIDIA L4, 23034 MiB\nNVIDIA L4, 23034 MiB\nNVIDIA L4, 23034 MiB\n",
+    "stderr": ""
+  },
+  "torch_count": 4,
+  "devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360,
+      "free_bytes": 23455727616,
+      "total_bytes": 23659151360,
+      "CUDA_accessible": true
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360,
+      "free_bytes": 23455727616,
+      "total_bytes": 23659151360,
+      "CUDA_accessible": true
+    },
+    {
+      "index": 2,
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360,
+      "free_bytes": 23455727616,
+      "total_bytes": 23659151360,
+      "CUDA_accessible": true
+    },
+    {
+      "index": 3,
+      "name": "NVIDIA L4",
+      "memory_bytes": 23659151360,
+      "free_bytes": 23455727616,
+      "total_bytes": 23659151360,
+      "CUDA_accessible": true
+    }
+  ],
+  "observed_monotonic": 310.45331629
+}

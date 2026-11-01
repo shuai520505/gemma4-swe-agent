@@ -1,0 +1,18 @@
+diff --git a/temp_app/__init__.py b/temp_app/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/temp_app/models.py b/temp_app/models.py
+new file mode 100644
+index 0000000..e543642
+--- /dev/null
++++ b/temp_app/models.py
+@@ -0,0 +1,9 @@
++from django.db import models
++from django.utils.translation import gettext_lazy as _
++
++class MyChoice(models.TextChoices):
++    FIRST_CHOICE = "first", _("The first choice, it is")
++    SECOND_CHOICE = "second", _("The second choice, it is")
++
++class MyObject(models.Model):
++    my_str_value = models.CharField(max_length=10, choices=MyChoice.choices)

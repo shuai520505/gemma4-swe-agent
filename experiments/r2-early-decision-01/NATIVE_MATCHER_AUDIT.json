@@ -1,0 +1,15 @@
+{
+  "classification": "CPU_VERIFIED_VALIDATOR_BEHAVIOR_ONLY_NOT_REPAIR_EVIDENCE",
+  "source_sha256": "99e2a5fdab2be2b5e0388de29080da9d6e7003cf8b53299cda790464f4ecd2aa",
+  "official_functions_modified": false,
+  "same_exact_required_pass_with_prefix_named_skip": [
+    false,
+    "Required test node did not pass: xarray/tests/test_computation.py::test_vectorize_dask_dtype"
+  ],
+  "same_exact_required_pass_with_unrelated_skip": [
+    true,
+    null
+  ],
+  "consequence": "A legal upstream skipped sibling can cause a false-negative SDK resolved result. No expected test outcome or SDK matcher is changed.",
+  "real_task_relevance": "CPU4 raw xarray JUnit contains the same required test name and intentionally skipped _meta sibling. Does not establish any Agent repair."
+}

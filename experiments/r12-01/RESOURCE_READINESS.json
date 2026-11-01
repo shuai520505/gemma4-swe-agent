@@ -1,0 +1,99 @@
+{
+  "observed_at_utc": "2026-10-31T03:34:01.017917+00:00",
+  "quota": {
+    "observed_at_utc": "2026-10-31T03:32:15.108089+00:00",
+    "total_seconds": 108000.0,
+    "used_seconds": 0.0,
+    "reserved_seconds": 0.0,
+    "remaining_seconds": 108000.0
+  },
+  "quota_numeric_floor_seconds": 73200,
+  "quota_floor_unchanged": true,
+  "quota_satisfies_frozen_floor": true,
+  "capacity": "CAPACITY_UNVERIFIED",
+  "capacity_reason": "Read-only CLI/SDK exposes machine types, metadata and session statuses, but no live four-L4 capacity reservation or allocation evidence. Historical four-L4 success is not current capacity.",
+  "jobs": {
+    "listing_pages": [
+      {
+        "page": 1,
+        "count": 100
+      },
+      {
+        "page": 2,
+        "count": 100
+      },
+      {
+        "page": 3,
+        "count": 33
+      }
+    ],
+    "identifiable_checked": 232,
+    "listing_exhausted": true,
+    "scan_complete": true,
+    "status_counts": {
+      "KernelWorkerStatus.CANCEL_ACKNOWLEDGED": 3,
+      "KernelWorkerStatus.COMPLETE": 121,
+      "KernelWorkerStatus.ERROR": 48,
+      "UNKNOWN": 60
+    },
+    "observed_running_or_queued": [],
+    "unknown": 60,
+    "unidentified_private_rows": 1,
+    "cannot_certify_no_conflicting_jobs": true,
+    "changed_other_jobs": false,
+    "initial_scan_error": "Local dict/attribute response parsing error, corrected; high-rate follow-up received 429; final scan rate bounded and all retained"
+  },
+  "platform_window": {
+    "documented_max_seconds": 43200,
+    "required_seconds": 18000,
+    "documented_window_sufficient": true,
+    "account_specific_dispatch_acceptance": "NOT_TESTED_NO_GPU_ALLOCATION",
+    "source": "https://www.kaggle.com/docs/notebooks",
+    "checked_at_utc": "2026-10-31T03:34:01.017917+00:00"
+  },
+  "quota_units": {
+    "platform_rate_L4x4_per_node_hour": 2,
+    "physical_L4_device_hours_per_node_hour": 4,
+    "identical_units": false,
+    "correction": "Four physical card-hours per node-hour are not four Kaggle quota-hours. Official current competition page states twice ordinary GPU-machine quota. Keep original numeric admission floor conservatively.",
+    "source": "https://www.kaggle.com/competitions/gemma-4-developer-agent/overview",
+    "checked_at_utc": "2026-10-31T03:34:01.017917+00:00"
+  },
+  "assets": {
+    "model": {
+      "CPU_only": true,
+      "files": {
+        "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+        "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+        "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+        "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+        "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+        "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+        "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+        "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+      },
+      "inference_calls": 0,
+      "source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+      "weights_loaded_into_model": false
+    },
+    "SDK_and_dependency_mounts": "CPU notebook mounted pinned wheelhouse and dependencies; all source payload wheel hashes verified before installation",
+    "task_input_manifest_sha256": "a842ac64857cf6b5710e594ba82ac733b8b186f2dc88bbc1ae6b73b025d3872d",
+    "CPU_GPU_count": 0,
+    "weights_loaded_into_model": false
+  },
+  "live_resource_evidence_sha256": {
+    "DEPENDENCIES.json": "a579a90d61832ddf9614e3f6cbfd662a9d4d44e22d6c2227719fcf53e6dc02e4",
+    "FINAL_RECHECK.json": "5c0e32c20e571fb6e58dd9da4179941fd88740fd429c46ee8c9274931f17b737",
+    "INPUTS.json": "19317930c07c76ce9939c57b83af88da5c68c2ae73df2eb621d2801c1eaf14a0",
+    "LIST.json": "998644b68c755370d719d83025dfda9e27c532009346a2574d9d626a0df2606d",
+    "MODEL.json": "a264593616bb89bdc47390c0d0d99c265816e29e7fcdfad086325a8030c1e627",
+    "QUOTA.json": "399e386d24462373ba672fc83dd1595a545a01361479a319310a1149d8dd9fb5",
+    "QUOTA_WITH_RESERVATIONS.json": "12703a7eba4157971eeb477cccddf6e51e502da7fb3401ef00dd7a6cd0eb7c5f",
+    "QUOTA_WITH_RESERVATIONS_SCAN.json": "82661bfa656560a41071c001ae703ce389d7e61aaa65bcedf9fa1fcc665ad2fb",
+    "SDK.json": "efa72b96a398fe9cbb467a9203c4a1ff3ff22ceab0cdbbdc62996f0d8d5efa76",
+    "STATUSES.json": "2bb4f1c0bd7dcc281bf6e9ee4f003fd4c23b634f7df7707536dc9481d9a1ac44",
+    "STATUSES_RATE_LIMITED.json": "a3862b8f9fa14e300799e7aed158184baa01e5c7d3c4772d76ee0bfb0c16d765",
+    "STATUSES_VERIFIED.json": "11673baa9f884ac3b08dc7262abb1acd9ec240dfa856aac28a8ac0f308031387"
+  },
+  "GPU_allocation_performed": false
+}

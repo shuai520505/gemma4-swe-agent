@@ -1,0 +1,45 @@
+{
+  "evidence": "CPU_VERIFIED",
+  "real_Gemma_requests": 0,
+  "model_loaded": false,
+  "compiler": "adk_submission.compile_submission; unmodified official tool registry",
+  "status": "PASS",
+  "versions": {
+    "swegemma": "0.2.11",
+    "adk-submission": "0.2.13",
+    "adk-eval-core": "0.1.0",
+    "google-adk": "1.36.1",
+    "google-genai": "2.11.0",
+    "litellm": "1.82.4"
+  },
+  "instruction_sha256": "3a543f027d43108f1d655b2379b1446ee915f9c39beb3ec7b8c61c76c5938c75",
+  "tools": [
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "get_status",
+    "submit_patch",
+    "get_code_neighbors",
+    "search_similar_code",
+    "get_code_subgraph"
+  ],
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_output_tokens": 8192,
+    "thinking_config": {
+      "include_thoughts": true,
+      "thinking_budget": 4096
+    }
+  },
+  "budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)",
+  "command_timeout_seconds": 240,
+  "verification_timeout_seconds": 300,
+  "official_source_sha256": {
+    "adk_submission/compiler.py": "39cc4884699faf147ca1b326664e888c1861f750fe36525b840b5f812d593eed",
+    "swegemma/config.py": "0cf65965d713a883eaf779652979e281f1fbd3d24707f1bd7e91e054c5069f0b",
+    "swegemma/context.py": "272168834495f424dac54cfcc3d470c1b8e42b75a1125e7501586eb5f4fb73c0",
+    "swegemma/tools/execution.py": "ff4df981ae1070334665ce8ab726c231e139ac5cf34bb5ebc4660eada28a7b2d"
+  }
+}

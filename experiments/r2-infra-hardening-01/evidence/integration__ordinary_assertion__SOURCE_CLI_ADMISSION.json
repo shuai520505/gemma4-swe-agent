@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "command": "python3 -c 'import locale,os;assert locale.setlocale(locale.LC_ALL,'\"'\"''\"'\"')=='\"'\"'C'\"'\"';assert os.getuid()!=0;print('\"'\"'LOCALE_NONROOT_PASS'\"'\"')'",
+      "result": {
+        "status": "ok",
+        "stdout": "LOCALE_NONROOT_PASS\n",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 0.16430007099995692
+      }
+    },
+    {
+      "command": "command -v sphinx-build && sphinx-build --version",
+      "result": {
+        "status": "ok",
+        "stdout": "/usr/local/bin/sphinx-build\nsphinx-build 7.1.0+/429ccb5\n",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 2.9517507100000557
+      }
+    },
+    {
+      "command": "python3 -c 'import sphinx;assert sphinx.__file__.startswith('\"'\"'/workspace/sphinx/'\"'\"');print(sphinx.__file__)'",
+      "result": {
+        "status": "ok",
+        "stdout": "/workspace/sphinx/__init__.py\n",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 1.4806351920000225
+      }
+    },
+    {
+      "command": "mkdir -p /tmp/infra-smoke/docs; printf 'project = \"infra-smoke\"\\n' > /tmp/infra-smoke/docs/conf.py; printf 'Infrastructure smoke\\n====================\\n\\nPlain text.\\n' > /tmp/infra-smoke/docs/index.rst; sphinx-build -q -b html /tmp/infra-smoke/docs /tmp/infra-smoke/html && test -s /tmp/infra-smoke/html/index.html",
+      "result": {
+        "status": "ok",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 4.245056327000043
+      }
+    }
+  ],
+  "SDK_llm_calls_before_admission": 0,
+  "scope": "Locale/nonroot and source CLI generic HTML smoke, not Issue fix validation"
+}

@@ -1,0 +1,100 @@
+{
+  "evidence": [
+    "STATIC_ANALYSIS",
+    "REAL_GPU_OBSERVATION",
+    "CPU_VERIFIED"
+  ],
+  "generation_source": "Retained execution/inputs/integration/frozen-checks/probe.py run(), classification expression near line 117",
+  "probe_sha256": "b46f783792cb6c2019f2af50279dcff123828f806b0542babf2836bcc92bb667",
+  "meaning": "When controls pass and no target fails, this shared probe emits the label regardless of whether a paired unpatched target failed. It is a misleading preflight-style label, not a statistical discrimination test.",
+  "contrasts": [
+    {
+      "index": 1,
+      "candidate": "BASELINE",
+      "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+      "tested_source_identity": "5b140fcbd490a1308fdc2a859d4385242365d57ffa7e0467115fe6bb4ccaa8d0",
+      "classification": "TARGET_BEHAVIOR_FAILURE",
+      "target_passed": false,
+      "target_checks": [
+        {
+          "error": "'Choice.FIRST'",
+          "error_type": "AssertionError",
+          "kind": "target",
+          "name": "fresh_text_field_string_value",
+          "passed": false,
+          "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 43, in created_text\n    assert str(item.text)=='first',repr(str(item.text))\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Choice.FIRST'\n"
+        },
+        {
+          "error": "'Count.ONE'",
+          "error_type": "AssertionError",
+          "kind": "target",
+          "name": "fresh_integer_field_string_value",
+          "passed": false,
+          "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 46, in created_number\n    assert str(item.number)=='1',repr(str(item.number))\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Count.ONE'\n"
+        }
+      ],
+      "positive_controls_passed": true,
+      "check_unchanged": true,
+      "check_write_denied": true,
+      "source_unchanged_by_checks": true,
+      "patch_sha256": "ecb6f44b4b21f7102aa9b15d078028d1e0aa140a858a4bc6ab0e60030e763b64"
+    },
+    {
+      "index": 2,
+      "candidate": "R1",
+      "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+      "tested_source_identity": "6607c6e843bab8ca1b46a1bcae3c15c81a195947b1d3e33d92fcef8cfdce7f84",
+      "classification": "CHECK_PASS_NON_DISCRIMINATING",
+      "target_passed": true,
+      "target_checks": [
+        {
+          "evidence": null,
+          "kind": "target",
+          "name": "fresh_text_field_string_value",
+          "passed": true
+        },
+        {
+          "evidence": null,
+          "kind": "target",
+          "name": "fresh_integer_field_string_value",
+          "passed": true
+        }
+      ],
+      "positive_controls_passed": true,
+      "check_unchanged": true,
+      "check_write_denied": true,
+      "source_unchanged_by_checks": true,
+      "patch_sha256": "1dbcf8d912ff043a8b346f17d20ecb8d866a962b3e54b86cabc6c9810488c941"
+    },
+    {
+      "index": 3,
+      "candidate": "R2",
+      "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+      "tested_source_identity": "0d55e1edc44b798ec9897bb6aa16a155d9d96b1db0a99120deadbee9d9c7f502",
+      "classification": "CHECK_PASS_NON_DISCRIMINATING",
+      "target_passed": true,
+      "target_checks": [
+        {
+          "evidence": null,
+          "kind": "target",
+          "name": "fresh_text_field_string_value",
+          "passed": true
+        },
+        {
+          "evidence": null,
+          "kind": "target",
+          "name": "fresh_integer_field_string_value",
+          "passed": true
+        }
+      ],
+      "positive_controls_passed": true,
+      "check_unchanged": true,
+      "check_write_denied": true,
+      "source_unchanged_by_checks": true,
+      "patch_sha256": "c3e98ac1eb684dbe179cca30e75591aa31ba940eec14e01373cbdafbd1547bd7"
+    }
+  ],
+  "base_sources_match": true,
+  "paired_targets_discriminate": true,
+  "expectations_changed": false
+}

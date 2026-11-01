@@ -1,0 +1,5 @@
+{
+  "reason": "New expanded audit fixture used Zarr default fill_value=0 and data starting at zero; CF decoding masks that first zero as NaN on both base and R2. Change only newly created fixture data to positive values, matching the existing R12 counter design. Preserve first receipts; historical trusted checks and expectations unchanged.",
+  "historical_checks_modified": false,
+  "native_collection_fixture_correction": "The new native collection fixture initially replaced global os.getcwd with an ndarray, interfering with NumPy lazy sysconfig initialization; switched to patch.object on an owned Target.value without changing array replacement semantics. Initial receipts preserved in NATIVE_CPU_RESULTS.before_fixture_fix.json; historical trusted checks untouched."
+}

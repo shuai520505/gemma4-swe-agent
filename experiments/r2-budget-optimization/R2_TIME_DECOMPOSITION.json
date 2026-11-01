@@ -1,0 +1,1205 @@
+{
+  "archive_sha256": "294a0527f2a92579e4799c789875c6d5c37d1b4b60fd7bf50b0dc15a1c073dfe",
+  "clock_definitions": "All seconds relative to each raw agent_started monotonic clock. UNKNOWN values are null; confirmed no action is a count zero, not an imputed unknown duration.",
+  "reconciliation": {
+    "R2_agent_total_seconds": 1161.874847471,
+    "R2_agent_mean_seconds": 387.2916158236667,
+    "R2_generation_proxy_total_seconds": 1220.7726236929996,
+    "R2_generation_proxy_mean_seconds": 406.9242078976665,
+    "additional_import_setup_proxy_mean_seconds": 19.36747675033318,
+    "additional_save_cleanup_proxy_mean_seconds": 0.26511532366657775,
+    "R2_worker_complete_mean_seconds": 402.6215559253331,
+    "official_charged_time_seconds": null,
+    "budget_recommendation": "Use separate conditional generation-proxy and stress-overhead scenarios; only officially scoped Phase 1 plus setup timestamps would establish real official cost. Exclude independent verification, do not add tool latency already inside Agent time, and do not substitute Notebook wall time."
+  },
+  "sessions": [
+    {
+      "index": 1,
+      "candidate": "BASELINE",
+      "task": "django__django-11964",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/01_BASELINE_django__django-11964/",
+      "monotonic_origin": 999.796498067,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 11,
+          "call_id": "chatcmpl-tool-85d4361b296c4684",
+          "start_seconds": 166.47922622099998,
+          "observed_completion_seconds": 166.716284084,
+          "adk_call_line": 21,
+          "adk_response_line": 22
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 255.22402890799992,
+          "adk_event_line": 29,
+          "text_sha256": "5cb4fbb821c7a54da67be0fc3f8de05472c93c85b4611a74b6cf2fa5b4cd4c29",
+          "summary": "Enum string conversion overrides primitive representation; agent additionally considers changing DeferredAttribute assignment, which is not yet a validated repair hypothesis.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": null,
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 4,
+          "call_id": "chatcmpl-tool-93bb76d9741cbb6b",
+          "start_seconds": 91.367915143,
+          "observed_completion_seconds": 92.77348189199995,
+          "adk_call_line": 7,
+          "adk_response_line": 8
+        },
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": null,
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 14,
+          "call_id": "chatcmpl-tool-8baa14fc2a5f8c1c",
+          "start_seconds": 219.7730270200001,
+          "observed_completion_seconds": 220.79990327999997,
+          "adk_call_line": 27,
+          "adk_response_line": 28
+        },
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": null,
+        "T8_submit_patch": [],
+        "T9": {
+          "seconds": 480.00099626200006,
+          "source_event_line": 139,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Django actual ORM/Enum printed behavior, pre-fix counterexample; no successful repair verification.",
+      "agent_execution_seconds": 480.00099626200006,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 500.27317541799994,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 19.72102239100002,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.5511567649998597,
+      "excluded_independent_evaluation_seconds": 10.859743363999996,
+      "worker_reported_complete_cost_seconds": 497.2563689609999,
+      "worker_supervisor_wall_seconds": 513.0211556950001,
+      "coordinator_next_boundary_wall_proxy_seconds": 517.201878951,
+      "localization_proxy_elapsed_seconds": 166.716284084,
+      "observed_hypothesis_proxy_elapsed_seconds": 255.22402890799992,
+      "hypothesis_to_first_edit_interval_seconds": null,
+      "last_edit_to_first_subsequent_effective_target_test_seconds": null,
+      "last_edit_to_last_submit_completion_seconds": null,
+      "first_edit_to_last_submit_completion_interval_seconds": null,
+      "submit_tool_envelope_seconds": 0,
+      "post_last_submit_until_agent_end_seconds": null,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 466.96804509999936,
+      "tool_call_envelope_union_inside_agent_seconds": 10.9983413140003,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 2.0346098480004002,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 22,
+      "attempted_tools": 26,
+      "http_requests": 29,
+      "native_llm_counter": 26,
+      "SDK_compaction_requests": 2,
+      "SDK_compaction_roundtrip_seconds": 45.72030593900013,
+      "post_last_submit_HTTP_roundtrip_seconds": 0,
+      "observed_token_usage": {
+        "prompt_tokens": 261449,
+        "completion_tokens": 9983,
+        "total_tokens": 271432
+      },
+      "token_usage_complete": false,
+      "original_issue_target_passed": false,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": "Agent exceeded session timeout (8 min)",
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 2,
+      "candidate": "R1",
+      "task": "django__django-11964",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/02_R1_django__django-11964/",
+      "monotonic_origin": 1514.560553312,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 1,
+          "call_id": "chatcmpl-tool-b5217a79235f10ed",
+          "start_seconds": 15.73035690000006,
+          "observed_completion_seconds": 15.999216986000192,
+          "adk_call_line": 1,
+          "adk_response_line": 2
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 68.72703693800008,
+          "adk_event_line": 9,
+          "text_sha256": "3290c154d08f6ffd1683917f59b9724761986a1d93abb47d83b13c6c4298c166",
+          "summary": "Enum.__str__ produces the member name rather than primitive value; overriding conversion is proposed.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 214.14609413400012,
+          "upper_seconds": 214.37067529299998,
+          "source_event_line": 83
+        },
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 9,
+          "call_id": "chatcmpl-tool-875aeb9b5c580879",
+          "start_seconds": 152.65878352900017,
+          "observed_completion_seconds": 154.05218517900016,
+          "adk_call_line": 17,
+          "adk_response_line": 18
+        },
+        "T4_first_passing_production_assertions": {
+          "ordinal": 13,
+          "call_id": "chatcmpl-tool-9ae1549c844c6b36",
+          "start_seconds": 224.68327956300004,
+          "observed_completion_seconds": 226.07170542400013,
+          "adk_call_line": 25,
+          "adk_response_line": 26
+        },
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 12,
+          "call_id": "chatcmpl-tool-97fc924f8e2bf834",
+          "start_seconds": 213.9121426690001,
+          "observed_completion_seconds": 214.37435882800014,
+          "adk_call_line": 23,
+          "adk_response_line": 24
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 13,
+          "call_id": "chatcmpl-tool-9ae1549c844c6b36",
+          "start_seconds": 224.68327956300004,
+          "observed_completion_seconds": 226.07170542400013,
+          "adk_call_line": 25,
+          "adk_response_line": 26
+        },
+        "T6_last_passing_production_assertions": {
+          "ordinal": 13,
+          "call_id": "chatcmpl-tool-9ae1549c844c6b36",
+          "start_seconds": 224.68327956300004,
+          "observed_completion_seconds": 226.07170542400013,
+          "adk_call_line": 25,
+          "adk_response_line": 26
+        },
+        "T7_first_explicit_diff": {
+          "ordinal": 22,
+          "call_id": "chatcmpl-tool-b7c791f87dc23275",
+          "start_seconds": 360.87403935400016,
+          "observed_completion_seconds": 361.1153482090001,
+          "adk_call_line": 43,
+          "adk_response_line": 44
+        },
+        "T7_latest_edit_diff_available": {
+          "ordinal": 12,
+          "call_id": "chatcmpl-tool-97fc924f8e2bf834",
+          "start_seconds": 213.9121426690001,
+          "observed_completion_seconds": 214.37435882800014,
+          "adk_call_line": 23,
+          "adk_response_line": 24
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 24,
+            "call_id": "chatcmpl-tool-83bbf0603bea7013",
+            "start_seconds": 382.81449143500004,
+            "observed_completion_seconds": 383.3304057150001,
+            "adk_call_line": 47,
+            "adk_response_line": 48,
+            "patch_size": 2496,
+            "files_changed": 2
+          },
+          {
+            "ordinal": 28,
+            "call_id": "chatcmpl-tool-b0591ac8aa5e9b44",
+            "start_seconds": 420.93099388200017,
+            "observed_completion_seconds": 421.44714039200016,
+            "adk_call_line": 55,
+            "adk_response_line": 56,
+            "patch_size": 390,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 443.1034415380002,
+          "source_event_line": 175,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Actual Django created/retrieved TextChoices assertions; not a full IntegerChoices or migration suite.",
+      "agent_execution_seconds": 443.1034415380002,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 460.819022808,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 17.28319868499989,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.4323825849999139,
+      "excluded_independent_evaluation_seconds": 10.928410086999975,
+      "worker_reported_complete_cost_seconds": 457.60674039000014,
+      "worker_supervisor_wall_seconds": 473.9558738420001,
+      "coordinator_next_boundary_wall_proxy_seconds": 478.12867793400005,
+      "localization_proxy_elapsed_seconds": 15.999216986000192,
+      "observed_hypothesis_proxy_elapsed_seconds": 68.72703693800008,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 145.41905719600004,
+        "upper": 145.6436383549999
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": 11.697346595999988,
+      "last_edit_to_last_submit_completion_seconds": 207.07278156400002,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 207.0764650990002,
+        "upper": 207.30104625800004
+      },
+      "submit_tool_envelope_seconds": 1.0320607900000596,
+      "post_last_submit_until_agent_end_seconds": 21.656301146000033,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 429.5048352079991,
+      "tool_call_envelope_union_inside_agent_seconds": 12.243007148999595,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.3555991810014802,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 26,
+      "attempted_tools": 29,
+      "http_requests": 31,
+      "native_llm_counter": 30,
+      "SDK_compaction_requests": 1,
+      "SDK_compaction_roundtrip_seconds": 30.061936817999822,
+      "post_last_submit_HTTP_roundtrip_seconds": 21.52606585500007,
+      "observed_token_usage": {
+        "prompt_tokens": 297912,
+        "completion_tokens": 8032,
+        "total_tokens": 305944
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 3,
+      "candidate": "R2",
+      "task": "django__django-11964",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/03_R2_django__django-11964/",
+      "monotonic_origin": 1992.772253932,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 1,
+          "call_id": "chatcmpl-tool-8c41027d9237e5b7",
+          "start_seconds": 23.393138160000035,
+          "observed_completion_seconds": 23.65910319799991,
+          "adk_call_line": 1,
+          "adk_response_line": 2
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 70.90259166300007,
+          "adk_event_line": 9,
+          "text_sha256": "b34631012d1be67467bfbda2e0a22a9362a5fcf8c1c3914cca6dfb53c649e196",
+          "summary": "Enum.__str__ rather than primitive conversion explains name-valued strings; override Choices is considered alongside field-conversion alternatives.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 256.1799857509998,
+          "upper_seconds": 256.4039531679998,
+          "source_event_line": 81
+        },
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 14,
+          "call_id": "chatcmpl-tool-b8ea659191f9ee31",
+          "start_seconds": 314.95126465499993,
+          "observed_completion_seconds": 315.9783022439999,
+          "adk_call_line": 27,
+          "adk_response_line": 28
+        },
+        "T4_first_passing_production_assertions": {
+          "ordinal": 14,
+          "call_id": "chatcmpl-tool-b8ea659191f9ee31",
+          "start_seconds": 314.95126465499993,
+          "observed_completion_seconds": 315.9783022439999,
+          "adk_call_line": 27,
+          "adk_response_line": 28
+        },
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 19,
+          "call_id": "chatcmpl-tool-8f637b57592b8079",
+          "start_seconds": 399.1899694440001,
+          "observed_completion_seconds": 399.6372963229999,
+          "adk_call_line": 37,
+          "adk_response_line": 38
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 20,
+          "call_id": "chatcmpl-tool-8a9ae235b2efb47a",
+          "start_seconds": 411.3373952300001,
+          "observed_completion_seconds": 412.3785218549999,
+          "adk_call_line": 39,
+          "adk_response_line": 40
+        },
+        "T6_last_passing_production_assertions": {
+          "ordinal": 20,
+          "call_id": "chatcmpl-tool-8a9ae235b2efb47a",
+          "start_seconds": 411.3373952300001,
+          "observed_completion_seconds": 412.3785218549999,
+          "adk_call_line": 39,
+          "adk_response_line": 40
+        },
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": {
+          "ordinal": 19,
+          "call_id": "chatcmpl-tool-8f637b57592b8079",
+          "start_seconds": 399.1899694440001,
+          "observed_completion_seconds": 399.6372963229999,
+          "adk_call_line": 37,
+          "adk_response_line": 38
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 21,
+            "call_id": "chatcmpl-tool-b8b8992a0c71c60c",
+            "start_seconds": 421.97247935300015,
+            "observed_completion_seconds": 422.47908942399977,
+            "adk_call_line": 41,
+            "adk_response_line": 42,
+            "patch_size": 422,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 435.90304211600005,
+          "source_event_line": 134,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Actual TextChoices and IntegerChoices string assertions; DB smoke fixture failed before exercising target, so complete ORM/regression closure is not established in-loop.",
+      "agent_execution_seconds": 435.90304211600005,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 453.7010257919999,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 17.366221370999938,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.43176230500012025,
+      "excluded_independent_evaluation_seconds": 10.96926946199983,
+      "worker_reported_complete_cost_seconds": 450.47304271699977,
+      "worker_supervisor_wall_seconds": 466.45135261999985,
+      "coordinator_next_boundary_wall_proxy_seconds": 470.62135014699993,
+      "localization_proxy_elapsed_seconds": 23.65910319799991,
+      "observed_hypothesis_proxy_elapsed_seconds": 70.90259166300007,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 185.2773940879997,
+        "upper": 185.50136150499975
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": 12.741225532000044,
+      "last_edit_to_last_submit_completion_seconds": 22.841793100999894,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 166.07513625599995,
+        "upper": 166.299103673
+      },
+      "submit_tool_envelope_seconds": 0.5066100709996135,
+      "post_last_submit_until_agent_end_seconds": 13.423952692000285,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 423.6592015289989,
+      "tool_call_envelope_union_inside_agent_seconds": 11.229972831998793,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.0138677550023658,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 20,
+      "attempted_tools": 21,
+      "http_requests": 23,
+      "native_llm_counter": 22,
+      "SDK_compaction_requests": 1,
+      "SDK_compaction_roundtrip_seconds": 15.531801901000108,
+      "post_last_submit_HTTP_roundtrip_seconds": 13.363015591000021,
+      "observed_token_usage": {
+        "prompt_tokens": 200930,
+        "completion_tokens": 10141,
+        "total_tokens": 211071
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 4,
+      "candidate": "R1",
+      "task": "pydata__xarray-6721",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/04_R1_pydata__xarray-6721/",
+      "monotonic_origin": 2466.768501557,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 1,
+          "call_id": "chatcmpl-tool-b47aea89aed92d40",
+          "start_seconds": 18.67353891599987,
+          "observed_completion_seconds": 18.75446992199977,
+          "adk_call_line": 1,
+          "adk_response_line": 2
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 18.67353891599987,
+          "adk_event_line": 1,
+          "text_sha256": "a846c7809c2cde028e2e4b4e9b7eca3b7b334daca7e16c80e48fe948b71ad58d",
+          "summary": "Inspecting v.data invokes materialization through Variable.values and backend indexing; avoid that accessor for metadata.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": null,
+        "T4_first_effective_production_target_observation": null,
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": null,
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": null,
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": null,
+        "T8_submit_patch": [],
+        "T9": {
+          "seconds": 480.0036268519998,
+          "source_event_line": 146,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "No executed target test.",
+      "agent_execution_seconds": 480.0036268519998,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 501.028644945,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.74111884900003,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.2838992440001675,
+      "excluded_independent_evaluation_seconds": 10.105245443000058,
+      "worker_reported_complete_cost_seconds": 496.841708035,
+      "worker_supervisor_wall_seconds": 513.0597098200001,
+      "coordinator_next_boundary_wall_proxy_seconds": 517.2291942930001,
+      "localization_proxy_elapsed_seconds": 18.75446992199977,
+      "observed_hypothesis_proxy_elapsed_seconds": 18.67353891599987,
+      "hypothesis_to_first_edit_interval_seconds": null,
+      "last_edit_to_first_subsequent_effective_target_test_seconds": null,
+      "last_edit_to_last_submit_completion_seconds": null,
+      "first_edit_to_last_submit_completion_interval_seconds": null,
+      "submit_tool_envelope_seconds": 0,
+      "post_last_submit_until_agent_end_seconds": null,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 476.6220478190012,
+      "tool_call_envelope_union_inside_agent_seconds": 2.1892586919993846,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.1923203409992311,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 27,
+      "attempted_tools": 27,
+      "http_requests": 29,
+      "native_llm_counter": 27,
+      "SDK_compaction_requests": 1,
+      "SDK_compaction_roundtrip_seconds": 18.75792688699994,
+      "post_last_submit_HTTP_roundtrip_seconds": 0,
+      "observed_token_usage": {
+        "prompt_tokens": 289250,
+        "completion_tokens": 9682,
+        "total_tokens": 298932
+      },
+      "token_usage_complete": false,
+      "original_issue_target_passed": false,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": "Agent exceeded session timeout (8 min)",
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 5,
+      "candidate": "R2",
+      "task": "pydata__xarray-6721",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/05_R2_pydata__xarray-6721/",
+      "monotonic_origin": 2983.952449775,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 1,
+          "call_id": "chatcmpl-tool-9153f4a151e36a2f",
+          "start_seconds": 15.596712067000226,
+          "observed_completion_seconds": 15.674981344000116,
+          "adk_call_line": 1,
+          "adk_response_line": 2
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 15.596712067000226,
+          "adk_event_line": 1,
+          "text_sha256": "1a237009ed18a9ee5739d708a02a5448bd322621e31195438bf1a0d7ebe9f34f",
+          "summary": "Inspecting v.data invokes Variable.values/backend materialization; this is a source-testable causal claim, not yet a verified patch.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 326.29517773299995,
+          "upper_seconds": 326.3645331920002,
+          "source_event_line": 117
+        },
+        "T4_first_effective_production_target_observation": null,
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 21,
+          "call_id": "chatcmpl-tool-b6af2069408ddbc7",
+          "start_seconds": 326.2111158360003,
+          "observed_completion_seconds": 326.3678068590002,
+          "adk_call_line": 41,
+          "adk_response_line": 42
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": null,
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": {
+          "ordinal": 21,
+          "call_id": "chatcmpl-tool-b6af2069408ddbc7",
+          "start_seconds": 326.2111158360003,
+          "observed_completion_seconds": 326.3678068590002,
+          "adk_call_line": 41,
+          "adk_response_line": 42
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 29,
+            "call_id": "chatcmpl-tool-88043305ede44893",
+            "start_seconds": 433.48864209500016,
+            "observed_completion_seconds": 433.6454253900001,
+            "adk_call_line": 57,
+            "adk_response_line": 58,
+            "patch_size": 482,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 448.04195421600025,
+          "source_event_line": 162,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Both custom post-edit array probes fail in fixture construction/assumptions; no effective real target verification.",
+      "agent_execution_seconds": 448.04195421600025,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 468.92084801500005,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.69587277399978,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.18302102500001638,
+      "excluded_independent_evaluation_seconds": 10.136482155000067,
+      "worker_reported_complete_cost_seconds": 464.77210865899997,
+      "worker_supervisor_wall_seconds": 480.97983892,
+      "coordinator_next_boundary_wall_proxy_seconds": 485.1582558320001,
+      "localization_proxy_elapsed_seconds": 15.674981344000116,
+      "observed_hypothesis_proxy_elapsed_seconds": 15.596712067000226,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 310.6984656659997,
+        "upper": 310.76782112499995
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": null,
+      "last_edit_to_last_submit_completion_seconds": 107.27761853099992,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 107.28089219799995,
+        "upper": 107.35024765700018
+      },
+      "submit_tool_envelope_seconds": 0.15678329499996835,
+      "post_last_submit_until_agent_end_seconds": 14.396528826000122,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 438.2941390829992,
+      "tool_call_envelope_union_inside_agent_seconds": 8.429575911999564,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.3182392210014768,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 28,
+      "attempted_tools": 29,
+      "http_requests": 31,
+      "native_llm_counter": 30,
+      "SDK_compaction_requests": 1,
+      "SDK_compaction_roundtrip_seconds": 24.806490398000278,
+      "post_last_submit_HTTP_roundtrip_seconds": 14.326283675000013,
+      "observed_token_usage": {
+        "prompt_tokens": 309231,
+        "completion_tokens": 7983,
+        "total_tokens": 317214
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 6,
+      "candidate": "BASELINE",
+      "task": "pydata__xarray-6721",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/06_BASELINE_pydata__xarray-6721/",
+      "monotonic_origin": 3469.118318263,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 2,
+          "call_id": "chatcmpl-tool-836f70b12cbb9dce",
+          "start_seconds": 27.288524017999862,
+          "observed_completion_seconds": 27.36695751599973,
+          "adk_call_line": 3,
+          "adk_response_line": 4
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 17.239426897999692,
+          "adk_event_line": 1,
+          "text_sha256": "d9c3c24f937bd853fda2bde5c6dfd77ef5e1f2cd0aad6f6dc3dc43e20f92b5f1",
+          "summary": "The metadata check traverses v.data into values/np.asarray and reads Zarr data.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": null,
+        "T4_first_effective_production_target_observation": null,
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": null,
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": null,
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": null,
+        "T8_submit_patch": [
+          {
+            "ordinal": 31,
+            "call_id": "chatcmpl-tool-9671a23612a8584b",
+            "start_seconds": 412.2300564689999,
+            "observed_completion_seconds": 412.3831998439996,
+            "adk_call_line": 61,
+            "adk_response_line": 62,
+            "patch_size": 0,
+            "files_changed": 0
+          },
+          {
+            "ordinal": 33,
+            "call_id": "chatcmpl-tool-8169a6058de5cf89",
+            "start_seconds": 433.5531835699999,
+            "observed_completion_seconds": 433.70941957399964,
+            "adk_call_line": 65,
+            "adk_response_line": 66,
+            "patch_size": 0,
+            "files_changed": 0
+          }
+        ],
+        "T9": {
+          "seconds": 446.3857734149997,
+          "source_event_line": 176,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "No executed target test.",
+      "agent_execution_seconds": 446.3857734149997,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 467.273553087,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.70348543,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.18429424200030553,
+      "excluded_independent_evaluation_seconds": 10.044066453999676,
+      "worker_reported_complete_cost_seconds": 463.0375745209999,
+      "worker_supervisor_wall_seconds": 479.43733375700003,
+      "coordinator_next_boundary_wall_proxy_seconds": 483.613682232,
+      "localization_proxy_elapsed_seconds": 27.36695751599973,
+      "observed_hypothesis_proxy_elapsed_seconds": 17.239426897999692,
+      "hypothesis_to_first_edit_interval_seconds": null,
+      "last_edit_to_first_subsequent_effective_target_test_seconds": null,
+      "last_edit_to_last_submit_completion_seconds": null,
+      "first_edit_to_last_submit_completion_interval_seconds": null,
+      "submit_tool_envelope_seconds": 0.3093793789994379,
+      "post_last_submit_until_agent_end_seconds": 12.676353841000036,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 442.2815282120014,
+      "tool_call_envelope_union_inside_agent_seconds": 2.6355682540006455,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.468676948997654,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 28,
+      "attempted_tools": 33,
+      "http_requests": 35,
+      "native_llm_counter": 34,
+      "SDK_compaction_requests": 1,
+      "SDK_compaction_roundtrip_seconds": 14.029320117000225,
+      "post_last_submit_HTTP_roundtrip_seconds": 12.617796326000189,
+      "observed_token_usage": {
+        "prompt_tokens": 332462,
+        "completion_tokens": 7576,
+        "total_tokens": 340038
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": false,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 7,
+      "candidate": "R2",
+      "task": "pytest-dev__pytest-5631",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/07_R2_pytest-dev__pytest-5631/",
+      "monotonic_origin": 3952.068851171,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 2,
+          "call_id": "chatcmpl-tool-8a22974c07cc8b24",
+          "start_seconds": 23.895139373999882,
+          "observed_completion_seconds": 23.987475000999893,
+          "adk_call_line": 3,
+          "adk_response_line": 4
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 17.72237306199986,
+          "adk_event_line": 1,
+          "text_sha256": "b21e73ac7037115173eb2fa9943114a41c92c44e5d113e9f1e4f92560ff70df5",
+          "summary": "Membership comparison with a NumPy replacement can produce an array truth-value error; identity is a later candidate fix.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 133.66766078599994,
+          "upper_seconds": 133.75127994600007,
+          "source_event_line": 69
+        },
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 12,
+          "call_id": "chatcmpl-tool-b287922409148cef",
+          "start_seconds": 170.49626476999993,
+          "observed_completion_seconds": 171.51529608899955,
+          "adk_call_line": 23,
+          "adk_response_line": 24
+        },
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 9,
+          "call_id": "chatcmpl-tool-ac1efa88b5cee95e",
+          "start_seconds": 133.57503912699985,
+          "observed_completion_seconds": 133.75498900499997,
+          "adk_call_line": 17,
+          "adk_response_line": 18
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 12,
+          "call_id": "chatcmpl-tool-b287922409148cef",
+          "start_seconds": 170.49626476999993,
+          "observed_completion_seconds": 171.51529608899955,
+          "adk_call_line": 23,
+          "adk_response_line": 24
+        },
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": {
+          "ordinal": 9,
+          "call_id": "chatcmpl-tool-ac1efa88b5cee95e",
+          "start_seconds": 133.57503912699985,
+          "observed_completion_seconds": 133.75498900499997,
+          "adk_call_line": 17,
+          "adk_response_line": 18
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 20,
+            "call_id": "chatcmpl-tool-b721c3674e4e7be3",
+            "start_seconds": 264.20333952400006,
+            "observed_completion_seconds": 264.38597627100035,
+            "adk_call_line": 40,
+            "adk_response_line": 41,
+            "patch_size": 540,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 277.92985113899977,
+          "source_event_line": 135,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Real num_mock_patch_args smoke prints expected array/default counts but catches errors and has no assertions; weak observation only. The broad compat command has six passes and two setup errors.",
+      "agent_execution_seconds": 277.92985113899977,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 298.15074988599963,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.040336105999813,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.18056264099959662,
+      "excluded_independent_evaluation_seconds": 8.750561964000553,
+      "worker_reported_complete_cost_seconds": 292.6195163999996,
+      "worker_supervisor_wall_seconds": 309.1130021920003,
+      "coordinator_next_boundary_wall_proxy_seconds": 313.2840714259996,
+      "localization_proxy_elapsed_seconds": 23.987475000999893,
+      "observed_hypothesis_proxy_elapsed_seconds": 17.72237306199986,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 115.94528772400008,
+        "upper": 116.02890688400021
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": 37.76030708399958,
+      "last_edit_to_last_submit_completion_seconds": 130.63098726600037,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 130.63469632500028,
+        "upper": 130.7183154850004
+      },
+      "submit_tool_envelope_seconds": 0.18263674700028787,
+      "post_last_submit_until_agent_end_seconds": 13.54387486799942,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 270.1465960430014,
+      "tool_call_envelope_union_inside_agent_seconds": 6.734742951000044,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 1.0485121449983126,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 19,
+      "attempted_tools": 20,
+      "http_requests": 22,
+      "native_llm_counter": 22,
+      "SDK_compaction_requests": 0,
+      "SDK_compaction_roundtrip_seconds": 0,
+      "post_last_submit_HTTP_roundtrip_seconds": 13.481686670000272,
+      "observed_token_usage": {
+        "prompt_tokens": 225212,
+        "completion_tokens": 4112,
+        "total_tokens": 229324
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 8,
+      "candidate": "BASELINE",
+      "task": "pytest-dev__pytest-5631",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/08_BASELINE_pytest-dev__pytest-5631/",
+      "monotonic_origin": 4265.444448944,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 2,
+          "call_id": "chatcmpl-tool-bc794b8f2a199ea8",
+          "start_seconds": 21.189356148000115,
+          "observed_completion_seconds": 21.282489995000105,
+          "adk_call_line": 3,
+          "adk_response_line": 4
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 15.254264012000021,
+          "adk_event_line": 1,
+          "text_sha256": "d1d8c0f124044276d0c0d61e808d6208f7bc073be29174f673e1b6b346d67a71",
+          "summary": "Membership on sentinels invokes overloaded equality and ambiguous array truth conversion.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 92.37407949999943,
+          "upper_seconds": 92.45551165100005,
+          "source_event_line": 56
+        },
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 8,
+          "call_id": "chatcmpl-tool-a704fb802afcbb6f",
+          "start_seconds": 113.93562831199961,
+          "observed_completion_seconds": 115.27007246299945,
+          "adk_call_line": 15,
+          "adk_response_line": 16
+        },
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 7,
+          "call_id": "chatcmpl-tool-bae8b3af44618b69",
+          "start_seconds": 92.28171030900012,
+          "observed_completion_seconds": 92.4586112979996,
+          "adk_call_line": 13,
+          "adk_response_line": 14
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 10,
+          "call_id": "chatcmpl-tool-b715416806c1dd56",
+          "start_seconds": 139.0901592680002,
+          "observed_completion_seconds": 140.09807972199997,
+          "adk_call_line": 19,
+          "adk_response_line": 20
+        },
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": {
+          "ordinal": 7,
+          "call_id": "chatcmpl-tool-bae8b3af44618b69",
+          "start_seconds": 92.28171030900012,
+          "observed_completion_seconds": 92.4586112979996,
+          "adk_call_line": 13,
+          "adk_response_line": 14
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 12,
+            "call_id": "chatcmpl-tool-86ab37e8904a9d9c",
+            "start_seconds": 157.42502337799942,
+            "observed_completion_seconds": 157.61102458799996,
+            "adk_call_line": 23,
+            "adk_response_line": 24,
+            "patch_size": 540,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 168.19867351799985,
+          "source_event_line": 89,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Real production helper prints expected array/default/attribute_name results; no strict assertions or native collection test in-loop.",
+      "agent_execution_seconds": 168.19867351799985,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 188.5137920240004,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.131862453000394,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.18325605300015013,
+      "excluded_independent_evaluation_seconds": 8.827077807999558,
+      "worker_reported_complete_cost_seconds": 183.0085033639998,
+      "worker_supervisor_wall_seconds": 199.39338749599938,
+      "coordinator_next_boundary_wall_proxy_seconds": 203.5668336560002,
+      "localization_proxy_elapsed_seconds": 21.282489995000105,
+      "observed_hypothesis_proxy_elapsed_seconds": 15.254264012000021,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 77.1198154879994,
+        "upper": 77.20124763900003
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": 22.811461164999855,
+      "last_edit_to_last_submit_completion_seconds": 65.15241329000037,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 65.15551293699991,
+        "upper": 65.23694508800054
+      },
+      "submit_tool_envelope_seconds": 0.1860012100005406,
+      "post_last_submit_until_agent_end_seconds": 10.587648929999887,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 160.51676483999927,
+      "tool_call_envelope_union_inside_agent_seconds": 6.981742792997466,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 0.7001658850031163,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 11,
+      "attempted_tools": 12,
+      "http_requests": 13,
+      "native_llm_counter": 13,
+      "SDK_compaction_requests": 0,
+      "SDK_compaction_roundtrip_seconds": 0,
+      "post_last_submit_HTTP_roundtrip_seconds": 10.519676746000187,
+      "observed_token_usage": {
+        "prompt_tokens": 106417,
+        "completion_tokens": 3154,
+        "total_tokens": 109571
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    },
+    {
+      "index": 9,
+      "candidate": "R1",
+      "task": "pytest-dev__pytest-5631",
+      "evidence": "REAL_GPU_OBSERVATION",
+      "session_prefix": "execution/sessions/09_R1_pytest-dev__pytest-5631/",
+      "monotonic_origin": 4469.086639855,
+      "events": {
+        "T0": {
+          "seconds": 0.0,
+          "definition": "Recorded start_agent_session monotonic origin"
+        },
+        "T1_first_relevant_source_location": {
+          "ordinal": 2,
+          "call_id": "chatcmpl-tool-9deda6e70f458b02",
+          "start_seconds": 24.477887244000158,
+          "observed_completion_seconds": 24.568773494000197,
+          "adk_call_line": 3,
+          "adk_response_line": 4
+        },
+        "T2_internal_hypothesis_formation_seconds": null,
+        "T2_observable_hypothesis_proxy": {
+          "seconds": 18.39283223000075,
+          "adk_event_line": 1,
+          "text_sha256": "33426de6cd952ee3ff0fa082f99eda7d52535b702aa29eb5b9156bf99ba29f0c",
+          "summary": "Membership on sentinels invokes overloaded equality and ambiguous array truth conversion.",
+          "status": "Observable causal explanation, not proof or an internal thinking timestamp"
+        },
+        "T3_first_production_edit_interval": {
+          "lower_seconds": 109.13827441000012,
+          "upper_seconds": 109.2196331340001,
+          "source_event_line": 65
+        },
+        "T4_first_effective_production_target_observation": {
+          "ordinal": 10,
+          "call_id": "chatcmpl-tool-b4d9aefd4494f3ec",
+          "start_seconds": 127.84718887000054,
+          "observed_completion_seconds": 128.84152332600024,
+          "adk_call_line": 19,
+          "adk_response_line": 20
+        },
+        "T4_first_passing_production_assertions": null,
+        "T5_last_successful_production_edit_tool": {
+          "ordinal": 9,
+          "call_id": "chatcmpl-tool-a67fec5977239be5",
+          "start_seconds": 109.04664505300025,
+          "observed_completion_seconds": 109.22312491000048,
+          "adk_call_line": 17,
+          "adk_response_line": 18
+        },
+        "T5_exact_last_write_seconds": null,
+        "T6_last_effective_production_target_or_control_observation": {
+          "ordinal": 10,
+          "call_id": "chatcmpl-tool-b4d9aefd4494f3ec",
+          "start_seconds": 127.84718887000054,
+          "observed_completion_seconds": 128.84152332600024,
+          "adk_call_line": 19,
+          "adk_response_line": 20
+        },
+        "T6_last_passing_production_assertions": null,
+        "T7_first_explicit_diff": null,
+        "T7_latest_edit_diff_available": {
+          "ordinal": 9,
+          "call_id": "chatcmpl-tool-a67fec5977239be5",
+          "start_seconds": 109.04664505300025,
+          "observed_completion_seconds": 109.22312491000048,
+          "adk_call_line": 17,
+          "adk_response_line": 18
+        },
+        "T8_submit_patch": [
+          {
+            "ordinal": 12,
+            "call_id": "chatcmpl-tool-af12795af81200f0",
+            "start_seconds": 182.34362587500073,
+            "observed_completion_seconds": 182.52882737400068,
+            "adk_call_line": 23,
+            "adk_response_line": 24,
+            "patch_size": 540,
+            "files_changed": 1
+          }
+        ],
+        "T9": {
+          "seconds": 196.22441820099993,
+          "source_event_line": 88,
+          "meaning": "Agent session end; worker/evaluator continue afterwards"
+        }
+      },
+      "task_test_scope": "Real production helper prints array/default/mixed/attribute_name results; no strict assertions or native collection test in-loop.",
+      "agent_execution_seconds": 196.22441820099993,
+      "official_charged_seconds": null,
+      "official_time_status": "UNKNOWN: no private scorer charging timestamps; R12 is a development runner",
+      "phase1_generation_cost_proxy_seconds": 216.6099129590002,
+      "worker_import_initialization_and_sandbox_setup_proxy_seconds": 20.207219707999684,
+      "post_agent_cleanup_and_patch_save_proxy_seconds": 0.17827505000059318,
+      "excluded_independent_evaluation_seconds": 8.834700251999493,
+      "worker_reported_complete_cost_seconds": 211.01921428599962,
+      "worker_supervisor_wall_seconds": 227.45314162799968,
+      "coordinator_next_boundary_wall_proxy_seconds": 229.54567384799975,
+      "localization_proxy_elapsed_seconds": 24.568773494000197,
+      "observed_hypothesis_proxy_elapsed_seconds": 18.39283223000075,
+      "hypothesis_to_first_edit_interval_seconds": {
+        "lower": 90.74544217999937,
+        "upper": 90.82680090399936
+      },
+      "last_edit_to_first_subsequent_effective_target_test_seconds": 19.618398415999764,
+      "last_edit_to_last_submit_completion_seconds": 73.3057024640002,
+      "first_edit_to_last_submit_completion_interval_seconds": {
+        "lower": 73.30919424000058,
+        "upper": 73.39055296400056
+      },
+      "submit_tool_envelope_seconds": 0.18520149899995886,
+      "post_last_submit_until_agent_end_seconds": 13.69559082699925,
+      "final_invalid_idle_wait_seconds": null,
+      "final_idle_caveat": "UNKNOWN: post-submit time includes real final-completion HTTP and Harness work; no basis to label all of it idle or removable.",
+      "http_request_roundtrip_union_inside_agent_seconds": 189.85404130400002,
+      "tool_call_envelope_union_inside_agent_seconds": 5.668159947999811,
+      "observer_interval_overlap_seconds": 0.0,
+      "unattributed_agent_seconds": 0.7022169490001033,
+      "pure_model_generation_seconds": null,
+      "server_queue_seconds": null,
+      "internal_thinking_seconds": null,
+      "charged_tools": 11,
+      "attempted_tools": 12,
+      "http_requests": 13,
+      "native_llm_counter": 13,
+      "SDK_compaction_requests": 0,
+      "SDK_compaction_roundtrip_seconds": 0,
+      "post_last_submit_HTTP_roundtrip_seconds": 13.634092194000004,
+      "observed_token_usage": {
+        "prompt_tokens": 111285,
+        "completion_tokens": 4046,
+        "total_tokens": 115331
+      },
+      "token_usage_complete": true,
+      "original_issue_target_passed": true,
+      "positive_controls_passed": true,
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null,
+      "agent_error": null,
+      "no_fabricated_wait_or_generation_attribution": true
+    }
+  ]
+}

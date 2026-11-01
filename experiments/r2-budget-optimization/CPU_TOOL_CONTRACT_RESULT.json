@@ -1,0 +1,67 @@
+{
+  "evidence": "CPU_CONTRACT_FIXTURE_ONLY",
+  "real_official_tools": true,
+  "source_unchanged": true,
+  "model_requests": 0,
+  "sandbox_created": false,
+  "repair_capability_evidence": false,
+  "versions": {
+    "swegemma": "0.2.11",
+    "adk-submission": "0.2.13",
+    "google-adk": "1.36.1"
+  },
+  "get_status_result": {
+    "status": "ok",
+    "tool_calls_used": 0,
+    "patch_submitted": false,
+    "patch_size": 0,
+    "tool_calls_remaining": 28,
+    "max_tool_calls": 28,
+    "time_seconds_remaining": 480.0,
+    "max_time_minutes": 8,
+    "agent_elapsed_seconds": 0.0,
+    "max_turns": 80,
+    "command_timeout_seconds": 240
+  },
+  "submissions": [
+    {
+      "patch_empty": false,
+      "result": {
+        "status": "ok",
+        "patch_size": 85,
+        "files_changed": 1
+      },
+      "commands": [
+        {
+          "command": "cd /workspace && git add -N .",
+          "kwargs": {}
+        },
+        {
+          "command": "cd /workspace && (git diff --binary _swegemma_baseline 2>/dev/null || git diff --binary HEAD)",
+          "kwargs": {}
+        }
+      ],
+      "patch_submitted_flag": true
+    },
+    {
+      "patch_empty": true,
+      "result": {
+        "status": "ok",
+        "patch_size": 0,
+        "files_changed": 0
+      },
+      "commands": [
+        {
+          "command": "cd /workspace && git add -N .",
+          "kwargs": {}
+        },
+        {
+          "command": "cd /workspace && (git diff --binary _swegemma_baseline 2>/dev/null || git diff --binary HEAD)",
+          "kwargs": {}
+        }
+      ],
+      "patch_submitted_flag": true
+    }
+  ],
+  "interpretation": "submit_patch collects a diff but returns only size/file metadata; it does not itself validate a repair or display full diff text. Empty patch still returns status ok and patch_submitted true. get_status is current-session-only and uncharged, but obtaining another model response after it can still consume wall time."
+}

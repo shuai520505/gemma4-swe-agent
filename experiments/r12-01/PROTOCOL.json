@@ -1,0 +1,39 @@
+{
+  "study": "gemma-r12-01",
+  "status": "CANDIDATES_FROZEN_BEFORE_INDEPENDENT_EVALUATION",
+  "comparisons": [
+    "BASELINE vs R1",
+    "BASELINE vs R2"
+  ],
+  "controls": "Exact scored SuperAgent configuration; only appended policy differs. Corrected research runtime shared by every arm.",
+  "cohort": "New tasks only, after exposure audit of prior protocol metadata. Freeze IDs, original issue/base-only inputs, source hashes, checks, arm order before any inference.",
+  "excluded": [
+    "django__django-16333",
+    "pydata__xarray-3095",
+    "fastapi_14297",
+    "all other previously exposed or uncertain tasks"
+  ],
+  "inputs": "Original public issue, repository, base commit and instance ID only. No reference patch, test patch, hints, or prior model solution.",
+  "primary": "Per-task scoped repair passes AND manual semantic review supports the production fix. Keep timeout fallback patches; distinguish explicit submission.",
+  "secondary_R1": [
+    "missing-parameter edits",
+    "equivalent repeated failed edits",
+    "successful production edit after first edit failure"
+  ],
+  "secondary_R2": [
+    "time to first production edit",
+    "explicit nonempty submission before timeout",
+    "focused check completed",
+    "timeout frequency"
+  ],
+  "R3_gate": "Open only after a completed independent comparison shows more primary repair successes than baseline, no primary repair regressions on the same cohort, and at least one intended process metric improves. Manual semantic review is required. Small-cohort signal remains exploratory.",
+  "not_positive_evidence": [
+    "compilation success",
+    "old development tasks",
+    "mechanism metrics alone",
+    "unreviewed patches"
+  ],
+  "analysis": "Report both comparisons, every registered session, infrastructure failures, raw counts, and cohort limits. No selective reruns or tuning on observed cohort results.",
+  "formal_submission": "NOT_AUTHORIZED_BY_THIS_STUDY",
+  "R3": "Do not build or evaluate before gate opens."
+}

@@ -1,0 +1,246 @@
+{
+  "rows": [
+    {
+      "index": 1,
+      "candidate": "A",
+      "task_id": "pydata__xarray-6599",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 1,
+      "tool_errors": [
+        {
+          "t": 132.69407941199995,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nnumpy.core._exceptions._UFuncBinaryResolutionError: ufunc 'subtract' cannot use operands with types dtype('<m8[s]') and dtype('<M8[D]')\n",
+          "call_id": "chatcmpl-tool-8bce4e9e11f67b2b"
+        },
+        {
+          "t": 429.68565225399993,
+          "name": "edit_file",
+          "error_type": "BudgetExceeded",
+          "message": "Tool call budget exhausted (28 calls)",
+          "call_id": "chatcmpl-tool-b7f71cda913d9efe"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 2,
+      "candidate": "R2",
+      "task_id": "pydata__xarray-6599",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 0,
+      "tool_errors": [
+        {
+          "t": 155.2682816869999,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Traceback (most recent call last):\n  File \"<string>\", line 5, in <module>\nnumpy.core._exceptions._UFuncBinaryResolutionError: ufunc 'subtract' cannot use operands with types dtype('<m8[ns]') and dtype('<M8[D]')\n",
+          "call_id": "chatcmpl-tool-a852c598b081806c"
+        },
+        {
+          "t": 244.7641803439999,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Traceback (most recent call last):\n  File \"<string>\", line 32, in <module>\n  File \"/workspace/xarray/core/computation.py\", line 1908, in polyval\n    coord = _ensure_numeric(coord)  # type: ignore # https://github.com/python/mypy/issues/1533 ?\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/xarray/core/computation.py\", line 1949, in _ensure_numeric\n    return to_floatable(data)\n           ^^^^^^^^^^^^^^^^^^\n  File \"/workspace/xarray/core/computation.py\", line 1938, in to_floatable\n    data=datetime_to_numeric(\n         ^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/xarray/core/duck_array_ops.py\", line 434, in datetime_to_numeric\n    array = array - offset\n            ~~~~~~^~~~~~~~\nnumpy.core._exceptions._UFuncBinaryResolutionError: ufunc 'subtract' cannot use operands with types dtype('<m8[ns]') and dtype('<M8[D]')\n",
+          "call_id": "chatcmpl-tool-a8b4fd06527b032e"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 3,
+      "candidate": "R2",
+      "task_id": "pylint-dev__pylint-8898",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 2,
+      "tool_errors": [
+        {
+          "t": 406.7270750699997,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "************* Module dummy\ndummy.py:1:0: C0104: Disallowed name \"foo\" (disallowed-name)\n\n--------------------------------------------------------------------\nYour code has been rated at 0.00/10 (previous run: 10.00/10, -10.00)\n\n",
+          "call_id": "chatcmpl-tool-b1948a3881787295"
+        },
+        {
+          "t": 417.4569563289999,
+          "name": "run_command",
+          "error_type": "BudgetExceeded",
+          "message": "Tool call budget exhausted (28 calls)",
+          "call_id": "chatcmpl-tool-a2f0d123736b364b"
+        },
+        {
+          "t": 447.10318376300006,
+          "name": "edit_file",
+          "error_type": "BudgetExceeded",
+          "message": "Tool call budget exhausted (28 calls)",
+          "call_id": "chatcmpl-tool-b14141a9fb8ac3b9"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 4,
+      "candidate": "A",
+      "task_id": "pylint-dev__pylint-8898",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 1,
+      "tool_errors": [
+        {
+          "t": 162.75221166499978,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: line 1: write_file: command not found\n",
+          "call_id": "chatcmpl-tool-b55e65602fe40b81"
+        },
+        {
+          "t": 192.92463481000004,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "************* Module foo\nfoo.py:1:0: C0104: Disallowed name \"foo\" (disallowed-name)\nfoo.py:1:0: C0104: Disallowed name \"foo\" (disallowed-name)\n\n-----------------------------------\nYour code has been rated at 0.00/10\n\n",
+          "call_id": "chatcmpl-tool-8f9ee52417ab0cf5"
+        },
+        {
+          "t": 256.4314392020001,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "************* Module foo\nfoo.py:1:0: C0104: Disallowed name \"foo\" (disallowed-name)\nfoo.py:1:0: C0104: Disallowed name \"foo\" (disallowed-name)\n\n------------------------------------------------------------------\nYour code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)\n\n",
+          "call_id": "chatcmpl-tool-9ed823712c5b9a85"
+        },
+        {
+          "t": 342.37096587199994,
+          "name": "run_command",
+          "error_type": "BudgetExceeded",
+          "message": "Tool call budget exhausted (28 calls)",
+          "call_id": "chatcmpl-tool-b3b08cc63d992d0d"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 5,
+      "candidate": "R2",
+      "task_id": "sphinx-doc__sphinx-11445",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 0,
+      "tool_errors": [
+        {
+          "t": 396.381865245,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: line 1: mypackage2: command not found\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/sphinx/util/rst.py\", line 86, in prepend_prolog\n    if next_line.strip() and all(c in SECTIONING_CHARS + ' ' for c in next_line.strip()):\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/sphinx/util/rst.py\", line 86, in <genexpr>\n    if next_line.strip() and all(c in SECTIONING_CHARS + ' ' for c in next_line.strip()):\n                                      ~~~~~~~~~~~~~~~~~^~~~~\nTypeError: can only concatenate list (not \"str\") to list\n",
+          "call_id": "chatcmpl-tool-a6beb06e8e7d96ac"
+        },
+        {
+          "t": 418.2758673540002,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: line 1: mypackage2: command not found\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/workspace/sphinx/util/rst.py\", line 99, in prepend_prolog\n    content.insert(pos + lineno, line, '<rst_prolog>', lineno)\nTypeError: insert expected 2 arguments, got 4\n",
+          "call_id": "chatcmpl-tool-83a6d1b7fcc5dcd8"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 6,
+      "candidate": "A",
+      "task_id": "sphinx-doc__sphinx-11445",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 0,
+      "tool_errors": [
+        {
+          "t": 47.16585621200011,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: line 5: sphinx-build: command not found\ngrep: repro/docs/_build/index.html: No such file or directory\n",
+          "call_id": "chatcmpl-tool-82e5acadd6d1bdd1"
+        },
+        {
+          "t": 59.25695105700015,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 198, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/sphinx/cmd/build.py\", line 325, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/sphinx/cmd/build.py\", line 313, in main\n    locale.setlocale(locale.LC_ALL, '')\n  File \"/opt/python311/lib/python3.11/locale.py\", line 627, in setlocale\n    return _setlocale(category, locale)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nlocale.Error: unsupported locale setting\ngrep: repro/docs/_build/index.html: No such file or directory\n",
+          "call_id": "chatcmpl-tool-94f1dc0f373adb79"
+        },
+        {
+          "t": 72.5064982570002,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Running Sphinx v7.1.0+/84c3455\nmaking output directory... done\nbuilding [mo]: targets for 0 po files that are out of date\nwriting output... \nbuilding [html]: targets for 2 source files that are out of date\nupdating environment: [new config] 2 added, 0 changed, 0 removed\n\u001b[2Kreading sources... [ 50%] index\r\u001b[2Kreading sources... [100%] mypackage\r\nlooking for now-outdated files... none found\npickling environment... done\nchecking consistency... done\npreparing documents... done\ncopying assets... copying static files... done\ncopying extra files... done\ndone\n\u001b[2Kwriting output... [ 50%] index\r\u001b[2Kwriting output... [100%] mypackage\r\ngenerating indices... genindex done\nwriting additional pages... search done\ndumping search index in English (code: en)... done\ndumping object inventory... done\nbuild succeeded.\n\nThe HTML pages are in repro/docs/_build.\n",
+          "call_id": "chatcmpl-tool-a1009b349c2b5fe0"
+        },
+        {
+          "t": 258.5462989920002,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: -c: line 1: unexpected EOF while looking for matching ``'\n/bin/bash: -c: line 2: syntax error: unexpected end of file\n",
+          "call_id": "chatcmpl-tool-ae43113c9a9cace1"
+        },
+        {
+          "t": 266.65888984699995,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "  File \"<string>\", line 1\n    import re; reg = re.compile(r\":\\w+:(?!`)\"); print(f\"Match Author: {bool(reg.match(\":Author: John Doe\"))}\"); print(f\"Match Author Empty: {bool(reg.match(\":Author:\"))}\"); print(f\"Match Mod: {bool(reg.match(\":mod:`mypackage2`\"))}\")\n                                                                                       ^\nSyntaxError: f-string: unmatched '('\n",
+          "call_id": "chatcmpl-tool-927671e411ba3c94"
+        },
+        {
+          "t": 275.40216199099996,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "/bin/bash: -c: line 5: unexpected EOF while looking for matching ``'\n/bin/bash: -c: line 8: syntax error: unexpected end of file\n",
+          "call_id": "chatcmpl-tool-879b4e6e6f0bf8fe"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 7,
+      "candidate": "A",
+      "task_id": "sympy__sympy-24661",
+      "get_status_calls": 1,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 0,
+      "tool_errors": [
+        {
+          "t": 155.63287800499984,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "",
+          "call_id": "chatcmpl-tool-9e328c8cc8fccc3b"
+        },
+        {
+          "t": 193.63436272699983,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "Traceback (most recent call last):\n  File \"/workspace/repro.py\", line 7, in <module>\n    assert expr == Lt(1, 2, evaluate=False)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+          "call_id": "chatcmpl-tool-87ae87357dc72a54"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    },
+    {
+      "index": 8,
+      "candidate": "R2",
+      "task_id": "sympy__sympy-24661",
+      "get_status_calls": 0,
+      "missing_required_edit_arguments": 0,
+      "budget_denials": 0,
+      "tool_errors": [
+        {
+          "t": 101.57806484100001,
+          "name": "run_command",
+          "error_type": "CommandError",
+          "message": "",
+          "call_id": "chatcmpl-tool-a442cd402e3161af"
+        }
+      ],
+      "classification_note": "CommandError includes intentional bug reproductions, failed grep and expected lint diagnostics; not every nonzero command is an invalid tool call. Native task failures are separate."
+    }
+  ]
+}

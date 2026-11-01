@@ -1,0 +1,42 @@
+{
+  "status": "DESIGN_FROZEN_NOT_DISPATCH_READY",
+  "name": "R2-Early-Decision",
+  "version": 1,
+  "reference_commit": "cf411e41bb58957846c8d73c4d9c96c6dcbe531f",
+  "control_zip_sha256": "af918c1a65aeb211298f13a69b5b789ae6b086974922c80469df87d902eb98d5",
+  "control_prompt_sha256": "3a543f027d43108f1d655b2379b1446ee915f9c39beb3ec7b8c61c76c5938c75",
+  "target": "prompts/system.md: first CALL PLAN bullet",
+  "replacement_count": 1,
+  "old_exact": "- Calls 1-8: locate and read. Calls 9-12: edit. You MUST have edited a source file by call 12. If you are unsure, make your best-guess edit in the most likely place now. A wrong edit can still be corrected. Pure reading cannot score.",
+  "new_exact": "- Base the first edit on evidence rather than a call number. Once you have identified the implicated production path, a concrete causal hypothesis, and one bounded discriminating counterexample or comparison supporting that hypothesis, make the smallest reversible production change as the next repair action. If the evidence is insufficient, use the next action for focused disambiguation rather than a blind edit. Then preserve the necessary focused target and regression checks.",
+  "virtual_prompt_sha256": "4fa5461c7d11d1e7d2e8b91c88dbd136a5daefc5dc155287234c4c735de04dff",
+  "unchanged_R2_suffix_sha256": "de5a42c9e37037709f9835f316668a617c19dc830a245c674b8a7cc3c8192809",
+  "unchanged_nonprompt_members": {
+    "agent.yaml": "680799291cc7d156d06fb7bfb5577f683ccc0d555b00e8ddb662d577f9bfa5e4",
+    "configs/sampling.yaml": "571a934e89911734927533f1d36cbcc7b8d493592febe63b217e911cf7ed4926",
+    "eval_config.yaml": "916cf6cb34a6cc3de39837fa72cac681599b9ac2a3ee0b893adadfd36474c531"
+  },
+  "diff_sha256": "10d5eecb3b75ae769eff94d36bcf86e83b868e9c9759b7c240f1fe42ecae9f62",
+  "model": "gemma-4-31b-it-qat-w4a16-ct",
+  "agent_seconds": 480,
+  "charged_tools": 28,
+  "max_turns": 80,
+  "command_timeout_seconds": 240,
+  "all_other_prompt_and_model_tool_sampling_runtime_settings": "EXACT_CONTROL_UNCHANGED",
+  "candidate_zip_created": false,
+  "agent_yaml_created": false,
+  "candidate_B_included": false,
+  "R3_created": false,
+  "compile_status": "NOT_RUN_NO_AGENT_PACKAGE_CREATED",
+  "prospective_tasks": null,
+  "ordering_seed": null,
+  "native_endpoint_ready": null,
+  "known_inherited_conflicts": [
+    "Search returned nothing: try one different specific string, then edit your best candidate anyway.",
+    "Other CALL PLAN ranges, ambiguous-issue and nonempty-patch rules remain unchanged; they may compete with evidence gating."
+  ],
+  "conflict_policy": "Disclose and measure nonadherence; no second prompt edit or post-hoc repair of this version. Any later change needs a new preregistration before observations.",
+  "benefit_seconds": null,
+  "benefit_tokens": null,
+  "benefit_status": "UNTESTED_HYPOTHESIS"
+}

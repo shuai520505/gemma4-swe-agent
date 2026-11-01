@@ -1,0 +1,11 @@
+--- frozen-R2/prompts/system.md
++++ DESIGN-ONLY-Candidate-A/prompts/system.md
+@@ -8,7 +8,7 @@
+ - Never use `search_similar_code`, `get_code_neighbors` or `get_code_subgraph`. They return nothing useful.
+ 
+ # CALL PLAN
+-- Calls 1-8: locate and read. Calls 9-12: edit. You MUST have edited a source file by call 12. If you are unsure, make your best-guess edit in the most likely place now. A wrong edit can still be corrected. Pure reading cannot score.
++- Base the first edit on evidence rather than a call number. Once you have identified the implicated production path, a concrete causal hypothesis, and one bounded discriminating counterexample or comparison supporting that hypothesis, make the smallest reversible production change as the next repair action. If the evidence is insufficient, use the next action for focused disambiguation rather than a blind edit. Then preserve the necessary focused target and regression checks.
+ - Calls 13-20: verify and correct.
+ - Call 20 onward: no new exploration. Check, fix, submit.
+ - Always finish with `git diff` followed by `submit_patch`.

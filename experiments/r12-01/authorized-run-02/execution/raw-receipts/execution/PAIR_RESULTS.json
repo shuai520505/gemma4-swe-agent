@@ -1,0 +1,1407 @@
+{
+  "canonical_swebench_resolved": null,
+  "complete": true,
+  "first_cell_elapsed_seconds": 4388.489156267,
+  "not_run": [],
+  "official_native_resolved": null,
+  "records": [
+    {
+      "candidate": "BASELINE",
+      "index": 1,
+      "result": {
+        "agent_error": "Agent exceeded session timeout (8 min)",
+        "agent_seconds": 480.00099626200006,
+        "candidate": "BASELINE",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 22,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "temp_app/__init__.py",
+            "temp_app/models.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "cd30451790ff",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "cd30451790ff",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 1.1951422360000379,
+            "exit_code": 1,
+            "status": "error",
+            "stderr": "",
+            "stdout": "{\"task\": \"django__django-11964\", \"checks\": [{\"name\": \"retrieved_database_values\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"text\": \"first\", \"number\": 1}}, {\"name\": \"choice_values_and_labels\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"fresh_text_field_string_value\", \"kind\": \"target\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"'Choice.FIRST'\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/evaluation/probe.py\\\", line 9, in check\\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\\n             ^^^^\\n  File \\\"/evaluation/probe.py\\\", line 43, in created_text\\n    assert str(item.text)=='first',repr(str(item.text))\\n           ^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: 'Choice.FIRST'\\n\"}, {\"name\": \"fresh_integer_field_string_value\", \"kind\": \"target\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"'Count.ONE'\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/evaluation/probe.py\\\", line 9, in check\\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\\n             ^^^^\\n  File \\\"/evaluation/probe.py\\\", line 46, in created_number\\n    assert str(item.number)=='1',repr(str(item.number))\\n           ^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: 'Count.ONE'\\n\"}], \"controls_passed\": true, \"target_failed\": true, \"target_passed\": false, \"classification\": \"TARGET_BEHAVIOR_FAILURE\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "ecb6f44b4b21f7102aa9b15d078028d1e0aa140a858a4bc6ab0e60030e763b64",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "number": 1,
+                  "text": "first"
+                },
+                "kind": "control",
+                "name": "retrieved_database_values",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "choice_values_and_labels",
+                "passed": true
+              },
+              {
+                "error": "'Choice.FIRST'",
+                "error_type": "AssertionError",
+                "kind": "target",
+                "name": "fresh_text_field_string_value",
+                "passed": false,
+                "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 43, in created_text\n    assert str(item.text)=='first',repr(str(item.text))\n           ^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Choice.FIRST'\n"
+              },
+              {
+                "error": "'Count.ONE'",
+                "error_type": "AssertionError",
+                "kind": "target",
+                "name": "fresh_integer_field_string_value",
+                "passed": false,
+                "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 46, in created_number\n    assert str(item.number)=='1',repr(str(item.number))\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'Count.ONE'\n"
+              }
+            ],
+            "classification": "TARGET_BEHAVIOR_FAILURE",
+            "controls_passed": true,
+            "target_failed": true,
+            "target_passed": false,
+            "task": "django__django-11964"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": false,
+          "source_unchanged_by_checks": true,
+          "target_failed": true,
+          "target_passed": false,
+          "tested_source_identity": "5b140fcbd490a1308fdc2a859d4385242365d57ffa7e0467115fe6bb4ccaa8d0"
+        },
+        "evidence_complete": true,
+        "llm_calls": 26,
+        "metrics": {
+          "attempted_calls": 26,
+          "charged_calls": 22,
+          "evidence_complete": true,
+          "first_edit_missing_reason": "NO_PRODUCTION_EDIT_OBSERVED",
+          "first_production_edit": null,
+          "invalid_calls": [
+            {
+              "missing": [
+                "old_string"
+              ],
+              "tool": "edit_file"
+            },
+            {
+              "missing": [
+                "old_string"
+              ],
+              "tool": "edit_file"
+            },
+            {
+              "missing": [
+                "old_string"
+              ],
+              "tool": "edit_file"
+            },
+            {
+              "missing": [
+                "old_string"
+              ],
+              "tool": "edit_file"
+            }
+          ],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 9983,
+            "prompt_tokens": 261449,
+            "total_tokens": 271432
+          },
+          "usage_complete": false,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 608,
+        "patch_kind": "fallback",
+        "patch_sha256": "ecb6f44b4b21f7102aa9b15d078028d1e0aa140a858a4bc6ab0e60030e763b64",
+        "patch_submitted": false,
+        "task_id": "django__django-11964",
+        "worker_seconds": 497.2563689609999
+      },
+      "task": "django__django-11964",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 513.0211556950001,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": false,
+          "patch_checkpoint_bytes": null,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R1",
+      "index": 2,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 443.1034415380002,
+        "candidate": "R1",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 26,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "django/db/models/enums.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "dc890e06aaf7",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "dc890e06aaf7",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 1.17540155100005,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"django__django-11964\", \"checks\": [{\"name\": \"retrieved_database_values\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"text\": \"first\", \"number\": 1}}, {\"name\": \"choice_values_and_labels\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"fresh_text_field_string_value\", \"kind\": \"target\", \"passed\": true, \"evidence\": null}, {\"name\": \"fresh_integer_field_string_value\", \"kind\": \"target\", \"passed\": true, \"evidence\": null}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "1dbcf8d912ff043a8b346f17d20ecb8d866a962b3e54b86cabc6c9810488c941",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "number": 1,
+                  "text": "first"
+                },
+                "kind": "control",
+                "name": "retrieved_database_values",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "choice_values_and_labels",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "target",
+                "name": "fresh_text_field_string_value",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "target",
+                "name": "fresh_integer_field_string_value",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "django__django-11964"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "6607c6e843bab8ca1b46a1bcae3c15c81a195947b1d3e33d92fcef8cfdce7f84"
+        },
+        "evidence_complete": true,
+        "llm_calls": 30,
+        "metrics": {
+          "attempted_calls": 29,
+          "charged_calls": 26,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "django/db/models/enums.py"
+            ],
+            "lower_seconds": 214.14609413400012,
+            "upper_seconds": 214.37067529299998
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 8032,
+            "prompt_tokens": 297912,
+            "total_tokens": 305944
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 390,
+        "patch_kind": "submitted",
+        "patch_sha256": "1dbcf8d912ff043a8b346f17d20ecb8d866a962b3e54b86cabc6c9810488c941",
+        "patch_submitted": true,
+        "task_id": "django__django-11964",
+        "worker_seconds": 457.60674039000014
+      },
+      "task": "django__django-11964",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 473.9558738420001,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 390,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R2",
+      "index": 3,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 435.90304211600005,
+        "candidate": "R2",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 20,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "django/db/models/enums.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "5c36e8d6991f",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "5c36e8d6991f",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 1.1842751019999014,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"django__django-11964\", \"checks\": [{\"name\": \"retrieved_database_values\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"text\": \"first\", \"number\": 1}}, {\"name\": \"choice_values_and_labels\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"fresh_text_field_string_value\", \"kind\": \"target\", \"passed\": true, \"evidence\": null}, {\"name\": \"fresh_integer_field_string_value\", \"kind\": \"target\", \"passed\": true, \"evidence\": null}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "c3e98ac1eb684dbe179cca30e75591aa31ba940eec14e01373cbdafbd1547bd7",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "number": 1,
+                  "text": "first"
+                },
+                "kind": "control",
+                "name": "retrieved_database_values",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "choice_values_and_labels",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "target",
+                "name": "fresh_text_field_string_value",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "target",
+                "name": "fresh_integer_field_string_value",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "django__django-11964"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "0d55e1edc44b798ec9897bb6aa16a155d9d96b1db0a99120deadbee9d9c7f502"
+        },
+        "evidence_complete": true,
+        "llm_calls": 22,
+        "metrics": {
+          "attempted_calls": 21,
+          "charged_calls": 20,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "django/db/models/enums.py"
+            ],
+            "lower_seconds": 256.1799857509998,
+            "upper_seconds": 256.4039531679998
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 10141,
+            "prompt_tokens": 200930,
+            "total_tokens": 211071
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 422,
+        "patch_kind": "submitted",
+        "patch_sha256": "c3e98ac1eb684dbe179cca30e75591aa31ba940eec14e01373cbdafbd1547bd7",
+        "patch_submitted": true,
+        "task_id": "django__django-11964",
+        "worker_seconds": 450.47304271699977
+      },
+      "task": "django__django-11964",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 466.45135261999985,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 422,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R1",
+      "index": 4,
+      "result": {
+        "agent_error": "Agent exceeded session timeout (8 min)",
+        "agent_seconds": 480.0036268519998,
+        "candidate": "R1",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 27,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877",
+          "canonical_swebench_resolved": null,
+          "changed_files": [],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "5896a2f433d2",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "5896a2f433d2",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 3.195071468000151,
+            "exit_code": 1,
+            "status": "error",
+            "stderr": "",
+            "stdout": "{\"task\": \"pydata__xarray-6721\", \"checks\": [{\"name\": \"real_zarr_values_and_counter\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"data_chunk_reads\": 2}}, {\"name\": \"eager_numpy_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"real_dask_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"zarr_chunks_metadata_does_not_load_data\", \"kind\": \"target\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"{'unexpected_data_chunk_reads': ['v/0', 'v/1']}\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/evaluation/probe.py\\\", line 9, in check\\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\\n             ^^^^\\n  File \\\"/evaluation/probe.py\\\", line 81, in lazy_chunks\\n    assert not store.reads,{'unexpected_data_chunk_reads':store.reads}\\n           ^^^^^^^^^^^^^^^\\nAssertionError: {'unexpected_data_chunk_reads': ['v/0', 'v/1']}\\n\"}], \"controls_passed\": true, \"target_failed\": true, \"target_passed\": false, \"classification\": \"TARGET_BEHAVIOR_FAILURE\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_present": false,
+          "patch_sha256": null,
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "data_chunk_reads": 2
+                },
+                "kind": "control",
+                "name": "real_zarr_values_and_counter",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "eager_numpy_chunks",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "real_dask_chunks",
+                "passed": true
+              },
+              {
+                "error": "{'unexpected_data_chunk_reads': ['v/0', 'v/1']}",
+                "error_type": "AssertionError",
+                "kind": "target",
+                "name": "zarr_chunks_metadata_does_not_load_data",
+                "passed": false,
+                "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 81, in lazy_chunks\n    assert not store.reads,{'unexpected_data_chunk_reads':store.reads}\n           ^^^^^^^^^^^^^^^\nAssertionError: {'unexpected_data_chunk_reads': ['v/0', 'v/1']}\n"
+              }
+            ],
+            "classification": "TARGET_BEHAVIOR_FAILURE",
+            "controls_passed": true,
+            "target_failed": true,
+            "target_passed": false,
+            "task": "pydata__xarray-6721"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": false,
+          "source_unchanged_by_checks": true,
+          "target_failed": true,
+          "target_passed": false,
+          "tested_source_identity": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877"
+        },
+        "evidence_complete": true,
+        "llm_calls": 27,
+        "metrics": {
+          "attempted_calls": 27,
+          "charged_calls": 27,
+          "evidence_complete": true,
+          "first_edit_missing_reason": "NO_PRODUCTION_EDIT_OBSERVED",
+          "first_production_edit": null,
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 9682,
+            "prompt_tokens": 289250,
+            "total_tokens": 298932
+          },
+          "usage_complete": false,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 0,
+        "patch_kind": "fallback",
+        "patch_sha256": null,
+        "patch_submitted": false,
+        "task_id": "pydata__xarray-6721",
+        "worker_seconds": 496.841708035
+      },
+      "task": "pydata__xarray-6721",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 513.0597098200001,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": false,
+          "patch_checkpoint_bytes": null,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R2",
+      "index": 5,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 448.04195421600025,
+        "candidate": "R2",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 28,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "xarray/core/common.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "429c297e06ee",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "429c297e06ee",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 3.1994049309996626,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"pydata__xarray-6721\", \"checks\": [{\"name\": \"real_zarr_values_and_counter\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"data_chunk_reads\": 2}}, {\"name\": \"eager_numpy_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"real_dask_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"zarr_chunks_metadata_does_not_load_data\", \"kind\": \"target\", \"passed\": true, \"evidence\": {\"chunks\": {}, \"data_chunk_reads\": 0}}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "ef4314608a59544f417505abfef4949dc4e283f21344e76f8451c24a7c6c1c41",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "data_chunk_reads": 2
+                },
+                "kind": "control",
+                "name": "real_zarr_values_and_counter",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "eager_numpy_chunks",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "real_dask_chunks",
+                "passed": true
+              },
+              {
+                "evidence": {
+                  "chunks": {},
+                  "data_chunk_reads": 0
+                },
+                "kind": "target",
+                "name": "zarr_chunks_metadata_does_not_load_data",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "pydata__xarray-6721"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "f0f642fac48ccfcff49ba6f62c872a28a4366f4d6ffa3c1b9bd9cdfef3fa727d"
+        },
+        "evidence_complete": true,
+        "llm_calls": 30,
+        "metrics": {
+          "attempted_calls": 29,
+          "charged_calls": 28,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "xarray/core/common.py"
+            ],
+            "lower_seconds": 326.29517773299995,
+            "upper_seconds": 326.3645331920002
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 7983,
+            "prompt_tokens": 309231,
+            "total_tokens": 317214
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 482,
+        "patch_kind": "submitted",
+        "patch_sha256": "ef4314608a59544f417505abfef4949dc4e283f21344e76f8451c24a7c6c1c41",
+        "patch_submitted": true,
+        "task_id": "pydata__xarray-6721",
+        "worker_seconds": 464.77210865899997
+      },
+      "task": "pydata__xarray-6721",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 480.97983892,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 482,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "BASELINE",
+      "index": 6,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 446.3857734149997,
+        "candidate": "BASELINE",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 28,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877",
+          "canonical_swebench_resolved": null,
+          "changed_files": [],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "98b43d5bfa53",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "98b43d5bfa53",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 3.2154161859998567,
+            "exit_code": 1,
+            "status": "error",
+            "stderr": "",
+            "stdout": "{\"task\": \"pydata__xarray-6721\", \"checks\": [{\"name\": \"real_zarr_values_and_counter\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"data_chunk_reads\": 2}}, {\"name\": \"eager_numpy_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"real_dask_chunks\", \"kind\": \"control\", \"passed\": true, \"evidence\": null}, {\"name\": \"zarr_chunks_metadata_does_not_load_data\", \"kind\": \"target\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"{'unexpected_data_chunk_reads': ['v/0', 'v/1']}\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/evaluation/probe.py\\\", line 9, in check\\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\\n             ^^^^\\n  File \\\"/evaluation/probe.py\\\", line 81, in lazy_chunks\\n    assert not store.reads,{'unexpected_data_chunk_reads':store.reads}\\n           ^^^^^^^^^^^^^^^\\nAssertionError: {'unexpected_data_chunk_reads': ['v/0', 'v/1']}\\n\"}], \"controls_passed\": true, \"target_failed\": true, \"target_passed\": false, \"classification\": \"TARGET_BEHAVIOR_FAILURE\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_present": false,
+          "patch_sha256": null,
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "data_chunk_reads": 2
+                },
+                "kind": "control",
+                "name": "real_zarr_values_and_counter",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "eager_numpy_chunks",
+                "passed": true
+              },
+              {
+                "evidence": null,
+                "kind": "control",
+                "name": "real_dask_chunks",
+                "passed": true
+              },
+              {
+                "error": "{'unexpected_data_chunk_reads': ['v/0', 'v/1']}",
+                "error_type": "AssertionError",
+                "kind": "target",
+                "name": "zarr_chunks_metadata_does_not_load_data",
+                "passed": false,
+                "traceback": "Traceback (most recent call last):\n  File \"/evaluation/probe.py\", line 9, in check\n    evidence=fn();checks.append(dict(name=name,kind=kind,passed=True,evidence=evidence))\n             ^^^^\n  File \"/evaluation/probe.py\", line 81, in lazy_chunks\n    assert not store.reads,{'unexpected_data_chunk_reads':store.reads}\n           ^^^^^^^^^^^^^^^\nAssertionError: {'unexpected_data_chunk_reads': ['v/0', 'v/1']}\n"
+              }
+            ],
+            "classification": "TARGET_BEHAVIOR_FAILURE",
+            "controls_passed": true,
+            "target_failed": true,
+            "target_passed": false,
+            "task": "pydata__xarray-6721"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": false,
+          "source_unchanged_by_checks": true,
+          "target_failed": true,
+          "target_passed": false,
+          "tested_source_identity": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877"
+        },
+        "evidence_complete": true,
+        "llm_calls": 34,
+        "metrics": {
+          "attempted_calls": 33,
+          "charged_calls": 28,
+          "evidence_complete": true,
+          "first_edit_missing_reason": "NO_PRODUCTION_EDIT_OBSERVED",
+          "first_production_edit": null,
+          "invalid_calls": [
+            {
+              "missing": [
+                "old_string"
+              ],
+              "tool": "edit_file"
+            }
+          ],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 7576,
+            "prompt_tokens": 332462,
+            "total_tokens": 340038
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 0,
+        "patch_kind": "submitted",
+        "patch_sha256": null,
+        "patch_submitted": true,
+        "task_id": "pydata__xarray-6721",
+        "worker_seconds": 463.0375745209999
+      },
+      "task": "pydata__xarray-6721",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 479.43733375700003,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 0,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R2",
+      "index": 7,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 277.92985113899977,
+        "candidate": "R2",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 19,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "a014b2da9e376ec368e0e667dd311ba3333e4befeb595b3cbaa13998b5a24313",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "src/_pytest/compat.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "d2ce53362934",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "d2ce53362934",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 2.453928353000265,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"pytest-dev__pytest-5631\", \"checks\": [{\"name\": \"native_collection_default_mock_and_plain_function\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_controls.py\"], \"exit_code\": 0, \"stdout\": \"..                                                                       [100%]\\n2 passed in 0.13 seconds\\n\", \"stderr\": \"\"}}, {\"name\": \"native_collection_with_array_new\", \"kind\": \"target\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_array_patch.py\", \"-k\", \"array_patch\"], \"exit_code\": 0, \"stdout\": \".                                                                        [100%]\\n1 passed in 0.53 seconds\\n\", \"stderr\": \"\"}}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_controls.py"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": "..                                                                       [100%]\n2 passed in 0.13 seconds\n"
+                },
+                "kind": "control",
+                "name": "native_collection_default_mock_and_plain_function",
+                "passed": true
+              },
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_array_patch.py",
+                    "-k",
+                    "array_patch"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": ".                                                                        [100%]\n1 passed in 0.53 seconds\n"
+                },
+                "kind": "target",
+                "name": "native_collection_with_array_new",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "pytest-dev__pytest-5631"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "58d108c05e41f8d4127710b9841ed27c0868016bec2b82d21c2b84a4e73d40f9"
+        },
+        "evidence_complete": true,
+        "llm_calls": 22,
+        "metrics": {
+          "attempted_calls": 20,
+          "charged_calls": 19,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "src/_pytest/compat.py"
+            ],
+            "lower_seconds": 133.66766078599994,
+            "upper_seconds": 133.75127994600007
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 4112,
+            "prompt_tokens": 225212,
+            "total_tokens": 229324
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 540,
+        "patch_kind": "submitted",
+        "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+        "patch_submitted": true,
+        "task_id": "pytest-dev__pytest-5631",
+        "worker_seconds": 292.6195163999996
+      },
+      "task": "pytest-dev__pytest-5631",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 309.1130021920003,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 540,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "BASELINE",
+      "index": 8,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 168.19867351799985,
+        "candidate": "BASELINE",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 11,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "a014b2da9e376ec368e0e667dd311ba3333e4befeb595b3cbaa13998b5a24313",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "src/_pytest/compat.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "ce4a62dcd336",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "ce4a62dcd336",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 2.4781417559997863,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"pytest-dev__pytest-5631\", \"checks\": [{\"name\": \"native_collection_default_mock_and_plain_function\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_controls.py\"], \"exit_code\": 0, \"stdout\": \"..                                                                       [100%]\\n2 passed in 0.14 seconds\\n\", \"stderr\": \"\"}}, {\"name\": \"native_collection_with_array_new\", \"kind\": \"target\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_array_patch.py\", \"-k\", \"array_patch\"], \"exit_code\": 0, \"stdout\": \".                                                                        [100%]\\n1 passed in 0.53 seconds\\n\", \"stderr\": \"\"}}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_controls.py"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": "..                                                                       [100%]\n2 passed in 0.14 seconds\n"
+                },
+                "kind": "control",
+                "name": "native_collection_default_mock_and_plain_function",
+                "passed": true
+              },
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_array_patch.py",
+                    "-k",
+                    "array_patch"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": ".                                                                        [100%]\n1 passed in 0.53 seconds\n"
+                },
+                "kind": "target",
+                "name": "native_collection_with_array_new",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "pytest-dev__pytest-5631"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "58d108c05e41f8d4127710b9841ed27c0868016bec2b82d21c2b84a4e73d40f9"
+        },
+        "evidence_complete": true,
+        "llm_calls": 13,
+        "metrics": {
+          "attempted_calls": 12,
+          "charged_calls": 11,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "src/_pytest/compat.py"
+            ],
+            "lower_seconds": 92.37407949999943,
+            "upper_seconds": 92.45551165100005
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 3154,
+            "prompt_tokens": 106417,
+            "total_tokens": 109571
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 540,
+        "patch_kind": "submitted",
+        "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+        "patch_submitted": true,
+        "task_id": "pytest-dev__pytest-5631",
+        "worker_seconds": 183.0085033639998
+      },
+      "task": "pytest-dev__pytest-5631",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 199.39338749599938,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 540,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    },
+    {
+      "candidate": "R1",
+      "index": 9,
+      "result": {
+        "agent_error": null,
+        "agent_seconds": 196.22441820099993,
+        "candidate": "R1",
+        "canonical_swebench_resolved": null,
+        "charged_tools": 11,
+        "cleanup": true,
+        "evaluation": {
+          "base_source_identity": "a014b2da9e376ec368e0e667dd311ba3333e4befeb595b3cbaa13998b5a24313",
+          "canonical_swebench_resolved": null,
+          "changed_files": [
+            "src/_pytest/compat.py"
+          ],
+          "check_unchanged": true,
+          "check_write_denied": true,
+          "cleanup": true,
+          "cleanup_records": [
+            {
+              "killed": [],
+              "root_removed": true,
+              "sid": "ba1bee163895",
+              "uid": 20000
+            },
+            {
+              "killed": [],
+              "lease_removed": true,
+              "recovery_lease_release": true,
+              "root_removed": true,
+              "sid": "ba1bee163895",
+              "uid": 20000
+            }
+          ],
+          "execution": {
+            "duration_seconds": 2.4931172569995397,
+            "exit_code": 0,
+            "status": "ok",
+            "stderr": "",
+            "stdout": "{\"task\": \"pytest-dev__pytest-5631\", \"checks\": [{\"name\": \"native_collection_default_mock_and_plain_function\", \"kind\": \"control\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_controls.py\"], \"exit_code\": 0, \"stdout\": \"..                                                                       [100%]\\n2 passed in 0.13 seconds\\n\", \"stderr\": \"\"}}, {\"name\": \"native_collection_with_array_new\", \"kind\": \"target\", \"passed\": true, \"evidence\": {\"command\": [\"/usr/bin/python\", \"-m\", \"pytest\", \"--assert=plain\", \"-p\", \"no:cacheprovider\", \"-c\", \"/evaluation/pytest.ini\", \"-q\", \"/evaluation/test_array_patch.py\", \"-k\", \"array_patch\"], \"exit_code\": 0, \"stdout\": \".                                                                        [100%]\\n1 passed in 0.54 seconds\\n\", \"stderr\": \"\"}}], \"controls_passed\": true, \"target_failed\": false, \"target_passed\": true, \"classification\": \"CHECK_PASS_NON_DISCRIMINATING\"}\n"
+          },
+          "official_native_resolved": null,
+          "patch_applicable": true,
+          "patch_present": true,
+          "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+          "positive_controls_passed": true,
+          "receipt": {
+            "checks": [
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_controls.py"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": "..                                                                       [100%]\n2 passed in 0.13 seconds\n"
+                },
+                "kind": "control",
+                "name": "native_collection_default_mock_and_plain_function",
+                "passed": true
+              },
+              {
+                "evidence": {
+                  "command": [
+                    "/usr/bin/python",
+                    "-m",
+                    "pytest",
+                    "--assert=plain",
+                    "-p",
+                    "no:cacheprovider",
+                    "-c",
+                    "/evaluation/pytest.ini",
+                    "-q",
+                    "/evaluation/test_array_patch.py",
+                    "-k",
+                    "array_patch"
+                  ],
+                  "exit_code": 0,
+                  "stderr": "",
+                  "stdout": ".                                                                        [100%]\n1 passed in 0.54 seconds\n"
+                },
+                "kind": "target",
+                "name": "native_collection_with_array_new",
+                "passed": true
+              }
+            ],
+            "classification": "CHECK_PASS_NON_DISCRIMINATING",
+            "controls_passed": true,
+            "target_failed": false,
+            "target_passed": true,
+            "task": "pytest-dev__pytest-5631"
+          },
+          "scope": "Original Issue-grounded owned target and controls; broader regression NOT_RUN; semantic review required",
+          "scoped_development_pass": true,
+          "source_unchanged_by_checks": true,
+          "target_failed": false,
+          "target_passed": true,
+          "tested_source_identity": "58d108c05e41f8d4127710b9841ed27c0868016bec2b82d21c2b84a4e73d40f9"
+        },
+        "evidence_complete": true,
+        "llm_calls": 13,
+        "metrics": {
+          "attempted_calls": 12,
+          "charged_calls": 11,
+          "evidence_complete": true,
+          "first_edit_missing_reason": null,
+          "first_production_edit": {
+            "files": [
+              "src/_pytest/compat.py"
+            ],
+            "lower_seconds": 109.13827441000012,
+            "upper_seconds": 109.2196331340001
+          },
+          "invalid_calls": [],
+          "missing": [],
+          "observed_usage": {
+            "completion_tokens": 4046,
+            "prompt_tokens": 111285,
+            "total_tokens": 115331
+          },
+          "usage_complete": true,
+          "usage_missing_is_zero": false
+        },
+        "model_transport": "REAL_GEMMA",
+        "official_native_resolved": null,
+        "patch_bytes": 540,
+        "patch_kind": "submitted",
+        "patch_sha256": "fc642231764c5ce43a52d0f03c294e9ecb93414b2c5def7b5c0c8845052affce",
+        "patch_submitted": true,
+        "task_id": "pytest-dev__pytest-5631",
+        "worker_seconds": 211.01921428599962
+      },
+      "task": "pytest-dev__pytest-5631",
+      "worker": {
+        "allow_next_run": true,
+        "cleanup_complete": true,
+        "controller_error": null,
+        "controller_failure_stage": null,
+        "duration_seconds": 227.45314162799968,
+        "evidence": {
+          "agent_boundary_trace": false,
+          "incremental_adk_events": true,
+          "native_trace": false,
+          "official_result": false,
+          "patch_checkpoint": true,
+          "patch_checkpoint_bytes": 540,
+          "phase2_output": false
+        },
+        "failure_stage": "cleanup",
+        "official_fields_unchanged": true,
+        "process_exit_code": 0,
+        "process_tree_stopped": true,
+        "reason": "official_result_missing",
+        "status": "unknown"
+      }
+    }
+  ],
+  "scoped_development_only": true
+}

@@ -1,0 +1,80 @@
+{
+  "task": "pydata__xarray-6721",
+  "variant": "r2",
+  "evidence": "CPU_VERIFIED",
+  "method": "Expanded owned checks; no reference patch, hidden tests or trusted historical expectations changed",
+  "python": "3.12.12 (main, Feb  3 2026, 22:54:57) [MSC v.1944 64 bit (AMD64)]",
+  "source": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pydata__xarray-6721\\selected-r2",
+  "checks": [
+    {
+      "name": "numpy_dataset",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "dask_dataset_metadata",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "dask_aggregation",
+      "kind": "control",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "inconsistent_chunks_exception",
+      "kind": "control",
+      "status": "PASS",
+      "detail": "Object has inconsistent chunks along dimension x. This can be fixed by calling unify_chunks()."
+    },
+    {
+      "name": "zarr_lazy_chunks_none",
+      "kind": "target",
+      "status": "FAIL",
+      "error_type": "AssertionError",
+      "error": "\nArrays are not equal\n\nx and y nan location mismatch:\n x: array([nan,  1.,  2.,  3.,  4.,  5.])\n y: array([0, 1, 2, 3, 4, 5])",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 69, in <lambda>\n    check('zarr_lazy_chunks_none',lambda:zarr_case(None),'target')\n                                         ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 67, in zarr_case\n    np.testing.assert_array_equal(ds.v.values,np.arange(6));assert store.reads;ds.close()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 920, in assert_array_equal\n    assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\contextlib.py\", line 81, in inner\n    return func(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 718, in assert_array_compare\n    flagged = func_assert_same_pos(x, y, func=isnan, hasval='nan')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 688, in func_assert_same_pos\n    raise AssertionError(msg)\nAssertionError: \nArrays are not equal\n\nx and y nan location mismatch:\n x: array([nan,  1.,  2.,  3.,  4.,  5.])\n y: array([0, 1, 2, 3, 4, 5])\n"
+    },
+    {
+      "name": "zarr_dask_chunks",
+      "kind": "control",
+      "status": "FAIL",
+      "error_type": "AssertionError",
+      "error": "\nArrays are not equal\n\nx and y nan location mismatch:\n x: array([nan,  1.,  2.,  3.,  4.,  5.])\n y: array([0, 1, 2, 3, 4, 5])",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 10, in check\n    try:detail=fn();rows.append(dict(name=name,kind=kind,status='PASS',detail=detail))\n               ^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 70, in <lambda>\n    check('zarr_dask_chunks',lambda:zarr_case({}))\n                                    ^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\cpu_quality_probe.py\", line 67, in zarr_case\n    np.testing.assert_array_equal(ds.v.values,np.arange(6));assert store.reads;ds.close()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 920, in assert_array_equal\n    assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\contextlib.py\", line 81, in inner\n    return func(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 718, in assert_array_compare\n    flagged = func_assert_same_pos(x, y, func=isnan, hasval='nan')\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py\", line 688, in func_assert_same_pos\n    raise AssertionError(msg)\nAssertionError: \nArrays are not equal\n\nx and y nan location mismatch:\n x: array([nan,  1.,  2.,  3.,  4.,  5.])\n y: array([0, 1, 2, 3, 4, 5])\n"
+    },
+    {
+      "name": "duck_array_without_chunks",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "materializations": 0
+      }
+    },
+    {
+      "name": "duck_array_with_chunks",
+      "kind": "control",
+      "status": "PASS",
+      "detail": {
+        "materializations": 0
+      }
+    },
+    {
+      "name": "lazy_backend_no_getitem",
+      "kind": "target",
+      "status": "PASS",
+      "detail": {
+        "reads": 0
+      }
+    },
+    {
+      "name": "loaded_source_identity",
+      "kind": "control",
+      "status": "PASS",
+      "detail": "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\pydata__xarray-6721\\selected-r2"
+    }
+  ]
+}

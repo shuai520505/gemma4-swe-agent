@@ -1,0 +1,288 @@
+{
+  "scope": "R2/A independent research pilot; no formal competition submission",
+  "status": "DISPATCH_ACCEPTED_RESULTS_PENDING",
+  "frozen_execution_plan_sha256": "ef33b19535d30f31e6a4ca2eab74765e81817d619909b672cca2d7dd1739ffae",
+  "candidate_sha256": {
+    "R2": "af918c1a65aeb211298f13a69b5b789ae6b086974922c80469df87d902eb98d5",
+    "A": "96cfec3f55ed7f2a35a8bcd77734720599bd6d643a990365dc4331313b1401e0"
+  },
+  "planned_sessions": [
+    {
+      "index": 1,
+      "pair": 1,
+      "task": "pydata__xarray-6599",
+      "candidate": "A"
+    },
+    {
+      "index": 2,
+      "pair": 1,
+      "task": "pydata__xarray-6599",
+      "candidate": "R2"
+    },
+    {
+      "index": 3,
+      "pair": 2,
+      "task": "pylint-dev__pylint-8898",
+      "candidate": "R2"
+    },
+    {
+      "index": 4,
+      "pair": 2,
+      "task": "pylint-dev__pylint-8898",
+      "candidate": "A"
+    },
+    {
+      "index": 5,
+      "pair": 3,
+      "task": "sphinx-doc__sphinx-11445",
+      "candidate": "R2"
+    },
+    {
+      "index": 6,
+      "pair": 3,
+      "task": "sphinx-doc__sphinx-11445",
+      "candidate": "A"
+    },
+    {
+      "index": 7,
+      "pair": 4,
+      "task": "sympy__sympy-24661",
+      "candidate": "A"
+    },
+    {
+      "index": 8,
+      "pair": 4,
+      "task": "sympy__sympy-24661",
+      "candidate": "R2"
+    }
+  ],
+  "CPU_proof": {
+    "status": "CPU_INTEGRATION_PASS_WITH_DECLARED_METADATA_LIMITATIONS",
+    "archive_sha256": "c8d306b82cb798a59e01dbade70ac2e9c5942a2fbf9105464b04c3ac1f78c875",
+    "archive_bytes": 144526210,
+    "evidence_files": {
+      "CPU_FINAL_SUMMARY.json": "dfc8e1a23867d328b279e305ad2f4fef699ed2fd8e87ec197fe10ed2f4918adf",
+      "RUNTIME_OVERLAY_IDENTITIES.json": "7410e5b0a20998c0e586558ec77865b86bb8d4e8d082ca3174d2675b2c2de366",
+      "TASK_RUNTIME_311_IDENTITIES.json": "e6452241ff8613fffb08af236a63c0abd1304260507cbe7f7ffc1288078581db",
+      "SDK_SNAPSHOT_IDENTITIES.json": "6869391faae3ebe1ca1afb875c38f530290ee9fb39bf0d7e062525e5b4eca486",
+      "SOURCE_TREE_VERIFICATION.json": "e3b03a03d3d52c29cbb6961dd36a198373b7c44ca6b9e8228285439f23346d44"
+    },
+    "isolation_checks": [
+      "replay/ISOLATION_1b04bf015ee1.json",
+      "replay/trusted/ISOLATION_c683e18d6ecf.json",
+      "admission/pydata__xarray-6599/ISOLATION_21d1e7261e35.json",
+      "admission/sphinx-doc__sphinx-11445/ISOLATION_d77d052e4706.json",
+      "admission/sympy__sympy-24661/ISOLATION_c7193f8bebe3.json",
+      "admission/pylint-dev__pylint-8898/ISOLATION_4c52fc5959f1.json"
+    ],
+    "Compiler": {
+      "R2": {
+        "instruction_sha256": "3a543f027d43108f1d655b2379b1446ee915f9c39beb3ec7b8c61c76c5938c75",
+        "tools": [
+          "run_command",
+          "read_file",
+          "edit_file",
+          "write_file",
+          "get_status",
+          "submit_patch",
+          "get_code_neighbors",
+          "search_similar_code",
+          "get_code_subgraph"
+        ],
+        "generation": {
+          "temperature": 0.2,
+          "top_p": 0.95,
+          "max_output_tokens": 8192,
+          "thinking_config": {
+            "include_thoughts": true,
+            "thinking_budget": 4096
+          }
+        },
+        "budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)"
+      },
+      "A": {
+        "instruction_sha256": "4fa5461c7d11d1e7d2e8b91c88dbd136a5daefc5dc155287234c4c735de04dff",
+        "tools": [
+          "run_command",
+          "read_file",
+          "edit_file",
+          "write_file",
+          "get_status",
+          "submit_patch",
+          "get_code_neighbors",
+          "search_similar_code",
+          "get_code_subgraph"
+        ],
+        "generation": {
+          "temperature": 0.2,
+          "top_p": 0.95,
+          "max_output_tokens": 8192,
+          "thinking_config": {
+            "include_thoughts": true,
+            "thinking_budget": 4096
+          }
+        },
+        "budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)"
+      }
+    },
+    "tasks": [
+      {
+        "task": "pydata__xarray-6599",
+        "admission": "PASS",
+        "raw_positive_controls_passed": false,
+        "raw_all_positive_nodes_confirmed": false,
+        "infrastructure_controls": {
+          "passed": true,
+          "raw_positive_controls_passed": false,
+          "original_co_targets": {
+            "xarray/tests/test_computation.py::test_polyval[timedelta-True]": [
+              "failure"
+            ]
+          },
+          "unknown_nodes": [],
+          "success_criterion_relaxed": false,
+          "all_original_controls_still_required_for_repair": true
+        }
+      },
+      {
+        "task": "pylint-dev__pylint-8898",
+        "admission": "PASS",
+        "raw_positive_controls_passed": true,
+        "raw_all_positive_nodes_confirmed": false,
+        "infrastructure_controls": {
+          "passed": true,
+          "raw_positive_controls_passed": true,
+          "original_co_targets": {},
+          "unknown_nodes": [
+            "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,"
+          ],
+          "success_criterion_relaxed": false,
+          "all_original_controls_still_required_for_repair": true
+        }
+      },
+      {
+        "task": "sphinx-doc__sphinx-11445",
+        "admission": "PASS",
+        "raw_positive_controls_passed": true,
+        "raw_all_positive_nodes_confirmed": true,
+        "infrastructure_controls": {
+          "passed": true,
+          "raw_positive_controls_passed": true,
+          "original_co_targets": {},
+          "unknown_nodes": [],
+          "success_criterion_relaxed": false,
+          "all_original_controls_still_required_for_repair": true
+        }
+      },
+      {
+        "task": "sympy__sympy-24661",
+        "admission": "PASS",
+        "raw_positive_controls_passed": true,
+        "raw_all_positive_nodes_confirmed": true,
+        "infrastructure_controls": {
+          "passed": true,
+          "raw_positive_controls_passed": true,
+          "original_co_targets": {},
+          "unknown_nodes": [],
+          "success_criterion_relaxed": false,
+          "all_original_controls_still_required_for_repair": true
+        }
+      }
+    ],
+    "replay": {
+      "status": "PASS_PLUMBING_ONLY",
+      "real_Gemma_requests": 0,
+      "GPU_devices": 0,
+      "repair_capability_evidence": false,
+      "marker_patch_is_not_a_fix": true,
+      "native_repair": false,
+      "localhost_mock_requests": 4,
+      "missing_usage": "UNKNOWN",
+      "source_change_observer": true,
+      "submit_capture": true,
+      "native_evaluator": true,
+      "cleanup": true
+    },
+    "repair_capability_evidence": false,
+    "real_Gemma_requests": 0,
+    "GPU_devices": 0
+  },
+  "accepted_dispatch": {
+    "requested_ref": "wudangdexiaodoashi/r2a-real-gpu-01",
+    "actual_ref": "wudangdexiaodoashi/r2a-frozen-paired-real-gpu-01",
+    "url": "https://www.kaggle.com/code/wudangdexiaodoashi/r2a-frozen-paired-real-gpu-01",
+    "version": 1,
+    "kernel_id": 142052931,
+    "SaveKernel_requests": 1,
+    "reason": "Kaggle creation derives the canonical slug from title; accepted response is authoritative",
+    "recorded_at_utc": "2026-11-01T05:25:57.446914+00:00"
+  },
+  "dispatch_build": {
+    "notebook_sha256": "d48f0d0f2a87df2d4797e5f05df6eeb4ace4862cb9255ae8e570ae54d4fea2d6",
+    "metadata_sha256": "d12083ccec7d4fa074fdcc3564c104b343ae365af44e4246061d40e47c493c09",
+    "authorization_sha256": "62daf73e38dbb5a287e2b385223916484a291f21ef5dcd1e8771f8508fdf437e",
+    "CPU_evidence": {
+      "CPU_FINAL_SUMMARY.json": "dfc8e1a23867d328b279e305ad2f4fef699ed2fd8e87ec197fe10ed2f4918adf",
+      "RUNTIME_OVERLAY_IDENTITIES.json": "7410e5b0a20998c0e586558ec77865b86bb8d4e8d082ca3174d2675b2c2de366",
+      "TASK_RUNTIME_311_IDENTITIES.json": "e6452241ff8613fffb08af236a63c0abd1304260507cbe7f7ffc1288078581db",
+      "SDK_SNAPSHOT_IDENTITIES.json": "6869391faae3ebe1ca1afb875c38f530290ee9fb39bf0d7e062525e5b4eca486",
+      "SOURCE_TREE_VERIFICATION.json": "e3b03a03d3d52c29cbb6961dd36a198373b7c44ca6b9e8228285439f23346d44"
+    },
+    "CPU_archive_sha256": "c8d306b82cb798a59e01dbade70ac2e9c5942a2fbf9105464b04c3ac1f78c875",
+    "maximum_dispatches": 1,
+    "maximum_seconds": 18000,
+    "required_quota_seconds": 73200
+  },
+  "GPU_authorization_sha256": "62daf73e38dbb5a287e2b385223916484a291f21ef5dcd1e8771f8508fdf437e",
+  "evaluation_approval_sha256": "46d22956fa18523a699461a6e0f6b93dc107be5b7927b01a998de4816adf038d",
+  "original_baseline_spec_anomaly_sha256": "c38afae206220f1b6cae8aa05076131022fb697d240a3c2d7f001da6ffd91185",
+  "model_source": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+  "expected_model_files": {
+    "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+    "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+    "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+    "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+    "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+    "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+  },
+  "expected_model_files_classification": "FROZEN_EXPECTATIONS_NOT_YET_REOBSERVED_FROM_GPU_OUTPUT",
+  "expected_server_config": {
+    "dtype": "bfloat16",
+    "enable_auto_tool_choice": true,
+    "enable_lora": false,
+    "extra_args": [
+      "--no-enable-prefix-caching"
+    ],
+    "gpu_memory_utilization": 0.9,
+    "host": "127.0.0.1",
+    "max_model_len": 32768,
+    "port": 8000,
+    "reasoning_parser": "gemma4",
+    "scheduler_reserve_full_isl": false,
+    "startup_timeout": 1200,
+    "tensor_parallel_size": 4,
+    "tool_call_parser": "gemma4"
+  },
+  "expected_generation": {
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "max_output_tokens": 8192,
+    "thinking_config": {
+      "include_thoughts": true,
+      "thinking_budget": 4096
+    }
+  },
+  "Agent_limits": {
+    "seconds": 480,
+    "charged_tools": 28,
+    "turns": 80,
+    "command_seconds": 240
+  },
+  "host_lifecycle_reserve_seconds": 1680,
+  "archive_cleanup_reserve_seconds": 900,
+  "maximum_Notebook_seconds": 18000,
+  "maximum_dispatches": 1,
+  "no_retries": true
+}

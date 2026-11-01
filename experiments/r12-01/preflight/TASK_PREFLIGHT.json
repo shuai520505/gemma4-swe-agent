@@ -1,0 +1,270 @@
+{
+  "final_gate": "R12_PREFLIGHT_PARTIAL",
+  "CPU_preflight_all_passed": true,
+  "CPU_revision": "4",
+  "evidence_archive_sha256": "a553bcd5150eecd6a6d92dc6d7555f8f88035e43111ed69b2d1557582102227b",
+  "tasks": [
+    {
+      "instance_id": "django__django-11964",
+      "repo": "django/django",
+      "base_commit": "fc2b1cc926e34041953738e58fa6ad3053059b22",
+      "status": "PASS",
+      "source_archive_sha256": "db91d169474e7c279053b567fe072b34116f34c164b087e3e7777ea483efa35d",
+      "original_source_sha256": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+      "executable_baseline_sha256": "6efe8a6fa12b42d7917fc33f2e9480e094d6de9926bb513c89a9fbf580a3779d",
+      "issue_sha256": "9f510b2ad7d3833f07816f18dfa6dbb8dacf72061c288cfe399418bfe4da25ab",
+      "upstream_git_tree": "246d8603170766fa04740b35f50c8b16268fa41a",
+      "Git_tree_verified": true,
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_parquet_sha256": "030cfd7f2a704c4c0226e7f104c725a3b41230b1d3517f9c915ad7ea5be3fa25",
+      "original_issue_source": "Frozen problem_statement column, verified against upstream publisher file digest; canonical original issue URL not separately read to avoid PR/reference-patch exposure.",
+      "exposure": {
+        "classification": "AUDITED_NOT_PREVIOUSLY_USED",
+        "qualification": "No previous run/training admission found in audited records; all three appear in older hash-only source ranking metadata with admitted_tasks=0 and native_baselines_run=0. Global exposure UNKNOWN.",
+        "metadata_previously_seen": true
+      },
+      "test_entrypoint_executable": true,
+      "original_bug_reproduced": true,
+      "positive_controls_passed": true,
+      "checks": [
+        {
+          "name": "retrieved_database_values",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "choice_values_and_labels",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "fresh_text_field_string_value",
+          "kind": "target",
+          "passed": false,
+          "error_type": "AssertionError",
+          "error": "'Choice.FIRST'"
+        },
+        {
+          "name": "fresh_integer_field_string_value",
+          "kind": "target",
+          "passed": false,
+          "error_type": "AssertionError",
+          "error": "'Count.ONE'"
+        }
+      ],
+      "agent_checks_inaccessible": true,
+      "trusted_check_write_denied": true,
+      "trusted_checks_unchanged": true,
+      "project_environment": {},
+      "plain_assertions_still_enforced": null,
+      "source_unchanged_by_tests": true,
+      "cleanup": true,
+      "build_artifacts": {},
+      "build_metadata_version": null,
+      "original_tracked_source_unchanged_by_build": true,
+      "error": null,
+      "evidence_member": "tasks/django__django-11964/TASK_RESULT.json",
+      "fixed_base_dependency_versions": {
+        "pytz": "2025.2",
+        "sqlparse": "0.5.3",
+        "asgiref": "3.8.1",
+        "setuptools": "75.8.0"
+      },
+      "new_dependency_versions": {},
+      "declared_requirements": "Python>=3.6; pytz, sqlparse, asgiref",
+      "candidate_repair_evaluation": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null
+    },
+    {
+      "instance_id": "pydata__xarray-6721",
+      "repo": "pydata/xarray",
+      "base_commit": "cc183652bf6e1273e985e1c4b3cba79c896c1193",
+      "status": "PASS",
+      "source_archive_sha256": "7112e16f969863e9b4811a03715dbfbe647a0962372a642bb5fe99cd54b9a148",
+      "original_source_sha256": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877",
+      "executable_baseline_sha256": "2696e6b83b4cff000cf60139fb33588293e89242970573fc44208bf42782f877",
+      "issue_sha256": "8885a8e303e07d8e74f13a24134ecd7d051a2e2ded38ac313d6667e68b93a021",
+      "upstream_git_tree": "d0928dedee3fa90d91745c02d64a274bb2e55b50",
+      "Git_tree_verified": true,
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_parquet_sha256": "030cfd7f2a704c4c0226e7f104c725a3b41230b1d3517f9c915ad7ea5be3fa25",
+      "original_issue_source": "Frozen problem_statement column, verified against upstream publisher file digest; canonical original issue URL not separately read to avoid PR/reference-patch exposure.",
+      "exposure": {
+        "classification": "AUDITED_NOT_PREVIOUSLY_USED",
+        "qualification": "No previous run/training admission found in audited records; all three appear in older hash-only source ranking metadata with admitted_tasks=0 and native_baselines_run=0. Global exposure UNKNOWN.",
+        "metadata_previously_seen": true
+      },
+      "test_entrypoint_executable": true,
+      "original_bug_reproduced": true,
+      "positive_controls_passed": true,
+      "checks": [
+        {
+          "name": "real_zarr_values_and_counter",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "eager_numpy_chunks",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "real_dask_chunks",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "zarr_chunks_metadata_does_not_load_data",
+          "kind": "target",
+          "passed": false,
+          "error_type": "AssertionError",
+          "error": "{'unexpected_data_chunk_reads': ['v/0', 'v/1']}"
+        }
+      ],
+      "agent_checks_inaccessible": true,
+      "trusted_check_write_denied": true,
+      "trusted_checks_unchanged": true,
+      "project_environment": {},
+      "plain_assertions_still_enforced": null,
+      "source_unchanged_by_tests": true,
+      "cleanup": true,
+      "build_artifacts": {},
+      "build_metadata_version": null,
+      "original_tracked_source_unchanged_by_build": true,
+      "error": null,
+      "evidence_member": "tasks/pydata__xarray-6721/TASK_RESULT.json",
+      "fixed_base_dependency_versions": {
+        "pandas": "2.2.3",
+        "pytz": "2025.2",
+        "six": "1.17.0",
+        "tzdata": "2025.2",
+        "numpy": "1.26.4",
+        "setuptools": "75.8.0",
+        "python_dateutil": "2.9.0.post0",
+        "packaging": "24.2"
+      },
+      "new_dependency_versions": {
+        "asciitree": "0.3.3",
+        "click": "8.1.7",
+        "cloudpickle": "3.0.0",
+        "dask": "2024.6.2",
+        "fasteners": "0.19",
+        "fsspec": "2024.6.1",
+        "locket": "1.0.0",
+        "numcodecs": "0.12.1",
+        "partd": "1.4.2",
+        "PyYAML": "6.0.2",
+        "toolz": "0.12.1",
+        "zarr": "2.18.3"
+      },
+      "declared_requirements": "Python>=3.8; numpy>=1.19, pandas>=1.2, packaging>=20.0; selected io/parallel extras zarr, fsspec, dask",
+      "candidate_repair_evaluation": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null
+    },
+    {
+      "instance_id": "pytest-dev__pytest-5631",
+      "repo": "pytest-dev/pytest",
+      "base_commit": "cb828ebe70b4fa35cd5f9a7ee024272237eab351",
+      "status": "PASS",
+      "source_archive_sha256": "160415366a032d5701056064cbdfc5f5b59c2321fbff973dc4f012418e855fb9",
+      "original_source_sha256": "615f570627b277f0ad10fd054ff045d3f0a28718a34a9ea2fbae947e1c43af01",
+      "executable_baseline_sha256": "a014b2da9e376ec368e0e667dd311ba3333e4befeb595b3cbaa13998b5a24313",
+      "issue_sha256": "1e9120fbb21d881c388af3596eaa479bad2f604703eb79bd19898b5d7b18af03",
+      "upstream_git_tree": "a5b5371c4a71b240342c5dd81f340ba29c6fe2c5",
+      "Git_tree_verified": true,
+      "dataset": "SWE-bench/SWE-bench_Verified",
+      "dataset_revision": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+      "dataset_parquet_sha256": "030cfd7f2a704c4c0226e7f104c725a3b41230b1d3517f9c915ad7ea5be3fa25",
+      "original_issue_source": "Frozen problem_statement column, verified against upstream publisher file digest; canonical original issue URL not separately read to avoid PR/reference-patch exposure.",
+      "exposure": {
+        "classification": "AUDITED_NOT_PREVIOUSLY_USED",
+        "qualification": "No previous run/training admission found in audited records; all three appear in older hash-only source ranking metadata with admitted_tasks=0 and native_baselines_run=0. Global exposure UNKNOWN.",
+        "metadata_previously_seen": true
+      },
+      "test_entrypoint_executable": true,
+      "original_bug_reproduced": true,
+      "positive_controls_passed": true,
+      "checks": [
+        {
+          "name": "native_collection_default_mock_and_plain_function",
+          "kind": "control",
+          "passed": true,
+          "error_type": null,
+          "error": null
+        },
+        {
+          "name": "native_collection_with_array_new",
+          "kind": "target",
+          "passed": false,
+          "error_type": "AssertionError",
+          "error": "{'command': ['/usr/bin/python', '-m', 'pytest', '--assert=plain', '-p', 'no:cacheprovider', '-c', '/evaluation/pytest.ini', '-q', '/evaluation/test_array_patch.py', '-k', 'array_patch'], 'exit_code': 2, 'stdout': '\\n==================================== ERRORS ====================================\\n_____________________ ERROR collecting test_array_patch.py _____________________\\n/opt/task/pluggy/hooks.py:286: in __call__\\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\\n/opt/task/pluggy/manager.py:93: in _hookexec\\n    return self._inner_hookexec(hook, methods, kwargs)\\n/opt/task/pluggy/manager.py:84: in <lambda>\\n    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(\\nsrc/_pytest/python.py:225: in pytest_pycollect_makeitem\\n    res = list(collector._genfunctions(name, obj))\\nsrc/_pytest/python.py:385: in _genfunctions\\n    definition = FunctionDefinition(name=name, parent=self, callobj=funcobj)\\nsrc/_pytest/python.py:1415: in __init__\\n    fixtureinfo = self.session._fixturemanager.getfixtureinfo(\\nsrc/_pytest/fixtures.py:1146: in getfixtureinfo\\n    argnames = getfuncargnames(func, cls=cls)\\nsrc/_pytest/compat.py:125: in getfuncargnames\\n    arg_names = arg_names[num_mock_patch_args(function) :]\\nsrc/_pytest/compat.py:71: in num_mock_patch_args\\n    [p for p in patchings if not p.attribute_name and p.new in sentinels]\\nE   ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!\\n1 error in 0.79 seconds\\n', 'stderr': ''}"
+        }
+      ],
+      "agent_checks_inaccessible": true,
+      "trusted_check_write_denied": true,
+      "trusted_checks_unchanged": true,
+      "project_environment": {
+        "PYTHONPATH": "/workspace/src:/opt/task:/opt/approved",
+        "PYTEST_ADDOPTS": "--assert=plain",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+        "reason": "Original assertion rewriting AST is incompatible with Python 3.12; plain executes all Python assertions without enhanced rewriting."
+      },
+      "plain_assertions_still_enforced": true,
+      "source_unchanged_by_tests": true,
+      "cleanup": true,
+      "build_artifacts": {
+        "src/_pytest/_version.py": "e272a0d3ea4ef34cf4f8d6013bc3eb6e5522101ed0b8df017e43c2ed508c5575"
+      },
+      "build_metadata_version": "5.0.2.dev58+gcb828ebe",
+      "original_tracked_source_unchanged_by_build": true,
+      "error": null,
+      "evidence_member": "tasks/pytest-dev__pytest-5631/TASK_RESULT.json",
+      "fixed_base_dependency_versions": {
+        "pandas": "2.2.3",
+        "pytz": "2025.2",
+        "six": "1.17.0",
+        "tzdata": "2025.2",
+        "numpy": "1.26.4",
+        "setuptools": "75.8.0",
+        "python_dateutil": "2.9.0.post0",
+        "packaging": "24.2"
+      },
+      "new_dependency_versions": {
+        "atomicwrites": "1.4.0",
+        "attrs": "23.2.0",
+        "importlib-metadata": "6.11.0",
+        "more-itertools": "10.3.0",
+        "pluggy": "0.13.1",
+        "py": "1.11.0",
+        "wcwidth": "0.2.13",
+        "zipp": "3.19.2"
+      },
+      "declared_requirements": "Python>=3.5; py>=1.5, packaging, attrs>=17.4, more-itertools>=4, atomicwrites>=1, pluggy>=0.12,<1.0, importlib-metadata>=0.12, wcwidth; build setuptools>=40 and setuptools-scm",
+      "candidate_repair_evaluation": "NOT_RUN",
+      "official_native_resolved": null,
+      "canonical_swebench_resolved": null
+    }
+  ],
+  "scope": "CPU readiness only; no candidate repair success or leaderboard inference",
+  "canonical_issue_URL_verification": "UNVERIFIED_ORIGINAL_DATASET_ISSUE_TEXT_USED",
+  "limitations": [
+    "Three public benchmark tasks only; pretraining exposure unknown",
+    "Research and official scoring environments are not proven equivalent"
+  ],
+  "GPU_sessions": 0,
+  "formal_submissions": 0
+}

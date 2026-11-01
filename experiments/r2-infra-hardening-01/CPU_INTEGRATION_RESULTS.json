@@ -1,0 +1,122 @@
+{
+  "status": "PASS",
+  "GPU_devices": 0,
+  "real_model_requests": 0,
+  "repair_capability_evidence": false,
+  "rows": [
+    {
+      "case": "ordinary_assertion",
+      "status": "PASS",
+      "stop_latched": false,
+      "localhost_scripted_requests": 2,
+      "next_model_request_blocked": false,
+      "preflight_blocked_before_requests": false,
+      "explicit_submit": false,
+      "agent_error": "Sandbox execution error: Error in plugin 'swegemma_display' during 'on_event_callback' callback: CPU_CONTROL_TERMINAL_AFTER_CONFIRMED_CONTINUATION",
+      "patch_bytes": 0,
+      "suffix_not_run": [],
+      "source_changes": [],
+      "receipt": {
+        "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+        "stopped": false,
+        "evidence": null
+      }
+    },
+    {
+      "case": "missing_cli",
+      "status": "PASS",
+      "stop_latched": true,
+      "localhost_scripted_requests": 1,
+      "next_model_request_blocked": true,
+      "preflight_blocked_before_requests": false,
+      "explicit_submit": false,
+      "agent_error": "Sandbox execution error: Error in plugin 'swegemma_display' during 'on_event_callback' callback: INFRASTRUCTURE_STOP:REQUIRED_CLI_MISSING",
+      "patch_bytes": 0,
+      "suffix_not_run": [
+        "synthetic_suffix"
+      ],
+      "source_changes": [],
+      "receipt": {
+        "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+        "stopped": true,
+        "evidence": {
+          "reason": "REQUIRED_CLI_MISSING",
+          "tool_response": {
+            "id": "cpu_0",
+            "name": "run_command",
+            "response": {
+              "status": "error",
+              "error_type": "CommandError",
+              "error_message": "/bin/bash: line 1: sphinx-build: command not found\n",
+              "details": {
+                "stdout": "",
+                "stderr": "/bin/bash: line 1: sphinx-build: command not found\n",
+                "exit_code": 127
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "invalid_locale",
+      "status": "PASS",
+      "stop_latched": true,
+      "localhost_scripted_requests": 1,
+      "next_model_request_blocked": true,
+      "preflight_blocked_before_requests": false,
+      "explicit_submit": false,
+      "agent_error": "Sandbox execution error: Error in plugin 'swegemma_display' during 'on_event_callback' callback: INFRASTRUCTURE_STOP:UNSUPPORTED_LOCALE",
+      "patch_bytes": 0,
+      "suffix_not_run": [
+        "synthetic_suffix"
+      ],
+      "source_changes": [],
+      "receipt": {
+        "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+        "stopped": true,
+        "evidence": {
+          "reason": "UNSUPPORTED_LOCALE",
+          "tool_response": {
+            "id": "cpu_0",
+            "name": "run_command",
+            "response": {
+              "status": "error",
+              "error_type": "CommandError",
+              "error_message": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/opt/python311/lib/python3.11/locale.py\", line 627, in setlocale\n    return _setlocale(category, locale)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nlocale.Error: unsupported locale setting\n",
+              "details": {
+                "stdout": "",
+                "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/opt/python311/lib/python3.11/locale.py\", line 627, in setlocale\n    return _setlocale(category, locale)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nlocale.Error: unsupported locale setting\n",
+                "exit_code": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "preflight_missing_cli",
+      "status": "PASS",
+      "stop_latched": true,
+      "localhost_scripted_requests": 0,
+      "next_model_request_blocked": true,
+      "preflight_blocked_before_requests": true,
+      "explicit_submit": false,
+      "agent_error": "Sandbox execution error: SOURCE_CLI_ADMISSION_FAILED",
+      "patch_bytes": 0,
+      "suffix_not_run": [
+        "synthetic_suffix"
+      ],
+      "source_changes": [],
+      "receipt": {
+        "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+        "stopped": true,
+        "evidence": {
+          "reason": "SOURCE_CLI_ADMISSION_FAILED"
+        }
+      }
+    }
+  ],
+  "coordinator_composition": "PASS",
+  "scope": "Scripted SDK plumbing + actual source CLI and nonroot environment, not candidate repair rerun"
+}

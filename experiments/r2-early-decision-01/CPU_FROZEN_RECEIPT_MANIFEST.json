@@ -1,0 +1,151 @@
+{
+  "status": "CPU_INTEGRATION_PASS_WITH_DECLARED_METADATA_LIMITATIONS",
+  "archive_sha256": "c8d306b82cb798a59e01dbade70ac2e9c5942a2fbf9105464b04c3ac1f78c875",
+  "archive_bytes": 144526210,
+  "evidence_files": {
+    "CPU_FINAL_SUMMARY.json": "dfc8e1a23867d328b279e305ad2f4fef699ed2fd8e87ec197fe10ed2f4918adf",
+    "RUNTIME_OVERLAY_IDENTITIES.json": "7410e5b0a20998c0e586558ec77865b86bb8d4e8d082ca3174d2675b2c2de366",
+    "TASK_RUNTIME_311_IDENTITIES.json": "e6452241ff8613fffb08af236a63c0abd1304260507cbe7f7ffc1288078581db",
+    "SDK_SNAPSHOT_IDENTITIES.json": "6869391faae3ebe1ca1afb875c38f530290ee9fb39bf0d7e062525e5b4eca486",
+    "SOURCE_TREE_VERIFICATION.json": "e3b03a03d3d52c29cbb6961dd36a198373b7c44ca6b9e8228285439f23346d44"
+  },
+  "isolation_checks": [
+    "replay/ISOLATION_1b04bf015ee1.json",
+    "replay/trusted/ISOLATION_c683e18d6ecf.json",
+    "admission/pydata__xarray-6599/ISOLATION_21d1e7261e35.json",
+    "admission/sphinx-doc__sphinx-11445/ISOLATION_d77d052e4706.json",
+    "admission/sympy__sympy-24661/ISOLATION_c7193f8bebe3.json",
+    "admission/pylint-dev__pylint-8898/ISOLATION_4c52fc5959f1.json"
+  ],
+  "Compiler": {
+    "R2": {
+      "instruction_sha256": "3a543f027d43108f1d655b2379b1446ee915f9c39beb3ec7b8c61c76c5938c75",
+      "tools": [
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "get_status",
+        "submit_patch",
+        "get_code_neighbors",
+        "search_similar_code",
+        "get_code_subgraph"
+      ],
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)"
+    },
+    "A": {
+      "instruction_sha256": "4fa5461c7d11d1e7d2e8b91c88dbd136a5daefc5dc155287234c4c735de04dff",
+      "tools": [
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "get_status",
+        "submit_patch",
+        "get_code_neighbors",
+        "search_similar_code",
+        "get_code_subgraph"
+      ],
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "budget": "EvaluationBudget(time_minutes=8, tool_calls=28, turns=80, cost_usd=None, total_tokens=None)"
+    }
+  },
+  "tasks": [
+    {
+      "task": "pydata__xarray-6599",
+      "admission": "PASS",
+      "raw_positive_controls_passed": false,
+      "raw_all_positive_nodes_confirmed": false,
+      "infrastructure_controls": {
+        "passed": true,
+        "raw_positive_controls_passed": false,
+        "original_co_targets": {
+          "xarray/tests/test_computation.py::test_polyval[timedelta-True]": [
+            "failure"
+          ]
+        },
+        "unknown_nodes": [],
+        "success_criterion_relaxed": false,
+        "all_original_controls_still_required_for_repair": true
+      }
+    },
+    {
+      "task": "pylint-dev__pylint-8898",
+      "admission": "PASS",
+      "raw_positive_controls_passed": true,
+      "raw_all_positive_nodes_confirmed": false,
+      "infrastructure_controls": {
+        "passed": true,
+        "raw_positive_controls_passed": true,
+        "original_co_targets": {},
+        "unknown_nodes": [
+          "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,"
+        ],
+        "success_criterion_relaxed": false,
+        "all_original_controls_still_required_for_repair": true
+      }
+    },
+    {
+      "task": "sphinx-doc__sphinx-11445",
+      "admission": "PASS",
+      "raw_positive_controls_passed": true,
+      "raw_all_positive_nodes_confirmed": true,
+      "infrastructure_controls": {
+        "passed": true,
+        "raw_positive_controls_passed": true,
+        "original_co_targets": {},
+        "unknown_nodes": [],
+        "success_criterion_relaxed": false,
+        "all_original_controls_still_required_for_repair": true
+      }
+    },
+    {
+      "task": "sympy__sympy-24661",
+      "admission": "PASS",
+      "raw_positive_controls_passed": true,
+      "raw_all_positive_nodes_confirmed": true,
+      "infrastructure_controls": {
+        "passed": true,
+        "raw_positive_controls_passed": true,
+        "original_co_targets": {},
+        "unknown_nodes": [],
+        "success_criterion_relaxed": false,
+        "all_original_controls_still_required_for_repair": true
+      }
+    }
+  ],
+  "replay": {
+    "status": "PASS_PLUMBING_ONLY",
+    "real_Gemma_requests": 0,
+    "GPU_devices": 0,
+    "repair_capability_evidence": false,
+    "marker_patch_is_not_a_fix": true,
+    "native_repair": false,
+    "localhost_mock_requests": 4,
+    "missing_usage": "UNKNOWN",
+    "source_change_observer": true,
+    "submit_capture": true,
+    "native_evaluator": true,
+    "cleanup": true
+  },
+  "repair_capability_evidence": false,
+  "real_Gemma_requests": 0,
+  "GPU_devices": 0
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "name": "django_original_model_enums",
+    "variant": "base",
+    "command": [
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Scripts\\python.exe",
+      "-c",
+      "import sys;sys.path[:0]=[sys.argv[1],sys.argv[1]+'/tests'];from django.conf import settings;settings.configure(INSTALLED_APPS=[],DATABASES={'default':{'ENGINE':'django.db.backends.sqlite3','NAME':':memory:'}},USE_I18N=False,SECRET_KEY='owned');import django;django.setup();from django.test.runner import DiscoverRunner;raise SystemExit(DiscoverRunner(verbosity=1).run_tests(['model_enums']))",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-base"
+    ],
+    "returncode": 2,
+    "stdout": "System check identified no issues (0 silenced).\n",
+    "stderr": "....E......E....\n======================================================================\nERROR: test_integerchoices_functional_api (model_enums.tests.ChoicesTests.test_integerchoices_functional_api)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-base/tests\\model_enums\\tests.py\", line 73, in test_integerchoices_functional_api\n    Place = models.IntegerChoices('Place', 'FIRST SECOND THIRD')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 758, in __call__\n    return cls._create_(\n           ^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 916, in _create_\n    return metacls.__new__(metacls, class_name, bases, classdict, boundary=boundary)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChoicesMeta.__new__() got an unexpected keyword argument 'boundary'\n\n======================================================================\nERROR: test_textchoices_functional_api (model_enums.tests.ChoicesTests.test_textchoices_functional_api)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-base/tests\\model_enums\\tests.py\", line 114, in test_textchoices_functional_api\n    Medal = models.TextChoices('Medal', 'GOLD SILVER BRONZE')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 758, in __call__\n    return cls._create_(\n           ^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 916, in _create_\n    return metacls.__new__(metacls, class_name, bases, classdict, boundary=boundary)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChoicesMeta.__new__() got an unexpected keyword argument 'boundary'\n\n----------------------------------------------------------------------\nRan 16 tests in 0.020s\n\nFAILED (errors=2)\n",
+    "status": "FAILED_OR_BLOCKED"
+  },
+  {
+    "name": "pytest_native_collection",
+    "variant": "base",
+    "command": [
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "--assert=plain",
+      "-p",
+      "no:cacheprovider",
+      "-c",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\native_pytest.ini",
+      "-q",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\native_collection_cases.py"
+    ],
+    "returncode": 2,
+    "stdout": "\n=================================== ERRORS ====================================\n_________________ ERROR collecting native_collection_cases.py _________________\nwork\\r2-audit\\pytest-deps\\pluggy\\hooks.py:286: in __call__\n    return self._hookexec(self, self.get_hookimpls(), kwargs)\nwork\\r2-audit\\pytest-deps\\pluggy\\manager.py:93: in _hookexec\n    return self._inner_hookexec(hook, methods, kwargs)\nwork\\r2-audit\\pytest-deps\\pluggy\\manager.py:84: in <lambda>\n    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\python.py:225: in pytest_pycollect_makeitem\n    res = list(collector._genfunctions(name, obj))\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\python.py:385: in _genfunctions\n    definition = FunctionDefinition(name=name, parent=self, callobj=funcobj)\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\python.py:1415: in __init__\n    fixtureinfo = self.session._fixturemanager.getfixtureinfo(\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\fixtures.py:1146: in getfixtureinfo\n    argnames = getfuncargnames(func, cls=cls)\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py:125: in getfuncargnames\n    arg_names = arg_names[num_mock_patch_args(function) :]\nwork\\r2-audit\\quality\\pytest-dev__pytest-5631\\selected-base\\src\\_pytest\\compat.py:71: in num_mock_patch_args\n    [p for p in patchings if not p.attribute_name and p.new in sentinels]\nE   ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()\n!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!\n1 error in 3.74 seconds\n",
+    "stderr": "",
+    "status": "FAILED_OR_BLOCKED"
+  },
+  {
+    "name": "django_original_model_enums",
+    "variant": "r2",
+    "command": [
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Scripts\\python.exe",
+      "-c",
+      "import sys;sys.path[:0]=[sys.argv[1],sys.argv[1]+'/tests'];from django.conf import settings;settings.configure(INSTALLED_APPS=[],DATABASES={'default':{'ENGINE':'django.db.backends.sqlite3','NAME':':memory:'}},USE_I18N=False,SECRET_KEY='owned');import django;django.setup();from django.test.runner import DiscoverRunner;raise SystemExit(DiscoverRunner(verbosity=1).run_tests(['model_enums']))",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-r2"
+    ],
+    "returncode": 2,
+    "stdout": "System check identified no issues (0 silenced).\n",
+    "stderr": "....E......E....\n======================================================================\nERROR: test_integerchoices_functional_api (model_enums.tests.ChoicesTests.test_integerchoices_functional_api)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-r2/tests\\model_enums\\tests.py\", line 73, in test_integerchoices_functional_api\n    Place = models.IntegerChoices('Place', 'FIRST SECOND THIRD')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 758, in __call__\n    return cls._create_(\n           ^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 916, in _create_\n    return metacls.__new__(metacls, class_name, bases, classdict, boundary=boundary)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChoicesMeta.__new__() got an unexpected keyword argument 'boundary'\n\n======================================================================\nERROR: test_textchoices_functional_api (model_enums.tests.ChoicesTests.test_textchoices_functional_api)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\quality\\django__django-11964\\selected-r2/tests\\model_enums\\tests.py\", line 114, in test_textchoices_functional_api\n    Medal = models.TextChoices('Medal', 'GOLD SILVER BRONZE')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 758, in __call__\n    return cls._create_(\n           ^^^^^^^^^^^^^\n  File \"C:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\enum.py\", line 916, in _create_\n    return metacls.__new__(metacls, class_name, bases, classdict, boundary=boundary)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: ChoicesMeta.__new__() got an unexpected keyword argument 'boundary'\n\n----------------------------------------------------------------------\nRan 16 tests in 0.014s\n\nFAILED (errors=2)\n",
+    "status": "FAILED_OR_BLOCKED"
+  },
+  {
+    "name": "pytest_native_collection",
+    "variant": "r2",
+    "command": [
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\work\\r2-audit\\env\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "--assert=plain",
+      "-p",
+      "no:cacheprovider",
+      "-c",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\native_pytest.ini",
+      "-q",
+      "C:\\Users\\HP\\Documents\\Codex\\2026-10-30\\new-chat\\experiments\\r2-final-audit\\native_collection_cases.py"
+    ],
+    "returncode": 1,
+    "stdout": "F....                                                                    [100%]\n================================== FAILURES ===================================\n___________________________ test_array_replacement ____________________________\n\n    @patch('os.getcwd',new=np.array([-5.5,3.0]))\n    def test_array_replacement():\n>       np.testing.assert_array_equal(os.getcwd,np.array([-5.5,3.0]))\n\nexperiments\\r2-final-audit\\native_collection_cases.py:8: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\nwork\\r2-audit\\env\\Lib\\site-packages\\numpy\\__init__.py:341: in __getattr__\n    import numpy.testing as testing\nwork\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\__init__.py:11: in <module>\n    from ._private.utils import *\nwork\\r2-audit\\env\\Lib\\site-packages\\numpy\\testing\\_private\\utils.py:19: in <module>\n    import sysconfig\nC:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\sysconfig.py:195: in <module>\n    _PROJECT_BASE = os.path.dirname(_safe_realpath(sys.executable))\nC:\\Users\\HP\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\Lib\\sysconfig.py:190: in _safe_realpath\n    return realpath(path)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\npath = 'C:\\\\Users\\\\HP\\\\Documents\\\\Codex\\\\2026-10-30\\\\new-chat\\\\work\\\\r2-audit\\\\env\\\\Scripts\\\\python.exe'\n\n>   ???\nE   TypeError: 'numpy.ndarray' object is not callable\n\n<frozen ntpath>:722: TypeError\n1 failed, 4 passed in 3.66 seconds\n",
+    "stderr": "",
+    "status": "FAILED_OR_BLOCKED"
+  }
+]

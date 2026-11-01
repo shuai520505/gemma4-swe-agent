@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "scope": "Deterministic CPU plumbing, not repair ability",
+  "real_Gemma_requests": 0,
+  "GPU_Notebooks": 0,
+  "original_Issue_acceptance_reruns": 0,
+  "archive_sha256": "c4e601007e5157d4e7d05afd456b7b798bf4f7c2cea6db32748aa97219f79fe1",
+  "archive_bytes": 298163099,
+  "CRC_pass": true,
+  "extension_hashes_verified": true,
+  "build": {
+    "mode": "cpu",
+    "revision": "9",
+    "window_seconds": 3600,
+    "purpose": "R12_FULL_CPU_PLUMBING_SIMULATION",
+    "notebook_sha256": "5cd44d49ec3444e107504605705ed599654b2ffc341a1d491a4d08782580fe8d",
+    "metadata_sha256": "d6e99ed0d034806fdd056cc33004c1b88e768ffb3d3343da456745413fc9314f",
+    "extension_sha256": {
+      "r12_final_cpu.py": "236818d65ea593d73977a66a2ff172731767d7b5f1f83a3573a4905510bcbf78",
+      "r12_coordinator.py": "2aee6f70677b5449cc6bed922b2ac6cdb66d8e6471847f770348d81a167bded9",
+      "r12_adapter.py": "0898c7be771c0d291b61d4dcca109d1c0d8e3e560dacc334a4f96f1deeda0739",
+      "r12_evidence.py": "15b403ca52d6cbbe903226fe92ff7bca018964541a7604336ba40491ff65f978",
+      "r12_preflight.py": "123e31d5956fd64782c7928814a9155278a3116a7f512450be48133c2ffb1de1",
+      "r12_issue_checks.py": "b46f783792cb6c2019f2af50279dcff123828f806b0542babf2836bcc92bb667",
+      "env_runtime_repair.py": "9357b52c0a0f5260014925f5796ea3d5388c5f2c7bcaa8ec41df652d1ff987c8",
+      "COHORT_LOCK.json": "3e8dddc0b06c1d3cbffb2786b90b01c12593fe8041bf79d09a7599881d633269",
+      "candidates/BASELINE.zip": "944e1d23ce5e93a77af3e993834487e829487aff0a92ec7fe3e115590bfaf9f1",
+      "candidates/R1.zip": "c0cd26d1084a8a480689db57012e0b0900a33c5fb9951b38aa0101a456c8f2a1",
+      "candidates/R2.zip": "af918c1a65aeb211298f13a69b5b789ae6b086974922c80469df87d902eb98d5",
+      "source-overlay/gemma_pair/evaluate.py": "3fdfbfa8017502295af06dd2477428d0078914f81c7c12bf3574a00910df5a1d",
+      "source-overlay/gemma_pair/worker.py": "f18b769ae7a9c90fb67f1d94786d5f3a742e9b5eda03cffcd313d8828e2569f1",
+      "source-overlay/gemma_pair/coordinator.py": "779d714012ecd80db808c98ac44a4741d93da7ffe81c9013fa180e1aed4267be"
+    }
+  },
+  "nine_order_identical": true,
+  "candidate_hashes_unchanged": true,
+  "records": [
+    {
+      "index": 1,
+      "instance_id": "django__django-11964",
+      "candidate": "BASELINE",
+      "simulation_case": "normal",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 288,
+      "patch_sha256": "67ebd291af7ea657832bdf4d70b17963c335f1fd32c92438f62c707d31aa6e2e",
+      "attempted_calls": 4,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 2.233215376999965,
+        "upper_seconds": 2.5316078509999898
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 2,
+      "instance_id": "django__django-11964",
+      "candidate": "R1",
+      "simulation_case": "missing_argument",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 288,
+      "patch_sha256": "67ebd291af7ea657832bdf4d70b17963c335f1fd32c92438f62c707d31aa6e2e",
+      "attempted_calls": 5,
+      "charged_calls": 2,
+      "invalid_calls": [
+        {
+          "name": "edit_file",
+          "missing": [
+            "old_string"
+          ]
+        }
+      ],
+      "first_production_edit_interval": {
+        "lower_seconds": 1.3252519400000438,
+        "upper_seconds": 1.6358676849999938
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 3,
+      "instance_id": "django__django-11964",
+      "candidate": "R2",
+      "simulation_case": "timeout_fallback",
+      "explicit_submit": false,
+      "patch_kind": "fallback",
+      "patch_bytes": 288,
+      "patch_sha256": "67ebd291af7ea657832bdf4d70b17963c335f1fd32c92438f62c707d31aa6e2e",
+      "attempted_calls": 3,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 1.223464554999964,
+        "upper_seconds": 1.5215670829999226
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 4,
+      "instance_id": "pydata__xarray-6721",
+      "candidate": "R1",
+      "simulation_case": "no_patch",
+      "explicit_submit": false,
+      "patch_kind": "fallback",
+      "patch_bytes": 0,
+      "patch_sha256": null,
+      "attempted_calls": 2,
+      "charged_calls": 1,
+      "invalid_calls": [],
+      "first_production_edit_interval": null,
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 5,
+      "instance_id": "pydata__xarray-6721",
+      "candidate": "R2",
+      "simulation_case": "behavior_failure",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 269,
+      "patch_sha256": "61c526ab003fa76f6de1baf47ade92763e31e5c3f5e94e763a1a46521ef3f29b",
+      "attempted_calls": 4,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 0.853653783000027,
+        "upper_seconds": 0.9391611260000445
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 6,
+      "instance_id": "pydata__xarray-6721",
+      "candidate": "BASELINE",
+      "simulation_case": "normal",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 282,
+      "patch_sha256": "ffc4f94a166443745dc265431b8a55efcdc296990b9fc93fff170e13cb9ce865",
+      "attempted_calls": 4,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 0.8816176599999608,
+        "upper_seconds": 0.9719641289999572
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 7,
+      "instance_id": "pytest-dev__pytest-5631",
+      "candidate": "R2",
+      "simulation_case": "normal",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 324,
+      "patch_sha256": "0ca04a9e5594c60200d6ced3b193cf288780ff4ab28c956cf80a379271c57d31",
+      "attempted_calls": 4,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 0.8732805719998851,
+        "upper_seconds": 0.9741829219999545
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 8,
+      "instance_id": "pytest-dev__pytest-5631",
+      "candidate": "BASELINE",
+      "simulation_case": "normal",
+      "explicit_submit": true,
+      "patch_kind": "submitted",
+      "patch_bytes": 324,
+      "patch_sha256": "0ca04a9e5594c60200d6ced3b193cf288780ff4ab28c956cf80a379271c57d31",
+      "attempted_calls": 4,
+      "charged_calls": 2,
+      "invalid_calls": [],
+      "first_production_edit_interval": {
+        "lower_seconds": 0.8870848199999273,
+        "upper_seconds": 0.9936392909999086
+      },
+      "usage": null,
+      "cleanup": true,
+      "decision": "CONTINUE"
+    },
+    {
+      "index": 9,
+      "instance_id": "pytest-dev__pytest-5631",
+      "candidate": "R1",
+      "simulation_case": "context_error",
+      "explicit_submit": false,
+      "patch_kind": "fallback",
+      "patch_bytes": 0,
+      "patch_sha256": null,
+      "attempted_calls": 0,
+      "charged_calls": 0,
+      "invalid_calls": [],
+      "first_production_edit_interval": null,
+      "usage": null,
+      "cleanup": true,
+      "decision": "STOP_BACKEND_COMPATIBILITY"
+    }
+  ],
+  "extra_evidence_sha256": {
+    "ASSEMBLY.json": "d8454c198eae0f06d95d945bbf56e47a967b3fd7d92c52c191527767fd66e29a",
+    "STOP_RULE_TESTS.json": "1b469589270a4b96a9283d6be1e0069a1fea7f800f75b4da3a7815fcc2affd09",
+    "WORKER_FAULT_TESTS.json": "e8a6f5d28ef245b47a59a4a54e3ffa2ce3c025dd4dea79045550e49a033d1773",
+    "DISPATCH_REBINDING.json": "5144971f9db91b73e08802d0a022969fa505b4821d19ffa9d97fc4da214aaa1e",
+    "READONLY_MODEL_MOUNT.json": "1bed986e25a5587db612c4c4f0699bcb8a2ed61d17f9abc5d62c40161af6e3d2"
+  },
+  "stop_fault_scope": "Persisted receipt injection: isolation, cleanup, missing result, backend; remaining suffix NOT_RUN"
+}
