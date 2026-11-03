@@ -1,0 +1,93 @@
+FFFFFFFF
+======================================================================
+FAIL: test_agent_timeout_is_not_worker_timeout (test_contract.ContractTests.test_agent_timeout_is_not_worker_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 20, in test_agent_timeout_is_not_worker_timeout
+    d=Path(t);self.fixture(d,'AGENT_TIMEOUT');r=self.assess(d);self.assertTrue(r['allow_next_run']);self.assertEqual(r['classification'],'AGENT_TIMEOUT')
+                                                ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_cleanup_failure (test_contract.ContractTests.test_cleanup_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 29, in test_cleanup_failure
+    d=Path(t);self.fixture(d,cleanup=False);r=self.assess(d);self.assertEqual(r['classification'],'CLEANUP_FAILED');self.assertFalse(r['allow_next_run'])
+                                              ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_missing_result (test_contract.ContractTests.test_missing_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 31, in test_missing_result
+    with tempfile.TemporaryDirectory() as t:self.assertEqual(self.assess(Path(t))['classification'],'RESULT_MISSING')
+                                                             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_native_result_missing (test_contract.ContractTests.test_native_result_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 34, in test_native_result_missing
+    d=Path(t);self.fixture(d,native=False);self.assertEqual(self.assess(d)['classification'],'NATIVE_EVALUATION_FAILED')
+                                                            ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_nonzero_worker_exit (test_contract.ContractTests.test_nonzero_worker_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 23, in test_nonzero_worker_exit
+    d=Path(t);self.fixture(d);self.assertEqual(self.assess(d,2)['classification'],'WORKER_ABNORMAL_EXIT')
+                                               ^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_normal_worker_native_false_is_ordinary_repair_failure (test_contract.ContractTests.test_normal_worker_native_false_is_ordinary_repair_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 17, in test_normal_worker_native_false_is_ordinary_repair_failure
+    d=Path(t);self.fixture(d);r=self.assess(d);self.assertEqual(r['classification'],'AGENT_COMPLETED');self.assertTrue(r['allow_next_run']);self.assertFalse(r['native_resolved'])
+                                ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_receipt_hash_drift (test_contract.ContractTests.test_receipt_hash_drift)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 37, in test_receipt_hash_drift
+    d=Path(t);self.fixture(d);write(d/'CLEANUP.json',dict(complete=True));self.assertEqual(self.assess(d)['classification'],'RESULT_CONTRACT_INVALID')
+                                                                                           ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+======================================================================
+FAIL: test_worker_outer_timeout (test_contract.ContractTests.test_worker_outer_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 26, in test_worker_outer_timeout
+    d=Path(t);self.fixture(d);self.assertEqual(self.assess(d,-1,'outer_timeout')['classification'],'WORKER_TIMEOUT')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 12, in assess
+    self.assertTrue((D/'result_contract.py').exists(),'Worker result contract adapter missing')
+AssertionError: False is not true : Worker result contract adapter missing
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.132s
+
+FAILED (failures=8)

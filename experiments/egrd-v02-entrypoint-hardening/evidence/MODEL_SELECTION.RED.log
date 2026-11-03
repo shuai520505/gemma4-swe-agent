@@ -1,0 +1,71 @@
+FFFFFF
+======================================================================
+FAIL: test_both_models_missing_calls_stops_architecture (test_model_selection.ModelSelectionTests.test_both_models_missing_calls_stops_architecture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 15, in test_both_models_missing_calls_stops_architecture
+    def test_both_models_missing_calls_stops_architecture(self):self.assertEqual(self.select(self.rows(False),'31b'),'STOP_ENTRYPOINT_OR_ARCHITECTURE')
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+======================================================================
+FAIL: test_infrastructure_failure_never_blames_model (test_model_selection.ModelSelectionTests.test_infrastructure_failure_never_blames_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 13, in test_infrastructure_failure_never_blames_model
+    rows=self.rows(False);rows[0]['infrastructure_ok']=False;self.assertEqual(self.select(rows),'STOP_INFRASTRUCTURE')
+                                                                              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+======================================================================
+FAIL: test_one_failed_repair_not_model_disqualification (test_model_selection.ModelSelectionTests.test_one_failed_repair_not_model_disqualification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 10, in test_one_failed_repair_not_model_disqualification
+    def test_one_failed_repair_not_model_disqualification(self):self.assertEqual(self.select(self.rows(True)[:1]),'KEEP_12B_REPAIR_FAILURE_NOT_DISQUALIFICATION')
+                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+======================================================================
+FAIL: test_qualified_12b_stays_primary (test_model_selection.ModelSelectionTests.test_qualified_12b_stays_primary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 9, in test_qualified_12b_stays_primary
+    def test_qualified_12b_stays_primary(self):self.assertEqual(self.select(self.rows(True)),'KEEP_12B')
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+======================================================================
+FAIL: test_repeated_model_failure_allows_fallback_confirmation (test_model_selection.ModelSelectionTests.test_repeated_model_failure_allows_fallback_confirmation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 11, in test_repeated_model_failure_allows_fallback_confirmation
+    def test_repeated_model_failure_allows_fallback_confirmation(self):self.assertEqual(self.select(self.rows(False)),'REQUEST_31B_FALLBACK_CONFIRMATION')
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+======================================================================
+FAIL: test_single_activation_failure_does_not_switch (test_model_selection.ModelSelectionTests.test_single_activation_failure_does_not_switch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 14, in test_single_activation_failure_does_not_switch
+    def test_single_activation_failure_does_not_switch(self):self.assertEqual(self.select(self.rows(False)[:1]),'INCONCLUSIVE_STOP_AT_BOUNDED_SMOKE')
+                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_model_selection.py", line 6, in select
+    self.assertTrue((D/'model_selection.py').exists(),'Bounded model fallback decision missing')
+AssertionError: False is not true : Bounded model fallback decision missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=6)

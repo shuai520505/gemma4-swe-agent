@@ -1,0 +1,54 @@
+{
+  "12b": {
+    "alias": "gemma-4-12b-it-qat-w4a16-ct",
+    "mount": "google/gemma-4/Other/gemma-4-12b-it-qat-w4a16-ct/2",
+    "extra_args": [
+      "--hf-overrides",
+      "{\"architectures\": [\"Gemma4ForCausalLM\"], \"model_type\": \"gemma4\"}"
+    ],
+    "context_limit": 32768,
+    "max_output_tokens": 8192,
+    "thinking_budget": 4096,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "session_seconds": 300,
+    "command_seconds": 120,
+    "tool_calls": 60,
+    "turns": 80,
+    "expected_files": {
+      "config.json": "ba14713d084391532b285f7c252b954b7c6c0db97f427a9d8fb788edc2949168",
+      "README.md": "3a2673a907c4ec11220cc4c883dd70e36fbf4e9046638fc873187328b20123e4",
+      "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "recipe.yaml": "6630bfb0a1138a6e4fcf77da1ab6566241589fed68c155f913a264e11ce75fa7",
+      "tokenizer_config.json": "ee66825f1a587ca13bcb90d7e60f59bc99e84f3b8bc0cefdc3ea595cd5abf773",
+      "chat_template.jinja": "36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0",
+      "model.safetensors": "60b6e3989502969d8ae04185d72ecbbc7db63978d5af747a493d53895aa6bfa3",
+      "processor_config.json": "6b938e76555b3e9946890770e1abcd442a4718f34041a58e8139dc8ad34545c9",
+      "generation_config.json": "c70f87dc2995fc43406c0bcfb41b69c6d31c2d0c033fa09e536ffabc091ae24c"
+    }
+  },
+  "31b": {
+    "alias": "gemma-4-31b-it-qat-w4a16-ct",
+    "mount": "google/gemma-4/Other/gemma-4-31b-it-qat-w4a16-ct/2",
+    "extra_args": [],
+    "context_limit": 32768,
+    "max_output_tokens": 8192,
+    "thinking_budget": 4096,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "session_seconds": 300,
+    "command_seconds": 120,
+    "tool_calls": 60,
+    "turns": 80,
+    "expected_files": {
+      "README.md": "b68c4f66b6bbe75f72f54a5aed65ed08a7faf6ca056bdf11beefedf8591adad3",
+      "chat_template.jinja": "94899c0f917d93f6fe81c95744d1e8ddab2d21d39228d2e4aec1fb2a25bff413",
+      "config.json": "b100d85e571c25b688e82919d819253063a1defb0e6cee3b9b1c1fbad99bd0c2",
+      "generation_config.json": "70110aa886fa7ee25ce47346d102dd29ca5f967500490b4362fc72068e1db70a",
+      "model.safetensors": "1b9b1d622a93f02c0d33f98e502f233b5d707443af6ddc464ed0bf5498506c20",
+      "processor_config.json": "32bdf45d2ad4cc29a0822ddd157a182de76644f0419a6228d151495256e9813c",
+      "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "tokenizer_config.json": "a284d1243b62be31faa9c13e1c28cece940c4abaa7bd9ad87b94f61b40687200"
+    }
+  }
+}

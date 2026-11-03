@@ -1,0 +1,82 @@
+FFFFFFF
+======================================================================
+FAIL: test_abnormal_worker_exit (test_supervision_process.ProcessTests.test_abnormal_worker_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 13, in test_abnormal_worker_exit
+    def test_abnormal_worker_exit(self):self.assertEqual(self.run_case('crash')['classification'],'WORKER_ABNORMAL_EXIT')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_agent_timeout_has_clean_worker (test_supervision_process.ProcessTests.test_agent_timeout_has_clean_worker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 11, in test_agent_timeout_has_clean_worker
+    def test_agent_timeout_has_clean_worker(self):self.assertEqual(self.run_case('agent_timeout')['classification'],'AGENT_TIMEOUT')
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_aggregate_result_no_fake_official_result (test_supervision_process.ProcessTests.test_aggregate_result_no_fake_official_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 16, in test_aggregate_result_no_fake_official_result
+    def test_aggregate_result_no_fake_official_result(self):self.assertEqual(self.run_case('aggregate',role='aggregate')['classification'],'AGGREGATE_COMPLETED')
+                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_cleanup_failure_stops (test_supervision_process.ProcessTests.test_cleanup_failure_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 12, in test_cleanup_failure_stops
+    def test_cleanup_failure_stops(self):self.assertEqual(self.run_case('cleanup_failure')['classification'],'CLEANUP_FAILED')
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_completed (test_supervision_process.ProcessTests.test_completed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 10, in test_completed
+    def test_completed(self):self.assertTrue(self.run_case('normal')['allow_next_run'])
+                                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_missing_result (test_supervision_process.ProcessTests.test_missing_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 14, in test_missing_result
+    def test_missing_result(self):self.assertEqual(self.run_case('missing')['classification'],'RESULT_MISSING')
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+======================================================================
+FAIL: test_native_failure (test_supervision_process.ProcessTests.test_native_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 15, in test_native_failure
+    def test_native_failure(self):self.assertEqual(self.run_case('native_failure')['classification'],'NATIVE_EVALUATION_FAILED')
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_supervision_process.py", line 6, in run_case
+    self.assertTrue((D/'supervision.py').exists(),'Versioned supervisor adapter missing')
+AssertionError: False is not true : Versioned supervisor adapter missing
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.004s
+
+FAILED (failures=7)

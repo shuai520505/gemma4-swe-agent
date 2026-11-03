@@ -1,0 +1,92 @@
+{
+  "schema": "EGRD_SESSION_V2",
+  "session_id": "7b3ddb2c60024e5ba69e66e1b047481e",
+  "task_id": "requests_6589",
+  "candidate": "B",
+  "model_alias": "gemma-4-12b-it-qat-w4a16-ct",
+  "model_transport": "CPU_SCRIPTED_NOT_REPAIR_EVIDENCE",
+  "failure_classification": "INFRASTRUCTURE_FAILURE",
+  "native_resolved": null,
+  "native_result_path": "trusted/NATIVE_RESULT.json",
+  "native_result_sha256": null,
+  "agent_error": "Sandbox execution error: REQUESTS_SOURCE_BINDING_FAILED",
+  "SDK_agent_elapsed_seconds": 0.0,
+  "raw_late_counter_elapsed_seconds": null,
+  "agent_timing": {
+    "captured": true,
+    "observation_count": 1,
+    "clock": "time.monotonic calibrated to asyncio loop.time",
+    "configured_seconds": 300,
+    "scope": "HOST_OBSERVATION_NOT_AGENT_CONTROL",
+    "deadline_loop_time": 1038.5707071719999,
+    "deadline_monotonic": 1038.5707071749998,
+    "deadline_origin_monotonic": 738.5707071749998,
+    "captured_monotonic": 738.570756982,
+    "clock_calibration_uncertainty_seconds": 8.440000556220184e-07,
+    "SDK_source_file": "/usr/local/lib/python3.12/dist-packages/swegemma/harness/agent_runner.py",
+    "SDK_line": 732,
+    "observed_end_monotonic": 740.182741668,
+    "expired": false,
+    "deadline_rescheduled": false
+  },
+  "charged_tools": 0,
+  "SDK_llm_counter": 0,
+  "patch_bytes": 0,
+  "patch_submitted": false,
+  "patch_kind": "fallback",
+  "http_audit": {
+    "passed": false,
+    "reasons": [
+      "no_model_requests"
+    ],
+    "requests": 0,
+    "responses": 0,
+    "rows": [],
+    "observed_response_usage": null,
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "activation": {
+    "schema": "EGRD_ACTIVATION_AUDIT_V2",
+    "execution_mode": "PROMPT_ENFORCED_OPTIONAL_EXECUTION",
+    "load_skill": {
+      "status": "TOOL_NOT_AVAILABLE",
+      "calls": []
+    },
+    "run_skill_script": {
+      "status": "TOOL_NOT_AVAILABLE",
+      "calls": []
+    },
+    "submit_patch": {
+      "status": "TOOL_NOT_AVAILABLE",
+      "calls": []
+    },
+    "first_action_order_passed": false,
+    "bounded_attempts_passed": true,
+    "contract_initialized": false,
+    "activated": false,
+    "state_exported": false,
+    "state_issue_hash_matches": false,
+    "evidence_records": null,
+    "hypothesis_structure": false,
+    "patch_intent": false,
+    "targeted_tests": [],
+    "regression_tests": [],
+    "diff_review": false,
+    "edit_and_command_calls": [],
+    "operations": [],
+    "semantic_issue_alignment": "UNVERIFIED",
+    "native_resolved": null
+  },
+  "activation_audit_sha256": "1d444ecc57d159331c0d8c359865d70d92a6f613ec1cf7778d4df8281e936d3c",
+  "infrastructure_stop": {
+    "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+    "stopped": true,
+    "evidence": {
+      "reason": "SOURCE_CLI_ADMISSION_FAILED"
+    }
+  },
+  "worker_seconds": 25.215474906000054,
+  "cleanup_status": true
+}

@@ -1,0 +1,144 @@
+{
+  "status": "BLOCKED_INFRASTRUCTURE",
+  "historical_EGRD_27": "PASS on both actual CPU Linux runs",
+  "historical_infra_6": "PASS on both actual CPU Linux runs",
+  "new_tests": {
+    "CPU01": 39,
+    "CPU02": 43,
+    "current_local": 47,
+    "status": "PASS"
+  },
+  "official_compiler": {
+    "packages": 4,
+    "status": "PASS on both CPU runs"
+  },
+  "nonroot_Skill": {
+    "status": "PASS",
+    "real_model_requests": 0,
+    "GPU_devices": 0,
+    "official_SkillToolset": true,
+    "source_bound_ledger": true,
+    "stale_accept_refused": true,
+    "explicit_submission": true,
+    "owned_fixture_only": true,
+    "native_competition_resolved": null,
+    "scripted_requests": 19,
+    "agent_error": null
+  },
+  "SDK_context_clock": "PASS",
+  "CPU01": {
+    "raw_summary": {
+      "status": "BLOCKED_INFRASTRUCTURE",
+      "CPU_only": true,
+      "real_Gemma_requests": 0,
+      "GPU_sessions": 0,
+      "stages": [
+        {
+          "stage": "legacy27",
+          "returncode": 0
+        },
+        {
+          "stage": "infra6",
+          "returncode": 0
+        },
+        {
+          "stage": "new_tests",
+          "returncode": 0
+        },
+        {
+          "stage": "compiler",
+          "returncode": 0
+        },
+        {
+          "stage": "SDK_context_clock",
+          "returncode": 0
+        },
+        {
+          "stage": "skill",
+          "returncode": 0
+        },
+        {
+          "stage": "worker",
+          "returncode": 1
+        }
+      ],
+      "GPU": 0
+    },
+    "archive": {
+      "archive": "egrd-v02-cpu-hardening01.zip",
+      "sha256": "06d1a057fb5f5d4f7a9effd18b9d569cdef2bf1b8326b03e2f03368642121723",
+      "bytes": 85070
+    },
+    "reason": "Requests dependency copy shadowed src-layout source",
+    "cleanup_complete": true
+  },
+  "CPU02": {
+    "raw_summary": {
+      "status": "PASS",
+      "CPU_only": true,
+      "real_Gemma_requests": 0,
+      "GPU_sessions": 0,
+      "stages": [
+        {
+          "stage": "legacy27",
+          "returncode": 0
+        },
+        {
+          "stage": "infra6",
+          "returncode": 0
+        },
+        {
+          "stage": "new_tests",
+          "returncode": 0
+        },
+        {
+          "stage": "compiler",
+          "returncode": 0
+        },
+        {
+          "stage": "SDK_context_clock",
+          "returncode": 0
+        },
+        {
+          "stage": "skill",
+          "returncode": 0
+        },
+        {
+          "stage": "worker",
+          "returncode": 0
+        }
+      ],
+      "GPU": 0
+    },
+    "archive": {
+      "archive": "egrd-v02-cpu-hardening02.zip",
+      "sha256": "25b2a360c62023c48617fe8c3bb8734d4230a2d3668eccc33cb4e22f20fcf25a",
+      "bytes": 201858
+    },
+    "plumbing_receipt": {
+      "status": "PASS_PLUMBING_ONLY",
+      "negative_control_comment_patch_resolved": false,
+      "scripted_requests": 5,
+      "real_Gemma_requests": 0,
+      "GPU": 0
+    },
+    "trusted_acceptance": "FAIL",
+    "Native_integrity": {
+      "passed": false,
+      "reason": "JUnit setup/runtime errors or zero executed cases",
+      "tests": 324,
+      "errors": 187,
+      "native_sha256": "678acddc3828e6e735876252198b5b31b0f4a5d7206845cbec4e2d17311da1d6",
+      "junit": [
+        {
+          "path": "native-junit-0.xml",
+          "sha256": "403a41e123b05439fb69dfa977ad96bb7b25315ea902cd093e36a9567878c199"
+        }
+      ],
+      "executed": 322
+    },
+    "cleanup_complete": true
+  },
+  "real_Gemma_requests": 0,
+  "GPU": 0
+}

@@ -1,0 +1,104 @@
+FFFFFFFFF
+======================================================================
+FAIL: test_advisory_control_is_not_initialization (test_activation.ActivationTests.test_advisory_control_is_not_initialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 29, in test_advisory_control_is_not_initialization
+    es=good();es[-1]['event']['content']['parts'][0]['function_response']['response']['stdout']=json.dumps(dict(schema='EGRD_V01',status='ADVISORY_CONTROL'));self.assertFalse(self.audit(es)['activated'])
+                                                                                                                                                                               ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_exploration_before_initialization (test_activation.ActivationTests.test_exploration_before_initialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 25, in test_exploration_before_initialization
+    es=[call('read_file','before',dict(filepath='x'),-.5)]+good();self.assertFalse(self.audit(es)['first_action_order_passed'])
+                                                                                   ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_failed_init_not_activation (test_activation.ActivationTests.test_failed_init_not_activation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 21, in test_failed_init_not_activation
+    es=good();es[-1]['event']['content']['parts'][0]['function_response']['response']=dict(error='NO_CODE_EXECUTOR');r=self.audit(es);self.assertFalse(r['activated']);self.assertEqual(r['run_skill_script']['status'],'TOOL_CALL_FAILED')
+                                                                                                                       ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_initialization_before_load_response_is_not_ordered (test_activation.ActivationTests.test_initialization_before_load_response_is_not_ordered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 27, in test_initialization_before_load_response_is_not_ordered
+    es=good();es[2]['recorded_monotonic']=.5;self.assertFalse(self.audit(es)['first_action_order_passed'])
+                                                              ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_model_did_not_call (test_activation.ActivationTests.test_model_did_not_call)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 16, in test_model_did_not_call
+    def test_model_did_not_call(self):self.assertEqual(self.audit([])['load_skill']['status'],'MODEL_DID_NOT_CALL')
+                                                       ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_prose_is_not_tool_execution (test_activation.ActivationTests.test_prose_is_not_tool_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 18, in test_prose_is_not_tool_execution
+    es=[dict(recorded_monotonic=0,event=dict(content=dict(parts=[dict(text='I loaded the skill and initialized')])))];self.assertFalse(self.audit(es)['activated'])
+                                                                                                                                       ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_tool_not_available (test_activation.ActivationTests.test_tool_not_available)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 15, in test_tool_not_available
+    def test_tool_not_available(self):self.assertEqual(self.audit([],[])['load_skill']['status'],'TOOL_NOT_AVAILABLE')
+                                                       ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_valid_order_and_initialization (test_activation.ActivationTests.test_valid_order_and_initialization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 19, in test_valid_order_and_initialization
+    def test_valid_order_and_initialization(self):self.assertTrue(self.audit(good())['activated'])
+                                                                  ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+======================================================================
+FAIL: test_wrong_original_hash_not_activation (test_activation.ActivationTests.test_wrong_original_hash_not_activation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 23, in test_wrong_original_hash_not_activation
+    es=good();es[-1]['event']['content']['parts'][0]['function_response']['response']['stdout']=json.dumps(dict(schema='EGRD_V01',phase='HYPOTHESIS',result=dict(issue_sha256='bad')));self.assertFalse(self.audit(es)['activated'])
+                                                                                                                                                                                                        ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_activation.py", line 12, in audit
+    self.assertTrue((D/'activation.py').exists(),'Actual tool trace audit is missing')
+AssertionError: False is not true : Actual tool trace audit is missing
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.003s
+
+FAILED (failures=9)

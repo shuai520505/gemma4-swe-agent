@@ -1,0 +1,93 @@
+{
+  "list_skills": {
+    "description": "Lists all available skills with their names and descriptions.",
+    "name": "list_skills",
+    "parameters_json_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "load_skill": {
+    "description": "Loads the SKILL.md instructions for a given skill.",
+    "name": "load_skill",
+    "parameters_json_schema": {
+      "type": "object",
+      "properties": {
+        "skill_name": {
+          "type": "string",
+          "description": "The name of the skill to load."
+        }
+      },
+      "required": [
+        "skill_name"
+      ]
+    }
+  },
+  "load_skill_resource": {
+    "description": "Loads a resource file (from references/, assets/, or scripts/) from within a skill.",
+    "name": "load_skill_resource",
+    "parameters_json_schema": {
+      "type": "object",
+      "properties": {
+        "skill_name": {
+          "type": "string",
+          "description": "The name of the skill."
+        },
+        "file_path": {
+          "type": "string",
+          "description": "The relative path to the resource (e.g., 'references/my_doc.md', 'assets/template.txt', or 'scripts/setup.sh')."
+        }
+      },
+      "required": [
+        "skill_name",
+        "file_path"
+      ]
+    }
+  },
+  "run_skill_script": {
+    "description": "Executes a script from a skill's scripts/ directory.",
+    "name": "run_skill_script",
+    "parameters_json_schema": {
+      "type": "object",
+      "properties": {
+        "skill_name": {
+          "type": "string",
+          "description": "The name of the skill."
+        },
+        "file_path": {
+          "type": "string",
+          "description": "The relative path to the script (e.g., 'scripts/setup.py')."
+        },
+        "args": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "Optional arguments to pass to the script as key-value pairs (long options) or as a list of strings. If specified as a list, it is treated as the complete list of arguments, and 'short_options' and 'positional_args' must not be provided."
+        },
+        "short_options": {
+          "type": "object",
+          "description": "Optional short options (single hyphen) to pass to the script as key-value pairs. Must not be provided if 'args' is a list."
+        },
+        "positional_args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional positional arguments to pass to the script. Must not be provided if 'args' is a list."
+        }
+      },
+      "required": [
+        "skill_name",
+        "file_path"
+      ]
+    }
+  }
+}

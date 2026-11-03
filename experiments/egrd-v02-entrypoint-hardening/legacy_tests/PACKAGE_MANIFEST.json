@@ -1,0 +1,70 @@
+{
+  "arms": {
+    "A": {
+      "model": "gemma-4-12b-it-qat-w4a16-ct",
+      "active": false,
+      "sha256": "759f00c3bc66491b6bd8972cbb8405402fd76b2f0387b4d576283770fa7a26c8",
+      "members": {
+        "agent.yaml": "78949238ddbebda099efe5e6d51b2c96c47b67b3ef9822b4184019b28c2452b2",
+        "prompts/system.md": "11340947ccb4badb82c7fe9e6598a12e46af758c30c98c1926997f420e08a275",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "skills/egrd-repair/SKILL.md": "192cbba331c65a28aca7693bfc7f8b587fb763e223a07cffc1673fa0a13f5d10",
+        "skills/egrd-repair/scripts/egrd.py": "82116beba17d1a2db073c48b8c55ba0c17497eea3393864131ab0b8119e06145"
+      }
+    },
+    "B": {
+      "model": "gemma-4-12b-it-qat-w4a16-ct",
+      "active": true,
+      "sha256": "c8a4d9699bf971ca12e51b1128ba8971772f5ce8112a5ba107253bb9e0eb5f64",
+      "members": {
+        "agent.yaml": "78949238ddbebda099efe5e6d51b2c96c47b67b3ef9822b4184019b28c2452b2",
+        "prompts/system.md": "11340947ccb4badb82c7fe9e6598a12e46af758c30c98c1926997f420e08a275",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "skills/egrd-repair/SKILL.md": "192cbba331c65a28aca7693bfc7f8b587fb763e223a07cffc1673fa0a13f5d10",
+        "skills/egrd-repair/scripts/egrd.py": "07af94149a4a3315e070b29771a90a55eb382689921bed82308d95bbecd60d0d"
+      }
+    },
+    "C": {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "active": false,
+      "sha256": "28520ea73e73712a1d1a12ed4f396fd8af20d3dcfa606c483d4ebf0ca4e36ab0",
+      "members": {
+        "agent.yaml": "0860424f164025191f9f6b08408406a99abd1d63446a0737eb13b9d19320e42f",
+        "prompts/system.md": "11340947ccb4badb82c7fe9e6598a12e46af758c30c98c1926997f420e08a275",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "skills/egrd-repair/SKILL.md": "192cbba331c65a28aca7693bfc7f8b587fb763e223a07cffc1673fa0a13f5d10",
+        "skills/egrd-repair/scripts/egrd.py": "82116beba17d1a2db073c48b8c55ba0c17497eea3393864131ab0b8119e06145"
+      }
+    },
+    "D": {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "active": true,
+      "sha256": "33c2b67acdb7d582de9de1f855833e4517c14a994de1ab47234af5b8dfadf9b9",
+      "members": {
+        "agent.yaml": "0860424f164025191f9f6b08408406a99abd1d63446a0737eb13b9d19320e42f",
+        "prompts/system.md": "11340947ccb4badb82c7fe9e6598a12e46af758c30c98c1926997f420e08a275",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "skills/egrd-repair/SKILL.md": "192cbba331c65a28aca7693bfc7f8b587fb763e223a07cffc1673fa0a13f5d10",
+        "skills/egrd-repair/scripts/egrd.py": "07af94149a4a3315e070b29771a90a55eb382689921bed82308d95bbecd60d0d"
+      }
+    }
+  },
+  "frozen_S0_unchanged": true,
+  "baseline_definition": "S0-derived matched-interface control; common prompt/interface and shared explicit generation are deviations from exact frozen S0. Separate frozen-S0 anchor remains required.",
+  "base_tools": [
+    "get_status",
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "submit_patch"
+  ],
+  "official_skill_accessors": [
+    "list_skills",
+    "load_skill",
+    "load_skill_resource",
+    "run_skill_script"
+  ],
+  "extra_custom_tools": [],
+  "global_control": false
+}
