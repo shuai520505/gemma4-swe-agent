@@ -1,0 +1,17 @@
+........F.......
+======================================================================
+FAIL: test_fixture_teardown_unknown_but_sandbox_cleanup_confirmed (test_fixture_forensics.FixtureEvidenceTests.test_fixture_teardown_unknown_but_sandbox_cleanup_confirmed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\native-recovery\test_fixture_forensics.py", line 18, in test_fixture_teardown_unknown_but_sandbox_cleanup_confirmed
+    self.assertEqual(self.r['cleanup']['fixture_teardown'],'NOT_RUN');self.assertTrue(self.r['cleanup']['Agent']);self.assertTrue(self.r['cleanup']['Native'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'NOT_RUN; fixture provider resolution failed before startup' != 'NOT_RUN'
+- NOT_RUN; fixture provider resolution failed before startup
++ NOT_RUN
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.132s
+
+FAILED (failures=1)

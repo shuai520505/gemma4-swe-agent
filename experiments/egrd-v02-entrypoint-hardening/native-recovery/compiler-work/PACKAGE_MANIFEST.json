@@ -1,0 +1,73 @@
+{
+  "arms": {
+    "A": {
+      "model": "gemma-4-12b-it-qat-w4a16-ct",
+      "active": false,
+      "sha256": "f6dbcbf57cfddeb7075f0776748fd895f56203b8bbe26f5a9da8ef3f21cbc3aa",
+      "members": {
+        "agent.yaml": "78949238ddbebda099efe5e6d51b2c96c47b67b3ef9822b4184019b28c2452b2",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "prompts/system.md": "0215e2dd06cade1a6ba5c57d9a672c9431ce64709f69cd1b1441e89d5271ed81",
+        "skills/egrd-repair/SKILL.md": "cec83255de6423d62b52cefa3b923d5fbea31f67cbeed368dd8f29071cec11a6",
+        "skills/egrd-repair/scripts/egrd.py": "82116beba17d1a2db073c48b8c55ba0c17497eea3393864131ab0b8119e06145"
+      }
+    },
+    "B": {
+      "model": "gemma-4-12b-it-qat-w4a16-ct",
+      "active": true,
+      "sha256": "9a8566523e4463889a6e8f61d7cb7e760fd48873ea9827e529b29c5abca6fa80",
+      "members": {
+        "agent.yaml": "78949238ddbebda099efe5e6d51b2c96c47b67b3ef9822b4184019b28c2452b2",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "prompts/system.md": "0215e2dd06cade1a6ba5c57d9a672c9431ce64709f69cd1b1441e89d5271ed81",
+        "skills/egrd-repair/SKILL.md": "cec83255de6423d62b52cefa3b923d5fbea31f67cbeed368dd8f29071cec11a6",
+        "skills/egrd-repair/scripts/egrd.py": "07af94149a4a3315e070b29771a90a55eb382689921bed82308d95bbecd60d0d"
+      }
+    },
+    "C": {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "active": false,
+      "sha256": "df0d3b5648bdbb2cc601dd5283de74a1eeb470d66ef1a1307067ecb8fafe9ea5",
+      "members": {
+        "agent.yaml": "0860424f164025191f9f6b08408406a99abd1d63446a0737eb13b9d19320e42f",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "prompts/system.md": "0215e2dd06cade1a6ba5c57d9a672c9431ce64709f69cd1b1441e89d5271ed81",
+        "skills/egrd-repair/SKILL.md": "cec83255de6423d62b52cefa3b923d5fbea31f67cbeed368dd8f29071cec11a6",
+        "skills/egrd-repair/scripts/egrd.py": "82116beba17d1a2db073c48b8c55ba0c17497eea3393864131ab0b8119e06145"
+      }
+    },
+    "D": {
+      "model": "gemma-4-31b-it-qat-w4a16-ct",
+      "active": true,
+      "sha256": "13fccbc33adc6f14c7a3f89bca5f6feaf797925be29f29d77ec0c60ead72d1f1",
+      "members": {
+        "agent.yaml": "0860424f164025191f9f6b08408406a99abd1d63446a0737eb13b9d19320e42f",
+        "eval_config.yaml": "fae6d2a5f5d8c4b2c2008af4ddc2936a7a71d5960fb1356752f9407e23890c66",
+        "prompts/system.md": "0215e2dd06cade1a6ba5c57d9a672c9431ce64709f69cd1b1441e89d5271ed81",
+        "skills/egrd-repair/SKILL.md": "cec83255de6423d62b52cefa3b923d5fbea31f67cbeed368dd8f29071cec11a6",
+        "skills/egrd-repair/scripts/egrd.py": "07af94149a4a3315e070b29771a90a55eb382689921bed82308d95bbecd60d0d"
+      }
+    }
+  },
+  "frozen_S0_unchanged": true,
+  "baseline_definition": "Matched-interface control; all four share FIRST ACTION guidance. A/C inert Skill remains non-activation, B/D unchanged executable V0.1 core. Not exact frozen S0.",
+  "base_tools": [
+    "get_status",
+    "run_command",
+    "read_file",
+    "edit_file",
+    "write_file",
+    "submit_patch"
+  ],
+  "official_skill_accessors": [
+    "list_skills",
+    "load_skill",
+    "load_skill_resource",
+    "run_skill_script"
+  ],
+  "extra_custom_tools": [],
+  "global_control": false,
+  "execution_mode": "PROMPT_ENFORCED_OPTIONAL_EXECUTION",
+  "entrypoint_prompt_sha256": "0215e2dd06cade1a6ba5c57d9a672c9431ce64709f69cd1b1441e89d5271ed81",
+  "preserved_core_sha256": "11b9136dd9f8f5196a1ff7a9727417e5775ce5ffa708168c4284e3cfd293801f"
+}

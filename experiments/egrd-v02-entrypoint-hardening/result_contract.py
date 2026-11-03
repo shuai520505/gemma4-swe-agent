@@ -19,8 +19,18 @@ def native_execution_check(native_path):
   for report in reports:
    cases+=ET.fromstring(report.read_bytes()).findall('.//testcase')
    result['junit'].append(dict(path=report.name,sha256=sha(report)))
-  result.update(tests=len(cases),executed=sum(c.find('skipped') is None for c in cases),errors=sum(c.find('error') is not None for c in cases))
-  result.update(passed=result['executed']>0 and result['errors']==0,reason='JUnit setup/runtime errors or zero executed cases' if not result['executed'] or result['errors'] else None)
+  result.update(tests=len(cases),executed=sum(c.find('skipped') is None and c.find('error') is None for c in cases),errors=sum(c.find('error') is not None for c in cases))
+  # Pytest may encode a confined socket failure as <failure>, not <error>.
+  # Keep ordinary assertion failures admissible; do not change Native scoring.
+  infra=[]
+  for case in cases:
+   failure=case.find('failure')
+   if failure is None:continue
+   text=((failure.get('message') or '')+' '+(failure.text or '')).lower()
+   if 'httpconnection' in text and '[errno 13] permission denied' in text and 'newconnectionerror' in text:
+    infra.append(dict(name=case.get('name'),classname=case.get('classname'),reason='NETWORK_CONFINEMENT_EACCES'))
+  result.update(infrastructure_failure_cases=len(infra),infrastructure_failures=infra)
+  result.update(passed=result['executed']>0 and result['errors']==0 and not infra,reason='Network confinement failure in Native execution' if infra else 'JUnit setup/runtime errors or zero executed cases' if not result['executed'] or result['errors'] else None)
  except (ET.ParseError,OSError) as exc:result['reason']=type(exc).__name__
  return result
 

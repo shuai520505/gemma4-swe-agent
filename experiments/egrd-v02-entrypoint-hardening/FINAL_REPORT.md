@@ -1,45 +1,36 @@
-# EGRD V0.2 final report
+# EGRD V0.2 Native environment recovery
 
-**Status: BLOCKED_INFRASTRUCTURE.** The three requested engineering fixes are implemented, but independent Native evaluation still has fixture setup errors. GPU authorization is present; no GPU was dispatched because the CPU trust gate is not satisfied.
+**Final status: BLOCKED_INFRASTRUCTURE.** Full autopsy is complete. There is no compliant environment repair under the current approved dependency set and unchanged socket confinement. No new Kaggle run, GPU or real model execution was performed.
 
-## Actual evidence
+## Required decisions
 
-Two independently confirmed CPU-only Kaggle runs completed, each with one SaveKernel and no retries, GPU/TPU disabled and no model mounts:
+1. **183 httpbin errors:** OBSERVED recursive fixture resolution at Requests tests/conftest.py:25; the upstream plugin fixture is not available to pytest. Required provider2.0.0 is absent from the actual59 supplied wheels. Installed-distribution version beyond that inventory is UNKNOWN.
+2. **4 httpbin_secure errors:** OBSERVED same missing upstream-provider mechanism at line30, before TLS initialization. A certificate defect is not established.
+3. **One or multiple issues?** The187 setup errors share a provider-resolution cause. Additionally all4 ordinary failure tags are confirmed AF_INET creation EACCES, an independent security/runtime incompatibility, not repair failures. Potential pytest8.4.2 versus repo<=6.2.5 compatibility remains UNVERIFIED.
+4. **Environment changes:** None. No package install, fixture replacement, network relaxation, service, prompt/model change or scoring change. Only research trust classification and executed-case accounting were strengthened.
+5. **Official source binding:** OBSERVED /workspace/src import in Agent and matching Native source traceback/command; source guard unchanged during verification. Full pre-patch cross-workspace byte parity is UNKNOWN, not fabricated.
+6. **All fixtures executed?** NO. Provider resolution failed; HTTP/HTTPS service lifecycle and TLS are NOT_RUN.
+7. **Zero infrastructure errors?** NO. Original JUnit contains187 setup errors plus4 failed bodies caused by network confinement.
+8. **Independent trust passed?** NO. Original hashes/cleanup pass, but execution integrity fails. The original CPU02 PASS receipt is preserved as historical plumbing evidence only.
+9. **300 protected hashes unchanged?** YES, exact before/after comparison; CPU01/02 archive hashes and CRC are unchanged.
+10. **Eligible for authorized12B smoke?** NO. Native infrastructure acceptance is still blocked, and this task forbids GPU dispatch.
 
-| Run | Evidence |
-|---|---|
-| CPU01, version1 | Original27 + infrastructure6 + new39 tests, four official Compiler packages, SDK clock and actual nonroot Skill PASS; Requests Worker stopped before model request because imports resolved to /opt/approved instead of locked src-layout source |
-| CPU02, version1 | Original27 + infrastructure6 + new43 tests, Compiler4, SDK clock, nonroot Skill and Worker plumbing PASS; actual Native execution returned4 failed,131 passed,2 skip/xfail,187 setup errors |
+## Engineering result
 
-CPU01 archive SHA256: `06d1a057fb5f5d4f7a9effd18b9d569cdef2bf1b8326b03e2f03368642121723`.
+Real network-denial failures previously could look like ordinary assertion failures once fixture errors were removed. A failing regression using all4 original failure records demonstrated that gap; the strengthened guard now rejects them. Executed-body accounting is corrected from322 to135:131 pass bodies plus4 failed bodies, excluding187 setup errors and2 skip/xfail records. Official raw resolved remains false.
 
-CPU02 archive SHA256: `25b2a360c62023c48617fe8c3bb8734d4230a2d3668eccc33cb4e22f20fcf25a`.
+Existing CPU regressions and actual Compiler checks were rerun; see REQUESTS_REGRESSION_REPORT and exact command receipts. New17 checks are forensic/classifier tests, not fabricated positive HTTP/HTTPS acceptance. The old final report is preserved byte-for-byte under native-recovery/previous/.
 
-Both platform statuses are COMPLETE. CPU02's raw CPU_SUMMARY says PASS because the original plumbing assertion required Native resolved=false, which also occurs with setup errors. That original receipt is preserved unchanged. Independent inspection of the raw JUnit found324 cases,187 errors (183 recursive httpbin fixture errors and4 httpbin_secure fixture errors), so **trusted CPU acceptance is FAIL**. This is not evidence of a valid negative repair control or of model failure.
+## Exact blocker and next decision
 
-The source binding is repaired for both Agent and Native commands with /workspace/src first. Real CPU02 receipts prove source import, init, comment-only edit and official submit. The comment patch is not a repair. Independent Native ran22.55s and raw resolved=false, but its environment is not trustworthy for repair evaluation. Cleanup is confirmed in both runs.
+An approved provider/dependency closure and a permitted isolated runtime capable of genuine HTTP/HTTPS sockets and the unchanged timeout tests are required. Current seccomp denies socket creation itself. Installing a package alone would not fix that. No compliant solution is claimed, and no restriction is weakened. Further Linux dispatch should wait for a separately approved runtime/dependency solution, rather than repeat a known-broken run or change the official suite.
 
-The latest trust guard now requires actual nonempty Native JUnit with executed cases and zero setup/runtime errors, in addition to original Native result/hash/exit checks. Missing/all-skipped/malformed evidence fails closed. It changes the research stop gate, not official scoring, expected tests or the raw resolved value. All47 current local tests pass, including actual child-process supervision and new Native-error/missing/empty/skipped cases. This final guard has not been rerun on Linux; that limitation remains explicit.
+## Evidence identity and execution boundary
 
-## Required answers
+Generated UTC: 2026-11-03T15:07:52.529834+00:00. Audited PR46 source commit: `9ef032ab23335cb5a09c4937d7962205f5962f79`.
 
-1. **EGRD on the execution path?** CPU_VERIFIED through actual official SkillToolset in a nonroot owned fixture. V0.2 real Gemma execution is NOT_RUN.
-2. **Missing Skill calls fixed?** Real schemas and an explicit common FIRST ACTION prompt are integrated. CPU lifecycle passes. Whether Gemma obeys the prompt remains UNKNOWN.
-3. **Hard controller or prompt?** PROMPT_ENFORCED_OPTIONAL_EXECUTION. No unsupported callback/middleware or global interception exists. Core checks act only when the Skill is invoked; infrastructure supervision is executable.
-4. **Timing fixed?** The actual SDK timeout object is observed and Context aligned to its origin without changing300s. CPU boundary tests and actual SDK Skill sessions pass. GPU deadline cancellation remains NOT_RUN.
-5. **Supervisor accurate?** Tests cover session/aggregate identity, hashes, process exit, Agent vs Worker timeout, Native failure, cleanup failure and missing data. The new trust guard rejects CPU02's actual187 errors. No successful official_result is fabricated.
-6. **12B actual tool test?** NOT_RUN this version. Prior12B loading is historical, not new evidence.
-7. **31B takeover?** NOT_RUN. Exact original config, independent Notebook/output/claim path and bounded fallback recommendation are prepared. A single repair failure is insufficient to switch; infrastructure failure cannot justify switching models.
-8. **Real Patch Intent?** Yes in the scripted owned official-Skill lifecycle, together with source-bound ledger and stale-test refusal. Real Gemma intent remains UNKNOWN.
-9. **Actual edit and independent verification?** Owned CPU edit/tests/submit pass; public Requests CPU transport/edit/submit and actual Native execution are observed. Error-free public Native evaluation is NOT established. No repair success is claimed.
-10. **Enter repair-effect experiment?** No. Resolve and revalidate the Requests test-fixture environment before consuming GPU. Do not suppress fixtures, skip failing controls, narrow official scoring or weaken isolation merely to pass this gate.
+Task `requests_6589`, base `7a13c041dbef42f9f3feb14110f02626f6892e9a`, Issue SHA256 `60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04`, snapshot SHA256 `053f2ea73cb7b604f535ee2eabe596dae9df9d7ff54a365d62b4ff0bebab7115`. Package B SHA256 `9a8566523e4463889a6e8f61d7cb7e760fd48873ea9827e529b29c5abca6fa80`. Official evaluator swegemma0.2.11 source SHA256 `99e2a5fdab2be2b5e0388de29080da9d6e7003cf8b53299cda790464f4ecd2aa`; unchanged.
 
-## Scope and next priority
+Original CPU02 archive: `cpu02-output/egrd-v02-cpu-hardening02.zip`, SHA256 `25b2a360c62023c48617fe8c3bb8734d4230a2d3668eccc33cb4e22f20fcf25a`. Raw records: `cpu02-evidence/worker/trusted/NATIVE_RESULT.json`, `native-junit-0.xml`, `NATIVE_COMMANDS.json`; Agent/Native cleanup receipts and original session/done hashes retained. Full191 failure/error case identities, trace hashes and excerpts: `native-recovery/AUTOPSY.json`.
 
-The previous architecture is one Gemma ADK Agent, six official Workspace Tools plus official SkillToolset, optional executable EGRD Skill, passive research traces and independent Native verification. New V0.2 changes harden its entry instructions, timing accounting and result/cleanup protocol; they do not create a multi-agent architecture or prove improved repair performance.
-
-Next engineering priority is the Native Requests fixture provider/runtime dependency path, and verifying whether its local HTTP fixtures can run within the preserved confinement. Missing providers are observed; a compatible safely isolated service is not yet implemented or verified. Full networking, host mounts and weakened scoring are not acceptable shortcuts. The official file inventory does not contain pytest_httpbin wheels. No substitute task or evaluator is silently used.
-
-After full CPU acceptance, the user's latest '允许CPU和GPU' authorizes the bounded12B smoke. Re-read quota/reservations, validate current source/package/model identities, consume a new one-shot claim and prove exactly four accessible L4 cards before model load. Maximum window18000s with archive/cleanup reserve; Agent300s, command120s,60 tools,80 turns. Retain the original73200s quota admission line. 31B is a separate bounded fallback only for confirmed repeated model-level entry/workflow defects. Both-model entry failure stops experiments.
-
-All300 protected historical file hashes remain unchanged; original S0/R2/EGR/Full, GPU pilot, pilot-frozen and old claims are preserved. Package/source differences from each CPU dispatch are recorded in BUILD_IDENTITIES. Exact task/snapshot, Issue, package/prompt/Skill, model, runtime and evaluator identities are retained. No hidden/reference production answers, official submissions or new GPU inference were used. There is no performance improvement claim.
+Commands/timestamps/exit codes: `native-recovery/REGRESSION_EXECUTIONS.json`, `FOLLOWUP_EXECUTIONS.json` and referenced logs. Actual prior Native pytest command is recorded verbatim in AUTOPSY.json; exit1. Prior worker stage exit0 did not imply trustworthy test execution. New CPU SaveKernel0, GPU SaveKernel0, Gemma requests0, packages installed0. Local tests validate classification/source evidence; they do not replace Native evaluation. New Linux service acceptance and Native revalidation are NOT_RUN.
