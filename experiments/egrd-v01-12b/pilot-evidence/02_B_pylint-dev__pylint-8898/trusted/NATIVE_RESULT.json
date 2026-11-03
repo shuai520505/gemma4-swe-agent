@@ -1,0 +1,122 @@
+{
+  "task_id": "pylint-dev__pylint-8898",
+  "resolved": false,
+  "status": "SUCCESS",
+  "duration_seconds": 20.002730567999834,
+  "cost_usd": 0.0,
+  "total_tokens": 0,
+  "total_llm_calls": 0,
+  "error_message": null,
+  "trace_path": null,
+  "metadata": {},
+  "repo": "pylint-dev/pylint",
+  "agent_patch": "diff --git a/.pylintrc b/.pylintrc\nnew file mode 100644\nindex 0000000..c65e2c7\n--- /dev/null\n+++ b/.pylintrc\n@@ -0,0 +1,5 @@\n+\n+[tool.pylint.basic]\n+# capture group ensures that the part after the comma is an invalid regular\n+# expression, causing pylint to crash immediately.\n+bad-name-rgxs = \"(foo{1,3})\"\ndiff --git a/foo.py b/foo.py\nnew file mode 100644\nindex 0000000..3d2b4b1\n--- /dev/null\n+++ b/foo.py\n@@ -0,0 +1 @@\n+x = 1\n\\ No newline at end of file\ndiff --git a/reproduce_issue.py b/reproduce_issue.py\nnew file mode 100644\nindex 0000000..27c20ac\n--- /dev/null\n+++ b/reproduce_issue.py\n@@ -0,0 +1,29 @@\n+import os\n+\n+# Create a dummy file to run pylint against\n+with open(\"foo.py\", \"w\") as f:\n+    f.write(\"x = 1\")\n+\n+# Create a configuration file\n+config_content = \"\"\"\n+[tool.pylint.basic]\n+# capture group ensures that the part after the comma is an invalid regular\n+# expression, causing pylint to crash immediately.\n+bad-name-rgxs = \"(foo{1,3})\"\n+\"\"\"\n+\n+with open(\".pylintrc\", \"w\") as f:\n+    f.write(config_content)\n+\n+import subprocess\n+import sys\n+\n+try:\n+    subprocess.run([sys.executable, \"-m\", \"pylint\", \"foo.py\"], check=True, capture_output=True, text=True)\n+    print(\"Pylint ran successfully!\")\n+except subprocess.CalledProcessError as e:\n+    print(f\"Pylint failed with exit code {e.returncode}\")\n+    print(f\"Stderr: {e.stderr}\")\n+    print(f\"Stdout: {e.stdout}\")\n+except FileNotFoundError:\n+    print(\"pylint command not found. Please ensure it is in the PATH.\")\n",
+  "test_output": "STDOUT:\n...........F.F......                                                     [100%]\n=================================== FAILURES ===================================\n_________ test_csv_regex_comma_in_quantifier[foo, bar{1,3}-expected3] __________\n\nin_string = 'foo, bar{1,3}', expected = ['foo', 'bar{1,3}']\n\n    @pytest.mark.parametrize(\"in_string,expected\", CSV_REGEX_COMMA_CASES)\n    def test_csv_regex_comma_in_quantifier(in_string: str, expected: list[str]) -> None:\n        \"\"\"Check that we correctly parse a comma-separated regex when there are one\n        or more commas within quantifier expressions.\n        \"\"\"\n    \n        def _template_run(in_string: str) -> list[re.Pattern[Any]]:\n            r = Run(\n                [str(EMPTY_MODULE), rf\"--bad-names-rgx={in_string}\"],\n                exit=False,\n            )\n            bad_names_rgxs: list[re.Pattern[Any]] = r.linter.config.bad_names_rgxs\n            return bad_names_rgxs\n    \n>       assert _template_run(in_string) == [re.compile(regex) for regex in expected]\nE       AssertionError: assert [re.compile('...compile('3}')] == [re.compile('...e('bar{1,3}')]\nE         \nE         At index 1 diff: re.compile('bar{1') != re.compile('bar{1,3}')\nE         Left contains one more item: re.compile('3}')\nE         Use -v to get more diff\n\ntests/config/test_config.py:142: AssertionError\n_____________________________ test_csv_regex_error _____________________________\n\ncapsys = <_pytest.capture.CaptureFixture object at 0x7dfc655883d0>\n\n    def test_csv_regex_error(capsys: CaptureFixture) -> None:\n        \"\"\"Check that we correctly error when an option is passed and one\n        of its comma-separated regular expressions values is an invalid regular expression.\n        \"\"\"\n        with pytest.raises(SystemExit):\n            Run(\n                [str(EMPTY_MODULE), r\"--bad-names-rgx=(foo{1,}, foo{1,3}})\"],\n                exit=False,\n            )\n        output = capsys.readouterr()\n>       assert (\n            r\"Error in provided regular expression: (foo{1,} beginning at index 0: missing ), unterminated subpattern\"\n            in output.err\n        )\nE       AssertionError: assert 'Error in provided regular expression: (foo{1,} beginning at index 0: missing ), unterminated subpattern' in 'usage: pylint [options]\\npylint: error: argument --bad-names-rgxs: Error in provided regular expression: (foo{1 beginning at index 0: missing ), unterminated subpattern\\n'\nE        +  where 'usage: pylint [options]\\npylint: error: argument --bad-names-rgxs: Error in provided regular expression: (foo{1 beginning at index 0: missing ), unterminated subpattern\\n' = CaptureResult(out='', err='usage: pylint [options]\\npylint: error: argument --bad-names-rgxs: Error in provided regular expression: (foo{1 beginning at index 0: missing ), unterminated subpattern\\n').err\n\ntests/config/test_config.py:171: AssertionError\n---------- generated xml file: /tmp/_swegemma_junit_3fa40234bc60.xml -----------\n=========================== short test summary info ============================\nFAILED tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo, bar{1,3}-expected3]\nFAILED tests/config/test_config.py::test_csv_regex_error - AssertionError: as...\n2 failed, 18 passed in 3.58s\n\nSTDERR:\nCannot read termcap database;\nusing dumb terminal settings.\n",
+  "test_exit_code": 1,
+  "tool_calls": 0,
+  "task_index": null,
+  "error": null,
+  "verification_source_guard": {
+    "unchanged": true,
+    "before_sha256": "ef5131681da47588e74f5ce444c4a1222faf6a6f0247c29175afef32b97fdff8",
+    "after_sha256": "ef5131681da47588e74f5ce444c4a1222faf6a6f0247c29175afef32b97fdff8",
+    "changed_files": [],
+    "scope": "All Python production and test files in fresh trusted workspace; observed postcondition, no write-denial claim"
+  },
+  "observed_junit": {
+    "tests": 20,
+    "errors": 0,
+    "passed": 18,
+    "positive_controls_passed": true,
+    "raw_all_positive_nodes_confirmed": false,
+    "ambiguous_metadata_nodes": [
+      "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,"
+    ],
+    "ambiguous_metadata_outcome": "UNKNOWN",
+    "original_target_failure": true,
+    "controls": {
+      "tests/config/test_config.py::test_can_read_toml_env_variable": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_message_id": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_option_name": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_short_option_name": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_confidence": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_empty_confidence": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_yes_no": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_unknown_py_version": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo-expected0]": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,bar-expected1]": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,": null,
+      "tests/config/test_config.py::test_regex_error": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_short_verbose": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_argument_separator": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_clear_cache_post_run": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_enable_all_disable_all_mutually_exclusive": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_disable_before_enable_all_takes_effect": [
+        "pass"
+      ],
+      "tests/config/test_config.py::test_enable_before_disable_all_takes_effect": [
+        "pass"
+      ]
+    },
+    "targets": {
+      "tests/config/test_config.py::test_csv_regex_error": [
+        "failure"
+      ]
+    },
+    "matching": "Exact full parameter ID or exact function name; no prefix matching. Malformed metadata preserved as UNKNOWN. Official verifier and all test expectations remain unchanged."
+  },
+  "independent_exact": {
+    "status": "FAIL",
+    "official_sdk_resolved_override": false,
+    "ambiguous_nodes": [],
+    "nodes": {},
+    "reason": "Complete trusted test command did not exit zero"
+  },
+  "infrastructure_controls": {
+    "passed": true,
+    "raw_positive_controls_passed": true,
+    "original_co_targets": {},
+    "unknown_nodes": [
+      "tests/config/test_config.py::test_csv_regex_comma_in_quantifier[foo,"
+    ],
+    "success_criterion_relaxed": false,
+    "all_original_controls_still_required_for_repair": true
+  },
+  "endpoint": "Unmodified swegemma SDK on selected public SWE-bench; not hidden competition or canonical harness score",
+  "junit_artifacts": [
+    {
+      "path": "/kaggle/working/egrd-v01-12b-pilot01/execution/sessions/02_B_pylint-dev__pylint-8898/trusted/native-junit-0.xml",
+      "sha256": "e56e0f499264a1ec848a3049480e13999e847a88c5383ebc5fc10f766fe0a0b0"
+    }
+  ]
+}

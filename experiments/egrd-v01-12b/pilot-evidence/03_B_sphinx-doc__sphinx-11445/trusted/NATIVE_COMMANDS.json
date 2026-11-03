@@ -1,0 +1,218 @@
+[
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -c 'import os,stat\ns=os.lstat('\"'\"'/dev/null'\"'\"')\nassert stat.S_ISCHR(s.st_mode) and s.st_rdev==os.makedev(1,3)\nassert os.environ['\"'\"'GIT_CONFIG_GLOBAL'\"'\"']=='\"'\"'/dev/null'\"'\"'\nwith open('\"'\"'/dev/null'\"'\"','\"'\"'w'\"'\"') as f:f.write('\"'\"'not valid git configuration\\n'\"'\"')\nwith open('\"'\"'/dev/null'\"'\"','\"'\"'rb'\"'\"') as f:assert f.read(16)==b'\"'\"''\"'\"'\nprint('\"'\"'NULL_CHARACTER_DEVICE_AND_GIT_ENV_PASS'\"'\"')\n' && git config --global --list",
+    "start": 2081.168675326,
+    "end": 2081.235121971,
+    "result": {
+      "status": "ok",
+      "stdout": "NULL_CHARACTER_DEVICE_AND_GIT_ENV_PASS\n",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.04975559000013163
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; printf PRE_TASK_PYTHON_CHECK; type -a python3; python3 -c 'import os,socket,sys;from pathlib import Path;print(sys.version,sys.executable);assert len(os.urandom(16))==16;assert os.getuid()!=0;assert not Path('\"'\"'/kaggle/input'\"'\"').exists() and not Path('\"'\"'/proc'\"'\"').exists();\ntry: socket.socket(socket.AF_INET,socket.SOCK_STREAM)\nexcept PermissionError: print('\"'\"'NONROOT_CHROOT_NETWORK_DENIED'\"'\"')\nelse: raise AssertionError('\"'\"'NETWORK_SOCKET_NOT_DENIED'\"'\"')'",
+    "start": 2081.892678126,
+    "end": 2082.050149701,
+    "result": {
+      "status": "ok",
+      "stdout": "PRE_TASK_PYTHON_CHECKpython3 is /opt/python311/bin/python3\npython3 is /usr/local/bin/python3\npython3 is /usr/bin/python3\n3.11.9 (main, Aug 14 2024, 05:07:28) [Clang 18.1.8 ] /opt/python311/bin/python3\nNONROOT_CHROOT_NETWORK_DENIED\n",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.14476824700022917
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; ls /wheels/*.whl 2>/dev/null | wc -l",
+    "start": 2082.091651671,
+    "end": 2082.133326215,
+    "result": {
+      "status": "ok",
+      "stdout": "59\n",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.03410927699997046
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; (tar --no-same-owner -I pigz -xf /tmp/sphinx-doc__sphinx-11445.tgz -C /workspace 2>/dev/null || tar --no-same-owner -xzf /tmp/sphinx-doc__sphinx-11445.tgz -C /workspace) && rm -f /tmp/sphinx-doc__sphinx-11445.tgz",
+    "start": 2082.186699488,
+    "end": 2082.387042679,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.18878957400011132
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -S -c \"import pathlib; ws=pathlib.Path('/workspace').resolve(); [p.unlink() for p in list(ws.rglob('*')) if p.is_symlink() and (p.resolve() == ws or ws.is_relative_to(p.resolve()))]\" 2>/dev/null || true",
+    "start": 2082.387118102,
+    "end": 2082.558733608,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.1619229500001893
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; mkdir -p /workspace/.git/info && printf \"__pycache__/\\n*.pyc\\n.pytest_cache/\\n*.egg-info/\\nbuild/\\ndist/\\n.coverage\\n.adk_exec_*.py\\n\" >> /workspace/.git/info/exclude",
+    "start": 2082.559163732,
+    "end": 2082.600885892,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.03394450399991911
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -S -c '\nimport sys\nfrom pathlib import Path\n\nws = Path(sys.argv[1]).resolve()\nrepo = sys.argv[2] if len(sys.argv) > 2 else \"\"\noverwrite = sys.argv[3] == \"1\" if len(sys.argv) > 3 else False\n\n# 1. Configure pytest.ini if not already configured by sandbox/setup.py\nini_path = ws / \"pytest.ini\"\nexisting_ini = \"\"\nif ini_path.exists():\n    try:\n        existing_ini = ini_path.read_text(errors=\"replace\")\n    except Exception:\n        existing_ini = \"\"\n\nif overwrite or (\"# Hermetic test discovery\" not in existing_ini and \"[pytest]\" not in existing_ini):\n    content = \"\"\"[pytest]\naddopts = -p no:anyio\nnorecursedirs = .* build dist venv\npython_classes = Test* *Test\npython_files = test_*.py *_test.py\nfilterwarnings =\n    ignore::DeprecationWarning\n    ignore::UserWarning\n\"\"\"\n    try:\n        ini_path.write_text(content)\n    except Exception as e:\n        sys.stderr.write(f\"Warning: could not write {ini_path}: {e}\\n\")\n\n# 2. Configure conftest.py if not already configured by sandbox/setup.py\nconftest_path = ws / \"conftest.py\"\nexisting = \"\"\nif conftest_path.exists():\n    try:\n        existing = conftest_path.read_text(errors=\"replace\")\n    except Exception:\n        existing = \"\"\n\nhook_header = \"# Hermetic test discovery hook for SWE-gemma\\n\"\nif overwrite or (\n    \"# Hermetic test discovery hook for SWE-gemma\" not in existing\n    and \"# Standard test discovery hook for SWE-gemma\" not in existing\n):\n    clean_existing = existing.replace(hook_header, \"\").strip()\n    new_conftest = hook_header + (\"\\n\" + clean_existing if clean_existing else \"\") + \"\\n\"\n    try:\n        conftest_path.write_text(new_conftest)\n    except Exception as e:\n        sys.stderr.write(f\"Warning: could not write {conftest_path}: {e}\\n\")\n' /workspace sphinx-doc/sphinx 0",
+    "start": 2082.601373513,
+    "end": 2082.740778658,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.1310724330000994
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; cd /workspace && git add -A && git commit -m \"eval_baseline\" --allow-empty -q && git tag -f _swegemma_baseline",
+    "start": 2082.741084294,
+    "end": 2083.438912071,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.6862408070001038
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -S -c '\nimport os, sys, subprocess, re\nfrom pathlib import Path\n\nif len(sys.argv) < 3:\n    sys.stderr.write(\"Usage: apply_patch.py <workspace_dir> <patch_path>\\n\")\n    sys.exit(1)\n\nworkspace = Path(sys.argv[1]).resolve()\np_path = Path(sys.argv[2]).resolve()\nif not p_path.exists():\n    sys.stderr.write(f\"Patch file not found: {p_path}\\n\")\n    sys.exit(1)\nif p_path.stat().st_size == 0:\n    sys.exit(0)\n\ndef check_safe_rel_path(raw_rel: str) -> None:\n    s = raw_rel.strip().strip('\"'\"'\"'\"'\"')\n    if not s or s == \"/dev/null\":\n        return\n    if s.startswith((\"a/\", \"b/\")):\n        s = s[2:].strip()\n    if not s or s == \"/dev/null\":\n        return\n    if s.startswith(\"/\") or \"..\" in Path(s).parts:\n        sys.stderr.write(f\"Unsafe path traversal in patch: {raw_rel}\\n\")\n        sys.exit(1)\n    resolved_target = (workspace / s).resolve()\n    if resolved_target != workspace and not resolved_target.is_relative_to(workspace):\n        sys.stderr.write(f\"Unsafe symlink/path escape in patch: {raw_rel}\\n\")\n        sys.exit(1)\n\nraw_patch_text = p_path.read_text(errors=\"replace\")\nfor raw_line in raw_patch_text.splitlines():\n    if raw_line.startswith(\"diff --git \"):\n        m = re.match(r'\"'\"'^diff --git\\s+\"?a/(.+?)\"?\\s+\"?b/(.+?)\"?$'\"'\"', raw_line)\n        if m:\n            check_safe_rel_path(m.group(1))\n            check_safe_rel_path(m.group(2))\n    elif raw_line.startswith((\"--- \", \"+++ \")):\n        hdr = raw_line[4:].split(\"\\t\", 1)[0].strip()\n        check_safe_rel_path(hdr)\n    elif raw_line.startswith((\"rename from \", \"rename to \")):\n        hdr = raw_line.split(\" \", 2)[2].strip()\n        check_safe_rel_path(hdr)\n    elif raw_line.startswith(\"# empty_dir: \"):\n        hdr = raw_line.split(\": \", 1)[-1].strip()\n        check_safe_rel_path(hdr)\n\ntry:\n    with open(p_path, '\"'\"'rb'\"'\"') as pf:\n        for line in pf:\n            if line.startswith(b'\"'\"'# empty_dir: '\"'\"'):\n                d = line.decode('\"'\"'utf-8'\"'\"', errors='\"'\"'ignore'\"'\"').strip().split('\"'\"': '\"'\"', 1)[-1]\n                if d:\n                    check_safe_rel_path(d)\n                    (workspace / d).mkdir(parents=True, exist_ok=True)\n            elif line.startswith(b'\"'\"'diff --git'\"'\"'):\n                break\nexcept Exception:\n    pass\n\ndef normalize_patch(p: Path) -> Path:\n    text = p.read_text(errors=\"replace\")\n    lines, mod = [], False\n\n    def quote_path(prefix: str, path_str: str) -> str:\n        if \" \" in path_str:\n            return f'\"'\"'\"{prefix}/{path_str}\"'\"'\"'\n        return f\"{prefix}/{path_str}\"\n\n    for line in text.splitlines(keepends=True):\n        nl = \"\\r\\n\" if line.endswith(\"\\r\\n\") else (\"\\n\" if line.endswith(\"\\n\") else \"\")\n        content = line[:-len(nl)] if nl else line\n\n        if content.startswith(\"diff --git \"):\n            matched = False\n            # Case 1: Quoted diff --git \"a/...\" \"b/...\"\n            m = re.match(r'\"'\"'^diff --git\\s+\"a/(.+?)\"\\s+\"b/(.+?)\"(.*)$'\"'\"', content)\n            if m:\n                p_a, p_b, rest = m.groups()\n                matched = True\n            else:\n                # Case 2: Unquoted identical paths (with or without spaces)\n                m = re.match(r'\"'\"'^diff --git\\s+a/(.+)\\s+b/\\1(.*)$'\"'\"', content)\n                if m:\n                    p_a, p_b, rest = m.group(1), m.group(1), m.group(2)\n                    matched = True\n                else:\n                    # Case 3: Standard unquoted diff --git a/... b/...\n                    m = re.match(r'\"'\"'^diff --git\\s+a/(\\S+)\\s+b/(\\S+)(.*)$'\"'\"', content)\n                    if m:\n                        p_a, p_b, rest = m.groups()\n                        matched = True\n            if matched:\n                try:\n                    r_a = os.path.relpath(os.path.realpath(workspace / p_a), workspace)\n                    r_b = os.path.relpath(os.path.realpath(workspace / p_b), workspace)\n                    check_safe_rel_path(r_a)\n                    check_safe_rel_path(r_b)\n                    if r_a != p_a or r_b != p_b:\n                        mod = True\n                    qa = quote_path(\"a\", r_a)\n                    qb = quote_path(\"b\", r_b)\n                    lines.append(f\"diff --git {qa} {qb}{rest}{nl}\")\n                    continue\n                except Exception:\n                    pass\n\n        elif content.startswith(\"--- a/\") or content.startswith('\"'\"'--- \"a/'\"'\"'):\n            try:\n                if content.startswith('\"'\"'--- \"a/'\"'\"'):\n                    raw_after = content[7:]\n                    p_sub, _, rest = raw_after.partition('\"'\"'\"'\"'\"')\n                    quoted = True\n                else:\n                    raw_after = content[6:]\n                    p_sub, tab, timestamp = raw_after.partition(\"\\t\")\n                    rest = f\"\\t{timestamp}\" if tab else \"\"\n                    quoted = False\n                r_sub = os.path.relpath(os.path.realpath(workspace / p_sub), workspace)\n                check_safe_rel_path(r_sub)\n                if r_sub != p_sub:\n                    mod = True\n                q_sub = quote_path(\"a\", r_sub) if (quoted or \" \" in r_sub) else f\"a/{r_sub}\"\n                lines.append(f\"--- {q_sub}{rest}{nl}\")\n                continue\n            except Exception:\n                pass\n\n        elif content.startswith(\"+++ b/\") or content.startswith('\"'\"'+++ \"b/'\"'\"'):\n            try:\n                if content.startswith('\"'\"'+++ \"b/'\"'\"'):\n                    raw_after = content[7:]\n                    p_sub, _, rest = raw_after.partition('\"'\"'\"'\"'\"')\n                    quoted = True\n                else:\n                    raw_after = content[6:]\n                    p_sub, tab, timestamp = raw_after.partition(\"\\t\")\n                    rest = f\"\\t{timestamp}\" if tab else \"\"\n                    quoted = False\n                r_sub = os.path.relpath(os.path.realpath(workspace / p_sub), workspace)\n                check_safe_rel_path(r_sub)\n                if r_sub != p_sub:\n                    mod = True\n                q_sub = quote_path(\"b\", r_sub) if (quoted or \" \" in r_sub) else f\"b/{r_sub}\"\n                lines.append(f\"+++ {q_sub}{rest}{nl}\")\n                continue\n            except Exception:\n                pass\n\n        lines.append(line)\n\n    if not mod:\n        return p\n    norm_p = p.with_suffix(\".norm.patch\")\n    norm_p.write_text(\"\".join(lines))\n    return norm_p\n\nerrors = []\ndef try_cmd(c: list[str]) -> bool:\n    try:\n        r = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n        if r.returncode == 0:\n            sys.exit(0)\n        errors.append(f\"{'\"'\"' '\"'\"'.join(c)} failed ({r.returncode}):\\n{r.stderr}\\n{r.stdout}\")\n    except FileNotFoundError as fnf:\n        errors.append(f\"{c[0]} not found: {fnf}\")\n    return False\n\n# Pass 1: Raw patch with -p1 strategies ONLY\nfor c in [\n    [\"git\", \"apply\", str(p_path)],\n    [\"git\", \"apply\", \"-3\", str(p_path)],\n    [\"git\", \"apply\", \"--ignore-space-change\", \"--ignore-whitespace\", str(p_path)],\n    [\"git\", \"apply\", \"--recount\", str(p_path)],\n]:\n    try_cmd(c)\n\n# Pass 2: Normalized patch with -p1 strategies ONLY\nnorm_p = normalize_patch(p_path)\nif norm_p != p_path:\n    for c in [\n        [\"git\", \"apply\", str(norm_p)],\n        [\"git\", \"apply\", \"-3\", str(norm_p)],\n        [\"git\", \"apply\", \"--ignore-space-change\", \"--ignore-whitespace\", str(norm_p)],\n        [\"git\", \"apply\", \"--recount\", str(norm_p)],\n    ]:\n        try_cmd(c)\n\n# Pass 3: -p0 strategies on raw and normalized patches ONLY if both -p1 passes fail (for prefixless patches)\np0_targets = [p_path, norm_p] if norm_p != p_path else [p_path]\nfor target in p0_targets:\n    for c in [\n        [\"git\", \"apply\", \"-p0\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"-3\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"--ignore-space-change\", \"--ignore-whitespace\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"--recount\", str(target)],\n    ]:\n        try_cmd(c)\n\n# Pass 4: Non-interactive patch fallback with --dry-run validation (try -p1 first, then -p0)\npatch_targets = [norm_p, p_path] if norm_p != p_path else [p_path]\nfor target in patch_targets:\n    for c in [\n        [\"patch\", \"-p1\", \"--batch\", \"--forward\", \"-i\", str(target)],\n        [\"patch\", \"-p1\", \"-l\", \"--batch\", \"--forward\", \"-i\", str(target)],\n    ]:\n        dry_cmd = c + [\"--dry-run\"]\n        try:\n            r_dry = subprocess.run(dry_cmd, cwd=workspace, capture_output=True, text=True)\n            if r_dry.returncode == 0:\n                r_apply = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n                if r_apply.returncode == 0:\n                    sys.exit(0)\n                errors.append(f\"{'\"'\"' '\"'\"'.join(c)} apply failed ({r_apply.returncode}):\\n{r_apply.stderr}\\n{r_apply.stdout}\")\n            else:\n                errors.append(f\"{'\"'\"' '\"'\"'.join(dry_cmd)} dry-run failed ({r_dry.returncode}):\\n{r_dry.stderr}\\n{r_dry.stdout}\")\n        except FileNotFoundError as fnf:\n            errors.append(f\"{c[0]} not found: {fnf}\")\n\nfor target in patch_targets:\n    for c in [\n        [\"patch\", \"-p0\", \"--batch\", \"--forward\", \"-i\", str(target)],\n        [\"patch\", \"-p0\", \"-l\", \"--batch\", \"--forward\", \"-i\", str(target)],\n    ]:\n        dry_cmd = c + [\"--dry-run\"]\n        try:\n            r_dry = subprocess.run(dry_cmd, cwd=workspace, capture_output=True, text=True)\n            if r_dry.returncode == 0:\n                r_apply = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n                if r_apply.returncode == 0:\n                    sys.exit(0)\n                errors.append(f\"{'\"'\"' '\"'\"'.join(c)} apply failed ({r_apply.returncode}):\\n{r_apply.stderr}\\n{r_apply.stdout}\")\n            else:\n                errors.append(f\"{'\"'\"' '\"'\"'.join(dry_cmd)} dry-run failed ({r_dry.returncode}):\\n{r_dry.stderr}\\n{r_dry.stdout}\")\n        except FileNotFoundError as fnf:\n            errors.append(f\"{c[0]} not found: {fnf}\")\n\nsys.stderr.write(\"\\n\".join(errors) + \"\\n\")\nsys.exit(1)\n' /workspace /tmp/tmp04r6rioy.patch",
+    "start": 2083.483035778,
+    "end": 2084.05027565,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.5584390740000345
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; rm -f /tmp/tmp04r6rioy.patch*",
+    "start": 2084.050359759,
+    "end": 2084.09313468,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.03484335600023769
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; cd /workspace && (git diff --name-only HEAD 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null) || true",
+    "start": 2084.097971899,
+    "end": 2084.152258185,
+    "result": {
+      "status": "ok",
+      "stdout": "docs/_build/.buildinfo\ndocs/_build/.doctrees/environment.pickle\ndocs/_build/.doctrees/index.doctree\ndocs/_build/.doctrees/mypackage.doctree\ndocs/_build/_sources/index.rst.txt\ndocs/_build/_sources/mypackage.rst.txt\ndocs/_build/_static/alabaster.css\ndocs/_build/_static/basic.css\ndocs/_build/_static/custom.css\ndocs/_build/_static/doctools.js\ndocs/_build/_static/documentation_options.js\ndocs/_build/_static/file.png\ndocs/_build/_static/language_data.js\ndocs/_build/_static/minus.png\ndocs/_build/_static/plus.png\ndocs/_build/_static/pygments.css\ndocs/_build/_static/searchtools.js\ndocs/_build/_static/sphinx_highlight.js\ndocs/_build/genindex.html\ndocs/_build/index.html\ndocs/_build/mypackage.html\ndocs/_build/objects.inv\ndocs/_build/search.html\ndocs/_build/searchindex.js\ndocs/conf.py\ndocs/index.rst\ndocs/mypackage.rst\nrepro_issue/source/conf.py\nrepro_issue/source/index.rst\n",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.04658215600011317
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; cd /workspace && tracked=$(git ls-tree -r --name-only HEAD -- tests/test_util_rst.py conftest.py pytest.ini sitecustomize.py usercustomize.py _swegemma_stubs.py 2>/dev/null) && [ -n \"$tracked\" ] && git ls-tree -r -z --name-only HEAD -- tests/test_util_rst.py conftest.py pytest.ini sitecustomize.py usercustomize.py _swegemma_stubs.py | xargs -0 git checkout HEAD -- 2>/dev/null || true",
+    "start": 2084.152767133,
+    "end": 2084.222019428,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.05980591999968965
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; cd /workspace && git clean -f -- tests/test_util_rst.py conftest.py pytest.ini sitecustomize.py usercustomize.py _swegemma_stubs.py 2>/dev/null || true",
+    "start": 2084.222307371,
+    "end": 2084.264930748,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.034337176000008185
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -S -c '\nimport os, sys, subprocess, re\nfrom pathlib import Path\n\nif len(sys.argv) < 3:\n    sys.stderr.write(\"Usage: apply_patch.py <workspace_dir> <patch_path>\\n\")\n    sys.exit(1)\n\nworkspace = Path(sys.argv[1]).resolve()\np_path = Path(sys.argv[2]).resolve()\nif not p_path.exists():\n    sys.stderr.write(f\"Patch file not found: {p_path}\\n\")\n    sys.exit(1)\nif p_path.stat().st_size == 0:\n    sys.exit(0)\n\ndef check_safe_rel_path(raw_rel: str) -> None:\n    s = raw_rel.strip().strip('\"'\"'\"'\"'\"')\n    if not s or s == \"/dev/null\":\n        return\n    if s.startswith((\"a/\", \"b/\")):\n        s = s[2:].strip()\n    if not s or s == \"/dev/null\":\n        return\n    if s.startswith(\"/\") or \"..\" in Path(s).parts:\n        sys.stderr.write(f\"Unsafe path traversal in patch: {raw_rel}\\n\")\n        sys.exit(1)\n    resolved_target = (workspace / s).resolve()\n    if resolved_target != workspace and not resolved_target.is_relative_to(workspace):\n        sys.stderr.write(f\"Unsafe symlink/path escape in patch: {raw_rel}\\n\")\n        sys.exit(1)\n\nraw_patch_text = p_path.read_text(errors=\"replace\")\nfor raw_line in raw_patch_text.splitlines():\n    if raw_line.startswith(\"diff --git \"):\n        m = re.match(r'\"'\"'^diff --git\\s+\"?a/(.+?)\"?\\s+\"?b/(.+?)\"?$'\"'\"', raw_line)\n        if m:\n            check_safe_rel_path(m.group(1))\n            check_safe_rel_path(m.group(2))\n    elif raw_line.startswith((\"--- \", \"+++ \")):\n        hdr = raw_line[4:].split(\"\\t\", 1)[0].strip()\n        check_safe_rel_path(hdr)\n    elif raw_line.startswith((\"rename from \", \"rename to \")):\n        hdr = raw_line.split(\" \", 2)[2].strip()\n        check_safe_rel_path(hdr)\n    elif raw_line.startswith(\"# empty_dir: \"):\n        hdr = raw_line.split(\": \", 1)[-1].strip()\n        check_safe_rel_path(hdr)\n\ntry:\n    with open(p_path, '\"'\"'rb'\"'\"') as pf:\n        for line in pf:\n            if line.startswith(b'\"'\"'# empty_dir: '\"'\"'):\n                d = line.decode('\"'\"'utf-8'\"'\"', errors='\"'\"'ignore'\"'\"').strip().split('\"'\"': '\"'\"', 1)[-1]\n                if d:\n                    check_safe_rel_path(d)\n                    (workspace / d).mkdir(parents=True, exist_ok=True)\n            elif line.startswith(b'\"'\"'diff --git'\"'\"'):\n                break\nexcept Exception:\n    pass\n\ndef normalize_patch(p: Path) -> Path:\n    text = p.read_text(errors=\"replace\")\n    lines, mod = [], False\n\n    def quote_path(prefix: str, path_str: str) -> str:\n        if \" \" in path_str:\n            return f'\"'\"'\"{prefix}/{path_str}\"'\"'\"'\n        return f\"{prefix}/{path_str}\"\n\n    for line in text.splitlines(keepends=True):\n        nl = \"\\r\\n\" if line.endswith(\"\\r\\n\") else (\"\\n\" if line.endswith(\"\\n\") else \"\")\n        content = line[:-len(nl)] if nl else line\n\n        if content.startswith(\"diff --git \"):\n            matched = False\n            # Case 1: Quoted diff --git \"a/...\" \"b/...\"\n            m = re.match(r'\"'\"'^diff --git\\s+\"a/(.+?)\"\\s+\"b/(.+?)\"(.*)$'\"'\"', content)\n            if m:\n                p_a, p_b, rest = m.groups()\n                matched = True\n            else:\n                # Case 2: Unquoted identical paths (with or without spaces)\n                m = re.match(r'\"'\"'^diff --git\\s+a/(.+)\\s+b/\\1(.*)$'\"'\"', content)\n                if m:\n                    p_a, p_b, rest = m.group(1), m.group(1), m.group(2)\n                    matched = True\n                else:\n                    # Case 3: Standard unquoted diff --git a/... b/...\n                    m = re.match(r'\"'\"'^diff --git\\s+a/(\\S+)\\s+b/(\\S+)(.*)$'\"'\"', content)\n                    if m:\n                        p_a, p_b, rest = m.groups()\n                        matched = True\n            if matched:\n                try:\n                    r_a = os.path.relpath(os.path.realpath(workspace / p_a), workspace)\n                    r_b = os.path.relpath(os.path.realpath(workspace / p_b), workspace)\n                    check_safe_rel_path(r_a)\n                    check_safe_rel_path(r_b)\n                    if r_a != p_a or r_b != p_b:\n                        mod = True\n                    qa = quote_path(\"a\", r_a)\n                    qb = quote_path(\"b\", r_b)\n                    lines.append(f\"diff --git {qa} {qb}{rest}{nl}\")\n                    continue\n                except Exception:\n                    pass\n\n        elif content.startswith(\"--- a/\") or content.startswith('\"'\"'--- \"a/'\"'\"'):\n            try:\n                if content.startswith('\"'\"'--- \"a/'\"'\"'):\n                    raw_after = content[7:]\n                    p_sub, _, rest = raw_after.partition('\"'\"'\"'\"'\"')\n                    quoted = True\n                else:\n                    raw_after = content[6:]\n                    p_sub, tab, timestamp = raw_after.partition(\"\\t\")\n                    rest = f\"\\t{timestamp}\" if tab else \"\"\n                    quoted = False\n                r_sub = os.path.relpath(os.path.realpath(workspace / p_sub), workspace)\n                check_safe_rel_path(r_sub)\n                if r_sub != p_sub:\n                    mod = True\n                q_sub = quote_path(\"a\", r_sub) if (quoted or \" \" in r_sub) else f\"a/{r_sub}\"\n                lines.append(f\"--- {q_sub}{rest}{nl}\")\n                continue\n            except Exception:\n                pass\n\n        elif content.startswith(\"+++ b/\") or content.startswith('\"'\"'+++ \"b/'\"'\"'):\n            try:\n                if content.startswith('\"'\"'+++ \"b/'\"'\"'):\n                    raw_after = content[7:]\n                    p_sub, _, rest = raw_after.partition('\"'\"'\"'\"'\"')\n                    quoted = True\n                else:\n                    raw_after = content[6:]\n                    p_sub, tab, timestamp = raw_after.partition(\"\\t\")\n                    rest = f\"\\t{timestamp}\" if tab else \"\"\n                    quoted = False\n                r_sub = os.path.relpath(os.path.realpath(workspace / p_sub), workspace)\n                check_safe_rel_path(r_sub)\n                if r_sub != p_sub:\n                    mod = True\n                q_sub = quote_path(\"b\", r_sub) if (quoted or \" \" in r_sub) else f\"b/{r_sub}\"\n                lines.append(f\"+++ {q_sub}{rest}{nl}\")\n                continue\n            except Exception:\n                pass\n\n        lines.append(line)\n\n    if not mod:\n        return p\n    norm_p = p.with_suffix(\".norm.patch\")\n    norm_p.write_text(\"\".join(lines))\n    return norm_p\n\nerrors = []\ndef try_cmd(c: list[str]) -> bool:\n    try:\n        r = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n        if r.returncode == 0:\n            sys.exit(0)\n        errors.append(f\"{'\"'\"' '\"'\"'.join(c)} failed ({r.returncode}):\\n{r.stderr}\\n{r.stdout}\")\n    except FileNotFoundError as fnf:\n        errors.append(f\"{c[0]} not found: {fnf}\")\n    return False\n\n# Pass 1: Raw patch with -p1 strategies ONLY\nfor c in [\n    [\"git\", \"apply\", str(p_path)],\n    [\"git\", \"apply\", \"-3\", str(p_path)],\n    [\"git\", \"apply\", \"--ignore-space-change\", \"--ignore-whitespace\", str(p_path)],\n    [\"git\", \"apply\", \"--recount\", str(p_path)],\n]:\n    try_cmd(c)\n\n# Pass 2: Normalized patch with -p1 strategies ONLY\nnorm_p = normalize_patch(p_path)\nif norm_p != p_path:\n    for c in [\n        [\"git\", \"apply\", str(norm_p)],\n        [\"git\", \"apply\", \"-3\", str(norm_p)],\n        [\"git\", \"apply\", \"--ignore-space-change\", \"--ignore-whitespace\", str(norm_p)],\n        [\"git\", \"apply\", \"--recount\", str(norm_p)],\n    ]:\n        try_cmd(c)\n\n# Pass 3: -p0 strategies on raw and normalized patches ONLY if both -p1 passes fail (for prefixless patches)\np0_targets = [p_path, norm_p] if norm_p != p_path else [p_path]\nfor target in p0_targets:\n    for c in [\n        [\"git\", \"apply\", \"-p0\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"-3\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"--ignore-space-change\", \"--ignore-whitespace\", str(target)],\n        [\"git\", \"apply\", \"-p0\", \"--recount\", str(target)],\n    ]:\n        try_cmd(c)\n\n# Pass 4: Non-interactive patch fallback with --dry-run validation (try -p1 first, then -p0)\npatch_targets = [norm_p, p_path] if norm_p != p_path else [p_path]\nfor target in patch_targets:\n    for c in [\n        [\"patch\", \"-p1\", \"--batch\", \"--forward\", \"-i\", str(target)],\n        [\"patch\", \"-p1\", \"-l\", \"--batch\", \"--forward\", \"-i\", str(target)],\n    ]:\n        dry_cmd = c + [\"--dry-run\"]\n        try:\n            r_dry = subprocess.run(dry_cmd, cwd=workspace, capture_output=True, text=True)\n            if r_dry.returncode == 0:\n                r_apply = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n                if r_apply.returncode == 0:\n                    sys.exit(0)\n                errors.append(f\"{'\"'\"' '\"'\"'.join(c)} apply failed ({r_apply.returncode}):\\n{r_apply.stderr}\\n{r_apply.stdout}\")\n            else:\n                errors.append(f\"{'\"'\"' '\"'\"'.join(dry_cmd)} dry-run failed ({r_dry.returncode}):\\n{r_dry.stderr}\\n{r_dry.stdout}\")\n        except FileNotFoundError as fnf:\n            errors.append(f\"{c[0]} not found: {fnf}\")\n\nfor target in patch_targets:\n    for c in [\n        [\"patch\", \"-p0\", \"--batch\", \"--forward\", \"-i\", str(target)],\n        [\"patch\", \"-p0\", \"-l\", \"--batch\", \"--forward\", \"-i\", str(target)],\n    ]:\n        dry_cmd = c + [\"--dry-run\"]\n        try:\n            r_dry = subprocess.run(dry_cmd, cwd=workspace, capture_output=True, text=True)\n            if r_dry.returncode == 0:\n                r_apply = subprocess.run(c, cwd=workspace, capture_output=True, text=True)\n                if r_apply.returncode == 0:\n                    sys.exit(0)\n                errors.append(f\"{'\"'\"' '\"'\"'.join(c)} apply failed ({r_apply.returncode}):\\n{r_apply.stderr}\\n{r_apply.stdout}\")\n            else:\n                errors.append(f\"{'\"'\"' '\"'\"'.join(dry_cmd)} dry-run failed ({r_dry.returncode}):\\n{r_dry.stderr}\\n{r_dry.stdout}\")\n        except FileNotFoundError as fnf:\n            errors.append(f\"{c[0]} not found: {fnf}\")\n\nsys.stderr.write(\"\\n\".join(errors) + \"\\n\")\nsys.exit(1)\n' /workspace /tmp/tmpaid9sur2.patch",
+    "start": 2084.304661813,
+    "end": 2084.860289358,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.5471331379999356
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; rm -f /tmp/tmpaid9sur2.patch*",
+    "start": 2084.86037953,
+    "end": 2084.902083544,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.034021404000213806
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; python3 -S -c '\nimport sys\nfrom pathlib import Path\n\nws = Path(sys.argv[1]).resolve()\nrepo = sys.argv[2] if len(sys.argv) > 2 else \"\"\noverwrite = sys.argv[3] == \"1\" if len(sys.argv) > 3 else False\n\n# 1. Configure pytest.ini if not already configured by sandbox/setup.py\nini_path = ws / \"pytest.ini\"\nexisting_ini = \"\"\nif ini_path.exists():\n    try:\n        existing_ini = ini_path.read_text(errors=\"replace\")\n    except Exception:\n        existing_ini = \"\"\n\nif overwrite or (\"# Hermetic test discovery\" not in existing_ini and \"[pytest]\" not in existing_ini):\n    content = \"\"\"[pytest]\naddopts = -p no:anyio\nnorecursedirs = .* build dist venv\npython_classes = Test* *Test\npython_files = test_*.py *_test.py\nfilterwarnings =\n    ignore::DeprecationWarning\n    ignore::UserWarning\n\"\"\"\n    try:\n        ini_path.write_text(content)\n    except Exception as e:\n        sys.stderr.write(f\"Warning: could not write {ini_path}: {e}\\n\")\n\n# 2. Configure conftest.py if not already configured by sandbox/setup.py\nconftest_path = ws / \"conftest.py\"\nexisting = \"\"\nif conftest_path.exists():\n    try:\n        existing = conftest_path.read_text(errors=\"replace\")\n    except Exception:\n        existing = \"\"\n\nhook_header = \"# Hermetic test discovery hook for SWE-gemma\\n\"\nif overwrite or (\n    \"# Hermetic test discovery hook for SWE-gemma\" not in existing\n    and \"# Standard test discovery hook for SWE-gemma\" not in existing\n):\n    clean_existing = existing.replace(hook_header, \"\").strip()\n    new_conftest = hook_header + (\"\\n\" + clean_existing if clean_existing else \"\") + \"\\n\"\n    try:\n        conftest_path.write_text(new_conftest)\n    except Exception as e:\n        sys.stderr.write(f\"Warning: could not write {conftest_path}: {e}\\n\")\n' /workspace sphinx-doc/sphinx 1",
+    "start": 2084.902594368,
+    "end": 2085.040977805,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.1302847409997412
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; rm -f /tmp/_swegemma_junit_500937f5c3fe.xml",
+    "start": 2085.041342732,
+    "end": 2085.082815056,
+    "result": {
+      "status": "ok",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "duration_seconds": 0.03389442900015638
+    }
+  },
+  {
+    "command": "export SETUPTOOLS_SCM_PRETEND_VERSION=7.1; export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; cd /workspace && PYTHONSAFEPATH=1 PYTHONNOUSERSITE=1 python3 -s -m pytest tests/test_util_rst.py --junitxml=/tmp/_swegemma_junit_500937f5c3fe.xml -p no:anyio -o timeout=0 -o python_classes=\"Test* *Test\" -q",
+    "start": 2085.219125948,
+    "end": 2089.062339177,
+    "result": {
+      "status": "error",
+      "stdout": "......FF..                                                               [100%]\n=================================== FAILURES ===================================\n___________ test_prepend_prolog_with_roles_in_sections_with_newline ____________\n\napp = <SphinxTestApp buildername='html'>\n\n    def test_prepend_prolog_with_roles_in_sections_with_newline(app):\n        # prologue with trailing line break\n        prolog = 'this is rst_prolog\\nhello reST!\\n'\n        content = StringList([':mod:`foo`', '-' * 10, '', 'hello'], 'dummy.rst')\n        prepend_prolog(content, prolog)\n    \n>       assert list(content.xitems()) == [('<rst_prolog>', 0, 'this is rst_prolog'),\n                                          ('<rst_prolog>', 1, 'hello reST!'),\n                                          ('<generated>', 0, ''),\n                                          ('dummy.rst', 0, ':mod:`foo`'),\n                                          ('dummy.rst', 1, '----------'),\n                                          ('dummy.rst', 2, ''),\n                                          ('dummy.rst', 3, 'hello')]\nE       AssertionError: assert [('dummy.rst'...------'), ...] == [('<rst_prolo..., 2, ''), ...]\nE         \nE         At index 0 diff: ('dummy.rst', 0, ':mod:`foo`') != ('<rst_prolog>', 0, 'this is rst_prolog')\nE         Left contains one more item: ('dummy.rst', 3, 'hello')\nE         Use -v to get more diff\n\ntests/test_util_rst.py:112: AssertionError\n--------------------------- Captured stdout teardown ---------------------------\n# testroot: root\n# builder: html\n# srcdir: /tmp/pytest-of-unknown/pytest-0/root\n# outdir: /tmp/pytest-of-unknown/pytest-0/root/_build/html\n# status: \n\u001b[01mRunning Sphinx v7.1.0+/313e541\u001b[39;49;00m\n\n# warning: \n\n__________ test_prepend_prolog_with_roles_in_sections_without_newline __________\n\napp = <SphinxTestApp buildername='html'>\n\n    def test_prepend_prolog_with_roles_in_sections_without_newline(app):\n        # prologue with no trailing line break\n        prolog = 'this is rst_prolog\\nhello reST!'\n        content = StringList([':mod:`foo`', '-' * 10, '', 'hello'], 'dummy.rst')\n        prepend_prolog(content, prolog)\n    \n>       assert list(content.xitems()) == [('<rst_prolog>', 0, 'this is rst_prolog'),\n                                          ('<rst_prolog>', 1, 'hello reST!'),\n                                          ('<generated>', 0, ''),\n                                          ('dummy.rst', 0, ':mod:`foo`'),\n                                          ('dummy.rst', 1, '----------'),\n                                          ('dummy.rst', 2, ''),\n                                          ('dummy.rst', 3, 'hello')]\nE       AssertionError: assert [('dummy.rst'...------'), ...] == [('<rst_prolo..., 2, ''), ...]\nE         \nE         At index 0 diff: ('dummy.rst', 0, ':mod:`foo`') != ('<rst_prolog>', 0, 'this is rst_prolog')\nE         Left contains one more item: ('dummy.rst', 3, 'hello')\nE         Use -v to get more diff\n\ntests/test_util_rst.py:127: AssertionError\n--------------------------- Captured stdout teardown ---------------------------\n# testroot: root\n# builder: html\n# srcdir: /tmp/pytest-of-unknown/pytest-0/root\n# outdir: /tmp/pytest-of-unknown/pytest-0/root/_build/html\n# status: \n\u001b[01mRunning Sphinx v7.1.0+/313e541\u001b[39;49;00m\n\n# warning: \n\n---------- generated xml file: /tmp/_swegemma_junit_500937f5c3fe.xml -----------\n=========================== short test summary info ============================\nFAILED tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_with_newline\nFAILED tests/test_util_rst.py::test_prepend_prolog_with_roles_in_sections_without_newline\n2 failed, 8 passed in 1.73s\n",
+      "stderr": "Cannot read termcap database;\nusing dumb terminal settings.\n",
+      "exit_code": 1,
+      "duration_seconds": 3.8318479320000733
+    }
+  }
+]
