@@ -1,0 +1,103 @@
+{
+  "scope": "Post-run separate semantic assessment of original Issue/final diff/raw SDK and tool traces; same author, unblinded, not an independent second reviewer",
+  "rows": [
+    {
+      "index": 1,
+      "candidate": "A",
+      "task": "pylint-dev__pylint-8898",
+      "classification": "INVALID_REPAIR",
+      "execution": "TIMEOUT_WITH_FALLBACK",
+      "original_native_resolved": false,
+      "review_type": "Independent author static semantic review plus unchanged original SDK execution; unblinded, not a second model",
+      "evidence": {
+        "patch_sha256": "565a698160831e202fef563f2ea410513b7e251e54ab91cabf1e6d3e0d70693b",
+        "files": [
+          "diff --git a/.pylintrc b/.pylintrc",
+          "diff --git a/foo.py b/foo.py"
+        ]
+      },
+      "finding": "No surviving production implementation change; final patch only reproduction/config/build artifacts. Original target checks still fail.",
+      "transient_production_edit": null,
+      "semantic_completeness": "No correct final repair; causal localization correctness not inferred from filenames alone",
+      "causal_localization": "UNKNOWN",
+      "first_relevant_production_edit_seconds": null,
+      "production_rollback_seconds": null,
+      "first_relevant_production_edit_status": "NOT_OBSERVED"
+    },
+    {
+      "index": 2,
+      "candidate": "B",
+      "task": "pylint-dev__pylint-8898",
+      "classification": "INVALID_REPAIR",
+      "execution": "TIMEOUT_WITH_FALLBACK",
+      "original_native_resolved": false,
+      "review_type": "Independent author static semantic review plus unchanged original SDK execution; unblinded, not a second model",
+      "evidence": {
+        "patch_sha256": "baa6c2f277802c0a173abb8cb5012da50098864d2a7fb932f1e034b6d210e1db",
+        "files": [
+          "diff --git a/.pylintrc b/.pylintrc",
+          "diff --git a/foo.py b/foo.py",
+          "diff --git a/reproduce_issue.py b/reproduce_issue.py"
+        ]
+      },
+      "finding": "No surviving production implementation change; final patch only reproduction/config/build artifacts. Original target checks still fail.",
+      "transient_production_edit": null,
+      "semantic_completeness": "No correct final repair; causal localization correctness not inferred from filenames alone",
+      "causal_localization": "UNKNOWN",
+      "first_relevant_production_edit_seconds": null,
+      "production_rollback_seconds": null,
+      "first_relevant_production_edit_status": "NOT_OBSERVED"
+    },
+    {
+      "index": 3,
+      "candidate": "B",
+      "task": "sphinx-doc__sphinx-11445",
+      "classification": "INVALID_REPAIR",
+      "execution": "TIMEOUT_WITH_FALLBACK",
+      "original_native_resolved": false,
+      "review_type": "Independent author static semantic review plus unchanged original SDK execution; unblinded, not a second model",
+      "evidence": {
+        "patch_sha256": "9876ee33d611816817951a3f310788b0ef1e5a911d8ebe1450ec0d81926201a8",
+        "files": [
+          "diff --git a/docs/_build/.buildinfo b/docs/_build/.buildinfo",
+          "diff --git a/docs/_build/.doctrees/environment.pickle b/docs/_build/.doctrees/environment.pickle",
+          "diff --git a/docs/_build/.doctrees/index.doctree b/docs/_build/.doctrees/index.doctree",
+          "diff --git a/docs/_build/.doctrees/mypackage.doctree b/docs/_build/.doctrees/mypackage.doctree",
+          "diff --git a/docs/_build/_sources/index.rst.txt b/docs/_build/_sources/index.rst.txt",
+          "diff --git a/docs/_build/_sources/mypackage.rst.txt b/docs/_build/_sources/mypackage.rst.txt",
+          "diff --git a/docs/_build/_static/alabaster.css b/docs/_build/_static/alabaster.css",
+          "diff --git a/docs/_build/_static/basic.css b/docs/_build/_static/basic.css",
+          "diff --git a/docs/_build/_static/custom.css b/docs/_build/_static/custom.css",
+          "diff --git a/docs/_build/_static/doctools.js b/docs/_build/_static/doctools.js",
+          "diff --git a/docs/_build/_static/documentation_options.js b/docs/_build/_static/documentation_options.js",
+          "diff --git a/docs/_build/_static/file.png b/docs/_build/_static/file.png",
+          "diff --git a/docs/_build/_static/language_data.js b/docs/_build/_static/language_data.js",
+          "diff --git a/docs/_build/_static/minus.png b/docs/_build/_static/minus.png",
+          "diff --git a/docs/_build/_static/plus.png b/docs/_build/_static/plus.png",
+          "diff --git a/docs/_build/_static/pygments.css b/docs/_build/_static/pygments.css",
+          "diff --git a/docs/_build/_static/searchtools.js b/docs/_build/_static/searchtools.js",
+          "diff --git a/docs/_build/_static/sphinx_highlight.js b/docs/_build/_static/sphinx_highlight.js",
+          "diff --git a/docs/_build/genindex.html b/docs/_build/genindex.html",
+          "diff --git a/docs/_build/index.html b/docs/_build/index.html",
+          "diff --git a/docs/_build/mypackage.html b/docs/_build/mypackage.html",
+          "diff --git a/docs/_build/objects.inv b/docs/_build/objects.inv",
+          "diff --git a/docs/_build/search.html b/docs/_build/search.html",
+          "diff --git a/docs/_build/searchindex.js b/docs/_build/searchindex.js",
+          "diff --git a/docs/conf.py b/docs/conf.py",
+          "diff --git a/docs/index.rst b/docs/index.rst",
+          "diff --git a/docs/mypackage.rst b/docs/mypackage.rst",
+          "diff --git a/repro_issue/source/conf.py b/repro_issue/source/conf.py",
+          "diff --git a/repro_issue/source/index.rst b/repro_issue/source/index.rst"
+        ]
+      },
+      "finding": "No surviving production implementation change; final patch only reproduction/config/build artifacts. Original target checks still fail.",
+      "transient_production_edit": "Relevant prepend_prolog edit at157.947880422s reverted at226.209592252s; final patch has no sphinx production-code change. Proposed transient code uses SECTIONING_CHARS without a demonstrated binding; it was never independently validated.",
+      "semantic_completeness": "No correct final repair; causal localization correctness not inferred from filenames alone",
+      "causal_localization": "PLAUSIBLE_CAUSAL_REGION_WITH_UNVALIDATED_TRANSIENT_PATCH",
+      "first_relevant_production_edit_seconds": 157.94788042200003,
+      "production_rollback_seconds": 226.209592252,
+      "first_relevant_production_edit_status": "OBSERVED_SUCCESSFUL_OFFICIAL_EDIT_OF_CAUSALLY_RELEVANT_FUNCTION"
+    }
+  ],
+  "reference_patch_used": false
+}

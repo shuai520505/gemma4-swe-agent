@@ -1,0 +1,20 @@
+agent_class: LlmAgent
+name: egrd_main
+model: gemma-4-12b-it-qat-w4a16-ct
+instruction: !include prompts/system.md
+tools:
+  - get_status
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - submit_patch
+skills:
+  - skills/egrd-repair
+generate_content_config:
+  max_output_tokens: 8192
+  temperature: 0.2
+  top_p: 0.95
+  thinking_config:
+    thinking_budget: 4096
+    include_thoughts: true

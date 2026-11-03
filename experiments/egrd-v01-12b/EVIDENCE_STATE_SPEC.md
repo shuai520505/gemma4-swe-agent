@@ -1,0 +1,11 @@
+# Source-bound evidence
+
+Records include ID/type/source/line range, Git revision, current whole-workspace hash, observation, requirement links, wall timestamp, verification status and stale flag. Supported types include SOURCE_CODE, TEST_RESULT, RUNTIME_ERROR, CALL_RELATIONSHIP, PATCH_DIFF, ENVIRONMENT_RESULT. Current concrete producers generate SOURCE_CODE, TEST_RESULT, ENVIRONMENT_RESULT and PATCH_DIFF. Dedicated runtime/call-relationship producers are not implemented; such semantic claims remain in the model hypothesis and are not labeled observed records.
+
+MEER hashes tracked/untracked source bytes, includes deletions, rejects symlinks/escapes and bounds files/bytes. It excludes recognized caches and the organizer transient .adk_exec script. EGRD stores compact baseline hashes, not an entire repository copy. Only explicitly intended rollback files are snapshotted, bounded to1MiB/file and2MiB total. Scratch state is outside the repository, atomically replaced with an8MiB serialized bound and an exclusive lock.
+
+Checks run an Agent-owned scratch Python assertion file for at most15 seconds. The verifier observes executed structurally nonconstant assertions, not just exit0/printed success. Whole source and check bytes must remain unchanged during execution. Results are bound to both hashes. Later source/check edits make them stale; acceptance rechecks freshness and diff identity. Exact restoration of the same source/check identity may reuse old evidence, but never silently accepts the patch without a current diff review.
+
+Duplicate same-source/check/purpose calls reuse the recorded evidence rather than launch another subprocess. Reusing an executed assertion for another declared purpose retains its executed evidence ID; it does not constitute an independent second test. A model's requirement/purpose labels do not prove test relevance or coverage.
+
+ImportError/ModuleNotFoundError/FileNotFoundError produce ENVIRONMENT_RESULT/UNKNOWN for repair interpretation. An assertion failure contradicts that selected check; an exception is not automatically the reported defect. Timeout, mutation, trivial/unexecuted assertion and unavailable identity provide no PASS. Scratch receipts are convenience state, not an adversarial security boundary. Semantic correctness and Native Resolved remain unknown in every local verdict.
