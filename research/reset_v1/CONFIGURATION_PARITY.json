@@ -1,0 +1,125 @@
+{
+  "status": "CPU_COMPILER_PARITY_PASS",
+  "real_model_calls": 0,
+  "official_code_modified": false,
+  "rows": [
+    {
+      "arm": "S0",
+      "mode": "official_defaults",
+      "zip_sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+      "instruction_sha256": "04ec91bdecda3d50e78b56bd3b33547d531fbc4b59c1809c4380b52cbb7ce6df",
+      "generation": {
+        "max_output_tokens": 16384,
+        "thinking_config": {
+          "thinking_budget": 4096
+        }
+      },
+      "base_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "skill_accessors": [],
+      "before_tool_callback_active": false,
+      "sub_agents": 0
+    },
+    {
+      "arm": "S0",
+      "mode": "common_public_defaults",
+      "zip_sha256": "3303d6e1dd246d3861910701beb580c8d9a165ea1eb1c1a13d8c8ba9d6efd4f9",
+      "instruction_sha256": "04ec91bdecda3d50e78b56bd3b33547d531fbc4b59c1809c4380b52cbb7ce6df",
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "base_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "skill_accessors": [],
+      "before_tool_callback_active": false,
+      "sub_agents": 0
+    },
+    {
+      "arm": "EGRD_V02_D",
+      "mode": "official_defaults",
+      "zip_sha256": "13fccbc33adc6f14c7a3f89bca5f6feaf797925be29f29d77ec0c60ead72d1f1",
+      "instruction_sha256": "f3655e790c3f331e161274ff0b8014fe31a0a5ca8809d9a1ef242fe4fb80f061",
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "base_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "skill_accessors": [
+        "list_skills",
+        "load_skill",
+        "load_skill_resource",
+        "run_skill_script"
+      ],
+      "before_tool_callback_active": false,
+      "sub_agents": 0
+    },
+    {
+      "arm": "EGRD_V02_D",
+      "mode": "common_public_defaults",
+      "zip_sha256": "13fccbc33adc6f14c7a3f89bca5f6feaf797925be29f29d77ec0c60ead72d1f1",
+      "instruction_sha256": "f3655e790c3f331e161274ff0b8014fe31a0a5ca8809d9a1ef242fe4fb80f061",
+      "generation": {
+        "temperature": 0.2,
+        "top_p": 0.95,
+        "max_output_tokens": 8192,
+        "thinking_config": {
+          "include_thoughts": true,
+          "thinking_budget": 4096
+        }
+      },
+      "base_tools": [
+        "get_status",
+        "run_command",
+        "read_file",
+        "edit_file",
+        "write_file",
+        "submit_patch"
+      ],
+      "skill_accessors": [
+        "list_skills",
+        "load_skill",
+        "load_skill_resource",
+        "run_skill_script"
+      ],
+      "before_tool_callback_active": false,
+      "sub_agents": 0
+    }
+  ],
+  "versions": {
+    "adk-submission": "0.2.13",
+    "swegemma": "0.2.11",
+    "google-adk": "1.36.1",
+    "google-genai": "2.11.0"
+  },
+  "limitation": "S0 package bytes unchanged; prospective common generation defaults differ from historical S0 defaults. Not a reproduction of historical serving settings. Linux Native trust gate remains blocked."
+}
