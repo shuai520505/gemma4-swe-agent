@@ -1,0 +1,311 @@
+{
+  "schema": "EGRD_SESSION_V2",
+  "session_id": "3bc09a45c7c44dfda638406866103e74",
+  "task_id": "requests_6589",
+  "candidate": "B",
+  "model_alias": "gemma-4-12b-it-qat-w4a16-ct",
+  "model_transport": "CPU_SCRIPTED_NOT_REPAIR_EVIDENCE",
+  "failure_classification": "AGENT_COMPLETED",
+  "native_resolved": false,
+  "native_result_path": "trusted/NATIVE_RESULT.json",
+  "native_result_sha256": "678acddc3828e6e735876252198b5b31b0f4a5d7206845cbec4e2d17311da1d6",
+  "agent_error": null,
+  "SDK_agent_elapsed_seconds": 9.495444135500065,
+  "raw_late_counter_elapsed_seconds": 8.626035935999994,
+  "agent_timing": {
+    "captured": true,
+    "observation_count": 1,
+    "clock": "time.monotonic calibrated to asyncio loop.time",
+    "configured_seconds": 300,
+    "scope": "HOST_OBSERVATION_NOT_AGENT_CONTROL",
+    "deadline_loop_time": 1160.230196918,
+    "deadline_monotonic": 1160.2301969005,
+    "deadline_origin_monotonic": 860.2301969005,
+    "captured_monotonic": 860.230243532,
+    "clock_calibration_uncertainty_seconds": 6.34999992144003e-07,
+    "SDK_source_file": "/usr/local/lib/python3.12/dist-packages/swegemma/harness/agent_runner.py",
+    "SDK_line": 732,
+    "raw_context_start_perf_counter": 861.099603851,
+    "aligned_context_start_perf_counter": 860.2301956514999,
+    "context_clock_conversion_uncertainty": "sequential perf_counter/monotonic sample, recorded separately from SDK deadline",
+    "observed_end_monotonic": 870.260818052,
+    "expired": false,
+    "deadline_rescheduled": false
+  },
+  "charged_tools": 2,
+  "SDK_llm_counter": 5,
+  "patch_bytes": 292,
+  "patch_submitted": true,
+  "patch_kind": "submitted",
+  "http_audit": {
+    "passed": true,
+    "reasons": [],
+    "requests": 5,
+    "responses": 5,
+    "rows": [
+      {
+        "request_id": "2427f91a0cd64eddb95eb50587d13623",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "f42c71e379bd42e2848cd0856aa425cf",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "75a8cb8017b1482fbbaafd945e3c4b02",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "fa2b43c458554c8e9d5e9a6bda5b44ec",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        },
+        "usage_complete": true
+      },
+      {
+        "request_id": "e287bb8e7932481084b12a2a8030ebc4",
+        "terminal_status": "response_received",
+        "explained_cancellation": false,
+        "usage": {
+          "prompt_tokens": 1,
+          "completion_tokens": 1,
+          "total_tokens": 2
+        },
+        "usage_complete": true
+      }
+    ],
+    "observed_response_usage": {
+      "prompt_tokens": 5,
+      "completion_tokens": 5,
+      "total_tokens": 10
+    },
+    "usage_complete": true,
+    "partial_token_usage": false,
+    "scope": "Received response usage only. Cancelled/unknown usage is absent, never zero imputed."
+  },
+  "activation": {
+    "schema": "EGRD_ACTIVATION_AUDIT_V2",
+    "execution_mode": "PROMPT_ENFORCED_OPTIONAL_EXECUTION",
+    "load_skill": {
+      "status": "TOOL_CALL_SUCCEEDED",
+      "calls": [
+        {
+          "id": "cpu0",
+          "called_monotonic": 862.101302609,
+          "args": {
+            "skill_name": "egrd-repair"
+          },
+          "returned_monotonic": 862.122531004,
+          "response": {
+            "skill_name": "egrd-repair",
+            "instructions": "Use run_skill_script(skill_name=\"egrd-repair\", file_path=\"scripts/egrd.py\",\nargs={\"request\": \"JSON request string\"}). State is /tmp/egrd-v01/state.json.\nThe same interface may return advisory UNKNOWN in a control experiment.\nNo result means Native Resolved or semantic proof. Official submit_patch is separate.\n\nInitialize once with op=init, issue_id, original (exact supplied Issue), model_id,\nrequirements=[{id:R1,text:exact quote,status:OBSERVED}], and expected_behavior,\nactual_behavior, inputs_outputs, boundaries, acceptance_criteria, unresolved_questions\n(each a list of text/status claims). Implicit assumptions are INFERRED or UNVERIFIED.\nAfter compaction consult this state rather than replacing the original Issue.\n\nOperations (flat JSON fields):\n- source: name,start,end,requirements. Reads bounded actual workspace source.\n- hypothesis: location,mechanism,support (evidence IDs),contradictions,prediction,\n  confidence,next_experiment,requirements. Semantic claims remain UNVERIFIED.\n- intent: files,regions,behavior,requirements,support,regressions,preserve,\n  discriminating_test. Then use the normal official edit_file, not this Skill, to edit.\n- record_patch: observe actual differences and flag files outside the intent.\n- check: path (assertion script under /tmp),requirements,purpose TARGET or REGRESSION,\n  seconds (at most15). Obtain fresh executed assertions after production edits.\n- review: inspect actual diff. accept: local evidence gate, never the official scorer.\n- revise: bounded revision count. rollback: explicit restoration of only intent files.\n- action: kind,signature,justification (optional),duration (optional observed duration).\n- next: advisory next action; bypass remains possible through official tools.\n\nAvoid bureaucracy: one concise hypothesis/intent, one discriminating target and\nnecessary regression checks. When the interface is unavailable, report UNKNOWN\nand use the normal tools. Do not spend the submission reserve filling in records.\n\nEntrypoint: load_skill then run_skill_script with op=init before repository work. Failure/advisory is not activation; never fabricate a contract. All Issue fields and provenance remain required.",
+            "frontmatter": {
+              "name": "egrd-repair",
+              "description": "Source-bound local repair evidence and bounded decisions; not an evaluator or global gate.",
+              "license": null,
+              "compatibility": null,
+              "allowed_tools": null,
+              "metadata": {}
+            }
+          },
+          "status": "TOOL_CALL_SUCCEEDED"
+        }
+      ]
+    },
+    "run_skill_script": {
+      "status": "TOOL_CALL_SUCCEEDED",
+      "calls": [
+        {
+          "id": "cpu1",
+          "called_monotonic": 862.220589148,
+          "args": {
+            "skill_name": "egrd-repair",
+            "file_path": "scripts/egrd.py",
+            "args": {
+              "request": "{\"op\": \"init\", \"issue_id\": \"requests_6589\", \"original\": \"Enhance `super_len` to count encoded bytes for str\\n\\nThis is a possible fix for issue #6586.\\r\\n\\r\\nI am not at all confident that this is an appropriate change for Requests. All of the unit tests pass locally for me (specifically `make ci`).\", \"model_id\": \"SIMULATED_CPU_NO_MODEL\", \"requirements\": [{\"id\": \"R1\", \"text\": \"Enhance `super_len` to count encoded bytes for str\", \"status\": \"OBSERVED\"}], \"expected_behavior\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}], \"actual_behavior\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}], \"inputs_outputs\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}], \"boundaries\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}], \"acceptance_criteria\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}], \"unresolved_questions\": [{\"text\": \"Not established in this comment-only fixture.\", \"status\": \"UNVERIFIED\"}]}"
+            }
+          },
+          "returned_monotonic": 869.057088067,
+          "response": {
+            "skill_name": "egrd-repair",
+            "file_path": "scripts/egrd.py",
+            "stdout": "{\"budget\": {\"categories\": {}, \"context_capacity\": 32768, \"context_tokens\": null, \"limit_seconds\": 300, \"reserve_seconds\": 25, \"scope\": \"HELPER_CLOCK_ONLY; host elapsed may precede initialization\", \"start_monotonic\": 862.634516121, \"tokens\": null, \"tool_calls\": null}, \"global_submit_gate\": false, \"global_tool_gate\": false, \"helper_remaining_seconds\": 293.688329768, \"native_resolved\": null, \"next_action\": {\"action\": \"INSPECT\", \"reason\": \"MISSING_DISCRIMINATING_EVIDENCE\"}, \"phase\": \"HYPOTHESIS\", \"result\": {\"issue_sha256\": \"60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04\"}, \"schema\": \"EGRD_V01\"}\n",
+            "stderr": "",
+            "status": "success"
+          },
+          "status": "TOOL_CALL_SUCCEEDED"
+        }
+      ]
+    },
+    "submit_patch": {
+      "status": "TOOL_CALL_SUCCEEDED",
+      "calls": [
+        {
+          "id": "cpu3",
+          "called_monotonic": 869.413971258,
+          "args": {},
+          "returned_monotonic": 869.579137422,
+          "response": {
+            "status": "ok",
+            "patch_size": 292,
+            "files_changed": 1
+          },
+          "status": "TOOL_CALL_SUCCEEDED"
+        }
+      ]
+    },
+    "first_action_order_passed": true,
+    "bounded_attempts_passed": true,
+    "contract_initialized": true,
+    "activated": true,
+    "state_exported": true,
+    "state_issue_hash_matches": true,
+    "evidence_records": 0,
+    "hypothesis_structure": false,
+    "patch_intent": false,
+    "targeted_tests": [],
+    "regression_tests": [],
+    "diff_review": false,
+    "edit_and_command_calls": [
+      {
+        "name": "edit_file",
+        "time": 869.156060444,
+        "args": {
+          "filepath": "src/requests/__init__.py",
+          "old_string": "#   __\n#  /__)  _  _     _   _ _/   _\n# / (   (- (/ (/ (- _)  /  _)\n#          /\n",
+          "new_string": "# CPU transport marker, not an Issue repair.\n#   __\n#  /__)  _  _     _   _ _/   _\n# / (   (- (/ (/ (- _)  /  _)\n#          /\n"
+        },
+        "response": {
+          "id": "cpu2",
+          "name": "edit_file",
+          "response": {
+            "status": "ok",
+            "filepath": "src/requests/__init__.py",
+            "occurrences": 1,
+            "strategy": "exact",
+            "diff": "--- a/src/requests/__init__.py\n+++ b/src/requests/__init__.py\n@@ -1,3 +1,4 @@\n+# CPU transport marker, not an Issue repair.\n #   __\n #  /__)  _  _     _   _ _/   _\n # / (   (- (/ (/ (- _)  /  _)\n",
+            "is_truncated": false
+          },
+          "time": 869.304919081
+        }
+      }
+    ],
+    "operations": [
+      {
+        "op": "init",
+        "time": 862.220589148,
+        "request": {
+          "op": "init",
+          "issue_id": "requests_6589",
+          "original": "Enhance `super_len` to count encoded bytes for str\n\nThis is a possible fix for issue #6586.\r\n\r\nI am not at all confident that this is an appropriate change for Requests. All of the unit tests pass locally for me (specifically `make ci`).",
+          "model_id": "SIMULATED_CPU_NO_MODEL",
+          "requirements": [
+            {
+              "id": "R1",
+              "text": "Enhance `super_len` to count encoded bytes for str",
+              "status": "OBSERVED"
+            }
+          ],
+          "expected_behavior": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "actual_behavior": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "inputs_outputs": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "boundaries": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "acceptance_criteria": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ],
+          "unresolved_questions": [
+            {
+              "text": "Not established in this comment-only fixture.",
+              "status": "UNVERIFIED"
+            }
+          ]
+        },
+        "response": {
+          "budget": {
+            "categories": {},
+            "context_capacity": 32768,
+            "context_tokens": null,
+            "limit_seconds": 300,
+            "reserve_seconds": 25,
+            "scope": "HELPER_CLOCK_ONLY; host elapsed may precede initialization",
+            "start_monotonic": 862.634516121,
+            "tokens": null,
+            "tool_calls": null
+          },
+          "global_submit_gate": false,
+          "global_tool_gate": false,
+          "helper_remaining_seconds": 293.688329768,
+          "native_resolved": null,
+          "next_action": {
+            "action": "INSPECT",
+            "reason": "MISSING_DISCRIMINATING_EVIDENCE"
+          },
+          "phase": "HYPOTHESIS",
+          "result": {
+            "issue_sha256": "60b61eb2b26e1135174dd59ddc4e29b2d7fe2b5e255b723e9085b36407663d04"
+          },
+          "schema": "EGRD_V01"
+        },
+        "status": "TOOL_CALL_SUCCEEDED"
+      }
+    ],
+    "semantic_issue_alignment": "UNVERIFIED",
+    "native_resolved": null
+  },
+  "activation_audit_sha256": "b3c61622f201c3810e2e4821062f1f7c5c00eaf1f70fb5958a98fff3a53ca442",
+  "infrastructure_stop": {
+    "coverage": "LIVE_ADK_TOOL_RESPONSES_V1",
+    "stopped": false,
+    "evidence": null
+  },
+  "worker_seconds": 51.38718070899995,
+  "cleanup_status": true
+}

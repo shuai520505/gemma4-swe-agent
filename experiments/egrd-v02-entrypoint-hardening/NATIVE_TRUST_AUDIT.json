@@ -1,0 +1,81 @@
+{
+  "status": "BLOCKED_INFRASTRUCTURE",
+  "audit_type": "Independent re-audit of original CPU02; not a new Native run",
+  "observed_at_utc": "2026-11-03T15:07:52.527777+00:00",
+  "trust_passed": false,
+  "raw_Native_resolved": false,
+  "raw_pytest_exit_code": 1,
+  "hash_matches_session_and_done_receipts": true,
+  "session_hash_matches_done": true,
+  "cleanup_hash_matches_done": true,
+  "complete_archive_matches_extracted_evidence": true,
+  "integrity": {
+    "passed": false,
+    "reason": "Network confinement failure in Native execution",
+    "tests": 324,
+    "errors": 187,
+    "native_sha256": "678acddc3828e6e735876252198b5b31b0f4a5d7206845cbec4e2d17311da1d6",
+    "junit": [
+      {
+        "path": "native-junit-0.xml",
+        "sha256": "403a41e123b05439fb69dfa977ad96bb7b25315ea902cd093e36a9567878c199"
+      }
+    ],
+    "executed": 135,
+    "infrastructure_failure_cases": 4,
+    "infrastructure_failures": [
+      {
+        "name": "test_connect_timeout[timeout0]",
+        "classname": "tests.test_requests.TestTimeout",
+        "reason": "NETWORK_CONFINEMENT_EACCES"
+      },
+      {
+        "name": "test_connect_timeout[timeout1]",
+        "classname": "tests.test_requests.TestTimeout",
+        "reason": "NETWORK_CONFINEMENT_EACCES"
+      },
+      {
+        "name": "test_total_timeout_connect[timeout0]",
+        "classname": "tests.test_requests.TestTimeout",
+        "reason": "NETWORK_CONFINEMENT_EACCES"
+      },
+      {
+        "name": "test_total_timeout_connect[timeout1]",
+        "classname": "tests.test_requests.TestTimeout",
+        "reason": "NETWORK_CONFINEMENT_EACCES"
+      }
+    ]
+  },
+  "cleanup": {
+    "Agent": true,
+    "Native": true,
+    "fixture_teardown": "NOT_RUN",
+    "fixture_teardown_reason": "Provider resolution failed before startup"
+  },
+  "source_binding": {
+    "Agent": {
+      "command": "python3 -c 'import requests;assert requests.__file__.startswith('\"'\"'/workspace/'\"'\"'),requests.__file__;print(requests.__file__)'",
+      "result": {
+        "status": "ok",
+        "stdout": "/workspace/src/requests/__init__.py\n",
+        "stderr": "",
+        "exit_code": 0,
+        "duration_seconds": 0.6804680120000057
+      }
+    },
+    "Native_command": "export PATH=/opt/python311/bin:$PATH PYTHONHOME=/opt/python311 LD_PRELOAD=/opt/python311/lib/libpython3.11.so.1.0 LD_LIBRARY_PATH=/opt/python311/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}; export LC_ALL=C LANG=C LANGUAGE=C PYTHONUTF8=1; export PYTHONPATH=/workspace/src:/workspace:/opt/approved; cd /workspace && PYTHONSAFEPATH=1 PYTHONNOUSERSITE=1 python3 -s -m pytest tests/test_requests.py --junitxml=/tmp/_swegemma_junit_ff5564db28c8.xml -p no:anyio -o timeout=0 -o python_classes=\"Test* *Test\" -q",
+    "Native_trace_references_workspace_src": true,
+    "guard": {
+      "unchanged": true,
+      "before_sha256": "5e3a641038e88bb6cc8af4ab62dae132f2dd9c9a144a36ae4181ee6dba673818",
+      "after_sha256": "5e3a641038e88bb6cc8af4ab62dae132f2dd9c9a144a36ae4181ee6dba673818",
+      "changed_files": [],
+      "scope": "All Python production and test files in fresh trusted workspace; observed postcondition, no write-denial claim"
+    },
+    "exact_pre_patch_Agent_Native_byte_parity": "NOT_RUN; original binding is evidenced, complete cross-workspace fingerprint was not recorded"
+  },
+  "historical_300_unchanged": true,
+  "new_Linux_acceptance": "NOT_RUN",
+  "GPU_dispatch": "NOT_RUN",
+  "reason": "187 provider-resolution errors plus4 confirmed network-confinement failures"
+}

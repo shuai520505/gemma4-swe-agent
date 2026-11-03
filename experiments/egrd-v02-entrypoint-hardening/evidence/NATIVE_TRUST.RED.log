@@ -1,0 +1,38 @@
+....FF.F....
+======================================================================
+FAIL: test_native_empty_junit_stops (test_contract.ContractTests.test_native_empty_junit_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 56, in test_native_empty_junit_stops
+    self.assertEqual(self.assess(d)['classification'],'NATIVE_EVALUATION_FAILED')
+AssertionError: 'AGENT_COMPLETED' != 'NATIVE_EVALUATION_FAILED'
+- AGENT_COMPLETED
++ NATIVE_EVALUATION_FAILED
+
+
+======================================================================
+FAIL: test_native_junit_missing_stops (test_contract.ContractTests.test_native_junit_missing_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 52, in test_native_junit_missing_stops
+    self.assertEqual(self.assess(d)['classification'],'NATIVE_EVALUATION_FAILED')
+AssertionError: 'AGENT_COMPLETED' != 'NATIVE_EVALUATION_FAILED'
+- AGENT_COMPLETED
++ NATIVE_EVALUATION_FAILED
+
+
+======================================================================
+FAIL: test_native_setup_errors_are_not_ordinary_repair_failure (test_contract.ContractTests.test_native_setup_errors_are_not_ordinary_repair_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 48, in test_native_setup_errors_are_not_ordinary_repair_failure
+    self.assertEqual(self.assess(d)['classification'],'NATIVE_EVALUATION_FAILED')
+AssertionError: 'AGENT_COMPLETED' != 'NATIVE_EVALUATION_FAILED'
+- AGENT_COMPLETED
++ NATIVE_EVALUATION_FAILED
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.234s
+
+FAILED (failures=3)

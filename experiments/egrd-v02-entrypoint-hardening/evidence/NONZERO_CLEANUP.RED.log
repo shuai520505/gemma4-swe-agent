@@ -1,0 +1,16 @@
+F
+======================================================================
+FAIL: test_cleanup_failure_retained_on_nonzero_worker_exit (test_contract.ContractTests.test_cleanup_failure_retained_on_nonzero_worker_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\HP\Documents\Codex\2026-10-30\new-chat\experiments\egrd-v02-entrypoint-hardening\test_contract.py", line 42, in test_cleanup_failure_retained_on_nonzero_worker_exit
+    self.assertEqual(self.assess(d,2)['classification'],'CLEANUP_FAILED')
+AssertionError: 'WORKER_ABNORMAL_EXIT' != 'CLEANUP_FAILED'
+- WORKER_ABNORMAL_EXIT
++ CLEANUP_FAILED
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.047s
+
+FAILED (failures=1)
